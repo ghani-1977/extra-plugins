@@ -11,7 +11,6 @@
 
 # for localized messages
 from . import _
-
 from Plugins.Plugin import PluginDescriptor
 from Components.Harddisk import harddiskmanager
 from Components.Pixmap import Pixmap, MultiPixmap
@@ -32,7 +31,6 @@ import gettext
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.Label import Label
-from boxbranding import getImageDistro
 
 PLUGIN_VERSION = _(" ver. 3.2")
 
@@ -493,12 +491,8 @@ def getHddTemp():
 	return None, None
 
 def selSetup(menuid, **kwargs):
-	if getImageDistro() in ("openatv"):
-		if menuid != "extended":
-			return [ ]
-	else:
-		if menuid != "system":
-			return [ ]
+	if menuid != "system":
+		return [ ]
 	return [(_("Fan Control"), main, "fansetup_config", 70)]
 
 def show_temp(session, **kwargs):

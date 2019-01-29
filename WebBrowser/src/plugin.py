@@ -1,24 +1,18 @@
 # for localized messages
 from . import _
-
 from Plugins.Plugin import PluginDescriptor
-
 import time, os, socket, thread, socket, copy
 from socket import gaierror, error
 from os import path as os_path, remove as os_remove
-
 import gdata.youtube
 import gdata.youtube.service
 from gdata.service import BadAuthentication
-
 from twisted.web import client
 from twisted.internet import reactor
-
 from urlparse import parse_qs
 from urllib import quote, unquote_plus, unquote
 from urllib2 import Request, URLError, urlopen as urlopen2
 from httplib import HTTPConnection, CannotSendRequest, BadStatusLine, HTTPException
-
 from Components.Button import Button
 from Components.Label import Label
 from Components.Pixmap import Pixmap
@@ -30,21 +24,18 @@ from Components.ActionMap import NumberActionMap, ActionMap
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.config import config, ConfigSelection, getConfigListEntry, ConfigSlider
 from Components.InputDevice import iInputDevices
-
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
-
-from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer
-from boxbranding import getBrandOEM
+from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer, getBoxType
 
 HTTPConnection.debuglevel = 1
 
 model_rc = "rc_wb_desc.png"
-if getBrandOEM() =='gigablue':
+if getBoxType().startswith('gb')
 	model_rc = "rc_wb_desc_gb.png"
-elif getBrandOEM() == 'ini':
+elif getBoxType() in ('atemio5x00','atemio6000','atemio6100','atemio6200','atemionemesis','beyonwizt2','beyonwizt3','beyonwizt4','bwidowx','bwidowx2','evoslim','mbhybrid','mbmini','mbminiplus','mbtwin','mbultra','opticumtt','sezam1000hd','sezam5000hd','sezammarvel','ventonhdx','xpeedlx','xpeedlx3'):
 	model_rc = "rc_wb_desc_hdx.png"
 
 def excute_cmd(cmd):

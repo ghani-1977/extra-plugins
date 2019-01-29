@@ -17,14 +17,10 @@
 #====================================================
 
 from . import _
-from boxbranding import getImageDistro, getBrandOEM, getMachineBuild, getBoxType
-
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, eConsoleAppContainer
-
+from enigma import eTimer, eConsoleAppContainer, getBoxType
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
@@ -34,11 +30,8 @@ from Components.config import config, ConfigSelection, getConfigListEntry, Confi
 from Components.MenuList import MenuList
 from Tools.Directories import fileExists
 from bluetoothctl import iBluetoothctl, Bluetoothctl
-
 import os
 import time
-
-brandoem = getBrandOEM()
 
 class TaskManager:
 	def __init__(self):
@@ -180,7 +173,7 @@ class BluetoothDevicesManager(Screen):
 		self["key_red"]    = Label(_("Exit"))
 		self["key_green"]  = Label(_("(Re)Scan"))
 		self["key_yellow"] = Label(_("Connect"))
-		if brandoem in ("xcore","edision"):
+		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
 			self["key_blue"]   = Label()
 		else:
 			self["key_blue"]   = Label(_("Config"))
@@ -192,7 +185,7 @@ class BluetoothDevicesManager(Screen):
 
 		if config.btdevicesmanager.autostart.getValue():
 			self.initDevice()
-		if brandoem in ("xcore","edision"):
+		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
 			self.initDevice()
 			self.showConnections()
 
@@ -219,7 +212,7 @@ class BluetoothDevicesManager(Screen):
 			
 	def keyGreen(self):
 		print "[BluetoothManager] keyGreen"  
-		if config.btdevicesmanager.autostart.getValue() or brandoem in ("xcore","edision"):
+		if config.btdevicesmanager.autostart.getValue() or getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
 		else:
@@ -262,7 +255,7 @@ class BluetoothDevicesManager(Screen):
 		
 	def showConnections(self):
 		print "[BluetoothManager] showConnections"
-		if brandoem not in ("xcore","edision"):
+		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 			cmd = "hidd --show"
 			self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
 			self.taskManager.next()
@@ -306,7 +299,7 @@ class BluetoothDevicesManager(Screen):
 	def keyYellow(self):
 		if self["key_yellow"].getText() == _('Disconnect'):
 			print "[BluetoothManager] Disconnecting"
-			if brandoem not in ("xcore","edision"):
+			if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 				cmd = "hidd --killall"
 				rc = os.system(cmd)
 				if not rc:
@@ -341,7 +334,7 @@ class BluetoothDevicesManager(Screen):
 			msg = _("Trying to pair with:") + " " + selectedItem[1]
 			self["ConnStatus"].setText(msg)
 			
-			if brandoem not in ("xcore","edision"):
+			if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 				cmd = "hidd --connect " + selectedItem[1]
 				self.taskManager.append(cmd, self.cbPrintAvailConnections, self.cbRunNextTask)
 				cmd = "hidd --show"
@@ -398,7 +391,7 @@ class BluetoothDevicesManager(Screen):
 			self["ConnStatus"].setText(msg)
 			
 	def keyBlue(self):
-		if brandoem not in ("xcore","edision"):
+		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 			print "[BluetoothManager] keyBlue"
 			self.session.openWithCallback(self.keyGreen, BluetoothDevicesManagerSetup)
 
@@ -433,7 +426,7 @@ def main(session, **kwargs):
 	session.open(BluetoothDevicesManager)
 
 def autostart(reason, **kwargs):
-	if brandoem not in ("xcore","edision"):
+	if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 		if reason == 0:
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
@@ -455,11 +448,7 @@ def Plugins(**kwargs):
 	if ShowPlugin :
 		l = []
 		l.append(PluginDescriptor(where = [PluginDescriptor.WHERE_AUTOSTART], fnc = autostart))
-		if getImageDistro() in ("miracleboxhd", "miraclebox"):
-			l.append(PluginDescriptor(name=_("Bluetooth Devices Manager"), icon="plugin.png", where=PluginDescriptor.WHERE_MENU, fnc=start_menu_main))
-		else:
-			l.append(PluginDescriptor(name=_("Bluetooth Devices Manager"), description = _("This is bt devices manager"), icon="plugin.png", where = PluginDescriptor.WHERE_PLUGINMENU, fnc=main))
+		l.append(PluginDescriptor(name=_("Bluetooth Devices Manager"), description = _("This is bt devices manager"), icon="plugin.png", where = PluginDescriptor.WHERE_PLUGINMENU, fnc=main))
 		return l
 	else:
 		return []
-

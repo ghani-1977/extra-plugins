@@ -9,7 +9,7 @@ from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from Tools.Directories import fileExists
 from enigma import eTimer
-from boxbranding import getMachineBuild, getImageDistro
+from enigma import getBoxType
 
 config.plugins.remotecontrolcode = ConfigSubsection()
 config.plugins.remotecontrolcode.systemcode = ConfigSelection(default = "50af", choices = [ ("50af", _("Code 1")), ("51ae", _("Code 2")) ] )
@@ -28,7 +28,7 @@ class RemoteControlCodeInit:
 		return 0
 
 	def getModel(self):
-		if getMachineBuild() in ("gb7252","gb7356","gb73625","gb7362","gb7358"):
+		if getBoxType() in ("gbue4k","gbquad4k","gbquad","gbquadplus","gbx2","gbxh3","gbultraueh","gbx1","gbx3","gbultrase","gbultraue","gbipbox","gb800seplus","gb800ueplus"):
 			return True
 		else:
 			return False
@@ -138,12 +138,8 @@ def main(session, **kwargs):
 	session.open(RemoteControlCode)
 
 def RemoteControlSetup(menuid, **kwargs):
-	if getImageDistro() in ("teamblue"):
-		if menuid != "devices_menu":
-			return []
-	else:
-		if menuid != "system":
-			return []
+	if menuid != "system":
+		return []
 	return [(_("Remote Control Code"), main, "remotecontrolcode", 50)]
 
 def Plugins(**kwargs):

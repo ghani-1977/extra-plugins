@@ -18,8 +18,6 @@ from Tools.Directories import fileExists
 import Components.RecordingConfig
 from Tools.HardwareInfo import HardwareInfo
 
-from boxbranding import getImageDistro, getBoxType
-
 import Screens.Standby
 
 config.plugins.VFD_ini = ConfigSubsection()
@@ -329,16 +327,10 @@ class VFD_INI:
 		config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call = False)
 
 def main(menuid):
-		if getImageDistro() in ("openatv", "openvix", "openeight"):
-			if menuid == "display":
-				return [(_("LED Display Setup"), startVFD, "VFD_INI", None)]
-			else:
-				return[ ]
+		if menuid != "system":
+			return [ ]
 		else:
-			if menuid != "system":
-				return [ ]
-			else:
-				return [(_("LED Display Setup"), startVFD, "VFD_INI", None)]
+			return [(_("LED Display Setup"), startVFD, "VFD_INI", None)]
 
 def startVFD(session, **kwargs):
 	session.open(VFD_INISetup)

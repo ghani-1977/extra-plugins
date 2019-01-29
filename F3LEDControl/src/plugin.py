@@ -17,8 +17,6 @@ import Screens.Standby
 from time import localtime, time
 from Tools.Directories import fileExists
 
-from boxbranding import getImageDistro, getBoxType
-
 import Screens.Standby
 
 config.plugins.SEG = ConfigSubsection()
@@ -267,16 +265,10 @@ class SEG:
 		config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call = False)
 
 def main(menuid):
-		if getImageDistro() in ("openatv" , "openhdf", "openvix"):
-			if menuid == "display":
-				return [(_("LED Display Setup"), startSEG, "VFD_INI", None)]
-			else:
-				return[ ]
+		if menuid != "system":
+			return [ ]
 		else:
-			if menuid != "system":
-				return [ ]
-			else:
-				return [(_("LED Display Setup"), startSEG, "VFD_INI", None)]
+			return [(_("LED Display Setup"), startSEG, "VFD_INI", None)]
 
 def startSEG(session, **kwargs):
 	session.open(VFD_INISetup)

@@ -1,7 +1,5 @@
 # for localized messages
 from . import _
-
-from boxbranding import getBoxType
 from Components.ActionMap import NumberActionMap, ActionMap
 from Components.config import config, ConfigSubsection, ConfigSelection, \
 	ConfigYesNo, ConfigInteger, getConfigListEntry
@@ -12,7 +10,7 @@ from Components.Sources.CanvasSource import CanvasSource
 from Components.Sources.List import List
 from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, \
 	eComponentScan, eDVBSatelliteEquipmentControl as secClass, \
-	eTimer, eDVBResourceManager
+	eTimer, eDVBResourceManager, getBoxType
 from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen

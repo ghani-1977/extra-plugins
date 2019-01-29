@@ -7,13 +7,10 @@ from Components.Sources.Sensor import SensorSource
 from Components.Sources.StaticText import StaticText
 from Components.ConfigList import ConfigListScreen
 from Components.config import getConfigListEntry
-
 from Screens.Screen import Screen
-
 from Plugins.Plugin import PluginDescriptor
 from Components.FanControl import fancontrol
-
-from boxbranding import getBrandOEM, getImageDistro
+from enigma import getBoxType
 
 class TempFanControl(Screen, ConfigListScreen):
 	skin = """
@@ -109,10 +106,10 @@ class TempFanControl(Screen, ConfigListScreen):
 		for count in range(8):
 			if count < tempcount:
 				id = templist[count]
-				if getBrandOEM() not in ('dags', 'vuplus'):
+				if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 					self["SensorTempText%d" % count] = StaticText(sensors.getSensorName(id))
 					self["SensorTemp%d" % count] = SensorSource(sensorid = id)
-				elif getBrandOEM() in ('dags', 'vuplus') and id < 1:
+				if getBoxType().startswith('vu') or getBoxType().startswith('force') or getBoxType().startswith('iqon') or getBoxType().startswith('optimus') or getBoxType().startswith('tm') or getBoxType().startswith('world') or getBoxType().startswith('fusion') or getBoxType().startswith('pure') or getBoxType().startswith('lunix') or getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k') and id < 1:
 					self["SensorTempText%d" % count] = StaticText(sensors.getSensorName(id))
 					self["SensorTemp%d" % count] = SensorSource(sensorid = id)
 				else:
@@ -132,10 +129,10 @@ class TempFanControl(Screen, ConfigListScreen):
 
 		self.list = []
 		for count in range(fancontrol.getFanCount()):
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				self.list.append(getConfigListEntry(_("Fan %d voltage") % (count + 1), fancontrol.getConfig(count).vlt))
 			self.list.append(getConfigListEntry(_("Fan %d PWM") % (count + 1), fancontrol.getConfig(count).pwm))
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				self.list.append(getConfigListEntry(_("Standby fan %d voltage") % (count + 1), fancontrol.getConfig(count).vlt_standby))
 			self.list.append(getConfigListEntry(_("Standby fan %d PWM") % (count + 1), fancontrol.getConfig(count).pwm_standby))
 
@@ -155,20 +152,20 @@ class TempFanControl(Screen, ConfigListScreen):
 
 	def save(self):
 		for count in range(fancontrol.getFanCount()):
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				fancontrol.getConfig(count).vlt.save()
 			fancontrol.getConfig(count).pwm.save()
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				fancontrol.getConfig(count).vlt_standby.save()
 			fancontrol.getConfig(count).pwm_standby.save()
 		self.close()
 
 	def revert(self):
 		for count in range(fancontrol.getFanCount()):
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				fancontrol.getConfig(count).vlt.load()
 			fancontrol.getConfig(count).pwm.load()
-			if getBrandOEM() not in ('dags', 'vuplus'):
+			if not getBoxType().startswith('vu') and not getBoxType().startswith('force') and not getBoxType().startswith('iqon') and not getBoxType().startswith('optimus') and not getBoxType().startswith('tm') and not getBoxType().startswith('world') and not getBoxType().startswith('fusion') and not getBoxType().startswith('pure') and not getBoxType().startswith('lunix') and not getBoxType() in ('mediabox','valalinux','revo4k','galaxy4k'):
 				fancontrol.getConfig(count).vlt_standby.load()
 			fancontrol.getConfig(count).pwm_standby.load()
 		self.close()
@@ -177,15 +174,8 @@ def main(session, **kwargs):
 	session.open(TempFanControl)
 
 def startMenu(menuid):
-	if getImageDistro() in ('openatv'):
-		if menuid != "extended":
-			return []
-	elif getImageDistro() in ('openhdf'):
-		if menuid != "devices_menu":
-			return [ ]
-	else:
-		if menuid != "system":
-			return []
+	if menuid != "system":
+		return []
 	return [(_("Temperature and fan control"), main, "tempfancontrol", 80)]
 
 def Plugins(**kwargs):

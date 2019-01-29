@@ -1,10 +1,6 @@
 # for localized messages
 from . import _
-
-from boxbranding import getBoxType, getImageVersion, getImageBuild, getBrandOEM
-
-from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer
-
+from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer, getBoxType
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigBoolean, ConfigInteger, getConfigListEntry, ConfigNothing, ConfigSelection, ConfigSubsection, ConfigYesNo
 from Components.ConfigList import ConfigListScreen
@@ -13,16 +9,12 @@ from Components.NimManager import getConfigSatlist, nimmanager
 from Components.Sources.FrontendStatus import FrontendStatus
 from Components.Sources.StaticText import StaticText
 from Components.TuneTest import Tuner
-
 from Plugins.Plugin import PluginDescriptor
-
 from Screens.Console import Console
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
-
 from Tools.BoundFunction import boundFunction
-
 import os
 
 #used for the XML file
@@ -532,7 +524,7 @@ class Blindscan(ConfigListScreen, Screen):
 		nimname = nim.friendly_full_description
 
 		self.SundtekScan = "Sundtek DVB-S/S2" in nimname
-		if getBrandOEM() == 'vuplus' and "AVL6222" in nimname:
+		if getBoxType().startswith('vu') and "AVL6222" in nimname:
 			warning_text = _("\nThe second slot of this dual tuner may not support blind scan.")
 		elif self.SundtekScan:
 			warning_text = _("\nYou must use the power adapter.")
@@ -707,7 +699,7 @@ class Blindscan(ConfigListScreen, Screen):
 				return "vuplus_%(TYPE)sblindscan"%{'TYPE':sType}, sName
 			except: pass
 			return "vuplus_blindscan", ""
-		if getBrandOEM() == 'vuplus' and not self.SundtekScan:
+		if getBoxType().startswith('vu') and not self.SundtekScan:
 			self.binName,nimName =  GetCommand(self.scan_nims.value)
 
 			self.makeNimSocket(nimName)
@@ -892,34 +884,34 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif getBrandOEM() in ('azbox', 'ceryon', 'clap', 'dinobot', 'gigablue', 'ini', 'home', 'uclan', 'vuplus', 'xtrend') or getBoxType().startswith('sf8008'):
-			exe_filename = getBrandOEM() == 'azbox' and "avl_azbox_blindscan" or \
-							getBrandOEM() == 'ceryon' and "ceryon_blindscan" or \
-							getBrandOEM() == 'clap' and "clap_blindscan" or \
-							getBrandOEM() == 'dinobot' and "dinobot-blindscan" or \
-							getBrandOEM() == 'gigablue' and "gigablue_blindscan" or \
-							getBrandOEM() in ('ini', 'home') and "ini_blindscan" or \
-							getBoxType().startswith('sf8008') and "octagon-blindscan" or \
-							getBrandOEM() == 'uclan' and "uclan-blindscan" or \
-							getBrandOEM() == 'vuplus' and self.binName or \
-							getBrandOEM() == 'xtrend' and "avl_xtrend_blindscan"
+		elif getBoxType().startswith('az') or getBoxType() in ('9910lx','9911lx','9920lx','e4hd','e4hdcombo','e4hdhybrid','e4hdultra','odin2hybrid','odinplus','protek4k','sf208','sf228','sf238','singleboxlcd','twinboxlcd','twinboxlcdci5','mbmicro','mbmicrov2','cc1','anadol4k','anadol4kcombo','anadol4kv2','axashis4kcombo','axashis4kcomboplus','dinobot4k','dinobot4kl','dinobot4kmini','dinobot4kplus','dinobot4kpro','dinobot4kse','dinoboth265','dinobotu55','ferguson4k','mediabox4k','atemio5x00','atemio6000','atemio6100','atemio6200','atemionemesis','beyonwizt2','beyonwizt3','beyonwizt4','bwidowx','bwidowx2','evoslim','mbhybrid','mbmini','mbminiplus','mbtwin','mbultra','opticumtt','sezam1000hd','sezam5000hd','sezammarvel','ventonhdx','xpeedlx','xpeedlx3','ustym4kpro','sf8008') or getBoxType().startswith('gb') or getBoxType().startswith('vu') or getBoxType().startswith('et'):
+			exe_filename = getBoxType().startswith('az') and "avl_azbox_blindscan" or \
+							getBoxType() in ('9910lx','9911lx','9920lx','e4hd','e4hdcombo','e4hdhybrid','e4hdultra','odin2hybrid','odinplus','protek4k','sf208','sf228','sf238','singleboxlcd','twinboxlcd','twinboxlcdci5','mbmicro','mbmicrov2'): and "ceryon_blindscan" or \
+							getBoxType() in ('cc1') and "clap_blindscan" or \
+							getBoxType() in ('anadol4k','anadol4kcombo','anadol4kv2','axashis4kcombo','axashis4kcomboplus','dinobot4k','dinobot4kl','dinobot4kmini','dinobot4kplus','dinobot4kpro','dinobot4kse','dinoboth265','dinobotu55','ferguson4k','mediabox4k') and "dinobot-blindscan" or \
+							getBoxType().startswith('gb') and "gigablue_blindscan" or \
+							getBoxType() in ('atemio5x00','atemio6000','atemio6100','atemio6200','atemionemesis','beyonwizt2','beyonwizt3','beyonwizt4','bwidowx','bwidowx2','evoslim','mbhybrid','mbmini','mbminiplus','mbtwin','mbultra','opticumtt','sezam1000hd','sezam5000hd','sezammarvel','ventonhdx','xpeedlx','xpeedlx3') and "ini_blindscan" or \
+							getBoxType() in ('sf8008') and "octagon-blindscan" or \
+							getBoxType() in ('ustym4kpro') and "uclan-blindscan" or \
+							getBoxType().startswith('vu') and self.binName or \
+							getBoxType().startswith('et') and "avl_xtrend_blindscan"
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				if getBrandOEM() in ('ceryon', 'clap', 'dinobot', 'uclan') or getBoxType().startswith('sf8008','gbmv200'):
+				if getBoxType() in ('9910lx','9911lx','9920lx','e4hd','e4hdcombo','e4hdhybrid','e4hdultra','odin2hybrid','odinplus','protek4k','sf208','sf228','sf238','singleboxlcd','twinboxlcd','twinboxlcdci5','mbmicro','mbmicrov2','cc1','ustym4kpro','anadol4k','anadol4kcombo','anadol4kv2','axashis4kcombo','axashis4kcomboplus','dinobot4k','dinobot4kl','dinobot4kmini','dinobot4kplus','dinobot4kpro','dinobot4kse','dinoboth265','dinobotu55','ferguson4k','mediabox4k','sf8008','gbmv200'):
 					cmd += " %d" % self.is_c_band_scan
-				if getBrandOEM() in ('clap', 'dinobot', 'uclan') or getBoxType().startswith('sf8008','gbmv200'):
+				if getBoxType() in ('cc1','ustym4kpro','anadol4k','anadol4kcombo','anadol4kv2','axashis4kcombo','axashis4kcomboplus','dinobot4k','dinobot4kl','dinobot4kmini','dinobot4kplus','dinobot4kpro','dinobot4kse','dinoboth265','dinobotu55','ferguson4k','mediabox4k','sf8008','gbmv200'):
 					cmd += " %d" % orb[0]
-				if getBrandOEM() in ('azbox',):
+				if getBoxType().startswith('az'):
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation
-				if getBrandOEM() in ('clap', 'uclan') or getBoxType().startswith('sf8008','gbmv200'):
+				if getBoxType() in ('cc1','ustym4kpro') or getBoxType().startswith('sf8008','gbmv200'):
 					self.frontend and self.frontend.closeFrontend()
-				if getBoxType().startswith('sf8008','gbmv200'):
+				if getBoxType() in ('sf8008','gbmv200'):
 					self.adjust_freq = False
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif getBrandOEM() == 'odin':
+		elif getBoxType() in ('axase3','axase3c','axodin','axodinc','classm','evo','evoe3hd','galaxym6','genius','geniuse3hd','maram9','starsatlx'):
 			exe_filename = "odin_blindscan"
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
@@ -927,7 +919,7 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif getBrandOEM() == 'xcore' or getBrandOEM() == 'edision':
+		elif getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
 			exe_filename = "blindscan"
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
@@ -1112,7 +1104,7 @@ class Blindscan(ConfigListScreen, Screen):
 						"CIRCULARLEFT" : parm.Polarisation_CircularLeft,
 						"VERTICAL" : parm.Polarisation_Vertical}
 					parm.orbital_position = self.orb_position
-					if getBrandOEM() == 'azbox':
+					if getBoxType().startswith('az'):
 						parm.polarisation = self.polsave
 					else:
 						parm.polarisation = pol[data[1]]
@@ -1499,8 +1491,8 @@ class Blindscan(ConfigListScreen, Screen):
 		xml = ['<?xml version="1.0" encoding="iso-8859-1"?>\n\n']
 		xml.append('<!--\n')
 		xml.append('	File created on %s\n' % (strftime("%A, %d of %B %Y, %H:%M:%S")))
-		xml.append('	using %s receiver running Enigma2 image, version %s,\n' % (getBoxType(), getImageVersion()))
-		xml.append('	build %s, with the blindscan plugin \n\n' % (getImageBuild()))
+		xml.append('	using %s receiver running Enigma2 image,\n' % (getBoxType()))
+		xml.append('	with the blindscan plugin \n\n')
 		xml.append('	Search parameters:\n')
 		xml.append('		%s\n' % (tuner))
 		xml.append('		Satellite: %s\n' % (self.sat_name))

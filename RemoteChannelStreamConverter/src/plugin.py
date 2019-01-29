@@ -1,8 +1,6 @@
 # for localized messages
 import os, re
 from . import _
-from boxbranding import getBoxType, getImageDistro
-
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
@@ -11,13 +9,12 @@ from Components.Sources.StaticText import StaticText
 from Components.SelectionList import SelectionList
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, ConfigInteger, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry, ConfigIP
-from enigma import eServiceCenter, eServiceReference, eDVBDB
+from enigma import eServiceCenter, eServiceReference, eDVBDB, getBoxType
 from ServiceReference import ServiceReference
 from twisted.internet import reactor
 from twisted.internet.protocol import ClientCreator
 from twisted.protocols.ftp import FTPClient
 from urllib import quote
-
 from FTPDownloader import FTPDownloader
 
 DIR_ENIGMA2 = '/etc/enigma2/'
@@ -652,7 +649,7 @@ def main(session, **kwargs):
 	session.open(StreamingChannelFromServerScreen)
 
 def mainInMenu(menuid, **kwargs):
-	if getImageDistro() in ('teamblue') and getBoxType() in ('gbipbox', 'gbx2'):
+	if getBoxType() in ('gbipbox', 'gbx2'):
 		if menuid == "setup":
 			return [(_("Remote channel stream converter"), main, "streamconvert", 20)]
 		else:
