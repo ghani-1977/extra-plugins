@@ -1,4 +1,4 @@
-AC_INIT([enigma2-oe-alliance-plugins],[1.0])
+AC_INIT([enigma2-alliance-plugins],[1.0])
 AM_INIT_AUTOMAKE([dist-bzip2 foreign no-define tar-pax])
 AC_CONFIG_HEADERS([enigma2-plugins-config.h])
 
@@ -47,7 +47,7 @@ AM_CONDITIONAL(SH4, test `echo "$ARCH" | cut -b 1-3` == "sh4")
 AM_CONDITIONAL(MIPSEL, test `echo "$ARCH" | cut -b 1-6` == "mipsel")
 
 AC_ARG_WITH(boxtype,
-	[  --with-boxtype=NAME box type [[none,dm7025,dm800...]]],
+	[  --with-boxtype=NAME box type [[none,dm800...]]],
 	[BOXTYPE="$withval"],[BOXTYPE="dm800"])
 AC_SUBST(BOXTYPE)
 AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
@@ -65,7 +65,7 @@ AM_CONDITIONAL(EBOX, test `echo "$BOXTYPE" | cut -b 1-4` == "ebox")
 AM_CONDITIONAL(SPARK, test `echo "$BOXTYPE" | cut -b 1-5` == "spark")
 AM_CONDITIONAL(WETEK, test `echo "$BOXTYPE" | cut -b 1-5` == "wetek")
 AM_CONDITIONAL(HARDKERNEL, test `echo "$BOXTYPE"| cut -b 1-6` == "odroid")
-AM_CONDITIONAL(DINOBOT, test `echo "$BOXTYPE" | cut -b 1-2` == u5)
+AM_CONDITIONAL(DINOBOT, test `echo "$BOXTYPE" | cut -b 1-2` == "u5")
 
 AM_CONDITIONAL(AZBOXHD, test "$BOXTYPE" == "azboxhd")
 AM_CONDITIONAL(AZBOXME, test "$BOXTYPE" == "azboxme")
@@ -73,12 +73,6 @@ AM_CONDITIONAL(AZBOXMINIME, test "$BOXTYPE" == "azboxminime")
 AM_CONDITIONAL(BLACKBOX7405, test "$BOXTYPE" == "blackbox7405")
 AM_CONDITIONAL(CC1, test "$BOXTYPE" == "cc1")
 AM_CONDITIONAL(CUBE, test "$BOXTYPE" == "cube")
-AM_CONDITIONAL(DAGS1, test "$BOXTYPE" == "dags1")
-AM_CONDITIONAL(DAGS2, test "$BOXTYPE" == "dags2")
-AM_CONDITIONAL(DAGS3, test "$BOXTYPE" == "dags3")
-AM_CONDITIONAL(DAGS4, test "$BOXTYPE" == "dags4")
-AM_CONDITIONAL(DAGS5, test "$BOXTYPE" == "dags5")
-AM_CONDITIONAL(DAGS6, test "$BOXTYPE" == "dags6")
 AM_CONDITIONAL(DAGS7335, test "$BOXTYPE" == "dags7335")
 AM_CONDITIONAL(DAGS7362, test "$BOXTYPE" == "dags7362")
 AM_CONDITIONAL(DAGS73625, test "$BOXTYPE" == "dags73625")
@@ -111,13 +105,13 @@ AM_CONDITIONAL(JJ7362, test `echo "$BOXTYPE"` == "jj7362")
 AM_CONDITIONAL(EW7358, test `echo "$BOXTYPE"` == "ew7358")
 AM_CONDITIONAL(EW7362, test `echo "$BOXTYPE"` == "ew7362")
 AM_CONDITIONAL(EW7356, test `echo "$BOXTYPE"` == "ew7356")
-AM_CONDITIONAL(FORMULER1, test "$BOXTYPE" == formuler1)
-AM_CONDITIONAL(FORMULER3, test "$BOXTYPE" == formuler3)
-AM_CONDITIONAL(FORMULER4, test "$BOXTYPE" == formuler4)
-AM_CONDITIONAL(FORMULER1TC, test "$BOXTYPE" == formuler1tc)
-AM_CONDITIONAL(FORMULER3IP, test "$BOXTYPE" == formuler3ip)
-AM_CONDITIONAL(FORMULER4IP, test "$BOXTYPE" == formuler4ip)
-AM_CONDITIONAL(FORMULER4TURBO, test "$BOXTYPE" == formuler4turbo)
+AM_CONDITIONAL(FORMULER1, test "$BOXTYPE" == "formuler1")
+AM_CONDITIONAL(FORMULER3, test "$BOXTYPE" == "formuler3")
+AM_CONDITIONAL(FORMULER4, test "$BOXTYPE" == "formuler4")
+AM_CONDITIONAL(FORMULER1TC, test "$BOXTYPE" == "formuler1tc")
+AM_CONDITIONAL(FORMULER3IP, test "$BOXTYPE" == "formuler3ip")
+AM_CONDITIONAL(FORMULER4IP, test "$BOXTYPE" == "formuler4ip")
+AM_CONDITIONAL(FORMULER4TURBO, test "$BOXTYPE" == "formuler4turbo")
 AM_CONDITIONAL(G100, test "$BOXTYPE" == "g100")
 AM_CONDITIONAL(G101, test "$BOXTYPE" == "g101")
 AM_CONDITIONAL(GB800SOLO, test "$BOXTYPE" == "gb800solo")
@@ -143,7 +137,7 @@ AM_CONDITIONAL(GB7358, test "$BOXTYPE" == "gb7358")
 AM_CONDITIONAL(GB7325, test "$BOXTYPE" == "gb7325")
 AM_CONDITIONAL(GB7252, test "$BOXTYPE" == "gb7252")
 AM_CONDITIONAL(INIHDE, test "$BOXTYPE" == "inihde")
-AM_CONDITIONAL(INIHDE2, test `echo "$BOXTYPE" | cut -b 1-7` == inihde2)
+AM_CONDITIONAL(INIHDE2, test `echo "$BOXTYPE" | cut -b 1-7` == "inihde2")
 AM_CONDITIONAL(INIHDP, test "$BOXTYPE" == "inihdp")
 AM_CONDITIONAL(INIHDX, test "$BOXTYPE" == "inihdx")
 AM_CONDITIONAL(IXUSSZERO, test "$BOXTYPE" == "ixusszero")
@@ -159,29 +153,29 @@ AM_CONDITIONAL(HD1100, test "$BOXTYPE" == "hd1100")
 AM_CONDITIONAL(HD500C, test "$BOXTYPE" == "hd500c")
 AM_CONDITIONAL(HD530C, test "$BOXTYPE" == "hd530c")
 AM_CONDITIONAL(PROTEK9900LX, test "$BOXTYPE" == "9900lx")
-AM_CONDITIONAL(ODINM7, test "$BOXTYPE" == odinm7)
-AM_CONDITIONAL(ODINM7S, test "$BOXTYPE" == odinm7s)
-AM_CONDITIONAL(ODINM7C, test "$BOXTYPE" == odinm7c)
-AM_CONDITIONAL(ODINM9, test "$BOXTYPE" == odinm9)
-AM_CONDITIONAL(OSNINO, test "$BOXTYPE" == osnino)
-AM_CONDITIONAL(OSNINOPLUS, test "$BOXTYPE" == osninoplus)
-AM_CONDITIONAL(OSMIO4K, test "$BOXTYPE" == osmio4k)
+AM_CONDITIONAL(ODINM7, test "$BOXTYPE" == "odinm7")
+AM_CONDITIONAL(ODINM7S, test "$BOXTYPE" == "odinm7s")
+AM_CONDITIONAL(ODINM7C, test "$BOXTYPE" == "odinm7c")
+AM_CONDITIONAL(ODINM9, test "$BOXTYPE" == "odinm9")
+AM_CONDITIONAL(OSNINO, test "$BOXTYPE" == "osnino")
+AM_CONDITIONAL(OSNINOPLUS, test "$BOXTYPE" == "osninoplus")
+AM_CONDITIONAL(OSMIO4K, test "$BOXTYPE" == "osmio4k")
 AM_CONDITIONAL(VP7358CI, test "$BOXTYPE" == "vp7358ci")
-AM_CONDITIONAL(VUUNO, test "$BOXTYPE" == vuuno)
-AM_CONDITIONAL(VUULTIMO, test "$BOXTYPE" == vuultimo)
-AM_CONDITIONAL(VUSOLO, test "$BOXTYPE" == vusolo)
-AM_CONDITIONAL(VUSOLOSE, test "$BOXTYPE" == vusolose)
-AM_CONDITIONAL(VUDUO, test "$BOXTYPE" == vuduo)
-AM_CONDITIONAL(VUSOLO2, test "$BOXTYPE" == vusolo2)
-AM_CONDITIONAL(VUSOLO4K, test "$BOXTYPE" == vusolo4k)
-AM_CONDITIONAL(VUUNO4K, test "$BOXTYPE" == vuuno4k)
-AM_CONDITIONAL(VUUNO4KSE, test "$BOXTYPE" == vuuno4kse)
-AM_CONDITIONAL(VUULTIMO4K, test "$BOXTYPE" == vuultimo4k)
-AM_CONDITIONAL(VUZERO4K, test "$BOXTYPE" == vuzero4k)
-AM_CONDITIONAL(VUDUO2, test "$BOXTYPE" == vuduo2)
-AM_CONDITIONAL(VUDUO4K, test "$BOXTYPE" == vuduo4k)
-AM_CONDITIONAL(VUZERO, test "$BOXTYPE" == vuzero)
-AM_CONDITIONAL(XP1000, test "$BOXTYPE" == xp1000)
+AM_CONDITIONAL(VUUNO, test "$BOXTYPE" == "vuuno")
+AM_CONDITIONAL(VUULTIMO, test "$BOXTYPE" == "vuultimo")
+AM_CONDITIONAL(VUSOLO, test "$BOXTYPE" == "vusolo")
+AM_CONDITIONAL(VUSOLOSE, test "$BOXTYPE" == "vusolose")
+AM_CONDITIONAL(VUDUO, test "$BOXTYPE" == "vuduo")
+AM_CONDITIONAL(VUSOLO2, test "$BOXTYPE" == "vusolo2")
+AM_CONDITIONAL(VUSOLO4K, test "$BOXTYPE" == "vusolo4k")
+AM_CONDITIONAL(VUUNO4K, test "$BOXTYPE" == "vuuno4k")
+AM_CONDITIONAL(VUUNO4KSE, test "$BOXTYPE" == "vuuno4kse")
+AM_CONDITIONAL(VUULTIMO4K, test "$BOXTYPE" == "vuultimo4k")
+AM_CONDITIONAL(VUZERO4K, test "$BOXTYPE" == "vuzero4k")
+AM_CONDITIONAL(VUDUO2, test "$BOXTYPE" == "vuduo2")
+AM_CONDITIONAL(VUDUO4K, test "$BOXTYPE" == "vuduo4k")
+AM_CONDITIONAL(VUZERO, test "$BOXTYPE" == "vuzero")
+AM_CONDITIONAL(XP1000, test "$BOXTYPE" == "xp1000")
 AM_CONDITIONAL(S7220S, test `echo "$BOXTYPE"` == "7220s")
 AM_CONDITIONAL(S7225S, test `echo "$BOXTYPE"` == "7225s")
 AM_CONDITIONAL(S7300S, test `echo "$BOXTYPE"` == "7300s")
@@ -198,36 +192,28 @@ AM_CONDITIONAL(H9COMBO, test `echo "$BOXTYPE"` == "h9combo")
 AM_CONDITIONAL(I55PLUS, test `echo "$BOXTYPE"` == "i55plus")
 AM_CONDITIONAL(LC, test `echo "$BOXTYPE"` == "lc")
 AM_CONDITIONAL(TRIPLEX, test `echo "$BOXTYPE"` == "triplex")
-AM_CONDITIONAL(TIVIARMIN, test "$BOXTYPE" == tiviarmin)
-AM_CONDITIONAL(TIVIARAPLUS, test "$BOXTYPE" == tiviaraplus)
+AM_CONDITIONAL(TIVIARMIN, test "$BOXTYPE" == "tiviarmin")
+AM_CONDITIONAL(TIVIARAPLUS, test "$BOXTYPE" == "tiviaraplus")
 AM_CONDITIONAL(USTYM4KPRO, test "$BOXTYPE" == "ustym4kpro")
-AM_CONDITIONAL(SPARK, test `echo "$BOXTYPE" | cut -b 1-5` == spark)
+AM_CONDITIONAL(SPARK, test `echo "$BOXTYPE" | cut -b 1-5` == "spark")
 AM_CONDITIONAL(VS1000, test "$BOXTYPE" == "vs1000")
 AM_CONDITIONAL(V8PLUS, test "$BOXTYPE" == "v8plus")
-AM_CONDITIONAL(MULTIBOX, test "$BOXTYPE" == multibox)
-AM_CONDITIONAL(XC7362, test "$BOXTYPE" == xc7362)
-AM_CONDITIONAL(XC7358, test "$BOXTYPE" == xc7358)
-AM_CONDITIONAL(XC7358CI, test "$BOXTYPE" == xc7358ci)
-AM_CONDITIONAL(WETEKPLAY, test "$BOXTYPE" == wetekplay)
+AM_CONDITIONAL(MULTIBOX, test "$BOXTYPE" == "multibox")
+AM_CONDITIONAL(XC7362, test "$BOXTYPE" == "xc7362")
+AM_CONDITIONAL(XC7358, test "$BOXTYPE" == "xc7358")
+AM_CONDITIONAL(XC7358CI, test "$BOXTYPE" == "xc7358ci")
+AM_CONDITIONAL(WETEKPLAY, test "$BOXTYPE" == "wetekplay")
 if test `echo "$BOXTYPE" | cut -b 1-2` == "dm"; then
 	AC_DEFINE(DREAMBOX, 1, [Dreambox hardware])
 fi
 
-AM_CONDITIONAL(HAVE_TEMPFANCONTROL, test "$BOXTYPE" == dm8000 -o "$BOXTYPE" == dm800se -o "$BOXTYPE" == dm800sev2 -o "$BOXTYPE" == dm500hd -o "$BOXTYPE" == vuuno -o "$BOXTYPE" == vuultimo -o "$BOXTYPE" == vusolo2 -o "$BOXTYPE" == vuduo2 -o "$BOXTYPE" == dags1 -o "$BOXTYPE" == dags2 -o "$BOXTYPE" == dags3 -o "$BOXTYPE" == dags4 -o "$BOXTYPE" == dags5 -o "$BOXTYPE" == dags7335 -o "$BOXTYPE" == dags7362 -o "$BOXTYPE" == dags73625 -o "$BOXTYPE" == dags7356 -o "$BOXTYPE" == dags7252 -o "$BOXTYPE" == triplex)
-
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == cube)
-AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == hd51 -o "$BOXTYPE" == 8100s -o "$BOXTYPE" == vs1500 -o "$BOXTYPE" == vusolo4k -o "$BOXTYPE" == vuuno4k -o "$BOXTYPE" == vuuno4kse -o "$BOXTYPE" == vuzero4k -o "$BOXTYPE" == vuultimo4k -o "$BOXTYPE" == vuduo4k -o "$BOXTYPE" == dm900 -o "$BOXTYPE" == dm920 -o "$BOXTYPE" == sf4008 -o "$BOXTYPE" == dags7252 -o "$BOXTYPE" == dags72604 -o "$BOXTYPE" == gb7252 -o "$BOXTYPE" == xc7439 -o "$BOXTYPE" == h7 -o "$BOXTYPE" == h9 -o "$BOXTYPE" == h9combo -o "$BOXTYPE" == sf5008 -o "$BOXTYPE" == et1x000 -o "$BOXTYPE" == et13000 -o "$BOXTYPE" == cc1 -o "$BOXTYPE" == sf8008 -o "$BOXTYPE" == hd60 -o "$BOXTYPE" == hd61 -o "$BOXTYPE" == i55plus -o "$BOXTYPE" == ustym4kpro -o "$BOXTYPE" == v8plus -o "$BOXTYPE" == multibox)
-AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == wetekplay)
-AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == wetekplay2 -o "$BOXTYPE" == alien5 -o "$BOXTYPE" == osmio4k)
+AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == hd51 -o "$BOXTYPE" == "8100s" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == vuduo4k -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "dags7252" -o "$BOXTYPE" == "dags72604" -o "$BOXTYPE" == "gb7252" -o "$BOXTYPE" == "xc7439" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")
+AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay")
+AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "alien5" -o "$BOXTYPE" == "osmio4k")
 
 AC_CONFIG_FILES([
 Makefile
-
-3GModemManager/Makefile
-3GModemManager/src/Makefile
-3GModemManager/src/script/Makefile
-3GModemManager/po/Makefile
-3GModemManager/meta/Makefile
 
 AudioEffect/Makefile
 AudioEffect/src/Makefile
@@ -243,11 +229,6 @@ Blindscan/Makefile
 Blindscan/src/Makefile
 Blindscan/meta/Makefile
 Blindscan/po/Makefile
-
-BTDevicesManager/Makefile
-BTDevicesManager/src/Makefile
-BTDevicesManager/meta/Makefile
-BTDevicesManager/po/Makefile
 
 ChannelsImporter/Makefile
 ChannelsImporter/meta/Makefile
@@ -301,11 +282,6 @@ GigaBlueVFDControl/src/Makefile
 GigaBlueVFDControl/meta/Makefile
 GigaBlueVFDControl/po/Makefile
 
-HbbTV/Makefile
-HbbTV/src/Makefile
-HbbTV/meta/Makefile
-HbbTV/po/Makefile
-
 INIVFDControl/Makefile
 INIVFDControl/src/Makefile
 INIVFDControl/meta/Makefile
@@ -325,28 +301,6 @@ VPLEDControl/Makefile
 VPLEDControl/src/Makefile
 VPLEDControl/meta/Makefile
 VPLEDControl/po/Makefile
-
-LCD4linux/Makefile
-LCD4linux/src/Makefile
-LCD4linux/src/data/Makefile
-LCD4linux/src/data/Clock1/Makefile
-LCD4linux/src/data/Clock2/Makefile
-LCD4linux/src/data/Clock3/Makefile
-LCD4linux/src/data/Clock4/Makefile
-LCD4linux/src/data/Clock5/Makefile
-LCD4linux/src/data/Clock6/Makefile
-LCD4linux/src/meteo/Makefile
-LCD4linux/src/renderer/Makefile
-LCD4linux/src/wetter/Makefile
-LCD4linux/src/dinobot/Makefile
-LCD4linux/src/aarch64/Makefile
-LCD4linux/src/armv7a/Makefile
-LCD4linux/src/armv7ahf/Makefile
-LCD4linux/src/cortexa9hf/Makefile
-LCD4linux/src/mips/Makefile
-LCD4linux/src/sh4/Makefile
-LCD4linux/meta/Makefile
-LCD4linux/po/Makefile
 
 OdinM7VFDControl/Makefile
 OdinM7VFDControl/src/Makefile
@@ -375,16 +329,6 @@ RemoteChannelStreamConverter/Makefile
 RemoteChannelStreamConverter/src/Makefile
 RemoteChannelStreamConverter/po/Makefile
 
-SH4BoosterControl/Makefile
-SH4BoosterControl/src/Makefile
-SH4BoosterControl/meta/Makefile
-SH4BoosterControl/po/Makefile
-
-SH4OSDAdjustment/Makefile
-SH4OSDAdjustment/src/Makefile
-SH4OSDAdjustment/meta/Makefile
-SH4OSDAdjustment/po/Makefile
-
 TempFanControl/Makefile
 TempFanControl/src/Makefile
 TempFanControl/meta/Makefile
@@ -396,11 +340,6 @@ TerrestrialScan/lib/Makefile
 TerrestrialScan/meta/Makefile
 TerrestrialScan/po/Makefile
 TerrestrialScan/src/Makefile
-
-TransCodingSetup/Makefile
-TransCodingSetup/src/Makefile
-TransCodingSetup/meta/Makefile
-TransCodingSetup/po/Makefile
 
 TunerServer/Makefile
 TunerServer/src/Makefile
@@ -479,16 +418,6 @@ XtrendRemote/Makefile
 XtrendRemote/src/Makefile
 XtrendRemote/meta/Makefile
 XtrendRemote/po/Makefile
-
-SparkVFDControl/Makefile
-SparkVFDControl/src/Makefile
-SparkVFDControl/meta/Makefile
-SparkVFDControl/po/Makefile
-
-SparkUnionTunerType/Makefile
-SparkUnionTunerType/src/Makefile
-SparkUnionTunerType/po/Makefile
-SparkUnionTunerType/meta/Makefile
 
 ])
 AC_OUTPUT

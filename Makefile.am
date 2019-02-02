@@ -1,25 +1,9 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = Blindscan DLNABrowser DLNAServer StreamTV 3GModemManager TunerServer OnDemand Fempa LCD4linux RemoteChannelStreamConverter BTDevicesManager SatipClient TerrestrialScan ChannelsImporter ABMCustomMixImporter xmlUpdate
+SUBDIRS = Blindscan DLNABrowser DLNAServer StreamTV TunerServer OnDemand Fempa RemoteChannelStreamConverter SatipClient TerrestrialScan ChannelsImporter ABMCustomMixImporter xmlUpdate
 
 if MIPSEL
 SUBDIRS += WirelessAccessPoint
-endif
-
-if DAGS3
-SUBDIRS += TransCodingSetup
-endif
-
-if DAGS4
-SUBDIRS += TransCodingSetup
-endif
-
-if DAGS7356
-SUBDIRS += TransCodingSetup
-endif
-
-if DAGS7252
-SUBDIRS += TransCodingSetup
 endif
 
 if DREAMBOX
@@ -271,15 +255,15 @@ SUBDIRS += VuDuoFanControl
 endif
 
 if VUSOLO2
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUSOLOSE
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUDUO2
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUZERO
@@ -287,11 +271,11 @@ SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUSOLO4K
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUUNO4K
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUZERO4K
@@ -299,15 +283,15 @@ SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUUNO4KSE
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUULTIMO4K
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if VUDUO4K
-SUBDIRS += FirmwareUpgrade VuRemote TransCodingSetup
+SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if V8PLUS
@@ -326,33 +310,8 @@ if XP1000
 SUBDIRS += XtrendRemote SF8VFDControl
 endif
 
-if SPARK
-SUBDIRS += SparkVFDControl SparkUnionTunerType SH4BoosterControl SH4OSDAdjustment
-endif
-
 if OSMIO4K
 SUBDIRS += SimpleFancontrol
-endif
-
-
-if HAVE_TEMPFANCONTROL
-SUBDIRS += TempFanControl
-endif
-
-if GBQUADPLUS
-SUBDIRS += TransCodingSetup
-endif
-
-if GBQUAD
-SUBDIRS += TransCodingSetup
-endif
-
-if GB7356
-SUBDIRS += TransCodingSetup
-endif
-
-if GB7252
-SUBDIRS += TransCodingSetup
 endif
 
 if VS1000
@@ -360,7 +319,7 @@ SUBDIRS += F3LEDControl XtrendRemote
 endif
 
 if VUPLUS
-SUBDIRS += HbbTV AudioEffect
+SUBDIRS += AudioEffect
 endif
 
 if HAVE_AMLPLUGINS
