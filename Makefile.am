@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = Blindscan DLNABrowser DLNAServer StreamTV TunerServer OnDemand Fempa RemoteChannelStreamConverter SatipClient TerrestrialScan ChannelsImporter ABMCustomMixImporter xmlUpdate
+SUBDIRS = ABMCustomMixImporter Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa OnDemand RCUSelect RemoteChannelStreamConverter ReZap SatipClient StreamTV TerrestrialScan TunerServer xmlUpdate
 
 if MIPSEL
 SUBDIRS += WirelessAccessPoint
@@ -320,10 +320,6 @@ endif
 
 if VUPLUS
 SUBDIRS += AudioEffect
-endif
-
-if HAVE_AMLPLUGINS
-SUBDIRS += RCUSelect ReZap
 endif
 
 if XC7362
