@@ -1,33 +1,13 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = ABMCustomMixImporter Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa OnDemand RCUSelect RemoteChannelStreamConverter ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
+SUBDIRS = ABMCustomMixImporter Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect RemoteChannelStreamConverter ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
 
 if DREAMBOX
 SUBDIRS +=  DMBlindscan
 endif
 
-if DINOBOT
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if CC1
-SUBDIRS += MultiTransCodingSetup
-endif
-
 if XTREND
 SUBDIRS += XtrendFancontrol XtrendRemote
-endif
-
-if ET10000
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if ET13000
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if SF5008
-SUBDIRS += MultiTransCodingSetup
 endif
 
 if G100
@@ -47,7 +27,7 @@ SUBDIRS += F3LEDControl
 endif
 
 if HD2400
-SUBDIRS += XtrendFancontrol XtrendRemote MultiTransCodingSetup
+SUBDIRS += XtrendFancontrol XtrendRemote
 endif
 
 if HD1100
@@ -102,10 +82,6 @@ if EW7362
 SUBDIRS += EWVFDControl
 endif
 
-if EW7356
-SUBDIRS += MultiTransCodingSetup
-endif
-
 if INIHDE
 SUBDIRS += INIVFDControl
 endif
@@ -116,18 +92,6 @@ endif
 
 if INI
 SUBDIRS += VentonFancontrol MICOMUpgrade
-endif
-
-if INIHDP
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if TIVIARAPLUS
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if FORMULER1TC
-SUBDIRS += MultiTransCodingSetup
 endif
 
 if FORMULER3
@@ -183,19 +147,11 @@ SUBDIRS += F3LEDControl
 endif
 
 if SF8008
-SUBDIRS += MultiTransCodingSetup VPLEDControl
+SUBDIRS += VPLEDControl
 endif
 
 if GBMV200
-SUBDIRS += MultiTransCodingSetup VPLEDControl
-endif
-
-if USTYM4KPRO
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if S8100S
-SUBDIRS += MultiTransCodingSetup
+SUBDIRS += VPLEDControl
 endif
 
 if SH1
@@ -212,26 +168,6 @@ endif
 
 if H7
 SUBDIRS += F3LEDControl
-endif
-
-if H9
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if H9COMBO
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if HD60
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if HD61
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if I55PLUS
-SUBDIRS += MultiTransCodingSetup
 endif
 
 if LC
@@ -288,14 +224,6 @@ endif
 
 if VUDUO4K
 SUBDIRS += FirmwareUpgrade VuRemote
-endif
-
-if V8PLUS
-SUBDIRS += MultiTransCodingSetup
-endif
-
-if MULTIBOX
-SUBDIRS += MultiTransCodingSetup
 endif
 
 if GIGABLUE
