@@ -91,7 +91,11 @@ SUBDIRS += INIVFDControl
 endif
 
 if INI
-SUBDIRS += VentonFancontrol MICOMUpgrade
+SUBDIRS += VentonFancontrol
+endif
+
+if HAVE_MICOM
+SUBDIRS += MICOMUpgrade
 endif
 
 if FORMULER3
