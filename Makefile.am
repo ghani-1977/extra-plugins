@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = ABMCustomMixImporter Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
+SUBDIRS = ABMCustomMixImporter AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
 
 if DREAMBOX
 SUBDIRS +=  DMBlindscan
@@ -231,7 +231,7 @@ SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if GIGABLUE
-SUBDIRS += GigaBlueVFDControl AudioEffect GigaBlueRemote
+SUBDIRS += GigaBlueVFDControl GigaBlueRemote
 endif
 
 if XP1000
@@ -244,10 +244,6 @@ endif
 
 if VS1000
 SUBDIRS += F3LEDControl XtrendRemote
-endif
-
-if VUPLUS
-SUBDIRS += AudioEffect
 endif
 
 if XC7362
