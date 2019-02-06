@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = ABMCustomMixImporter AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
+SUBDIRS = ABMCustomMixImporter AnimationSetup AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
 
 if DREAMBOX
 SUBDIRS +=  DMBlindscan
