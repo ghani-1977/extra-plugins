@@ -1,3 +1,3 @@
-installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/VFDControl
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/GigaBlueVFDControl
 
 install_PYTHON = *.py

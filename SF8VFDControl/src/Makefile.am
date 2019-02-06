@@ -1,4 +1,4 @@
-installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/VFDControl
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/SF8VFDControl
 
 install_PYTHON = *.py
 

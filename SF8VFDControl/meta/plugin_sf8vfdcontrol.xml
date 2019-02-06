@@ -4,13 +4,13 @@
 	  </prerequisites>
           <info>
                     <author>babsy</author>
-                    <name>VFDControl</name>
-                    <packagename>enigma2-plugin-systemplugins-vfdcontrol</packagename>
+                    <name>SF8VFDControl</name>
+                    <packagename>enigma2-plugin-systemplugins-sf8vfdcontrol</packagename>
                     <shortdescription>vfd controller</shortdescription>
                     <description>vfd controller</description>
           </info>
 
 	  <files type="package"> <!-- without version, without .ipk -->
-		<file type="package" name="enigma2-plugin-systemplugins-vfdcontrol" />
+		<file type="package" name="enigma2-plugin-systemplugins-sf8vfdcontrol" />
 	</files>
 </default>

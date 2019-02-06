@@ -1,4 +1,4 @@
-PLUGIN = VFDControl
+PLUGIN = INIVFDControl
 CATEGORY ?= "SystemPlugins"
 
 include $(top_srcdir)/Rules_noxml-po.mak

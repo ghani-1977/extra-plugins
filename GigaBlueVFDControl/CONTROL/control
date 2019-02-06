@@ -1,5 +1,5 @@
-Package: enigma2-plugin-systemplugins-vfdcontrol
-Version: 1.0-r0
+Package: enigma2-plugin-systemplugins-gigabluevfdcontrol
+Version: 1.0-r1
 Description: vfd controller
 Maintainer: babsy
 Depends: 
