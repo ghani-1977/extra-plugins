@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = ABMCustomMixImporter AnimationSetup AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer Fempa MultiTransCodingSetup OnDemand RCUSelect ReZap SatipClient StreamTV TerrestrialScan TunerServer WirelessAccessPoint xmlUpdate
+SUBDIRS = ABMCustomMixImporter AnimationSetup AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer EWVFDControl F3LEDControl Fempa GigaBlueVFDControl INIVFDControl MultiTransCodingSetup OdinM7VFDControl OnDemand RCUSelect ReZap SatipClient SF8VFDControl StreamTV TerrestrialScan TunerServer VPLEDControl WirelessAccessPoint xmlUpdate
 
 if DREAMBOX
 SUBDIRS +=  DMBlindscan
@@ -10,84 +10,36 @@ if XTREND
 SUBDIRS += XtrendFancontrol XtrendRemote
 endif
 
-if G100
-SUBDIRS += F3LEDControl
-endif
-
-if G101
-SUBDIRS += F3LEDControl
-endif
-
-if HD51
-SUBDIRS += F3LEDControl
-endif
-
-if ET1x000
-SUBDIRS += F3LEDControl
-endif
-
 if HD2400
 SUBDIRS += XtrendFancontrol XtrendRemote
 endif
 
 if HD1100
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if HD1200
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if HD1265
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if HD1500
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if HD500C
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if HD530C
-SUBDIRS += F3LEDControl XtrendRemote
+SUBDIRS += XtrendRemote
 endif
 
 if ODIN
 SUBDIRS += XtrendFancontrol
-endif
-
-if ODINM7
-SUBDIRS += OdinM7VFDControl
-endif
-
-if ODINM7S
-SUBDIRS += OdinM7VFDControl
-endif
-
-if ODINM7C
-SUBDIRS += OdinM7VFDControl
-endif
-
-if PROTEK9900LX
-SUBDIRS += OdinM7VFDControl
-endif
-
-if EW7358
-SUBDIRS += EWVFDControl
-endif
-
-if EW7362
-SUBDIRS += EWVFDControl
-endif
-
-if INIHDE
-SUBDIRS += INIVFDControl
-endif
-
-if INIHDE2
-SUBDIRS += INIVFDControl
 endif
 
 if INI
@@ -98,84 +50,8 @@ if HAVE_MICOM
 SUBDIRS += MICOMUpgrade
 endif
 
-if FORMULER3
-SUBDIRS += F3LEDControl
-endif
-
-if FORMULER4
-SUBDIRS += F3LEDControl
-endif
-
-if FORMULER3IP
-SUBDIRS += F3LEDControl
-endif
-
-if FORMULER4IP
-SUBDIRS += F3LEDControl
-endif
-
-if FORMULER4TURBO
-SUBDIRS += F3LEDControl
-endif
-
-if TIVIARMIN
-SUBDIRS += F3LEDControl
-endif
-
-if VG2000
-SUBDIRS += F3LEDControl
-endif
-
-if VG5000
-SUBDIRS += F3LEDControl
-endif
-
-if JJ7362
-SUBDIRS += F3LEDControl
-endif
-
-if S7220S
-SUBDIRS += F3LEDControl
-endif
-
-if S7225S
-SUBDIRS += F3LEDControl
-endif
-
-if S7300S
-SUBDIRS += F3LEDControl
-endif
-
-if S7400S
-SUBDIRS += F3LEDControl
-endif
-
-if SF8008
-SUBDIRS += VPLEDControl
-endif
-
 if GBMV200
 SUBDIRS += VPLEDControl
-endif
-
-if SH1
-SUBDIRS += F3LEDControl
-endif
-
-if H3
-SUBDIRS += F3LEDControl
-endif
-
-if H5
-SUBDIRS += F3LEDControl
-endif
-
-if H7
-SUBDIRS += F3LEDControl
-endif
-
-if LC
-SUBDIRS += F3LEDControl
 endif
 
 if VUUNO
@@ -231,11 +107,11 @@ SUBDIRS += FirmwareUpgrade VuRemote
 endif
 
 if GIGABLUE
-SUBDIRS += GigaBlueVFDControl GigaBlueRemote
+SUBDIRS += GigaBlueRemote
 endif
 
 if XP1000
-SUBDIRS += XtrendRemote SF8VFDControl
+SUBDIRS += XtrendRemote
 endif
 
 if OSMIO4K
@@ -243,25 +119,5 @@ SUBDIRS += SimpleFancontrol
 endif
 
 if VS1000
-SUBDIRS += F3LEDControl XtrendRemote
-endif
-
-if XC7362
-SUBDIRS += VPLEDControl
-endif
-
-if XC7358
-SUBDIRS += VPLEDControl
-endif
-
-if XC7358CI
-SUBDIRS += VPLEDControl
-endif
-
-if OSNINO
-SUBDIRS += VPLEDControl
-endif
-
-if OSNINOPLUS
-SUBDIRS += VPLEDControl
+SUBDIRS += XtrendRemote
 endif
