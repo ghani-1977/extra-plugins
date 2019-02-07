@@ -3,7 +3,7 @@ ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = ABMCustomMixImporter AnimationSetup AudioEffect Blindscan ChannelsImporter DLNABrowser DLNAServer EWVFDControl F3LEDControl Fempa GigaBlueVFDControl INIVFDControl MultiTransCodingSetup OdinM7VFDControl OnDemand RCUSelect ReZap SatipClient SF8VFDControl StreamTV TerrestrialScan TunerServer VPLEDControl WirelessAccessPoint xmlUpdate
 
 if DREAMBOX
-SUBDIRS +=  DMBlindscan
+SUBDIRS += DMBlindscan
 endif
 
 if XTREND
@@ -48,10 +48,6 @@ endif
 
 if HAVE_MICOM
 SUBDIRS += MICOMUpgrade
-endif
-
-if GBMV200
-SUBDIRS += VPLEDControl
 endif
 
 if VUUNO

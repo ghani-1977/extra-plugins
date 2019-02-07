@@ -203,9 +203,11 @@ AM_CONDITIONAL(XC7362, test "$BOXTYPE" == "xc7362")
 AM_CONDITIONAL(XC7358, test "$BOXTYPE" == "xc7358")
 AM_CONDITIONAL(XC7358CI, test "$BOXTYPE" == "xc7358ci")
 AM_CONDITIONAL(WETEKPLAY, test "$BOXTYPE" == "wetekplay")
+
 if test `echo "$BOXTYPE" | cut -b 1-2` == "dm"; then
 	AC_DEFINE(DREAMBOX, 1, [Dreambox hardware])
 fi
+
 AM_CONDITIONAL(HAVE_MICOM, test "$BOXTYPE" == "atemio5x00" -o "$BOXTYPE" == "atemio6000" -o "$BOXTYPE" == "atemio6100" -o "$BOXTYPE" == "atemio6200" -o "$BOXTYPE" == "atemionemesis" -o "$BOXTYPE" == "beyonwizt2" -o "$BOXTYPE" == "beyonwizt3" -o "$BOXTYPE" == "beyonwizt4" -o "$BOXTYPE" == "bwidowx" -o "$BOXTYPE" == "bwidowx2" -o "$BOXTYPE" == "evoslim" -o "$BOXTYPE" == "mbhybrid" -o "$BOXTYPE" == "mbmini" -o "$BOXTYPE" == "mbminiplus" -o "$BOXTYPE" == "mbtwin" -o "$BOXTYPE" == "mbultra" -o "$BOXTYPE" == "opticumtt" -o "$BOXTYPE" == "sezam1000hd" -o "$BOXTYPE" == "sezam5000hd" -o "$BOXTYPE" == "sezammarvel" -o "$BOXTYPE" == "ventonhdx" -o "$BOXTYPE" == "xpeedlx" -o "$BOXTYPE" == "xpeedlx3")
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == cube)
 AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "8100s" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "dags7252" -o "$BOXTYPE" == "dags72604" -o "$BOXTYPE" == "gb7252" -o "$BOXTYPE" == "xc7439" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")

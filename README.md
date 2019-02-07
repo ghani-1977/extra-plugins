@@ -1,4 +1,2 @@
-oe-alliance-plugins
-===================
-
-required oe-alliance plugins 
+# alliance-plugins
+OE-Alliance plugins for Open Vision
