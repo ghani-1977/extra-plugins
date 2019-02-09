@@ -53,3 +53,4 @@ done
 # git push
 cd $rootpath/
 printf "Po files update/creation from script finished!\n"
+find -name "*.mo" -type f | xargs -L1 rm -rf

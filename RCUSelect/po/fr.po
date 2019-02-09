@@ -18,15 +18,6 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "AB IPBox 9900/99/55 HD RCU"
-msgstr ""
-
-msgid "Alien1 old RCU"
-msgstr ""
-
-msgid "Alien2/1 RCU"
-msgstr ""
-
 msgid "Apply"
 msgstr "Appliquer"
 
@@ -36,38 +27,5 @@ msgstr ""
 msgid "Cancel"
 msgstr "Annuler"
 
-msgid "GI LX3 RCU"
-msgstr ""
-
-msgid "Gigablue 800 UE Plus RCU"
-msgstr ""
-
-msgid "Mutant HD2400 RCU"
-msgstr ""
-
-msgid "Octagon SF8 RCU"
-msgstr ""
-
 msgid "RCU Select"
-msgstr ""
-
-msgid "Technomate Nano RCU"
-msgstr ""
-
-msgid "WeTek Play (Classic) RCU"
-msgstr ""
-
-msgid "WeTek Play Enigma2 RCU"
-msgstr ""
-
-msgid "WeTek Play OpenElec RCU"
-msgstr ""
-
-msgid "WeTek Play2 RCU"
-msgstr ""
-
-msgid "Zgemma Star RCU"
-msgstr ""
-
-msgid "xtrend ET10000 RCU"
 msgstr ""

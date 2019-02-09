@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2018-07-30 20:23+0200\n"
 "PO-Revision-Date: 2018-10-14 21:37+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: Deutsch <> j-ot&Trial\n"
@@ -14,15 +14,6 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: iso-8859-15\n"
 
-msgid "AB IPBox 9900/99/55 HD RCU"
-msgstr "AB IPBox 9900/99/55 HD RCU"
-
-msgid "Alien1 old RCU"
-msgstr "Alien1 old RCU"
-
-msgid "Alien2/1 RCU"
-msgstr "Alien2/1 RCU"
-
 msgid "Apply"
 msgstr "Anwenden"
 
@@ -32,38 +23,5 @@ msgstr "Bist du sicher?"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-msgid "GI LX3 RCU"
-msgstr "GI LX3 RCU"
-
-msgid "Gigablue 800 UE Plus RCU"
-msgstr "Gigablue 800 UE Plus RCU"
-
-msgid "Mutant HD2400 RCU"
-msgstr "Mutant HD2400 RCU"
-
-msgid "Octagon SF8 RCU"
-msgstr "Octagon SF8 RCU"
-
 msgid "RCU Select"
 msgstr "RCU Auswahl"
-
-msgid "Technomate Nano RCU"
-msgstr "Technomate Nano RCU"
-
-msgid "WeTek Play (Classic) RCU"
-msgstr "WeTek Play (Classic) RCU"
-
-msgid "WeTek Play Enigma2 RCU"
-msgstr "WeTek Play Enigma2 RCU"
-
-msgid "WeTek Play OpenElec RCU"
-msgstr "WeTek Play OpenElec RCU"
-
-msgid "WeTek Play2 RCU"
-msgstr "WeTek Play2 RCU"
-
-msgid "Zgemma Star RCU"
-msgstr "Zgemma Star RCU"
-
-msgid "xtrend ET10000 RCU"
-msgstr "xtrend ET10000 RCU"
