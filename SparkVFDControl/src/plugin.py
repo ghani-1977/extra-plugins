@@ -362,7 +362,7 @@ def newSessionGlobals__init__(self, session):
 def main(menuid):
 	if menuid != "system":
 		return [ ]
-	return [(_("LED Display Setup"), startVFD, "VFD_SPARK", None)]
+	return [(_("Spark LED Display Setup"), startVFD, "VFD_SPARK", None)]
 
 def startVFD(session, **kwargs):
 	session.open(VFD_SPARKSetup)
