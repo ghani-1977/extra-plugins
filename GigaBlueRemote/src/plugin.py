@@ -28,7 +28,7 @@ class RemoteControlCodeInit:
 		return 0
 
 	def getModel(self):
-		if getBoxType() in ("gbue4k","gbquad4k","gbquad","gbquadplus","gbx2","gbxh3","gbultraueh","gbx1","gbx3","gbultrase","gbultraue","gbipbox","gb800seplus","gb800ueplus"):
+		if getBoxType() in ("gbue4k","gbquad4k","gbquad","gbquadplus","gbx2","gbxh3","gbultraueh","gbx1","gbx3","gbultrase","gbultraue","gbipbox","gb800seplus","gb800ueplus","gbtrio4k"):
 			return True
 		else:
 			return False
