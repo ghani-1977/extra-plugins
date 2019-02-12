@@ -95,8 +95,9 @@ class RCUSelect(Screen):
 			os.system(cmd)
 
 	def SetOSDList(self):
+		choice = "WeTek Play Enigma2 remote"
 		try:
-			choice = open("/etc/amremote/.choice", "r").read()
+			choice = open("/etc/amremote/rcuselect-choice", "r").read()
 		except IOError:
 			pass
 		self.rcuold = choice
@@ -196,7 +197,7 @@ class RCUSelect(Screen):
 					os.system("cp -f /etc/amremote/zgemmastar.conf /etc/amremote/rcuselect.conf &")
 				else:
 					os.system("cp -f /etc/amremote/wetek2.conf /etc/amremote/rcuselect.conf &")
-				f = open("/etc/amremote/.choice", "w")
+				f = open("/etc/amremote/rcuselect-choice", "w")
 				f.write(self.rcuv)
 				f.close()
 				os.system("killall -9 remotecfg &")
