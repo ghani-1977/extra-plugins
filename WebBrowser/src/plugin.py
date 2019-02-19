@@ -33,7 +33,7 @@ from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInpu
 HTTPConnection.debuglevel = 1
 
 model_rc = "rc_wb_desc.png"
-if getBoxType().startswith('gb')
+if getBoxType().startswith('gb'):
 	model_rc = "rc_wb_desc_gb.png"
 elif getBoxType() in ('atemio5x00','atemio6000','atemio6100','atemio6200','atemionemesis','beyonwizt2','beyonwizt3','beyonwizt4','bwidowx','bwidowx2','evoslim','mbhybrid','mbmini','mbminiplus','mbtwin','mbultra','opticumtt','sezam1000hd','sezam5000hd','sezammarvel','ventonhdx','xpeedlx','xpeedlx3'):
 	model_rc = "rc_wb_desc_hdx.png"
