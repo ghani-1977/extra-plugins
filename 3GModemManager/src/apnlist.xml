@@ -31,4 +31,7 @@
     <apn region="Iran" carrier="RighTel" apn="rightel" user="" password="" phone="*99#" />
     <apn region="Iran" carrier="Irancell" apn="mtnirancell" user="" password="" phone="*99#" />
     <apn region="Iran" carrier="IR-MCI" apn="mcinet" user="" password="" phone="*99***#" />
+    <apn region="Serbia" carrier="Telenor" apn="net" user="telenor" password="gprs" phone="*99#" />
+    <apn region="Serbia" carrier="VIP Mobile" apn="vipmobile" user="vipmobile" password="vipmobile" phone="*99#" />
+    <apn region="Serbia" carrier="TelekomSrbija" apn="gprswap" user="mts" password="064" phone="*99#" />
 </apns>
