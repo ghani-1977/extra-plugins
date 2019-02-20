@@ -18,9 +18,8 @@ Version = "V5.0-r4"
 from __init__ import _
 from enigma import eConsoleAppContainer, eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol
 from enigma import getDesktop, getEnigmaVersionString
-from enigma import ePicLoad, ePixmap
+from enigma import ePicLoad, ePixmap, getBoxType
 
-from boxbranding import getImageDistro, getDisplayType, getBoxType, getImageArch
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
@@ -165,19 +164,19 @@ L4LdoThread = True
 LCD4config = "/etc/enigma2/lcd4config"
 LCD4plugin ="/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/"
 Data = LCD4plugin+"data/"
-if getDisplayType() in ('colorlcd220'):
+if getBoxType() in ('gb800ue','gbquad','gbultraueh','gb800ueplus','gbultraue','twinboxlcdci5','sf208','singleboxlcd','sf238','twinboxlcd','sf228','protek4k','e4hdultra','gbue4k'):
 	LCD4default = Data+"default.colorlcd220"
-elif getDisplayType() in ('colorlcd400'):
+elif getBoxType() in ('dm920','gbquadplus','gbquad4k'):
 	LCD4default = Data+"default.colorlcd400"
 elif getBoxType() == 'vuduo2':
 	LCD4default = Data+"default.vuduo2"
-elif getDisplayType() in ('colorlcd720'):
+elif getBoxType() == 'et8500':
 	LCD4default = Data+"default.colorlcd720"
-elif getDisplayType() in ('colorlcd480'):
+elif getBoxType() in ('vusolo4k','vuduo4k'):
 	LCD4default = Data+"default.colorlcd480"
-elif getDisplayType() in ('colorlcd800'):
+elif getBoxType() == 'vuultimo4k':
 	LCD4default = Data+"default.colorlcd800"
-elif getDisplayType() in ('bwlcd255'):
+elif getBoxType() in ('sezammarvel','atemionemesis','xpeedlx3','mbultra','beyonwizt4'):
 	LCD4default = Data+"default.bwlcd255"
 else:
 	LCD4default = Data+"default.lcd"
@@ -296,7 +295,7 @@ if ctypes.util.find_library("usb-0.1") is not None or ctypes.util.find_library("
 	import usb.util
 	import dpf
 	USBok = True
-elif getImageArch() in ("aarch64"):
+else:
 	import usb.core
 	import usb.backend.libusb1
 	usb.backend.libusb1.get_backend(find_library=lambda x: "/lib64/libusb-1.0.so.0")
@@ -5178,6 +5177,7 @@ class LCDdisplayConfig(ConfigListScreen,Screen):
 		self.skin = skin
 		self.session = session
 		Screen.__init__(self, session)
+		self.setTitle(_("LCD4linux Settings"))
 		L4log("init Start")
 		ConfigMode = True
 		OSDon = 0
@@ -5249,7 +5249,7 @@ class LCDdisplayConfig(ConfigListScreen,Screen):
 		self["key_red"] = Button(_("Cancel"))
 		self["key_green"] = Button(_("Save"))
 		self["key_yellow"] = Button(_("Restart Displays"))
-		self["key_blue"] = Button("")
+		self["key_blue"] = Button(_("Set On >>"))
 		self["setupActions"] = ActionMap(["SetupActions", "ColorActions", "MenuActions", "EPGSelectActions", "HelpActions","InfobarSeekActions"],
 		{
 			"red": self.cancel,
@@ -14932,18 +14932,10 @@ def autostart(reason, **kwargs):
 		MJPEG_stop(9)
 
 def setup(menuid, **kwargs):
-	if getImageDistro() in ("openvix", "openatv", "ventonsupport", "egami", "openhdf", "openbh", "openspa", "opendroid"):
-		if menuid == "display" and SystemInfo["Display"]:
-			return [("LCD4Linux", main, "lcd4linux", None)]
-		elif menuid == "system" and not SystemInfo["Display"]:
-			return [("LCD4Linux", main, "lcd4linux", None)]
-		else:
-			return []
+	if menuid == "setup":
+		return [("LCD4Linux", main, "lcd4linux", None)]
 	else:
-		if menuid == "setup":
-			return [("LCD4Linux", main, "lcd4linux", None)]
-		else:
-			return []
+		return []
 def Plugins(**kwargs):
 	list = [
 	PluginDescriptor(name="LCD4linux", 
