@@ -2,7 +2,7 @@ installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/SF8VFDControl
 
 install_PYTHON = *.py
 
-if XP1000
+if MIPSEL
 dist_install_DATA = led7ctrl
 
 install-data-hook:
