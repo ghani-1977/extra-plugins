@@ -58,6 +58,7 @@ AM_CONDITIONAL(XTREND, test `echo "$BOXTYPE" | cut -b 1-2` == "et")
 AM_CONDITIONAL(INI, test `echo "$BOXTYPE" | cut -b 1-3` == "ini")
 AM_CONDITIONAL(GIGABLUE, test `echo "$BOXTYPE" | cut -b 1-2` == "gb")
 AM_CONDITIONAL(ODIN, test `echo "$BOXTYPE" | cut -b 1-4` == "odin")
+AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kcombo" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "ferguson4k" -o "$BOXTYPE" == "mediabox4k")
 
 AM_CONDITIONAL(HD2400, test "$BOXTYPE" == "hd2400")
 AM_CONDITIONAL(HD1500, test "$BOXTYPE" == "hd1500")
@@ -89,9 +90,9 @@ fi
 
 AM_CONDITIONAL(HAVE_MICOM, test "$BOXTYPE" == "atemio5x00" -o "$BOXTYPE" == "atemio6000" -o "$BOXTYPE" == "atemio6100" -o "$BOXTYPE" == "atemio6200" -o "$BOXTYPE" == "atemionemesis" -o "$BOXTYPE" == "beyonwizt2" -o "$BOXTYPE" == "beyonwizt3" -o "$BOXTYPE" == "beyonwizt4" -o "$BOXTYPE" == "bwidowx" -o "$BOXTYPE" == "bwidowx2" -o "$BOXTYPE" == "evoslim" -o "$BOXTYPE" == "mbhybrid" -o "$BOXTYPE" == "mbmini" -o "$BOXTYPE" == "mbminiplus" -o "$BOXTYPE" == "mbtwin" -o "$BOXTYPE" == "mbultra" -o "$BOXTYPE" == "opticumtt" -o "$BOXTYPE" == "sezam1000hd" -o "$BOXTYPE" == "sezam5000hd" -o "$BOXTYPE" == "sezammarvel" -o "$BOXTYPE" == "ventonhdx" -o "$BOXTYPE" == "xpeedlx" -o "$BOXTYPE" == "xpeedlx3")
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == cube)
-AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "8100s" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "dags7252" -o "$BOXTYPE" == "dags72604" -o "$BOXTYPE" == "gb7252" -o "$BOXTYPE" == "xc7439" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")
+AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "e4hdultra" -o "$BOXTYPE" == "protek4k" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "force3uhdplus" -o "$BOXTYPE" == "force3uhd" -o "$BOXTYPE" == "revo4k" -o "$BOXTYPE" == "tmtwin4k" -o "$BOXTYPE" == "galaxy4k" -o "$BOXTYPE" == "tm4ksuper" -o "$BOXTYPE" == "lunix3-4k" -o "$BOXTYPE" == "force4" -o "$BOXTYPE" == "lunix4k" -o "$BOXTYPE" == "gbquad4k" -o "$BOXTYPE" == "gbue4k" -o "$BOXTYPE" == "spycat4kmini" -o "$BOXTYPE" == "spycat4k" -o "$BOXTYPE" == "spycat4kcombo" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")
 AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay")
-AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "alien5" -o "$BOXTYPE" == "osmio4k")
+AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "wetekhub" -o "$BOXTYPE" == "alien5" -o "$BOXTYPE" == "c300" -o "$BOXTYPE" == "c300pro" -o "$BOXTYPE" == "c400plus" -o "$BOXTYPE" == "k1plus" -o "$BOXTYPE" == "k1pro" -o "$BOXTYPE" == "k2pro" -o "$BOXTYPE" == "k2prov2" -o "$BOXTYPE" == "k3pro" -o "$BOXTYPE" == "kvim2")
 
 AC_CONFIG_FILES([
 Makefile
@@ -182,6 +183,28 @@ VPLEDControl/Makefile
 VPLEDControl/src/Makefile
 VPLEDControl/meta/Makefile
 VPLEDControl/po/Makefile
+
+LCD4linux/Makefile
+LCD4linux/src/Makefile
+LCD4linux/src/data/Makefile
+LCD4linux/src/data/Clock1/Makefile
+LCD4linux/src/data/Clock2/Makefile
+LCD4linux/src/data/Clock3/Makefile
+LCD4linux/src/data/Clock4/Makefile
+LCD4linux/src/data/Clock5/Makefile
+LCD4linux/src/data/Clock6/Makefile
+LCD4linux/src/meteo/Makefile
+LCD4linux/src/renderer/Makefile
+LCD4linux/src/wetter/Makefile
+LCD4linux/src/dinobot/Makefile
+LCD4linux/src/aarch64/Makefile
+LCD4linux/src/armv7a/Makefile
+LCD4linux/src/armv7ahf/Makefile
+LCD4linux/src/cortexa9hf/Makefile
+LCD4linux/src/mips/Makefile
+LCD4linux/src/sh4/Makefile
+LCD4linux/meta/Makefile
+LCD4linux/po/Makefile
 
 OdinM7VFDControl/Makefile
 OdinM7VFDControl/src/Makefile
