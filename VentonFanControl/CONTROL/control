@@ -1,0 +1,5 @@
+Package: enigma2-plugin-systemplugins-ventonfancontrol
+Version: 1.0-r1
+Description: Fancontrol Settings inStandby Mode
+Maintainer: openatv
+Depends: 

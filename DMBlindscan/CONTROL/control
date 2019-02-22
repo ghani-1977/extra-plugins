@@ -1,5 +1,5 @@
-Package: enigma2-plugin-systemplugins-blindscan
-Version: 1.0-r0
+Package: enigma2-plugin-systemplugins-dmblindscan
+Version: 1.0-r1
 Description: blindscan...
 Maintainer: dreammedia
 Depends: virtual/blindscan-dvbs

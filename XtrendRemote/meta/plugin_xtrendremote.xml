@@ -1,0 +1,17 @@
+<default>
+	  <prerequisites>
+                    <tag type="System" />
+	  </prerequisites>
+          <info language="en">
+                    <author>Xtrend</author>
+                    <name>XtrendRemote</name>
+                    <packagename>enigma2-plugin-systemplugins-xtrendremote</packagename>
+                    <shortdescription>Remote Controller Setup.</shortdescription>
+                    <description>Switch Xtrend and DM remote.
+                    </description>
+          </info>
+	  <files type="package"> <!-- without version, without .ipk -->
+		<file type="package" name="enigma2-plugin-systemplugins-xtrendremote" />
+	</files>
+
+</default>

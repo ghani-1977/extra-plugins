@@ -1,5 +1,5 @@
-Package: enigma2-plugin-systemplugins-remotecontrolcode
-Version: 1.0-r0
+Package: enigma2-plugin-systemplugins-vuremote
+Version: 1.0-r1
 Description: Change Remote Control Code
 Maintainer: hschang
 Depends: 

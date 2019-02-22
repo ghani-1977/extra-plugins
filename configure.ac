@@ -53,42 +53,7 @@ AC_ARG_WITH(boxtype,
 AC_SUBST(BOXTYPE)
 AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
 
-AM_CONDITIONAL(DREAMBOX, test `echo "$BOXTYPE" | cut -b 1-2` == "dm")
-AM_CONDITIONAL(XTREND, test `echo "$BOXTYPE" | cut -b 1-2` == "et")
-AM_CONDITIONAL(INI, test `echo "$BOXTYPE" | cut -b 1-3` == "ini")
-AM_CONDITIONAL(GIGABLUE, test `echo "$BOXTYPE" | cut -b 1-2` == "gb")
-AM_CONDITIONAL(ODIN, test `echo "$BOXTYPE" | cut -b 1-4` == "odin")
 AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kcombo" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "ferguson4k" -o "$BOXTYPE" == "mediabox4k")
-
-AM_CONDITIONAL(HD2400, test "$BOXTYPE" == "hd2400")
-AM_CONDITIONAL(HD1500, test "$BOXTYPE" == "hd1500")
-AM_CONDITIONAL(HD1265, test "$BOXTYPE" == "hd1265")
-AM_CONDITIONAL(HD1200, test "$BOXTYPE" == "hd1200")
-AM_CONDITIONAL(HD1100, test "$BOXTYPE" == "hd1100")
-AM_CONDITIONAL(HD500C, test "$BOXTYPE" == "hd500c")
-AM_CONDITIONAL(HD530C, test "$BOXTYPE" == "hd530c")
-AM_CONDITIONAL(OSMIO4K, test "$BOXTYPE" == "osmio4k")
-AM_CONDITIONAL(VUUNO, test "$BOXTYPE" == "vuuno")
-AM_CONDITIONAL(VUULTIMO, test "$BOXTYPE" == "vuultimo")
-AM_CONDITIONAL(VUSOLOSE, test "$BOXTYPE" == "vusolose")
-AM_CONDITIONAL(VUDUO, test "$BOXTYPE" == "vuduo")
-AM_CONDITIONAL(VUSOLO2, test "$BOXTYPE" == "vusolo2")
-AM_CONDITIONAL(VUSOLO4K, test "$BOXTYPE" == "vusolo4k")
-AM_CONDITIONAL(VUUNO4K, test "$BOXTYPE" == "vuuno4k")
-AM_CONDITIONAL(VUUNO4KSE, test "$BOXTYPE" == "vuuno4kse")
-AM_CONDITIONAL(VUULTIMO4K, test "$BOXTYPE" == "vuultimo4k")
-AM_CONDITIONAL(VUZERO4K, test "$BOXTYPE" == "vuzero4k")
-AM_CONDITIONAL(VUDUO2, test "$BOXTYPE" == "vuduo2")
-AM_CONDITIONAL(VUDUO4K, test "$BOXTYPE" == "vuduo4k")
-AM_CONDITIONAL(VUZERO, test "$BOXTYPE" == "vuzero")
-AM_CONDITIONAL(XP1000, test "$BOXTYPE" == "xp1000")
-AM_CONDITIONAL(VS1000, test "$BOXTYPE" == "vs1000")
-
-if test `echo "$BOXTYPE" | cut -b 1-2` == "dm"; then
-	AC_DEFINE(DREAMBOX, 1, [Dreambox hardware])
-fi
-
-AM_CONDITIONAL(HAVE_MICOM, test "$BOXTYPE" == "atemio5x00" -o "$BOXTYPE" == "atemio6000" -o "$BOXTYPE" == "atemio6100" -o "$BOXTYPE" == "atemio6200" -o "$BOXTYPE" == "atemionemesis" -o "$BOXTYPE" == "beyonwizt2" -o "$BOXTYPE" == "beyonwizt3" -o "$BOXTYPE" == "beyonwizt4" -o "$BOXTYPE" == "bwidowx" -o "$BOXTYPE" == "bwidowx2" -o "$BOXTYPE" == "evoslim" -o "$BOXTYPE" == "mbhybrid" -o "$BOXTYPE" == "mbmini" -o "$BOXTYPE" == "mbminiplus" -o "$BOXTYPE" == "mbtwin" -o "$BOXTYPE" == "mbultra" -o "$BOXTYPE" == "opticumtt" -o "$BOXTYPE" == "sezam1000hd" -o "$BOXTYPE" == "sezam5000hd" -o "$BOXTYPE" == "sezammarvel" -o "$BOXTYPE" == "ventonhdx" -o "$BOXTYPE" == "xpeedlx" -o "$BOXTYPE" == "xpeedlx3")
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == cube)
 AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "e4hdultra" -o "$BOXTYPE" == "protek4k" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "force3uhdplus" -o "$BOXTYPE" == "force3uhd" -o "$BOXTYPE" == "revo4k" -o "$BOXTYPE" == "tmtwin4k" -o "$BOXTYPE" == "galaxy4k" -o "$BOXTYPE" == "tm4ksuper" -o "$BOXTYPE" == "lunix3-4k" -o "$BOXTYPE" == "force4" -o "$BOXTYPE" == "lunix4k" -o "$BOXTYPE" == "gbquad4k" -o "$BOXTYPE" == "gbue4k" -o "$BOXTYPE" == "spycat4kmini" -o "$BOXTYPE" == "spycat4k" -o "$BOXTYPE" == "spycat4kcombo" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")
 AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay")
@@ -261,10 +226,10 @@ SatipClient/src/Makefile
 SatipClient/po/Makefile
 SatipClient/meta/Makefile
 
-SimpleFancontrol/Makefile
-SimpleFancontrol/src/Makefile
-SimpleFancontrol/meta/Makefile
-SimpleFancontrol/po/Makefile
+SimpleFanControl/Makefile
+SimpleFanControl/src/Makefile
+SimpleFanControl/meta/Makefile
+SimpleFanControl/po/Makefile
 
 SF8VFDControl/Makefile
 SF8VFDControl/src/Makefile
@@ -277,10 +242,10 @@ StreamTV/meta/Makefile
 StreamTV/po/Makefile
 StreamTV/icons/Makefile
 
-VentonFancontrol/Makefile
-VentonFancontrol/src/Makefile
-VentonFancontrol/meta/Makefile
-VentonFancontrol/po/Makefile
+VentonFanControl/Makefile
+VentonFanControl/src/Makefile
+VentonFanControl/meta/Makefile
+VentonFanControl/po/Makefile
 
 VuRemote/Makefile
 VuRemote/src/Makefile
@@ -309,10 +274,10 @@ xmlUpdate/meta/Makefile
 xmlUpdate/po/Makefile
 xmlUpdate/src/Makefile
 
-XtrendFancontrol/Makefile
-XtrendFancontrol/src/Makefile
-XtrendFancontrol/meta/Makefile
-XtrendFancontrol/po/Makefile
+XtrendFanControl/Makefile
+XtrendFanControl/src/Makefile
+XtrendFanControl/meta/Makefile
+XtrendFanControl/po/Makefile
 
 XtrendRemote/Makefile
 XtrendRemote/src/Makefile

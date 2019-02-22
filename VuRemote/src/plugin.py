@@ -167,5 +167,5 @@ def RemoteControlSetup(menuid, **kwargs):
 def Plugins(**kwargs):
 	if fileExists("/proc/stb/fp/remote_code"):
 		from Plugins.Plugin import PluginDescriptor
-		return [PluginDescriptor(name=_("Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup)]
+		return [PluginDescriptor(name=_("Vu Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup)]
 	return []

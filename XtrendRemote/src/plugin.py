@@ -191,6 +191,6 @@ def RemoteControlSetup(menuid, **kwargs):
 def Plugins(**kwargs):
 	if os_path.exists("/proc/stb/ir/rc/type"):
 		from Plugins.Plugin import PluginDescriptor
-		return [PluginDescriptor(name=_("Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup),
+		return [PluginDescriptor(name=_("Xtrend Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup),
 					PluginDescriptor(name = "Remote Setup", description = "", where = PluginDescriptor.WHERE_SESSIONSTART, fnc = startup)]
 	return []

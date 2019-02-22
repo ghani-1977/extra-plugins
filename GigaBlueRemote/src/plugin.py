@@ -145,5 +145,5 @@ def RemoteControlSetup(menuid, **kwargs):
 def Plugins(**kwargs):
 	if fileExists("/proc/stb/ir/rc/customcode"):
 		from Plugins.Plugin import PluginDescriptor
-		return [PluginDescriptor(name=_("Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup)]
+		return [PluginDescriptor(name=_("GigaBlue Remote Control Code"), where=PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=RemoteControlSetup)]
 	return []
