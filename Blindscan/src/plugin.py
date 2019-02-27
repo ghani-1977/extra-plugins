@@ -904,7 +904,7 @@ class Blindscan(ConfigListScreen, Screen):
 					cmd += " %d" % orb[0]
 				if getBoxType().startswith('az'):
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation
-				if getBoxType() in ('cc1','ustym4kpro') or getBoxType().startswith('sf8008','gbtrio4k'):
+				if getBoxType() in ('cc1','ustym4kpro','gbtrio4k'):
 					self.frontend and self.frontend.closeFrontend()
 				if getBoxType() in ('sf8008','gbtrio4k'):
 					self.adjust_freq = False
