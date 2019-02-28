@@ -5,12 +5,12 @@
           <info>
                     <author>hschang</author>
                     <name>VuRemote</name>
-                    <packagename>enigma2-plugin-systemplugins-vuremote</packagename>
+                    <packagename>enigma2-plugin-systemplugins-remotecontrolcode</packagename>
                     <shortdescription>Change Remote Control Code</shortdescription>
                     <description>Change Remote Control Code</description>
           </info>
 
 	  <files type="package"> <!-- without version, without .ipk -->
-		<file type="package" name="enigma2-plugin-systemplugins-vuremote" />
+		<file type="package" name="enigma2-plugin-systemplugins-remotecontrolcode" />
 	</files>
 </default>
