@@ -10,7 +10,7 @@ from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.Button import Button
-from Tools.HardwareInfo import HardwareInfo
+from enigma import getBoxType
 import os
 import os.path
 
@@ -201,8 +201,7 @@ class RCUSelect(Screen):
 				f.write(self.rcuv)
 				f.close()
 				os.system("killall -9 remotecfg &")
-				boxime = HardwareInfo().get_device_name()
-				if boxime == "wetekplay2":
+				if getBoxType() in ("wetekplay2"):
 					fin = file("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
 					for line in fin :

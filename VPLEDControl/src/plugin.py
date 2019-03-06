@@ -9,14 +9,13 @@ from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigList
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigSlider
 from Components.ConfigList import ConfigListScreen
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD, getBoxType
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 from Tools.Directories import fileExists
 import Components.RecordingConfig
-from Tools.HardwareInfo import HardwareInfo
 
 import Screens.Standby
 
@@ -30,7 +29,7 @@ config.plugins.VFD_ini.ClockLevel2 = ConfigSlider(default=4, limits=(1, 10))
 
 MyRecLed = False
 use_oled = False
-if HardwareInfo().get_device_model() in ("sf8008"):
+if getBoxType() in ("sf8008"):
 	use_oled = True
 	
 def vfd_write(text):
