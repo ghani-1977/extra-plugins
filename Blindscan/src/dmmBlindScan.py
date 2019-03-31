@@ -399,16 +399,15 @@ class SatelliteTransponderSearchSupport:
 		self.orb_pos = orb_pos
 		self.nim = nimmanager.nim_slots[nim_idx]
 		tunername = nimmanager.getNimName(nim_idx)
+		print "tunername", tunername
 		self.__tlist = [ ]
 		self.tp_found = [ ]
 		self.current_range = None
 		self.range_list = [ ]
 		tuner_no = -1
-		self.auto_scan = False
 
-		print "tunername", tunername
-		if nimmanager.nim_slots[nim_idx].supportsBlindScan() or tunername in ("BCM4505", "BCM4506 (internal)", "BCM4506", "Alps BSBE1 C01A/D01A.", "Si2166B", "Si2169C"):
-			self.auto_scan = nimmanager.nim_slots[nim_idx].supportsBlindScan() or tunername in ("Si2166B", "Si2169C")
+		self.auto_scan = nimmanager.nim_slots[nim_idx].supportsBlindScan() or tunername.startswith('Si216')
+		if self.auto_scan or tunername == "Alps BSBE1 C01A/D01A." or (tunername != "BCM4501" and "BCM45" in tunername):
 			(self.channel, self.frontend) = self.tryGetRawFrontend(nim_idx, False, False)
 			if not self.frontend:
 				self.session.nav.stopService()
@@ -500,7 +499,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 	skin="""
 	<screen position="center,center" size="620,430" title="Satellite Blindscan">
 		<widget name="config" position="10,10" size="600,360" itemHeight="30" scrollbarMode="showOnDemand" />
-		<eLabel	position="10,390" size="600,1" backgroundColor="grey"/>
+		<eLabel position="10,390" size="600,1" backgroundColor="grey"/>
 		<widget name="introduction" position="10,398" size="600,25" font="Regular;22" halign="center" />
 	</screen>
 	"""
@@ -508,24 +507,11 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.setup_title = _("Blind scan for DVB-S2 tuners")
-		self.skinName = ["Blindscan"]
 		Screen.setTitle(self, _(self.setup_title))
 		self.updateSatList()
 		self.service = session.nav.getCurrentService()
 		self.feinfo = None
 		frontendData = None
-
-		# make config
-		self.legacy = True
-		for slot in nimmanager.nim_slots:
-			if slot.canBeCompatible("DVB-S"):
-				try:
-					slot.config.dvbs
-					self.legacy = False
-				except:
-					self.legacy = True
-				break
-
 		if self.service is not None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
@@ -666,21 +652,15 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 		for n in nimmanager.nim_slots:
 			if hasattr(n, 'isFBCLink') and n.isFBCLink():
 				continue
-			if n.isCompatible("DVB-S"):
-				if not self.legacy:
-					nimconfig = n.config.dvbs
-				else:
-					nimconfig = n.config
-				config_mode = nimconfig.configMode.value
-				if config_mode == "nothing":
-					continue
+			if n.config_mode == "nothing":
+				continue
 			if n.isCompatible("DVB-S") and len(nimmanager.getSatListForNim(n.slot)) < 1:
-				if config_mode in ("advanced", "simple"):
+				if n.config_mode in ("advanced", "simple"):
 					config.Nims[n.slot].configMode.value = "nothing"
 					config.Nims[n.slot].configMode.save()
 				continue
-			if n.isCompatible("DVB-S") and config_mode in ("loopthrough", "satposdepends"):
-				root_id = nimmanager.sec.getRoot(n.slot_id, int(nimconfig.connectedTo.value))
+			if n.config_mode in ("loopthrough", "satposdepends"):
+				root_id = nimmanager.sec.getRoot(n.slot_id, int(n.config.connectedTo.value))
 				if n.type == nimmanager.nim_slots[root_id].type: # check if connected from a DVB-S to DVB-S2 Nim or vice versa
 					continue
 			if n.isCompatible("DVB-S"):
@@ -811,7 +791,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 		self.session.nav.playService(self.session.postScanService)
 		for x in self["config"].list:
 			x[1].cancel()
-		self.close(True)
+		self.close(False)
 
 	def startScanCallback(self, answer=True):
 		if answer:
