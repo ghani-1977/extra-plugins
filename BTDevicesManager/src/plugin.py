@@ -28,7 +28,7 @@ from Components.Sources.StaticText import StaticText
 from Components.ActionMap import NumberActionMap, ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigSubsection, ConfigYesNo, ConfigSelection
 from Components.MenuList import MenuList
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, fileExists
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, fileExists
 from bluetoothctl import iBluetoothctl, Bluetoothctl
 import os
 import time
@@ -223,7 +223,7 @@ class BluetoothDevicesManager(Screen):
 			
 	def keyGreen(self):
 		print "[BluetoothManager] keyGreen"  
-		if config.btdevicesmanager.autostart.getValue() or brandoem in ("xcore","edision"):
+		if config.btdevicesmanager.autostart.getValue() or getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
 		else:
@@ -468,4 +468,3 @@ def Plugins(**kwargs):
 		return l
 	else:
 		return []
-
