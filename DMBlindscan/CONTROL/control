@@ -1,5 +1,5 @@
 Package: enigma2-plugin-systemplugins-dmblindscan
-Version: 1.0-r1
-Description: blindscan...
-Maintainer: dreammedia
-Depends: virtual/blindscan-dvbs
+Version: 1.1-r1
+Description: satelite blind scan
+Maintainer: Huevos (OE-A)
+Recommends: virtual/blindscan-dvbs

@@ -5,8 +5,8 @@
           <info>
                     <name>DMBlindscan</name>
                     <packagename>enigma2-plugin-systemplugins-dmblindscan</packagename>
-                    <shortdescription>blindscan...</shortdescription>
-                    <description>blindscan...</description>
+                    <shortdescription>blindscan</shortdescription>
+                    <description>blindscan</description>
           </info>
 
 	  <files type="package"> <!-- without version, without .ipk -->

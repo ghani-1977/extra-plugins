@@ -42,7 +42,7 @@ AC_ARG_WITH(boxtype,
 AC_SUBST(BOXTYPE)
 AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
 
-AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kcombo" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "ferguson4k" -o "$BOXTYPE" == "mediabox4k")
+AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kcombo" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "axashistwin" -o "$BOXTYPE" == "axashisc4k" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "ferguson4k" -o "$BOXTYPE" == "mediabox4k")
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == cube)
 AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "e4hdultra" -o "$BOXTYPE" == "protek4k" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "force3uhdplus" -o "$BOXTYPE" == "force3uhd" -o "$BOXTYPE" == "revo4k" -o "$BOXTYPE" == "tmtwin4k" -o "$BOXTYPE" == "galaxy4k" -o "$BOXTYPE" == "tm4ksuper" -o "$BOXTYPE" == "lunix3-4k" -o "$BOXTYPE" == "force4" -o "$BOXTYPE" == "lunix4k" -o "$BOXTYPE" == "gbquad4k" -o "$BOXTYPE" == "gbue4k" -o "$BOXTYPE" == "spycat4kmini" -o "$BOXTYPE" == "spycat4k" -o "$BOXTYPE" == "spycat4kcombo" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "cc1" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXTYPE" == "v8plus" -o "$BOXTYPE" == "multibox")
 AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay")
@@ -82,10 +82,11 @@ DLNAServer/src/Makefile
 DLNAServer/po/Makefile
 DLNAServer/meta/Makefile
 
-DMBlindscan/Makefile
 DMBlindscan/src/Makefile
-DMBlindscan/meta/Makefile
 DMBlindscan/po/Makefile
+DMBlindscan/Makefile
+DMBlindscan/meta/Makefile
+DMBlindscan/src/images/Makefile
 
 ABMCustomMixImporter/Makefile
 ABMCustomMixImporter/meta/Makefile

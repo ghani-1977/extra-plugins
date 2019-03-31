@@ -1,99 +1,96 @@
+# English translations for Enigma2.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: enigma2\n"
+"Project-Id-Version: enigma2 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-29 00:27+0100\n"
-"PO-Revision-Date: 2018-05-09 13:02+0200\n"
-"Last-Translator: Pr2 <dummy@dummy.com>\n"
-"Language-Team: french\n"
-"Language: fr\n"
+"PO-Revision-Date: 2012-05-18 01:41+0100\n"
+"Last-Translator: Andy Blackburn <andyblac@o2.co.uk>\n"
+"Language-Team: none\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.0.7\n"
-"X-Poedit-SourceCharset: iso-8859-15\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid ""
 "\n"
 "Second slot dual tuner may not be supported blind scan."
 msgstr ""
-"\n"
-"Le tuner double du deuxième slot peut ne pas supporter le blind scan."
 
 msgid ""
 "\n"
 "WARNING! Blind scan may make the tuner malfunction on a VU+ and ET receiver. A reboot afterwards may be required to return to proper tuner function."
 msgstr ""
-"\n"
-"ATTENTION! Blind scan peut conduire a un mauvais fonctionnement du tuner sur les récepteurs VU+ et ET. Un redémarrage complet peut-être requis après pour retrouver un fonctionnement normal."
 
 msgid ""
 "\n"
 "You must use the power adapter."
 msgstr ""
-"\n"
-"Vous devez utiliser l’adaptateur secteur."
 
 msgid "   Starting Sundtek hardware blind scan."
-msgstr "  Démarrage du blind scan sur le matériel Sundtek."
-
-msgid " tuner."
-msgstr " tuner."
+msgstr ""
 
 #, fuzzy
+msgid " tuner."
+msgstr "Tuner"
+
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
-msgstr "\"scan des chaînes\" cherche les chaînes et les sauvegarde sur votre récepteur; \"sauvegarder dans un fichier XML\" fait un scan des transpondeurs et sauvegarde les transpondeurs trouvés dans un fichier XML au format satellites.xml"
+msgstr ""
 
 #, python-format
 msgid "%d transponder(s) found"
-msgstr "%d transpondeur(s) trouvé(s)"
+msgstr ""
 
 #, python-format
 msgid "%d transponders found at %d:%02d min"
-msgstr "%d transpondeur(s) trouvé(s) à %d:%02d min"
+msgstr ""
 
 #, python-format
 msgid "%d:%02d/%d:%02dmin"
-msgstr "%d:%02d/%d:%02dmin"
+msgstr ""
 
 #, python-format
 msgid "%dMHz scanned"
-msgstr "%dMHz scanné"
+msgstr ""
 
 msgid "AUTOMATICALLY start service searching, press green to change"
 msgstr ""
 
 msgid "Accuracy (higher is better)"
-msgstr "Précision (plus c’est mieux)"
+msgstr ""
 
+#, fuzzy
 msgid "Another type"
-msgstr "Autre type"
+msgstr "Search type"
 
+#, fuzzy
 msgid "Blind scan"
-msgstr "Blind scan"
+msgstr "Blindscan"
 
 msgid "Blind scan for DVB-S2 tuners"
-msgstr "Recherche aveugle pour les tuners DVB-S2"
+msgstr ""
 
+#, fuzzy
 msgid "Blind scan state"
-msgstr "Etât de la recherche aveugle"
+msgstr "Blindscan"
 
 msgid "Blindscan is not supported in "
-msgstr "Blindscan n'est pas supporté dans "
+msgstr ""
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
 
 #, fuzzy
 msgid "CAUTION: If you select \"yes\" the scan will not sync with transponders listed in satellites.xml. Default is \"no\". Only change this if you understand why you are doing it."
-msgstr "Si vous choisissez \"oui\" le scan va uniquement utiliser les transpondeurs non présents dans votre satellites.xml"
+msgstr "If you select \"yes\" the scan will only search transponders not listed in satellites.xml"
 
 msgid "Cancel"
 msgstr ""
 
 msgid "Clear before scan"
-msgstr "Effacer avant d'analyser"
+msgstr "Clear before scan"
 
 #, fuzzy, python-format
 msgid ""
@@ -101,17 +98,20 @@ msgid ""
 "Satellite: %s\n"
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MHz"
 msgstr ""
-"   Statut actuel : %d/%d\n"
+"Looking for available transponders.\n"
+"This will take a short while.\n"
+"\n"
+"   Current Status : %d/%d\n"
 "   Satellite : %s\n"
-"   Polarisation : %s\n"
-"   Plage de fréquence : %d - %d MHz\n"
+"   Polarization : %s\n"
+"   Frequency range : %d - %d MHz\n"
 "   Symbol rates : %d - %d MHz"
 
 msgid "DVB-S + DVB-S2"
-msgstr "DVB-S + DVB-S2"
+msgstr ""
 
 msgid "DVB-S only"
-msgstr "DVB-S uniquement"
+msgstr ""
 
 msgid "Deselect all"
 msgstr ""
@@ -121,46 +121,50 @@ msgstr ""
 
 #, fuzzy
 msgid "Disable sync with known transponders"
-msgstr "Scanner uniquement les transpondeurs inconnus"
+msgstr "Only scan unknown transponders"
 
 msgid "Dreambox type"
-msgstr "Type Dreambox"
+msgstr ""
 
 msgid "Exit"
-msgstr "Quitter"
+msgstr "Exit"
 
 msgid "Filter out adjacent satellites"
-msgstr "Filtrer les satellites proches"
+msgstr "Filter out adjacent satellites"
 
 #, fuzzy, python-format
 msgid "Frequency values must be between %d MHz and %d MHz"
-msgstr "La fréquence doit être comprise entre 10700 MHz et 12749 MHz"
+msgstr "Frequency values must be between 10700 and 12750 (or 3000 and 4200 in the case of C-band satellites)"
 
+#, fuzzy
 msgid "Frequency values must be between 3000 MHz and 4199 MHz (C-band)"
-msgstr "La fréquence doit être comprise entre 3000 MHz et 4199 MHz (bande C)"
+msgstr "Frequency values must be between 10700 and 12750 (or 3000 and 4200 in the case of C-band satellites)"
 
+#, fuzzy
 msgid "Frequency values must be between 3001 MHz and 4200 MHz (C-band)"
-msgstr "La fréquence doit être comprise entre 3001 MHz et 4200 MHz (bande C)"
+msgstr "Frequency values must be between 10700 and 12750 (or 3000 and 4200 in the case of C-band satellites)"
 
 #, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
-msgstr "La recherche aveugle n'est pas supportée sur ce tuner (%s)!"
+msgstr ""
 
+#, fuzzy
 msgid "Horizontal"
-msgstr "Horizontale"
+msgstr "horizontal"
 
+#, fuzzy
 msgid "If you select \"yes\" all channels on the satellite being search will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
-msgstr "Si vous choisissez \"oui\" toutes les chaînes du satellite recherché seront effacées avant de démarrer la nouvelle recherche, oui (garder les feeds) signifie la même chose mais conserve tous les feeds des services/transpondeurs."
+msgstr "If you select \"yes\" all channels on the satellite being search will be deleted before starting the current search"
 
 #, fuzzy
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
-msgstr "Si vous choisissez \"'oui\" le scan va uniquement sauvegarder les chaînes qui ne sont pas encryptées; \"non\" va trouver les chaînes encryptées et non-encryptées."
+msgstr "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels"
 
 msgid "If you select \"yes\" the scan will only search transponders not listed in satellites.xml"
-msgstr "Si vous choisissez \"oui\" le scan va uniquement utiliser les transpondeurs non présents dans votre satellites.xml"
+msgstr "If you select \"yes\" the scan will only search transponders not listed in satellites.xml"
 
 msgid "It seems manufacturer does not support blind scan for this tuner."
-msgstr "Il semble que le fabricant ne supporte pas le balayage aveugle pour ce tuner."
+msgstr ""
 
 msgid "LNB of current satellite not compatible with plugin"
 msgstr ""
@@ -169,20 +173,18 @@ msgid ""
 "Looking for available transponders.\n"
 "This will take a long time, please be patient."
 msgstr ""
-"Recherche des transpondeurs disponibles.\n"
-"Cela va prendre du temps, soyez patient."
 
 msgid "MANUALLY start service searching, press green to change"
-msgstr "Démarrer la recherche des services MANUELLEMENT, appuyez sur vert pour modifier"
+msgstr ""
 
 msgid "Maybe the reason that recording is currently running."
-msgstr "Peut-être parce qu'un enregistrement est en cours."
+msgstr ""
 
 msgid "Moving to "
-msgstr "Déplacer vers "
+msgstr ""
 
 msgid "Network scan"
-msgstr "Analyse du réseau"
+msgstr ""
 
 msgid ""
 "No new transponders found! \n"
@@ -190,91 +192,92 @@ msgid ""
 "Only transponders already listed in satellites.xml \n"
 "have been found for those search parameters!"
 msgstr ""
-"Aucun transpondeur trouvé! \n"
+"No new transponders found! \n"
 "\n"
-"Seul les transpondeurs déjà présent dans votre satellites.xml \n"
-"ont été trouvé avec ces paramètres de recherche!"
+"Only transponders already listed in satellites.xml \n"
+"have been found for those search parameters!"
 
 msgid "No transponders were found for those search parameters!"
-msgstr "Aucun transpondeur trouvé avec ces paramètres de recherche!"
+msgstr "No transponders were found for those search parameters!"
 
 msgid ""
 "No tuner is enabled!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
-"Aucun tuner est activé!\n"
-"Merci de configurer les paramètres de vos tuners avant de commencer une recherche des services."
 
 #, python-format
 msgid "Not found blind scan utility '%s'!"
-msgstr "Impossible de trouver l’utilitaire de recherche ‘%s’!"
+msgstr ""
 
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
-"Rien à analyser!\n"
-"Veuillez paramétrer votre tuner avant de démarrer une analyse de chaînes."
 
 msgid "Nothing to scan! Press Exit!"
-msgstr "Rien à scanner! Appuyez sur Exit!"
+msgstr ""
 
 msgid "Only free scan"
-msgstr "Scanner seulement les chaînes en clair"
+msgstr "Only free scan"
 
 msgid "Only scan unknown transponders"
-msgstr "Scanner uniquement les transpondeurs inconnus"
+msgstr "Only scan unknown transponders"
 
 msgid "Open xml file"
-msgstr "Ouvrir fichier .xml"
+msgstr ""
 
 msgid "Please setup your tuner configuration."
-msgstr "Merci de configurer votre tuner"
+msgstr "Please setup your tuner configuration."
 
 msgid "Polarisation"
 msgstr "Polarisation"
 
 msgid "Press Green/OK to start the scan"
-msgstr "Appuyez sur Vert/OK pour démarrer le scan"
+msgstr "Press Green/OK to start the scan"
 
+#, fuzzy
 msgid "Press OK to start the scan"
-msgstr "Appuyez sur OK pour démarrer la recherche"
+msgstr "Press Green/OK to start the scan"
 
+#, fuzzy
 msgid "Press green to start service searching!"
-msgstr "Appuyez sur Vert pour démarrer la recherche!"
+msgstr "Press Green/OK to start the scan"
 
 msgid "Rotor: "
-msgstr "Rotor: "
+msgstr ""
 
 msgid "Satellite"
 msgstr "Satellite"
 
+#, fuzzy
 msgid "Satellite blind scan"
-msgstr "Recherche aveugle satellite"
+msgstr "Satellite"
 
 msgid "Scan"
 msgstr ""
 
 msgid "Scan Step in MHz(TBS5925)"
-msgstr "Pas du scan en MHz(TBS5925)"
+msgstr ""
 
+#, fuzzy
 msgid "Scan satellites for new transponders"
-msgstr "Scanner les satellites pour les nouveaux transpondeurs"
+msgstr "Only scan unknown transponders"
 
 msgid "Scan start frequency"
-msgstr "Fréquence de départ du scan"
+msgstr "Scan start frequency"
 
 msgid "Scan start symbolrate"
-msgstr "Symbolrate de départ"
+msgstr "Scan start symbolrate"
 
 msgid "Scan stop frequency"
-msgstr "Fréquence d'arrêt du scan"
+msgstr "Scan stop frequency"
 
 msgid "Scan stop symbolrate"
-msgstr "Symbolrate de fin"
+msgstr "Scan stop symbolrate"
 
+#, fuzzy
 msgid "Scan unknown error!"
-msgstr "Erreur inconnue de recherche!"
+msgstr "Only scan unknown transponders"
 
 #, fuzzy, python-format
 msgid ""
@@ -282,9 +285,9 @@ msgid ""
 "%d transponders found in %d:%02d minutes.\n"
 "Details saved in: %s"
 msgstr ""
-"Recherche terminée. %d transpondeurs trouvés.\n"
+"Search completed. %d transponders found.\n"
 "\n"
-"Informations sauvées dans:\n"
+"Details saved in:\n"
 "%s"
 
 #, python-format
@@ -294,129 +297,131 @@ msgid ""
 "Details saved in:\n"
 "%s"
 msgstr ""
-"Recherche terminée. %d transpondeurs trouvés.\n"
+"Search completed. %d transponders found.\n"
 "\n"
-"Informations sauvées dans:\n"
+"Details saved in:\n"
 "%s"
 
 msgid "Search type"
-msgstr "Type de recherche"
+msgstr "Search type"
 
 msgid "Select a tuner that is configured for the satellite you wish to search"
-msgstr "Choisir un tuner qui est configuré pour recevoir le satellite que vous voulez chercher"
+msgstr "Select a tuner that is configured for the satellite you wish to search"
 
 msgid "Select all"
 msgstr ""
 
 msgid "Select the satellite you wish to search"
-msgstr "Choisir un satellite sur lequel vous voulez chercher"
+msgstr "Select the satellite you wish to search"
 
 msgid ""
 "Select transponders and press green to scan.\n"
 "Press yellow to select all transponders and blue to deselect all."
 msgstr ""
 
+#, fuzzy
 msgid "Select type for scan:"
-msgstr "Sélectionnez un type de recherche:"
+msgstr "Clear before scan"
 
 msgid "Smaller steps takes longer but scan is more thorough"
-msgstr "Les petites étapes prennent plus de temps mais le scan est plus approfondi"
+msgstr ""
 
 msgid "Sorry, this tuner is in use."
-msgstr "Désolé, ce tuner est utilisé."
+msgstr ""
 
 msgid "Start scan"
-msgstr "Commencer le balayage"
+msgstr ""
 
 #, python-format
 msgid "Step %d %d:%02d min"
-msgstr "Etapes %d %d:%02d min"
+msgstr ""
 
 msgid "Symbol rate values are in megasymbols; enter a value between 1 and 44"
-msgstr "La valeur du Symbol rate est en megasymbols; entrer une valeur entre 1 et 44"
+msgstr "Symbol rate values are in megasymbols; enter a value between 1 and 44"
 
 msgid "Symbol rate values are in megasymbols; enter a value between 2 and 45"
-msgstr "La valeur du Symbol rate est en megasymbols; entrer une valeur entre 2 et 45"
+msgstr "Symbol rate values are in megasymbols; enter a value between 2 and 45"
 
 msgid "The blindscan run was cancelled by the user."
-msgstr "Le blindscan a été annulé par l'utilisateur."
+msgstr "The blindscan run was cancelled by the user."
 
-#, fuzzy, python-format
+#, python-format
 msgid "The suggested polarisation for this satellite is \"%s\""
-msgstr "La polarisation suggérée pour ce satellite est '%s'"
+msgstr ""
 
 msgid "Transponder searching finished!"
-msgstr "Recherche des transpondeurs terminée!"
+msgstr ""
 
 msgid "Try to find used satellite transponders..."
-msgstr "Essayer de trouver les transpondeurs utilisés par le satellite…"
+msgstr ""
 
 msgid "Tuner"
 msgstr "Tuner"
 
 msgid "Use Sundtek full hardware blind scan!"
-msgstr "Utiliser toute les capacités de recherche aveugle du matériel Sundtek!"
+msgstr ""
 
+#, fuzzy
 msgid "Vertical"
-msgstr "Verticale"
+msgstr "vertical"
 
 #, fuzzy
 msgid "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite."
-msgstr "Lorsque le satellite voisin émet très fort, cela évite de rechercher les transpondeurs connus comme venant du satellite voisin"
+msgstr "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite"
 
 msgid "circular left"
-msgstr "circulaire à gauche"
+msgstr "circular left"
 
 #, fuzzy
 msgid "circular left/right"
-msgstr "circulaire à droite"
+msgstr "circular right"
 
 msgid "circular right"
-msgstr "circulaire à droite"
+msgstr "circular right"
 
 msgid "circular right and circular left"
-msgstr "circulaire droit et circulaire gauche"
+msgstr "circular right and circular left"
 
 #, fuzzy
 msgid "don't scan"
-msgstr "Commencer le balayage"
+msgstr "Blindscan"
 
 msgid "horizontal"
-msgstr "horizontale"
+msgstr "horizontal"
 
 msgid "no"
-msgstr "non"
+msgstr "no"
 
 msgid "save to XML file"
-msgstr "sauvegarder dans un fichier XML"
+msgstr "save to XML file"
 
 msgid "scan"
 msgstr ""
 
 msgid "scan for channels"
-msgstr "scanner les chaînes"
+msgstr "scan for channels"
 
 #, fuzzy
 msgid "scan for transponders"
-msgstr "Scanner uniquement les transpondeurs inconnus"
+msgstr "Only scan unknown transponders"
 
 msgid "up to 1 degree"
-msgstr "jusqu'à 1 degré"
+msgstr "up to 1 degree"
 
 msgid "up to 2 degrees"
-msgstr "jusqu'à 2 degrés"
+msgstr "up to 2 degrees"
 
 msgid "up to 3 degrees"
-msgstr "jusqu'à 3 degrés"
+msgstr "up to 3 degrees"
 
 msgid "vertical"
-msgstr "verticale"
+msgstr "vertical"
 
 msgid "vertical and horizontal"
-msgstr "vertical et horizontal"
+msgstr "vertical and horizontal"
 
 msgid "yes"
-msgstr "oui"
+msgstr ""
 
 msgid "yes (keep feeds)"
-msgstr "oui (conserver les feeds)"
+msgstr ""
