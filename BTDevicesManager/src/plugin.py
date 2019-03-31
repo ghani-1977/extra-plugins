@@ -28,7 +28,7 @@ from Components.Sources.StaticText import StaticText
 from Components.ActionMap import NumberActionMap, ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigSubsection, ConfigYesNo, ConfigSelection
 from Components.MenuList import MenuList
-from Tools.Directories import fileExists
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, fileExists
 from bluetoothctl import iBluetoothctl, Bluetoothctl
 import os
 import time
@@ -96,6 +96,10 @@ class TaskManager:
 
 config.btdevicesmanager = ConfigSubsection()
 config.btdevicesmanager.autostart = ConfigYesNo(default=False)
+config.btdevicesmanager.audioconnect = ConfigYesNo(default=False)
+config.btdevicesmanager.audioaddress = ConfigText(default = "", fixed_size = False)
+
+commandconnect = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/BTDevicesManager/BTAudioConnect")
 
 class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 	__module__ = __name__
@@ -106,6 +110,8 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 			
 		list = []
 		list.append(getConfigListEntry(_('Autostart'), config.btdevicesmanager.autostart))
+		list.append(getConfigListEntry(_('Audio Connect'), config.btdevicesmanager.audioconnect))
+		list.append(getConfigListEntry(_('Audio Address'), config.btdevicesmanager.audioaddress))
 
 		self["key_red"] = Label(_("Exit"))
 		self["key_green"] = Label(_("Save"))
@@ -121,13 +127,21 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 	def saveAndExit(self):
 		for x in self['config'].list:
 			x[1].save()
-		if config.btdevicesmanager.autostart.getValue():
-			print "[BluetoothManager] Autostart: Loading driver"
-			os.system("modprobe rtk_btusb")
-		else:
-			print "[BluetoothManager] Autostart: Unloading driver"
-			os.system("rmmod rtk_btusb")
-		
+
+		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+			if config.btdevicesmanager.autostart.getValue():
+				print "[BluetoothManager] Autostart: Loading driver"
+				os.system("modprobe rtk_btusb")
+			else:
+				print "[BluetoothManager] Autostart: Unloading driver"
+				os.system("rmmod rtk_btusb")
+
+		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+			if config.btdevicesmanager.audioconnect.getValue():
+				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
+			else:
+				os.system("%s" % commandconnect)
+
 		config.btdevicesmanager.save()
 		
 		self.close()
@@ -173,10 +187,7 @@ class BluetoothDevicesManager(Screen):
 		self["key_red"]    = Label(_("Exit"))
 		self["key_green"]  = Label(_("(Re)Scan"))
 		self["key_yellow"] = Label(_("Connect"))
-		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
-			self["key_blue"]   = Label()
-		else:
-			self["key_blue"]   = Label(_("Config"))
+		self["key_blue"]   = Label(_("Config"))
 
 		self["ConnStatus"] = Label(_("No connected to any device"))
     
@@ -212,7 +223,7 @@ class BluetoothDevicesManager(Screen):
 			
 	def keyGreen(self):
 		print "[BluetoothManager] keyGreen"  
-		if config.btdevicesmanager.autostart.getValue() or getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if config.btdevicesmanager.autostart.getValue() or brandoem in ("xcore","edision"):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
 		else:
@@ -365,6 +376,8 @@ class BluetoothDevicesManager(Screen):
 					iBluetoothctl.agent_noinputnooutput()
 					iBluetoothctl.default_agent()
 					ret = iBluetoothctl.pair(mac_address)
+					if config.btdevicesmanager.audioaddress.getValue() is "":
+						config.btdevicesmanager.audioaddress.setValue(mac_address)
 					if ret is False:
 						if iBluetoothctl.passkey is not None:
 							self.cb_mac_address = mac_address
@@ -391,9 +404,8 @@ class BluetoothDevicesManager(Screen):
 			self["ConnStatus"].setText(msg)
 			
 	def keyBlue(self):
-		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
-			print "[BluetoothManager] keyBlue"
-			self.session.openWithCallback(self.keyGreen, BluetoothDevicesManagerSetup)
+		print "[BluetoothManager] keyBlue"
+		self.session.openWithCallback(self.keyGreen, BluetoothDevicesManagerSetup)
 
 	def showMessage(self,msg):
 		self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, 3)
@@ -426,14 +438,18 @@ def main(session, **kwargs):
 	session.open(BluetoothDevicesManager)
 
 def autostart(reason, **kwargs):
-	if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
-		if reason == 0:
+	if reason == 0:
+		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
 				os.system("modprobe rtk_btusb")
 			else:
 				print "[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.
 				os.system("rmmod rtk_btusb")
+
+		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+			if config.btdevicesmanager.audioconnect.getValue():
+				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
 
 def Plugins(**kwargs):
 	ShowPlugin = True
@@ -452,3 +468,4 @@ def Plugins(**kwargs):
 		return l
 	else:
 		return []
+
