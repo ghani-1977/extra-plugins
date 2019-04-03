@@ -66,6 +66,11 @@ Blindscan/src/Makefile
 Blindscan/meta/Makefile
 Blindscan/po/Makefile
 
+BTDevicesManager/Makefile
+BTDevicesManager/src/Makefile
+BTDevicesManager/meta/Makefile
+BTDevicesManager/po/Makefile
+
 ChannelsImporter/Makefile
 ChannelsImporter/meta/Makefile
 ChannelsImporter/po/Makefile
