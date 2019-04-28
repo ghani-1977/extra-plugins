@@ -18,7 +18,7 @@
 
 from . import _
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, eConsoleAppContainer, iPlayableService, eServiceCenter, eActionMap, getBoxType
+from enigma import eTimer, eConsoleAppContainer, iPlayableService, eServiceCenter, eActionMap, getBoxBrand
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.Button import Button
@@ -131,7 +131,7 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 		for x in self['config'].list:
 			x[1].save()
 
-		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver"
 				os.system("modprobe rtk_btusb")
@@ -139,7 +139,7 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 				print "[BluetoothManager] Autostart: Unloading driver"
 				os.system("rmmod rtk_btusb")
 
-		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() in ("xcore","edision"):
 			if config.btdevicesmanager.audioconnect.getValue():
 				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
 			else:
@@ -199,7 +199,7 @@ class BluetoothDevicesManager(Screen):
 
 		if config.btdevicesmanager.autostart.getValue():
 			self.initDevice()
-		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() in ("xcore","edision"):
 			self.initDevice()
 			self.showConnections()
 
@@ -226,7 +226,7 @@ class BluetoothDevicesManager(Screen):
 			
 	def keyGreen(self):
 		print "[BluetoothManager] keyGreen"  
-		if config.btdevicesmanager.autostart.getValue() or getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if config.btdevicesmanager.autostart.getValue() or getBoxBrand() in ("xcore","edision"):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
 		else:
@@ -269,7 +269,7 @@ class BluetoothDevicesManager(Screen):
 		
 	def showConnections(self):
 		print "[BluetoothManager] showConnections"
-		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() not in ("xcore","edision"):
 			cmd = "hidd --show"
 			self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
 			self.taskManager.next()
@@ -313,7 +313,7 @@ class BluetoothDevicesManager(Screen):
 	def keyYellow(self):
 		if self["key_yellow"].getText() == _('Disconnect'):
 			print "[BluetoothManager] Disconnecting"
-			if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+			if getBoxBrand() not in ("xcore","edision"):
 				cmd = "hidd --killall"
 				rc = os.system(cmd)
 				if not rc:
@@ -348,7 +348,7 @@ class BluetoothDevicesManager(Screen):
 			msg = _("Trying to pair with:") + " " + selectedItem[1]
 			self["ConnStatus"].setText(msg)
 			
-			if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+			if getBoxBrand() not in ("xcore","edision"):
 				cmd = "hidd --connect " + selectedItem[1]
 				self.taskManager.append(cmd, self.cbPrintAvailConnections, self.cbRunNextTask)
 				cmd = "hidd --show"
@@ -442,7 +442,7 @@ def main(session, **kwargs):
 
 def autostart(reason, **kwargs):
 	if reason == 0:
-		if not getBoxType().startswith('spycat') and not getBoxType().startswith('os') and not getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
 				os.system("modprobe rtk_btusb")
@@ -450,7 +450,7 @@ def autostart(reason, **kwargs):
 				print "[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.
 				os.system("rmmod rtk_btusb")
 
-		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() in ("xcore","edision"):
 			if config.btdevicesmanager.audioconnect.getValue():
 				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
 
@@ -493,7 +493,7 @@ def sessionstart(session, reason, **kwargs):
 	global iBluetoothDevicesTask
 
 	if reason == 0:
-		if getBoxType().startswith('spycat') or getBoxType().startswith('os') or getBoxType() in ('bcm7358','vp7358ci'):
+		if getBoxBrand() in ("xcore","edision"):
 			if iBluetoothDevicesTask is None:
 				iBluetoothDevicesTask = BluetoothDevicesTask(session)
 
