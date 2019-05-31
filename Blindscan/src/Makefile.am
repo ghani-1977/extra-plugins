@@ -4,5 +4,3 @@ install_PYTHON =	 \
 	__init__.py \
 	plugin.py \
 	dmmBlindScan.py
-
-install_DATA = LICENSE LICENSE.GPLv2
