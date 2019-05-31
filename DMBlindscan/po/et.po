@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2014-04-06 10:24+0300\n"
 "Last-Translator: rimas\n"
 "Language-Team: Raivo, Henkka, eesatfan, rimas\n"
@@ -65,9 +65,6 @@ msgstr ""
 msgid "Another type"
 msgstr "Otsingu tüüp"
 
-msgid "Blind scan"
-msgstr "Pimeotsing"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
@@ -102,6 +99,10 @@ msgstr ""
 "   Polarisatsioon : %s\n"
 "   Sagedusvahemik : %d - %d MHz\n"
 "   Sümbolikiirused : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Pimeotsing"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VuRemote - oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-06 08:34+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -58,8 +58,9 @@ msgstr "Išsaugoti"
 msgid "Sorry, but %s is not supported."
 msgstr "Atleiskite, %s nepalaikomi."
 
-msgid "Text support"
-msgstr "Teksto palaikymas"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "Tada pasirinkite 'Išsaugoti' per X sek."
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Nuotolinio valdymo pulto kodas"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BTDevicesManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 13:09+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: openspa <openspa.info>\n"
@@ -15,8 +15,19 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "(Re)escanear"
 
+msgid "Audio Address"
+msgstr ""
+
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Conectar"
+
 msgid "Autostart"
 msgstr "Autoinicio"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "Gestión de los dispositivos Bluetooth"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Gestor de dipositivos Bluetooth"
@@ -39,6 +50,10 @@ msgstr "Conectado con:\n"
 msgid "Disconnect"
 msgstr "Desconectar"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Conectado con:\n"
+
 msgid "Exit"
 msgstr "Salir"
 
@@ -54,6 +69,9 @@ msgstr "No se ha conectado a ningún dispositivo"
 msgid "Not detected devices around STB"
 msgstr "No se ha detectado ningún dispositivo cercano"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Cargue el controlador BT pulsando el botón AZUL"
 
@@ -65,9 +83,6 @@ msgstr "Buscando dispositivos..."
 
 msgid "Scanning..."
 msgstr "Buscando..."
-
-msgid "This is bt devices manager"
-msgstr "Gestión de los dispositivos Bluetooth"
 
 msgid "Trying to pair with:"
 msgstr "Intentando emparejar con:"

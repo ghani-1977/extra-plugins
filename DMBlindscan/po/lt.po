@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: e2 blind scan PLi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-12-28 11:51+0200\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. <vyteniui@gmail.com>\n"
@@ -69,9 +69,6 @@ msgstr "Tikslumas (didesnis yra geriau)"
 msgid "Another type"
 msgstr "Kito tipo"
 
-msgid "Blind scan"
-msgstr "Aklasis skenavimas"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "DVB-S2 imtuvų aklasis skenavimas"
 
@@ -105,6 +102,10 @@ msgstr ""
 "   Poliarizacija: %s\n"
 "   Dažnių diapazonas: %d - %d MHz\n"
 "   Simbolių dažniai: %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Aklasis skenavimas"
 
 msgid "DVB-S + DVB-S2"
 msgstr "DVB-S + DVB-S2"

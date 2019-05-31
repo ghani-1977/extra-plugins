@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 07:41+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -33,6 +33,10 @@ msgstr "Bevestig"
 
 msgid "FILE DOES NOT EXIST : /proc/stb/ir/rc/customcode"
 msgstr "BESTAND BESTAAT NIET : /proc/stb/ir/rc/customcode"
+
+#, fuzzy
+msgid "GigaBlue Remote Control Code"
+msgstr "Afstandsbedieningscode"
 
 msgid "Please change now the mode on your RCU."
 msgstr "Verander nu de mode van uw AB."

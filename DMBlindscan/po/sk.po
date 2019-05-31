@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-03-01 14:01+0100\n"
 "Last-Translator: Andrej <andrej.tobola@gmail.com>\n"
 "Language-Team: Andrej <andrej.tobola@gmail.com>\n"
@@ -73,9 +73,6 @@ msgstr "Presnosť (vyššia je lepšie)"
 msgid "Another type"
 msgstr "Iný typ"
 
-msgid "Blind scan"
-msgstr "Blink scan"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "Blind scan pre DVB-S2 tunery"
 
@@ -110,6 +107,10 @@ msgstr ""
 "   Polarizácia : %s\n"
 "   Rozsah frekvencií : %d - %d MHz\n"
 "   Symbolová rýchlosť : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Blink scan"
 
 msgid "DVB-S + DVB-S2"
 msgstr "DVB-S + DVB-S2"

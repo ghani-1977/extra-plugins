@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan Official Greek Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-11-26 05:02+0200\n"
 "Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language-Team: MCelliot_g <mcelliot_g@hotmail.com>\n"
@@ -74,9 +74,6 @@ msgstr ""
 msgid "Another type"
 msgstr "Άλλος τύπος"
 
-msgid "Blind scan"
-msgstr "Τυφλή ανίχνευση"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "Τυφλή ανίχνευση για DVB-S2 tuners"
 
@@ -107,6 +104,10 @@ msgstr ""
 "Τρέχουσα κατάσταση : %d/%d\n"
 "Δορυφόρος: %s \n"
 "Πόλωση: %s  Εύρος συχνοτήτων: %d - %d MHz  Ρυθμοί συμβόλων: %d - %d Ks/s"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Τυφλή ανίχνευση"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""

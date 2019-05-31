@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fancontrol v1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-04-19 13:39+0200\n"
 "Last-Translator: Alec <alex1vagyok@gmail.com>\n"
 "Language-Team: alec <alex1vagyok@gmail.com>\n"
@@ -131,6 +131,10 @@ msgstr "Merevlemez állapot figyelése"
 
 msgid "Watch system temp"
 msgstr "Rendszer hőmérséklet állapotának mutatása"
+
+#, fuzzy
+msgid "Xtrend Fan Control"
+msgstr "Ventilátor vezérlés beállításai"
 
 msgid ""
 "You may not use this mode!\n"

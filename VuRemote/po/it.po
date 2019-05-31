@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VuRemote\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-12-03 19:35+0000\n"
 "Last-Translator: insanity\n"
 "Language-Team: www.vuplus-community.net <insanity@>\n"
@@ -60,8 +60,9 @@ msgstr "Salva"
 msgid "Sorry, but %s is not supported."
 msgstr "Spiacenti, ma %s non è supportato."
 
-msgid "Text support"
-msgstr "Supporto testo"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "Poi scegli \"Mantieni\" entro X secondi"
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Codice telecomando"

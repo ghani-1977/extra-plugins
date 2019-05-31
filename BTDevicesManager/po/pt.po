@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Portuguese translation for BT devices Manager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-10-03 20:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: BH Team\n"
@@ -19,8 +19,19 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "(Re)Procurar"
 
+msgid "Audio Address"
+msgstr ""
+
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Conetar"
+
 msgid "Autostart"
 msgstr "Início automático"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "Isto é o gestor de dispotivos BT"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Gestor de dispositivos Bluetooth"
@@ -43,6 +54,10 @@ msgstr "Ligação com:\n"
 msgid "Disconnect"
 msgstr "Desconetar"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Ligação com:\n"
+
 msgid "Exit"
 msgstr "Sair"
 
@@ -58,6 +73,9 @@ msgstr "Não ligado a qualquer dispositivo"
 msgid "Not detected devices around STB"
 msgstr "Não existem dispositivos ligados à STB"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Por favor, carrega o driver de BT, pressionando o botão azul."
 
@@ -69,9 +87,6 @@ msgstr "A procurar por dispositivos..."
 
 msgid "Scanning..."
 msgstr "A Pesquisar..."
-
-msgid "This is bt devices manager"
-msgstr "Isto é o gestor de dispotivos BT"
 
 msgid "Trying to pair with:"
 msgstr "Tentando emparelhar com:"

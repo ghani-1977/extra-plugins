@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 14:08+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: Bulgarian\n"
@@ -22,9 +22,6 @@ msgstr ""
 msgid "FAN Control"
 msgstr ""
 
-msgid "Fan Control"
-msgstr ""
-
 msgid "Fan mode"
 msgstr ""
 
@@ -39,6 +36,9 @@ msgstr ""
 
 msgid "Save"
 msgstr "Запази"
+
+msgid "Venton Fan Control"
+msgstr ""
 
 msgid "switch Fan On/Off"
 msgstr ""

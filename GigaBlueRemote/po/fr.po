@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-30 21:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -36,6 +36,10 @@ msgstr "Confirmer"
 
 msgid "FILE DOES NOT EXIST : /proc/stb/ir/rc/customcode"
 msgstr "FICHIER N'EXISTE PAS : /proc/stb/ir/rc/customcode"
+
+#, fuzzy
+msgid "GigaBlue Remote Control Code"
+msgstr "Code de la télécommande"
 
 msgid "Please change now the mode on your RCU."
 msgstr "Veuillez changer maintenant le mode de votre télécommande."

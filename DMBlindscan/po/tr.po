@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2014-05-12 12:08+0200\n"
 "Last-Translator: girginoz <girginoz1@hotmail.com>\n"
 "Language-Team: CÜNEYT OCAKLILAR <ocaklilar@gmail.com>\n"
@@ -72,9 +72,6 @@ msgstr ""
 msgid "Another type"
 msgstr "Arama tipi"
 
-msgid "Blind scan"
-msgstr "Kör tarama"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
@@ -110,6 +107,10 @@ msgstr ""
 "   Polarizasyon : %s\n"
 "   Frekans aralığı : %d - %d MHz\n"
 "   Sembol oranı : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Kör tarama"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""

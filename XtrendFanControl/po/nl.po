@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ViX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 11:02+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn, Rob van der Does\n"
@@ -136,6 +136,10 @@ msgstr "Controleer HDD status"
 
 msgid "Watch system temp"
 msgstr "Bewaak systeemtemperatuur"
+
+#, fuzzy
+msgid "Xtrend Fan Control"
+msgstr "Fan Control"
 
 msgid ""
 "You may not use this mode!\n"

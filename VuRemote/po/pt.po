@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-01-23 00:51+0000\n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BlackHole Team\n"
@@ -61,8 +61,9 @@ msgstr "Gravar"
 msgid "Sorry, but %s is not supported."
 msgstr "Desculpe, mas %s não é suportado."
 
-msgid "Text support"
-msgstr "Suporte de Texto"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "Depois escolha 'Manter' dentro"
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Código do Telecomando"

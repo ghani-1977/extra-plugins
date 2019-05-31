@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-10-14 12:58+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: openATV\n"
@@ -19,8 +19,20 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "Suche wiederholen"
 
+msgid "Audio Address"
+msgstr ""
+
+#
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Verbinden"
+
 msgid "Autostart"
 msgstr "Autostart"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "Bluetooth-Konfiguration"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Bluetooth Geräte-Manager"
@@ -45,6 +57,10 @@ msgstr "Verbunden mit:\n"
 msgid "Disconnect"
 msgstr "Trennen"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Verbunden mit:\n"
+
 msgid "Exit"
 msgstr "Beenden"
 
@@ -60,6 +76,9 @@ msgstr "Mit keinem Gerät verbunden"
 msgid "Not detected devices around STB"
 msgstr "Keine erkannten Geräte in der Umgebung"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Blaue Taste drücken, um den BT-Treiber zu laden."
 
@@ -71,9 +90,6 @@ msgstr "Scannen der Geräte..."
 
 msgid "Scanning..."
 msgstr "Scannen..."
-
-msgid "This is bt devices manager"
-msgstr "Bluetooth-Konfiguration"
 
 msgid "Trying to pair with:"
 msgstr "Versuche zu koppeln mit:"

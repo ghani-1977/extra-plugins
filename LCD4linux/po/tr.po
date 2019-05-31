@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -18,12 +18,15 @@ msgstr "%"
 msgid "% + BER"
 msgstr ""
 
+#, python-format
 msgid "% + Load@1min"
 msgstr ""
 
+#, python-format
 msgid "% + Load@5min"
 msgstr ""
 
+#, python-format
 msgid "%d Mails  %d New  %s"
 msgstr ""
 
@@ -39,6 +42,7 @@ msgstr ""
 msgid "%d.%m.%y %H:%M:%S"
 msgstr ""
 
+#, python-format
 msgid "%s - Current value: %s"
 msgstr ""
 
@@ -434,6 +438,9 @@ msgstr ""
 msgid "- Zoom"
 msgstr ""
 
+msgid "- external IP URL"
+msgstr ""
+
 msgid "- extra Info"
 msgstr ""
 
@@ -761,13 +768,7 @@ msgstr ""
 msgid "Analog+Date+Weekday 2"
 msgstr ""
 
-msgid "April"
-msgstr ""
-
 msgid "Audio/Video"
-msgstr ""
-
-msgid "August"
 msgstr ""
 
 msgid "Background"
@@ -786,6 +787,18 @@ msgid "Bar+Value"
 msgstr ""
 
 msgid "Bitrate"
+msgstr ""
+
+msgid "BlueSound IP"
+msgstr ""
+
+msgid "BlueSound Ping Timeout [ms]"
+msgstr ""
+
+msgid "BlueSound Play Check"
+msgstr ""
+
+msgid "BlueSound Refresh [s]"
 msgstr ""
 
 msgid "Box-Skin-LCD"
@@ -960,9 +973,6 @@ msgstr ""
 msgid "Debug-Logging > /tmp/L4log.txt"
 msgstr ""
 
-msgid "December"
-msgstr ""
-
 msgid "Delete"
 msgstr "sil"
 
@@ -1008,11 +1018,11 @@ msgstr ""
 msgid "Extended Description"
 msgstr ""
 
+msgid "External IP Address"
+msgstr ""
+
 msgid "Fastmode (2s)"
 msgstr "hızlı (2sn)"
-
-msgid "February"
-msgstr ""
 
 msgid "First Quarter"
 msgstr "ilk çeyrek"
@@ -1051,9 +1061,6 @@ msgid "Frame x2"
 msgstr ""
 
 msgid "Fri"
-msgstr ""
-
-msgid "Friday"
 msgstr ""
 
 msgid "FritzCall"
@@ -1159,19 +1166,10 @@ msgstr ""
 msgid "JPG"
 msgstr "JPG"
 
-msgid "January"
-msgstr ""
-
 msgid "Javascript"
 msgstr ""
 
 msgid "Javascript no Refresh"
-msgstr ""
-
-msgid "July"
-msgstr ""
-
-msgid "June"
 msgstr ""
 
 msgid "Key"
@@ -1240,6 +1238,9 @@ msgstr ""
 msgid "LCD Off when shutdown"
 msgstr ""
 
+msgid "LCD4Linux"
+msgstr ""
+
 msgid "LCD4linux"
 msgstr ""
 
@@ -1267,6 +1268,10 @@ msgstr "son çeyrek"
 msgid "Line"
 msgstr ""
 
+#, fuzzy
+msgid "List of Storage Devices"
+msgstr "depolama aygıtları"
+
 msgid "Load Active Config-File"
 msgstr ""
 
@@ -1274,6 +1279,7 @@ msgstr ""
 msgid "Load Defaults / Empty Config"
 msgstr "varsayılanları tükle"
 
+#, python-format
 msgid "Load File : %s"
 msgstr "dosya yükle : %s"
 
@@ -1430,12 +1436,6 @@ msgstr ""
 msgid "Mail Show Empty Mailboxes"
 msgstr ""
 
-msgid "March"
-msgstr ""
-
-msgid "May"
-msgstr ""
-
 msgid "Media"
 msgstr ""
 
@@ -1532,9 +1532,6 @@ msgstr "Module 1"
 msgid "Mon"
 msgstr ""
 
-msgid "Monday"
-msgstr ""
-
 msgid "Month"
 msgstr "ay"
 
@@ -1628,9 +1625,6 @@ msgstr "normal"
 msgid "Normal (5s)"
 msgstr "normal (5sn)"
 
-msgid "November"
-msgstr ""
-
 msgid "Now/Next"
 msgstr "şimdiki/sonraki"
 
@@ -1641,9 +1635,6 @@ msgid "OSD"
 msgstr ""
 
 msgid "OSD [display time]"
-msgstr ""
-
-msgid "October"
 msgstr ""
 
 msgid "Offline"
@@ -1675,6 +1666,9 @@ msgstr ""
 
 msgid "PNG"
 msgstr "PNG"
+
+msgid "Parent Directory"
+msgstr ""
 
 msgid "Pearl (or compatible LCD) 240x320"
 msgstr "Pearl (or compatible LCD) 240x320"
@@ -1892,15 +1886,13 @@ msgstr ""
 msgid "Satellite"
 msgstr "uydu"
 
-msgid "Saturday"
-msgstr ""
-
 msgid "Save"
 msgstr "kaydet"
 
 msgid "Save Config"
 msgstr ""
 
+#, python-format
 msgid "Save Config to File... (%s)"
 msgstr ""
 
@@ -2017,9 +2009,6 @@ msgid "Screen Switch Select - Screen"
 msgstr ""
 
 msgid "Screens used for Changing"
-msgstr ""
-
-msgid "September"
 msgstr ""
 
 msgid "Service search first"
@@ -2146,9 +2135,6 @@ msgstr ""
 msgid "Sun"
 msgstr ""
 
-msgid "Sunday"
-msgstr ""
-
 msgid "Sunrise"
 msgstr ""
 
@@ -2185,9 +2171,6 @@ msgstr ""
 msgid "Thur"
 msgstr ""
 
-msgid "Thursday"
-msgstr ""
-
 msgid "Time"
 msgstr "saat"
 
@@ -2210,9 +2193,6 @@ msgid "Title"
 msgstr ""
 
 msgid "Tue"
-msgstr ""
-
-msgid "Tuesday"
 msgstr ""
 
 msgid "Tuner"
@@ -2357,9 +2337,6 @@ msgstr ""
 msgid "Wed"
 msgstr ""
 
-msgid "Wednesday"
-msgstr ""
-
 msgid "Week"
 msgstr "hafta"
 
@@ -2435,6 +2412,7 @@ msgstr ""
 msgid "cornflowerblue"
 msgstr ""
 
+#, python-format
 msgid "currently set : %s"
 msgstr ""
 

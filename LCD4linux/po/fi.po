@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-30 17:38+0000\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-10-31 22:03+0200\n"
 "Last-Translator: Kojo\n"
 "Language-Team: Kojo\n"
@@ -25,12 +25,15 @@ msgstr "%"
 msgid "% + BER"
 msgstr "% + BER"
 
+#, python-format
 msgid "% + Load@1min"
 msgstr "% + Load@1min"
 
+#, python-format
 msgid "% + Load@5min"
 msgstr "% + Load@5min"
 
+#, python-format
 msgid "%d Mails  %d New  %s"
 msgstr "%d Postia  %d Uusia  %s"
 
@@ -46,6 +49,7 @@ msgstr "%d.%m.%Y - %H:%M"
 msgid "%d.%m.%y %H:%M:%S"
 msgstr "%d.%m.%y %H:%M:%S"
 
+#, python-format
 msgid "%s - Current value: %s"
 msgstr "%s - Nykyinen arvo: %s"
 
@@ -433,6 +437,10 @@ msgstr "- Miten sää-tiedot näytetään?"
 msgid "- Zoom"
 msgstr "- Zoom"
 
+#, fuzzy
+msgid "- external IP URL"
+msgstr "- Lisätietoa"
+
 msgid "- extra Info"
 msgstr "- Lisätietoa"
 
@@ -757,14 +765,8 @@ msgstr "Analoginen+Päivämäärä+Viikonpäivä"
 msgid "Analog+Date+Weekday 2"
 msgstr "Analoginen+Päivämäärä+Viikonpäivä 2"
 
-msgid "April"
-msgstr ""
-
 msgid "Audio/Video"
 msgstr "Audio/Video"
-
-msgid "August"
-msgstr ""
 
 msgid "Background"
 msgstr "Tausta"
@@ -783,6 +785,21 @@ msgstr "Palkki+Arvo"
 
 msgid "Bitrate"
 msgstr "Bittinopeus"
+
+msgid "BlueSound IP"
+msgstr ""
+
+#, fuzzy
+msgid "BlueSound Ping Timeout [ms]"
+msgstr "Sonos: Ping Aikakatkaisu [ms]"
+
+#, fuzzy
+msgid "BlueSound Play Check"
+msgstr "Sonos: Play-tarkistus"
+
+#, fuzzy
+msgid "BlueSound Refresh [s]"
+msgstr "Sonos: Virkistä [s]"
 
 msgid "Box-Skin-LCD"
 msgstr "VDF-näyttö"
@@ -955,9 +972,6 @@ msgstr "Päivämäärät: ei ikonia"
 msgid "Debug-Logging > /tmp/L4log.txt"
 msgstr "Debug-Lokit > /tmp/L4log.txt"
 
-msgid "December"
-msgstr ""
-
 msgid "Delete"
 msgstr "Poista"
 
@@ -1003,11 +1017,11 @@ msgstr "Laajennettu (lyhyt)"
 msgid "Extended Description"
 msgstr "Laajennettu kuvaus"
 
+msgid "External IP Address"
+msgstr ""
+
 msgid "Fastmode (2s)"
 msgstr "Nopea (2s)"
-
-msgid "February"
-msgstr ""
 
 msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
@@ -1047,9 +1061,6 @@ msgstr "Kehys x2"
 
 msgid "Fri"
 msgstr "Pe"
-
-msgid "Friday"
-msgstr ""
 
 msgid "FritzCall"
 msgstr "FritzCall"
@@ -1154,20 +1165,11 @@ msgstr "Sisäinen Vu+ Duo2 LCD 400x240"
 msgid "JPG"
 msgstr "JPG"
 
-msgid "January"
-msgstr ""
-
 msgid "Javascript"
 msgstr "Javascript"
 
 msgid "Javascript no Refresh"
 msgstr "Javascript, ei virkistystä"
-
-msgid "July"
-msgstr ""
-
-msgid "June"
-msgstr ""
 
 msgid "Key"
 msgstr "Painikkeet"
@@ -1235,6 +1237,10 @@ msgstr "LCD-näyttö"
 msgid "LCD Off when shutdown"
 msgstr "LCD: pois päältä kun sammutettuna"
 
+#, fuzzy
+msgid "LCD4Linux"
+msgstr "LCD4linux"
+
 msgid "LCD4linux"
 msgstr "LCD4linux"
 
@@ -1262,12 +1268,17 @@ msgstr "Viimeinen neljännes"
 msgid "Line"
 msgstr "Line"
 
+#, fuzzy
+msgid "List of Storage Devices"
+msgstr "Tallennusvälineet"
+
 msgid "Load Active Config-File"
 msgstr "Lataa aktiivinen asetustiedosto"
 
 msgid "Load Defaults / Empty Config"
 msgstr "Lataa oletukset / Tyhjennä konfiguraatio"
 
+#, python-format
 msgid "Load File : %s"
 msgstr "Lataa tiedosto : %s"
 
@@ -1421,12 +1432,6 @@ msgstr "Posti: Näytä paivämäärä"
 msgid "Mail Show Empty Mailboxes"
 msgstr "Posti: Näytä \"Tyhjennä postilaatikot\""
 
-msgid "March"
-msgstr ""
-
-msgid "May"
-msgstr ""
-
 msgid "Media"
 msgstr "Media"
 
@@ -1516,9 +1521,6 @@ msgstr "Moduli 6"
 
 msgid "Mon"
 msgstr "Maa"
-
-msgid "Monday"
-msgstr ""
 
 msgid "Month"
 msgstr "Kuukausi"
@@ -1613,9 +1615,6 @@ msgstr "Normaali"
 msgid "Normal (5s)"
 msgstr "Normaali (5s)"
 
-msgid "November"
-msgstr ""
-
 msgid "Now/Next"
 msgstr "Nyt/Seuraava"
 
@@ -1627,9 +1626,6 @@ msgstr "OSD"
 
 msgid "OSD [display time]"
 msgstr "OSD [näytettävä aika]"
-
-msgid "October"
-msgstr ""
 
 msgid "Offline"
 msgstr "Ei yhteyttä"
@@ -1660,6 +1656,10 @@ msgstr "Ulkoilma"
 
 msgid "PNG"
 msgstr "PNG"
+
+#, fuzzy
+msgid "Parent Directory"
+msgstr "Rekursiivinen kuvahakemisto"
 
 msgid "Pearl (or compatible LCD) 240x320"
 msgstr "Pearl (tai yhteensopiva LCD) 240x320"
@@ -1874,15 +1874,13 @@ msgstr "Sat"
 msgid "Satellite"
 msgstr "Satelliitti"
 
-msgid "Saturday"
-msgstr ""
-
 msgid "Save"
 msgstr "Tallenna"
 
 msgid "Save Config"
 msgstr "Tallenna asetukset"
 
+#, python-format
 msgid "Save Config to File... (%s)"
 msgstr "Tallenna tiedostoon... (%s)"
 
@@ -1999,9 +1997,6 @@ msgstr "Valitse vaihdettava näyttö - Näyttö"
 
 msgid "Screens used for Changing"
 msgstr "Valitse kierrätettävät näytöt"
-
-msgid "September"
-msgstr ""
 
 msgid "Service search first"
 msgstr "Palvelunhaku ensin"
@@ -2123,9 +2118,6 @@ msgstr "Stutter TV"
 msgid "Sun"
 msgstr "Aurinko"
 
-msgid "Sunday"
-msgstr ""
-
 msgid "Sunrise"
 msgstr "Auringonnousu"
 
@@ -2162,10 +2154,6 @@ msgstr "Ketjut per LCD"
 msgid "Thur"
 msgstr "To"
 
-#, fuzzy
-msgid "Thursday"
-msgstr "To"
-
 msgid "Time"
 msgstr "Aika"
 
@@ -2189,9 +2177,6 @@ msgstr "Otsikko"
 
 msgid "Tue"
 msgstr "Tii"
-
-msgid "Tuesday"
-msgstr ""
 
 msgid "Tuner"
 msgstr "Viritin"
@@ -2334,9 +2319,6 @@ msgstr "WebIF: Virkistä [s]"
 msgid "Wed"
 msgstr "Kes"
 
-msgid "Wednesday"
-msgstr ""
-
 msgid "Week"
 msgstr "Viikko"
 
@@ -2412,6 +2394,7 @@ msgstr "Kopioi Päällä"
 msgid "cornflowerblue"
 msgstr "cornflowerblue"
 
+#, python-format
 msgid "currently set : %s"
 msgstr "nyt asetettu : %s"
 

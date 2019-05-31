@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 10:37+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: none\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.1.1\n"
 
-msgid "- ONID to search"
-msgstr "- ONID naar zoeken"
+msgid "Australia"
+msgstr ""
 
 msgid "Automatic"
 msgstr "Automatisch"
@@ -48,17 +48,23 @@ msgstr "Verwijder voor het scannen"
 msgid "Create terrestrial bouquet"
 msgstr "Creëer terrestrisch boeket"
 
+#, fuzzy
+msgid "Create terrestrial.xml file"
+msgstr "Creëer terrestrisch boeket"
+
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
 msgstr "Geef de originele netwerk-ID (ONID) van de multiplexen waartoe u het zoeken wilt beperken. UK terrestrisch gebruik normaal gesproken \"9018\"."
 
 msgid "Exit"
 msgstr "Sluit af"
 
-#, python-format
+#, fuzzy, python-format
 msgid "Found %d unique transponder"
-msgid_plural "Found %d unique transponders"
-msgstr[0] "%d unieke transponders gevonden"
-msgstr[1] "Found %d unique transponders"
+msgstr "%d unieke transponders gevonden"
+
+#, fuzzy, python-format
+msgid "Found %d unique transponders"
+msgstr "%d unieke transponders gevonden"
 
 msgid "If you select \"yes\" all stored terrestrial channels will be deleted before starting the current search."
 msgstr "Als u dit kiest, worden alle opgeslagen terristische kanalen verwijderd voordat het zoeken begint."
@@ -90,16 +96,20 @@ msgstr "Geen transponders om te lezen"
 msgid "No valid NIM found for terrestrial"
 msgstr "Geen geldige NIM gevonden voor terrestrisch"
 
+#, fuzzy
+msgid "ONID to search"
+msgstr "- ONID naar zoeken"
+
 msgid "Only free scan"
 msgstr "Alleen vrije kanalen"
+
+#, fuzzy, python-format
+msgid "Reading %s MHz (ch %s)"
+msgstr "Leest kanaal %s"
 
 #, python-format
 msgid "Reading SI tables on %s MHz"
 msgstr "Leest SI-tabellen op %s MHz"
-
-#, python-format
-msgid "Reading channel %s"
-msgstr "Leest kanaal %s"
 
 msgid "Reading streams"
 msgstr "Leest kanalen"
@@ -113,15 +123,14 @@ msgstr "Beperk tot enkele ONID"
 msgid "Scan"
 msgstr "Scan"
 
-#, python-format
-msgid "Scanning channel %s"
-msgstr "Scant kanaal %s"
-
 msgid "Scanning for active transponders"
 msgstr "Scant actieve transponders"
 
 msgid "Select \"Yes\" to restrict the search to multiplexes that belong to a single original network ID (ONID). Select \"No\" to search all ONIDs."
 msgstr "Kies \"Ja\" om het zoeken te beperken tot multiplexen die behoren tot de originele netwerk-ID (ONID). Kies \"Nee\" om alle ONIDs te zoeken."
+
+msgid "Select \"yes\" to create a custom terrestrial.xml file and install it in /etc/enigma2 for system scans to use."
+msgstr ""
 
 msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" will pick the highest spec available tuner."
 msgstr "Kies een tuner die is geconfigureerd voor terrestrische scans. \"Automatisch\" zal de tuner met de beste specificaties gebruiken."
@@ -153,6 +162,10 @@ msgstr "Tuner"
 
 #, python-format
 msgid "Tuning %s MHz"
+msgstr "Tunet %s MHz"
+
+#, fuzzy, python-format
+msgid "Tuning %s MHz (ch %s)"
 msgstr "Tunet %s MHz"
 
 msgid "UHF Europe"

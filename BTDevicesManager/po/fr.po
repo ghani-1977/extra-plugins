@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-30 21:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -21,8 +21,19 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "(Re)Scanner"
 
+msgid "Audio Address"
+msgstr ""
+
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Connecter"
+
 msgid "Autostart"
 msgstr "Démarrage automatique"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "C'est le gestionnaire de périphériques bt"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Gestionnaire de périphériques Bluetooth"
@@ -45,6 +56,10 @@ msgstr "Connexion avec :\n"
 msgid "Disconnect"
 msgstr "Déconnecter"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Connexion avec :\n"
+
 msgid "Exit"
 msgstr "Quitter"
 
@@ -60,6 +75,9 @@ msgstr "Non connecté à aucun appareil"
 msgid "Not detected devices around STB"
 msgstr "Dispositifs non détectés autour du STB"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Veuillez charger le pilote BT en appuyant sur le bouton BLEU."
 
@@ -71,9 +89,6 @@ msgstr "Recherche d'appareils....."
 
 msgid "Scanning..."
 msgstr "Analyse en cours..."
-
-msgid "This is bt devices manager"
-msgstr "C'est le gestionnaire de périphériques bt"
 
 msgid "Trying to pair with:"
 msgstr "Essai d’appairage avec:"

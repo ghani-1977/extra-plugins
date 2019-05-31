@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-05-09 13:02+0200\n"
 "Last-Translator: Pr2 <dummy@dummy.com>\n"
 "Language-Team: french\n"
@@ -70,9 +70,6 @@ msgstr "Précision (plus c’est mieux)"
 msgid "Another type"
 msgstr "Autre type"
 
-msgid "Blind scan"
-msgstr "Blind scan"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "Recherche aveugle pour les tuners DVB-S2"
 
@@ -106,6 +103,10 @@ msgstr ""
 "   Polarisation : %s\n"
 "   Plage de fréquence : %d - %d MHz\n"
 "   Symbol rates : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Blind scan"
 
 msgid "DVB-S + DVB-S2"
 msgstr "DVB-S + DVB-S2"

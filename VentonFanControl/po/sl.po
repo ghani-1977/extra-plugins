@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ENIGMA 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 14:10+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OldSkul from www.linux-sprejemniki.info\n"
@@ -22,10 +22,6 @@ msgstr ""
 msgid "FAN Control"
 msgstr ""
 
-#
-msgid "Fan Control"
-msgstr "Nadzor ventilatorja"
-
 msgid "Fan mode"
 msgstr ""
 
@@ -41,6 +37,11 @@ msgstr ""
 #
 msgid "Save"
 msgstr "Potrditev"
+
+#
+#, fuzzy
+msgid "Venton Fan Control"
+msgstr "Nadzor ventilatorja"
 
 msgid "switch Fan On/Off"
 msgstr ""

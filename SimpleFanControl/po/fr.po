@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 11:19+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: french\n"
@@ -14,17 +14,11 @@ msgstr ""
 "X-Generator: Poedit 2.1.1\n"
 "X-Poedit-SourceCharset: iso-8859-15\n"
 
-msgid "Auto"
-msgstr "Auto"
-
 msgid "Cancel"
 msgstr "Annuler"
 
 msgid "FAN Control"
 msgstr "Contrôle du VENTILATEUR"
-
-msgid "Fan Control"
-msgstr "Contrôle Ventilateur"
 
 msgid "Fan mode"
 msgstr "Mode du ventilateur"
@@ -40,6 +34,10 @@ msgstr "Marche"
 
 msgid "Save"
 msgstr "Sauver"
+
+#, fuzzy
+msgid "Simple Fan Control"
+msgstr "Contrôle Ventilateur"
 
 msgid "switch Fan On/Off"
 msgstr "interrupteur Ventilateur Marche/Arrêt"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ims\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 14:17+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: jerry00 <jerry00@quick.cz>\n"
@@ -45,6 +45,11 @@ msgstr "Uložit"
 #
 msgid "Use Fan timer"
 msgstr "Použít časovač funidla"
+
+#
+#, fuzzy
+msgid "Vu Duo Fan Control"
+msgstr "Ovládání funidla"
 
 #
 msgid "no"

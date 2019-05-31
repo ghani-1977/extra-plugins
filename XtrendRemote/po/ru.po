@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:29+0430\n"
 "PO-Revision-Date: 2016-05-07 14:23+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: Russian / enigma(c) Ukraine, Kiev>\n"
@@ -67,3 +67,7 @@ msgstr ""
 
 msgid "XP3000"
 msgstr ""
+
+#, fuzzy
+msgid "Xtrend Remote Control Code"
+msgstr "Код дистанционного управления"

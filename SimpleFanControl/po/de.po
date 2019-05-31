@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-10-14 21:58+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: Deutsch <> j-ot&Trial\n"
@@ -14,17 +14,11 @@ msgstr ""
 "X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: iso-8859-15\n"
 
-msgid "Auto"
-msgstr "Auto"
-
 msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid "FAN Control"
 msgstr "Lüftersteuerung"
-
-msgid "Fan Control"
-msgstr "Lüfterkontrolle"
 
 msgid "Fan mode"
 msgstr "Lüfter Modus"
@@ -40,6 +34,10 @@ msgstr "An"
 
 msgid "Save"
 msgstr "Speichern"
+
+#, fuzzy
+msgid "Simple Fan Control"
+msgstr "Lüfterkontrolle"
 
 msgid "switch Fan On/Off"
 msgstr "Schalter Lüfter ein/aus"

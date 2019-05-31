@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 11:24+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -55,8 +55,9 @@ msgstr "Sauver"
 msgid "Sorry, but %s is not supported."
 msgstr "Désolé, mais %s n'est pas supporté."
 
-msgid "Text support"
-msgstr "Support text"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "Ensuite, choisissez 'Garder' en quelques secondes"
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Code contrôle télécommande"

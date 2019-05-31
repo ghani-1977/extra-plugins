@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 03:05+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2019-05-22 01:37+0300\n"
 "Last-Translator: MCelliotG <mcelliotg@gmail.com>\n"
 "Language-Team: none\n"
@@ -39,11 +39,13 @@ msgstr "Εκκαθάριση πριν την ανίχνευση"
 msgid "Exit"
 msgstr "Έξοδος"
 
-#, python-format
+#, fuzzy, python-format
 msgid "Found %d transponder"
-msgid_plural "Found %d transponders"
-msgstr[0] "Βρέθηκε %d αναμεταδότης"
-msgstr[1] "Βρέθηκαν %d αναμεταδότες"
+msgstr "Βρέθηκε %d αναμεταδότης"
+
+#, fuzzy, python-format
+msgid "Found %d transponders"
+msgstr "Βρέθηκε %d αναμεταδότης"
 
 msgid "Fransat MIS 5W"
 msgstr "Fransat MIS 5W"

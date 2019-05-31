@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ims\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2012-05-22 01:01+0100\n"
 "Last-Translator: jerry <jerry00@quick.cz>\n"
 "Language-Team: jerry00 <jerry00@quick.cz>\n"
@@ -68,9 +68,6 @@ msgstr ""
 msgid "Another type"
 msgstr "Typ hledání"
 
-msgid "Blind scan"
-msgstr ""
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
@@ -109,6 +106,11 @@ msgstr ""
 "   Polarizace : %s\n"
 "   Frekv. rozsah : %d - %d MHz\n"
 "   Sym. rychlost : %d - %d MHz"
+
+#
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Satelit"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""

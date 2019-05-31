@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GigaBlueRemote\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-05 19:03+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -33,6 +33,10 @@ msgstr "Patvirtinti"
 
 msgid "FILE DOES NOT EXIST : /proc/stb/ir/rc/customcode"
 msgstr "Failo /proc/stb/ir/rc/customcode NĖRA"
+
+#, fuzzy
+msgid "GigaBlue Remote Control Code"
+msgstr "Nuotolinio valdymo kodas"
 
 msgid "Please change now the mode on your RCU."
 msgstr "Pakeiskite savo nuotolinio valdymo režimą."

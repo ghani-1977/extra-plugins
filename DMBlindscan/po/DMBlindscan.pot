@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:32+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,9 +66,6 @@ msgstr ""
 msgid "Another type"
 msgstr ""
 
-msgid "Blind scan"
-msgstr ""
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
@@ -95,6 +92,9 @@ msgid ""
 "Current Status: %d/%d\n"
 "Satellite: %s\n"
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MHz"
+msgstr ""
+
+msgid "DM Blind scan"
 msgstr ""
 
 msgid "DVB-S + DVB-S2"

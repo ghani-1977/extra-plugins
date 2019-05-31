@@ -229,3 +229,4 @@ printf "           3) unselect keep original file format\n"
 printf "You only need to do this once in PoEdit.\n\n"
 printf "Please read the translators wiki page:\n"
 printf "\nhttps://wiki.openpli.org/Information_for_Translators\n"
+find . -name "*.mo" -type f -delete

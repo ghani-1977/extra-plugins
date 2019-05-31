@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XtrendRemote - oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:29+0430\n"
 "PO-Revision-Date: 2017-07-06 09:14+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -68,3 +68,7 @@ msgstr "XP1000"
 
 msgid "XP3000"
 msgstr "XP3000"
+
+#, fuzzy
+msgid "Xtrend Remote Control Code"
+msgstr "Nuotolinio valdymo pulto kodas"

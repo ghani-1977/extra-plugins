@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XtrendFancontrol - oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-06 09:10+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -131,6 +131,10 @@ msgstr "HDD būklė"
 
 msgid "Watch system temp"
 msgstr "Sistemos temperatūra"
+
+#, fuzzy
+msgid "Xtrend Fan Control"
+msgstr "Aušintuvo valdymas"
 
 msgid ""
 "You may not use this mode!\n"

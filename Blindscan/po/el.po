@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan Official Greek Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-11-26 04:37+0200\n"
 "Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language-Team: MCelliot_g <mcelliot_g@hotmail.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "\n"
-"Second slot dual tuner may not be supported blind scan."
+"The second slot of this dual tuner may not support blind scan."
 msgstr ""
 "\n"
 "Η δεύτερη θύρα του διπλού tuner μπορεί να μην υποστηρίζει τυφλή ανίχνευση."
@@ -36,7 +36,7 @@ msgid " tuner."
 msgstr " tuner."
 
 #, fuzzy
-msgid "\"channel scan\" searches for channels and saves them to your receiver; both options do a transponder search and save the result in /tmp in an XML file in satellites.xml format"
+msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
 msgstr "Η \"ανίχνευση για κανάλια\" ψάχνει για κανάλια και τα αποθηκεύει στο δέκτη σας: η \"ανίχνευση για αναμεταδότες\" εμφανίζει τους αναμεταδότες που βρέθηκαν, επιτρέποντας στο χρήστη να επιλέξει έναν ή όλους. Και οι δύο επιλογές αποθηκεύουν το αποτέλεσμα στο /tmp σε ένα αρχείο satellites.xml"
 
 #, python-format
@@ -73,8 +73,25 @@ msgstr "Κατάσταση τυφλής ανίχνευσης"
 msgid "Blindscan"
 msgstr "Τυφλή ανίχνευση"
 
+#, python-format
+msgid "Blindscan executable not found '%s'!"
+msgstr ""
+
 msgid "Blindscan is not supported in "
 msgstr "Η τυφλή ανίχνευση δεν υποστηρίζεται από το "
+
+msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
+msgstr ""
+
+#, fuzzy
+msgid "CAUTION: If you select \"yes\" the scan will not sync with transponders listed in satellites.xml. Default is \"no\". Only change this if you understand why you are doing it."
+msgstr "Αν επιλέξετε \"ναι\" η ανίχνευση θα ψάξει μόνο αναμεταδότες που δεν υπάρχουν στο satellites.xml"
+
+msgid "CAUTION: Only select \"inverted\" if you are using an inverted LNB (i.e. an LNB where the local oscillator frequency is greater than the scan frequency). Default is \"normal\". Only change this if you understand why you are doing it."
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
 
 msgid "Clear before scan"
 msgstr "Εκκαθάριση πριν την ανίχνευση"
@@ -82,10 +99,8 @@ msgstr "Εκκαθάριση πριν την ανίχνευση"
 #, fuzzy, python-format
 msgid ""
 "Current Status: %d/%d\n"
-"   Satellite: %s\n"
-"   Polarization: %s\n"
-"   Frequency range: %d - %d MHz\n"
-"   Symbol rates: %d - %d MHz"
+"Satellite: %s\n"
+"Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MHz"
 msgstr ""
 "Τρέχουσα κατάσταση : %d/%d\n"
 "Δορυφόρος: %s \n"
@@ -95,6 +110,9 @@ msgid "DVB-S + DVB-S2"
 msgstr ""
 
 msgid "DVB-S only"
+msgstr ""
+
+msgid "Deselect all"
 msgstr ""
 
 msgid "Disable remove duplicates"
@@ -109,28 +127,12 @@ msgstr "Έξοδος"
 msgid "Filter out adjacent satellites"
 msgstr "Φιλτράρισμα παρακείμενων δορυφόρων"
 
-#, fuzzy
-msgid "Frequency values must be between 10700 MHz and 12749 MHz"
+#, fuzzy, python-format
+msgid "Frequency values must be between %d MHz and %d MHz"
 msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz"
 
-#, fuzzy
-msgid "Frequency values must be between 10701 MHz and 12750 MHz"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz"
-
-#, fuzzy
-msgid "Frequency values must be between 117000 MHz and 12749 MHz (Circular-band)"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
-
-#, fuzzy
-msgid "Frequency values must be between 11701 MHz and 12750 MHz (Circular-band)"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
-
-#, fuzzy
-msgid "Frequency values must be between 3000 MHz and 4199 MHz (C-band)"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
-
-#, fuzzy
-msgid "Frequency values must be between 3001 MHz and 4200 MHz (C-band)"
+#, fuzzy, python-format
+msgid "Frequency values must be between %d MHz and %d MHz (C-band)"
 msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
 
 #, fuzzy, python-format
@@ -142,7 +144,7 @@ msgid "Horizontal"
 msgstr "οριζόντια"
 
 #, fuzzy
-msgid "If you select \"yes\" all channels on the satellite being search will be deleted before starting the current search."
+msgid "If you select \"yes\" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
 msgstr "Αν επιλέξετε \"ναι\" όλα τα κανάλια του δορυφόρου που ανιχνεύεται θα διαγραφούν πριν την εκκίνηση της ανίχνευσης, το \"διατήρηση των feeds\", σημαίνει το ίδιο αλλά θα διατηρηθούν όλοι οι αναμεταδότες/υπηρεσίες feeds."
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
@@ -151,17 +153,18 @@ msgstr "Αν επιλέξετε \"ναι\" η ανίχνευση θα αποθη
 msgid "If you select \"yes\" the scan will only search transponders not listed in satellites.xml"
 msgstr "Αν επιλέξετε \"ναι\" η ανίχνευση θα ψάξει μόνο αναμεταδότες που δεν υπάρχουν στο satellites.xml"
 
+msgid "It seems manufacturer does not support blind scan for this tuner."
+msgstr ""
+
+msgid "LNB inversion"
+msgstr ""
+
+msgid "LNB of current satellite not compatible with plugin"
+msgstr ""
+
 msgid ""
 "Looking for available transponders.\n"
 "This will take a long time, please be patient."
-msgstr ""
-"Ανίχνευση διαθέσιμων αναμεταδοτών.\n"
-"Αυτό μπορεί να διαρκέσει αρκετά, παρακαλώ περιμένετε."
-
-#, fuzzy
-msgid ""
-"Looking for available transponders.\n"
-"This will take a short while."
 msgstr ""
 "Ανίχνευση διαθέσιμων αναμεταδοτών.\n"
 "Αυτό μπορεί να διαρκέσει αρκετά, παρακαλώ περιμένετε."
@@ -194,10 +197,6 @@ msgid ""
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
 
-#, python-format
-msgid "Not found blind scan utility '%s'!"
-msgstr "Το εργαλείο τυφλής ανίχνευσης '%s' δεν βρέθηκε!"
-
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
@@ -221,13 +220,13 @@ msgstr "Παρακαλώ ρυθμίστε το tuner σας."
 msgid "Polarisation"
 msgstr "Πόλωση"
 
-msgid "Press Green/OK to start the scan"
-msgstr ""
-
 msgid "Press OK to start the scan."
 msgstr ""
 
 msgid "Press green to start service searching."
+msgstr ""
+
+msgid "Restore defaults"
 msgstr ""
 
 msgid "Satellite"
@@ -256,6 +255,16 @@ msgstr "Τελικός ρυθμός συμβόλων"
 
 #, fuzzy, python-format
 msgid ""
+"Search completed\n"
+"%d transponders found in %d:%02d minutes.\n"
+"Details saved in: %s"
+msgstr ""
+"Η αναζήτηση ολοκληρώθηκε. \n"
+"Βρέθηκαν %d αναμεταδότες σε %d:%02d λεπτά.\n"
+"Οι λεπτομέρειες αποθηκεύτηκαν στο: %s"
+
+#, fuzzy, python-format
+msgid ""
 "Search completed. %d transponders found.\n"
 "\n"
 "Details saved in:\n"
@@ -271,8 +280,16 @@ msgstr "Τύπος ανίχνευσης"
 msgid "Select a tuner that is configured for the satellite you wish to search"
 msgstr "Επιλέξτε ένα tuner που έχει ρυθμιστεί για το δορυφόρο που θέλετε να ανιχνεύσετε"
 
+msgid "Select all"
+msgstr ""
+
 msgid "Select the satellite you wish to search"
 msgstr "Επιλέξτε το δορυφόρο που θέλετε να ανιχνεύσετε"
+
+msgid ""
+"Select transponders and press green to scan.\n"
+"Press yellow to select all transponders and blue to deselect all."
+msgstr ""
 
 msgid "Smaller steps takes longer but scan is more thorough"
 msgstr "Τα μικρότερα βήματα διαρκούν περισσότερο αλλά η ανίχνευση είναι πιο ακριβής"
@@ -321,27 +338,45 @@ msgstr "Όταν ένας γειτονικός δορυφόρος είναι π�
 msgid "circular left"
 msgstr "αριστερόστροφη"
 
-msgid "circular right"
+#, fuzzy
+msgid "circular left/right"
 msgstr "δεξιόστροφη"
 
-#, fuzzy
-msgid "circular right & circular left"
-msgstr "δεξιόστροφη και αριστερόστροφη"
+msgid "circular right"
+msgstr "δεξιόστροφη"
 
 msgid "circular right and circular left"
 msgstr "δεξιόστροφη και αριστερόστροφη"
 
+#, fuzzy
+msgid "don't scan"
+msgstr "Τυφλή ανίχνευση"
+
 msgid "horizontal"
 msgstr "οριζόντια"
+
+msgid "inverted"
+msgstr ""
 
 msgid "no"
 msgstr "όχι"
 
+msgid "normal"
+msgstr ""
+
 msgid "save to XML file"
 msgstr ""
 
+#, fuzzy
+msgid "scan"
+msgstr "Τυφλή ανίχνευση"
+
 msgid "scan for channels"
 msgstr "ανίχνευση για κανάλια"
+
+#, fuzzy
+msgid "scan for transponders"
+msgstr "Ανίχνευση μόνο των αγνώστων αναμεταδοτών"
 
 msgid "up to 1 degree"
 msgstr "έως 1 μοίρα"

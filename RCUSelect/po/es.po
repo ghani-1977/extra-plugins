@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WeTek play - RCU Select\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OpenSPA <openspa.info>\n"
@@ -14,14 +14,125 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7\n"
 
+msgid "A400 NEC remote"
+msgstr ""
+
+msgid "AB IPBox 9900/99/55HD remote"
+msgstr ""
+
+msgid "Alien 1 Old HOF54B1-4 remote"
+msgstr ""
+
+msgid "Alien 2 New HOF55D remote"
+msgstr ""
+
+msgid "Alien 5 amlogic NEC remote"
+msgstr ""
+
 msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Are you sure?"
 msgstr ""
 
+msgid "CVT RC5 remote"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancelar"
 
+msgid "Factory amlogic NEC remote"
+msgstr ""
+
+msgid "GigaBlue 800 UE Plus remote"
+msgstr ""
+
+msgid "Golden Interstar LX3 remote"
+msgstr ""
+
+msgid "K1 Plus amlogic NEC remote"
+msgstr ""
+
+msgid "K1 Pro amlogic NEC remote"
+msgstr ""
+
+msgid "M8S Plus amlogic NEC remote"
+msgstr ""
+
+msgid "M8S ZAP-A10 NEC remote"
+msgstr ""
+
+msgid "MB2 amlogic M8B remote"
+msgstr ""
+
+msgid "MX Pro 2 amlogic MXproII remote"
+msgstr ""
+
+msgid "MX3G amlogic MXIII-G remote"
+msgstr ""
+
+msgid "MXQV20 ZAP-A10 NEC remote"
+msgstr ""
+
+msgid "MXQV31 amlogic NEC remote"
+msgstr ""
+
+msgid "Mutant HD2400 remote"
+msgstr ""
+
+msgid "Octagon SF8 remote"
+msgstr ""
+
+msgid "Qintex Q812 remote"
+msgstr ""
+
+msgid "RCMM amlogic NEC remote"
+msgstr ""
+
 msgid "RCU Select"
 msgstr "Seleccionar mando"
+
+msgid "TX1 amlogic NEC remote"
+msgstr ""
+
+msgid "TX3 Pro amlogic NEC remote"
+msgstr ""
+
+msgid "TX5 Pro amlogic NEC remote"
+msgstr ""
+
+msgid "Technomate Nano remote"
+msgstr ""
+
+msgid "Vander amlogic remote"
+msgstr ""
+
+msgid "WeTek OpenELEC NEC remote"
+msgstr ""
+
+msgid "WeTek Play (Classic) remote"
+msgstr ""
+
+msgid "WeTek Play 2 NEC remote"
+msgstr ""
+
+msgid "WeTek Play Enigma2 remote"
+msgstr ""
+
+msgid "WeTek Play NEC remote"
+msgstr ""
+
+msgid "Wechip V5 amlogic remote"
+msgstr ""
+
+msgid "X96 amlogic remote"
+msgstr ""
+
+msgid "X98 amlogic remote"
+msgstr ""
+
+msgid "Xtrend ET10000 remote"
+msgstr ""
+
+msgid "Zgemma Star remote"
+msgstr ""

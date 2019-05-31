@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-10-16 21:32+0300\n"
 "Last-Translator: Dimitrij <Dima-73@inbox.lv>\n"
 "Language-Team: \n"
@@ -69,9 +69,6 @@ msgstr "Точность (чем выше, тем лучше)"
 msgid "Another type"
 msgstr "Другой тип"
 
-msgid "Blind scan"
-msgstr "Слепой поиск"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "Слепой поиск для DVB-S2 тюнеров"
 
@@ -103,6 +100,10 @@ msgstr ""
 "Текущее значение : %d/%d\n"
 "Спутник : %s\n"
 "Поляризация : %s  Частотный диапазон : %d - %d MHz  Скорость потока : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Слепой поиск"
 
 msgid "DVB-S + DVB-S2"
 msgstr "DVB-S + DVB-S2"

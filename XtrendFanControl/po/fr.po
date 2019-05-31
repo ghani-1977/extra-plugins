@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 11:38+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: french\n"
@@ -132,6 +132,10 @@ msgstr "Surveiller l'état du HDD"
 
 msgid "Watch system temp"
 msgstr "Afficher la température du système"
+
+#, fuzzy
+msgid "Xtrend Fan Control"
+msgstr "Contrôle Ventilateur"
 
 msgid ""
 "You may not use this mode!\n"

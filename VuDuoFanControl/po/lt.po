@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: VuDuoFanControl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-06 08:27+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -36,6 +36,10 @@ msgstr "Išsaugoti"
 
 msgid "Use Fan timer"
 msgstr "Naudoti aušintuvo laikmatį"
+
+#, fuzzy
+msgid "Vu Duo Fan Control"
+msgstr "Aušintuvo valdymas"
 
 msgid "no"
 msgstr "ne"

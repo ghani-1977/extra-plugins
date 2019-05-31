@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BTDevicesManager - oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-05 14:19+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. vyteniui@gmail.com\n"
@@ -23,8 +23,19 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "Paieška"
 
+msgid "Audio Address"
+msgstr ""
+
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Prisijungti"
+
 msgid "Autostart"
 msgstr "Autopaleidimas"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "Tai BT įrenginių valdymas"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Bluetooth įrangos valdymas"
@@ -47,6 +58,10 @@ msgstr "Ryšys su:\n"
 msgid "Disconnect"
 msgstr "Atjungti"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Ryšys su:\n"
+
 msgid "Exit"
 msgstr "Uždaryti"
 
@@ -62,6 +77,9 @@ msgstr "Neprisijungta prie jokio įrenginio"
 msgid "Not detected devices around STB"
 msgstr "Šioje aplinkoje nerasta įranga"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Įkelkite BT tvarkyklę, paspaudę 'MĖLYNĄ' mygtuką."
 
@@ -73,9 +91,6 @@ msgstr "Ieškoma Bluetooth įrangos..."
 
 msgid "Scanning..."
 msgstr "Vyksta paieška..."
-
-msgid "This is bt devices manager"
-msgstr "Tai BT įrenginių valdymas"
 
 msgid "Trying to pair with:"
 msgstr "Bandoma susieti su:"

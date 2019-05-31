@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ViX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-07-31 10:46+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn, Rob van der Does\n"
@@ -59,8 +59,9 @@ msgstr "Sla op"
 msgid "Sorry, but %s is not supported."
 msgstr "Sorry, maar %s wordt niet ondersteund."
 
-msgid "Text support"
-msgstr "Tekst ondersteuning"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "Druk op 'Behouden' binnen secondes"
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Afstandsbedieningscode"

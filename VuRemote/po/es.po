@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2018-01-07 19:32+0100\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OpenSPA <openspa.info>\n"
@@ -55,8 +55,9 @@ msgstr "Guardar"
 msgid "Sorry, but %s is not supported."
 msgstr "Lo sentimos, pero %s no está soportado."
 
-msgid "Text support"
-msgstr "Texto de soporte"
-
 msgid "Then choose 'Keep' within seconds"
 msgstr "A continuación pulse 'OK'"
+
+#, fuzzy
+msgid "Vu Remote Control Code"
+msgstr "Código mando a distancia"

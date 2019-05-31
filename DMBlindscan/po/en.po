@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-29 00:27+0100\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2012-05-18 01:41+0100\n"
 "Last-Translator: Andy Blackburn <andyblac@o2.co.uk>\n"
 "Language-Team: none\n"
@@ -65,10 +65,6 @@ msgstr ""
 msgid "Another type"
 msgstr "Search type"
 
-#, fuzzy
-msgid "Blind scan"
-msgstr "Blindscan"
-
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
@@ -106,6 +102,10 @@ msgstr ""
 "   Polarization : %s\n"
 "   Frequency range : %d - %d MHz\n"
 "   Symbol rates : %d - %d MHz"
+
+#, fuzzy
+msgid "DM Blind scan"
+msgstr "Blindscan"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TerrestrialScan oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2017-07-06 08:05+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.0.2\n"
 
-msgid "- ONID to search"
+msgid "Australia"
 msgstr ""
 
 msgid "Automatic"
@@ -43,18 +43,22 @@ msgstr "Prieš paiešką išvalyti"
 msgid "Create terrestrial bouquet"
 msgstr ""
 
+msgid "Create terrestrial.xml file"
+msgstr ""
+
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
 msgstr ""
 
 msgid "Exit"
 msgstr "Uždaryti"
 
-#, python-format
+#, fuzzy, python-format
 msgid "Found %d unique transponder"
-msgid_plural "Found %d unique transponders"
-msgstr[0] "Surastas %d naujas transponderis"
-msgstr[1] "Surasti %d nauji transponderiai"
-msgstr[2] "Surasta %d naujų transponderių"
+msgstr "Surastas %d naujas transponderis"
+
+#, fuzzy, python-format
+msgid "Found %d unique transponders"
+msgstr "Surastas %d naujas transponderis"
 
 msgid "If you select \"yes\" all stored terrestrial channels will be deleted before starting the current search."
 msgstr "Jei pasirinksite 'taip', prieš pradedant šią paiešką, visi ankstesni išsaugoti antžeminiai kanalai bus panaikinti."
@@ -86,16 +90,19 @@ msgstr ""
 msgid "No valid NIM found for terrestrial"
 msgstr "Nerasta tinkamų antžeminių imtuvų"
 
+msgid "ONID to search"
+msgstr ""
+
 msgid "Only free scan"
 msgstr "Ieškoti tik nekoduotų kanalų"
+
+#, fuzzy, python-format
+msgid "Reading %s MHz (ch %s)"
+msgstr "Skaitomas kanalas %s"
 
 #, python-format
 msgid "Reading SI tables on %s MHz"
 msgstr ""
-
-#, python-format
-msgid "Reading channel %s"
-msgstr "Skaitomas kanalas %s"
 
 #, fuzzy
 msgid "Reading streams"
@@ -110,14 +117,13 @@ msgstr ""
 msgid "Scan"
 msgstr "Paieška"
 
-#, python-format
-msgid "Scanning channel %s"
-msgstr "Ieškomas kanalas %s"
-
 msgid "Scanning for active transponders"
 msgstr "Ieškoma veikiančių transponderių"
 
 msgid "Select \"Yes\" to restrict the search to multiplexes that belong to a single original network ID (ONID). Select \"No\" to search all ONIDs."
+msgstr ""
+
+msgid "Select \"yes\" to create a custom terrestrial.xml file and install it in /etc/enigma2 for system scans to use."
 msgstr ""
 
 msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" will pick the highest spec available tuner."
@@ -151,6 +157,10 @@ msgstr "Imtuvas"
 
 #, python-format
 msgid "Tuning %s MHz"
+msgstr ""
+
+#, python-format
+msgid "Tuning %s MHz (ch %s)"
 msgstr ""
 
 msgid "UHF Europe"

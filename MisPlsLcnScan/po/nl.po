@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-21 03:05+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2019-05-16 10:35+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: none\n"
@@ -39,11 +39,13 @@ msgstr "Wissen alvorens te scannen"
 msgid "Exit"
 msgstr "Sluit af"
 
-#, python-format
+#, fuzzy, python-format
 msgid "Found %d transponder"
-msgid_plural "Found %d transponders"
-msgstr[0] "%d transponder gevonden"
-msgstr[1] "%d transponders gevonden"
+msgstr "%d transponder gevonden"
+
+#, fuzzy, python-format
+msgid "Found %d transponders"
+msgstr "%d transponder gevonden"
 
 msgid "Fransat MIS 5W"
 msgstr "Fransat MIS 5W"

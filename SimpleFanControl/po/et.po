@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-05-31 14:28+0430\n"
 "PO-Revision-Date: 2016-05-07 14:09+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: Raivo, Henkka, eesatfan, rimas\n"
@@ -13,17 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Poedit 1.8.7\n"
 
-msgid "Auto"
-msgstr ""
-
 msgid "Cancel"
 msgstr ""
 
 msgid "FAN Control"
 msgstr ""
-
-msgid "Fan Control"
-msgstr "Ventilaatori juhtimine"
 
 msgid "Fan mode"
 msgstr ""
@@ -39,6 +33,10 @@ msgstr ""
 
 msgid "Save"
 msgstr "Salvesta"
+
+#, fuzzy
+msgid "Simple Fan Control"
+msgstr "Ventilaatori juhtimine"
 
 msgid "switch Fan On/Off"
 msgstr ""
