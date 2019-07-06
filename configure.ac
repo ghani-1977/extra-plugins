@@ -56,11 +56,6 @@ AudioEffect/src/Makefile
 AudioEffect/meta/Makefile
 AudioEffect/po/Makefile
 
-AnimationSetup/Makefile
-AnimationSetup/src/Makefile
-AnimationSetup/po/Makefile
-AnimationSetup/meta/Makefile
-
 Blindscan/Makefile
 Blindscan/src/Makefile
 Blindscan/meta/Makefile
