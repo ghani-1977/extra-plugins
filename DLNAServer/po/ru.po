@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DLNAServer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: litvcom\n"
 "Language-Team: \n"
@@ -26,6 +26,10 @@ msgstr "    - Уровень журнала"
 msgid "Cancel"
 msgstr "Отменить"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Имя сервера"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "Включить автозапуск для DLNA-сервера"
 
@@ -35,11 +39,18 @@ msgstr "Включить ведение журнала"
 msgid "Exit"
 msgstr "Выход"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Каталог Музыка"
+
 msgid "Music Directory"
 msgstr "Каталог Музыка"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Каталог Фото"
@@ -56,6 +67,9 @@ msgstr "Имя сервера"
 msgid "Start"
 msgstr "Начать"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Каталог Видео"
 
@@ -65,8 +79,11 @@ msgstr "Отладка"
 msgid "error"
 msgstr "Ошибка"
 
-msgid "off"
-msgstr "выкл"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "Предупреждение"

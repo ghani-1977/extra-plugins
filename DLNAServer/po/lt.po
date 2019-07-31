@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DLNAServer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: openATV\n"
@@ -25,6 +25,10 @@ msgstr "    - Žurnalo apimtis"
 msgid "Cancel"
 msgstr "Atšaukti"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Serverio pavadinimas"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "DLNA serverį paleisti automatiškai"
 
@@ -34,11 +38,18 @@ msgstr "Įjungti žurnalą"
 msgid "Exit"
 msgstr "Užverti"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Muzikos katalogas"
+
 msgid "Music Directory"
 msgstr "Muzikos katalogas"
 
 msgid "OK"
 msgstr "Gerai"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Nuotraukų katalogas"
@@ -55,6 +66,9 @@ msgstr "Serverio pavadinimas"
 msgid "Start"
 msgstr "Pradėti"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Vaizdo įrašų katalogas"
 
@@ -64,8 +78,11 @@ msgstr "šalinti klaidas"
 msgid "error"
 msgstr "klaida"
 
-msgid "off"
-msgstr "išjungti"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "perspėti"

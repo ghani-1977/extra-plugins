@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DLNAServer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: openATV\n"
@@ -25,6 +25,10 @@ msgstr "    - Log niveau"
 msgid "Cancel"
 msgstr "Annuleer"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Server naam"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "Autostart voor DLNA Browser inschakelen"
 
@@ -34,11 +38,18 @@ msgstr "Log bestand inschakelen"
 msgid "Exit"
 msgstr "Sluit af"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Muziek map"
+
 msgid "Music Directory"
 msgstr "Muziek map"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Foto map"
@@ -55,6 +66,9 @@ msgstr "Server naam"
 msgid "Start"
 msgstr "Start"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Video map"
 
@@ -64,8 +78,11 @@ msgstr "debug"
 msgid "error"
 msgstr "error"
 
-msgid "off"
-msgstr "uit"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "waarschuwing"

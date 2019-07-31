@@ -94,15 +94,15 @@ ABMCustomMixImporter/po/Makefile
 ABMCustomMixImporter/src/Makefile
 ABMCustomMixImporter/mixes/Makefile
 
-FirmwareUpgrade/Makefile
-FirmwareUpgrade/src/Makefile
-FirmwareUpgrade/meta/Makefile
-FirmwareUpgrade/po/Makefile
-
 Fempa/Makefile
 Fempa/meta/Makefile
 Fempa/src/Makefile
 Fempa/po/Makefile
+
+FirmwareUpgrade/Makefile
+FirmwareUpgrade/src/Makefile
+FirmwareUpgrade/meta/Makefile
+FirmwareUpgrade/po/Makefile
 
 FPGAUpgrade/Makefile
 FPGAUpgrade/src/Makefile
@@ -191,10 +191,7 @@ OnDemand/src/icons/Makefile
 OnDemand/meta/Makefile
 OnDemand/po/Makefile
 
-TempFanControl/Makefile
-TempFanControl/src/Makefile
-TempFanControl/meta/Makefile
-TempFanControl/po/Makefile
+
 
 TerrestrialScan/Makefile
 TerrestrialScan/images/Makefile

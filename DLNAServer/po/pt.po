@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DLNAServer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BH Team\n"
@@ -26,6 +26,10 @@ msgstr "    - Nível de Logs"
 msgid "Cancel"
 msgstr "Cancelar"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Nome do Servidor"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "Ativar início automático do servidor DLNA"
 
@@ -35,11 +39,18 @@ msgstr "Ativar depuração"
 msgid "Exit"
 msgstr "Sair"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Pasta de Música"
+
 msgid "Music Directory"
 msgstr "Pasta de Música"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Pasta de Imagens"
@@ -56,6 +67,9 @@ msgstr "Nome do Servidor"
 msgid "Start"
 msgstr "Pasta de Filmes"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Pasta"
 
@@ -65,8 +79,11 @@ msgstr "depuração"
 msgid "error"
 msgstr "erro"
 
-msgid "off"
-msgstr "off"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "Avisar se o espaço livre é menor do que (KB):"

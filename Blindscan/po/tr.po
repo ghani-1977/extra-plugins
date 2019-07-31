@@ -4,9 +4,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: 2016-05-07 13:08+0200\n"
-"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
+"Last-Translator: esmos <kucukogul@gmail.com>\n"
 "Language-Team: CÜNEYT OCAKLILAR <ocaklilar@gmail.com>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 
 msgid "   Starting Sundtek hardware blind scan."
-msgstr ""
+msgstr "Sundtek donanım kör taraması başlatılıyor."
 
 #
 #, fuzzy
@@ -45,27 +45,27 @@ msgstr ""
 
 #, python-format
 msgid "%d transponders found at %d:%02d min"
-msgstr ""
+msgstr "%d transponder nulundu %d:%02d dak"
 
 #, python-format
 msgid "%d:%02d/%d:%02dmin"
-msgstr ""
+msgstr "%d:%02d/%d:%02ddak"
 
 #, python-format
 msgid "%dMHz scanned"
-msgstr ""
+msgstr "%dMHz taranan"
 
 msgid "AUTOMATICALLY start service searching, press green to change."
-msgstr ""
+msgstr "OTOMATİK olarak servis aramaya başlayın, değiştirmek için yeşil tuşa basın."
 
 msgid "Accuracy (higher is better)"
-msgstr ""
+msgstr "Doğruluk (daha yüksek daha iyidir)"
 
 msgid "Blind scan"
 msgstr "Kör tarama"
 
 msgid "Blind scan for DVB-S2 tuners"
-msgstr ""
+msgstr "DVB-S2 tunerler için kör tarama"
 
 #, fuzzy
 msgid "Blind scan state"
@@ -79,7 +79,7 @@ msgid "Blindscan executable not found '%s'!"
 msgstr ""
 
 msgid "Blindscan is not supported in "
-msgstr ""
+msgstr "Blindscan, içinde desteklenmiyor"
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -111,10 +111,10 @@ msgstr ""
 "   Sembol oranı : %d - %d MHz"
 
 msgid "DVB-S + DVB-S2"
-msgstr ""
+msgstr "DVB-S + DVB-S2"
 
 msgid "DVB-S only"
-msgstr ""
+msgstr "Sadece DVB-S"
 
 msgid "Deselect all"
 msgstr ""
@@ -124,7 +124,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Disable sync with known transponders"
-msgstr "Sadece bilinmeyen aktarıcıları tara"
+msgstr "Sadece bilinmeyen Transponderleri tara"
 
 #
 msgid "Exit"
@@ -143,7 +143,7 @@ msgstr "Frekans değerleri 3000MHz-4199 MHz arasında olmalıdır (C-band)"
 
 #, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
-msgstr ""
+msgstr "Donanim Kör Taramasi bu Tuner ile desteklenmiyor (%s)!"
 
 #
 #, fuzzy
@@ -177,13 +177,13 @@ msgstr ""
 "Bu uzunca bir zaman alacak, sabredin."
 
 msgid "MANUALLY start service searching, press green to change."
-msgstr ""
+msgstr "Manuel olarak servis aramaya başlayın, değiştirmek için yeşil tuşa basın."
 
 msgid "Maybe the reason that recording is currently running."
-msgstr ""
+msgstr "Belki de kayıt şu anda çalışıyor nedeni."
 
 msgid "Network scan"
-msgstr ""
+msgstr "Ağ tarama"
 
 msgid ""
 "No new transponders found! \n"
@@ -210,19 +210,19 @@ msgid ""
 msgstr ""
 
 msgid "Nothing to scan! Press Exit!"
-msgstr ""
+msgstr "Taranacak bir şey yok! Çıkış'a basın!"
 
 msgid "Only free scan"
 msgstr "Sadece şifresiz tara"
 
 msgid "Only scan unknown transponders"
-msgstr "Sadece bilinmeyen aktarıcıları tara"
+msgstr "Sadece bilinmeyen Transponderleri tara"
 
 msgid "Open xml file"
 msgstr ""
 
 msgid "Please setup your tuner configuration."
-msgstr "Lütfen tuner yapılandırmanızı kurun."
+msgstr "Lütfen Tuner ayarlarinizi yapin."
 
 msgid "Polarisation"
 msgstr "Polarizasyon"
@@ -246,10 +246,10 @@ msgid "Scan"
 msgstr "Tara"
 
 msgid "Scan Step in MHz(TBS5925)"
-msgstr ""
+msgstr "Tarama adimi MHz (TBS5925)"
 
 msgid "Scan satellites for new transponders"
-msgstr "Uyduları yeni aktarıcılar için tara"
+msgstr "Uyduları yeni Transponderler için tara"
 
 msgid "Scan start frequency"
 msgstr "Tarama başlangıç frekansı"
@@ -269,7 +269,7 @@ msgid ""
 "%d transponders found in %d:%02d minutes.\n"
 "Details saved in: %s"
 msgstr ""
-"Arama tamamlandı. %d aktarıcı bulundu.\n"
+"Arama tamamlandı. %d Transponder bulundu.\n"
 "\n"
 "Detaylar buraya saklandı:\n"
 "%s"
@@ -281,7 +281,7 @@ msgid ""
 "Details saved in:\n"
 "%s"
 msgstr ""
-"Arama tamamlandı. %d aktarıcı bulundu.\n"
+"Arama tamamlandı. %d Transponder bulundu.\n"
 "\n"
 "Detaylar buraya saklandı:\n"
 "%s"
@@ -290,7 +290,7 @@ msgid "Search type"
 msgstr "Arama tipi"
 
 msgid "Select a tuner that is configured for the satellite you wish to search"
-msgstr "Taramak istediğiniz uyduya yapılandırılmış bir tuner seçin"
+msgstr "Taramak istediğiniz uyduya ayarlanmis bir Tuner seçin"
 
 msgid "Select all"
 msgstr ""
@@ -304,41 +304,42 @@ msgid ""
 msgstr ""
 
 msgid "Smaller steps takes longer but scan is more thorough"
-msgstr ""
+msgstr "Küçük adımlar daha uzun sürer ancak tarama daha ayrıntılıdir"
 
 msgid "Sorry, this tuner is in use."
-msgstr "Üzgünüz, bu tuner kullanımda."
+msgstr "Üzgünüz, bu Tuner kullanımda."
 
 #, python-format
 msgid "Step %d %d:%02d min"
-msgstr ""
+msgstr "Adım %d %d:%02d dak"
 
 msgid "Symbol rate values are in megasymbols; enter a value between 1 and 44"
 msgstr "Sembol değerleri, megasembol biçiminde; 1 - 44 arasında bir değer girin."
 
+#, fuzzy
 msgid "Symbol rate values are in megasymbols; enter a value between 2 and 45"
-msgstr "Sembol değerleri, megasembol biçiminde; 2 - 45 arasında bir değer girin."
+msgstr "Sembol değerleri, megasembol biçiminde; 1 - 44 arasında bir değer girin."
 
 msgid "The blindscan run was cancelled by the user."
 msgstr "Kör tarama kullanıcı tarafından iptal edildi."
 
 #, python-format
 msgid "The suggested polarisation for this satellite is \"%s\""
-msgstr ""
+msgstr "Buy uydu icin önerilen polarizasyon \"%s\""
 
 msgid "Transponder searching finished!"
-msgstr ""
+msgstr "Transponder aramasi bitti!"
 
 #, fuzzy
 msgid "Try to find used satellite transponders..."
-msgstr "Uyduları yeni aktarıcılar için tara"
+msgstr "Kullanimda olan uydudan Transponderler aramayi dene..."
 
 #
 msgid "Tuner"
 msgstr "Tuner"
 
 msgid "Use Sundtek full hardware blind scan!"
-msgstr ""
+msgstr "Sundtek tam donanim kör taramayi kullanin!"
 
 #
 #, fuzzy
@@ -383,7 +384,7 @@ msgid "normal"
 msgstr ""
 
 msgid "save to XML file"
-msgstr "XML dosyasına sakla"
+msgstr "XML dosyasına kaydet"
 
 #, fuzzy
 msgid "scan"
@@ -394,7 +395,7 @@ msgstr "kanal tara"
 
 #, fuzzy
 msgid "scan for transponders"
-msgstr "Sadece bilinmeyen aktarıcıları tara"
+msgstr "Sadece bilinmeyen Transponderleri tara"
 
 msgid "up to 1 degree"
 msgstr "1 dereceye kadar"
@@ -413,7 +414,7 @@ msgid "vertical and horizontal"
 msgstr "dikey ve yatay"
 
 msgid "yes"
-msgstr ""
+msgstr "evet"
 
 msgid "yes (keep feeds)"
-msgstr ""
+msgstr "evet (feed`leri tut)"

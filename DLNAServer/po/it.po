@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: 2017-11-30 13:13+0100\n"
 "Last-Translator: insanity\n"
 "Language-Team: www.vuplus-community.net <insanity@>\n"
@@ -23,6 +23,10 @@ msgstr "    - Livello Log"
 msgid "Cancel"
 msgstr "Annulla"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Nome Server"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "Abilitare avvio automatico Server DLNA"
 
@@ -32,11 +36,18 @@ msgstr "Loggin abilitato"
 msgid "Exit"
 msgstr "Esci"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Directory Musica"
+
 msgid "Music Directory"
 msgstr "Directory Musica"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Directory Immagini"
@@ -53,6 +64,9 @@ msgstr "Nome Server"
 msgid "Start"
 msgstr "Avvia"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Directory Video"
 
@@ -62,8 +76,11 @@ msgstr "debug"
 msgid "error"
 msgstr "errore"
 
-msgid "off"
-msgstr "off"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "avviso"

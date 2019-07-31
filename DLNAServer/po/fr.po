@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
 "PO-Revision-Date: 2018-07-30 21:36+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -27,6 +27,10 @@ msgstr "    - Niveau de Log"
 msgid "Cancel"
 msgstr "Annuler"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "Nom du serveur"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "Activer le démarrage automatique pour le serveur DLNA"
 
@@ -36,11 +40,18 @@ msgstr "Activer le journal"
 msgid "Exit"
 msgstr "Quitter"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "Répertoire Musiques"
+
 msgid "Music Directory"
 msgstr "Répertoire Musiques"
 
 msgid "OK"
 msgstr "OK"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "Répertoire Image"
@@ -57,6 +68,9 @@ msgstr "Nom du serveur"
 msgid "Start"
 msgstr "Démarrer"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "Répertoire Vidéo"
 
@@ -66,8 +80,11 @@ msgstr "debug"
 msgid "error"
 msgstr "erreur"
 
-msgid "off"
-msgstr "arrêt"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "avertissement"

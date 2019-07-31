@@ -4,72 +4,75 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
-"PO-Revision-Date: 2016-11-29 00:40+0100\n"
-"Last-Translator: litvcom\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-07-31 14:31+0430\n"
+"PO-Revision-Date: 2019-06-27 11:55+0300\n"
+"Last-Translator: kvinto <badsystem@ukr.net>\n"
+"Language-Team: <sat-ukraine.info>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: iso-8859-15\n"
-"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
+#, fuzzy
 msgid ""
 "\n"
 "The second slot of this dual tuner may not support blind scan."
 msgstr ""
+"\n"
+"Другий вхід подвійного тюнера може не підтримувати сліпе сканування."
 
 msgid ""
 "\n"
 "You must use the power adapter."
 msgstr ""
+"\n"
+"Необхідно використовувати адаптер живлення."
 
 msgid "   Starting Sundtek hardware blind scan."
-msgstr ""
+msgstr "   Запуск апаратного сліпого сканування Sundtek."
 
-#
-#, fuzzy
 msgid " tuner."
-msgstr "Тюнер"
+msgstr " тюнер."
 
+#, fuzzy
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
-msgstr ""
+msgstr "\"сканування каналів\" шукає канали і зберігає їх у Вашому приймачі; обидва варіанти виконують пошук транспондерів і зберігають результат у /tmp у файлі XML в форматі satellites.xml"
 
 #, python-format
 msgid "%d transponder(s) found"
-msgstr ""
+msgstr "%d знайдено транспондер(-ів)"
 
 #, python-format
 msgid "%d transponders found at %d:%02d min"
-msgstr ""
+msgstr "%d знайдено транспондерів за %d:%02d хв"
 
-#, fuzzy, python-format
+# python-format
+#, python-format
 msgid "%d:%02d/%d:%02dmin"
-msgstr "Крок %d %d:%02d хв"
+msgstr "%d:%02d/%d:%02d хв"
 
 #, python-format
 msgid "%dMHz scanned"
-msgstr ""
+msgstr "%dМГЦ сканувати"
 
 msgid "AUTOMATICALLY start service searching, press green to change."
-msgstr ""
+msgstr "АВТОМАТИЧНИЙ старт пошуку каналів, натисніть зелену кнопку для зміни."
 
 msgid "Accuracy (higher is better)"
-msgstr ""
+msgstr "Точність (вище, тим краще)"
 
 msgid "Blind scan"
 msgstr "Сліпий пошук"
 
 msgid "Blind scan for DVB-S2 tuners"
-msgstr ""
+msgstr "Сліпий пошук для тюнерів DVB-S2"
 
-#, fuzzy
 msgid "Blind scan state"
-msgstr "Сліпий пошук"
+msgstr "Стан сліпого пошуку"
 
-#, fuzzy
 msgid "Blindscan"
 msgstr "Сліпий пошук"
 
@@ -78,7 +81,7 @@ msgid "Blindscan executable not found '%s'!"
 msgstr ""
 
 msgid "Blindscan is not supported in "
-msgstr ""
+msgstr "Сліпий пошук не підтримується в "
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -93,22 +96,26 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#
 msgid "Clear before scan"
 msgstr "Очистити перед скануванням"
 
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "Current Status: %d/%d\n"
 "Satellite: %s\n"
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MHz"
 msgstr ""
+"Поточний Статус: %d/%d\n"
+"   Супутник: %s\n"
+"   Поляризація: %s\n"
+"   Діапазон частот: %d - %d МГц\n"
+"   Символьна швидкість: %d - %d Мгц"
 
 msgid "DVB-S + DVB-S2"
-msgstr ""
+msgstr "DVB-S + DVB-S2"
 
 msgid "DVB-S only"
-msgstr ""
+msgstr "Тільки DVB-S"
 
 msgid "Deselect all"
 msgstr ""
@@ -120,7 +127,6 @@ msgstr ""
 msgid "Disable sync with known transponders"
 msgstr "Пошук лише невідомих транспондерів"
 
-#
 msgid "Exit"
 msgstr "Вийти"
 
@@ -137,12 +143,10 @@ msgstr "Значення частот повинні бути між 3000 МГц
 
 #, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
-msgstr ""
+msgstr "Даний тюнер (%s) не підтримує Сліпий пошук!"
 
-#
-#, fuzzy
 msgid "Horizontal"
-msgstr "горизонтальна"
+msgstr "Горизонтальна"
 
 #, fuzzy
 msgid "If you select \"yes\" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
@@ -171,13 +175,13 @@ msgstr ""
 "Це займе багато часу, будь ласка, будьте терпеливі."
 
 msgid "MANUALLY start service searching, press green to change."
-msgstr ""
+msgstr "РУЧНИЙ запуск пошуку каналів, натисніть зелену кнопку для зміни."
 
 msgid "Maybe the reason that recording is currently running."
-msgstr ""
+msgstr "Можливо, причиною цього є запис передачі в даний час."
 
 msgid "Network scan"
-msgstr ""
+msgstr "Мережевий пошук"
 
 msgid ""
 "No new transponders found! \n"
@@ -197,14 +201,18 @@ msgid ""
 "No tuner is enabled!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Тюнер не ввімкнено!\n"
+"Зробіть налаштування тюнера перед початком сканування каналів."
 
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Нічого сканувати!\n"
+"Зробіть налаштування тюнера перед початком сканування каналів."
 
 msgid "Nothing to scan! Press Exit!"
-msgstr ""
+msgstr "Нічого сканувати! Натисніть Вихід!"
 
 msgid "Only free scan"
 msgstr "Пошук лише некодованих каналі"
@@ -221,18 +229,15 @@ msgstr "Будь ласка, налаштуйте тюнер."
 msgid "Polarisation"
 msgstr "Поляризація"
 
-#, fuzzy
 msgid "Press OK to start the scan."
-msgstr "Натисніть Зелену/OK для початку сканування"
+msgstr "Натисніть OK для початку сканування"
 
-#, fuzzy
 msgid "Press green to start service searching."
-msgstr "Натисніть Зелену/OK для початку сканування"
+msgstr "Натисніть зелену кнопку для початку сканування"
 
 msgid "Restore defaults"
 msgstr ""
 
-#
 msgid "Satellite"
 msgstr "Супутник"
 
@@ -298,7 +303,7 @@ msgid ""
 msgstr ""
 
 msgid "Smaller steps takes longer but scan is more thorough"
-msgstr ""
+msgstr "Менші кроки займають більше часу, але сканування є більш ретельним"
 
 msgid "Sorry, this tuner is in use."
 msgstr "Пробачте, цей тюнер зайнятий."
@@ -321,37 +326,30 @@ msgid "The suggested polarisation for this satellite is \"%s\""
 msgstr "Запропонована поляризація для цього супутника \"%s\""
 
 msgid "Transponder searching finished!"
-msgstr ""
+msgstr "Пошук транспондерів закінчено!"
 
-#, fuzzy
 msgid "Try to find used satellite transponders..."
-msgstr "Сканування супутників для нових транспондерів"
+msgstr "Сканування супутників для нових транспондерів..."
 
-#
 msgid "Tuner"
 msgstr "Тюнер"
 
 msgid "Use Sundtek full hardware blind scan!"
 msgstr ""
 
-#
-#, fuzzy
 msgid "Vertical"
-msgstr "вертикальна"
+msgstr "Вертикальна"
 
 msgid "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite."
 msgstr "Якщо рівень сигналу сусіднього супутника дуже сильний, це дозволить уникнути сканування транспондерів з цього супутника."
 
-#
 msgid "circular left"
 msgstr "кругова ліва"
 
-#
 #, fuzzy
 msgid "circular left/right"
 msgstr "кругова права"
 
-#
 msgid "circular right"
 msgstr "кругова права"
 
@@ -362,16 +360,14 @@ msgstr "кругова права та кругова ліва"
 msgid "don't scan"
 msgstr "Сліпий пошук"
 
-#
 msgid "horizontal"
 msgstr "горизонтальна"
 
 msgid "inverted"
 msgstr ""
 
-#
 msgid "no"
-msgstr "Ні"
+msgstr "ні"
 
 msgid "normal"
 msgstr ""
@@ -391,7 +387,7 @@ msgid "scan for transponders"
 msgstr "Пошук лише невідомих транспондерів"
 
 msgid "up to 1 degree"
-msgstr "до 1 градуси"
+msgstr "до 1 градусу"
 
 msgid "up to 2 degrees"
 msgstr "до 2 градусів"
@@ -399,7 +395,6 @@ msgstr "до 2 градусів"
 msgid "up to 3 degrees"
 msgstr "до 3 градусів"
 
-#
 msgid "vertical"
 msgstr "вертикальна"
 
@@ -407,7 +402,7 @@ msgid "vertical and horizontal"
 msgstr "вертикальна та горизонтальна"
 
 msgid "yes"
-msgstr ""
+msgstr "так"
 
 msgid "yes (keep feeds)"
-msgstr ""
+msgstr "так (зберегти канали)"
