@@ -1615,6 +1615,7 @@ class Blindscan(ConfigListScreen, Screen):
 					currSat = nimconfig.advanced.sat[cur_orb_pos]
 			else: 
 				currSat = nimconfig.advanced.sat[cur_orb_pos]
+			lnbnum = int(currSat.lnb.getValue())
 			if lnbnum == 0 and nimconfig.advanced.sats.value in ("3601", "3602", "3603", "3604"):
 				lnbnum = 65 + int(nimconfig.advanced.sats.value) - 3601
 			currLnb = nimconfig.advanced.lnb[lnbnum]
