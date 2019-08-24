@@ -455,8 +455,7 @@ class SatelliteTransponderSearchSupport:
 				if self.auto_scan and band_cutoff_frequency and stop > band_cutoff_frequency:
 					if start < band_cutoff_frequency:
 						self.range_list.append((start, min(stop, band_cutoff_frequency), eDVBFrontendParametersSatellite.Polarisation_Horizontal))
-					if stop > band_cutoff_frequency:
-						self.range_list.append((max(band_cutoff_frequency, start), stop, eDVBFrontendParametersSatellite.Polarisation_Horizontal))
+					self.range_list.append((max(band_cutoff_frequency, start), stop, eDVBFrontendParametersSatellite.Polarisation_Horizontal))
 				else:
 					self.range_list.append((start, stop, eDVBFrontendParametersSatellite.Polarisation_Horizontal))
 
