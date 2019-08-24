@@ -44,7 +44,7 @@ class TransponderSearchSupport:
 
 class SatBlindscanState(Screen):
 	skin="""
-	<screen position="center,center" size="820,520" title="Blind scan state">
+	<screen position="center,center" size="820,520" title="Satellite Blindscan">
 		<widget name="text" position="10,10" size="800,25" font="Regular;20" />
 		<widget name="progress" position="10,40" size="800,25" font="Regular;20" />
 		<eLabel	position="10,70" size="800,1" backgroundColor="grey"/>
@@ -66,6 +66,7 @@ class SatBlindscanState(Screen):
 		Screen.__init__(self, session)
 		self.setup_title = _("Blind scan state")
 		Screen.setTitle(self, _(self.setup_title))
+		self.skinName = ["SatBlindscanState2"]
 		self["list"]=List()
 		self["text"]=Label()
 		self["text"].setText(text)
@@ -96,15 +97,15 @@ class SatBlindscanState(Screen):
 		elif self.post_action != -1:
 			self.post_action ^= 1
 			if self.post_action:
-				self["post_action"].setText(_("MANUALLY start service searching, press green to change"))
+				self["post_action"].setText(_("MANUALLY start service searching, press green to change."))
 			else:
-				self["post_action"].setText(_("AUTOMATICALLY start service searching, press green to change"))
+				self["post_action"].setText(_("AUTOMATICALLY start service searching, press green to change."))
 
 	def setFinished(self):
 		if self.post_action:
 			self.finished=1
 			self["text"].setText(_("Transponder searching finished!"))
-			self["post_action"].setText(_("Press green to start service searching!"))
+			self["post_action"].setText(_("Press green to start service searching."))
 		else:
 			self.close(True)
 
@@ -497,11 +498,12 @@ class SatelliteTransponderSearchSupport:
 
 class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, SatelliteTransponderSearchSupport):
 	skin="""
-		<screen position="center,center" size="620,430" title="Satellite Blindscan">
-			<widget name="config" position="10,10" size="600,360" itemHeight="30" scrollbarMode="showOnDemand" />
-			<eLabel position="10,390" size="600,1" backgroundColor="grey"/>
-			<widget name="introduction" position="10,398" size="600,25" font="Regular;22" halign="center" />
-		</screen>"""
+	<screen position="center,center" size="620,430" title="Satellite Blindscan">
+		<widget name="config" position="10,10" size="600,360" itemHeight="30" scrollbarMode="showOnDemand" />
+		<eLabel position="10,390" size="600,1" backgroundColor="grey"/>
+		<widget name="introduction" position="10,398" size="600,25" font="Regular;22" halign="center" />
+	</screen>
+	"""
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -532,7 +534,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 		ConfigListScreen.__init__(self, self.list)
 		if not self.scan_nims.value == "":
 			self.createSetup()
-			self["introduction"] = Label(_("Press OK to start the scan"))
+			self["introduction"] = Label(_("Press OK to start the scan."))
 		else:
 			self["introduction"] = Label(_("Nothing to scan!\nPlease setup your tuner settings before you start a service scan."))
 
@@ -658,9 +660,13 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 				continue
 			if n.isCompatible("DVB-S") and len(nimmanager.getSatListForNim(n.slot)) < 1:
 				if n.config_mode in ("advanced", "simple"):
-					config.Nims[n.slot].configMode.value = "nothing"
-					config.Nims[n.slot].configMode.save()
-				continue
+					if not self.legacy:
+						config.Nims[n.slot].dvbs.configMode.value = "nothing"
+						config.Nims[n.slot].dvbs.configMode.save()
+					else:
+						config.Nims[n.slot].configMode.value = "nothing"
+						config.Nims[n.slot].configMode.save()
+					continue
 			if n.config_mode in ("loopthrough", "satposdepends"):
 				root_id = nimmanager.sec.getRoot(n.slot_id, int(n.config.connectedTo.value))
 				if n.type == nimmanager.nim_slots[root_id].type: # check if connected from a DVB-S to DVB-S2 Nim or vice versa
