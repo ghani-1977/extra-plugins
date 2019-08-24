@@ -434,7 +434,10 @@ class SatelliteTransponderSearchSupport:
 						self.session.open(MessageBox, text, MessageBox.TYPE_ERROR)
 						return
 
-			band_cutoff_frequency = 11700001
+			if self.is_c_band_scan == True:
+				band_cutoff_frequency = 0
+			else:
+				band_cutoff_frequency = 11700001
 
 			s1 = self.scan_sat.bs_freq_start.value * 1000
 			s2 = self.scan_sat.bs_freq_stop.value * 1000
@@ -578,7 +581,10 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 		if nim.isCompatible("DVB-S"):
 			self.updateSatList()
 			selected_sat_pos = self.scan_satselection[index_to_scan].value
-			limits = (10700, 12750)
+			if self.is_c_band_scan == True:
+				limits = (3400, 4200)
+			else:
+				limits = (10700, 12750)
 			self.scan_sat.bs_freq_start = ConfigInteger(default = limits[0], limits = (limits[0], limits[1]))
 			self.scan_sat.bs_freq_stop = ConfigInteger(default = limits[1], limits = (limits[0], limits[1]))
 			self.satelliteEntry = getConfigListEntry(_("Satellite"), self.scan_satselection[index_to_scan])
@@ -669,6 +675,19 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 				nim_list.append((str(n.slot), n.friendly_full_description))
 		self.scan_nims = ConfigSelection(choices = nim_list)
 
+		self.is_c_band_scan = False
+		cur_orb_pos = defaultSat["orbpos"]
+		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
+		nimconfig = nim.config
+		if nimconfig.configMode.getValue() == "advanced":
+			currSat = nimconfig.advanced.sat[cur_orb_pos]
+			lnbnum = int(currSat.lnb.getValue())
+			currLnb = nimconfig.advanced.lnb[lnbnum]
+			lof = currLnb.lof.getValue()
+			print "[Blindscan][isLNB] LNB type: ", lof
+			if lof == "c_band":
+				self.is_c_band_scan = True
+
 		self.scan_sat.bs_system = ConfigSelection(default = eDVBFrontendParametersSatellite.System_DVB_S2, 
 			choices = [ (eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
 				(eDVBFrontendParametersSatellite.System_DVB_S, _("DVB-S only"))])
@@ -688,8 +707,12 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 			if slot.isCompatible("DVB-S"):
 				satlist_for_slot = self.satList[slot_id]
 				self.scan_satselection.append(getConfigSatlist(defaultSat["orbpos"], satlist_for_slot))
-				sat_freq_range = {(10700000, 12750000) }
-				sat_band_cutoff = {11700000 }
+				if self.is_c_band_scan == True:
+					sat_freq_range = {(3400000, 4200000) }
+					sat_band_cutoff = {0 }
+				else:
+					sat_freq_range = {(10700000, 12750000) }
+					sat_band_cutoff = {11700000 }
 				for sat in satlist_for_slot:
 					orbpos = sat[0]
 				self.nim_sat_frequency_range.append(sat_freq_range)
