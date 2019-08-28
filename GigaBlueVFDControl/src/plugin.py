@@ -38,7 +38,7 @@ config.plugins.VFD_Giga.ledDSBY2 = ConfigSelection(default = "1", choices = [("0
 config.plugins.VFD_Giga.ledSDA1 = ConfigSelection(led, default = "0")
 config.plugins.VFD_Giga.ledSDB1 = ConfigSelection(led, default = "0")
 config.plugins.VFD_Giga.timeMode = ConfigSelection(default = "24h", choices = [("12h"),("24h")])
-if BOX in ("gbtrio4k"):
+if BOX == "gbtrio4k":
 	Brightness_default = 1
 	Brightness_increment = 1
 	Brightness_limits_min = 0
@@ -60,7 +60,7 @@ def vfd_write(text):
 		print "[LED-GIGA] vfd_write failed!"
 
 def setvfdBrightness(value):
-	if BOX in ("gbtrio4k"):
+	if BOX == "gbtrio4k":
 		value *= 255
 		value /= 10
 		if value > 255:
