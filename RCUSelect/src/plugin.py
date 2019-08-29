@@ -201,7 +201,7 @@ class RCUSelect(Screen):
 				f.write(self.rcuv)
 				f.close()
 				os.system("killall -9 remotecfg &")
-				if getBoxType() in ("wetekplay2"):
+				if getBoxType() == "wetekplay2":
 					fin = file("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
 					for line in fin :

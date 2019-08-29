@@ -11,7 +11,7 @@ from Tools.Directories import fileExists
 from enigma import eTimer, getBoxType
 
 def getRcuDefaultType():
-	if getBoxType() in ("vuultimo4k"):
+	if getBoxType() == "vuultimo4k":
 		return "type5"
 	elif getBoxType() in ("vuuno4kse","vuzero4k","vuduo4k"):
 		return "type6"
@@ -20,7 +20,7 @@ def getRcuDefaultType():
 config.misc.remotecontrol_text_support = ConfigYesNo(default = True)
 
 config.plugins.remotecontrolcode = ConfigSubsection()
-if getBoxType() in ("vusolo", "vuduo"):
+if getBoxType() in ("vusolo","vuduo"):
 	config.plugins.remotecontrolcode.systemcode = ConfigSelection(default = "1", choices =
 		[ ("1", "1 "), ("2", "2 "), ("3", "3 "), ("4", "4 ") ] )
 else:
@@ -43,7 +43,7 @@ class RemoteControlCodeInit:
 		return 0
 
 	def getModel(self):
-		if getBoxType() in ("vuuno", "vuultimo", "vusolo2" ,"vuduo2", "vusolose", "vuzero", "vusolo4k", "vuuno4k", "vuuno4kse", "vuzero4k", "vuultimo4k", "vuduo4k"):
+		if getBoxType() in ("vuuno","vuultimo","vusolo2","vuduo2","vusolose","vuzero","vusolo4k","vuuno4k","vuuno4kse","vuzero4k","vuultimo4k","vuduo4k"):
 			return True
 		else:
 			return False

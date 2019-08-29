@@ -19,7 +19,7 @@ config.plugins.transcodingsetup = ConfigSubsection()
 config.plugins.transcodingsetup.transcoding = ConfigSelection(default = "enable", choices = [ ("enable", _("enable")), ("disable", _("disable"))])
 if fileExists("/proc/stb/encoder/0/vcodec"):
 	config.plugins.transcodingsetup.bitrate = ConfigSelection([("100000", _("100 kbps")), ("300000", _("300 kbps")), ("500000", _("500 kbps")), ("800000", _("800 kbps")), ("1000000", _("1.0 Mbps")),  ("1200000", _("1.2 Mbps")), ("1500000", _("1.5 Mbps")), ("2000000", _("2.0 Mbps")), ("2500000", _("2.5 Mbps")), ("3000000", _("3.0 Mbps")), ("3500000", _("3.5 Mbps")), ("4000000", _("4.0 Mbps")), ("5000000", _("5.0 Mbps"))], default="1500000")
-	if getBoxType() in ('anadol4k','anadol4kcombo','anadol4kv2','axashis4kcombo','axashis4kcomboplus','axashisc4k','dinobotu55','dinobot4k','dinobot4kl','dinobot4kmini','dinobot4kplus','dinobot4kpro','dinobot4kse','ferguson4k','mediabox4k','sf8008','beyonwizv2','gbtrio4k','ustym4kpro','viper4k'):
+	if getBoxType() in ("anadol4k","anadol4kcombo","anadol4kv2","axashis4kcombo","axashis4kcomboplus","axashisc4k","dinobotu55","dinobot4k","dinobot4kl","dinobot4kmini","dinobot4kplus","dinobot4kpro","dinobot4kse","ferguson4k","mediabox4k","sf8008","beyonwizv2","gbtrio4k","gbip4k","ustym4kpro","viper4k"):
 		config.plugins.transcodingsetup.resolution = ConfigSelection([("720x480", _("PAL SVCD")), ("720x576", _("PAL DV")), ("768x576", _("PAL")), ("1024x576", _("PAL-wide")), ("1280x720", _("HD720")), ("1440x1080", _("HD1080 DV")), ("1920x1080", _("HD1080"))], default="720x576")
 	else:
 		config.plugins.transcodingsetup.resolution = ConfigSelection([("720x480", _("480p")), ("720x576", _("576p")), ("1280x720", _("720p"))], default="720x576")
@@ -27,7 +27,7 @@ if fileExists("/proc/stb/encoder/0/vcodec"):
 	config.plugins.transcodingsetup.framerate = ConfigSelection([("23976", _("23.976 fps")), ("24000", _("24 fps")), ("25000", _("25 fps")), ("30000", _("30 fps"))], default="25000")
 	config.plugins.transcodingsetup.aspectratio = ConfigInteger(default = 2)
 	config.plugins.transcodingsetup.interlaced = ConfigInteger(default = 0)
-elif getBoxType() in ('x2plus','formuler1'):
+elif getBoxType() in ("x2plus","formuler1"):
 	choice = ConfigSelection(default = "400000", choices=[("-1", "Auto"), ("50000", "50 Kbits"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("600000", "600 Kbits"), ("700000", "700 Kbits"), ("800000", "800 Kbits"), ("900000", "900 Kbits"), ("1000000", "1 Mbits")])
 	config.plugins.transcodingsetup.bitrate = choice
 	choice = ConfigSelection(default = "50000", choices = [("-1", "Auto"), ("23976", "23.976 fps"), ("24000", "24 fps"), ("25000", "25 fps"), ("29970", "29.970 fps"), ("30000", "30 fps"), ("50000", "50 fps"), ("59940", "59.940 fps"), ("60000", "60 fps")])
@@ -125,7 +125,7 @@ class TranscodingSetup(Screen,ConfigListScreen):
 			self.list.append(getConfigListEntry(_("Video codec"), config.plugins.transcodingsetup.vcodec))
 			self.list.append(getConfigListEntry(_("Aspect Ratio"), config.plugins.transcodingsetup.aspectratio))
 			self.list.append(getConfigListEntry(_("Interlaced"), config.plugins.transcodingsetup.interlaced))
-		elif getBoxType() in ('x2plus','formuler1'):
+		elif getBoxType() in ("x2plus","formuler1"):
 			self.list.append(getConfigListEntry(_("Bitrate in bits"), config.plugins.transcodingsetup.bitrate))
 			self.list.append(getConfigListEntry(_("Framerate"), config.plugins.transcodingsetup.framerate))
 		else:

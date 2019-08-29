@@ -649,7 +649,7 @@ def main(session, **kwargs):
 	session.open(StreamingChannelFromServerScreen)
 
 def mainInMenu(menuid, **kwargs):
-	if getBoxType() in ('gbipbox', 'gbx2'):
+	if getBoxType() in ("gbipbox","gbx2"):
 		if menuid == "setup":
 			return [(_("Remote channel stream converter"), main, "streamconvert", 20)]
 		else:

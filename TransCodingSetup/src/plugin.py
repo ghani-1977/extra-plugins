@@ -59,16 +59,16 @@ config.plugins.transcodingsetup.encoder = ConfigSubList()
 
 def createTransCodingConfig(encoder):
 	if fileExists(getProcPath(encoder ,"bitrate")):
-		if getBoxType() in ('vusolo2'):
+		if getBoxType() == "vusolo2":
 			choice = ConfigSelection(default = "400000", choices=[("-1", "Auto"), ("50000", "50 Kbits"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("600000", "600 Kbits"), ("700000", "700 Kbits"), ("800000", "800 Kbits"), ("900000", "900 Kbits"), ("1000000", "1 Mbits")])
-		elif getBoxType() in ('gbquad', 'gbquadplus'):
+		elif getBoxType() in ("gbquad","gbquadplus"):
 			choice = ConfigSelection(default = "-1", choices=[("-1", "Auto"), ("50000", "50 Kbits"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("600000", "600 Kbits"), ("700000", "700 Kbits"), ("800000", "800 Kbits"), ("900000", "900 Kbits"), ("1000000", "1 Mbits")])
 		else:
 			choice = ConfigSelection(default = "2000000", choices=[("-1", "Auto"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("750000", "750 Kbits"), ("1000000", "1 Mbits"), ("1500000", "1.5 Mbits"), ("2000000", "2 Mbits"), ("2500000", "2.5 Mbits"), ("3000000", "3 Mbits"), ("3500000", "3.5 Mbits"), ("4000000", "4 Mbits"), ("4500000", "4.5 Mbits"), ("5000000", "5 Mbits"), ("10000000", "10 Mbits")])
 		config.plugins.transcodingsetup.encoder[int(encoder)].bitrate = choice
 
 	if fileExists(getProcPath(encoder ,"framerate")):
-		if getBoxType() in ('gbquad', 'gbquadplus'):
+		if getBoxType() in ("gbquad","gbquadplus"):
 			choice = ConfigSelection(default = "-1", choices = [("-1", "Auto"), ("23976", "23.976 fps"), ("24000", "24 fps"), ("25000", "25 fps"), ("29970", "29.970 fps")])
 		else:
 			choice = ConfigSelection(default = "50000", choices = [("-1", "Auto"), ("23976", "23.976 fps"), ("24000", "24 fps"), ("25000", "25 fps"), ("29970", "29.970 fps"), ("30000", "30 fps"), ("50000", "50 fps"), ("59940", "59.940 fps"), ("60000", "60 fps")])
@@ -81,7 +81,7 @@ def createTransCodingConfig(encoder):
 
 		if fileExists(getProcPath(encoder, "resolution")):
 			resolution_choices = [("480p", _("480p")), ("576p", _("576p")), ("720p", _("720p")), ("320x240", _("320x240")), ("160x120", _("160x120"))]
-			if getBoxType() in ("vusolo4k"):
+			if getBoxType() == "vusolo4k":
 				resolution_choices.insert(3, ("1080p", _("1080p")))
 			choice = ConfigSelection(default = "480p", choices=resolution_choices)
 			config.plugins.transcodingsetup.encoder[int(encoder)].resolution = choice
@@ -350,7 +350,7 @@ class TranscodingSetup(Screen,ConfigListScreen):
 		self.setup_title = _("Transcoding Setup")
 		self.setTitle(self.setup_title)
 
-		if getBoxType() in ('vusolo2', 'gbquad', 'gbquadplus', 'x2plus'):
+		if getBoxType() in ("vusolo2","gbquad","gbquadplus","x2plus"):
 			TEXT = _("Transcoding and PIP are mutually exclusive.")
 		else:
 			TEXT = _("2nd transcoding and PIP are mutually exclusive.")
