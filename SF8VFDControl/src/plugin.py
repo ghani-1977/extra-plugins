@@ -357,7 +357,7 @@ def sessionstart(reason, **kwargs):
 	controlSF8VFD()
 
 def Plugins(**kwargs):
-	if getBoxType().startswith("sf8"):
+	if getBoxType() == "xp1000":
 	 	return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
 	 		PluginDescriptor(name="SF8 LED Display Setup", description="Change LED display settings",where = PluginDescriptor.WHERE_MENU, fnc = main) ]
 	else:
