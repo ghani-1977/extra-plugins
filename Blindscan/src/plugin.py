@@ -578,7 +578,7 @@ class Blindscan(ConfigListScreen, Screen):
 					self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_start_frequency,_('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1)))
 					self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_stop_frequency,_('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])))
 
-			if nim.description == 'TBS-5925':
+			if "TBS" or "5925" in nim.description:
 				self.list.append(getConfigListEntry(_("Scan Step in MHz(TBS5925)"), config.blindscan.step_mhz_tbs5925,_('Smaller steps takes longer but scan is more thorough')))
 			self.list.append(getConfigListEntry(_("Polarisation"), config.blindscan.polarization,_('The suggested polarisation for this satellite is "%s"') % (self.suggestedPolarisation)))
 			self.list.append(getConfigListEntry(_('Scan start symbolrate'), config.blindscan.start_symbol,_('Symbol rate values are in megasymbols; enter a value between 1 and 44')))
@@ -851,7 +851,7 @@ class Blindscan(ConfigListScreen, Screen):
 			exe_filename = "blindscan-s2"
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
-				if tunername == "TBS-5925":
+				if "TBS" or "5925" in tunername:
 					cmd = "%s -b -s %d -e %d -t %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.step_mhz_tbs5925.value)
 				else:
 					cmd = "%s -b -s %d -e %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq)
