@@ -1,8 +1,6 @@
 # for localized messages
 from . import _
-
-from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer
-
+from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer, getBoxType, getBoxBrand
 from Components.About import about
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigBoolean, ConfigInteger, getConfigListEntry, ConfigNothing, ConfigSelection, ConfigSubsection, ConfigYesNo
@@ -12,20 +10,15 @@ from Components.NimManager import getConfigSatlist, nimmanager
 from Components.Sources.FrontendStatus import FrontendStatus
 from Components.Sources.StaticText import StaticText
 from Components.TuneTest import Tuner
-
 from Plugins.Plugin import PluginDescriptor
-
 from Screens.ChoiceBox import ChoiceBox
 from Screens.Console import Console
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
-
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import fileExists
-
 import os
-
 #used for the XML file
 from time import strftime, time
 
@@ -49,49 +42,8 @@ def getMisPlsValue(d, idx, defaultValue):
 	except:
 		return defaultValue
 
-BOX_MODEL = "all"
-BOX_NAME = "none"
-if fileExists("/proc/stb/info/vumodel") and not fileExists("/proc/stb/info/hwmodel") and not fileExists("/proc/stb/info/boxtype"):
-	try:
-		l = open("/proc/stb/info/vumodel")
-		model = l.read().strip()
-		l.close()
-		BOX_NAME = str(model.lower())
-		BOX_MODEL = "vuplus"
-	except:
-		pass
-elif fileExists("/proc/stb/info/boxtype") and not fileExists("/proc/stb/info/hwmodel") and not fileExists("/proc/stb/info/gbmodel"):
-	try:
-		l = open("/proc/stb/info/boxtype")
-		model = l.read().strip()
-		l.close()
-		BOX_NAME = str(model.lower())
-		if BOX_NAME.startswith("et"):
-			BOX_MODEL = "xtrend"
-		elif BOX_NAME.startswith("os"):
-			BOX_MODEL = "edision"
-	except:
-		pass
-elif fileExists("/proc/stb/info/model") and not fileExists("/proc/stb/info/hwmodel") and not fileExists("/proc/stb/info/gbmodel"):
-	try:
-		l = open("/proc/stb/info/model")
-		model = l.read().strip()
-		l.close()
-		BOX_NAME = str(model.lower())
-		if BOX_NAME.startswith('dm'):
-			BOX_MODEL = "dreambox"
-	except:
-		pass
-elif fileExists("/proc/stb/info/gbmodel"):
-	try:
-		l = open("/proc/stb/info/gbmodel")
-		model = l.read().strip()
-		l.close()
-		BOX_NAME = str(model.lower())
-		if BOX_NAME in ("gbquad4k", "gbue4k"):
-			BOX_MODEL = "gigablue"
-	except:
-		pass
+BOX_MODEL = getBoxBrand()
+BOX_NAME = getBoxType()
 
 #used for blindscan-s2
 def getAdapterFrontend(frontend, description):
@@ -114,9 +66,6 @@ XML_FILE = None
 
 # _supportNimType is only used by vuplus hardware
 _supportNimType = { 'AVL1208':'', 'AVL6222':'6222_', 'AVL6211':'6211_', 'BCM7356':'bcm7346_', 'SI2166':'si2166_'}
-
-# For STBs that support multiple DVB-S tuner models, e.g. Solo 4K.
-_unsupportedNims = ( 'Vuplus DVB-S NIM(7376 FBC)', 'Vuplus DVB-S NIM(45308X FBC)') # format = nim.description from nimmanager
 
 # blindscan-s2 supported tuners
 _blindscans2Nims = ('TBS-5925', 'DVBS2BOX', 'M88DS3103')
@@ -398,18 +347,7 @@ class Blindscan(ConfigListScreen, Screen):
 		print "[Blind scan] i2c_mapping_table :", self.i2c_mapping_table, ", is_exist_i2c :", is_exist_i2c
 		if is_exist_i2c: return
 
-		if nimname == "AVL6222":
-			if BOX_NAME == "uno":
-				self.i2c_mapping_table = {0:3, 1:3, 2:1, 3:0}
-			elif BOX_NAME == "duo2":
-				nimdata = self.nimSockets['0']
-				try:
-					if nimdata[0] == "AVL6222":
-						self.i2c_mapping_table = {0:2, 1:2, 2:4, 3:4}
-					else:	self.i2c_mapping_table = {0:2, 1:4, 2:4, 3:0}
-				except: self.i2c_mapping_table = {0:2, 1:4, 2:4, 3:0}
-			else:	self.i2c_mapping_table = {0:2, 1:4, 2:0, 3:0}
-		else:	self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
+		self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
 
 	def getNimSocket(self, slot_number):
 		return self.i2c_mapping_table.get(slot_number, -1)
@@ -552,8 +490,6 @@ class Blindscan(ConfigListScreen, Screen):
 				continue
 			if hasattr(n, 'isFBCLink') and n.isFBCLink():
 				continue
-			if n.description in _unsupportedNims: # DVB-S NIMs without blindscan hardware or software
-				continue
 			if n.config_mode == "nothing":
 				continue
 			if len(nimmanager.getSatListForNim(n.slot)) < 1:
@@ -612,11 +548,7 @@ class Blindscan(ConfigListScreen, Screen):
 		nimname = nim.friendly_full_description
 		self.SundtekScan = "Sundtek DVB-S/S2" in nimname
 
-		if not self.SundtekScan and (BOX_MODEL.startswith('xtrend') or BOX_MODEL.startswith('vu')):
-			warning_text = _("\nWARNING! Blind scan may make the tuner malfunction on a VU+ and ET receiver. A reboot afterwards may be required to return to proper tuner function.")
-			if BOX_MODEL.startswith('vu') and "AVL6222" in nimname:
-				warning_text = _("\nSecond slot dual tuner may not be supported blind scan.")
-		elif self.SundtekScan:
+		if self.SundtekScan:
 			warning_text = _("\nYou must use the power adapter.")
 
 		self.tunerEntry = getConfigListEntry(_("Tuner"), self.scan_nims,(_("Select a tuner that is configured for the satellite you wish to search") + warning_text))
@@ -771,14 +703,6 @@ class Blindscan(ConfigListScreen, Screen):
 				return "vuplus_%(TYPE)sblindscan"%{'TYPE':sType}, sName
 			except: pass
 			return "vuplus_blindscan", ""
-		if BOX_MODEL.startswith('vu') and not self.SundtekScan:
-			self.binName,nimName =  GetCommand(self.scan_nims.value)
-
-			self.makeNimSocket(nimName)
-			if self.binName is None:
-				self.session.open(MessageBox, _("Blindscan is not supported in ") + nimName + _(" tuner."), MessageBox.TYPE_ERROR)
-				print "[Blind scan]" + nimName + " does not support blindscan."
-				return
 
 		self.full_data = ""
 		self.total_list=[]
@@ -936,67 +860,6 @@ class Blindscan(ConfigListScreen, Screen):
 				cmd = "%s --blindscan %d" % (tools, self.feid)
 				if self.is_c_band_scan:
 					cmd += " --band c"
-			else:
-				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-				return
-		elif BOX_NAME in ("7000S", "7005S", "mbmicro", "mbmicrov2"):
-			tools = "/usr/bin/ceryon_blindscan"
-			if os.path.exists(tools):
-				cmd = "ceryon_blindscan %d %d %d %d %d %d %d %d %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid), self.is_c_band_scan)
-			else:
-				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-				return
-		elif BOX_MODEL.startswith('vu'):
-			if BOX_NAME in ("uno", "duo2", "solo2", "solose", "ultimo", "solo4k", "ultimo4k", "zero4k"):
-				tools = "/usr/bin/%s" % self.binName
-				if os.path.exists(tools):
-					try:
-						cmd = "%s %d %d %d %d %d %d %d %d" % (self.binName, temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-					except:
-						self.session.open(MessageBox, _("Scan unknown error!"), MessageBox.TYPE_ERROR)
-						return
-				else:
-					self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-					return
-			else:
-				self.session.open(MessageBox, not_support_text, MessageBox.TYPE_WARNING)
-				return
-		elif BOX_MODEL.startswith('xtrend'):
-			if BOX_NAME.startswith("et9") or BOX_NAME.startswith("et6") or BOX_NAME.startswith("et5"):
-				tools = "/usr/bin/avl_xtrend_blindscan"
-				if os.path.exists(tools):
-					cmd = "avl_xtrend_blindscan %d %d %d %d %d %d %d %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid)) # commented out by Huevos cmd = "avl_xtrend_blindscan %d %d %d %d %d %d %d %d" % (self.blindscan_start_frequency.value/1000000, self.blindscan_stop_frequency.value/1000000, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				else:
-					self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-					return
-			else:
-				self.session.open(MessageBox, not_support_text, MessageBox.TYPE_WARNING)
-				return
-		elif BOX_MODEL.startswith("edision"):
-			tools = "/usr/bin/blindscan"
-			if os.path.exists(tools):
-				cmd = "blindscan --start=%d --stop=%d --min=%d --max=%d --slot=%d --i2c=%d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, self.feid, self.getNimSocket(self.feid))
-				if tab_pol[pol]:
-					cmd += " --vertical"
-				if self.is_c_band_scan:
-					cmd += " --cband"
-				elif tab_hilow[band]:
-					cmd += " --high"
-			else:
-				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-				return
-		elif BOX_NAME == "sf8008":
-			self.frontend and self.frontend.closeFrontend()
-			tools = "/usr/bin/octagon-blindscan"
-			if os.path.exists(tools):
-				cmd = "octagon-blindscan %d %d %d %d %d %d %d %d %d %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid), self.is_c_band_scan,orb[0])
-			else:
-				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
-				return
-		elif BOX_MODEL == "gigablue":
-			tools = "/usr/bin/gigablue_blindscan"
-			if os.path.exists(tools):
-				cmd = "gigablue_blindscan %d %d %d %d %d %d %d %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
 			else:
 				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
 				return

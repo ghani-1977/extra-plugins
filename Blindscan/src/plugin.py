@@ -16,7 +16,6 @@ from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
 from Tools.BoundFunction import boundFunction
 import os
-
 #used for the XML file
 from time import strftime, time
 

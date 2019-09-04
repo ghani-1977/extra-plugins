@@ -7,7 +7,7 @@ from Components.Label import Label
 from Components.NimManager import nimmanager, getConfigSatlist
 from Components.Sources.CanvasSource import CanvasSource
 from Components.Sources.List import List
-from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager
+from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager, getBoxType
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
@@ -18,10 +18,7 @@ from Tools.Transponder import ConvertToHumanReadable
 
 XML_BLINDSCAN_DIR = "/tmp"
 
-try:
-	boxtype = open("/proc/stb/info/model").read().strip()
-except:
-	boxtype = ""
+boxtype = getBoxType()
 
 class TransponderSearchSupport:
 	def tryGetRawFrontend(self, feid, ret_boolean=True, do_close=True):
