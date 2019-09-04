@@ -17,7 +17,6 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
 from Tools.BoundFunction import boundFunction
-from Tools.Directories import fileExists
 import os
 #used for the XML file
 from time import strftime, time
