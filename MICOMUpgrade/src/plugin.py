@@ -1,162 +1,150 @@
 # for localized messages
 from . import _
-
 import os, urllib
 from urllib import urlretrieve
-
 from Plugins.Plugin import PluginDescriptor
-
-from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigText, ConfigSelection, ConfigYesNo,ConfigText
-from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Label import Label
-
 from Components.FileList import FileList
-from Components.Slider import Slider
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-
-from enigma import ePoint, eConsoleAppContainer, eTimer
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from enigma import eTimer
 from shutil import copyfile
+from Tools.StbHardware import getBoxProc
 
 fwlist = None
 fwdata = None
 
-if os.path.exists("/proc/stb/info/boxtype"):
-	inimodel = open("/proc/stb/info/boxtype")
-	info = inimodel.read().strip()
-	inimodel.close()
+info = getBoxProc()
 
-	if info == "ini-1000":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-1000ru":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-1000sv":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-1000de":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100DE_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-1000am":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-2000am":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-2000sv":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-3000":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-5000":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-5000ru":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-5000sv":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-7000":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS700_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-7012":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-7012au":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712AU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
-			}
-	elif info == "ini-8000am":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800AM_Micom.bin", "/proc/vfd;/dev/mcu;"]
-			}
-	elif info == "ini-8000sv":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800SV_Micom.bin", "/proc/vfd;/dev/mcu;"]
-			}
-	elif info == "ini-9000de":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI900DE_Micom.bin", "/proc/vfd;/dev/mcu;"]
-			}
-	elif info == "ini-9000ru":
-		fwlist= [
-			("fp", _("Front Panel"))
-			]
-		fwdata= {
-			 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI900RU_Micom.bin", "/proc/vfd;/dev/mcu;"]
-			}
+if info == "ini-1000":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-1000ru":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-1000sv":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-1000de":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100DE_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-1000am":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-2000am":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-2000sv":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-3000":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-5000":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-5000ru":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-5000sv":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-7000":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS700_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-7012":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-7012au":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712AU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
+		}
+elif info == "ini-8000am":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800AM_Micom.bin", "/proc/vfd;/dev/mcu;"]
+		}
+elif info == "ini-8000sv":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800SV_Micom.bin", "/proc/vfd;/dev/mcu;"]
+		}
+elif info == "ini-9000de":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI900DE_Micom.bin", "/proc/vfd;/dev/mcu;"]
+		}
+elif info == "ini-9000ru":
+	fwlist= [
+		("fp", _("Front Panel"))
+		]
+	fwdata= {
+		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI900RU_Micom.bin", "/proc/vfd;/dev/mcu;"]
+		}
 			
 class Filebrowser(Screen):
 	skin = 	"""
