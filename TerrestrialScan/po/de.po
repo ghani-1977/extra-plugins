@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2018-10-14 22:29+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: none\n"
@@ -42,6 +42,9 @@ msgstr "Konnte den Tuner nicht erreichen"
 msgid "Cannot retrieve Resource Manager instance"
 msgstr "Kann nicht die Resource-Manager-Instanz abrufen"
 
+msgid "Channel list ID"
+msgstr ""
+
 msgid "Clear before scan"
 msgstr "Vor dem Suchlauf löschen"
 
@@ -51,6 +54,9 @@ msgstr "Terrestrisches Kanalliste erstellen"
 #, fuzzy
 msgid "Create terrestrial.xml file"
 msgstr "Terrestrisches Kanalliste erstellen"
+
+msgid "Enter channel list ID used in your area. If you are not sure enter zero."
+msgstr ""
 
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
 msgstr "Geben Sie die ursprüngliche Netzwerk-ID (ONID) der Multiplexe ein, auf die Sie die Suche beschränken möchten. BRITISCHES terrestrisches Fernsehen normalerweise ONID \"9018\"."
@@ -76,6 +82,9 @@ msgid "If you select \"yes\" the scan will only save channels that are not encry
 msgstr ""
 "Wenn Sie \"Ja\" auswählen werden nur unverschlüsselte Kanäle gesucht,\n"
 "bei \"Nein\" werden verschlüsselte und unverschlüsselte Kanäle gesucht."
+
+msgid "LCN Descriptor"
+msgstr ""
 
 msgid "MakeBouquet"
 msgstr "Kanalliste erstellen"
@@ -104,6 +113,9 @@ msgstr "- ONID Suche"
 
 msgid "Only free scan"
 msgstr "Nur freie Kanäle suchen"
+
+msgid "Period of time to wait for the tuner to stabalise before taking a signal quality reading. 2 seconds is good for most hardware but some may require longer."
+msgstr ""
 
 #, fuzzy, python-format
 msgid "Reading %s MHz (ch %s)"
@@ -139,8 +151,14 @@ msgstr ""
 "Wählen Sie einen Tuner, der für den terrestrischen Suchlauf konfiguriert ist.\n"
 "\"Automatisch\", den Tuner mit dem besten Empfangssignal wählen."
 
+msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
 msgid "Selected tuner is not cofigured"
 msgstr "Ausgewählter Tuner ist nicht konfiguriert"
+
+msgid "Signal quality stabisation time (secs)"
+msgstr ""
 
 msgid "Starting scanner"
 msgstr "Starte Suchlauf"

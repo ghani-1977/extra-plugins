@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 14:32+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,6 +41,9 @@ msgstr ""
 msgid "Cannot retrieve Resource Manager instance"
 msgstr ""
 
+msgid "Channel list ID"
+msgstr ""
+
 msgid "Clear before scan"
 msgstr ""
 
@@ -48,6 +51,9 @@ msgid "Create terrestrial bouquet"
 msgstr ""
 
 msgid "Create terrestrial.xml file"
+msgstr ""
+
+msgid "Enter channel list ID used in your area. If you are not sure enter zero."
 msgstr ""
 
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
@@ -71,6 +77,9 @@ msgid "If you select \"yes\" and LCNs are found in the NIT, the scan will create
 msgstr ""
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
+msgstr ""
+
+msgid "LCN Descriptor"
 msgstr ""
 
 msgid "MakeBouquet"
@@ -98,6 +107,9 @@ msgid "ONID to search"
 msgstr ""
 
 msgid "Only free scan"
+msgstr ""
+
+msgid "Period of time to wait for the tuner to stabalise before taking a signal quality reading. 2 seconds is good for most hardware but some may require longer."
 msgstr ""
 
 #, python-format
@@ -132,7 +144,13 @@ msgstr ""
 msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" will pick the highest spec available tuner."
 msgstr ""
 
+msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
 msgid "Selected tuner is not cofigured"
+msgstr ""
+
+msgid "Signal quality stabisation time (secs)"
 msgstr ""
 
 msgid "Starting scanner"

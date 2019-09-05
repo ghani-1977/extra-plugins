@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TerrestrialScan oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2017-07-06 08:05+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -37,6 +37,9 @@ msgstr "Imtuvas neprieinamas"
 msgid "Cannot retrieve Resource Manager instance"
 msgstr "Išteklių valdymas neprieinamas"
 
+msgid "Channel list ID"
+msgstr ""
+
 msgid "Clear before scan"
 msgstr "Prieš paiešką išvalyti"
 
@@ -44,6 +47,9 @@ msgid "Create terrestrial bouquet"
 msgstr ""
 
 msgid "Create terrestrial.xml file"
+msgstr ""
+
+msgid "Enter channel list ID used in your area. If you are not sure enter zero."
 msgstr ""
 
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
@@ -68,6 +74,9 @@ msgstr ""
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "Jei pasirinksite 'taip', bus išsaugoti tik atviri, nekoduoti kanalai; 'ne' išsaugos ir koduotus, ir nekoduotus kanalus."
+
+msgid "LCN Descriptor"
+msgstr ""
 
 msgid "MakeBouquet"
 msgstr ""
@@ -95,6 +104,9 @@ msgstr ""
 
 msgid "Only free scan"
 msgstr "Ieškoti tik nekoduotų kanalų"
+
+msgid "Period of time to wait for the tuner to stabalise before taking a signal quality reading. 2 seconds is good for most hardware but some may require longer."
+msgstr ""
 
 #, fuzzy, python-format
 msgid "Reading %s MHz (ch %s)"
@@ -129,8 +141,14 @@ msgstr ""
 msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" will pick the highest spec available tuner."
 msgstr "Pasirinkite imtuvą, sukonfigūruotą antžeminei paieškai. \"Automatiškai\" parinks aukščiausios reikšmės imtuvą."
 
+msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
 msgid "Selected tuner is not cofigured"
 msgstr "Pasirinktas imtuvas nesukonfigūruotas"
+
+msgid "Signal quality stabisation time (secs)"
+msgstr ""
 
 msgid "Starting scanner"
 msgstr "Pradedama paieška"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan Official Greek Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2018-11-26 05:02+0200\n"
 "Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language-Team: MCelliot_g <mcelliot_g@hotmail.com>\n"
@@ -21,20 +21,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"Second slot dual tuner may not be supported blind scan."
-msgstr ""
-"\n"
-"Η δεύτερη θέση του διπλού tuner μπορεί να μην υποστηρίζει την τυφλή ανίχνευση."
-
-msgid ""
-"\n"
-"WARNING! Blind scan may make the tuner malfunction on a VU+ and ET receiver. A reboot afterwards may be required to return to proper tuner function."
-msgstr ""
-"\n"
-"ΠΡΟΕΙΔΟΠΟΙΗΣΗ! Η τυφλή ανίχνευση μπορεί να προκαλέσει δυσλειτουργία στις μονάδες tuner των δεκτών Vu+ και ΕΤ. Μπορεί να απαιτηθεί επανεκκίνηση για να επανέλθει η κανονική λειτουργία τους."
-
-msgid ""
-"\n"
 "You must use the power adapter."
 msgstr ""
 "\n"
@@ -42,9 +28,6 @@ msgstr ""
 
 msgid "   Starting Sundtek hardware blind scan."
 msgstr "   Εκκίνηση τυφλής ανίχνευσης Sundtek."
-
-msgid " tuner."
-msgstr " tuner."
 
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
 msgstr "Η \"ανίχνευση για κανάλια\" ψάχνει για κανάλια και τα αποθηκεύει στο δέκτη σας: η \"ανίχνευση για αναμεταδότες\" εμφανίζει τους αναμεταδότες που βρέθηκαν, επιτρέποντας στο χρήστη να επιλέξει έναν ή όλους. Και οι δύο επιλογές αποθηκεύουν το αποτέλεσμα στο /tmp σε ένα αρχείο satellites.xml"
@@ -65,7 +48,7 @@ msgstr "Βήμα %d %d:%02d λεπτά"
 msgid "%dMHz scanned"
 msgstr ""
 
-msgid "AUTOMATICALLY start service searching, press green to change"
+msgid "AUTOMATICALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Accuracy (higher is better)"
@@ -79,9 +62,6 @@ msgstr "Τυφλή ανίχνευση για DVB-S2 tuners"
 
 msgid "Blind scan state"
 msgstr "Κατάσταση τυφλής ανίχνευσης"
-
-msgid "Blindscan is not supported in "
-msgstr "Η τυφλή ανίχνευση δεν υποστηρίζεται από το "
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr "ΠΡΟΣΟΧΗ: Αν επιλεγεί το \"ναι\", η ανίχνευση δεν θα αφαιρέσει τους \"διπλότυπους\" αναμεταδότες από τη λίστα. Προεπιλογή \"όχι\". Αλλάξτε αυτή την επιλογή αν κατανοείτε τι κάνετε."
@@ -173,7 +153,7 @@ msgstr ""
 "Ανίχνευση διαθέσιμων αναμεταδοτών.\n"
 "Αυτό μπορεί να διαρκέσει αρκετά, παρακαλώ περιμένετε."
 
-msgid "MANUALLY start service searching, press green to change"
+msgid "MANUALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Maybe the reason that recording is currently running."
@@ -235,11 +215,11 @@ msgid "Press Green/OK to start the scan"
 msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
 
 #, fuzzy
-msgid "Press OK to start the scan"
+msgid "Press OK to start the scan."
 msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
 
 #, fuzzy
-msgid "Press green to start service searching!"
+msgid "Press green to start service searching."
 msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
 
 msgid "Rotor: "
@@ -271,9 +251,6 @@ msgstr "Τελική συχνότητα"
 
 msgid "Scan stop symbolrate"
 msgstr "Τελικός ρυθμός συμβόλων"
-
-msgid "Scan unknown error!"
-msgstr "Άγνωστο σφάλμα ανίχνευσης!"
 
 #, python-format
 msgid ""

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ViX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2014-05-12 12:00+0100\n"
 "Last-Translator: Rob van der Does <robvddoes@gmail.com>\n"
 "Language-Team: Andy Blackburn, Rob van der Does\n"
@@ -19,25 +19,11 @@ msgstr ""
 
 msgid ""
 "\n"
-"Second slot dual tuner may not be supported blind scan."
-msgstr ""
-
-msgid ""
-"\n"
-"WARNING! Blind scan may make the tuner malfunction on a VU+ and ET receiver. A reboot afterwards may be required to return to proper tuner function."
-msgstr ""
-
-msgid ""
-"\n"
 "You must use the power adapter."
 msgstr ""
 
 msgid "   Starting Sundtek hardware blind scan."
 msgstr ""
-
-#, fuzzy
-msgid " tuner."
-msgstr "Tuner"
 
 #, fuzzy
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
@@ -59,7 +45,7 @@ msgstr ""
 msgid "%dMHz scanned"
 msgstr ""
 
-msgid "AUTOMATICALLY start service searching, press green to change"
+msgid "AUTOMATICALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Accuracy (higher is better)"
@@ -75,9 +61,6 @@ msgstr ""
 #, fuzzy
 msgid "Blind scan state"
 msgstr "Blindscan"
-
-msgid "Blindscan is not supported in "
-msgstr ""
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -175,7 +158,7 @@ msgstr ""
 "Zoekt beschikbare transponders.\n"
 "Dit zal een tijdje duren, wees geduldig."
 
-msgid "MANUALLY start service searching, press green to change"
+msgid "MANUALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Maybe the reason that recording is currently running."
@@ -237,11 +220,11 @@ msgid "Press Green/OK to start the scan"
 msgstr "Druk op Groen/OK om de scan te beginnen"
 
 #, fuzzy
-msgid "Press OK to start the scan"
+msgid "Press OK to start the scan."
 msgstr "Druk op Groen/OK om de scan te beginnen"
 
 #, fuzzy
-msgid "Press green to start service searching!"
+msgid "Press green to start service searching."
 msgstr "Druk op Groen/OK om de scan te beginnen"
 
 msgid "Rotor: "
@@ -274,10 +257,6 @@ msgstr "Scan stop frequentie"
 
 msgid "Scan stop symbolrate"
 msgstr "Scan stop symbolrate"
-
-#, fuzzy
-msgid "Scan unknown error!"
-msgstr "Scan alleen onbekende transponders"
 
 #, fuzzy, python-format
 msgid ""

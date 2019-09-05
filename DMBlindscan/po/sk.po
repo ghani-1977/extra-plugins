@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2017-03-01 14:01+0100\n"
 "Last-Translator: Andrej <andrej.tobola@gmail.com>\n"
 "Language-Team: Andrej <andrej.tobola@gmail.com>\n"
@@ -18,20 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Poedit 1.8.11\n"
 
-msgid ""
-"\n"
-"Second slot dual tuner may not be supported blind scan."
-msgstr ""
-"\n"
-"Druhy tuner nemusí podporovať blind scan."
-
-msgid ""
-"\n"
-"WARNING! Blind scan may make the tuner malfunction on a VU+ and ET receiver. A reboot afterwards may be required to return to proper tuner function."
-msgstr ""
-"\n"
-"POZOR! Blind scan môže spôsobiť zlyhanie tuneru na prijímačoch VU+ a ET. Po dokončení môže byť pre návrat do normálnych funkcií tuneru vyžadovaný reštart."
-
 #, fuzzy
 msgid ""
 "\n"
@@ -40,9 +26,6 @@ msgstr "Musíte použiť napájací adaptér."
 
 msgid "   Starting Sundtek hardware blind scan."
 msgstr "   Spúšťa sa Sundtek hardvérový blind scan."
-
-msgid " tuner."
-msgstr " tuner."
 
 #, fuzzy
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
@@ -64,7 +47,8 @@ msgstr "%d:%02d/%d:%02dmin"
 msgid "%dMHz scanned"
 msgstr "%dMHz prehľadávaných"
 
-msgid "AUTOMATICALLY start service searching, press green to change"
+#, fuzzy
+msgid "AUTOMATICALLY start service searching, press green to change."
 msgstr "AUTOMATICKÉ spustenie vyhľadávania staníc, pre zmenu stlačte Zelené tlač."
 
 msgid "Accuracy (higher is better)"
@@ -78,9 +62,6 @@ msgstr "Blind scan pre DVB-S2 tunery"
 
 msgid "Blind scan state"
 msgstr "Stav Blind scanu"
-
-msgid "Blindscan is not supported in "
-msgstr "Blindscan nie je podporovaný v "
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -178,7 +159,8 @@ msgstr ""
 "Hľadajú sa dostupné transpondéry.\n"
 "Bude to chvíľu trvať, prosím buďte trpezlivý."
 
-msgid "MANUALLY start service searching, press green to change"
+#, fuzzy
+msgid "MANUALLY start service searching, press green to change."
 msgstr "MANUÁLNE spustenie vyhľadávania staníc, pre zmenu stlačte Zelené tlač."
 
 msgid "Maybe the reason that recording is currently running."
@@ -244,10 +226,12 @@ msgstr "Polarizácia"
 msgid "Press Green/OK to start the scan"
 msgstr "Stlačením Zelené/OK spustíte vyhľadávanie"
 
-msgid "Press OK to start the scan"
+#, fuzzy
+msgid "Press OK to start the scan."
 msgstr "Stlačením OK spustíte vyhľadávanie"
 
-msgid "Press green to start service searching!"
+#, fuzzy
+msgid "Press green to start service searching."
 msgstr "Stlačením Zeleného tlač. spustíte prehľadávanie"
 
 msgid "Rotor: "
@@ -279,9 +263,6 @@ msgstr "Hľadať do frekvencie"
 
 msgid "Scan stop symbolrate"
 msgstr "Hľadať do symb. rychlosti"
-
-msgid "Scan unknown error!"
-msgstr "Neznáma chyba vyhľadávania"
 
 #, fuzzy, python-format
 msgid ""

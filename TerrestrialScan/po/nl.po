@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2019-09-05 21:14+0430\n"
 "PO-Revision-Date: 2018-07-31 10:37+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: none\n"
@@ -42,6 +42,9 @@ msgstr "Kan de NIM niet bereiken"
 msgid "Cannot retrieve Resource Manager instance"
 msgstr "Ontvangen Bronnen Beheer instantie niet mogelijk"
 
+msgid "Channel list ID"
+msgstr ""
+
 msgid "Clear before scan"
 msgstr "Verwijder voor het scannen"
 
@@ -51,6 +54,9 @@ msgstr "Creëer terrestrisch boeket"
 #, fuzzy
 msgid "Create terrestrial.xml file"
 msgstr "Creëer terrestrisch boeket"
+
+msgid "Enter channel list ID used in your area. If you are not sure enter zero."
+msgstr ""
 
 msgid "Enter the original network ID (ONID) of the multiplexes you wish to restrict the search to. UK terrestrial television normally ONID \"9018\"."
 msgstr "Geef de originele netwerk-ID (ONID) van de multiplexen waartoe u het zoeken wilt beperken. UK terrestrisch gebruik normaal gesproken \"9018\"."
@@ -74,6 +80,9 @@ msgstr "Als u \"Ja\" kiest en er LCN's gevonden worden in de NIT, zal de scan ee
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "Als u \"'ja\" kiest, zullen alleen kanalen worden opgeslagen die niet gecodeerd zijn; bij \"nee\" worden alle kanalen opgeslagen."
+
+msgid "LCN Descriptor"
+msgstr ""
 
 msgid "MakeBouquet"
 msgstr "Maak  boeket"
@@ -102,6 +111,9 @@ msgstr "- ONID naar zoeken"
 
 msgid "Only free scan"
 msgstr "Alleen vrije kanalen"
+
+msgid "Period of time to wait for the tuner to stabalise before taking a signal quality reading. 2 seconds is good for most hardware but some may require longer."
+msgstr ""
 
 #, fuzzy, python-format
 msgid "Reading %s MHz (ch %s)"
@@ -135,8 +147,14 @@ msgstr ""
 msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" will pick the highest spec available tuner."
 msgstr "Kies een tuner die is geconfigureerd voor terrestrische scans. \"Automatisch\" zal de tuner met de beste specificaties gebruiken."
 
+msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
 msgid "Selected tuner is not cofigured"
 msgstr "De gekozen tuner is niet geconfigureerd"
+
+msgid "Signal quality stabisation time (secs)"
+msgstr ""
 
 msgid "Starting scanner"
 msgstr "Start scanner"
