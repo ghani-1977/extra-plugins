@@ -14,12 +14,11 @@
 #  Advertise with this Plugin is not allowed.
 #  For other uses, permission from the author is necessary.
 #
-Version = "V5.0-r4"
+Version = "V5.0-r5"
 from __init__ import _
 from enigma import eConsoleAppContainer, eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol
 from enigma import getDesktop, getEnigmaVersionString
 from enigma import ePicLoad, ePixmap, getBoxType
-
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
@@ -35,7 +34,7 @@ from Screens.MessageBox import MessageBox
 from Screens.InfoBar import InfoBar
 from Screens import Standby 
 from Screens.Standby import TryQuitMainloop
-
+from Components.Console import Console
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
@@ -61,7 +60,6 @@ except:
 import calendar
 import math
 import gc
-
 url2 = False
 try:
 	import urllib2
@@ -85,14 +83,12 @@ import re
 from time import gmtime, strftime, localtime, mktime, time, sleep, timezone, altzone, daylight
 from datetime import datetime, timedelta, date
 dummy = datetime.strptime('2000-01-01', '%Y-%m-%d').date()
-
 from Components.ServiceEventTracker import ServiceEventTracker
 from enigma import eTimer, eEPGCache, eServiceReference, eServiceCenter, iPlayableService
 from RecordTimer import RecordTimer, RecordTimerEntry, parseEvent
 from threading import Thread, Lock
 import Queue
 import ping
-
 from Components.config import configfile, getConfigListEntry, ConfigPassword, \
 	ConfigYesNo, ConfigText, ConfigClock, ConfigNumber, ConfigSelectionNumber, ConfigSelection, \
 	config, Config, ConfigSubsection, ConfigSubList, ConfigSubDict, ConfigIP, ConfigSlider, ConfigDirectory
@@ -100,7 +96,6 @@ from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.MenuList import MenuList
 from Components.NimManager import nimmanager
- 
 from Tools.BoundFunction import boundFunction
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 from SocketServer import ThreadingMixIn
@@ -164,19 +159,19 @@ L4LdoThread = True
 LCD4config = "/etc/enigma2/lcd4config"
 LCD4plugin ="/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/"
 Data = LCD4plugin+"data/"
-if getBoxType() in ('gb800ue','gbquad','gbultraueh','gb800ueplus','gbultraue','twinboxlcdci5','sf208','singleboxlcd','sf238','twinboxlcd','sf228','protek4k','e4hdultra','gbue4k'):
+if getBoxType() in ("gb800ue","gbquad","gbultraueh","gb800ueplus","gbultraue","twinboxlcdci5","sf208","singleboxlcd","sf238","twinboxlcd","sf228","protek4k","e4hdultra","gbue4k"):
 	LCD4default = Data+"default.colorlcd220"
-elif getBoxType() in ('dm920','gbquadplus','gbquad4k'):
+elif getBoxType() in ("dm920","gbquadplus","gbquad4k"):
 	LCD4default = Data+"default.colorlcd400"
-elif getBoxType() == 'vuduo2':
+elif getBoxType() == "vuduo2":
 	LCD4default = Data+"default.vuduo2"
-elif getBoxType() == 'et8500':
+elif getBoxType() == "et8500":
 	LCD4default = Data+"default.colorlcd720"
-elif getBoxType() in ('vusolo4k','vuduo4k'):
+elif getBoxType() in ("vusolo4k","vuduo4k"):
 	LCD4default = Data+"default.colorlcd480"
-elif getBoxType() == 'vuultimo4k':
+elif getBoxType() == "vuultimo4k":
 	LCD4default = Data+"default.colorlcd800"
-elif getBoxType() in ('sezammarvel','atemionemesis','xpeedlx3','mbultra','beyonwizt4'):
+elif getBoxType() in ("sezammarvel","atemionemesis","xpeedlx3","mbultra","beyonwizt4"):
 	LCD4default = Data+"default.bwlcd255"
 else:
 	LCD4default = Data+"default.lcd"
@@ -4046,7 +4041,7 @@ class RunShell:
 		global ShellRunning
 		ShellRunning = True
 		L4log("Shell",cmd)
-		os.system(cmd + " >/dev/null 2>&1")
+		Console().ePopen("%s >/dev/null 2>&1" % cmd)
 		ShellRunning = False
 
 	def cmdFinished(self, data):
@@ -4421,7 +4416,7 @@ class GrabOSD:
 		GrabRunning = True
 		L4logE("Grab Run")
 
-		os.system(cmd + " >/dev/null 2>&1")
+		Console().ePopen("%s >/dev/null 2>&1" % cmd)
 		self.cmdFinished("")
 
 	def cmdFinished(self, data):
@@ -11395,7 +11390,7 @@ def LCD4linuxPIC(self,session):
 			GrabTVRunning = True
 			L4logE("GrabTV Run")
 
-			os.system(cmd + " >/dev/null 2>&1")
+			Console().ePopen("%s >/dev/null 2>&1" % cmd)
 			self.cmdFinished("")
 
 		def cmdFinished(self, data):

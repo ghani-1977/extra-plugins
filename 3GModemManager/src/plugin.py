@@ -1,10 +1,8 @@
 from Plugins.Plugin import PluginDescriptor
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Screens.VirtualKeyBoard import VirtualKeyBoard
-
 from Components.Label import Label
 from Components.Sources.Boolean import Boolean
 from Components.Sources.StaticText import StaticText
@@ -15,13 +13,12 @@ from Components.config import config, getConfigListEntry, ConfigInteger, ConfigS
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
 from Components.About import about
-
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, fileExists
-
 from enigma import eTimer, eConsoleAppContainer, eSocketNotifier, getDesktop
 from select import POLLIN, POLLPRI
 from xml.sax import make_parser, handler
 import os, socket, time
+from Components.Console import Console
 
 
 debug_mode_modem_mgr = False
@@ -498,7 +495,7 @@ class ModemManual(Screen):
 		self.close()
 
 	def keyExit(self):
-		os.system("chattr -i /etc/ppp/resolv.conf;chattr -i /etc/resolv.conf")
+		Console().ePopen("chattr -i /etc/ppp/resolv.conf;chattr -i /etc/resolv.conf")
 		self.close()
 
 	def setAPNInfo(self, noUpdate=False):
@@ -656,7 +653,7 @@ class ModemManager(Screen):
 		
 	def GetIP(self):
 		if self["key_green"].getText() == 'Disconnect':
-		  os.system('killall -9 wget')
+		  Console().ePopen('killall -9 wget')
 		  cmd = str('wget -q -O - http://checkip.dyndns.org | grep "html" | cut -d" " -f6  | cut -d"<" -f1')
 		  res = os.popen(cmd).read()
 		  self['myip'].setText(_('IP : ' + str(res)))
@@ -756,9 +753,9 @@ class ModemManager(Screen):
 
 	def cbForciblyExit(self, result):
 		if result:
-			os.system('%s -s 1' % commandBin)
-			os.system('%s -s 2' % commandBin)
-			os.system('%s -s 6' % commandBin)
+			Console().ePopen('%s -s 1' % commandBin)
+			Console().ePopen('%s -s 2' % commandBin)
+			Console().ePopen('%s -s 6' % commandBin)
 			self.udevListener.close()
 			self.close()
 
@@ -979,9 +976,9 @@ class ModemManager(Screen):
 	def writeConf(self, data, oper='>>'):
 		confFile = '/etc/wvdial.conf'
 		if oper == '>':
-			os.system('mv %s %s.bak' % (confFile, confFile))
+			Console().ePopen('mv %s %s.bak' % (confFile, confFile))
 		cmd = "echo '%s' %s %s" % (data, oper, confFile)
-		os.system(cmd)
+		Console().ePopen(cmd)
 
 	def makeWvDialConf(self, params):
 		baud  = params.get('Baud')
@@ -1145,14 +1142,14 @@ def autostart(reason, **kwargs):
 				print "[3GModemManager] already started"
 			else:
 				print "[3GModemManager] starting ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 				print "[3GModemManager] disable all others network adapters ..."
-				os.system("ifconfig eth0 down")
+				Console().ePopen("ifconfig eth0 down")
 		elif config.plugins.gmodemmanager.autostart.value == False and is_running == True:
 				print "[3GModemManager] stopping ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 				print "[3GModemManager] disable all others network adapters ..."
-				os.system("ifconfig eth0 up")
+				Console().ePopen("ifconfig eth0 up")
 						
 
 

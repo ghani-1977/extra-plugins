@@ -1,16 +1,12 @@
 from Plugins.Plugin import PluginDescriptor
-
 import os
 from os import system
 from xml.etree.cElementTree import fromstring, ElementTree
-
 from enigma import gFont, eTimer, eConsoleAppContainer, ePicLoad, loadPNG, getDesktop, eServiceReference, iPlayableService, eListboxPythonMultiContent, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER
-
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
-
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
@@ -22,8 +18,8 @@ from Components.MenuList import MenuList
 from Components.Pixmap import Pixmap, MovingPixmap
 from Components.AVSwitch import AVSwitch
 from Components.ServiceEventTracker import ServiceEventTracker
-
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
+from Components.Console import Console
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/StreamTV")
 
@@ -262,7 +258,7 @@ class StreamTVList(Screen):
 		print "a process already running :", rc
 		if rc is not None:
 			if rc.strip() != '':
-				os.system('killall -INT rtmpdump')
+				Console().ePopen('killall -INT rtmpdump')
 	def keyLeft(self):
 		if self.keyLocked:
 			return

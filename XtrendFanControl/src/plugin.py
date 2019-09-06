@@ -31,6 +31,7 @@ import gettext
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.Label import Label
+from Components.Console import Console
 
 PLUGIN_VERSION = _(" ver. 3.2")
 
@@ -453,7 +454,7 @@ def getSysTemp():
 
 def getTempForDevice(device):
 	try:
-		os.system('/usr/sbin/hddtemp -q %s > /tmp/hdd.temperature' % device)
+		Console().ePopen('/usr/sbin/hddtemp -q %s > /tmp/hdd.temperature' % device)
 		f = open('/tmp/hdd.temperature', 'r')
 		temperature = f.readline()
 		f.close()

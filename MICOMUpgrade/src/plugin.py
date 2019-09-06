@@ -13,6 +13,7 @@ from Screens.MessageBox import MessageBox
 from enigma import eTimer
 from shutil import copyfile
 from Tools.StbHardware import getBoxProc
+from Components.Console import Console
 
 fwlist = None
 fwdata = None
@@ -293,7 +294,7 @@ class Filebrowser(Screen):
 
 		self.guri = micom_url
 		self.gbin = os.path.basename(target_path)
-		os.system("rm -f /tmp/" + root_file)
+		Console().ePopen("rm -f /tmp/%s" % root_file)
 
 		# md5
 		if not self.doDownload(self.guri+".md5", self.gbin+".md5", cbfunc=cbDownloadDone, errmsg="Can't download the checksum file."):

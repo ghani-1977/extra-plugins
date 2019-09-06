@@ -28,19 +28,20 @@ from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
-from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer, getBoxType
+from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer, getBoxBrand
+from Components.Console import Console
 
 HTTPConnection.debuglevel = 1
 
 model_rc = "rc_wb_desc.png"
-if getBoxType().startswith("gb"):
+if getBoxBrand() == "gigablue":
 	model_rc = "rc_wb_desc_gb.png"
-elif getBoxType() in ("atemio5x00","atemio6000","atemio6100","atemio6200","atemionemesis","beyonwizt2","beyonwizt3","beyonwizt4","bwidowx","bwidowx2","evoslim","mbhybrid","mbmini","mbminiplus","mbtwin","mbultra","opticumtt","sezam1000hd","sezam5000hd","sezammarvel","ventonhdx","xpeedlx","xpeedlx3"):
+elif getBoxBrand() == "ini":
 	model_rc = "rc_wb_desc_hdx.png"
 
 def excute_cmd(cmd):
 	print "prepared cmd:", cmd
-	os.system(cmd)
+	Console().ePopen(cmd)
 
 alpha_value = 0
 def change_galpha(set_const, set_value):

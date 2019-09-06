@@ -35,6 +35,7 @@ import os
 import time
 import signal
 from datetime import datetime, timedelta
+from Components.Console import Console
 
 class TaskManager:
 	def __init__(self):
@@ -134,16 +135,16 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver"
-				os.system("modprobe rtk_btusb")
+				Console().ePopen("modprobe rtk_btusb")
 			else:
 				print "[BluetoothManager] Autostart: Unloading driver"
-				os.system("rmmod rtk_btusb")
+				Console().ePopen("rmmod rtk_btusb")
 
 		if getBoxBrand() in ("xcore","edision"):
 			if config.btdevicesmanager.audioconnect.getValue():
-				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
+				Console().ePopen("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
 			else:
-				os.system("%s" % commandconnect)
+				Console().ePopen("%s" % commandconnect)
 
 		config.btdevicesmanager.save()
 		
@@ -315,7 +316,7 @@ class BluetoothDevicesManager(Screen):
 			print "[BluetoothManager] Disconnecting"
 			if getBoxBrand() not in ("xcore","edision"):
 				cmd = "hidd --killall"
-				rc = os.system(cmd)
+				rc = Console().ePopen(cmd)
 				if not rc:
 					self["ConnStatus"].setText(_("No connected to any device"))
 					self["key_yellow"].setText(_("Connect"))
@@ -352,7 +353,7 @@ class BluetoothDevicesManager(Screen):
 				cmd = "hidd --connect " + selectedItem[1]
 				self.taskManager.append(cmd, self.cbPrintAvailConnections, self.cbRunNextTask)
 				cmd = "hidd --show"
-				rc = os.system(cmd)
+				rc = Console().ePopen(cmd)
 				if rc:
 					print "[BluetoothManager] can NOT connect with: ", selectedItem[1]
 					msg = _("Can't not pair with selected device!")
@@ -445,14 +446,14 @@ def autostart(reason, **kwargs):
 		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
 				print "[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
-				os.system("modprobe rtk_btusb")
+				Console().ePopen("modprobe rtk_btusb")
 			else:
 				print "[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.
-				os.system("rmmod rtk_btusb")
+				Console().ePopen("rmmod rtk_btusb")
 
 		if getBoxBrand() in ("xcore","edision"):
 			if config.btdevicesmanager.audioconnect.getValue():
-				os.system("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
+				Console().ePopen("%s %s" % (commandconnect, config.btdevicesmanager.audioaddress.getValue()))
 
 iBluetoothDevicesTask = None
 

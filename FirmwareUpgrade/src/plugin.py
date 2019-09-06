@@ -1,26 +1,21 @@
 # for localized messages
 from . import _
-
 import os, urllib
 from urllib import urlretrieve
-
 from Plugins.Plugin import PluginDescriptor
-
 from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigText, ConfigSelection, ConfigYesNo,ConfigText
 from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Label import Label
-
 from Components.FileList import FileList
 from Components.Slider import Slider
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-
 from enigma import ePoint, eConsoleAppContainer, eTimer, getDesktop
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Components.Console import Console
 
 fwlist = None
 fwdata = None
@@ -223,7 +218,7 @@ class VFDCtrlUpgradeCore() :
 		def closevfd(fp, fd, filename):
 			if fd is not None: os.close(fd)
 			if fp is not None: fp.close()
-			if filename is not None: os.system('rm -f %s' % (filename))
+			if filename is not None: Console().ePopen('rm -f %s' % filename)
 		try:
 			max_size = 1024 * 16
 			size = max_size #os.path.getsize(self.firmwarefile)
@@ -399,7 +394,7 @@ class UpgradeStatus(Screen):
 
 	def cbConfirmExit(self, ret):
 		if ret:
-			os.system("rm -f %s %s.md5" % (self.datafile, self.datafile))
+			Console().ePopen("rm -f %s %s.md5" % (self.datafile, self.datafile))
 		self.close()
 
 	def keyExit(self):
@@ -576,7 +571,7 @@ class FUFilebrowser(Screen):
 		self.guri = "%s/vu%s/%s"%(root_uri, machine, target_path)
 		self.gbin = os.path.basename(target_path)
 		#print "[FirmwareUpgrade] - uri[%s], data[%s], data_path[%s]" % (self.gbin, self.guri, target_path)
-		os.system("rm -f /tmp/" + root_file)
+		Console().ePopen("rm -f /tmp/%s" % root_file)
 
 		# md5
 		if not self.doDownload(self.guri+".md5", self.gbin+".md5", cbfunc=cbDownloadDone, errmsg="Can't download the checksum file."):
@@ -823,7 +818,7 @@ class FirmwareUpgrade(Screen, ConfigListScreen):
 		self.logmode.stop()
 		if os.path.exists("/tmp/onlogmode"):
 			return
-		os.system("touch /tmp/onlogmode")
+		Console().ePopen("touch /tmp/onlogmode")
 
 	def keyBlue(self):
 		if self.rebootLock:

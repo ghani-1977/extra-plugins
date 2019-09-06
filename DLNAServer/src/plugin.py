@@ -12,6 +12,7 @@ from Components.Sources.StaticText import StaticText
 from Components.ActionMap import NumberActionMap, ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigDirectory, ConfigYesNo, ConfigSubsection
 from Components.FileList import FileList
+from Components.Console import Console
 
 config.plugins.dlnaserver = ConfigSubsection()
 config.plugins.dlnaserver.autostart = ConfigYesNo(default = False)
@@ -408,10 +409,10 @@ def autostart(reason, **kwargs):
 				print "[DLNAServer] already started"
 			else:
 				print "[DLNAServer] starting ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 		elif config.plugins.dlnaserver.autostart.value == False and is_running == True:
 				print "[DLNAServer] stopping ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name="DLNA Server", description="DLNA server using MiniDLNA", where = PluginDescriptor.WHERE_PLUGINMENU, needsRestart = False, fnc=main),

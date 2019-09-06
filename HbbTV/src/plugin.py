@@ -10,16 +10,14 @@ from Components.ActionMap import ActionMap
 from Components.Language import language
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.VolumeControl import VolumeControl
-
 from enigma import eTimer, fbClass, eRCInput, iServiceInformation, iPlayableService
-
 import os, struct, vbcfg
-
 from __init__ import _
 from hbbtv import HbbTVWindow
 from browser import Browser
 from youtube import YoutubeTVWindow, YoutubeTVSettings
 from vbipc import VBController, VBServerThread, VBHandlers
+from Components.Console import Console
 
 strIsEmpty = lambda x: x is None or len(x) == 0
 
@@ -348,14 +346,14 @@ class VBMain(Screen):
 
 	def start_browser(self):
 		if not self.check_browser():
-			os.system("%s/%s start"%(vbcfg.APPROOT, vbcfg.APP_RUN))
+			Console().ePopen("%s/%s start" % (vbcfg.APPROOT, vbcfg.APP_RUN))
 		return True
 
 	def stop_browser(self):
 		VBController.command('CONTROL_EXIT')
 		return True
 		try:
-			os.system("%s/%s stop"%(vbcfg.APPROOT, vbcfg.APP_RUN))
+			Console().ePopen("%s/%s stop" % (vbcfg.APPROOT, vbcfg.APP_RUN))
 		except:
 			pass
 		return True
@@ -370,7 +368,7 @@ class VBMain(Screen):
 
 	def restart_browser(self):
 		try:
-			os.system("%s/%s restart"%(vbcfg.APPROOT, vbcfg.APP_RUN))
+			Console().ePopen("%s/%s restart" % (vbcfg.APPROOT, vbcfg.APP_RUN))
 		except:
 			pass
 		return True

@@ -1,4 +1,5 @@
 import vbcfg
+from Components.Console import Console
 
 class BookmarkData:
 	def __init__(self, _id, _title, _url, _parent, _type):
@@ -121,33 +122,29 @@ class BookmarkManager(SimpleConfigParser):
 
 		import os
 		if not os.path.exists(_dbFileName):
-			f = file('/proc/stb/info/vumodel')
-			model = f.read().strip()
-			f.close()
-			#manualmode = (model == "solo2" or model == "duo2" or model == "solose" or model == "zero")
 			manualmode = False
 
-			os.system('echo "[__SYS__]" > %s'%(_dbFileName))
-			os.system('echo "category_current_idx = 1" >> %s'%(_dbFileName))
+			Console().ePopen('echo "[__SYS__]" > %s' % _dbFileName)
+			Console().ePopen('echo "category_current_idx = 1" >> %s' % _dbFileName)
 			if manualmode :
-				os.system('echo "bookmark_current_idx = 2" >> %s'%(_dbFileName))
-			else:	os.system('echo "bookmark_current_idx = 1" >> %s'%(_dbFileName))
-			os.system('echo "[c-1]" >> %s'%(_dbFileName))
-			os.system('echo "id = 1" >> %s'%(_dbFileName))
-			os.system('echo "name = My favorite" >> %s'%(_dbFileName))
-			os.system('echo "[b-1]" >> %s'%(_dbFileName))
-			os.system('echo "url = http://wiki.opena.tv/" >> %s'%(_dbFileName))
-			os.system('echo "id = 1" >> %s'%(_dbFileName))
-			os.system('echo "parent = 1" >> %s'%(_dbFileName))
-			os.system('echo "title = open Alliance WIKI" >> %s'%(_dbFileName))
-			os.system('echo "type = 0" >> %s'%(_dbFileName))
+				Console().ePopen('echo "bookmark_current_idx = 2" >> %s' % _dbFileName)
+			else:	Console().ePopen('echo "bookmark_current_idx = 1" >> %s' % _dbFileName)
+			Console().ePopen('echo "[c-1]" >> %s' % _dbFileName)
+			Console().ePopen('echo "id = 1" >> %s' % _dbFileName)
+			Console().ePopen('echo "name = My favorite" >> %s' % _dbFileName)
+			Console().ePopen('echo "[b-1]" >> %s' % _dbFileName)
+			Console().ePopen('echo "url = http://wiki.opena.tv/" >> %s' % _dbFileName)
+			Console().ePopen('echo "id = 1" >> %s' % _dbFileName)
+			Console().ePopen('echo "parent = 1" >> %s' % _dbFileName)
+			Console().ePopen('echo "title = open Alliance WIKI" >> %s' % _dbFileName)
+			Console().ePopen('echo "type = 0" >> %s'%(_dbFileName)
 			if manualmode :
-				os.system('echo "[b-2]" >> %s'%(_dbFileName))
-				os.system('echo "url = file:///usr/local/manual/main.html" >> %s'%(_dbFileName))
-				os.system('echo "id = 2" >> %s'%(_dbFileName))
-				os.system('echo "parent = 1" >> %s'%(_dbFileName))
-				os.system('echo "title = User Manual" >> %s'%(_dbFileName))
-				os.system('echo "type = 1" >> %s'%(_dbFileName))
+				Console().ePopen('echo "[b-2]" >> %s' % _dbFileName)
+				Console().ePopen('echo "url = file:///usr/local/manual/main.html" >> %s' % _dbFileName)
+				Console().ePopen('echo "id = 2" >> %s' % _dbFileName)
+				Console().ePopen('echo "parent = 1" >> %s' % _dbFileName)
+				Console().ePopen('echo "title = User Manual" >> %s' % _dbFileName)
+				Console().ePopen('echo "type = 1" >> %s' % _dbFileName)
 		self.init(_dbFileName)
 
 	def message(self, format, params=None):

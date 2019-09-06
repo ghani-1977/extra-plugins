@@ -1,6 +1,5 @@
 # for localized messages
 from . import _
-
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, configfile, ConfigSubList, getConfigListEntry, ConfigSubsection, ConfigSelection, ConfigInteger, integer_limits, NoSave
@@ -15,7 +14,8 @@ from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
 from Tools.Directories import fileExists
 from enigma import eTimer, getBoxType
-from os import system as os_system, path as os_path, listdir as os_listdir
+from os import path as os_path, listdir as os_listdir
+from Components.Console import Console
 
 def getProcValue(procPath):
 #	print "[TranscodingSetup] get %s from %s" % (curValue, procPath)
@@ -317,9 +317,9 @@ class TranscodingSetupInit:
 
 	def inetdRestart(self):
 		if fileExists("/etc/init.d/inetd"):
-			os_system("/etc/init.d/inetd restart")
+			Console().ePopen("/etc/init.d/inetd restart")
 		elif fileExists("/etc/init.d/inetd.busybox"):
-			os_system("/etc/init.d/inetd.busybox restart")
+			Console().ePopen("/etc/init.d/inetd.busybox restart")
 
 	def showMessage(self, msg, msgType):
 		if self.pluginsetup:

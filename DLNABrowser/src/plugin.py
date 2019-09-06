@@ -2,12 +2,10 @@ from Plugins.Plugin import PluginDescriptor
 from Plugins.Extensions.PicturePlayer.ui import *
 import os
 from enigma import gFont, eTimer, eConsoleAppContainer, ePicLoad, getDesktop, eServiceReference, iPlayableService, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER
-
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
-
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
@@ -20,8 +18,8 @@ from Components.Pixmap import Pixmap, MovingPixmap
 from Components.AVSwitch import AVSwitch
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.MultiContent import MultiContentEntryText
-
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
+from Components.Console import Console
 
 EXTENSIONS = {
 	".m4a" : "music",
@@ -832,7 +830,7 @@ class DLNADeviceBrowser(Screen):
 
 	def layoutFinished(self):
 		if not os.path.exists('/media/upnp'):
-			os.system('mkdir -p /media/upnp')
+			Console().ePopen('mkdir -p /media/upnp')
 		self.updateGUI()
 		if self["key_green"].getText() == 'Start':
 			global DLNA_CONFIG_DEVICE_REFRESH
@@ -981,10 +979,10 @@ def autostart(reason, **kwargs):
 				print "[DLNABrowser] already started"
 			else:
 				print "[DLNABrowser] starting ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 		elif config.plugins.dlnabrowser.autostart.value == False and is_running == True:
 				print "[DLNABrowser] stopping ..."
-				os.system(cmd)
+				Console().ePopen(cmd)
 def main(session, **kwargs):
 	session.open(DLNADeviceBrowser)
 

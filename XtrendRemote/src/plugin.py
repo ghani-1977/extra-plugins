@@ -3,16 +3,15 @@
 # -*- coding: utf-8 -*-
 # for localized messages
 from . import _
-
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
-from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSelection, ConfigSlider, getConfigListEntry
-from os import path as os_path, chmod as os_chmod, unlink as os_unlink, system as os_system
+from Components.config import config, ConfigSubsection, ConfigSelection, getConfigListEntry
+from os import path as os_path, chmod as os_chmod, unlink as os_unlink
 
 modelist = {"3": _("OdinM9"), "5": _("ET9000/ET9100"), "4": _("DMM/DMM ADV"), "6": _("DMM/DMM ADV"), "7": _("ET5000/ET6000"), "8": _("Vu"), "9": _("ET6500/ET9500"), "11": _("ET9200/ET9500"), "13": _("ET4000"), "14": _("XP1000"), "16": _("HD1100"), "17": _("XP3000"), "18": _("F1/F3"), "19": _("HD2400") }
 
 config.plugins.RCSetup = ConfigSubsection()
-from os import system as os_system
+
 file = open("/proc/stb/ir/rc/type", "r")
 text=file.read()
 file.close()
