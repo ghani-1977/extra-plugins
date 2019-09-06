@@ -20,7 +20,6 @@ from Components.config import config, ConfigSubsection, ConfigInteger, ConfigSel
 from time import time as Time, localtime, strftime
 from enigma import eTimer
 import socket
-from os import system as os_system
 from enigma import eTimer
 from Screens.MessageBox import MessageBox
 from Components.Language import language

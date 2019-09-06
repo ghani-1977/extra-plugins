@@ -12,7 +12,7 @@ from math import pow as math_pow
 from Components.Network import iNetwork
 from Components.PluginComponent import plugins
 from Components.Console import Console
-from os import path as os_path, system as os_system, listdir, makedirs, access, R_OK
+from os import path as os_path, listdir, makedirs, access, R_OK
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from enigma import eTimer
 
