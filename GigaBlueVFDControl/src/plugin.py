@@ -371,7 +371,7 @@ def initLED():
 		cmd = 'echo STB does not support to show clock in Deep Standby'
 	else:
 		cmd = 'echo '+str(forcmd)+' > /proc/stb/fp/enable_clock'
-	res = system(cmd)
+	res = Console().ePopen(cmd)
 
 	if config.plugins.VFD_Giga.showClock.value == 'Off':
 		vfd_write("    ")
