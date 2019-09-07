@@ -201,14 +201,17 @@ OnDemand/src/icons/Makefile
 OnDemand/meta/Makefile
 OnDemand/po/Makefile
 
-
-
 TerrestrialScan/Makefile
 TerrestrialScan/images/Makefile
 TerrestrialScan/lib/Makefile
 TerrestrialScan/meta/Makefile
 TerrestrialScan/po/Makefile
 TerrestrialScan/src/Makefile
+
+TransCodingSetup/Makefile
+TransCodingSetup/meta/Makefile
+TransCodingSetup/po/Makefile
+TransCodingSetup/src/Makefile
 
 TunerServer/Makefile
 TunerServer/src/Makefile
