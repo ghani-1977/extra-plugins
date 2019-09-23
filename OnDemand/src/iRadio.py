@@ -32,7 +32,7 @@ from Components.config import config, ConfigSubsection, ConfigSelection, ConfigD
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_SKIN_IMAGE
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 import NavigationInstance
 
 import time, random
