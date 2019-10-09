@@ -834,25 +834,29 @@ class Blindscan(ConfigListScreen, Screen):
 		not_support_text = _("It seems manufacturer does not support blind scan for this tuner.")
 
 		if tunername in _blindscans2Nims:
-			if "TBS" or "5925" in tunername:
-				cmd = "blindscan-s2 -b -s %d -e %d -t %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_step_mhz_tbs5925.value)
+			tools = "/usr/bin/blindscan-s2"
+			if os.path.exists(tools):
+				if "TBS" or "5925" in tunername:
+					cmd = "blindscan-s2 -b -s %d -e %d -t %d" % (temp_start_int_freq, temp_end_int_freq, self.blindscan_step_mhz_tbs5925.value)
+				else:
+					cmd = "blindscan-s2 -b -s %d -e %d" % (temp_start_int_freq, temp_end_int_freq)
+				cmd += getAdapterFrontend(self.feid, tunername)
+				if pol == "horizontal":
+					cmd += " -H"
+				elif pol == "vertical":
+					cmd += " -V"
+				if self.is_c_band_scan:
+					cmd += " -l %d" % self.c_band_lo_freq # tested by el bandito with TBS-5925 and working
+				elif tab_hilow[band]:
+					cmd += " -l %d -2" % self.universal_lo_freq["high"] # on high band enable 22KHz tone
+				else:
+					cmd += " -l %d" % self.universal_lo_freq["low"]
+				#self.frontend.closeFrontend() # close because blindscan-s2 does not like to be open
+				self.cmd = cmd
+				self.bsTimer.stop()
+				self.bsTimer.start(6000, True)
 			else:
-				cmd = "blindscan-s2 -b -s %d -e %d" % (temp_start_int_freq, temp_end_int_freq)
-			cmd += getAdapterFrontend(self.feid, tunername)
-			if pol == "horizontal":
-				cmd += " -H"
-			elif pol == "vertical":
-				cmd += " -V"
-			if self.is_c_band_scan:
-				cmd += " -l %d" % self.c_band_lo_freq # tested by el bandito with TBS-5925 and working
-			elif tab_hilow[band]:
-				cmd += " -l %d -2" % self.universal_lo_freq["high"] # on high band enable 22KHz tone
-			else:
-				cmd += " -l %d" % self.universal_lo_freq["low"]
-			#self.frontend.closeFrontend() # close because blindscan-s2 does not like to be open
-			self.cmd = cmd
-			self.bsTimer.stop()
-			self.bsTimer.start(6000, True)
+				self.session.open(MessageBox, _("Not found blind scan utility '%s'!") % tools, MessageBox.TYPE_ERROR)
 		elif self.SundtekScan:
 			tools = "/opt/bin/mediaclient"
 			if os.path.exists(tools):
@@ -1487,6 +1491,8 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				currSat = nimconfig.advanced.sat[cur_orb_pos]
 			lnbnum = int(currSat.lnb.getValue())
+			if lnbnum == 0 and nimconfig.advanced.sats.value in ("3601", "3602", "3603", "3604"):
+				lnbnum = 65 + int(nimconfig.advanced.sats.value) - 3601
 			currLnb = nimconfig.advanced.lnb[lnbnum]
 			if isinstance(currLnb, ConfigNothing):
 				return False
