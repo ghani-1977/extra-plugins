@@ -14,7 +14,7 @@ import datetime
 import glob
 import time
 
-Py = "/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/plugin.py"
+Py = "/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/plugin.pyo"
 
 try:
 	from enigma import eMediaDatabase
