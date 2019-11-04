@@ -56,7 +56,7 @@ AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "e4hdul
 
 AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "axashistwin" -o "$BOXTYPE" == "anadolprohd5" -o "$BOXTYPE" == "x8hp")
 
-AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "wetekhub" -o "$BOXBRAND" == "linkdroid" -o "$BOXTYPE" == "osmio4k" -o "$BOXTYPE" == "osmio4kplus" -o "$BOXTYPE" == "dreamone")
+AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "wetekhub" -o "$BOXBRAND" == "linkdroid" -o "$BOXTYPE" == "osmio4k" -o "$BOXTYPE" == "osmio4kplus" -o "$BOXTYPE" == osmini4k -o "$BOXTYPE" == "dreamone")
 
 AC_CONFIG_FILES([
 Makefile
