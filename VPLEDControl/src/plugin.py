@@ -29,7 +29,7 @@ config.plugins.VFD_ini.ClockLevel2 = ConfigSlider(default=4, limits=(1, 10))
 
 MyRecLed = False
 use_oled = False
-if getBoxType() in ("sf8008","gbtrio4k","viper4k"):
+if getBoxType() in ("sf8008","sf8008m","gbtrio4k","viper4k"):
 	use_oled = True
 	
 def vfd_write(text):
