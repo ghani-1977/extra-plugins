@@ -379,7 +379,7 @@ begin = mktime((
 )
 
 LCD4linux = Config()
-LCD4linux.Enable = ConfigYesNo(default = True)
+LCD4linux.Enable = ConfigYesNo(default = False)
 LCD4linux.L4LVersion = ConfigText(default="0.0r0", fixed_size=False)
 LCD4linux.FastMode = ConfigSelection(choices = [("5", _("Normal (5s)")), ("2", _("Fastmode (2s)"))], default="5")
 LCD4linux.SwitchToFB2 = ConfigYesNo(default = True)
@@ -427,7 +427,7 @@ LCD4linux.DVBTCorrection = ConfigSelection(choices = [("0", _("no")), ("reverse"
 LCD4linux.ServiceSearch = ConfigSelection(choices = [("0", _("Now/Next")), ("1", _("EPG"))], default="0")
 LCD4linux.ShowNoMsg = ConfigYesNo(default = True)
 LCD4linux.SavePicture = ConfigSelection(choices =  [("0", _("no"))] + LCDSelect, default="123")
-LCD4linux.NETworkCheckEnable = ConfigYesNo(default = True)
+LCD4linux.NETworkCheckEnable = ConfigYesNo(default = False)
 LCD4linux.MJPEGenable1 = ConfigYesNo(default = False)
 LCD4linux.MJPEGenable2 = ConfigYesNo(default = False)
 LCD4linux.MJPEGenable3 = ConfigYesNo(default = False)
