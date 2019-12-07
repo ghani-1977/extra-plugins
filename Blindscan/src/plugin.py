@@ -896,15 +896,15 @@ class Blindscan(ConfigListScreen, Screen):
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				if getBoxBrand() in ("ceryon","clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k"):
+				if getBoxBrand() in ("ceryon","clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k","gbip4k"):
 					cmd += " %d" % self.is_c_band_scan
-				if getBoxBrand() in ("clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k"):
+				if getBoxBrand() in ("clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k","gbip4k"):
 					cmd += " %d" % orb[0]
 				if getBoxBrand() == "azbox":
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation
 				if getBoxBrand() == "clap":
 					self.frontend and self.frontend.closeFrontend()
-				if getBoxBrand() in ("uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k"):
+				if getBoxBrand() in ("uclan","amiko") or getBoxType() in ("sf8008","gbtrio4k","gbip4k"):
 					self.adjust_freq = False
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
