@@ -2363,8 +2363,8 @@ def L4logE(nfo,wert=""):
 
 def GetBox():
 	B = ""
-	if os.path.exists("/proc/stb/info/model"):
-		f = open("/proc/stb/info/model")
+	if os.path.exists("/etc/model"):
+		f = open("/etc/model")
 		B = f.readline()
 		f.close()
 		L4logE("Boxtype",B)
