@@ -4365,7 +4365,7 @@ except:
 	L4log("NcidClient not registered")
 
 try:
-	from Plugins.Extensions.BitrateViewer.bitratecalc import eBitrateCalculator
+	from bitratecalc import eBitrateCalculator
 	BitrateRegistred = True
 	L4log("Register Bitrate ok")
 except:
