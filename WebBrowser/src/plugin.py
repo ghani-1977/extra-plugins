@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # for localized messages
 from . import _
 from Plugins.Plugin import PluginDescriptor
