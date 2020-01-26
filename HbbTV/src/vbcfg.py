@@ -1,5 +1,5 @@
 from time import strftime, localtime
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 
 g_main = None
 g_browser = None
@@ -13,7 +13,7 @@ need_restart = False
 APPROOT = "/usr/local/hbb-browser"
 APP_RUN = "run.sh"
 
-PLUGINROOT = "/usr/lib/enigma2/python/Plugins/Extensions/HbbTV"
+PLUGINROOT = resolveFilename(SCOPE_PLUGINS, "Extensions/HbbTV")
 MANUALROOT = "/usr/local/manual"
 
 SOCKETFILE  = None

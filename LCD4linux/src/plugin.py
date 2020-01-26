@@ -14,7 +14,7 @@
 #  Advertise with this Plugin is not allowed.
 #  For other uses, permission from the author is necessary.
 #
-Version = "V5.0-r5"
+Version = "V5.0-r6"
 from __init__ import _
 from enigma import eConsoleAppContainer, eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol
 from enigma import getDesktop, getEnigmaVersionString
@@ -110,6 +110,7 @@ from mutagen.mp3 import MP3
 from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
 from module import L4Lelement
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 L4LElist = L4Lelement()
 CrashFile="/tmp/L4Lcrash.txt"
@@ -157,7 +158,7 @@ except:
 # globals
 L4LdoThread = True
 LCD4config = "/etc/enigma2/lcd4config"
-LCD4plugin ="/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/"
+LCD4plugin = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/")
 Data = LCD4plugin+"data/"
 if getBoxType() in ("gb800ue","gbquad","gbultraueh","gb800ueplus","gbultraue","twinboxlcdci5","sf208","singleboxlcd","sf238","twinboxlcd","sf228","protek4k","e4hdultra","gbue4k"):
 	LCD4default = Data+"default.colorlcd220"
@@ -4440,10 +4441,10 @@ def InitWebIF():
 	L4log("WebIf-Init...")
 	i=20
 	if LCD4linux.WebIfInitDelay.value == True:
-		while len(glob.glob("/usr/lib/enigma2/python/Plugins/Extensions/WebInterface/__init__.py*")) == 0 and i > 0:
+		while len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/__init__.py*"))) == 0 and i > 0:
 			sleep(0.5)
 			i-=1
-	if i > 0 and len(glob.glob("/usr/lib/enigma2/python/Plugins/Extensions/WebInterface/__init__.py*")) > 0:
+	if i > 0 and len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/__init__.py*"))) > 0:
 		if i<20:
 			L4log("WebIf-Wait %d s" % int((20-i)/2))
 			sleep(5)
@@ -4457,7 +4458,7 @@ def InitWebIF():
 		root.putChild("view", LCD4linuxwebView())
 		root.putChild("config", LCD4linuxConfigweb())
 		root.putChild("data",static.File(Data[:-1]))
-		if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/WebInterface/web/external.xml"):
+		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/web/external.xml")):
 			try:
 				addExternalChild( ("lcd4linux", root, "LCD4linux", Version, True) )
 				L4log("use new WebIf")
@@ -4467,7 +4468,7 @@ def InitWebIF():
 		else:
 			addExternalChild( ("lcd4linux", root) )
 			L4log("use old WebIf")
-		if os.path.exists("/usr/lib/enigma2/python/Plugins/Extensions/OpenWebif/pluginshook.src"):
+		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/OpenWebif/pluginshook.src")):
 			try:
 				addExternalChild( ("lcd4linux", root, "LCD4linux", Version) )
 				L4log("use OpenWebIf")
@@ -14832,12 +14833,6 @@ def autostart(reason, **kwargs):
 		rmFile(xmlPIC)
 		if LCD4linux.WebIfInitDelay.value == False:
 			InitWebIF()
-		if os.path.islink("/usr/lib/libpython2.5.so.1.0") == False:
-			try:
-				os.symlink("/usr/lib/libpython2.6.so.1.0","/usr/lib/libpython2.5.so.1.0")
-				L4log("create Link")
-			except:
-				L4log("Error create Link")
 		setFONT(LCD4linux.Font.value)
 		if os.path.exists(LCD4config) and LCD4linux.L4LVersion.value != Version:
 			L4log("Version changed from",LCD4linux.L4LVersion.value)

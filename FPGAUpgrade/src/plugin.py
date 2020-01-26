@@ -13,7 +13,7 @@ from Screens.MessageBox import MessageBox
 
 from Plugins.Plugin import PluginDescriptor
 
-from Tools.Directories import fileExists
+from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 
 from Components.Label import Label
 from Components.Slider import Slider
@@ -283,7 +283,7 @@ class FPGAUpgrade(Screen):
 			file = open("/proc/stb/info/vumodel")
 			model = file.read().strip()
 			file.close()
-			file = open('/usr/lib/enigma2/python/Plugins/SystemPlugins/FPGAUpgrade/fpga.conf')
+			file = open(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/FPGAUpgrade/fpga.conf"))
 			download_uri_header = file.readline().strip()
 			file.close()
 			self.DOWNLOAD_URL = str(download_uri_header) + "vu" + str(model) + "/" + self.DOWNLOAD_FILE_NAME

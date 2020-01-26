@@ -11,8 +11,8 @@ from Components.Label import Label
 from Components.Button import Button
 from enigma import getBoxType
 import os
-import os.path
 from Components.Console import Console
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 class RCUSelect(Screen):
 	skin = """
@@ -89,7 +89,7 @@ class RCUSelect(Screen):
 		self.MakeKeymapBckUp()
 
 	def MakeKeymapBckUp(self):
-		filename = "/usr/lib/enigma2/python/Plugins/Extensions/RCUSelect/conf/keymap.orig.xml"
+		filename = resolveFilename(SCOPE_PLUGINS, "Extensions/RCUSelect/conf/keymap.orig.xml")
 		cmd ="cp -f /usr/share/enigma2/keymap.xml " + filename + " &"
 		if not os.path.exists(filename):
 			Console().ePopen(cmd)
@@ -213,12 +213,12 @@ class RCUSelect(Screen):
 				if self.rcuold == "WeTek OpenELEC NEC remote" or self.rcuv == "WeTek OpenELEC NEC remote":
 					if self.rcuold != self.rcuv:
 						if self.rcuv == "WeTek OpenELEC NEC remote":
-							Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/RCUSelect/conf/keymap.OE.xml /usr/share/enigma2/keymap.xml &")
+							Console().ePopen("cp -f %s /usr/share/enigma2/keymap.xml &") % resolveFilename(SCOPE_PLUGINS, "Extensions/RCUSelect/conf/keymap.OE.xml")
 						else:
-							Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/RCUSelect/conf/keymap.orig.xml /usr/share/enigma2/keymap.xml &")
+							Console().ePopen("cp -f %s /usr/share/enigma2/keymap.xml &") % resolveFilename(SCOPE_PLUGINS, "Extensions/RCUSelect/conf/keymap.orig.xml")
 						Console().ePopen("killall -9 enigma2 &")
 				else:
-					Console().ePopen("cp -f /usr/lib/enigma2/python/Plugins/Extensions/RCUSelect/conf/keymap.orig.xml /usr/share/enigma2/keymap.xml &")
+					Console().ePopen("cp -f %s /usr/share/enigma2/keymap.xml &") % resolveFilename(SCOPE_PLUGINS, "Extensions/RCUSelect/conf/keymap.orig.xml")
 			except IOError:
 				print "RCU select failed."
 			self.close()

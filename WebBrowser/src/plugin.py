@@ -31,6 +31,7 @@ from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
 from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer, getBoxBrand
 from Components.Console import Console
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 HTTPConnection.debuglevel = 1
 
@@ -430,7 +431,7 @@ class BrowserLauncher(ConfigListScreen, Screen):
 		self.browser_root = "/usr/bin"
 		
 		self.browser_name = "arora"
-		self.conf_file = "/usr/lib/enigma2/python/Plugins/Extensions/WebBrowser/settings.conf"
+		self.conf_file = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser/settings.conf")
 		self["actions"] = ActionMap(["OkCancelActions", "ShortcutActions", "WizardActions", "ColorActions", "SetupActions", ],
                 {	"red": self.keyCancel,
 			"green": self.keyGo,

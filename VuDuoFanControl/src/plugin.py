@@ -1,15 +1,13 @@
 # for localized messages
 from . import _
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor
-from Components.ActionMap import ActionMap,NumberActionMap
-from Components.config import config
+from Components.ActionMap import ActionMap
 from Components.config import config, getConfigListEntry, ConfigInteger, ConfigSubsection, ConfigSelection
 from Components.ConfigList import ConfigListScreen
-from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 
 config.plugins.fansetups = ConfigSubsection()
@@ -172,7 +170,7 @@ def setfansetup(reason, **kwargs):
 
 def Plugins(**kwargs):
 	from os import path
-	if not path.exists("/usr/lib/enigma2/python/Plugins/Extensions/FanControl2/plugin.pyo"):
+	if not path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/FanControl2/plugin.pyo")):
 		return [PluginDescriptor(name=_("Vu Duo Fan Control"), description="check Fan Control settings", where = PluginDescriptor.WHERE_AUTOSTART, needsRestart = True, fnc=setfansetup),
 				PluginDescriptor(name=_("Vu Duo Fan Control"), description=_("Fan Control"), where = PluginDescriptor.WHERE_MENU, needsRestart = True, fnc=selSetup)]
 	return []

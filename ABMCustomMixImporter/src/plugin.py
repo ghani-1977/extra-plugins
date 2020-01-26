@@ -22,7 +22,7 @@ from Screens.Setup import Setup
 from Screens.Standby import inStandby
 
 # Tools
-from Tools.Directories import pathExists, fileExists
+from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_PLUGINS
 
 #Plugins
 from Plugins.Plugin import PluginDescriptor
@@ -32,7 +32,7 @@ mixes = Mixes().read()
 choices = sorted([(mixes[x]["key"], mixes[x]["name"]) for x in mixes], key=lambda listItem: listItem[1])
 
 default_mix = "dsayers_vmuk_into_skyuk"
-ABMpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/custom/"
+ABMpath = resolveFilename(SCOPE_PLUGINS, "SystemPlugins/AutoBouquetsMaker/custom/")
 
 config.plugins.abmImporter = ConfigSubsection()
 config.plugins.abmImporter.mix = ConfigSelection(default = default_mix, choices = choices)

@@ -32,23 +32,21 @@
 #      ex: a06 and a6 is both allowed.
 #
 from . import _
-
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.Console import Console
 from Components.Button import Button
 from Components.ActionMap import ActionMap
-from Components.ConfigList import ConfigList
+from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection
-from Components.ConfigList import ConfigListScreen
 from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, getBoxType
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
-
 import Screens.Standby
 import subprocess
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 config.plugins.VFD_SF8 = ConfigSubsection()
 config.plugins.VFD_SF8.showClock = ConfigSelection(default = "True_Switch", choices = [("False",_("Channelnumber in Standby off")),("True",_("Channelnumber in Standby Clock")), ("True_Switch",_("Channelnumber/Clock in Standby Clock")),("True_All",_("Clock always")),("Off",_("Always off"))])
@@ -79,7 +77,7 @@ def vfd_write(text):
 	open("/dev/dbox/oled0", "w").write(text)
 	
 def vfd_text_out(text):
-	led7ctrl = subprocess.Popen(['/usr/lib/enigma2/python/Plugins/SystemPlugins/SF8VFDControl/led7ctrl'], stdin=subprocess.PIPE)
+	led7ctrl = subprocess.Popen([resolveFilename(SCOPE_PLUGINS, "SystemPlugins/SF8VFDControl/led7ctrl")], stdin=subprocess.PIPE)
 	index = [ 'a', 'b', 'c', 'd' ] # 'a' means the first digit, 'b' is second, ...
 	cmd = ""
 	for i in range(4): # display up to 4 character. todo: check short string.

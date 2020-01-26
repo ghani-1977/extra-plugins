@@ -3,9 +3,10 @@
 from twisted.web import resource, http
 from plugin import *
 from __init__ import _
-from Components.config import configfile, config
+from Components.config import config
 from enigma import eTimer
 from module import L4Lelement
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 L4LElement = L4Lelement()
 
@@ -14,7 +15,7 @@ import datetime
 import glob
 import time
 
-Py = "/usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/plugin.pyo"
+Py = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/plugin.py")
 
 try:
 	from enigma import eMediaDatabase
