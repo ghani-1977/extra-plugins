@@ -17,6 +17,7 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
 from Tools.BoundFunction import boundFunction
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os
 #used for the XML file
 from time import strftime, time
@@ -77,10 +78,10 @@ class BlindscanState(Screen, ConfigListScreen):
 		<widget name="config" position="10,102" size="524,425" font="Regular;18" />
 		<eLabel	position="544,95" size="1,440" backgroundColor="grey"/>
 		<widget name="post_action" position="554,102" size="256,140" font="Regular;19" halign="center"/>
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/red.png" position="10,560" size="100,2" alphatest="on" />
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/green.png" position="120,560" size="100,2" alphatest="on" />
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/yellow.png" position="240,560" size="100,2" alphatest="on" />
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/blue.png" position="360,560" size="100,2" alphatest="on" />
+		<ePixmap pixmap="~/images/red.png" position="10,560" size="100,2" alphatest="on" />
+		<ePixmap pixmap="~/images/green.png" position="120,560" size="100,2" alphatest="on" />
+		<ePixmap pixmap="~/images/yellow.png" position="240,560" size="100,2" alphatest="on" />
+		<ePixmap pixmap="~/images/blue.png" position="360,560" size="100,2" alphatest="on" />
 		<widget source="key_red" render="Label" position="10,530" size="100,20" font="Regular;18" halign="center"/>
 		<widget source="key_green" render="Label" position="120,530" size="100,20" font="Regular;18" halign="center"/>
 		<widget source="key_yellow" render="Label" position="230,530" size="100,20" font="Regular;18" halign="center"/>
@@ -90,6 +91,7 @@ class BlindscanState(Screen, ConfigListScreen):
 
 	def __init__(self, session, progress, post_action, tp_list, finished=False):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "SystemPlugins/Blindscan")
 		Screen.setTitle(self, _("Blind scan state"))
 		self.finished = finished
 		self["progress"] = Label()
@@ -175,9 +177,9 @@ class Blindscan(ConfigListScreen, Screen):
 			<widget name="description" position="5,370" size="630,125" font="Regular;20" foregroundColor="#00ffc000"/>
 			<ePixmap pixmap="div-h.png" position="0,495" zPosition="1" size="640,2"/>
 			<widget name="introduction" position="0,500" size="640,20" font="Regular;18" foregroundColor="green" halign="center"/>
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/red.png" position="0,560" size="160,2" alphatest="on"/>
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/green.png" position="160,560" size="160,2" alphatest="on"/>
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/Blindscan/images/yellow.png" position="320,560" size="160,2" alphatest="on" />
+			<ePixmap pixmap="~/images/red.png" position="0,560" size="160,2" alphatest="on"/>
+			<ePixmap pixmap="~/images/green.png" position="160,560" size="160,2" alphatest="on"/>
+			<ePixmap pixmap="~/images/yellow.png" position="320,560" size="160,2" alphatest="on" />
 			<widget name="key_red" position="0,530" zPosition="2" size="160,20" font="Regular;18" halign="center" valign="center" backgroundColor="background" foregroundColor="white" transparent="1"/>
 			<widget name="key_green" position="160,530" zPosition="2" size="160,20" font="Regular;18" halign="center" valign="center" backgroundColor="background" foregroundColor="white" transparent="1"/>
 			<widget name="key_yellow" position="320,530" zPosition="2" size="160,20" font="Regular;18" halign="center" valign="center" backgroundColor="background" foregroundColor="white" transparent="1" />
@@ -189,6 +191,7 @@ class Blindscan(ConfigListScreen, Screen):
 		"""
 	def __init__(self, session):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "SystemPlugins/Blindscan")
 		self.setup_title = _("Blind scan for DVB-S2 tuners") + ":" + BOX_NAME + "/" + BOX_MODEL
 		Screen.setTitle(self, _(self.setup_title))
 		self.skinName = "Blindscan"

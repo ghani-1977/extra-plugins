@@ -312,8 +312,8 @@ class DLNAFileBrowser(Screen):
 class DLNAStreamPlayer(Screen, InfoBarNotifications):
 	skin = 	"""
 		<screen name="DLNAStreamPlayer" flags="wfNoBorder" position="center,620" size="455,53" title="DLNAStreamPlayer" backgroundColor="transparent">
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/DLNABrowser/icons/mp_wb_background.png" position="0,0" zPosition="-1" size="455,53" />
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/DLNABrowser/icons/mp_wb_buttons.png" position="40,23" size="30,13" alphatest="on" />
+			<ePixmap pixmap="~/icons/mp_wb_background.png" position="0,0" zPosition="-1" size="455,53" />
+			<ePixmap pixmap="~/icons/mp_wb_buttons.png" position="40,23" size="30,13" alphatest="on" />
 
 			<widget source="session.CurrentService" render="PositionGauge" position="80,25" size="220,10" zPosition="2" pointer="position_pointer.png:540,0" transparent="1" foregroundColor="#20224f">
 				<convert type="ServicePosition">Gauge</convert>
@@ -334,6 +334,7 @@ class DLNAStreamPlayer(Screen, InfoBarNotifications):
 
 	def __init__(self, session, service, lastservice):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/DLNABrowser")
 		InfoBarNotifications.__init__(self)
 
 		self.session     = session

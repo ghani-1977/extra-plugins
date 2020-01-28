@@ -109,15 +109,16 @@ class OnDemandScreenSetup(Screen, ConfigListScreen):
 class OnDemand_Screen(Screen, ConfigListScreen):
 	skin = 	"""
 		<screen position="e-203,0" size="203,e-0" backgroundColor="#ffffffff" flags="wfNoBorder" >
-			<widget name="arrowup" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/OnDemand/icons/top.png,/usr/lib/enigma2/python/Plugins/Extensions/OnDemand/icons/arrow-up.png" position="e-203,0" size="203,25" alphatest="on" />
-			<widget name="PlayerList" position="0,25" size="203,670" backgroundColor="#80000000" selectionPixmap="/usr/lib/enigma2/python/Plugins/Extensions/OnDemand/icons/selectbar.png" transparent="0" scrollbarMode="showNever" />
-			<widget name="arrowdown" pixmaps="/usr/lib/enigma2/python/Plugins/Extensions/OnDemand/icons/bottom.png,/usr/lib/enigma2/python/Plugins/Extensions/OnDemand/icons/arrow-down.png" position="e-203,e-37" size="203,37" alphatest="on" />
+			<widget name="arrowup" pixmaps="~/icons/top.png,~/icons/arrow-up.png" position="e-203,0" size="203,25" alphatest="on" />
+			<widget name="PlayerList" position="0,25" size="203,670" backgroundColor="#80000000" selectionPixmap="~/icons/selectbar.png" transparent="0" scrollbarMode="showNever" />
+			<widget name="arrowdown" pixmaps="~/icons/bottom.png,~/icons/arrow-down.png" position="e-203,e-37" size="203,37" alphatest="on" />
 			<ePixmap name="menu" position="e-203,e-30" zPosition="2" size="35,25" pixmap="buttons/key_menu.png" transparent="1" alphatest="on" />
 			<ePixmap name="info" position="e-45,e-30" zPosition="2" size="35,25" pixmap="buttons/key_info.png" transparent="1" alphatest="on" />
 		</screen>"""
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/OnDemand")
 		Screen.setTitle(self, _("OnDemand"))
 		
 		self["arrowup"]   = MultiPixmap()

@@ -17,6 +17,7 @@ from Components.ActionMap import ActionMap
 from cookielib import CookieJar
 import urllib, urllib2, re, time, os
 import socket
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 socket.setdefaulttimeout(300) #in seconds
 
 
@@ -30,7 +31,7 @@ class fempa(Screen):
 	
 	skin = """
 		<screen flags="wfNoBorder" position="0,0" size=\"""" + str(wsize) + "," + str(hsize) + """\" title="Fem Pa" >
-		<ePixmap alphatest="on" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/fempa/main.png" position="0,0" size=\"""" + str(wsize) + "," + str(hsize) + """\"  zPosition="-2"/>
+		<ePixmap alphatest="on" pixmap="~/main.png" position="0,0" size=\"""" + str(wsize) + "," + str(hsize) + """\"  zPosition="-2"/>
 		<widget name="myMenu" position="310,310" size=\"""" + str((wsize /2) - 30) + "," + str(hsize - 350) + """\" scrollbarMode="showOnDemand"/>
 		</screen>"""
 			
@@ -64,6 +65,7 @@ class fempa(Screen):
 		self.osdList = [(x[2],x[1]) for x in files]
 		
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/fempa")
 		self["myMenu"] = MenuList(self.osdList)
 		self["myActionMap"] = ActionMap(["SetupActions","ColorActions"],
 		{

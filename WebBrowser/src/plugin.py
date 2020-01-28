@@ -94,8 +94,8 @@ def wb_islock():
 class Player(Screen, InfoBarNotifications):
 	skin = 	"""
 		<screen name="Player" flags="wfNoBorder" position="center,620" size="455,53" title="Webbrowser" backgroundColor="transparent">
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/WebBrowser/icons/mp_wb_background.png" position="0,0" zPosition="-1" size="455,53" />
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/WebBrowser/icons/mp_wb_buttons.png" position="40,23" size="30,13" alphatest="on" />
+			<ePixmap pixmap="~/icons/mp_wb_background.png" position="0,0" zPosition="-1" size="455,53" />
+			<ePixmap pixmap="~/icons/mp_wb_buttons.png" position="40,23" size="30,13" alphatest="on" />
 
 			<widget source="session.CurrentService" render="PositionGauge" position="80,25" size="220,10" zPosition="2" pointer="position_pointer.png:540,0" transparent="1" foregroundColor="#20224f">
 				<convert type="ServicePosition">Gauge</convert>
@@ -116,6 +116,7 @@ class Player(Screen, InfoBarNotifications):
 
 	def __init__(self, session, service, lastservice):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser")
 		InfoBarNotifications.__init__(self)
 
 		self.session     = session
@@ -415,13 +416,14 @@ class BrowserLauncher(ConfigListScreen, Screen):
 			<widget source="key_red" render="Label" position="75,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1" />
 			<widget source="key_green" render="Label" position="225,0" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1" />
 			<widget name="config" position="0,50" size="409,100" scrollbarMode="showOnDemand" />
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/WebBrowser/icons/%s" position="50,155" size="309,435" alphatest="on" />
+			<ePixmap pixmap="~/icons/%s" position="50,155" size="309,435" alphatest="on" />
 			<widget name="info" position="50,588" size="309,50" font="Regular;18" halign="center" foregroundColor="blue" transparent="1" />
 		</screen>
 		""" % model_rc
 
 	def __init__(self, session): 
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser")
                 self.session = session
 		self.list = []
 		ConfigListScreen.__init__(self, self.list)

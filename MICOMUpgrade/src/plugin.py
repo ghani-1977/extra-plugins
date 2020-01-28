@@ -14,6 +14,7 @@ from enigma import eTimer
 from shutil import copyfile
 from Tools.StbHardware import getBoxProc
 from Components.Console import Console
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 fwlist = None
 fwdata = None
@@ -150,8 +151,8 @@ elif info == "ini-9000ru":
 class Filebrowser(Screen):
 	skin = 	"""
 		<screen position="center,center" size="500,490" title="File Browser" >
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/MICOMUpgrade/buttons/yellow.png" position="5,7" size="140,40" alphatest="blend" />		
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/MICOMUpgrade/buttons/blue-340.png" position="150,7" size="340,40" alphatest="blend" />
+			<ePixmap pixmap="~/buttons/yellow.png" position="5,7" size="140,40" alphatest="blend" />		
+			<ePixmap pixmap="~/buttons/blue-340.png" position="150,7" size="340,40" alphatest="blend" />
 			<widget source="key_yellow" render="Label" position="5,7" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1"/>
 			<widget source="key_blue" render="Label" position="150,7" zPosition="1" size="340,40" font="Regular;20" halign="center" valign="center" transparent="1"/>
 			<widget name="file_list" position="0,60" size="500,360" scrollbarMode="showOnDemand" />
@@ -161,6 +162,7 @@ class Filebrowser(Screen):
 
 	def __init__(self, session, parent, firmware):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/MICOMUpgrade")
                 self.session = session
 
 		self["key_blue"] = StaticText(_("Download the firmware (latest)"))
@@ -368,8 +370,8 @@ class Filebrowser(Screen):
 class FirmwareUpgrade(Screen):
 	skin = 	"""
 		<screen position="center,center" size="530,295" title="Firmware Upgrade" >
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/MICOMUpgrade/buttons/red.png" position="80,7" size="140,40" alphatest="blend" />
-			<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/MICOMUpgrade/buttons/green.png" position="320,7" size="140,40" alphatest="blend" />
+			<ePixmap pixmap="~/buttons/red.png" position="80,7" size="140,40" alphatest="blend" />
+			<ePixmap pixmap="~/buttons/green.png" position="320,7" size="140,40" alphatest="blend" />
 			<widget source="key_red" render="Label" position="80,7" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1" />
 			<widget source="key_green" render="Label" position="320,7" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1" />
 			<widget name="oldversion_label" position="80,100" size="290,25" font="Regular;20" />
@@ -382,6 +384,7 @@ class FirmwareUpgrade(Screen):
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
+		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/MICOMUpgrade")
                 self.session = session
 
 		self["shortcuts"] = ActionMap(["ShortcutActions", "SetupActions" ],
