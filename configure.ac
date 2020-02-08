@@ -48,7 +48,7 @@ AC_ARG_WITH(boxbrand,
 AC_SUBST(BOXBRAND)
 AC_DEFINE_UNQUOTED(BOXBRAND,"$BOXBRAND",[box brand])
 
-AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "axashisc4k" -o "$BOXTYPE" == "dinobotu43" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "protek4kx1" -o "$BOXTYPE" == "spycatminiv2" -o "$BOXTYPE" == "iziboxecohd" -o "$BOXTYPE" == "iziboxx3" -o "$BOXTYPE" == "jdhdduo" -o "$BOXTYPE" == "turing" -o "$BOXTYPE" == "arivatwin" -o "$BOXTYPE" == "arivacombo")
+AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "axashisc4k" -o "$BOXTYPE" == "dinobotu43" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "protek4kx1" -o "$BOXTYPE" == "iziboxx3" -o "$BOXTYPE" == "arivatwin" -o "$BOXTYPE" == "arivacombo")
 
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == "cube" -o "$BOXTYPE" == "su980")
 
