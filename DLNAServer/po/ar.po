@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DLNAServer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-07 14:06+0000\n"
+"POT-Creation-Date: 2020-03-06 15:48+0330\n"
 "PO-Revision-Date: 2019-04-12 10:56+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad\n"
@@ -22,6 +22,10 @@ msgstr "    - مستوى السجلات"
 msgid "Cancel"
 msgstr "إلغاء"
 
+#, fuzzy
+msgid "DLNA Server Name"
+msgstr "اسم الخادم"
+
 msgid "Enable Autostart for DLNA Server"
 msgstr "تمكين التشغيل التلقائي لخادم مشاركة الاجهزة للوسائط عبر الشبكة"
 
@@ -31,11 +35,18 @@ msgstr "تمكين تسجيل الدخول"
 msgid "Exit"
 msgstr "تسجيل الخروج"
 
+#, fuzzy
+msgid "Media Directory"
+msgstr "دليل الموسيقى"
+
 msgid "Music Directory"
 msgstr "دليل الموسيقى"
 
 msgid "OK"
 msgstr "موافق"
+
+msgid "Only one media directory"
+msgstr ""
 
 msgid "Picture Directory"
 msgstr "دليل الصور"
@@ -52,6 +63,9 @@ msgstr "اسم الخادم"
 msgid "Start"
 msgstr "تشغيل"
 
+msgid "Use browser directory as root"
+msgstr ""
+
 msgid "Video Directory"
 msgstr "دليل الفيديو"
 
@@ -61,8 +75,11 @@ msgstr "التصحيح"
 msgid "error"
 msgstr "خطاء"
 
-msgid "off"
-msgstr "لا يعمـل"
+msgid "fatal"
+msgstr ""
+
+msgid "info"
+msgstr ""
 
 msgid "warn"
 msgstr "تحذير"

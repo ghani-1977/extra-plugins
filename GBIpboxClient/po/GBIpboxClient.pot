@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-06 15:48+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "30 Days"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Authentication"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Cannot download data. Please check your configuration"
+msgstr ""
+
+msgid "Choose your main device"
+msgstr ""
+
+msgid "Daily"
+msgstr ""
+
+msgid "Do you want to scan for a server?"
+msgstr ""
+
+msgid "Download completed"
+msgstr ""
+
+msgid "GBIpbox Client"
+msgstr ""
+
+msgid "GBIpbox Client About"
+msgstr ""
+
+msgid "GBIpboxClient"
+msgstr ""
+
+msgid "Gigablue IPBox network client"
+msgstr ""
+
+msgid "HTTP port"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "IPBOX Client"
+msgstr ""
+
+msgid "IPBOX Client About"
+msgstr ""
+
+msgid "IPBox network client"
+msgstr ""
+
+msgid "IPBox wizard"
+msgstr ""
+
+msgid "NOTE: the remote HDD feature require samba installed on server box."
+msgstr ""
+
+msgid "No devices found"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid ""
+"Please wait while download is in progress.\n"
+"NOTE: If you have parental control enabled on remote box, the local settings will be overwritten."
+msgstr ""
+
+msgid ""
+"Please wait while scan is in progress.\n"
+"This operation may take a while"
+msgstr ""
+
+msgid "Repeat how often"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Scan"
+msgstr ""
+
+msgid "Schedule sync"
+msgstr ""
+
+msgid "Streaming port"
+msgstr ""
+
+msgid "Time of sync to start"
+msgstr ""
+
+msgid "To apply new settings, you need to reboot your STB. Do you want reboot it now?"
+msgstr ""
+
+msgid "Use remote HDD"
+msgstr ""
+
+msgid "Use remote timers"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Weekly"
+msgstr ""
+
+msgid "Abort this Wizard"
+msgstr ""
+
+msgid ""
+"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
+
+msgid ""
+"No devices found! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
+
+msgid ""
+"Please wait while scan is in progress.\n"
+"This operation may take a while."
+msgstr ""
+
+msgid "Scan for a server"
+msgstr ""
+
+msgid ""
+"Thank you for using the wizard. Your ipbox is now configured.\n"
+"Please press OK to continue."
+msgstr ""
+
+msgid "Try to download again"
+msgstr ""
+
+msgid "Try to scan again"
+msgstr ""
+
+msgid ""
+"Welcome.\n"
+"\n"
+"This Wizard will help you to configure your ipbox."
+msgstr ""
+
+msgid ""
+"Your ipbox is not configured.\n"
+"Please press OK to close this Wizard."
+msgstr ""

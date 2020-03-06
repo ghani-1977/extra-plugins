@@ -2,4 +2,3 @@ Package: enigma2-plugin-systemplugins-f3ledcontrol
 Version: 1.0-r1
 Description: vfd controller
 Maintainer: babsy
-Depends: 

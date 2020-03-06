@@ -1,7 +1,8 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-06 15:48+0330\n"
 "PO-Revision-Date: 2018-10-14 12:58+0200\n"
 "Last-Translator: Ladislav Zilzi, zilizila@gmail.sk\n"
 "Language: sk_SK\n"
@@ -15,8 +16,20 @@ msgstr ""
 msgid "(Re)Scan"
 msgstr "Prehľadať"
 
+msgid "Audio Address"
+msgstr ""
+
+#
+#, fuzzy
+msgid "Audio Connect"
+msgstr "Pripojiť"
+
 msgid "Autostart"
 msgstr "Autoštart"
+
+#, fuzzy
+msgid "BT devices manager"
+msgstr "Správca pre BT zariadenia"
 
 msgid "Bluetooth Devices Manager"
 msgstr "Bluetooth Devices Manager"
@@ -41,6 +54,10 @@ msgstr "Pripojenie s:\n"
 msgid "Disconnect"
 msgstr "Odpojiť"
 
+#, fuzzy
+msgid "Disconnect with:\n"
+msgstr "Pripojenie s:\n"
+
 msgid "Exit"
 msgstr "Skončiť"
 
@@ -56,6 +73,9 @@ msgstr "Žiadne zariadenie nie je pripojené"
 msgid "Not detected devices around STB"
 msgstr "Neboli nájdené zariadenia v okolí STB"
 
+msgid "Please Enter Passkey: \n"
+msgstr ""
+
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Stlačte MODRÉ tlačítko pre načítanie BT driveru."
 
@@ -67,9 +87,6 @@ msgstr "Hľadanie zariadení..."
 
 msgid "Scanning..."
 msgstr "Hľadanie..."
-
-msgid "This is bt devices manager"
-msgstr "Správca pre BT zariadenia"
 
 msgid "Trying to pair with:"
 msgstr "Pokus o párovanie s:"

@@ -119,6 +119,10 @@ FPGAUpgrade/src/Makefile
 FPGAUpgrade/meta/Makefile
 FPGAUpgrade/po/Makefile
 
+GBIpboxClient/Makefile
+GBIpboxClient/src/Makefile
+GBIpboxClient/po/Makefile
+
 GigaBlueRemote/Makefile
 GigaBlueRemote/src/Makefile
 GigaBlueRemote/meta/Makefile
