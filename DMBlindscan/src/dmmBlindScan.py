@@ -1,7 +1,7 @@
 # for localized messages
 from . import _
 from Components.ActionMap import NumberActionMap, ActionMap
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNothing, ConfigYesNo, ConfigInteger, getConfigListEntry
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.NimManager import nimmanager, getConfigSatlist
@@ -680,13 +680,10 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 			currSat = nimconfig.advanced.sat[cur_orb_pos]
 			lnbnum = int(currSat.lnb.getValue())
 			currLnb = nimconfig.advanced.lnb[lnbnum]
-			if isinstance(currLnb, ConfigNothing):
-				return False
 			lof = currLnb.lof.getValue()
 			print "[Blindscan][isLNB] LNB type: ", lof
 			if lof == "c_band":
 				self.is_c_band_scan = True
-				return True
 
 		self.scan_sat.bs_system = ConfigSelection(default = eDVBFrontendParametersSatellite.System_DVB_S2, 
 			choices = [ (eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
