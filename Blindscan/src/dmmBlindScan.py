@@ -15,6 +15,7 @@ from time import time, strftime
 from Components.About import about
 from Tools.Directories import fileExists
 from Tools.Transponder import ConvertToHumanReadable
+import boxbranding
 
 XML_BLINDSCAN_DIR = "/tmp"
 
@@ -839,7 +840,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 		xml.append('	File created on %s\n' % (strftime("%A, %d of %B %Y, %H:%M:%S")))
 		try:
 			xml.append('	using %s receiver running Enigma2 image, version %s,\n' % (boxtype, about.getEnigmaVersionString()))
-			xml.append('	image %s, with the Blind scan plugin\n\n' % (about.getImageTypeString()))
+			xml.append('	image %s, with the Blind scan plugin\n\n' % (boxbranding.getImageDistro()))
 		except:
 			xml.append('	using %s receiver running Enigma2 image (%s), with the blind scan plugin\n\n' % (boxtype, tuner))
 		xml.append('-->\n\n')

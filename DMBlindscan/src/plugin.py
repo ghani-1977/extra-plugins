@@ -18,7 +18,7 @@ from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-import os
+import os, boxbranding
 #used for the XML file
 from time import strftime, time
 
@@ -1419,7 +1419,7 @@ class Blindscan(ConfigListScreen, Screen):
 		xml.append('	File created on %s\n' % (strftime("%A, %d of %B %Y, %H:%M:%S")))
 		try:
 			xml.append('	using %s receiver running Enigma2 image, version %s,\n' % (BOX_NAME, about.getEnigmaVersionString()))
-			xml.append('	image %s, with the Blind scan plugin\n\n' % (about.getImageTypeString()))
+			xml.append('	image %s, with the Blind scan plugin\n\n' % (boxbranding.getImageDistro()))
 		except:
 			xml.append('	using %s receiver running Enigma2 image, with the Blind scan plugin\n\n' % (BOX_NAME))
 		xml.append('	Search parameters:\n')
