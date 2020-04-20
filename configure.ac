@@ -253,6 +253,9 @@ StreamTV/meta/Makefile
 StreamTV/po/Makefile
 StreamTV/icons/Makefile
 
+USBsafe/Makefile
+USBsafe/src/Makefile
+
 VentonFanControl/Makefile
 VentonFanControl/src/Makefile
 VentonFanControl/meta/Makefile
@@ -274,6 +277,15 @@ WebBrowser/meta/Makefile
 WebBrowser/keymap/Makefile
 WebBrowser/icons/Makefile
 WebBrowser/po/Makefile
+
+WetekAudio/Makefile
+WetekAudio/src/Makefile
+
+WetekFRQ/Makefile
+WetekFRQ/src/Makefile
+
+WetekSync/Makefile
+WetekSync/src/Makefile
 
 WirelessAccessPoint/Makefile
 WirelessAccessPoint/src/Makefile
