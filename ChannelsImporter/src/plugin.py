@@ -51,9 +51,9 @@ class ChannelsImporterScreen(Setup):
 			<widget name="description" position="50,385" size="500,80" font="Regular;18" halign="center" valign="top" transparent="0" zPosition="1"/>
 		</screen>"""
 
-	def __init__(self, session, setup, plugin=None, menu_path=None, PluginLanguageDomain=None):
+	def __init__(self, session, setup, plugin=None, PluginLanguageDomain=None):
 		try:
-			Setup.__init__(self, session, setup, plugin, menu_path, PluginLanguageDomain)
+			Setup.__init__(self, session, setup, plugin, PluginLanguageDomain)
 		except TypeError:
 			Setup.__init__(self, session, setup, plugin)
 
@@ -116,8 +116,7 @@ def ChannelsImporterStart(menuid, **kwargs):
 	return []
 
 def ChannelsImporterMain(session, **kwargs):
-	menu_path = _("Main menu")+' / '+_("Setup")+' / '+_('Service searching')
-	session.open(ChannelsImporterScreen, 'channelsimporter', 'SystemPlugins/ChannelsImporter', menu_path, PluginLanguageDomain)
+	session.open(ChannelsImporterScreen, 'channelsimporter', 'SystemPlugins/ChannelsImporter', PluginLanguageDomain)
 
 def Plugins(**kwargs):
 	pList = []
