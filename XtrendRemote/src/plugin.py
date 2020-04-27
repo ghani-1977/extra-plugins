@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #  ET-View RCSetup version 1.4
 #  Remote Controller Setup (RCSetup)

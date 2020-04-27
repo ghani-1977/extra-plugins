@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from enigma import fbClass, eRCInput
 import os, threading, time, socket, select, struct

@@ -1,4 +1,6 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 """
 	BBC iPlayer - Enigma2 Video Plugin
 	Copyright (C) 2013 rogerthis

@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 # print(" LCD4linux.StandbyBildLCD" in zip(*L4)[2])
