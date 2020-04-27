@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer, getBoxType, getBoxBrand
@@ -333,7 +335,7 @@ class Blindscan(ConfigListScreen, Screen):
 					_nimSocket[sNo] = [sName, sI2C]
 				else:	_nimSocket[sNo] = [sName]
 		fp.close()
-		print "[Blind scan] parsed nimsocket :", _nimSocket
+		print("[Blind scan] parsed nimsocket :", _nimSocket)
 		return _nimSocket
 
 	def makeNimSocket(self, nimname=""):
@@ -346,7 +348,7 @@ class Blindscan(ConfigListScreen, Screen):
 					try:	self.i2c_mapping_table[int(XX)] = int(nimsocket[1])
 					except: continue
 					is_exist_i2c = True
-		print "[Blind scan] i2c_mapping_table :", self.i2c_mapping_table, ", is_exist_i2c :", is_exist_i2c
+		print("[Blind scan] i2c_mapping_table :", self.i2c_mapping_table, ", is_exist_i2c :", is_exist_i2c)
 		if is_exist_i2c: return
 
 		self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
@@ -369,11 +371,11 @@ class Blindscan(ConfigListScreen, Screen):
 				if self.frontend:
 					return True
 				else:
-					print "[Blind scan] getFrontend failed"
+					print("[Blind scan] getFrontend failed")
 			else:
-				print "[Blind scan] getRawChannel failed"
+				print("[Blind scan] getRawChannel failed")
 		else:
-			print "[Blind scan] getResourceManager instance failed"
+			print("[Blind scan] getResourceManager instance failed")
 		return False
 
 	def prepareFrontend(self):
@@ -545,7 +547,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 		warning_text = ""
 		index_to_scan = int(self.scan_nims.value)
-		print "[Blind scan] ID: ", index_to_scan
+		print("[Blind scan] ID: ", index_to_scan)
 		nim = nimmanager.nim_slots[index_to_scan]
 		nimname = nim.friendly_full_description
 		self.SundtekScan = "Sundtek DVB-S/S2" in nimname
@@ -712,7 +714,7 @@ class Blindscan(ConfigListScreen, Screen):
 			for y in tmp_pol:
 				for z in tmp_band:
 					self.total_list.append([x,y,z])
-					print "[Blind scan] add scan item : ", x, ", ", y, ", ", z
+					print("[Blind scan] add scan item : ", x, ", ", y, ", ", z)
 
 		self.max_count = len(self.total_list)
 		self.is_runable = True
@@ -739,13 +741,13 @@ class Blindscan(ConfigListScreen, Screen):
 				self.clockTimer.stop()
 				del self.clockTimer
 				self.clockTimer = None
-				print "[Blind scan] Done"
+				print("[Blind scan] Done")
 				return
 			orb = self.total_list[self.running_count][0]
 			pol = self.total_list[self.running_count][1]
 			band = self.total_list[self.running_count][2]
 			self.running_count = self.running_count + 1
-			print "[Blind scan] running status-[%d] : [%d][%s][%s]" %(self.running_count, orb[0], pol, band)
+			print("[Blind scan] running status-[%d] : [%d][%s][%s]" %(self.running_count, orb[0], pol, band))
 			if self.running_count == self.max_count:
 				is_scan = True
 			self.prepareScanData(orb, pol, band, is_scan)
@@ -802,7 +804,7 @@ class Blindscan(ConfigListScreen, Screen):
 		tunername = nim.description
 
 		if not self.SundtekScan and tunername not in _blindscans2Nims and self.getNimSocket(self.feid) < 0:
-			print "[Blind scan] can't find i2c number!!"
+			print("[Blind scan] can't find i2c number!!")
 			return
 
 		if self.is_c_band_scan:
@@ -872,7 +874,7 @@ class Blindscan(ConfigListScreen, Screen):
 		else:
 			self.session.open(MessageBox, not_support_text, MessageBox.TYPE_WARNING)
 			return
-		print "[Blind scan] prepared command : [%s]" % (cmd)
+		print("[Blind scan] prepared command : [%s]" % (cmd))
 
 		self.thisRun = [] # used to check result corresponds with values used above
 		self.thisRun.append(int(temp_start_int_freq))
@@ -881,7 +883,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 		if not self.cmd:
 			if self.SundtekScan:
-				print "[Blind scan] closing frontend and starting blindscan"
+				print("[Blind scan] closing frontend and starting blindscan")
 				self.frontend and self.frontend.closeFrontend()
 			self.blindscan_container = eConsoleAppContainer()
 			self.blindscan_container.appClosed.append(self.blindscanContainerClose)
@@ -953,7 +955,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.full_data = "" # Clear this string so we don't get duplicates on subsequent runs
 		for line in lines:
 			data = line.split()
-			print "[Blind scan] cnt :", len(data), ", data :", data
+			print("[Blind scan] cnt :", len(data), ", data :", data)
 			if self.SundtekScan:
 				if len(data) == 3 and data[0] == 'Scanning':
 					if data[1] == '13V':
@@ -1119,7 +1121,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.bsTimer.stop()
 		if not self.frontend:
 			return
-		print "[Blind scan] closing frontend and starting blindscan"
+		print("[Blind scan] closing frontend and starting blindscan")
 		self.frontend.closeFrontend() # close because blindscan-s2 does not like to be open
 		self.blindscan_container = eConsoleAppContainer()
 		self.blindscan_container.appClosed.append(self.blindscanContainerClose)
@@ -1158,7 +1160,7 @@ class Blindscan(ConfigListScreen, Screen):
 				self.tmp_tplist = sorted(self.tmp_tplist, key=lambda tp: (tp.frequency, tp.is_id, tp.pls_mode, tp.pls_code, tp.t2mi_plp_id))
 				blindscanStateList = []
 				for p in self.tmp_tplist:
-					print "[Blind scan] data : [%d][%d][%d][%d][%d][%d][%d][%d][%d][%d]" % (p.orbital_position, p.polarisation, p.frequency, p.symbol_rate, p.system, p.inversion, p.pilot, p.fec, p.modulation, p.modulation)
+					print("[Blind scan] data : [%d][%d][%d][%d][%d][%d][%d][%d][%d][%d]" % (p.orbital_position, p.polarisation, p.frequency, p.symbol_rate, p.system, p.inversion, p.pilot, p.fec, p.modulation, p.modulation))
 					pol = { p.Polarisation_Horizontal : "H",
 						p.Polarisation_CircularRight : "R",
 						p.Polarisation_CircularLeft : "L",
@@ -1395,7 +1397,7 @@ class Blindscan(ConfigListScreen, Screen):
 			good = False
 
 		if good == False:
-			print "[Blind scan] Data returned by the binary is not good...\n	Data: Frequency [%d], Symbol rate [%d]" % (int(data[2]), int(data[3]))
+			print("[Blind scan] Data returned by the binary is not good...\n	Data: Frequency [%d], Symbol rate [%d]" % (int(data[2]), int(data[3])))
 
 		return good
 
@@ -1500,7 +1502,7 @@ class Blindscan(ConfigListScreen, Screen):
 			if isinstance(currLnb, ConfigNothing):
 				return False
 			lof = currLnb.lof.getValue()
-			print "[Blindscan][isLNB] LNB type: ", lof
+			print("[Blindscan][isLNB] LNB type: ", lof)
 			if lof == "universal_lnb":
 				self.is_Ku_band_scan = True
 				return True
@@ -1514,7 +1516,7 @@ class Blindscan(ConfigListScreen, Screen):
 				else:
 					self.user_defined_lnb_lo_freq = currLnb.lofl.value
 				self.user_defined_lnb_scan = True
-				print "[Blindscan][SatBandCheck] user defined local oscillator frequency: %d" % self.user_defined_lnb_lo_freq
+				print("[Blindscan][SatBandCheck] user defined local oscillator frequency: %d" % self.user_defined_lnb_lo_freq)
 				return True
 			elif lof == "circular_lnb": # lnb for use at positions 360 and 560
 				self.user_defined_lnb_lo_freq = self.circular_lnb_lo_freq
@@ -1537,10 +1539,10 @@ class Blindscan(ConfigListScreen, Screen):
 			idx_selected_sat = int(self.getSelectedSatIndex(self.scan_nims.value))
 			tmp_list = [self.satList[int(self.scan_nims.value)][self.scan_satselection[idx_selected_sat].index]]
 			orb = tmp_list[0][0]
-			print "[Blind scan] orb = ", orb
+			print("[Blind scan] orb = ", orb)
 		except:
 			orb = -9999
-			print "[Blind scan] error parsing orb"
+			print("[Blind scan] error parsing orb")
 		return orb
 
 	def startScanCallback(self, answer=True):

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 try:
 	import simplejson
 except:
@@ -32,7 +33,7 @@ class YMC:
 			else:
 				return {}
 		except:
-			print "YMC Error"
+			print("YMC Error")
 			return {}
 
 	def getStatus(self):
@@ -44,5 +45,5 @@ class YMC:
 			else:
 				return {}
 		except:
-			print "YMC Error"
+			print("YMC Error")
 			return {}

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from enigma import eTimer
 
 from Screens.Screen import Screen
@@ -69,22 +71,22 @@ class SmartCardSelectDetailsScreen(Screen):
 		idx = self["menu"].getSelectedIndex()
 		if idx is 0:
 			self.session.open( SmartCardATRInfoScreen, self.smartcard )
-			print "[plugin.py:SmartCardATRInfoScreen] Select ATR"
+			print("[plugin.py:SmartCardATRInfoScreen] Select ATR")
 
 		elif idx is 1:
 			if ( self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
-				print "[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions"
+				print("[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions")
 				self.session.open( SmartCardSubscriptionsInfoScreen, self.smartcard )
 			else:
-				print "[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions - Not supported for this card"
+				print("[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions - Not supported for this card")
 		elif idx is 2:
 			if ( self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
-				print "[plugin.py:SmartCardSelectDetailsScreen] Select Tokens"
+				print("[plugin.py:SmartCardSelectDetailsScreen] Select Tokens")
 				self.session.open( SmartCardPursesInfoScreen, self.smartcard )
 			else:
-				print "[plugin.py:SmartCardSelectDetailsScreen] Select Tokens - Not supported for this card"
+				print("[plugin.py:SmartCardSelectDetailsScreen] Select Tokens - Not supported for this card")
 		else:
-			print "[plugin.py:SmartCardSelectDetailsScreen] Unknown Menupoint"
+			print("[plugin.py:SmartCardSelectDetailsScreen] Unknown Menupoint")
 
 	
 	def exit(self):

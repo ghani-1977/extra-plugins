@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #######################################################################
 #
 #    Vali's File-List with some extendet functions
@@ -69,7 +71,7 @@ class FileList(MenuList):
 		else:
 			se = os_path.basename(directory)
 			direct = directory+"/"
-#		print "direct,se",direct,se
+#		print("direct,se",direct,se)
 		self.changeDir(direct,se)
 		self.l.setFont(0, gFont("Regular", 18))
 		self.l.setItemHeight(26)
@@ -215,15 +217,15 @@ class FileList(MenuList):
 			select2 = select
 			if select.endswith("/"):
 				select2 = os_path.basename(select[:-1])
-#			print "dir,select",directory,select,select2
+#			print("dir,select",directory,select,select2)
 			for x in self.list:
-#				print "xx",x
+#				print("xx",x)
 				p = x[0][0]
-#				print "pp",p
+#				print("pp",p)
 				if isinstance(p, eServiceReference):
 					p = p.getPath()
 				if p == select or p == select2:
-#					print "moveto",i
+#					print("moveto",i)
 					self.moveToIndex(i)
 				i += 1
 

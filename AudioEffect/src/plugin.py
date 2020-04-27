@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, ConfigSubsection, ConfigSelection, getConfigListEntry
@@ -46,17 +48,17 @@ def getProcValue(procPath):
 	fd = open(procPath,'r')
 	curValue = fd.read().strip(' ').strip('\n')
 	fd.close()
-#	print "[AudioEffect] get %s from %s" % (curValue, procPath)
+#	print("[AudioEffect] get %s from %s" % (curValue, procPath))
 	return curValue
 
 def setProcValue(procPath, value):
-#	print "[AudioEffect] set %s to %s" % (value, procPath)
+#	print("[AudioEffect] set %s to %s" % (value, procPath))
 	fd = open(procPath,'w')
 	fd.write(value)
 	fd.close()
 
 def setConfigValue(procPath, value):
-#	print "[AudioEffect][setConfigValue] try set %s to %s" % (value, procPath)
+#	print("[AudioEffect][setConfigValue] try set %s to %s" % (value, procPath))
 	curValue = getProcValue(procPath)
 	if curValue != value:
 		setProcValue(procPath, value)

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 import os
 from os import system
@@ -81,8 +83,8 @@ class StreamTVPlayer(Screen, InfoBarNotifications):
 		self.picload = ePicLoad()
 		self.scale   = AVSwitch().getFramebufferScale()
 		self.picload.PictureData.get().append(self.cbDrawChannelIcon)
-		print self.scale[0]
-		print self.scale[1]
+		print(self.scale[0])
+		print(self.scale[1])
 		self.picload.setPara((35, 35, self.scale[0], self.scale[1], False, 0, "#00000000"))
 		self.picload.startDecode(chIcon)
 
@@ -134,7 +136,7 @@ class StreamTVPlayer(Screen, InfoBarNotifications):
 	def setSeekState(self, wantstate):
 		service = self.session.nav.getCurrentService()
 		if service is None:
-			print "No Service found"
+			print("No Service found")
 			return
 
 		pauseable = service.pause()
@@ -204,7 +206,7 @@ class StreamURIParser:
 		return uriInfo
 
 def streamListEntry(entry):
-	#print entry
+	#print(entry)
 	uriInfo = entry[1].get('uri')
 	return [entry,
 		(eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 5, 1, 35, 35, loadPNG('%s/icons/%s' % (PLUGIN_PATH, str(entry[1].get('icon'))) )),
@@ -255,7 +257,7 @@ class StreamTVList(Screen):
 
 	def layoutFinished(self):
 		rc = os.popen('ps -ef | grep rtmpdump | grep -v grep').read()
-		print "a process already running :", rc
+		print("a process already running :", rc)
 		if rc is not None:
 			if rc.strip() != '':
 				Console().ePopen('killall -INT rtmpdump')
@@ -346,7 +348,7 @@ class StreamTVList(Screen):
 			self.serviceDoCommand = params[1]
 
 	def cbAppClosed(self, ret):
-		print ret
+		print(ret)
 		self.doConsoleStop()
 		if self.currentService is not None and not self.playerStoped:
 			self.serviceDoCommand('bypass_exit')
@@ -357,7 +359,7 @@ class StreamTVList(Screen):
 			self.serviceDoCommand = None
 
 	def cbDataAvail(self, data):
-		print data
+		print(data)
 		if str(data) == 'Connected...':
 			self.streamPlayerTimer = eTimer()
 			self.streamPlayerTimer.timeout.get().append(self.doStreamAction)
@@ -366,7 +368,7 @@ class StreamTVList(Screen):
 	def cbFinishedStream(self):
 		self.doConsoleStop()
 		self.session.nav.playService(self.beforeService)
-		print 'player done!!'
+		print('player done!!')
 
 	def doConsoleStop(self):
 		self.keyLocked = False

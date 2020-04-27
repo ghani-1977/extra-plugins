@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 from Screens.Screen import Screen
@@ -114,7 +115,7 @@ class RCUSelect(Screen):
 
 	def confirm(self, confirmed):
 		if not confirmed:
-			print "not confirmed"
+			print("not confirmed")
 			self.close()
 		else:
 			var = self["list"].getSelectionIndex()
@@ -220,7 +221,7 @@ class RCUSelect(Screen):
 				else:
 					Console().ePopen("cp -f %s /usr/share/enigma2/keymap.xml &") % resolveFilename(SCOPE_PLUGINS, "Extensions/RCUSelect/conf/keymap.orig.xml")
 			except IOError:
-				print "RCU select failed."
+				print("RCU select failed.")
 			self.close()
 
 	def cancel(self):

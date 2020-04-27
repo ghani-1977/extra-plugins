@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 try:
 	import urllib2
 	url2 = True
@@ -40,7 +41,7 @@ class BlueSound:
 			else:
 				return {}
 		except:
-			print "Bluesound Error"
+			print("Bluesound Error")
 			from traceback import format_exc
-			print "Error:",format_exc() 
+			print("Error:",format_exc() )
 			return {}

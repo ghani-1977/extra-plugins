@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #############################################################################
 #
 # Copyright (C) 2014 Impex-Sat Gmbh & Co.KG
@@ -215,7 +216,7 @@ class GBIpboxWizard(Wizard):
 			downloader.download()
 			self.currStep = self.getStepWithID('end')
 		except Exception, e:
-			print e
+			print(e)
 			self.currStep = self.getStepWithID('nodownload')
 		self.currStep += 1
 		self.updateValues()

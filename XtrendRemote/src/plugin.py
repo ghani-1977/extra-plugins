@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 #  ET-View RCSetup version 1.4
 #  Remote Controller Setup (RCSetup)
-# -*- coding: utf-8 -*-
 # for localized messages
 from . import _
 from Screens.Screen import Screen

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 
@@ -46,14 +48,14 @@ class SmartCardSelectScreen(Screen):
 			self.requestInfoaboutSmartCard( idx )
 
 		else:
-			print "[plugin.py:SmartCardInfoScreen] Unknown Menupoint"
+			print("[plugin.py:SmartCardInfoScreen] Unknown Menupoint")
 
 
 
 
 	def requestInfoaboutSmartCard(self, idx):
 		self.session.open( SmartCardSelectDetailsScreen, idx )
-		print "[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot "+str(idx)
+		print("[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot "+str(idx))
 
 
 

@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 ##
 ## WetekSync for WetekPlay
 ##
@@ -48,13 +49,13 @@ class LoopSyncMain(Screen):
 				frontendDataOrg = feinfo and feinfo.getAll(True)
 				if frontendDataOrg:		### DVB-S/C/T ###
 					if self.CheckFlag():
-						print "[WetekSync] DoWetekSync !!!"
+						print("[WetekSync] DoWetekSync !!!")
 						self.AVSyncTimer.start(500, True)
 						self.ResetFlag()
 						try:
 							self.session.open(DoWetekSync,service1)
 						except Exception, e:
-							print "[WetekSync] Can't WetekSync"
+							print("[WetekSync] Can't WetekSync")
 					self.AVSyncTimer.start(100, True)
 					return
 				else:		### IPTV or VOD ###
@@ -69,7 +70,7 @@ class LoopSyncMain(Screen):
 		try:
 			if int(open("/sys/class/tsync/reset_flag", "r").read(),16) == 1: return True;
 		except Exception as e:
-			print "[WetekSync] Can't read class"
+			print("[WetekSync] Can't read class")
 			self.AVSyncTimer.start(500, True)
 		return False;
 
@@ -77,7 +78,7 @@ class LoopSyncMain(Screen):
 		try:
 			open("/sys/class/tsync/reset_flag", "w").write("0")
 		except Exception, e:
-			print "[WetekSync] Can't ResetFlag"
+			print("[WetekSync] Can't ResetFlag")
 
 class DoWetekSync(Screen):
 	skin = '\n\t\t<screen position="center,center" size="1920,1080" title="" >\n\t\t</screen>'
@@ -87,13 +88,13 @@ class DoWetekSync(Screen):
 		try:
 			open("/sys/class/video/blackout_policy", "w").write("0")
 		except Exception as e:
-			print "[WetekSync] Can't change policy(0)"
+			print("[WetekSync] Can't change policy(0)")
 		self.session.nav.stopService()
 		self.session.nav.playService(xxx)
 		try:
 			open("/sys/class/video/blackout_policy", "w").write("1")
 		except Exception as e:
-			print "[WetekSync] Can't change policy(1)"
+			print("[WetekSync] Can't change policy(1)")
 		self.close()
 
 

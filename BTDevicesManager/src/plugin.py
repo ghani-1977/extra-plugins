@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #====================================================
 # Bluetooth Devices Manager - basic version
 # Version date - 20.11.2014
@@ -49,15 +51,15 @@ class TaskManager:
 		self.taskList.append([command+'\n', cbDataFunc, cbCloseFunc])
 
 	def dump(self):
-		print "############### TASK ###############"
-		print "Current Task Index :", self.taskIdx
-		print "Current Task Instance :", self.gTaskInstance
-		print "Occur Error :", self.occurError
-		print "Task List:\n", self.taskList
-		print "####################################"
+		print("############### TASK ###############")
+		print("Current Task Index :", self.taskIdx)
+		print("Current Task Instance :", self.gTaskInstance)
+		print("Occur Error :", self.occurError)
+		print("Task List:\n", self.taskList)
+		print("####################################")
 
 	def error(self):
-		print "[BluetoothManager] Info >> set task error!!"
+		print("[BluetoothManager] Info >> set task error!!")
 		self.occurError = True
 
 	def reset(self):
@@ -69,7 +71,7 @@ class TaskManager:
 		self.reset()
 		self.taskList = []
 		self.cbSetStatusCB = None
-		print "clear task!!"
+		print("clear task!!")
 
 	def index(self):
 		self.taskIdx
@@ -79,7 +81,7 @@ class TaskManager:
 
 	def next(self):
 		if self.taskIdx >= len(self.taskList) or self.occurError:
-			print "[BluetoothManager] Info >> can't run task!!"
+			print("[BluetoothManager] Info >> can't run task!!")
 			return False
 		command     = self.taskList[self.taskIdx][0]
 		cbDataFunc  = self.taskList[self.taskIdx][1]
@@ -93,7 +95,7 @@ class TaskManager:
 		if self.cbSetStatusCB is not None:
 			self.cbSetStatusCB(self.taskIdx)
 
-		print "[BluetoothManager] Info >> prepared command : %s"%(command)
+		print("[BluetoothManager] Info >> prepared command : %s"%(command))
 		self.gTaskInstance.execute(command)
 		self.taskIdx += 1
 		return True
@@ -134,10 +136,10 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 
 		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
-				print "[BluetoothManager] Autostart: Loading driver"
+				print("[BluetoothManager] Autostart: Loading driver")
 				Console().ePopen("modprobe rtk_btusb")
 			else:
-				print "[BluetoothManager] Autostart: Unloading driver"
+				print("[BluetoothManager] Autostart: Unloading driver")
 				Console().ePopen("rmmod rtk_btusb")
 
 		if getBoxBrand() in ("xcore","edision"):
@@ -210,7 +212,7 @@ class BluetoothDevicesManager(Screen):
 		self.cb_name = None
 
 	def initDevice(self):
-		print "[BluetoothManager] initDevice"
+		print("[BluetoothManager] initDevice")
 		cmd = "hciconfig hci0 up"
 		self.taskManager.append(cmd, self.cbPrintAvailBTDev, self.cbRunNextTask)
 		cmd = "hcitool dev" ## check if hci0 is on the dev list, then make scan
@@ -218,7 +220,7 @@ class BluetoothDevicesManager(Screen):
 		self.taskManager.next()
 		
 	def cbPrintAvailBTDev(self, data):
-		print "[BluetoothManager] cbPrintAvailBTDev"
+		print("[BluetoothManager] cbPrintAvailBTDev")
 		if data in ("Device is not available: No such device\n", "Devices:\n"): ## This message hidd return while it can not find bt dev
 			msg = _("No BT devices found!")
 			self["ConnStatus"].setText(_(msg))
@@ -226,7 +228,7 @@ class BluetoothDevicesManager(Screen):
 			self.scanForDevices()
 			
 	def keyGreen(self):
-		print "[BluetoothManager] keyGreen"  
+		print("[BluetoothManager] keyGreen"  )
 		if config.btdevicesmanager.autostart.getValue() or getBoxBrand() in ("xcore","edision"):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
@@ -235,7 +237,7 @@ class BluetoothDevicesManager(Screen):
 			self["ConnStatus"].setText(_("Please load BT driver by pressing BLUE button."))
 	  
 	def scanForDevices(self):  
-		print "[BluetoothManager] scanForDevices"
+		print("[BluetoothManager] scanForDevices")
 		# lets clear the list before Rescanning
 		self.devicelist = []
 		self.devicelist.append((_("Scanning for devices..."), _("Scanning...")))
@@ -247,7 +249,7 @@ class BluetoothDevicesManager(Screen):
 		self.taskManager.next()
 
 	def cbPrintAvailDevices(self, data):
-		print "[BluetoothManager] cbPrintAvailDevices"
+		print("[BluetoothManager] cbPrintAvailDevices")
 		
 		self.devicelist = []
 		self.devicelist.append((_("MAC:\t\tDevice name:"),_("entry")))
@@ -269,7 +271,7 @@ class BluetoothDevicesManager(Screen):
 		self.showConnections()
 		
 	def showConnections(self):
-		print "[BluetoothManager] showConnections"
+		print("[BluetoothManager] showConnections")
 		if getBoxBrand() not in ("xcore","edision"):
 			cmd = "hidd --show"
 			self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
@@ -288,7 +290,7 @@ class BluetoothDevicesManager(Screen):
 				self["ConnStatus"].setText(_("No connected to any device"))
 			
 	def cbPrintCurrentConnections(self, data):
-		print "[BluetoothManager] cbPrintCurrentConnections"
+		print("[BluetoothManager] cbPrintCurrentConnections")
 		msg = _("Connection with:\n") + data[:-12]
 		self["ConnStatus"].setText(msg)
 		self["key_yellow"].setText(_("Disconnect"))
@@ -313,7 +315,7 @@ class BluetoothDevicesManager(Screen):
 
 	def keyYellow(self):
 		if self["key_yellow"].getText() == _('Disconnect'):
-			print "[BluetoothManager] Disconnecting"
+			print("[BluetoothManager] Disconnecting")
 			if getBoxBrand() not in ("xcore","edision"):
 				cmd = "hidd --killall"
 				rc = Console().ePopen(cmd)
@@ -340,12 +342,12 @@ class BluetoothDevicesManager(Screen):
 							self["ConnStatus"].setText(msg)
 							self["key_yellow"].setText(_("Connect"))
 		else:
-			print "[BluetoothManager] Connecting"
+			print("[BluetoothManager] Connecting")
 			selectedItem = self["devicelist"].getCurrent()
 			if selectedItem is None or selectedItem[0] == "Scanning for devices...": ## If list is empty somehow or somebody pressed button while scanning
 				return
 			      
-			print "[BluetoothManager] trying to pair with: ", selectedItem[1]
+			print("[BluetoothManager] trying to pair with: ", selectedItem[1])
 			msg = _("Trying to pair with:") + " " + selectedItem[1]
 			self["ConnStatus"].setText(msg)
 			
@@ -355,7 +357,7 @@ class BluetoothDevicesManager(Screen):
 				cmd = "hidd --show"
 				rc = Console().ePopen(cmd)
 				if rc:
-					print "[BluetoothManager] can NOT connect with: ", selectedItem[1]
+					print("[BluetoothManager] can NOT connect with: ", selectedItem[1])
 					msg = _("Can't not pair with selected device!")
 					self["ConnStatus"].setText(msg)
 				self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
@@ -396,37 +398,37 @@ class BluetoothDevicesManager(Screen):
 						self["ConnStatus"].setText(msg)
 						self["key_yellow"].setText(_("Disconnect"))
 				else:
-					print "[BluetoothManager] can NOT connect with: ", selectedItem[1]
+					print("[BluetoothManager] can NOT connect with: ", selectedItem[1])
 					msg = _("Can't not pair with selected device!")
 					self["ConnStatus"].setText(msg)
 
 	def cbPrintAvailConnections(self, data):
-		print "[BluetoothManager] cbPrintAvailConnections"
+		print("[BluetoothManager] cbPrintAvailConnections")
 		if data == "Can't get device information: Success\n": ## This message hidd return while it can not connect with device
-			print "[BluetoothManager] connection faild"
+			print("[BluetoothManager] connection faild")
 			msg = _("Can't not pair with selected device!")
 			self["ConnStatus"].setText(msg)
 			
 	def keyBlue(self):
-		print "[BluetoothManager] keyBlue"
+		print("[BluetoothManager] keyBlue")
 		self.session.openWithCallback(self.keyGreen, BluetoothDevicesManagerSetup)
 
 	def showMessage(self,msg):
 		self.session.open(MessageBox, msg, MessageBox.TYPE_INFO, 3)
 
 	def keyCancel(self):
-		print "[BluetoothManager] keyCancel"
+		print("[BluetoothManager] keyCancel")
 		self.close()
 
 	def keyOK(self):
-		print "[BluetoothManager] keyOK"
+		print("[BluetoothManager] keyOK")
 		self.keyYellow()
 
 	def cbRunNextTask(self, ret):
 		self.taskManager.next()
 		
 	def cbStopDone(self, ret):
-		print "[BluetoothManager] cbStopDone"
+		print("[BluetoothManager] cbStopDone")
 		self.taskManager.clean()
 
 	def setListOnView(self):
@@ -445,10 +447,10 @@ def autostart(reason, **kwargs):
 	if reason == 0:
 		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
-				print "[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
+				print("[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.)
 				Console().ePopen("modprobe rtk_btusb")
 			else:
-				print "[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.
+				print("[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.)
 				Console().ePopen("rmmod rtk_btusb")
 
 		if getBoxBrand() in ("xcore","edision"):

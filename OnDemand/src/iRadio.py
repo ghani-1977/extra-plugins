@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 """
 	iRadio Player - Enigma2 Radio Plugin
 	Copyright (C) 2013 mcquaim
@@ -64,7 +66,7 @@ def wgetUrl(target):
 		response.close()
 		return outtxt
 	except (Exception) as exception:
-		print 'wgetUrl: Error retrieving URL ', exception
+		print('wgetUrl: Error retrieving URL ', exception)
 		return ''
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
@@ -79,7 +81,7 @@ def urlType(target):
 		return full
  
 	except (Exception) as exception:
-		print 'urlType: Error retrieving URL Type ', exception
+		print('urlType: Error retrieving URL Type ', exception)
 		return ''
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
@@ -181,7 +183,7 @@ class shoutGenresMenu(Screen):
 					osdList.append((_(name), id, children))
 
 		except (Exception) as exception:
-			print 'iRadioMenu: Error parsing genres: ', exception											
+			print('iRadioMenu: Error parsing genres: ', exception											)
 
 		osdList.append((_("Exit"), "exit", "false"))
 
@@ -255,7 +257,7 @@ class shoutSubGenresMenu(Screen):
 					osdList.append((_(name), id, children))
 
 		except (Exception) as exception:
-			print 'shoutSubGenresMenu: Error parsing feed: ', exception											
+			print('shoutSubGenresMenu: Error parsing feed: ', exception											)
 
 		osdList.append((_("Exit"), "exit", "false"))
 
@@ -323,7 +325,7 @@ class tuneinGenresMenu(Screen):
 				osdList.append((_(name), id, "false"))
 
 		except (Exception) as exception:
-			print 'tuneinGenresMenu: Error parsing genres: ', exception											
+			print('tuneinGenresMenu: Error parsing genres: ', exception											)
 
 		osdList.append((_("Exit"), "exit", "false"))
 
@@ -353,12 +355,12 @@ class tuneinGenresMenu(Screen):
 def findPlayUrl(showID, function, showWMA, **kwargs):
 	# Take the accepted showID and append it onto the url below.
 	url = showID
-	print 'findPlayUrl: url: ', url
+	print('findPlayUrl: url: ', url)
 	fileUrl = ''
 
 	try:
 		html = wgetUrl(url)
-		print 'findPlayUrl: html: ', html
+		print('findPlayUrl: html: ', html)
 
 		# If zero, an error occurred retrieving the url, pass empty string back
 		if html:
@@ -392,7 +394,7 @@ def findPlayUrl(showID, function, showWMA, **kwargs):
 						# This is an ASX URL for playing Windows media.
 						elif "asx" in link:
 							if showWMA == 'False':
-								print 'findPlayUrl: passing on asx file: ', link
+								print('findPlayUrl: passing on asx file: ', link)
 								pass
 							else:
 								fileUrl = link
@@ -410,19 +412,19 @@ def findPlayUrl(showID, function, showWMA, **kwargs):
 							else:
 								pass
 
-				print 'findPlayUrl: fileUrl: ', fileUrl
+				print('findPlayUrl: fileUrl: ', fileUrl)
 				return fileUrl
 			else:
 				stream = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', html)
 
 				fileUrl = stream[0]
-				print 'findPlayUrl: fileUrl: ', fileUrl
+				print('findPlayUrl: fileUrl: ', fileUrl)
 				return fileUrl
 		else:
-			print 'findPlayUrl: HTML is blank fileUrl: ', fileUrl
+			print('findPlayUrl: HTML is blank fileUrl: ', fileUrl)
 			return ""
 	except (Exception) as exception:
-		print 'findPlayUrl: Problem rerieving URL: ', exception
+		print('findPlayUrl: Problem rerieving URL: ', exception)
 		return ""
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
@@ -554,7 +556,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 			self.favoriteConfig.saveToFile(FAVORITE_FILE)
 			return 0
 		except (Exception) as exception:
-			print 'addFavorite: Error saving to Favorites: ', exception
+			print('addFavorite: Error saving to Favorites: ', exception)
 			return -1
 
 	def getFavoriteList(self):
@@ -683,7 +685,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 					weekList.append((date1, name, short, channel, stream, icon, duration, False))
 
 		except (Exception) as exception:
-			print 'getShoutcastMediaData: Error getting Media info: ', exception
+			print('getShoutcastMediaData: Error getting Media info: ', exception)
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
@@ -772,7 +774,7 @@ class FavoritesThumb(StreamsThumbCommon):
 				self.getFavoriteList()
 				return 0
 		except (Exception) as exception:
-			print 'removeFavorite: Error deleting Favorite: ', exception
+			print('removeFavorite: Error deleting Favorite: ', exception)
 			return -1
 
 	def getFavoriteList(self):
@@ -868,7 +870,7 @@ class FavoritesThumb(StreamsThumbCommon):
 				weekList.append((date1, name, short, channel, stream, icon, duration, False))
 
 		except (Exception) as exception:
-			print 'getFavMediaData: Error getting Media info: ', exception
+			print('getFavMediaData: Error getting Media info: ', exception)
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
@@ -976,7 +978,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 			self.favoriteConfig.saveToFile(FAVORITE_FILE)
 			return 0
 		except (Exception) as exception:
-			print 'addFavorite: Error saving to Favorites: ', exception
+			print('addFavorite: Error saving to Favorites: ', exception)
 			return -1
 
 	def initFavoriteEntryConfig(self):
@@ -1112,13 +1114,13 @@ class tuneinGenresThumb(StreamsThumbCommon):
 
 					if (channel != 'None'):
 						if (self.showWMA == 'False' and formats =='wma'):
-							print 'getTuneinMediaData: Not showing WMA: showWMA: ', self.showWMA
+							print('getTuneinMediaData: Not showing WMA: showWMA: ', self.showWMA)
 							pass
 						else:
 							weekList.append((date1, name, short, channel, stream, icon, duration, False))
 
 		except (Exception) as exception:
-			print 'getTuneinMediaData: Error getting Media info: ', exception
+			print('getTuneinMediaData: Error getting Media info: ', exception)
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
@@ -1142,7 +1144,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 					genreList.append((id, genre))
 
 		except (Exception) as exception:
-			print 'getGenreList: Error parsing genres: ', exception
+			print('getGenreList: Error parsing genres: ', exception)
 
 	def getGenreName(self, genreID):
 		try:
@@ -1155,5 +1157,5 @@ class tuneinGenresThumb(StreamsThumbCommon):
 
 			return genreName
 		except (Exception) as exception:
-			print 'getGenreName: Error Searching genres: ', exception
+			print('getGenreName: Error Searching genres: ', exception)
 			return 'None'

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 # external interface for LCD4linux
 # by joergm6 @ IHAD
 # for documentation look at IHAD Support Thread
@@ -21,14 +22,14 @@ class L4Lelement:
 	def __init__(self):
 		self.session = None
 	def add(self,element,para):
-		print "[LCD4linuxE] Add" , element,para
+		print("[LCD4linuxE] Add" , element,para)
 		if "%" in para.get("Align",""):
 			para["Align"] = ("0000"+para["Align"].replace("%","00"))[-4:]
 		if para.get("Value",None) is not None:
 			para["Value"] = min(max(int(para["Value"]),0),100)
 		L4Lelement.List[element]=para
 	def delete(self,element):
-		print "[LCD4linuxE] Del" , element
+		print("[LCD4linuxE] Del" , element)
 		if L4Lelement.List.get(element,None) is not None:
 			del L4Lelement.List[element]
 		else:
@@ -36,7 +37,7 @@ class L4Lelement:
 				if x.startswith(element):
 					del L4Lelement.List[x]
 	def show(self):
-		print L4Lelement.List
+		print(L4Lelement.List)
 	def get(self,element=None):
 		if element == None:
 			return L4Lelement.List
@@ -46,7 +47,7 @@ class L4Lelement:
 		try:
 			exec("self.add('%s)" % EX.replace(",","',",1))
 		except:
-			print "[LCD4linuxE] Error: L4L Web-Elements"
+			print("[LCD4linuxE] Error: L4L Web-Elements")
 	def getResolution(self,LCD):
 		if int(LCD)<1 or int(LCD)>3:
 			return 0,0
@@ -63,12 +64,12 @@ class L4Lelement:
 	def getHold(self):
 		return L4Lelement.Hold
 	def setHold(self,H):
-		print "[LCD4linuxE] Hold" , H
+		print("[LCD4linuxE] Hold" , H)
 		L4Lelement.Hold = H
 	def getHoldKey(self):
 		return L4Lelement.HoldKey
 	def setHoldKey(self,H=False):
-		print "[LCD4linuxE] HoldKey" , H
+		print("[LCD4linuxE] HoldKey" , H)
 		L4Lelement.HoldKey = H
 	def getFont(self,F="0"):
 		if L4Lelement.Font[int(F)].endswith(".ttf") and os.path.isfile(L4Lelement.Font[int(F)]):
@@ -119,7 +120,7 @@ def getstatusoutput(cmd):
 	except:
 		sts = 1
 		text = "- -"
-		print "[LCD4linux] Error on os-call"
+		print("[LCD4linux] Error on os-call")
 	finally:
 		return sts, text
 

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Renderer import Renderer
 from enigma import ePixmap, eTimer
 from Tools.BoundFunction import boundFunction

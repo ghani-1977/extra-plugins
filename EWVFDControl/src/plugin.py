@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -138,13 +140,13 @@ class Channelnumber:
 ChannelnumberInstance = None
 
 def leaveStandby():
-	print "[VFD-EW] Leave Standby"
+	print("[VFD-EW] Leave Standby")
 
 	if config.plugins.vfd_ew.showClock.value == 'Off':
 		vfd_write("....")
 
 def standbyCounterChanged(configElement):
-	print "[VFD-EW] In Standby"
+	print("[VFD-EW] In Standby")
 
 	from Screens.Standby import inStandby
 	inStandby.onClose.append(leaveStandby)
@@ -153,7 +155,7 @@ def standbyCounterChanged(configElement):
 		vfd_write("....")
 
 def initVFD():
-	print "[VFD-EW] initVFD"
+	print("[VFD-EW] initVFD")
 
 	if config.plugins.vfd_ew.showClock.value == 'Off':
 		vfd_write("....")
@@ -208,12 +210,12 @@ class vfd_ewSetup(ConfigListScreen, Screen):
 		self.newConfig()
 
 	def newConfig(self):
-		print self["config"].getCurrent()[0]
+		print(self["config"].getCurrent()[0])
 		if self["config"].getCurrent()[0] == _('Show on LED'):
 			self.createSetup()
 
 	def abort(self):
-		print "aborting"
+		print("aborting")
 
 	def save(self):
 		for x in self["config"].list:
@@ -235,7 +237,7 @@ class vfd_ewSetup(ConfigListScreen, Screen):
 
 class vfd_ew:
 	def __init__(self, session):
-		print "[VFD-EW] initializing"
+		print("[VFD-EW] initializing")
 		self.session = session
 		self.service = None
 		self.onClose = [ ]
@@ -252,7 +254,7 @@ class vfd_ew:
 		self.abort()
 
 	def abort(self):
-		print "[VFD-EW] aborting"
+		print("[VFD-EW] aborting")
 		config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call = False)
 
 def main(menuid):
@@ -273,15 +275,15 @@ def controlewVfd():
 	global mySession
 
 	if gReason == 0 and mySession != None and ewVfd == None:
-		print "[VFD-EW] Starting !!"
+		print("[VFD-EW] Starting !!")
 		ewVfd = vfd_ew(mySession)
 	elif gReason == 1 and ewVfd != None:
-		print "[VFD-EW] Stopping !!"
+		print("[VFD-EW] Stopping !!")
 
 		ewVfd = None
 
 def sessionstart(reason, **kwargs):
-	print "[VFD-EW] sessionstart"
+	print("[VFD-EW] sessionstart")
 	global ewVfd
 	global gReason
 	global mySession

@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 ##
 ## WetekAudio for WetekPlay
 ##
@@ -81,12 +82,12 @@ class WetekAudio(ConfigListScreen, Screen):
 		self.newConfig()
 
 	def newConfig(self):
-		print self['config'].getCurrent()[0]
+		print(self['config'].getCurrent()[0])
 		if self['config'].getCurrent()[0] == _('PCM or Raw type :'):
 			self.createSetup()
 
 	def abort(self):
-		print 'aborting'
+		print('aborting')
 
 	def save(self):
 		for x in self['config'].list:
@@ -109,7 +110,7 @@ class WetekAudio(ConfigListScreen, Screen):
 
 
 def initWetA(self = None):
-	print '[WetekAudio] try to apply settings'
+	print('[WetekAudio] try to apply settings')
 	try:
 		f = open('/sys/class/audiodsp/digital_codec', 'w')
 		f.write(config.plugins.wea.dcodec.getValue())
@@ -124,7 +125,7 @@ def initWetA(self = None):
 		f.write(config.plugins.wea.amask.getValue())
 		f.close()
 	except:
-		print '[WetekAudio] wet not present'
+		print('[WetekAudio] wet not present')
 
 
 def startWEA(session, **kwargs):

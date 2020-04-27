@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# print " LCD4linux.StandbyBildLCD" in zip(*L4)[2]
+from __future__ import print_function
+# print(" LCD4linux.StandbyBildLCD" in zip(*L4)[2])
 from twisted.web import resource, http
 from plugin import *
 from __init__ import _
@@ -53,7 +54,7 @@ def ParseCode():
 	i4 = 0
 	L4log("WebIF: parsing Code....")
 	for line in open(Py,"r").readlines():
-#		print line
+#		print(line)
 		if line.find("self.list1.append") >= 0 or line.find("self.list2.append") >= 0 or line.find("self.list3.append") >= 0 or line.find("self.list4.append") >= 0:
 			Z = line.replace("getConfigListEntry(_",",").replace(")","").replace("(","").replace(".append","").replace("\t","").replace("\n","").replace("\"","").split(",")
 			if Z[0]=="self.list1":
@@ -200,7 +201,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		el = req.args.get("Element",None)
 		self.restartTimer()
 		L4log("Command received %s" % (command), ex)
-#		print "[L4L EX]-", ex,"-"
+#		print("[L4L EX]-", ex,"-")
 		if self.CurrentMode == ("-","-"):
 			self.CurrentMode = (getConfigStandby(),getisMediaPlayer())
 		if mo is not None:
@@ -338,36 +339,36 @@ class LCD4linuxConfigweb(resource.Resource):
 				if ".Standby" in a:
 					b = a.replace(".Standby",".MP")
 					if (" "+b) in zip(*L3)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 				elif "." in a:
 					b = a.replace(".",".MP")
 					if (" "+b) in zip(*L3)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 		elif command[0] == "copyIdle":
 			for a in req.args.keys():
 				if ".MP" in a:
 					b = a.replace(".MP",".Standby")
 					if (" "+b) in zip(*L4)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 				elif "." in a:
 					b = a.replace(".",".Standby")
 					if (" "+b) in zip(*L4)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 		elif command[0] == "copyOn":
 			for a in req.args.keys():
 				if ".MP" in a:
 					b = a.replace(".MP",".")
 					if (" "+b) in zip(*L2)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 				elif ".Standby" in a:
 					b = a.replace(".Standby",".")
 					if (" "+b) in zip(*L2)[2]:
-						print a,b
+						print(a,b)
 						exec("%s.value = %s.value" % (b,a))
 
 #####################

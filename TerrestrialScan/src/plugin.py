@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -160,7 +162,7 @@ class TerrestrialScanScreen(ConfigListScreen, Screen):
 			self.close(False)
 
 	def terrestrialScanCallback(self, answer=None):
-		print "answer", answer
+		print("answer", answer)
 		if answer:
 			self.feid = answer[0]
 			self.transponders_unique = answer[1]
@@ -172,7 +174,7 @@ class TerrestrialScanScreen(ConfigListScreen, Screen):
 			self.session.nav.playService(self.session.postScanService)
 
 	def MakeBouquetCallback(self, answer=None):
-		print "answer", answer
+		print("answer", answer)
 		if answer:
 			self.feid = answer[0]
 			self.transponders_unique = answer[1]
@@ -226,5 +228,5 @@ def Plugins(**kwargs):
 	if nimmanager.hasNimType("DVB-T"):
 		pList.append( PluginDescriptor(name=_("Terrestrial Scan"), description="For scanning terrestrial tv", where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=TerrestrialScanStart) )
 	else:
-		print "[TerrestrialScan] No DVB-T tuner available so don't load"
+		print("[TerrestrialScan] No DVB-T tuner available so don't load")
 	return pList

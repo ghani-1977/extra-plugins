@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 # Note for people skinning the scan screen...
 #

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor
@@ -38,7 +40,7 @@ class CustomButtonActionMenu(Screen):
 		try:
 			fp = file('/var/custombutton.dat', 'r')
 			activecustom = fp.readline()
-			print "ACTIVE CUSTOM:", str(activecustom)
+			print("ACTIVE CUSTOM:", str(activecustom))
 			fp.close()
 		except:
 			pass
@@ -54,7 +56,7 @@ class CustomButtonActionMenu(Screen):
 					pass
 				else:
 					idx = idx + 1
-					print "FOUND NODE ELEMENT:", x.getAttribute("name")
+					print("FOUND NODE ELEMENT:", x.getAttribute("name"))
 					self.list.append( str(x.getAttribute("name")) )
 					if len(activecustom) > 0:
 						if activecustom == str(x.getAttribute("name")):
@@ -72,7 +74,7 @@ class CustomButtonActionMenu(Screen):
 		
 	def selectActive(self):
 		if (self.idxactive != -1):
-			print "Move to %s\n" % str(self.idxactive)
+			print("Move to %s\n" % str(self.idxactive))
 			self["actionlist"].moveToIndex(self.idxactive)
 			
 	def okCB(self, result):
@@ -80,7 +82,7 @@ class CustomButtonActionMenu(Screen):
 
 	def ok(self):
 		if self.idxactive != self["actionlist"].getSelectedIndex():
-			print "Selected : %s\n" % self["actionlist"].getCurrent()
+			print("Selected : %s\n" % self["actionlist"].getCurrent())
 			
 			fp = file('/var/custombutton.dat', 'w')
 			fp.write("%s" % self["actionlist"].getCurrent())

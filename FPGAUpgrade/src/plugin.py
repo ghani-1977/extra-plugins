@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -35,7 +37,7 @@ class FPGAUpgradeCore() :
 	callcount 	= 0
 	MAX_CALL_COUNT 	= 1500
 	def __init__(self, firmwarefile, devicefile):
-		print '[FPGAUpgrade]'
+		print('[FPGAUpgrade]')
 		self.devicefile = devicefile
 		self.firmwarefile = firmwarefile
 
@@ -47,35 +49,35 @@ class FPGAUpgradeCore() :
 		try:
 			size = os.path.getsize(self.firmwarefile)
 			if size == 0: raise Exception, 'data_size is zero'
-			#print '[FPGAUpgradeCore] data_size :',size
+			#print('[FPGAUpgradeCore] data_size :',size)
 
 			firmware = open(self.firmwarefile, 'rb')
 			device = os.open(self.devicefile, os.O_RDWR)
-			#print '[FPGAUpgradeCore] open >> [ok]'
+			#print('[FPGAUpgradeCore] open >> [ok]')
 
 			rc = fcntl.ioctl(device, 0, size)
 			if rc < 0: raise Exception, 'fail to set size : %d'%(rc)
-			#print '[FPGAUpgradeCore] set size >> [ok]'
+			#print('[FPGAUpgradeCore] set size >> [ok]')
 
 			rc = fcntl.ioctl(device, 2, 5)
 			if rc < 0: raise Exception, 'fail to set programming mode : %d'%(rc)
-			#print '[FPGAUpgradeCore] programming mode >> [ok]'
+			#print('[FPGAUpgradeCore] programming mode >> [ok]')
 			self.status = STATUS_PREPARED
 
 			while True:
 				data = firmware.read(1024)
 				if data == '': break
 				os.write(device, data)
-			#print '[FPGAUpgradeCore] write data >> [ok]'
+			#print('[FPGAUpgradeCore] write data >> [ok]')
 
 			self.status = STATUS_PROGRAMMING
 			rc = fcntl.ioctl(device, 1, 0)
 			if rc < 0: raise Exception, 'fail to programming : %d'%(rc)
-			#print '[FPGAUpgradeCore] upgrade done.'
+			#print('[FPGAUpgradeCore] upgrade done.')
 			if self.callcount < 100: raise Exception, 'wrong fpga file.'
 		except Exception, msg:
 			self.errmsg = msg
-			print '[FPGAUpgradeCore] ERROR >>',msg
+			print('[FPGAUpgradeCore] ERROR >>',msg)
 			closefpga(firmware, device)
 			return STATUS_ERROR
 		closefpga(firmware, device)
@@ -85,10 +87,10 @@ class FPGAUpgradeCore() :
 		self.status = STATUS_READY
 		self.status = self.doUpgrade()
 		if self.status == STATUS_DONE:
-			print '[FPGAUpgrade] upgrade done.'
+			print('[FPGAUpgrade] upgrade done.')
 		elif self.status == STATUS_ERROR:
-			print '[FPGAUpgrade] occur error.'
-		else:	print '[FPGAUpgrade] occur unknown error.'
+			print('[FPGAUpgrade] occur error.')
+		else:	print('[FPGAUpgrade] occur unknown error.')
 
 class FPGAUpgradeManager:
 	fu = None
@@ -116,7 +118,7 @@ class FPGAUpgradeManager:
 			self.fu.callcount += 1
 			ret = (self.fu.callcount * 100) / self.fu.MAX_CALL_COUNT + 2
 			if ret >= 100: ret = 99
-			#print "callcount : [%d]"%(self.fu.callcount);
+			#print("callcount : [%d]"%(self.fu.callcount);)
 			return ret
 		elif self.fu.status == STATUS_DONE:
 			return 100
@@ -171,7 +173,7 @@ class UpgradeStatus(Screen):
 			self.slider.setValue(self.status)
 
 		if self.status == 100:
-			#print "fpga-upgrade done!!"
+			#print("fpga-upgrade done!!")
 			self.status_bar.setText(_("Succeed"))
 			#self.status_bar.setText(_("%d / 100" % (self.status)))
 			self.timer_check_progress.stop()
@@ -181,7 +183,7 @@ class UpgradeStatus(Screen):
 			self.timer_exit.start(1000)
 
 		elif self.status < 0:#elif self.status == -1 or self.status == -2:
-			#print "fpga-upgrade error >> errno : [%d]" % (self.status)
+			#print("fpga-upgrade error >> errno : [%d]" % (self.status))
 			ERROR_MSG = ''
 			ERROR_CODE = int(self.status) * -1
 			ERROR_MSG = self.parent.FPGA.get_error_msg(ERROR_CODE, ERROR_MSG)
@@ -191,7 +193,7 @@ class UpgradeStatus(Screen):
 			self.is_done = 1
 
 		else:
-			#print "fpga-upgrade status : %d" % self.status
+			#print("fpga-upgrade status : %d" % self.status)
 			self.status_bar.setText(_("%d / 100" % (self.status)))
 
 	def callbackExit(self):
@@ -265,10 +267,10 @@ class FPGAUpgrade(Screen):
 		self.DOWNLOAD_URL = ''
 		self.doLoadConf()
 		self.FPGA = FPGAUpgradeManager()
-		print self.DEVICE_LIST
-		print self.DOWNLOAD_TAR_PATH
-		print self.DOWNLOAD_FILE_NAME
-		print self.DOWNLOAD_URL
+		print(self.DEVICE_LIST)
+		print(self.DOWNLOAD_TAR_PATH)
+		print(self.DOWNLOAD_FILE_NAME)
+		print(self.DOWNLOAD_URL)
 
 	def doLayoutFinish(self):
 		return
@@ -320,16 +322,16 @@ class FPGAUpgrade(Screen):
 		if device == None or len(device) == 0:
 			message = "Fail to upgrade.\nCause : Can't found device.\nDo you want to exit?"
 			self.session.openWithCallback(self.onCallbackHandler, MessageBox, _(message), MessageBox.TYPE_YESNO, timeout = 10, default = True)
-			print "DEVICE_LIST : ", device_list
+			print("DEVICE_LIST : ", device_list)
 
-		print "DEVICE : ", device
+		print("DEVICE : ", device)
 		self.ERROR_CODE = self.FPGA.fpga_upgrade(path, device)
 		if self.ERROR_CODE > 0:
 			self.ERROR_MSG = self.FPGA.get_error_msg(self.ERROR_CODE, self.ERROR_MSG)
 			message = "Fail to upgrade.\nCause : " + self.ERROR_MSG + "\nDo you want to exit?"
 			self.session.openWithCallback(self.onCallbackHandler, MessageBox, _(message), MessageBox.TYPE_YESNO, timeout = 10, default = True)
-			print "DEVICE : ", device
-			print "FILE : ", path
+			print("DEVICE : ", device)
+			print("FILE : ", path)
 		else:
 			#self.session.open(MessageBox, _("Success!!"), MessageBox.TYPE_INFO, timeout = 5)
 			self.session.open(UpgradeStatus, self, timeout = 20)

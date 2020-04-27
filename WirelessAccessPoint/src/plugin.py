@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen, ConfigList
 from Components.config import config, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigIP, ConfigInteger
@@ -20,7 +22,7 @@ debug_msg_on = False
 def printDebugMsg(msg):
 	global debug_msg_on
 	if debug_msg_on:
-		print "[Wireless Access Point] ", msg
+		print("[Wireless Access Point] ", msg)
 
 class fixedValue:
 	def __init__(self, value = ""):
@@ -789,11 +791,11 @@ class WirelessAccessPoint(Screen,ConfigListScreen):
 
 		orig_conf = open(ORIG_HOSTAPD_CONF, "r")
 		if orig_conf == -1:
-			print "can't open file. (%s)" % ORIG_HOSTAPD_CONF
+			print("can't open file. (%s)" % ORIG_HOSTAPD_CONF)
 
 		new_conf = open(HOSTAPD_CONF, "w")
 		if new_conf == -1:
-			print "can't open file. (%s)" % HOSTAPD_CONF
+			print("can't open file. (%s)" % HOSTAPD_CONF)
 
 		isEncryptOn = apModeConfig.encrypt.value is True
 		isEncryptWEP = apModeConfig.method.value == "0"
@@ -837,8 +839,8 @@ class WirelessAccessPoint(Screen,ConfigListScreen):
 						break
 
 #			if fix_line is not None:
-#				print "r_line : ", r_line,
-#				print "fix_li : ", fix_line
+#				print("r_line : ", r_line,)
+#				print("fix_li : ", fix_line)
 
 			if fix_line is not None:
 				new_conf.write(fix_line)

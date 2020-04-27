@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #############################################################################
 #
 # Copyright (C) 2014 Impex-Sat Gmbh & Co.KG
@@ -275,7 +276,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			self.timer.callback.append(self.downloadCompleted)
 			self.timer.start(100)
 		except Exception, e:
-			print e
+			print(e)
 			self.messagebox.close()
 			self.timer = eTimer()
 			self.timer.callback.append(self.downloadError)

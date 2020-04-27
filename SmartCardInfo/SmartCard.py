@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import sys
 from socket import *
 
@@ -179,10 +181,10 @@ class SmartCardConfig:
 		for s in configStr:
 			split = s.strip().split(': ',1)
 			if split[0] == identifier:
-				print "[SmartCard.py] Got " + identifier + " :" + split[1]#[0:-1]
+				print("[SmartCard.py] Got " + identifier + " :" + split[1]#[0:-1])
 				return split[1]#[0:-1]
 				
-		print "[SmartCard.py] No " + identifier + " present."
+		print("[SmartCard.py] No " + identifier + " present.")
 		return None
 			
 			
@@ -190,7 +192,7 @@ class SmartCardConfig:
 		"""
 		Check if smartcard present"""
 		
-		print "[SMARTCARDINFO] Get Slot status"
+		print("[SMARTCARDINFO] Get Slot status")
 		
 		fp = file('/proc/sc', 'r')
 		result = fp.readlines()
@@ -202,12 +204,12 @@ class SmartCardConfig:
 			return False
 		
 		if (status.find("no card") >= 0) and (smartcard.inserted):
-			print "[SMARTCARDINFO] Slot %d status changed prev (inserted) actual (removed)" % idx
+			print("[SMARTCARDINFO] Slot %d status changed prev (inserted) actual (removed)" % idx)
 			smartcard.inserted = False
 			return False
 		
 		if (status.find("card detected") >= 0) and (not smartcard.inserted):
-			print "[SMARTCARDINFO] Slot %d status changed prev (removed) actual (present)" % idx
+			print("[SMARTCARDINFO] Slot %d status changed prev (removed) actual (present)" % idx)
 			smartcard.inserted = True
 			return True
 			
@@ -218,7 +220,7 @@ class SmartCardConfig:
 		"""
 		Load SmartCard Information from File"""
 
-		print "[SMARTCARDINFO] Getting smartcard info ..."
+		print("[SMARTCARDINFO] Getting smartcard info ...")
 		
 		sockobj = socket( AF_INET, SOCK_STREAM )
 		sockobj.settimeout(1)
@@ -226,7 +228,7 @@ class SmartCardConfig:
 			sockobj.connect((SmartCardConfig.serverHost, SmartCardConfig.serverPort))
 		except:
 			# Connection refused
-			print "[SMARTCARDINFO] SmartcardServer not active."
+			print("[SMARTCARDINFO] SmartcardServer not active.")
 			return False
 		
 		try:
@@ -250,7 +252,7 @@ class SmartCardConfig:
 		try:
 			self.xmldoc = xml.dom.minidom.parseString(data)
 		except:
-			print '[SMARTCARDINFO] malformed xml. discard it.\n'
+			print('[SMARTCARDINFO] malformed xml. discard it.\n')
 			return False				
 
 		if ( self.xmldoc is None ):

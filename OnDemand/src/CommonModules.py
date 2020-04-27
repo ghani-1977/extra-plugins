@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 """
 	Episode List GUI for OnDemand plugin.
 	Copyright (C) 2013 andyblac
@@ -91,10 +93,10 @@ class MainMenuList(HTMLComponent, GUIComponent):
 	def showArrows(self):
 		rowsshown = self.listHeight / self.itemHeight
 		if self.totalitems > rowsshown:
-			print 'TRUE'
+			print('TRUE')
 			return 1
 		else:
-			print 'FALSE'
+			print('FALSE')
 			return 0
 
 	def setItemsPerPage(self):
@@ -316,7 +318,7 @@ class EpisodeList(HTMLComponent, GUIComponent):
 			else:				
 				return str(icon_name[1])
 		except (Exception) as exception:
-			print "getThumbnailName: No image found: ", exception, " for: ", x
+			print("getThumbnailName: No image found: ", exception, " for: ", x)
 			return ''
 
 ###########################################################################
@@ -425,7 +427,7 @@ class MyHTTPConnection(HTTPConnection):
 			self.host = answer.rrset.items[0].address
 			self.sock = socket.create_connection ((self.host, self.port))
 		except (Exception) as exception:
-			print "MyHTTPConnection: Failed to Connect to: ", primaryDNS, " , error: ", exception
+			print("MyHTTPConnection: Failed to Connect to: ", primaryDNS, " , error: ", exception)
 
 			try:
 				secondaryDNS = str(config.ondemand.SecondaryDNS.value)
@@ -441,7 +443,7 @@ class MyHTTPConnection(HTTPConnection):
 					self.sock = socket.create_connection ((self.host, self.port))
 
 			except (Exception) as exception:
-				print "MyHTTPConnection: Failed to Connect to: ", secondaryDNS, " , error: ", exception
+				print("MyHTTPConnection: Failed to Connect to: ", secondaryDNS, " , error: ", exception)
 
 class MyHTTPHandler(urllib2.HTTPHandler):
 	def http_open(self, req):

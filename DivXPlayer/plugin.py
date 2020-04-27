@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from Components.Console import Console
 from enigma import eConsoleAppContainer
 from os import path, remove
@@ -131,13 +133,13 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def __evDecodeError(self):
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
-		print "[__evDecodeError] video-codec %s can't be decoded by hardware" % (sVideoType)
+		print("[__evDecodeError] video-codec %s can't be decoded by hardware" % (sVideoType))
 		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO,timeout = 20 )
 
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
-		print "[__evPluginError]" , message
+		print("[__evPluginError]" , message)
 		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO,timeout = 20 )
 
 	def hideAfterResume(self):
@@ -173,7 +175,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	
 	def ok(self):
 		selection = self["filelist"].getSelection()
-		print "[DivX Player] %s\n" % str(selection[0])
+		print("[DivX Player] %s\n" % str(selection[0]))
 		
 		if selection[1] == True: # isDir
 			self["filelist"].changeDir(selection[0])
@@ -222,10 +224,10 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				
 	def performNextOperation(self):
 		if len(self.next_operation) > 0:
-			print "[DivX Player] NEXT OPERATION %s" % self.next_operation
+			print("[DivX Player] NEXT OPERATION %s" % self.next_operation)
 			
 			if self.next_operation == "PLAY_DIVX":
-				print "[DivX Player] Play new %s" % self.current_service.getPath()
+				print("[DivX Player] Play new %s" % self.current_service.getPath())
 			
 				self.lastServicePlayed = self.current_service
 				self.playDivXService( self.current_service )
@@ -238,9 +240,9 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def playDivXService(self, currref):
 		if not self.IsPlayingDivXService():
 			text = currref.getPath()
-			print "[DivX Player] Playing %s ..." % str(text)
+			print("[DivX Player] Playing %s ..." % str(text))
 			cmd = "/usr/local/bin/dvbtest -i -w auto -W auto \"%s\"" % str(text)
-			print cmd
+			print(cmd)
 			self.container.appClosed.append(self.divxPlayFinish)
 			self.container.execute(cmd)
 			
@@ -248,36 +250,36 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def timeStampDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write( "t", 1 )
-			print "[DivX Player] show TimeStamp"
+			print("[DivX Player] show TimeStamp")
 		
 	def forwardDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write( "+", 1 )
-			print "[DivX Player] Forward Speed"
+			print("[DivX Player] Forward Speed")
 				
 		
 	def stopDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write( "x", 1 )
-			print "[DivX Player] Stopped"
+			print("[DivX Player] Stopped")
 			
 		
 	def pauseDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write( "z", 1 )
-			print "[DivX Player] Paused"
+			print("[DivX Player] Paused")
 			
 			
 	def resumeDivXPlay(self):
 		if self.IsPlayingDivXService():
-			print "[DivX Player] Resume Play"
+			print("[DivX Player] Resume Play")
 			self.container.write( "c", 1 )
 					
 					
 	def divxPlayFinish(self, retval):
 		self.lastServicePlayed = None
 		self.container.appClosed.remove(self.divxPlayFinish)
-		print "[DivX Player] Killed"
+		print("[DivX Player] Killed")
 		
 		self.performNextOperation()
 	
@@ -297,10 +299,10 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			self.stopDivXService()
 		else:
 			if (self.seekstate == self.SEEK_STATE_PAUSE) or (self.seekstate == self.SEEK_STATE_BWD) or (self.seekstate == self.SEEK_STATE_FWD):
-				print "resumeDivXPlay"
+				print("resumeDivXPlay")
 				self.resumeDivXPlay()
 			else:
-				print "playDivXService"
+				print("playDivXService")
 				self.lastServicePlayed = self.current_service
 				self.playDivXService( self.current_service )
 				
@@ -345,7 +347,7 @@ class DivXPlayerLCDScreen(Screen):
 		self["text4"] = Label("")
 
 	def setText(self, text, line):
-		print "lcd set text:", text, line
+		print("lcd set text:", text, line)
 		if len(text) > 10:
 			if text[-4:] == ".mp3":
 				text = text[:-4]

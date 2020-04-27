@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -28,8 +30,8 @@ class MakeBouquet(Screen):
 	skin = downloadBar
 
 	def __init__(self, session, args = 0):
-		print "[MakeBouquet][__init__] Starting..."
-		print "[MakeBouquet][__init__] args", args
+		print("[MakeBouquet][__init__] Starting...")
+		print("[MakeBouquet][__init__] args", args)
 		self.session = session
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("MakeBouquet"))
@@ -141,7 +143,7 @@ class MakeBouquet(Screen):
 	def getFrontend(self):
 		resmanager = eDVBResourceManager.getInstance()
 		if not resmanager:
-			print "[MakeBouquet][getFrontend] Cannot retrieve Resource Manager instance"
+			print("[MakeBouquet][getFrontend] Cannot retrieve Resource Manager instance")
 			self.showError(_('Cannot retrieve Resource Manager instance'))
 			return
 
@@ -153,17 +155,17 @@ class MakeBouquet(Screen):
 
 		self.rawchannel = resmanager.allocateRawChannel(self.selectedNIM)
 		if not self.rawchannel:
-			print "[MakeBouquet][getFrontend] Cannot get the NIM"
+			print("[MakeBouquet][getFrontend] Cannot get the NIM")
 			self.showError(_('Cannot get the NIM'))
 			return
 
-		print "[MakeBouquet][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout/10)
+		print("[MakeBouquet][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout/10))
 
 		self["tuner_text"].setText(chr(ord('A') + self.selectedNIM))
 
 		self.frontend = self.rawchannel.getFrontend()
 		if not self.frontend:
-			print "[MakeBouquet][getFrontend] Cannot get frontend"
+			print("[MakeBouquet][getFrontend] Cannot get frontend")
 			self.showError(_('Cannot get frontend'))
 			return
 
@@ -185,9 +187,9 @@ class MakeBouquet(Screen):
 		self.frontend.getFrontendStatus(self.dict)
 		if self.dict["tuner_state"] == "TUNING":
 			if self.lockcounter < 1: # only show this once in the log per retune event
-				print "[MakeBouquet][checkTunerLock] TUNING"
+				print("[MakeBouquet][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
-			print "[MakeBouquet][checkTunerLock] TUNER LOCKED"
+			print("[MakeBouquet][checkTunerLock] TUNER LOCKED")
 			self["action"].setText(_("Reading SI tables on %s MHz") % str(self.transponder["frequency"]/1000000))
 			#self["status"].setText(_("???"))
 
@@ -197,13 +199,13 @@ class MakeBouquet(Screen):
 			self.readTranspondertimer.start(100, 1)
 			return
 		elif self.dict["tuner_state"] in ("LOSTLOCK", "FAILED"):
-			print "[MakeBouquet][checkTunerLock] TUNING FAILED"
+			print("[MakeBouquet][checkTunerLock] TUNING FAILED")
 			self.readStreams()
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.lockTimeout:
-			print "[MakeBouquet][checkTunerLock] Timeout for tuner lock"
+			print("[MakeBouquet][checkTunerLock] Timeout for tuner lock")
 			self.readStreams()
 			return
 		self.locktimer.start(100, 1)
@@ -232,7 +234,7 @@ class MakeBouquet(Screen):
 
 		fd = dvbreader.open(demuxer_device, sdt_pid, sdt_current_table_id, mask, self.selectedNIM)
 		if fd < 0:
-			print "[MakeBouquet][readSDT] Cannot open the demuxer"
+			print("[MakeBouquet][readSDT] Cannot open the demuxer")
 			return None
 
 		timeout = datetime.datetime.now()
@@ -240,7 +242,7 @@ class MakeBouquet(Screen):
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print "[Satfinder][getCurrentTsidOnid] Timed out"
+				print("[Satfinder][getCurrentTsidOnid] Timed out")
 				break
 
 			section = dvbreader.read_sdt(fd, sdt_current_table_id, 0x00)
@@ -271,7 +273,7 @@ class MakeBouquet(Screen):
 		dvbreader.close(fd)
 
 		if not sdt_current_content:
-			print "[MakeBouquet][readSDT] no services found on transponder"
+			print("[MakeBouquet][readSDT] no services found on transponder")
 			return
 
 		for i in range(len(sdt_current_content)):
@@ -307,7 +309,7 @@ class MakeBouquet(Screen):
 
 		fd = dvbreader.open(demuxer_device, nit_current_pid, nit_current_table_id, mask, self.selectedNIM)
 		if fd < 0:
-			print "[MakeBouquet][readNIT] Cannot open the demuxer"
+			print("[MakeBouquet][readNIT] Cannot open the demuxer")
 			return
 
 		timeout = datetime.datetime.now()
@@ -315,7 +317,7 @@ class MakeBouquet(Screen):
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print "[MakeBouquet][readNIT] Timed out reading NIT"
+				print("[MakeBouquet][readNIT] Timed out reading NIT")
 				break
 
 			section = dvbreader.read_nit(fd, nit_current_table_id, nit_other_table_id)
@@ -343,12 +345,12 @@ class MakeBouquet(Screen):
 		dvbreader.close(fd)
 
 		if not nit_current_content:
-			print "[MakeBouquet][readNIT] current transponder not found"
+			print("[MakeBouquet][readNIT] current transponder not found")
 			return
 
 		# descriptor_tag 0x5A is DVB-T, descriptor_tag 0x7f is DVB-T
 		transponders = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] in (0x5A, 0x7f) and t["original_network_id"] == self.transponder["onid"] and t["transport_stream_id"] == self.transponder["tsid"]] # this should only ever have a length of one transponder
-		print "[MakeBouquet][readNIT] transponders", transponders
+		print("[MakeBouquet][readNIT] transponders", transponders)
 		if transponders:
 
 			if transponders[0]["descriptor_tag"] == 0x5A: # DVB-T
@@ -357,13 +359,13 @@ class MakeBouquet(Screen):
 				self.transponder["system"] = eDVBFrontendParametersTerrestrial.System_DVB_T2
 
 			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.transponder["frequency"]) < 1000000 and self.transponder["frequency"] != transponders[0]["frequency"]*10:
-				print "[MakeBouquet][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.transponder["frequency"]/1000000, transponders[0]["frequency"]/100000)
+				print("[MakeBouquet][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.transponder["frequency"]/1000000, transponders[0]["frequency"]/100000))
 				self.transponder["frequency"] = transponders[0]["frequency"]*10
 
 		# LCNs = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] == self.lcndescriptor and t["original_network_id"] == self.transponder["onid"]]
 		LCNs = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] == self.lcndescriptor and (self.lcndescriptor == 0x83 or (self.lcndescriptor == 0x87 and ("channel_list_id" in t and t["channel_list_id"] == self.channel_list_id or self.channel_list_id == 0))) and t["original_network_id"] == self.transponder["onid"]]
 
-		print "[MakeBouquet][readNIT] LCNs", LCNs
+		print("[MakeBouquet][readNIT] LCNs", LCNs)
 		if LCNs:
 			for LCN in LCNs:
 				LCNkey = "%x:%x:%x" % (LCN["transport_stream_id"], LCN["original_network_id"], LCN["service_id"])

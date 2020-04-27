@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 import Image
 try:
 	import dpflib
 except:
-	print "[LCD4linux] dpflib-Error"
+	print("[LCD4linux] dpflib-Error")
 
 
 PROPERTY_BRIGHTNESS   = 0x01
@@ -15,7 +17,7 @@ def setBacklight(dev,value):
 		dev.setProperty(PROPERTY_BRIGHTNESS, value)
 		return True
 	except:
-		print "[LCD4linux] Error set Backlight"
+		print("[LCD4linux] Error set Backlight")
 		return False
 	
 def showImage(dev,image):
@@ -25,17 +27,17 @@ def showImage(dev,image):
 		dev.showRGBAImage(0, 0, x, y, ir.tostring())
 		return True
 	except:
-		print "[LCD4linux] Error writing DPF Device" 
+		print("[LCD4linux] Error writing DPF Device" )
 		return False
 
 def open(usb):
 	try:
 		d = dpflib.open(usb)
 #		d.setProperty(PROPERTY_ORIENTATION, 1)
-		print "[LCD4linux] open",usb
+		print("[LCD4linux] open",usb)
 	except:
 		d = None
-		print "[LCD4linux] open Error",usb
+		print("[LCD4linux] open Error",usb)
 	return d
 
 def close(dev):

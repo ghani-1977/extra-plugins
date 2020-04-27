@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #############################################################################
 #
 # Copyright (C) 2014 Impex-Sat Gmbh & Co.KG
@@ -83,7 +84,7 @@ class GBIpboxTimer:
 			try:
 				downloader.download()
 			except Exception, e:
-				print e
+				print(e)
 		self.scheduledtime = self.prepareTimer()
 
 	def refreshScheduler(self):

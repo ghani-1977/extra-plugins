@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 """
     OpenUitzendingGemist - Enigma2 Video Plugin
     Copyright (C) 2013 mcquaim
@@ -308,7 +309,7 @@ class OpenUg(StreamsThumbCommon):
 			return
 
 		if self.isRtl:
-			print "go: isRtl: ", self.isRtl
+			print("go: isRtl: ", self.isRtl)
 			if self.level == self.UG_LEVEL_ALL:
 				tmp = self.mediaList[selIndex][self.UG_STREAMURL]
 				self.getRTLSerie(self.mediaList, tmp)

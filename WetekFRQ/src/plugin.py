@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
 ##
 ## Mod WetekFRQ by Javilonas:
 ##  31.12.2015:
@@ -91,19 +92,19 @@ config.plugins.wetek.stdbyfrq = ConfigSelection(default='600000', choices=[('960
 ('1200000', _('1.2GHz'))])
 
 def leaveStandby():
-	print '[WetekFRQ] Leave Standby'
+	print('[WetekFRQ] Leave Standby')
 	initBooster()
 
 
 def standbyCounterChanged(configElement):
-	print '[WetekFRQ] In Standby'
+	print('[WetekFRQ] In Standby')
 	initStandbyBooster()
 	from Screens.Standby import inStandby
 	inStandby.onClose.append(leaveStandby)
 
 
 def initBooster():
-	print '[WetekFRQ] initBooster'
+	print('[WetekFRQ] initBooster')
 	try:
 		f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq', 'w')
 		f.write(config.plugins.wetek.workfrq.getValue())
@@ -122,7 +123,7 @@ def initBooster():
 
 
 def initStandbyBooster():
-	print '[WetekFRQ] initStandbyBooster'
+	print('[WetekFRQ] initStandbyBooster')
 	try:
 		f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq', 'w')
 		f.write(config.plugins.wetek.stdbyfrq.getValue())
@@ -168,12 +169,12 @@ class WetekFRQ(ConfigListScreen, Screen):
 		self.newConfig()
 
 	def newConfig(self):
-		print self['config'].getCurrent()[0]
+		print(self['config'].getCurrent()[0])
 		if self['config'].getCurrent()[0] == _('Start Boot Frequency'):
 			self.createSetup()
 
 	def abort(self):
-		print 'aborting'
+		print('aborting')
 
 	def save(self):
 		for x in self['config'].list:
@@ -198,7 +199,7 @@ class WetekFRQ(ConfigListScreen, Screen):
 class WETEK_Booster:
 
 	def __init__(self, session):
-		print '[WetekFRQ] initializing'
+		print('[WetekFRQ] initializing')
 		self.session = session
 		self.service = None
 		self.onClose = []
@@ -209,7 +210,7 @@ class WETEK_Booster:
 		self.abort()
 
 	def abort(self):
-		print '[WetekFRQ] aborting'
+		print('[WetekFRQ] aborting')
 
 	config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call=False)
 
@@ -236,17 +237,17 @@ def wetekbooster():
 	global mySession
 	global gReason
 	if gReason == 0 and mySession != None and wbooster == None:
-		print '[WetekFRQ] Starting !!'
+		print('[WetekFRQ] Starting !!')
 		wbooster = WETEK_Booster(mySession)
 	elif gReason == 1 and wbooster != None:
-		print '[WetekFRQ] Stopping !!'
+		print('[WetekFRQ] Stopping !!')
 		wbooster = None
 
 
 def sessionstart(reason, **kwargs):
 	global mySession
 	global gReason
-	print '[WetekFRQ] sessionstart'
+	print('[WetekFRQ] sessionstart')
 	if kwargs.has_key('session'):
 		mySession = kwargs['session']
 	else:

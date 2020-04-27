@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 from time import strftime, localtime
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 
@@ -71,9 +73,9 @@ g_debug = False
 
 def LogEntry(mode, string):
 	if g_debug:
-		print strftime("%x %X", localtime()), "%5s [%12s]" % (mode, "Plugin"), string
+		print(strftime("%x %X", localtime()), "%5s [%12s]" % (mode, "Plugin"), string)
 	elif mode != "DEBUG":
-		print "[browser]", string
+		print("[browser]", string)
 
 def DEBUG(string):
 	LogEntry("DEBUG", string)

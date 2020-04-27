@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-#
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 #
 # LCD4linux - Pearl DPF LCD Display, Samsung SPF-Line, Grautec-TFT, WLAN-LCDs, internes LCD über Skin
 #
@@ -144,7 +145,7 @@ try:
 			led_fd.close()
 		except:
 			from traceback import format_exc
-			print "Error LCD Communication",format_exc()
+			print("Error LCD Communication",format_exc())
 			try:
 				open(CrashFile,"w").write(format_exc())
 			except:
@@ -285,7 +286,7 @@ openweather_list=("200","201","202","210","211","212","221","230","231","232","3
 
 USBok = False
 if ctypes.util.find_library("usb-0.1") is not None or ctypes.util.find_library("usb-1.0") is not None:
-	print "[LCD4linux] libusb found :-)",getEnigmaVersionString()
+	print("[LCD4linux] libusb found :-)",getEnigmaVersionString())
 #	getEnigmaVersionString().split("-")[-1] > "3.2" # /model=dm800
 	import Photoframe
 	import usb.util
@@ -295,7 +296,7 @@ else:
 	import usb.core
 	import usb.backend.libusb1
 	usb.backend.libusb1.get_backend(find_library=lambda x: "/lib64/libusb-1.0.so.0")
-	print "[LCD4linux] libusb found :-)",getEnigmaVersionString()
+	print("[LCD4linux] libusb found :-)",getEnigmaVersionString())
 	import Photoframe
 	import usb.util
 	import dpf
@@ -2315,24 +2316,24 @@ LCD4linux.StandbyBackground1Bild = ConfigText(default="", fixed_size=False, visi
 class MyTimer: # only for debug
 	import traceback
 	def __init__(self):
-		print "L4L create timer at:"
+		print("L4L create timer at:")
 		traceback.print_stack(limit=2)
 		self.timer = eTimer()
-		print "L4L created timer", self.timer
+		print("L4L created timer", self.timer)
 	def __del__(self):
-		print "L4L destruct timer", self.timer
+		print("L4L destruct timer", self.timer)
 		traceback.print_stack(limit=2)
 		del self.timer
 	def start(self, msecs, singleShot=False):
-		print "L4L start timer", msecs, singleShot, self.timer
+		print("L4L start timer", msecs, singleShot, self.timer)
 		traceback.print_stack(limit=2)
 		self.timer.start(msecs, singleShot)
 	def	startLongTimer(self, secs):
-		print "L4L start longtimer", secs, self.timer
+		print("L4L start longtimer", secs, self.timer)
 		traceback.print_stack(limit=2)
 		self.timer.startLongTimer(secs)
 	def stop(self):
-		print "L4L stopped timer", self.timer
+		print("L4L stopped timer", self.timer)
 		traceback.print_stack(limit=2)
 		self.timer.stop()
 	def getCallback(self):
@@ -2347,7 +2348,7 @@ def Code_utf8(wert):
 
 def L4log(nfo,wert=""):
 	if str(LCD4linux.EnableEventLog.value) != "0":
-		print "[LCD4linux]",nfo,wert
+		print("[LCD4linux]",nfo,wert)
 		if str(LCD4linux.EnableEventLog.value) != "3":
 			try:
 				f = open("/tmp/L4log.txt","a")
@@ -2356,7 +2357,7 @@ def L4log(nfo,wert=""):
 				finally:
 					f.close()
 			except IOError:
-				print "[LCD4linux]",strftime("%H:%M:%S"),"Logging-Error"
+				print("[LCD4linux]",strftime("%H:%M:%S"),"Logging-Error")
 
 def L4logE(nfo,wert=""):
 	if str(LCD4linux.EnableEventLog.value) == "2":
@@ -2770,7 +2771,7 @@ def L4L_replacement_Screen_show(self):
 			if "Title" in self:
 				ib = self["Title"].getText()
 				L4log("Screen", ib)
-#			print "[LCD4linux] Screen", ib
+#			print("[LCD4linux] Screen", ib)
 				if ib not in OSDdontshow:
 					L4log("Open Screen:"+ str(ib), "Skin:"+ str(self.skinName))
 					OSDon = 3
@@ -2800,11 +2801,11 @@ def find_dev(Anzahl, idVendor, idProduct):
 	if os.path.isfile("/proc/bus/usb/devices"):
 		i = open("/proc/bus/usb/devices", "r").read().lower()
 		pos = i.find("vendor=%04x prodid=%04x" % (idVendor,idProduct))
-#		print "[LCD4linux] find",pos, Anzahl
+#		print("[LCD4linux] find",pos, Anzahl)
 		if pos > 0:
 			if Anzahl == 2:
 				pos = i.find("vendor=%04x prodid=%04x" % (idVendor,idProduct),pos+10)
-#				print "[LCD4linux] find2",pos
+#				print("[LCD4linux] find2",pos)
 				if pos > 0:
 					gefunden = True
 			else:
@@ -4488,7 +4489,7 @@ class L4LWorkerRes(Thread):
 		while True:
 			try:
 				para = BriefRes.get()
-#				print "1:",para[0]
+#				print("1:",para[0])
 				if len(para) == 2:
 					para[0](para[1])
 				elif len(para) == 3:
@@ -4523,7 +4524,7 @@ class L4LWorker1(Thread):
 		while True:
 			try:
 				para = Brief1.get()
-#				print "1:",para[0]
+#				print("1:",para[0])
 				if len(para) == 2:
 					para[0](para[1])
 				elif len(para) == 4:
@@ -4556,7 +4557,7 @@ class L4LWorker2(Thread):
 		while True:
 			try:
 				para = Brief2.get()
-#				print "2:",para[0]
+#				print("2:",para[0])
 				if len(para) == 2:
 					para[0](para[1])
 				elif len(para) == 4:
@@ -4589,7 +4590,7 @@ class L4LWorker3(Thread):
 		while True:
 			try:
 				para = Brief3.get()
-#				print "2:",para[0]
+#				print("2:",para[0])
 				if len(para) == 2:
 					para[0](para[1])
 				elif len(para) == 4:
@@ -8204,7 +8205,7 @@ class UpdateStatus(Screen):
 			else:
 				res_mgr.frontendUseMaskChanged.get().append(self.tunerUseMaskChanged)
 		else:
-			print "[ERROR]no res_mgr!!"
+			print("[ERROR]no res_mgr!!")
 
 	def offTunerCount(self):
 		if self.TunerCallBack:
@@ -8216,7 +8217,7 @@ class UpdateStatus(Screen):
 				else:
 					res_mgr.frontendUseMaskChanged.get().remove(self.tunerUseMaskChanged)
 			else:
-				print "[ERROR]no res_mgr!!"
+				print("[ERROR]no res_mgr!!")
 
 	def tunerUseMaskChanged(self, mask):
 		global TunerMask
@@ -8677,9 +8678,9 @@ class UpdateStatus(Screen):
 			if volctrl:
 				if self.LvolM != volctrl.isMuted():
 					self.LisRefresh = True
-#		print "----",LCD4linuxPIC.TimeZone, LCD4linuxPIC.Long, LCD4linuxPIC.Lat
-#		print "--------",isVideoPlaying, isMediaPlayer, ConfigMode, ScreenActive[0]
-#		print "[LCD4linux]",strftime("%M"),BilderTime,ConfigMode,"#",ScreenActive[0],SaveScreenActive,"#",isVideoPlaying,OSDon,FritzTime
+#		print("----",LCD4linuxPIC.TimeZone, LCD4linuxPIC.Long, LCD4linuxPIC.Lat)
+#		print("--------",isVideoPlaying, isMediaPlayer, ConfigMode, ScreenActive[0])
+#		print("[LCD4linux]",strftime("%M"),BilderTime,ConfigMode,"#",ScreenActive[0],SaveScreenActive,"#",isVideoPlaying,OSDon,FritzTime)
 		if (int(strftime("%M")) % int(LCD4linux.RBoxRefresh.value) == 0 and int(strftime("%S")) > 45 and self.LastwwwBox != strftime("%M")) or self.StandbyChanged != Standby.inStandby:
 			self.LastwwwBox = strftime("%M")
 			if self.NetworkConnectionAvailable or self.NetworkConnectionAvailable == None:
@@ -11845,7 +11846,7 @@ def LCD4linuxPIC(self,session):
 					L4log("Error put Progress")
 			else: # DVB 
 				event_begin, event_end, duration, event_name = self.Levent_begin0, self.Levent_end0, self.Lduration0, self.Levent_name0
-#				print "L4L DVB",event_begin, event_end, duration, event_name
+#				print("L4L DVB",event_begin, event_end, duration, event_name)
 				if event_begin != 0:
 					now = int(time())
 					event_run = now - event_begin
@@ -11942,7 +11943,7 @@ def LCD4linuxPIC(self,session):
 						ShadowText(draw,POSX+10, ConfigPos+1-Minus-int((h-ConfigSize)/2),remaining1,font,ConfigColorText,ConfigShadow)
 					event_run = 0 if duration == 0 else int(ProgressBar*event_run/duration)
 					isData = True
-#					print event_begin, event_end, event.getDuration(), event.getPlayPosition()
+#					print(event_begin, event_end, event.getDuration(), event.getPlayPosition())
 			if isData == True and ConfigBorder is not "off":
 				event_run=min(max(event_run,0),ProgressBar)
 				if ConfigBorder[:4] == "true":
@@ -12351,7 +12352,7 @@ def LCD4linuxPIC(self,session):
 				i += " %d%%%s" % (self.LsignalQuality * 100 / 65536,NL(ConfigLines))
 			if "C" in ConfigInfo:
 				i += " %d%s" % (self.LbitErrorRate,NL(ConfigLines))
-#			print "%d" % (feinfo.getFrontendInfo(iFrontendInformation.signalPower))
+#			print("%d" % (feinfo.getFrontendInfo(iFrontendInformation.signalPower)))
 		if "T" in ConfigInfo:
 			if os.path.exists("/proc/stb/sensors"):
 				m1 = 0
@@ -12847,7 +12848,7 @@ def LCD4linuxPIC(self,session):
 					Info += self.l4l_info.get("Fav","") + " - "
 			if isMediaPlayer == "record":
 				event_begin, event_end, duration, event_name = self.Levent_begin0, self.Levent_end0, self.Lduration0, self.Levent_name0
-#				print event_begin, event_end, duration, event_name
+#				print(event_begin, event_end, duration, event_name)
 				Info += self.Lcommand + " "
 				if event_begin != 0:
 					if isMediaPlayer == "record":
@@ -13196,7 +13197,7 @@ def LCD4linuxPIC(self,session):
 		EVENTLIST[2] = icount
 		if len(find) == 0:
 			return
-#		print "-----",ConfigPopup,SaveEventList,EVENTLIST
+#		print("-----",ConfigPopup,SaveEventList,EVENTLIST)
 		if SaveEventList != EVENTLIST and ConfigPopup != "0" and ICSrunning == False and PopMail[5] == "" and OSDtimer >= 0 and ConfigMode == False:
 			if SaveEventList != ["","",""]:
 				L4log("Set Event Changed",EVENTLIST)

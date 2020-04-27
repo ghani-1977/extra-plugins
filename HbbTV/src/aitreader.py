@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 import os, xml.dom.minidom, re
 from enigma import iServiceInformation
 
@@ -47,7 +48,7 @@ class eAITSectionReader:
 			item["orgid"]   = int(self.__item(application, "orgid"))
 			item["appid"]   = int(self.__item(application, "appid"))
 			item["profile"] = int(self.__item(application, "profile"))
-		#print item
+		#print(item)
 		return item
 
 	def doParseApplications(self):
@@ -84,7 +85,7 @@ class eAITSectionReader:
 		document = re.sub("%", " ", document)
 		document = document.decode("cp1252").encode("utf-8")
 		document = "<URL>" + document + "</URL>"
-		#print document
+		#print(document)
 		try:
 			self.mDocument = xml.dom.minidom.parseString(document)
 		except Exception, ErrMsg:
@@ -94,13 +95,13 @@ class eAITSectionReader:
 
 	def doDump(self):
 		for x in self.getApplicationList():
-			print "Name  :", x["name"]
-			print "URL   :", x["url"]
-			print "OrgID :", x["orgid"]
-			print "AppID :", x["appid"]
-			print "Control Code :", x["control"]
-			print "Profile Code :", x["profile"]
-			print ""
+			print("Name  :", x["name"])
+			print("URL   :", x["url"])
+			print("OrgID :", x["orgid"])
+			print("AppID :", x["appid"])
+			print("Control Code :", x["control"])
+			print("Profile Code :", x["profile"])
+			print("")
 
 def unit_test(demux, pmtid, sid):
 	reader = eAITSectionReader(demux, pmtid, sid)

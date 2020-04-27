@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -21,7 +23,7 @@ class RemoteControlCodeInit:
 	def setSystemCode(self, type):
 		if not fileExists("/proc/stb/ir/rc/customcode"):
 			return -1
-		print "[RemoteControlCode] Write Remote Control Code : ", type
+		print("[RemoteControlCode] Write Remote Control Code : ", type)
 		f = open("/proc/stb/ir/rc/customcode", "w")
 		f.write(type)
 		f.close()
@@ -82,7 +84,7 @@ class RemoteControlCode(Screen,ConfigListScreen,RemoteControlCodeInit):
 	def keySave(self):
 		configfile.save()
 		if self.codestartup != config.plugins.remotecontrolcode.systemcode.value:
-			print "[RemoteControlCode] Selected System Code : ",config.plugins.remotecontrolcode.systemcode.value
+			print("[RemoteControlCode] Selected System Code : ",config.plugins.remotecontrolcode.systemcode.value)
 			ret = self.setSystemCode(config.plugins.remotecontrolcode.systemcode.value)
 			if ret == -1:
 				self.restoreCode()
