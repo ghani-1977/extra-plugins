@@ -1077,7 +1077,7 @@ class Browser(Screen):
 	def do_command(self, command):
 		try:
 			self.COMMAND_MAP[command]()
-		except Exception, ErrMsg:
+		except Exception as ErrMsg:
 			vbcfg.ERR(ErrMsg)
 
 	def get_menulist_items(self, idx=0):

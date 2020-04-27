@@ -316,7 +316,7 @@ class PlayerLauncher:
 				return
 			myreference = eServiceReference(4097, 0, myurl)
 			session.open(Player, myreference, service)
-		except Exception, msg:
+		except Exception as msg:
 			wb_unlock()
 			print("Error >>", msg)
 

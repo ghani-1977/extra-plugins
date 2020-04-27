@@ -122,7 +122,7 @@ class GBIpboxRemoteTimer():
 					insort(self._processed_timers, entry)
 				else:
 					insort(self._timer_list, entry)
-		except Exception, e:
+		except Exception as e:
 			print("[GBIpboxRemoteTimer]", e)
 		
 		self.last_update_ts = time()
@@ -255,7 +255,7 @@ class GBIpboxRemoteTimer():
 			xmldoc = minidom.parseString(httprequest.read())
 			status = xmldoc.getElementsByTagName('e2simplexmlresult')[0]
 			success = getValueFromNode(status, 'e2state') == "True"
-		except Exception, e:
+		except Exception as e:
 			print("[GBIpboxRemoteTimer]", e)
 			return None
 
@@ -297,7 +297,7 @@ class GBIpboxRemoteTimer():
 			xmldoc = minidom.parseString(httprequest.read())
 			status = xmldoc.getElementsByTagName('e2simplexmlresult')[0]
 			success = getValueFromNode(status, 'e2state') == "True"
-		except Exception, e:
+		except Exception as e:
 			print("[GBIpboxRemoteTimer]", e)
 			return None
 
@@ -326,7 +326,7 @@ class GBIpboxRemoteTimer():
 		try:
 			httprequest = urllib2.urlopen(baseurl + '/web/timerdelete?' + args)
 			httprequest.read()
-		except Exception, e:
+		except Exception as e:
 			print("[GBIpboxRemoteTimer]", e)
 			return
 

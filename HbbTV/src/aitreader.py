@@ -76,7 +76,7 @@ class eAITSectionReader:
 
 		document = ""
 		try:	document = os.popen(self.mCommand).read()
-		except Exception, ErrMsg:
+		except Exception as ErrMsg:
 			vbcfg.ERR(ErrMsg)
 			return False
 		if len(document) == 0:
@@ -89,7 +89,7 @@ class eAITSectionReader:
 		#print(document)
 		try:
 			self.mDocument = xml.dom.minidom.parseString(document)
-		except Exception, ErrMsg:
+		except Exception as ErrMsg:
 			vbcfg.ERR("XML parse: %s" % ErrMsg)
 			return False
 		return True

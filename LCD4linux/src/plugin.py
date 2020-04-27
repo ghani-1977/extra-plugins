@@ -7569,7 +7569,7 @@ class LCDdisplayConfig(ConfigListScreen,Screen):
 			elif sel in [LCD4linux.Background1Bild, LCD4linux.LCD4linux.MPBackground1Bild, LCD4linux.StandbyBackground1Bild]:
 				L4log("select File 5")
 				self.session.openWithCallback(self.fileSelected, LCDdisplayFile, text = _("Choose file"), FileName = self["config"].getCurrent()[1].value, showFiles = True)
-		except Exception, e:
+		except Exception as e:
 			L4log("Key-OK Config Fehler")
 
 	def dirSelected(self, dir, dir1):
@@ -9451,7 +9451,7 @@ class UpdateStatus(Screen):
 			opener = urllib.FancyURLopener({})
 			f = opener.open(self.feedurl)
 			wwwMeteo = f.read()
-		except Exception, e:
+		except Exception as e:
 			L4log("Error download Meteo!")
 		rmFile(PICmeteo)
 

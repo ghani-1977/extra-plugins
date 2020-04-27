@@ -76,7 +76,7 @@ class FPGAUpgradeCore() :
 			if rc < 0: raise Exception, 'fail to programming : %d'%(rc)
 			#print('[FPGAUpgradeCore] upgrade done.')
 			if self.callcount < 100: raise Exception, 'wrong fpga file.'
-		except Exception, msg:
+		except Exception as msg:
 			self.errmsg = msg
 			print('[FPGAUpgradeCore] ERROR >>',msg)
 			closefpga(firmware, device)
@@ -358,7 +358,7 @@ class FPGAUpgrade(Screen):
 			return
 		try :
 			fname, header = urlretrieve(self.DOWNLOAD_URL, self.DOWNLOAD_TAR_PATH + self.DOWNLOAD_FILE_NAME, self.doHook)
-		except IOError, msg:
+		except IOError as msg:
 			self.session.open(MessageBox, _(str(msg)), MessageBox.TYPE_INFO, timeout = 5)
 			del test_opener
 			return

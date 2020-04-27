@@ -10,13 +10,13 @@ class Mixes():
 	def parseXML(self, filename):
 		try:
 			mix = open(filename, "r")
-		except Exception, e:
+		except Exception as e:
 			print("[ABMCustomMixImporter][Mixes] Cannot open %s: %s" % (filename, e))
 			return None
 
 		try:
 			dom = xml.dom.minidom.parse(mix)
-		except Exception, e:
+		except Exception as e:
 			print("[ABMCustomMixImporter][Mixes] XML parse error (%s): %s" % (filename, e))
 			mix.close()
 			return None

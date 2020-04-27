@@ -127,7 +127,7 @@ class FPUpgradeCore() :
 				closefp(firmware, device)
 			#print('[FPUpgradeCore] upgrade done.')
 			if self.callcount < 20: raise Exception, 'wrong fpga file.'
-		except Exception, msg:
+		except Exception as msg:
 			self.errmsg = msg
 			print('[FPUpgradeCore] ERROR >>',msg)
 			closefp(firmware, device)
@@ -187,7 +187,7 @@ class FPGAUpgradeCore() :
 			if rc < 0: raise Exception, 'fail to programming : %d'%(rc)
 			#print('[FPGAUpgradeCore] upgrade done.')
 			if self.callcount < 20: raise Exception, 'wrong fpga file.'
-		except Exception, msg:
+		except Exception as msg:
 			self.errmsg = msg
 			print('[FPGAUpgradeCore] ERROR >>',msg)
 			closefpga(firmware, device)
@@ -258,7 +258,7 @@ class VFDCtrlUpgradeCore() :
 				self.status = STATUS_RETRY_UPGRADE
 			#print('[VFDCtrlUpgradeCore] upgrade done.')
 			if self.callcount < 20: raise Exception, 'wrong fpga file.'
-		except Exception, msg:
+		except Exception as msg:
 			self.errmsg = msg
 			print('[VFDCtrlUpgradeCore] ERROR >>',msg)
 			closevfd(firmware, device, firmwarename)
@@ -524,7 +524,7 @@ class FUFilebrowser(Screen):
 			return False
 		try :
 			f, h = urlretrieve(uri, tar, doHook)
-		except IOError, msg:
+		except IOError as msg:
 			#self.session.open(MessageBox, _(str(msg)), MessageBox.TYPE_INFO, timeout = 10)
 			print("[FirmwareUpgrade] - Fail to download. ERR_MSG :",str(msg))
 			self.session.open(MessageBox, _(errmsg), MessageBox.TYPE_INFO, timeout = 10)
