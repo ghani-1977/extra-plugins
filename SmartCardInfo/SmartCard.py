@@ -182,7 +182,7 @@ class SmartCardConfig:
 		for s in configStr:
 			split = s.strip().split(': ',1)
 			if split[0] == identifier:
-				print("[SmartCard.py] Got " + identifier + " :" + split[1]#[0:-1])
+				print("[SmartCard.py] Got " + identifier + " :" + split[1])#[0:-1]
 				return split[1]#[0:-1]
 				
 		print("[SmartCard.py] No " + identifier + " present.")

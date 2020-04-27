@@ -229,7 +229,7 @@ class BluetoothDevicesManager(Screen):
 			self.scanForDevices()
 			
 	def keyGreen(self):
-		print("[BluetoothManager] keyGreen"  )
+		print("[BluetoothManager] keyGreen")
 		if config.btdevicesmanager.autostart.getValue() or getBoxBrand() in ("xcore","edision"):
 			self["ConnStatus"].setText(_("No connected to any device"))
 			self.initDevice()
@@ -448,10 +448,10 @@ def autostart(reason, **kwargs):
 	if reason == 0:
 		if getBoxBrand() not in ("xcore","edision"):
 			if config.btdevicesmanager.autostart.getValue():
-				print("[BluetoothManager] Autostart: Loading driver" ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.)
+				print("[BluetoothManager] Autostart: Loading driver") ## We have it on a blacklist because We want to have faster system loading, so We load driver while we enable it.
 				Console().ePopen("modprobe rtk_btusb")
 			else:
-				print("[BluetoothManager] Autostart: Unloading driver" ## We know it is blacklisted, but try to remove it anyway.)
+				print("[BluetoothManager] Autostart: Unloading driver") ## We know it is blacklisted, but try to remove it anyway.
 				Console().ePopen("rmmod rtk_btusb")
 
 		if getBoxBrand() in ("xcore","edision"):

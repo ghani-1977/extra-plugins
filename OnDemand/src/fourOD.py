@@ -467,7 +467,7 @@ class StreamsThumb(StreamsThumbCommon):
 			else:
 				auth = "e=%s&h=%s" % (e.string, decodedToken)
 		else:
-			fingerprint(= uriData.find('fingerprint').string)
+			fingerprint = uriData.find('fingerprint').string
 			slist = uriData.find('slist').string
 
 			auth = "auth=%s&aifp=%s&slist=%s" % (decodedToken, fingerprint, slist)
