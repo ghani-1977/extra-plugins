@@ -884,11 +884,10 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif getBoxBrand() in ("azbox","ceryon","amiko","clap","dinobot","gigablue","ini","uclan","vuplus","xtrend") or getBoxType().startswith("sf8008"):
+		elif getBoxBrand() in ("azbox","ceryon","amiko","dinobot","gigablue","ini","uclan","vuplus","xtrend") or getBoxType().startswith("sf8008"):
 			exe_filename = getBoxBrand() == "azbox" and "avl_azbox_blindscan" or \
 							getBoxBrand() == "amiko" and "amiko-blindscan" or \
 							getBoxBrand() == "ceryon" and "ceryon_blindscan" or \
-							getBoxBrand() == "clap" and "clap_blindscan" or \
 							getBoxBrand() == "dinobot" and "dinobot-blindscan" or \
 							getBoxBrand() == "gigablue" and "gigablue_blindscan" or \
 							getBoxBrand() == "ini" and "ini_blindscan" or \
@@ -899,14 +898,12 @@ class Blindscan(ConfigListScreen, Screen):
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				if getBoxBrand() in ("ceryon","clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","sf8008m","gbtrio4k","gbip4k"):
+				if getBoxBrand() in ("ceryon","dinobot","uclan","amiko") or getBoxType() in ("sf8008","sf8008m","gbtrio4k","gbip4k"):
 					cmd += " %d" % self.is_c_band_scan
-				if getBoxBrand() in ("clap","dinobot","uclan","amiko") or getBoxType() in ("sf8008","sf8008m","gbtrio4k","gbip4k"):
+				if getBoxBrand() in ("dinobot","uclan","amiko") or getBoxType() in ("sf8008","sf8008m","gbtrio4k","gbip4k"):
 					cmd += " %d" % orb[0]
 				if getBoxBrand() == "azbox":
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation
-				if getBoxBrand() == "clap":
-					self.frontend and self.frontend.closeFrontend()
 				if getBoxBrand() in ("uclan","amiko") or getBoxType() in ("gbtrio4k","gbip4k"):
 					self.adjust_freq = False
 			else:
