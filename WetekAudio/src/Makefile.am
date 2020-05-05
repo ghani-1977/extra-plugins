@@ -1,4 +1,4 @@
-installdir = $(pkglibdir)/python/Plugins/SystemPlugins/WetekAudio
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/WetekAudio
 
 install_PYTHON =	\
 	__init__.py \

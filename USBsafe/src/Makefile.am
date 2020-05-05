@@ -1,4 +1,4 @@
-installdir = $(pkglibdir)/python/Plugins/Extensions/USBsafe
+installdir = $(libdir)/enigma2/python/Plugins/Extensions/USBsafe
 
 install_PYTHON = \
 	__init__.py \

@@ -1,4 +1,4 @@
-installdir = $(pkglibdir)/python/Plugins/SystemPlugins/WetekSync
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/WetekSync
 
 install_PYTHON =	\
 	__init__.py \
