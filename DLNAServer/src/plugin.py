@@ -348,7 +348,7 @@ class DLNAServer(ConfigListScreen, Screen):
 		self.oldConfig = {}
 		if os.path.exists(self.configFileName):
 			listDirConfig = ("media_dir", "media_dirV", "media_dirA", "media_dirP", "log_dir", "db_dir")
-			for line in file(self.configFileName).readlines():
+			for line in open(self.configFileName).readlines():
 				line = line.strip()
 				if line == "" or line[0] == '#':
 					continue

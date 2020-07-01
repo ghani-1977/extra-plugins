@@ -767,7 +767,7 @@ class DLNAClientConfig(ConfigListScreen, Screen):
 			setDefault('refresh', '10')
 			setDefault('slideshow', '10')
 			return
-		for line in file(self.configFileName).readlines():
+		for line in open(self.configFileName).readlines():
 			line = line.strip()
 			if line == '' or line[0] == '#':
 				continue
@@ -887,7 +887,7 @@ class DLNADeviceBrowser(Screen):
 			DLNA_CONFIG_SLIDESHOW = 10000
 			print("config : [%s][%d][%d]"%(DLNA_CONFIG_ROOT_DIR, DLNA_CONFIG_SLIDESHOW, DLNA_CONFIG_DEVICE_REFRESH))
 			return
-		for line in file(self.configFileName).readlines():
+		for line in open(self.configFileName).readlines():
 			line = line.strip()
 			if line == '' or line[0] == '#':
 				continue
