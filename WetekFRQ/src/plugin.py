@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-#!/usr/bin/env python
 ##
 ## Mod WetekFRQ by Javilonas:
 ##  31.12.2015:

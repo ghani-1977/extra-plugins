@@ -58,7 +58,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("scan on")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
     def make_discoverable(self):
@@ -66,7 +66,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("discoverable on")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
     def parse_device_info(self, info_string):
@@ -95,7 +95,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("devices")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             available_devices = []
@@ -111,7 +111,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("paired-devices")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             paired_devices = []
@@ -134,7 +134,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("info " + mac_address)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             return out
@@ -145,7 +145,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("pair " + mac_address, 2)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             res = self.child.expect(["Failed to pair", "Pairing successful", "Passkey: ", "PIN code: ", pexpect.EOF])
@@ -160,7 +160,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("remove " + mac_address, 1)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             res = self.child.expect(["not available", "Device has been removed", pexpect.EOF])
@@ -172,7 +172,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("connect " + mac_address, 1)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             res = self.child.expect(["Failed to connect", "Connection successful", pexpect.EOF])
@@ -184,7 +184,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("disconnect " + mac_address, 1)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             res = self.child.expect(["Failed to disconnect", "Successful disconnected", pexpect.EOF])
@@ -196,7 +196,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("trust " + mac_address)
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
         else:
             res = self.child.expect(["not available", "trust succeeded", pexpect.EOF])
@@ -208,7 +208,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("agent NoInputNoOutput")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
     def default_agent(self):
@@ -216,7 +216,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("default-agent")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
     def pairable_on(self):
@@ -224,7 +224,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("pairable on")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
     def pairable_off(self):
@@ -232,7 +232,7 @@ class Bluetoothctl:
         try:
             out = self.get_output("pairable off")
         except BluetoothctlError, e:
-            print(e)
+            print(str(e))
             return None
 
 iBluetoothctl = Bluetoothctl()

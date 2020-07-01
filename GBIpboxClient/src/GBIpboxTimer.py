@@ -86,7 +86,7 @@ class GBIpboxTimer:
 			try:
 				downloader.download()
 			except Exception as e:
-				print(e)
+				print(str(e))
 		self.scheduledtime = self.prepareTimer()
 
 	def refreshScheduler(self):

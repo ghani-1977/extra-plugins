@@ -278,7 +278,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			self.timer.callback.append(self.downloadCompleted)
 			self.timer.start(100)
 		except Exception as e:
-			print(e)
+			print(str(e))
 			self.messagebox.close()
 			self.timer = eTimer()
 			self.timer.callback.append(self.downloadError)
