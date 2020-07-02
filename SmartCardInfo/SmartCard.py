@@ -195,7 +195,7 @@ class SmartCardConfig:
 		
 		print("[SMARTCARDINFO] Get Slot status")
 		
-		fp = file('/proc/sc', 'r')
+		fp = open('/proc/sc', 'r')
 		result = fp.readlines()
 		fp.close()
 		

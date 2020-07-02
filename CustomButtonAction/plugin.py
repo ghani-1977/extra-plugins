@@ -17,7 +17,7 @@ from Components.ActionMap import ActionMap
 from Components.SystemInfo import SystemInfo
 
 
-keycustomfile = file(resolveFilename(SCOPE_SKIN, 'keycustomactions.xml'), 'r')
+keycustomfile = open(resolveFilename(SCOPE_SKIN, 'keycustomactions.xml'), 'r')
 keycustomxml = xml.dom.minidom.parseString(keycustomfile.read())
 keycustomfile.close()
 
@@ -39,7 +39,7 @@ class CustomButtonActionMenu(Screen):
 		activecustom = ""
 		
 		try:
-			fp = file('/var/custombutton.dat', 'r')
+			fp = open('/var/custombutton.dat', 'r')
 			activecustom = fp.readline()
 			print("ACTIVE CUSTOM:", str(activecustom))
 			fp.close()
@@ -85,7 +85,7 @@ class CustomButtonActionMenu(Screen):
 		if self.idxactive != self["actionlist"].getSelectedIndex():
 			print("Selected : %s\n" % self["actionlist"].getCurrent())
 			
-			fp = file('/var/custombutton.dat', 'w')
+			fp = open('/var/custombutton.dat', 'w')
 			fp.write("%s" % self["actionlist"].getCurrent())
 			fp.close()
 			system("sync")

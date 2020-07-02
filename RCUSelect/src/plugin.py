@@ -204,7 +204,7 @@ class RCUSelect(Screen):
 				f.close()
 				Console().ePopen("killall -9 remotecfg &")
 				if getBoxType() == "wetekplay2":
-					fin = file("/etc/amremote/rcuselect.conf")
+					fin = open("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
 					for line in fin :
 						if "work_mode" in line: line = "work_mode  	= 0\n"
