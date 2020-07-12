@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 #
 # Fan Setup Plugin for et9x00, et8000 and et10000
 # Coded by Dima73 (c) 2011
@@ -414,7 +414,7 @@ class FanManager:
 					# adjust speed: 
 					# - use initial speed when current sys temp > user specified value
 					# - increase speed til max. Max is reached when current sys temp = 2 * user specified value
-					speed = min(FanConf.fanspeed.value + (255 - FanConf.fanspeed.value) * ((temp / FanConf.systemtemp.value) - 1), 255)
+					speed = min(FanConf.fanspeed.value + (255 - FanConf.fanspeed.value) * ((temp // FanConf.systemtemp.value) - 1), 255)
 
 		if mode == "standby":
 			from Screens.Standby import inStandby

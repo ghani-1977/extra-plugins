@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 # for localized messages
 from . import _
 from Components.ActionMap import NumberActionMap, ActionMap
@@ -215,7 +215,7 @@ class SatelliteTransponderSearchSupport:
 			if x["tuner_state"] == "LOCKED":
 				freq = d["frequency"]
 				parm = eDVBFrontendParametersSatellite()
-				parm.frequency = int(round(float(freq*2) / 1000)) * 1000
+				parm.frequency = int(round(float(freq*2) // 1000)) * 1000
 				parm.frequency /= 2
 				fstr = str(parm.frequency)
 				if self.parm.polarisation == eDVBFrontendParametersSatellite.Polarisation_Horizontal:
@@ -232,7 +232,7 @@ class SatelliteTransponderSearchSupport:
 					if not self.auto_scan:
 						self.parm.frequency += self.parm.symbol_rate
 				else:
-					sr_rounded = round(float(sr*2L) / 1000) * 1000
+					sr_rounded = round(float(sr*2L) // 1000) * 1000
 					sr_rounded /= 2
 					parm.symbol_rate = int(sr_rounded)
 					fstr += str(parm.symbol_rate/1000)
@@ -280,7 +280,7 @@ class SatelliteTransponderSearchSupport:
 
 			if self.auto_scan:
 				freq = d["frequency"]
-				freq = int(round(float(freq*2) / 1000)) * 1000
+				freq = int(round(float(freq*2) // 1000)) * 1000
 				freq /= 2
 				mhz_complete, mhz_done = self.stats(freq)
 				print("CURRENT freq", freq, "%d/%d" %(mhz_done, mhz_complete))
@@ -298,7 +298,7 @@ class SatelliteTransponderSearchSupport:
 				if self.parm is None:
 					tmpstr = _("%dMHz scanned") % mhz_complete
 					tmpstr += ', '
-					tmpstr += _("%d transponders found at %d:%02d min") %(len(self.tp_found),seconds_done / 60, seconds_done % 60)
+					tmpstr += _("%d transponders found at %d:%02d min") %(len(self.tp_found),seconds_done // 60, seconds_done % 60)
 					state["progress"].setText(tmpstr)
 					state.setFinished()
 					self.frontend = None
@@ -327,8 +327,8 @@ class SatelliteTransponderSearchSupport:
 
 			tmpstr += ', '
 
-			seconds_complete = (seconds_done * mhz_complete) / max(mhz_done, 1)
-			tmpstr += _("%d:%02d/%d:%02dmin") %(seconds_done / 60, seconds_done % 60, seconds_complete / 60, seconds_complete % 60)
+			seconds_complete = (seconds_done * mhz_complete) // max(mhz_done, 1)
+			tmpstr += _("%d:%02d/%d:%02dmin") %(seconds_done // 60, seconds_done % 60, seconds_complete // 60, seconds_complete % 60)
 
 			state["progress"].setText(tmpstr)
 
@@ -364,7 +364,7 @@ class SatelliteTransponderSearchSupport:
 				steps = 4000
 				parm.system = eDVBFrontendParametersSatellite.System_DVB_S
 			if self.auto_scan:
-				parm.symbol_rate = (bs_range[1] - bs_range[0]) / 1000
+				parm.symbol_rate = (bs_range[1] - bs_range[0]) // 1000
 			else:
 				parm.symbol_rate = steps
 			parm.fec = eDVBFrontendParametersSatellite.FEC_Auto
@@ -382,10 +382,10 @@ class SatelliteTransponderSearchSupport:
 		mhz_done = 0
 		cnt = 0
 		for range in self.range_list:
-			mhz = (range[1] - range[0]) / 1000
+			mhz = (range[1] - range[0]) // 1000
 			mhz_complete += mhz
 			if cnt == self.current_range:
-				mhz_done += (freq - range[0]) / 1000
+				mhz_done += (freq - range[0]) // 1000
 			elif cnt < self.current_range:
 				mhz_done += mhz
 			cnt += 1
@@ -635,9 +635,9 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)
-				defaultSat["frequency"] = frontendData.get("frequency", 0) / 1000
+				defaultSat["frequency"] = frontendData.get("frequency", 0) // 1000
 				defaultSat["inversion"] = frontendData.get("inversion", eDVBFrontendParametersSatellite.Inversion_Unknown)
-				defaultSat["symbolrate"] = frontendData.get("symbol_rate", 0) / 1000
+				defaultSat["symbolrate"] = frontendData.get("symbol_rate", 0) // 1000
 				defaultSat["polarization"] = frontendData.get("polarization", eDVBFrontendParametersSatellite.Polarisation_Horizontal)
 				defaultSat["modulation"] = frontendData.get("modulation", eDVBFrontendParametersSatellite.Modulation_QPSK)
 				if defaultSat["system"] == eDVBFrontendParametersSatellite.System_DVB_S2:

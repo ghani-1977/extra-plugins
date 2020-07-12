@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 # for localized messages
 from . import _
 
@@ -117,7 +117,7 @@ class FPGAUpgradeManager:
 			return 2
 		elif self.fu.status == STATUS_PROGRAMMING:
 			self.fu.callcount += 1
-			ret = (self.fu.callcount * 100) / self.fu.MAX_CALL_COUNT + 2
+			ret = (self.fu.callcount * 100) // self.fu.MAX_CALL_COUNT + 2
 			if ret >= 100: ret = 99
 			#print("callcount : [%d]"%(self.fu.callcount);)
 			return ret
@@ -176,7 +176,7 @@ class UpgradeStatus(Screen):
 		if self.status == 100:
 			#print("fpga-upgrade done!!")
 			self.status_bar.setText(_("Succeed"))
-			#self.status_bar.setText(_("%d / 100" % (self.status)))
+			#self.status_bar.setText(_("%d // 100" % (self.status)))
 			self.timer_check_progress.stop()
 			self.is_done = 1
 			self.timer_exit = eTimer()
@@ -195,7 +195,7 @@ class UpgradeStatus(Screen):
 
 		else:
 			#print("fpga-upgrade status : %d" % self.status)
-			self.status_bar.setText(_("%d / 100" % (self.status)))
+			self.status_bar.setText(_("%d // 100" % (self.status)))
 
 	def callbackExit(self):
 		self.need_restart = True

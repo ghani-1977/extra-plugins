@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 """
 	RTE Player - Enigma2 Video Plugin
 	Copyright (C) 2013 rogerthis
@@ -61,7 +61,7 @@ def wgetUrl(target):
 
 def calcDuration(miliseconds):
 	try:
-		mins = int((miliseconds / (1000*60)))
+		mins = int((miliseconds // (1000*60)))
 		duration = str(mins)
 		return str(duration)
 	except (Exception) as exception:

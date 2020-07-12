@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import division, print_function
 #
 # LCD4linux - Pearl DPF LCD Display, Samsung SPF-Line, Grautec-TFT, WLAN-LCDs, internes LCD über Skin
 #
@@ -2488,7 +2488,7 @@ def rmFiles(fn):
 
 def getTimeDiff():
 	offset = timezone if (localtime().tm_isdst == 0) else altzone
-	return offset / -3600                                                   
+	return offset // -3600                                                   
 
 def getTimeDiffUTC():
 	t=datetime.now() - datetime.utcnow()
@@ -2894,7 +2894,7 @@ def getpiconres(x, y, full, picon, channelname, channelname2, P2, P2A, P2C):
 					else:
 						pil_image = pil_image.resize((x, y), Image.ANTIALIAS)
 					s = os.statvfs(P2C)
-					if (s.f_bsize * s.f_bavail / 1024) < 100:
+					if (s.f_bsize * s.f_bavail // 1024) < 100:
 						L4log("Error: Cache Directory near full")
 						return ""			
 					PD = os.path.join(P2C,os.path.basename(PD))
@@ -10128,7 +10128,7 @@ def MoonPosition(now=None):
 	if now is None: 
 		now = datetime.now()
 	diff = now - datetime(2001, 1, 1)
-	days = float(diff.days) + (float(diff.seconds) / float(86400))
+	days = float(diff.days) + (float(diff.seconds) // float(86400))
 	lunations = float("0.20439731") + (days * float("0.03386319269"))
 	return lunations % float(1)
 def MoonPhase(pos): 
@@ -11808,9 +11808,9 @@ def LCD4linuxPIC(self,session):
 									remaining = "%02d:%02d" % (dur/60,dur%60)
 								dur = int((length[1])/90000)
 								if dur > 3600:
-									remaining += " / %02d:%02d:%02d" % (dur/3600,dur%3600/60,dur%3600%60)
+									remaining += " // %02d:%02d:%02d" % (dur/3600,dur%3600/60,dur%3600%60)
 								else:
-									remaining += " / %02d:%02d" % (dur/60,dur%60)
+									remaining += " // %02d:%02d" % (dur/60,dur%60)
 								w,h = self.draw[draw].textsize(remaining, font=font)
 								Minus = int(h/1.5)+2
 								MinusProgress = (w+10)
@@ -11835,7 +11835,7 @@ def LCD4linuxPIC(self,session):
 								dur = int((length[1])/90000)
 								dur1 = int((length[1] - position[1])/90000)
 								durtime = datetime.now()+timedelta(seconds=dur1)
-								remaining = "%02d:%02d / %02d:%02d" % (dur/3600,dur%3600/60,durtime.hour,durtime.minute)
+								remaining = "%02d:%02d // %02d:%02d" % (dur/3600,dur%3600/60,durtime.hour,durtime.minute)
 								w,h = self.draw[draw].textsize(remaining, font=font)
 								Minus = int(h/1.5)+2
 								MinusProgress = (w+10)
@@ -11900,9 +11900,9 @@ def LCD4linuxPIC(self,session):
 							remaining = "%02d:%02d" % (dur/60,dur%60)
 						dur = int(duration/60)
 						if dur > 3600:
-							remaining += " / %02d:%02d:%02d" % (dur/3600,dur%3600/60,dur%3600%60)
+							remaining += " // %02d:%02d:%02d" % (dur/3600,dur%3600/60,dur%3600%60)
 						else:
-							remaining += " / %02d:%02d" % (dur/60,dur%60)
+							remaining += " // %02d:%02d" % (dur/60,dur%60)
 						w,h = self.draw[draw].textsize(remaining, font=font)
 						Minus = int(h/1.5)+2
 						MinusProgress = (w+10)
@@ -11933,10 +11933,10 @@ def LCD4linuxPIC(self,session):
 						dur1 = dur2-dur
 						if dur > 3600:
 							durtime = datetime.now()+timedelta(seconds=dur1)
-							remaining = "%02d:%02d / %02d:%02d" % (dur2/3600,dur2%3600/60,durtime.hour,durtime.minute)
+							remaining = "%02d:%02d // %02d:%02d" % (dur2/3600,dur2%3600/60,durtime.hour,durtime.minute)
 						else:
 							durtime = datetime.now()+timedelta(minutes=dur1)
-							remaining = "%02d:%02d / %02d:%02d" % (dur2/60,dur2%60,durtime.hour,durtime.minute)
+							remaining = "%02d:%02d // %02d:%02d" % (dur2/60,dur2%60,durtime.hour,durtime.minute)
 						w,h = self.draw[draw].textsize(remaining, font=font)
 						Minus = int(h/1.5)+2
 						MinusProgress = (w+10)
@@ -12144,7 +12144,7 @@ def LCD4linuxPIC(self,session):
 			if len(str(ConfigAlign))>1:
 				ProgressBar -= getSplit(ConfigSplit,ConfigAlign,MAX_W-ConfigSize,ProgressBar)
 			POSX = getSplit(ConfigSplit,ConfigAlign,MAX_W-ConfigSize,ProgressBar)
-			staerkeVal = self.LsignalQuality * 100 / 65536
+			staerkeVal = self.LsignalQuality * 100 // 65536
 			staerkeVal2 = staerkeVal
 			if staerkeVal2 < int(LCD4linux.SignalMin.value):
 				staerkeVal2 = int(LCD4linux.SignalMin.value)
@@ -12346,11 +12346,11 @@ def LCD4linuxPIC(self,session):
 		if self.LsignalQualitydB is not None:
 			if "A" in ConfigInfo:
 				if self.LsignalQualitydB>0:
-					i += " %3.02fdB%s" % (self.LsignalQualitydB / 100.0,NL(ConfigLines))
+					i += " %3.02fdB%s" % (self.LsignalQualitydB // 100.0,NL(ConfigLines))
 				else:
 					i += " %s" % (NL(ConfigLines))
 			if "B" in ConfigInfo:
-				i += " %d%%%s" % (self.LsignalQuality * 100 / 65536,NL(ConfigLines))
+				i += " %d%%%s" % (self.LsignalQuality * 100 // 65536,NL(ConfigLines))
 			if "C" in ConfigInfo:
 				i += " %d%s" % (self.LbitErrorRate,NL(ConfigLines))
 #			print("%d" % (feinfo.getFrontendInfo(iFrontendInformation.signalPower)))
@@ -12374,7 +12374,7 @@ def LCD4linuxPIC(self,session):
 		if "R" in ConfigInfo:
 			if os.path.isfile("/proc/stb/fp/fan_speed"):
 				value = SensorRead("/proc/stb/fp/fan_speed")
-				i += " %drpm%s" % (int(value / 2),NL(ConfigLines))
+				i += " %drpm%s" % (int(value // 2),NL(ConfigLines))
 		elif "r" in ConfigInfo:
 			if os.path.isfile("/proc/stb/fp/fan_speed"):
 				value = SensorRead("/proc/stb/fp/fan_speed")
@@ -14799,7 +14799,7 @@ def LCD4linuxPIC(self,session):
 	Brief3.join()
 	self.Refresh = "0"
 	TimeEnd = time() - tt
-	INFO = "RunTime: %.3f (Picture: %.3f / Write: %.3f)" % (TimeEnd,TimePicture,TimeEnd-TimePicture)
+	INFO = "RunTime: %.3f (Picture: %.3f // Write: %.3f)" % (TimeEnd,TimePicture,TimeEnd-TimePicture)
 	L4log(INFO) #  (%.3f/%.3f) ,TimeLCD1,TimeLCD2
 	INFO = PUSH+"   "+INFO 
 	return
