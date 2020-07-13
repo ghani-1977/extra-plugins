@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 """
 	ABC iView - Enigma2 Video Plugin
 	Copyright (C) 2013 mcquaim
@@ -62,7 +62,7 @@ def wgetUrl(target):
 #==============================================================================
 def calcDuration(seconds):
 	try:
-		mins = int((seconds // 60))
+		mins = int((seconds / 60))
 		duration = str(mins)
 		return str(duration)
 	except (Exception) as exception:

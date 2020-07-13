@@ -1158,6 +1158,6 @@ def main(session, **kwargs):
 	session.open(ModemManager)
                                                            
 def Plugins(**kwargs):            
-	return [PluginDescriptor(name=_("3G/4G Modem Manager"), description="Manage 3G/4G modems", where = PluginDescriptor.WHERE_PLUGINMENU, fnc=main),
+	return [PluginDescriptor(name=_("3G / 4G Modem Manager"), description="management 3g modem", where = PluginDescriptor.WHERE_PLUGINMENU, fnc=main),
 		PluginDescriptor(where = [PluginDescriptor.WHERE_AUTOSTART], fnc = autostart)]
 

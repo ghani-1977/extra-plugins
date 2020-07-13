@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -481,7 +481,7 @@ class MisPlsLcnScan(Screen):
 
 		namespace = self.transpondercurrent.orbital_position << 16
 		if self.namespace_complete:
-			namespace |= ((self.transpondercurrent.frequency // 1000) & 0xFFFF) | ((self.transpondercurrent.polarisation & 1) << 15)
+			namespace |= ((self.transpondercurrent.frequency / 1000) & 0xFFFF) | ((self.transpondercurrent.polarisation & 1) << 15)
 		namespacekey = "%x:%x" % (self.tsid, self.onid)
 		self.namespace_dict[namespacekey] = namespace
 

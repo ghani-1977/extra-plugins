@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -57,16 +57,16 @@ def getChannelNumber(frequency, descr):
 			return str(int(f - 174)/7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
 		elif 470 <= f < 863: 	# IV,V
 			d = (f + 2) % 8
-			return str(int(f - 470) // 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
+			return str(int(f - 470) / 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
 	elif descr == "australia":
 		if 174 < f < 202:	 # III: CH6-CH9
-			return str(int(f - 174) // 7 + 6)
+			return str(int(f - 174) / 7 + 6)
 		elif 202 <= f < 209:	 # III: CH9A
 			return "9A"
 		elif 209 <= f < 230:	 # III: CH10-CH12
-			return str(int(f - 209) // 7 + 10)
+			return str(int(f - 209) / 7 + 10)
 		elif 526 < f < 820:	 # IV, V: CH28-CH69
-			return str(int(f - 526) // 7 + 28)
+			return str(int(f - 526) / 7 + 28)
 	return ""
 
 class TerrestrialScan(Screen):

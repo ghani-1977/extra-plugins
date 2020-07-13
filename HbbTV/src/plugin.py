@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.InfoBar import InfoBar
@@ -80,7 +79,7 @@ class VBHandler(VBHandlers):
 			self.max_volume = 0
 
 		if self.soft_volume > 0:
-			v = int((self.max_volume * self.soft_volume) // 100)
+			v = int((self.max_volume * self.soft_volume) / 100)
 			VolumeControl.instance.volctrl.setVolume(v, v)
 		else:
 			VolumeControl.instance.volctrl.setVolume(self.max_volume, self.max_volume)
@@ -146,7 +145,7 @@ class VBHandler(VBHandlers):
 
 		v = 0
 		if self.soft_volume > 0 and self.max_volume > 0:
-			v = int((self.max_volume * self.soft_volume) // 100)
+			v = int((self.max_volume * self.soft_volume) / 100)
 		VolumeControl.instance.volctrl.setVolume(v, v)
 		return (True, None)
 

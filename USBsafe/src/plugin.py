@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 ##
 ## USBsafe for WetekPlay
 ##
@@ -89,7 +89,7 @@ class USBsafe(Screen):
 						size = fd.read()
 						fd.close()
 						size = size.strip('\n\r\t ')
-						size = int(size) // 2048
+						size = int(size) / 2048
 					removable = '0'
 					file_removable = '/sys/block/%s/removable' % device
 					if os.path.exists(file_removable):

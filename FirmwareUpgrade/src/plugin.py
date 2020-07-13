@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 # for localized messages
 from . import _
 import os, urllib
@@ -302,7 +302,7 @@ class FirmwareUpgradeManager:
 			return 2
 		elif self.fu.status == STATUS_PROGRAMMING:
 			self.fu.callcount += 1
-			ret = (self.fu.callcount * 100) // self.fu.MAX_CALL_COUNT + 2
+			ret = (self.fu.callcount * 100) / self.fu.MAX_CALL_COUNT + 2
 			if ret >= 100: ret = 99
 			#print("callcount : [%d]"%(self.fu.callcount);)
 			return ret
@@ -373,7 +373,7 @@ class UpgradeStatus(Screen):
 		if self.old_status > status and status != -1:
 			self.session.open(MessageBox, _("Fail to upgrade!! Retry!!"), MessageBox.TYPE_INFO, timeout = 10)
 		self.slider.setValue(status)
-		self["status"].setText(_("%d // 100" % (status)))
+		self["status"].setText(_("%d / 100" % (status)))
 		if status == 100:
 			self.check_status.stop()
 			self["status"].setText(_("Success. Press OK to exit."))

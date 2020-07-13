@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 from . import _
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
@@ -368,7 +368,7 @@ class SATIPTuner(Screen, ConfigListScreen):
 	def DiscoveryStart(self):
 		self["shortcuts"].setEnabled(False)
 		self["config_actions"].setEnabled(False)
-		self["description"].setText(_("SAT>IP server discovering for %d seconds...") % (discoveryTimeoutMS // 1000))
+		self["description"].setText(_("SAT>IP server discovering for %d seconds...") % (discoveryTimeoutMS / 1000))
 		satipdiscovery.DiscoveryStart()
 
 	def discoveryEnd(self):

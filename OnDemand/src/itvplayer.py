@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 """
 	ITV Player - Enigma2 Video Plugin
 	Copyright (C) 2013 mcquaim
@@ -341,7 +341,7 @@ class StreamsThumb(StreamsThumbCommon):
 				for elem in tree.xpath('//VideoEntries//MediaFiles//MediaFile'):
 					streamUrl = str(elem[0].text)
 					bitRate = elem.attrib.get("bitrate")
-					quality = int(bitRate) // 1000
+					quality = int(bitRate) / 1000
 					
 					if quality == prefQuality:
 						prefStream = streamUrl

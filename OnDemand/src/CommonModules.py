@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 """
 	Episode List GUI for OnDemand plugin.
 	Copyright (C) 2013 andyblac
@@ -92,7 +92,7 @@ class MainMenuList(HTMLComponent, GUIComponent):
 			self.instance.moveSelection(dir)
 
 	def showArrows(self):
-		rowsshown = self.listHeight // self.itemHeight
+		rowsshown = self.listHeight / self.itemHeight
 		if self.totalitems > rowsshown:
 			print('TRUE')
 			return 1
@@ -104,7 +104,7 @@ class MainMenuList(HTMLComponent, GUIComponent):
 		self.itemHeight = 94
 		self.itemWidth = 188
 		self.l.setItemHeight(self.itemHeight)
-		self.instance.resize(eSize(self.itemWidth+15, (self.listHeight // self.itemHeight) * self.itemHeight))
+		self.instance.resize(eSize(self.itemWidth+15, (self.listHeight / self.itemHeight) * self.itemHeight))
 		self.listHeight = self.instance.size().height()
 		self.listWidth = self.instance.size().width()
 
@@ -215,9 +215,9 @@ class EpisodeList(HTMLComponent, GUIComponent):
 			self.instance.moveSelection(dir)
 
 	def setItemsPerPage(self):
-		itemHeight = int(self.listHeight // 5)
+		itemHeight = int(self.listHeight / 5)
 		self.l.setItemHeight(itemHeight)
-		self.instance.resize(eSize(self.listWidth, self.listHeight // itemHeight * itemHeight))
+		self.instance.resize(eSize(self.listWidth, self.listHeight / itemHeight * itemHeight))
 
 	def setFontsize(self):
 		self.l.setFont(0, gFont(self.titleFontName, self.titleFontSize))
