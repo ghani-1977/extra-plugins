@@ -12,18 +12,22 @@ from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from Tools.Directories import fileExists
 from enigma import eTimer, getBoxType
+from boxbranding import getMachineBuild
+
+model = getBoxType()
+platform = getMachineBuild()
 
 def getRcuDefaultType():
-	if getBoxType() == "vuultimo4k":
+	if model == "vuultimo4k":
 		return "type5"
-	elif getBoxType() in ("vuuno4kse","vuzero4k","vuduo4k"):
+	elif model in ("vuuno4kse","vuzero4k","vuduo4k"):
 		return "type6"
 	return "legacy"
 
 config.misc.remotecontrol_text_support = ConfigYesNo(default = True)
 
 config.plugins.remotecontrolcode = ConfigSubsection()
-if getBoxType() in ("vusolo","vuduo"):
+if model in ("vusolo","vuduo"):
 	config.plugins.remotecontrolcode.systemcode = ConfigSelection(default = "1", choices =
 		[ ("1", "1 "), ("2", "2 "), ("3", "3 "), ("4", "4 ") ] )
 else:
@@ -46,7 +50,7 @@ class RemoteControlCodeInit:
 		return 0
 
 	def getModel(self):
-		if getBoxType() in ("vuuno","vuultimo","vusolo2","vuduo2","vusolose","vuzero","vusolo4k","vuuno4k","vuuno4kse","vuzero4k","vuultimo4k","vuduo4k"):
+		if model in ("vuuno","vuultimo") or platform in ("vu2gen","vu4kgen"):
 			return True
 		else:
 			return False

@@ -38,9 +38,11 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 HTTPConnection.debuglevel = 1
 
 model_rc = "rc_wb_desc.png"
-if getBoxBrand() == "gigablue":
+brand = getBoxBrand()
+
+if brand == "gigablue":
 	model_rc = "rc_wb_desc_gb.png"
-elif getBoxBrand() == "ini":
+elif brand == "ini":
 	model_rc = "rc_wb_desc_hdx.png"
 
 def excute_cmd(cmd):

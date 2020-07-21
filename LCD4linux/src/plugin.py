@@ -113,6 +113,9 @@ from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
 from module import L4Lelement
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from boxbranding import getDisplayType
+
+displaytype = getDisplayType()
 
 L4LElist = L4Lelement()
 CrashFile="/tmp/L4Lcrash.txt"
@@ -162,19 +165,19 @@ L4LdoThread = True
 LCD4config = "/etc/enigma2/lcd4config"
 LCD4plugin = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/")
 Data = LCD4plugin+"data/"
-if getBoxType() in ("gb800ue","gbquad","gbultraueh","gb800ueplus","gbultraue","twinboxlcdci5","sf208","singleboxlcd","sf238","twinboxlcd","sf228","protek4k","e4hdultra","gbue4k"):
+if displaytype == "colorlcd220":
 	LCD4default = Data+"default.colorlcd220"
-elif getBoxType() in ("dm920","gbquadplus","gbquad4k"):
+elif displaytype == "colorlcd400":
 	LCD4default = Data+"default.colorlcd400"
 elif getBoxType() == "vuduo2":
 	LCD4default = Data+"default.vuduo2"
-elif getBoxType() == "et8500":
+elif displaytype == "colorlcd720":
 	LCD4default = Data+"default.colorlcd720"
-elif getBoxType() in ("vusolo4k","vuduo4k"):
+elif displaytype == "colorlcd480":
 	LCD4default = Data+"default.colorlcd480"
-elif getBoxType() == "vuultimo4k":
+elif displaytype == "colorlcd800":
 	LCD4default = Data+"default.colorlcd800"
-elif getBoxType() in ("sezammarvel","atemionemesis","xpeedlx3","mbultra","beyonwizt4"):
+elif displaytype == "bwlcd255":
 	LCD4default = Data+"default.bwlcd255"
 else:
 	LCD4default = Data+"default.lcd"
@@ -2366,8 +2369,8 @@ def L4logE(nfo,wert=""):
 
 def GetBox():
 	B = ""
-	if os.path.exists("/etc/model"):
-		f = open("/etc/model")
+	if os.path.exists("/etc/openvision/model"):
+		f = open("/etc/openvision/model")
 		B = f.readline()
 		f.close()
 		L4logE("Boxtype",B)

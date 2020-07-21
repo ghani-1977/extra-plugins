@@ -19,7 +19,7 @@ from Screens.InfoBar import InfoBar
 from time import localtime, time
 from Tools.Directories import fileExists
 import Components.RecordingConfig
-
+from boxbranding import getMachineBuild
 import Screens.Standby
 
 config.plugins.VFD_ini = ConfigSubsection()
@@ -32,7 +32,7 @@ config.plugins.VFD_ini.ClockLevel2 = ConfigSlider(default=4, limits=(1, 10))
 
 MyRecLed = False
 use_oled = False
-if getBoxType() in ("sf8008","sf8008m","gbtrio4k","viper4k"):
+if getBoxType() in ("gbtrio4k","viper4k") or getMachineBuild() == "octagonhisil":
 	use_oled = True
 	
 def vfd_write(text):

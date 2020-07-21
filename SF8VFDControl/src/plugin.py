@@ -41,7 +41,7 @@ from Components.Button import Button
 from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, getBoxType
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
@@ -357,8 +357,5 @@ def sessionstart(reason, **kwargs):
 	controlSF8VFD()
 
 def Plugins(**kwargs):
-	if getBoxType() == "xp1000":
-	 	return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
-	 		PluginDescriptor(name="SF8 LED Display Setup", description="Change LED display settings",where = PluginDescriptor.WHERE_MENU, fnc = main) ]
-	else:
-		return []
+ 	return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
+ 		PluginDescriptor(name="SF8 LED Display Setup", description="Change LED display settings",where = PluginDescriptor.WHERE_MENU, fnc = main) ]

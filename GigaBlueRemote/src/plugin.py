@@ -13,6 +13,9 @@ from Components.Sources.StaticText import StaticText
 from Tools.Directories import fileExists
 from enigma import eTimer
 from enigma import getBoxType
+from boxbranding import getMachineBuild
+
+platform = getMachineBuild()
 
 config.plugins.remotecontrolcode = ConfigSubsection()
 config.plugins.remotecontrolcode.systemcode = ConfigSelection(default = "50af", choices = [ ("50af", _("Code 1")), ("51ae", _("Code 2")) ] )
@@ -31,7 +34,7 @@ class RemoteControlCodeInit:
 		return 0
 
 	def getModel(self):
-		if getBoxType() in ("gbue4k","gbquad4k","gbquad","gbquadplus","gbx2","gbxh3","gbultraueh","gbx1","gbx3","gbultrase","gbultraue","gbipbox","gb800seplus","gb800ueplus","gbtrio4k","gbip4k"):
+		if platform in ("gb7252","gb7356","gb73625","gb7362","gb7358","gbmv200"):
 			return True
 		else:
 			return False
