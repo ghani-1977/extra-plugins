@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DsayersCustomMixImporter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -73,9 +73,6 @@ msgstr "Importas"
 msgid "Lead time"
 msgstr "Vykdymo laikas"
 
-msgid "Main menu"
-msgstr "Pagrindinis meniu"
-
 msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
 msgstr "Minučių skaičius iki ABM paieškos, kada CustomMix failas turėtų būti paimtas"
 
@@ -90,12 +87,6 @@ msgstr "Išsaugomas CustomMix failas"
 
 msgid "Select the CustomMix you want to import"
 msgstr "Pasirinkite norimą importuoti CustomMix"
-
-msgid "Service searching"
-msgstr "Kanalų paieška"
-
-msgid "Setup"
-msgstr "Sąranka"
 
 msgid "Starting importer..."
 msgstr "Importuotojas atveriamas..."

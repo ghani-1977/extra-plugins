@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ChannelsImporter - oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2017-07-19 13:55+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: \n"
@@ -157,9 +157,6 @@ msgstr "įkeliamas epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Įkeliamas naujas kanalų sąrašas..."
 
-msgid "Main menu"
-msgstr "Pagrindinis meniu"
-
 msgid "Passive mode"
 msgstr "Pasyvus režimas"
 
@@ -191,17 +188,11 @@ msgstr "Importo tvarkaraštis"
 msgid "Searching for epg.dat"
 msgstr "Ieškoma epg.dat"
 
-msgid "Service searching"
-msgstr "Kanalų paieška"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Nustatykite kartojimų intervalą tvarkaraštyje."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Nustatykite paros laiką paieškai atlikti."
-
-msgid "Setup"
-msgstr "Sąranka"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "Ar jungtis prie nutolusio imtuvo FTP pasyviu režimu?"

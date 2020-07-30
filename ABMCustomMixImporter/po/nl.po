@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 3GModemManager\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: openATV\n"
@@ -73,9 +73,6 @@ msgstr "Importeer"
 msgid "Lead time"
 msgstr ""
 
-msgid "Main menu"
-msgstr "Hoofdmenu"
-
 msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
 msgstr "Aantal minuten voor de ABM-scan dat het Custommix-bestand binnengehaald moet worden."
 
@@ -90,12 +87,6 @@ msgstr "Slaan CustomMix-bestand op"
 
 msgid "Select the CustomMix you want to import"
 msgstr "Selecteer het CustomMix-bestand dat u wilt importeren"
-
-msgid "Service searching"
-msgstr "Zenders zoeken"
-
-msgid "Setup"
-msgstr "Instellingen"
 
 msgid "Starting importer..."
 msgstr "Start importeren..."

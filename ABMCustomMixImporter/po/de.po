@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2018-10-10 23:31+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: \n"
@@ -75,9 +75,6 @@ msgstr "Importieren"
 msgid "Lead time"
 msgstr "Vorlaufzeit"
 
-msgid "Main menu"
-msgstr "Hauptmenü"
-
 msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
 msgstr "Anzahl der Minuten vor dem ABM-Scan, dass die CustomMix-Datei abgeholt werden soll"
 
@@ -92,12 +89,6 @@ msgstr "CustomMix Datei speichern"
 
 msgid "Select the CustomMix you want to import"
 msgstr "Wählen Sie den CustomMix, den Sie importieren möchten"
-
-msgid "Service searching"
-msgstr "Service Suche"
-
-msgid "Setup"
-msgstr "Setup"
 
 msgid "Starting importer..."
 msgstr "Start Importeur..."

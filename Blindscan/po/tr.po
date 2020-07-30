@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
-"PO-Revision-Date: 2016-05-07 13:08+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"PO-Revision-Date: 2020-04-04 22:50+0200\n"
 "Last-Translator: esmos <kucukogul@gmail.com>\n"
 "Language-Team: CÜNEYT OCAKLILAR <ocaklilar@gmail.com>\n"
 "Language: tr\n"
@@ -30,8 +30,6 @@ msgstr ""
 msgid "   Starting Sundtek hardware blind scan."
 msgstr "Sundtek donanım kör taraması başlatılıyor."
 
-#
-#, fuzzy
 msgid " tuner."
 msgstr "Tuner"
 
@@ -41,7 +39,7 @@ msgstr "\"kanal tarama\" kanalları arar ve alıcınıza kaydeder; iki seçenek 
 
 #, python-format
 msgid "%d transponder(s) found"
-msgstr ""
+msgstr "%d transponder(s) bulundu"
 
 #, python-format
 msgid "%d transponders found at %d:%02d min"
@@ -67,9 +65,8 @@ msgstr "Kör tarama"
 msgid "Blind scan for DVB-S2 tuners"
 msgstr "DVB-S2 tunerler için kör tarama"
 
-#, fuzzy
 msgid "Blind scan state"
-msgstr "Kör tarama"
+msgstr "Kör tarama durumu"
 
 msgid "Blindscan"
 msgstr "Körtarama"
@@ -94,7 +91,6 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#
 msgid "Clear before scan"
 msgstr "Tarama öncesinde kanal listesini temizle"
 
@@ -126,7 +122,6 @@ msgstr ""
 msgid "Disable sync with known transponders"
 msgstr "Sadece bilinmeyen Transponderleri tara"
 
-#
 msgid "Exit"
 msgstr "Çıkış"
 
@@ -145,10 +140,8 @@ msgstr "Frekans değerleri 3000MHz-4199 MHz arasında olmalıdır (C-band)"
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
 msgstr "Donanim Kör Taramasi bu Tuner ile desteklenmiyor (%s)!"
 
-#
-#, fuzzy
 msgid "Horizontal"
-msgstr "yatay (h)"
+msgstr "Yatay (h)"
 
 #, fuzzy
 msgid "If you select \"yes\" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
@@ -227,18 +220,15 @@ msgstr "Lütfen Tuner ayarlarinizi yapin."
 msgid "Polarisation"
 msgstr "Polarizasyon"
 
-#, fuzzy
 msgid "Press OK to start the scan."
 msgstr "Taramayı başlatmak için Yeşil/OK'a basın."
 
-#, fuzzy
 msgid "Press green to start service searching."
 msgstr "Taramayı başlatmak için Yeşil/OK'a basın."
 
 msgid "Restore defaults"
 msgstr ""
 
-#
 msgid "Satellite"
 msgstr "Uydu"
 
@@ -330,35 +320,28 @@ msgstr "Buy uydu icin önerilen polarizasyon \"%s\""
 msgid "Transponder searching finished!"
 msgstr "Transponder aramasi bitti!"
 
-#, fuzzy
 msgid "Try to find used satellite transponders..."
 msgstr "Kullanimda olan uydudan Transponderler aramayi dene..."
 
-#
 msgid "Tuner"
 msgstr "Tuner"
 
 msgid "Use Sundtek full hardware blind scan!"
 msgstr "Sundtek tam donanim kör taramayi kullanin!"
 
-#
-#, fuzzy
 msgid "Vertical"
-msgstr "dikey (v)"
+msgstr "Dikey (v)"
 
 msgid "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite."
 msgstr "Komşu bir uydunun çok kuvvetli olması, yakındaki uydu aktarıcılarının aranmasını önleyebilir."
 
-#
 msgid "circular left"
 msgstr "dairesel sol"
 
-#
 #, fuzzy
 msgid "circular left/right"
 msgstr "dairesel sağ"
 
-#
 msgid "circular right"
 msgstr "dairesel sağ"
 
@@ -369,14 +352,12 @@ msgstr "dairesel sağ ve dairesel sol"
 msgid "don't scan"
 msgstr "Kör tarama"
 
-#
 msgid "horizontal"
 msgstr "yatay (h)"
 
 msgid "inverted"
 msgstr ""
 
-#
 msgid "no"
 msgstr "hayır"
 
@@ -406,12 +387,11 @@ msgstr "2 dereceye kadar"
 msgid "up to 3 degrees"
 msgstr "3 dereceye kadar"
 
-#
 msgid "vertical"
 msgstr "dikey (v)"
 
 msgid "vertical and horizontal"
-msgstr "dikey ve yatay"
+msgstr "Dikey ve Yatay"
 
 msgid "yes"
 msgstr "evet"

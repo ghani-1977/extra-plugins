@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2018-07-30 21:29+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -155,9 +155,6 @@ msgstr "Chargement de epg.dat......"
 msgid "Loading new channel list..."
 msgstr "Chargement d'une nouvelle liste de chaînes....."
 
-msgid "Main menu"
-msgstr "Menu principal"
-
 msgid "Passive mode"
 msgstr "Mode passif"
 
@@ -188,17 +185,11 @@ msgstr "Planifier l'importation"
 msgid "Searching for epg.dat"
 msgstr "Recherche de epg.dat"
 
-msgid "Service searching"
-msgstr "Recherche des services"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Définissez l'intervalle de répétition du programme."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Réglez l'heure de la journée pour effectuer le scan."
-
-msgid "Setup"
-msgstr "Paramétrer"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "La connexion FTP vers le récepteur distant doit-elle être établie en mode passif ?"

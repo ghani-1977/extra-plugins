@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2018-11-05 14:38+0100\n"
 "Last-Translator: Ralf Biedermann <ralf.biedermann@rbsoft.de>\n"
 "Language-Team: none\n"
@@ -155,9 +155,6 @@ msgstr "Lade epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Lade neue Kanalliste..."
 
-msgid "Main menu"
-msgstr "Hauptmenü"
-
 msgid "Passive mode"
 msgstr "Passiver Modus"
 
@@ -188,17 +185,11 @@ msgstr "Plane Import"
 msgid "Searching for epg.dat"
 msgstr "Suche epg.dat"
 
-msgid "Service searching"
-msgstr "Suche Kanal"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Stelle das Intervall für den Zeitplan ein."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Stelle die Zeit ein zu der ein Scan erfolgen soll."
-
-msgid "Setup"
-msgstr "Konfiguration"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "Soll die FTP-Verbindung zum Server im passiven Modus aufgebaut werden?"

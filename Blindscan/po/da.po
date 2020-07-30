@@ -1,19 +1,19 @@
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: enigma2\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
-"PO-Revision-Date: 2016-05-07 13:05+0200\n"
-"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
-"Language-Team: None <tbt_dk@hotmail.com>\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"PO-Revision-Date: 2020-06-07 16:07+0200\n"
+"Last-Translator: \n"
+"Language-Team: Danskholdet <dk-translation@pm.me>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
-"X-Poedit-SourceCharset: iso-8859-15\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
 
 msgid ""
 "\n"
@@ -28,7 +28,6 @@ msgstr ""
 msgid "   Starting Sundtek hardware blind scan."
 msgstr ""
 
-#
 #, fuzzy
 msgid " tuner."
 msgstr "Tuner"
@@ -38,44 +37,48 @@ msgstr ""
 
 #, python-format
 msgid "%d transponder(s) found"
-msgstr ""
+msgstr "%d transponder(e) fundet"
 
-#, python-format
+#, fuzzy, python-format
 msgid "%d transponders found at %d:%02d min"
-msgstr ""
+msgstr "%d transpondere fundet ved %d:%02dmin"
 
 #, python-format
 msgid "%d:%02d/%d:%02dmin"
-msgstr ""
+msgstr "%d:%02d/%d:%02dmin"
 
 #, python-format
 msgid "%dMHz scanned"
-msgstr ""
+msgstr "%dMHz gennemsøgt"
 
+#, fuzzy
 msgid "AUTOMATICALLY start service searching, press green to change."
-msgstr ""
+msgstr "Start AUTOMATISK kanalsøgning, tryk grøn for at ændre"
 
 msgid "Accuracy (higher is better)"
-msgstr ""
+msgstr "Præcision (højere er bedre)"
 
 msgid "Blind scan"
-msgstr ""
+msgstr "Blind søgning"
 
 msgid "Blind scan for DVB-S2 tuners"
 msgstr ""
 
+#, fuzzy
 msgid "Blind scan state"
-msgstr ""
+msgstr "Blind søgning"
 
+#, fuzzy
 msgid "Blindscan"
-msgstr ""
+msgstr "Blind søgning"
 
 #, python-format
 msgid "Blindscan executable not found '%s'!"
 msgstr ""
 
+#, fuzzy
 msgid "Blindscan is not supported in "
-msgstr ""
+msgstr "Blindscan er ikke understøttet af denne Tuner (%s)"
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -89,9 +92,8 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#
 msgid "Clear before scan"
-msgstr "Slet før søgning"
+msgstr "Ryd før søgning"
 
 #, python-format
 msgid ""
@@ -101,10 +103,10 @@ msgid ""
 msgstr ""
 
 msgid "DVB-S + DVB-S2"
-msgstr ""
+msgstr "DVB-S + DVB-S2"
 
 msgid "DVB-S only"
-msgstr ""
+msgstr "Kun DVB-S"
 
 msgid "Deselect all"
 msgstr ""
@@ -112,12 +114,12 @@ msgstr ""
 msgid "Disable remove duplicates"
 msgstr ""
 
+#, fuzzy
 msgid "Disable sync with known transponders"
-msgstr ""
+msgstr "Gennemsøg satellitter efter nye transpondere"
 
-#
 msgid "Exit"
-msgstr "Afslut"
+msgstr ""
 
 msgid "Filter out adjacent satellites"
 msgstr ""
@@ -130,14 +132,12 @@ msgstr ""
 msgid "Frequency values must be between %d MHz and %d MHz (C-band)"
 msgstr ""
 
-#, python-format
+#, fuzzy, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
-msgstr ""
+msgstr "Blindscan er ikke understøttet af denne Tuner (%s)"
 
-#
-#, fuzzy
 msgid "Horizontal"
-msgstr "horisontal"
+msgstr "Horisontal"
 
 msgid "If you select \"yes\" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
 msgstr ""
@@ -162,14 +162,15 @@ msgid ""
 "This will take a long time, please be patient."
 msgstr ""
 
+#, fuzzy
 msgid "MANUALLY start service searching, press green to change."
-msgstr ""
+msgstr "Start MANUEL kanalsøgning, tryk grøn for at ændre"
 
 msgid "Maybe the reason that recording is currently running."
 msgstr ""
 
 msgid "Network scan"
-msgstr ""
+msgstr "Netværkssøgning"
 
 msgid ""
 "No new transponders found! \n"
@@ -185,20 +186,25 @@ msgid ""
 "No tuner is enabled!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Ingen Tuner er aktiveret!\n"
+"Sæt venligst dine Tuner indstillinger op før du starter en kanalsøgning."
 
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Intet at søge!\n"
+"Venligst opsæt Tuner indstilling op før du starter søgning."
 
 msgid "Nothing to scan! Press Exit!"
-msgstr ""
+msgstr "Intet at søge! Tryk EXIT!"
 
 msgid "Only free scan"
-msgstr ""
+msgstr "Kun fri søgning"
 
+#, fuzzy
 msgid "Only scan unknown transponders"
-msgstr ""
+msgstr "Gennemsøg satellitter efter nye transpondere"
 
 msgid "Open xml file"
 msgstr ""
@@ -209,16 +215,17 @@ msgstr ""
 msgid "Polarisation"
 msgstr ""
 
+#, fuzzy
 msgid "Press OK to start the scan."
-msgstr ""
+msgstr "Tryk OK for at starte søgningen"
 
+#, fuzzy
 msgid "Press green to start service searching."
-msgstr ""
+msgstr "Tryk grøn for at starte kanalsøgning!"
 
 msgid "Restore defaults"
 msgstr ""
 
-#
 msgid "Satellite"
 msgstr "Satellit"
 
@@ -229,7 +236,7 @@ msgid "Scan Step in MHz(TBS5925)"
 msgstr ""
 
 msgid "Scan satellites for new transponders"
-msgstr ""
+msgstr "Gennemsøg satellitter efter nye transpondere"
 
 msgid "Scan start frequency"
 msgstr ""
@@ -281,9 +288,9 @@ msgstr ""
 msgid "Sorry, this tuner is in use."
 msgstr ""
 
-#, python-format
+#, fuzzy, python-format
 msgid "Step %d %d:%02d min"
-msgstr ""
+msgstr "%d:%02d/%d:%02dmin"
 
 msgid "Symbol rate values are in megasymbols; enter a value between 1 and 44"
 msgstr ""
@@ -299,55 +306,48 @@ msgid "The suggested polarisation for this satellite is \"%s\""
 msgstr ""
 
 msgid "Transponder searching finished!"
-msgstr ""
+msgstr "Transponder søgning gennemført!"
 
 msgid "Try to find used satellite transponders..."
-msgstr ""
+msgstr "Prøv at finde brugte satellit-transpondere..."
 
-#
 msgid "Tuner"
 msgstr "Tuner"
 
 msgid "Use Sundtek full hardware blind scan!"
 msgstr ""
 
-#
-#, fuzzy
 msgid "Vertical"
-msgstr "vertikal"
+msgstr "Vertikal"
 
 msgid "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite."
 msgstr ""
 
-#
 msgid "circular left"
-msgstr "venstre-cirkulær"
+msgstr ""
 
-#
-#, fuzzy
 msgid "circular left/right"
-msgstr "højre-cirkulær"
+msgstr ""
 
-#
 msgid "circular right"
-msgstr "højre-cirkulær"
+msgstr ""
 
 msgid "circular right and circular left"
 msgstr ""
 
+#, fuzzy
 msgid "don't scan"
-msgstr ""
+msgstr "Blind søgning"
 
-#
+#, fuzzy
 msgid "horizontal"
-msgstr "horisontal"
+msgstr "Horisontal"
 
 msgid "inverted"
 msgstr ""
 
-#
 msgid "no"
-msgstr "nej"
+msgstr "Nej"
 
 msgid "normal"
 msgstr ""
@@ -361,8 +361,9 @@ msgstr ""
 msgid "scan for channels"
 msgstr ""
 
+#, fuzzy
 msgid "scan for transponders"
-msgstr ""
+msgstr "Gennemsøg satellitter efter nye transpondere"
 
 msgid "up to 1 degree"
 msgstr ""
@@ -373,15 +374,15 @@ msgstr ""
 msgid "up to 3 degrees"
 msgstr ""
 
-#
+#, fuzzy
 msgid "vertical"
-msgstr "vertikal"
+msgstr "Vertikal"
 
 msgid "vertical and horizontal"
 msgstr ""
 
 msgid "yes"
-msgstr ""
+msgstr "ja"
 
 msgid "yes (keep feeds)"
-msgstr ""
+msgstr "ja (behold feeds)"

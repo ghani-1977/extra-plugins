@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ChannelsImporter -  oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2017-10-09 20:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: BH Team\n"
@@ -154,9 +154,6 @@ msgstr "A carregar epg.dat..."
 msgid "Loading new channel list..."
 msgstr "A carregar a nova lista de canais..."
 
-msgid "Main menu"
-msgstr "Menu Principal"
-
 msgid "Passive mode"
 msgstr "Modo Passivo"
 
@@ -187,17 +184,11 @@ msgstr "Importar agendamento"
 msgid "Searching for epg.dat"
 msgstr "À procura de epg.dat"
 
-msgid "Service searching"
-msgstr "Procura de Serviços"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Defina o intervalo de repetição do agendamento."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Defina a hora do dia para realizar a busca."
-
-msgid "Setup"
-msgstr "Definições"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "Poderá a conexão de FTP para o recetor remoto pode ser estabelecida em modo passivo?"

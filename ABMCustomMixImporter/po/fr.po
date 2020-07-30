@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 20:23+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2018-07-30 21:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -75,9 +75,6 @@ msgstr "Importer"
 msgid "Lead time"
 msgstr "Délai de mise en œuvre"
 
-msgid "Main menu"
-msgstr "Menu principal"
-
 msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
 msgstr "Nombre de minutes avant que l'analyse ABM que le fichier CustomMix doit être récupéré."
 
@@ -92,12 +89,6 @@ msgstr "Enregistrement du fichier CustomMix"
 
 msgid "Select the CustomMix you want to import"
 msgstr "Sélectionnez le CustomMix que vous voulez importer"
-
-msgid "Service searching"
-msgstr "Recherche des services"
-
-msgid "Setup"
-msgstr "Paramétrer"
 
 msgid "Starting importer..."
 msgstr "Importateur démarre….."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ChannelsImporter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2017-12-03 23:50+0000\n"
 "Last-Translator: insanity\n"
 "Language-Team: vuplus-community.net <insanity>\n"
@@ -157,9 +157,6 @@ msgstr "Caricamento epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Carico la nuova lista canali..."
 
-msgid "Main menu"
-msgstr "Menù principale"
-
 msgid "Passive mode"
 msgstr "Modalità passiva"
 
@@ -191,17 +188,11 @@ msgstr "Pianifica importazione"
 msgid "Searching for epg.dat"
 msgstr "Ricerca del file epg.dat"
 
-msgid "Service searching"
-msgstr "Ricerca canali"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Imposta l'intervallo di ripetizione del programma."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Impostare a quale ora eseguire la ricerca."
-
-msgid "Setup"
-msgstr "Impostazioni"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "La connessione FTP al ricevitore remoto deve essere stabilita in modalità passiva?"

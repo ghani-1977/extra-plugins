@@ -628,33 +628,6 @@
 		<key id="KEY_F11" mapto="subtitles" flags="b" />
 	</map>
 
-	<map context="CCcamInfoActions">
-		<key id="KEY_1" mapto="1" flags="b"/>
-		<key id="KEY_2" mapto="2" flags="b"/>
-		<key id="KEY_3" mapto="3" flags="b"/>
-		<key id="KEY_4" mapto="4" flags="b"/>
-		<key id="KEY_5" mapto="5" flags="b"/>
-		<key id="KEY_6" mapto="6" flags="b"/>
-		<key id="KEY_7" mapto="7" flags="b"/>
-		<key id="KEY_8" mapto="8" flags="b"/>
-		<key id="KEY_9" mapto="9" flags="b"/>
-		<key id="KEY_0" mapto="0" flags="b"/>
-		<key id="KEY_F8" mapto="red" flags="b"/>
-		<key id="KEY_F9" mapto="green" flags="b"/>
-		<key id="KEY_F10" mapto="yellow" flags="b"/>
-		<key id="KEY_INS_LINE" mapto="blue" flags="b"/>
-		<key id="KEY_F4" mapto="info" flags="b"/>
-		<key id="KEY_MENU" mapto="menu" flags="b"/>
-		<key id="KEY_ESC" mapto="cancel" flags="b"/>
-		<key id="KEY_OK" mapto="ok" flags="b"/>
-		<key id="KEY_UP" mapto="up" flags="b"/>
-		<key id="KEY_DOWN" mapto="down" flags="b"/>
-		<key id="KEY_LEFT" mapto="left" flags="b"/>
-		<key id="KEY_RIGHT" mapto="right" flags="b"/>
-		<key id="KEY_PAGEUP" mapto="incUphop" flags="b"/>
-		<key id="KEY_PAGEDOWN" mapto="decUphop" flags="b"/>
-	</map>
-
 	<map context="InfoBarINFOpanel">
 		<key id="KEY_F8" mapto="infoPanel" flags="b" />
 		<key id="KEY_F8" mapto="softcamPanel" flags="l" />

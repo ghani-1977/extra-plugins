@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -19,14 +19,14 @@ msgid ""
 "The second slot of this dual tuner may not support blind scan."
 msgstr ""
 "\n"
-"Второй слот двойного тюнера может быть не поддерживает слепой поиск."
+"Второй слот двойного тюнера может не поддерживать слепой поиск."
 
 msgid ""
 "\n"
 "You must use the power adapter."
 msgstr ""
 "\n"
-"Возможно надо использовать адаптер питания."
+"Требуется адаптер питания."
 
 msgid "   Starting Sundtek hardware blind scan."
 msgstr "   Sundtek: старт слепого поиска от производителя."
@@ -53,19 +53,19 @@ msgstr "Шаг %d %d:%02d мин"
 
 #, python-format
 msgid "%dMHz scanned"
-msgstr ""
+msgstr "Сканируется %dМГц"
 
 msgid "AUTOMATICALLY start service searching, press green to change."
-msgstr ""
+msgstr "АВТОМАТИЧЕСКИ начать поиск сервисов, нажмите Зеленую для изменения."
 
 msgid "Accuracy (higher is better)"
-msgstr ""
+msgstr "Точность (чем выше, тем лучше)"
 
 msgid "Blind scan"
 msgstr "Слепой поиск"
 
 msgid "Blind scan for DVB-S2 tuners"
-msgstr ""
+msgstr "Слепой поиск для DVB-S2 тюнеров"
 
 #, fuzzy
 msgid "Blind scan state"
@@ -79,7 +79,7 @@ msgid "Blindscan executable not found '%s'!"
 msgstr ""
 
 msgid "Blindscan is not supported in "
-msgstr ""
+msgstr "Слепой поиск не поддерживается в"
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
 msgstr ""
@@ -103,17 +103,17 @@ msgid ""
 "Satellite: %s\n"
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MSym/s"
 msgstr ""
-"   Текущее значение : %d/%d\n"
-"   Спутник : %s\n"
-"   Поляризация : %s\n"
-"   Частотный диапазон : %d - %d MHz\n"
-"   Скорость потока : %d - %d MHz"
+"   Текущее значение: %d/%d\n"
+"   Спутник: %s\n"
+"   Поляризация: %s\n"
+"   Частотный диапазон: %d - %d МГц\n"
+"   Скорость потока: %d - %d МГц"
 
 msgid "DVB-S + DVB-S2"
-msgstr ""
+msgstr "DVB-S + DVB-S2"
 
 msgid "DVB-S only"
-msgstr ""
+msgstr "Только DVB-S"
 
 msgid "Deselect all"
 msgstr ""
@@ -133,15 +133,15 @@ msgstr "Фильтр от соседних спутников"
 
 #, fuzzy, python-format
 msgid "Frequency values must be between %d MHz and %d MHz"
-msgstr "Значение частот должны быть между 10700 MHz / 12749 MHz."
+msgstr "Значение частот должны быть между 10700 МГц и 12749 МГц."
 
 #, fuzzy, python-format
 msgid "Frequency values must be between %d MHz and %d MHz (C-band)"
-msgstr "Значение частот должны быть между 3000 MHz and 4199 MHz (C-band)."
+msgstr "Значение частот должны быть между 3000 МГц и 4199 МГц (С-диапазон)."
 
 #, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
-msgstr ""
+msgstr "Слепой поиск не поддерживается этим тюнером (%s)!"
 
 #, fuzzy
 msgid "Horizontal"
@@ -177,10 +177,10 @@ msgid "MANUALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Maybe the reason that recording is currently running."
-msgstr ""
+msgstr "Возможно, причина в том, что в данный момент выполняется запись."
 
 msgid "Network scan"
-msgstr ""
+msgstr "Поиск сети"
 
 msgid ""
 "No new transponders found! \n"
@@ -200,14 +200,18 @@ msgid ""
 "No tuner is enabled!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Нет настроенного тюнера!\n"
+"Пожалуйста, настройте тюнер перед поиском каналов."
 
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"Нечего сканировать!\n"
+"Пожалуйста, настройте тюнер перед поиском каналов."
 
 msgid "Nothing to scan! Press Exit!"
-msgstr ""
+msgstr "Нечего сканировать! Нажмите Выход!"
 
 msgid "Only free scan"
 msgstr "Поиск только каналов без кодировки"
@@ -242,7 +246,7 @@ msgid "Scan"
 msgstr "Сканирование"
 
 msgid "Scan Step in MHz(TBS5925)"
-msgstr ""
+msgstr "Шаг сканирования в МГц(TBS5925)"
 
 msgid "Scan satellites for new transponders"
 msgstr "Сканирование спутников для новых транспондеров"
@@ -300,7 +304,7 @@ msgid ""
 msgstr ""
 
 msgid "Smaller steps takes longer but scan is more thorough"
-msgstr ""
+msgstr "Меньшие шаги занимают больше времени, но сканирует более тщательно"
 
 msgid "Sorry, this tuner is in use."
 msgstr "Извините, этот тюнер занят."
@@ -323,7 +327,7 @@ msgid "The suggested polarisation for this satellite is \"%s\""
 msgstr "Предлагаемая поляризация для этого спутника \"%s\""
 
 msgid "Transponder searching finished!"
-msgstr ""
+msgstr "Поиск транспондера завершен!"
 
 #, fuzzy
 msgid "Try to find used satellite transponders..."
@@ -402,7 +406,7 @@ msgid "vertical and horizontal"
 msgstr "вертикальная и горизонтальная"
 
 msgid "yes"
-msgstr ""
+msgstr "да"
 
 msgid "yes (keep feeds)"
-msgstr ""
+msgstr "да (оставить фиды)"

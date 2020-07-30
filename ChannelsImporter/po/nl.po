@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-16 22:00+0000\n"
+"POT-Creation-Date: 2020-07-30 12:07+0430\n"
 "PO-Revision-Date: 2018-01-17 06:32+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -158,9 +158,6 @@ msgstr "Laden epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Laden nieuwe zenderlijst..."
 
-msgid "Main menu"
-msgstr "Hoofdmenu"
-
 msgid "Passive mode"
 msgstr "Passieve modus"
 
@@ -192,17 +189,11 @@ msgstr "Import schema"
 msgid "Searching for epg.dat"
 msgstr "Zoeken naar epg.dat"
 
-msgid "Service searching"
-msgstr "Zenders zoeken"
-
 msgid "Set the repeat interval of the schedule."
 msgstr "Hier stelt u het herhalingsinterval in."
 
 msgid "Set the time of day to perform the scan."
 msgstr "Geef de tijd op waarop de import moet plaatsvinden."
-
-msgid "Setup"
-msgstr "Instellingen"
 
 msgid "Should the FTP connection to the remote receiver be established in passive mode?"
 msgstr "Moet de FTP-verbinding met de serverbox in de passieve mode worden uitgevoerd?"
