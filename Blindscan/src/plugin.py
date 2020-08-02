@@ -891,14 +891,14 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif brand in ("azbox","amiko","ceryon","dinobot","gigablue","ini","uclan","vuplus","xtrend") or model in ("sf8008","sf8008m") or platform == "dags72604":
+		elif brand in ("azbox","amiko","ceryon","dinobot","gigablue","ini","uclan","vuplus","xtrend") or platform in ("octagonhisil","dags72604"):
 			if brand == "vuplus":
 				exe_filename = self.binName
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				if brand in ("ceryon","dinobot","uclan","amiko") or model in ("sf8008","sf8008m") or platform in ("gbmv200","dags72604"):
+				if brand in ("ceryon","dinobot","uclan","amiko") or platform in ("octagonhisil","gbmv200","dags72604"):
 					cmd += " %d" % self.is_c_band_scan
-				if brand in ("dinobot","uclan","amiko") or model in ("sf8008","sf8008m") or platform in ("gbmv200","dags72604"):
+				if brand in ("dinobot","uclan","amiko") or platform in ("octagonhisil","gbmv200","dags72604"):
 					cmd += " %d" % orb[0]
 				if brand == "azbox":
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation

@@ -17,6 +17,7 @@ from Tools.Directories import fileExists, pathExists
 from os import path
 from Components.SystemInfo import SystemInfo
 
+model = getBoxType()
 
 config.plugins.transcodingsetup = ConfigSubsection()
 config.plugins.transcodingsetup.transcoding = ConfigSelection(default = "enable", choices = [ ("enable", _("enable")), ("disable", _("disable"))])
@@ -30,7 +31,7 @@ if fileExists("/proc/stb/encoder/0/vcodec"):
 	config.plugins.transcodingsetup.framerate = ConfigSelection([("23976", _("23.976 fps")), ("24000", _("24 fps")), ("25000", _("25 fps")), ("30000", _("30 fps"))], default="25000")
 	config.plugins.transcodingsetup.aspectratio = ConfigInteger(default = 2)
 	config.plugins.transcodingsetup.interlaced = ConfigInteger(default = 0)
-elif getBoxType() in ("x2plus","formuler1"):
+elif model in ("x2plus","formuler1"):
 	choice = ConfigSelection(default = "400000", choices=[("-1", "Auto"), ("50000", "50 Kbits"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("600000", "600 Kbits"), ("700000", "700 Kbits"), ("800000", "800 Kbits"), ("900000", "900 Kbits"), ("1000000", "1 Mbits")])
 	config.plugins.transcodingsetup.bitrate = choice
 	choice = ConfigSelection(default = "50000", choices = [("-1", "Auto"), ("23976", "23.976 fps"), ("24000", "24 fps"), ("25000", "25 fps"), ("29970", "29.970 fps"), ("30000", "30 fps"), ("50000", "50 fps"), ("59940", "59.940 fps"), ("60000", "60 fps")])
@@ -128,7 +129,7 @@ class TranscodingSetup(Screen,ConfigListScreen):
 			self.list.append(getConfigListEntry(_("Video codec"), config.plugins.transcodingsetup.vcodec))
 			self.list.append(getConfigListEntry(_("Aspect Ratio"), config.plugins.transcodingsetup.aspectratio))
 			self.list.append(getConfigListEntry(_("Interlaced"), config.plugins.transcodingsetup.interlaced))
-		elif getBoxType() in ("x2plus","formuler1"):
+		elif model in ("x2plus","formuler1"):
 			self.list.append(getConfigListEntry(_("Bitrate in bits"), config.plugins.transcodingsetup.bitrate))
 			self.list.append(getConfigListEntry(_("Framerate"), config.plugins.transcodingsetup.framerate))
 		else:
