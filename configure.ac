@@ -27,34 +27,40 @@ AX_PYTHON_DEVEL
 AX_PTHREAD
 
 AC_ARG_WITH(arch,
-	[  --with-arch=NAME box arch [[none,ah4,mipsel...]]],
-	[ARCH="$withval"],[ARCH="mipsel"])
+	AS_HELP_STRING([--with-arch],[build for ARCH, $withval]),
+	[ARCH="$withval"],[ARCH=""])
 AC_SUBST(ARCH)
-AC_DEFINE_UNQUOTED(ARCH,"$ARCH",[box arch])
+AC_DEFINE_UNQUOTED(ARCH,"$ARCH",[box architecture])
 
 AM_CONDITIONAL(SH4, test `echo "$ARCH" | cut -b 1-3` == "sh4")
 AM_CONDITIONAL(MIPSEL, test `echo "$ARCH" | cut -b 1-6` == "mipsel")
 AM_CONDITIONAL(ARM, test `echo "$ARCH" | cut -b 1-3` == "arm")
 
 AC_ARG_WITH(boxtype,
-	[  --with-boxtype=NAME box type [[none,dm800...]]],
-	[BOXTYPE="$withval"],[BOXTYPE="dm800"])
+	AS_HELP_STRING([--with-boxtype],[build for BOXTYPE, $withval]),
+	[BOXTYPE="$withval"],[BOXTYPE=""])
 AC_SUBST(BOXTYPE)
 AC_DEFINE_UNQUOTED(BOXTYPE,"$BOXTYPE",[box type])
 
 AC_ARG_WITH(boxbrand,
-	[  --with-boxbrand=NAME box brand [[none,dreambox...]]],
-	[BOXBRAND="$withval"],[BOXBRAND="dreambox"])
+	AS_HELP_STRING([--with-boxbrand],[build for BOXBRAND, $withval]),
+	[BOXBRAND="$withval"],[BOXBRAND=""])
 AC_SUBST(BOXBRAND)
 AC_DEFINE_UNQUOTED(BOXBRAND,"$BOXBRAND",[box brand])
 
-AM_CONDITIONAL(DINOBOT, test "$BOXTYPE" == "anadol4k" -o "$BOXTYPE" == "anadol4kv2" -o "$BOXTYPE" == "axashis4kcombo" -o "$BOXTYPE" == "axashis4kcomboplus" -o "$BOXTYPE" == "dinobot4k" -o "$BOXTYPE" == "dinobot4kl" -o "$BOXTYPE" == "dinobot4kmini" -o "$BOXTYPE" == "dinobot4kplus" -o "$BOXTYPE" == "dinobot4kpro" -o "$BOXTYPE" == "dinobot4kse" -o "$BOXTYPE" == "axashisc4k" -o "$BOXTYPE" == "dinobotu43" -o "$BOXTYPE" == "turing" -o "$BOXTYPE" == "dinobotu55" -o "$BOXTYPE" == "protek4kx1" -o "$BOXTYPE" == "iziboxx3" -o "$BOXTYPE" == "arivatwin" -o "$BOXTYPE" == "arivacombo")
+AC_ARG_WITH(stbplatform,
+	AS_HELP_STRING([--with-stbplatform],[build for STBPLATFORM, $withval]),
+	[STBPLATFORM="$withval"],[STBPLATFORM=""])
+AC_SUBST(STBPLATFORM)
+AC_DEFINE_UNQUOTED(STBPLATFORM,"$STBPLATFORM",[stb platform])
+
+AM_CONDITIONAL(DINOBOT, test `echo "$STBPLATFORM" | cut -b 1-2` == "u5")
 
 AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == "cube" -o "$BOXTYPE" == "su980")
 
-AM_CONDITIONAL(HAVE_ARMV7AHF, test "$BOXTYPE" == "hd51" -o "$BOXTYPE" == "e4hdultra" -o "$BOXTYPE" == "protek4k" -o "$BOXTYPE" == "vs1500" -o "$BOXTYPE" == "vusolo4k" -o "$BOXTYPE" == "vuuno4k" -o "$BOXTYPE" == "vuuno4kse" -o "$BOXTYPE" == "vuzero4k" -o "$BOXTYPE" == "vuultimo4k" -o "$BOXTYPE" == "vuduo4k" -o "$BOXTYPE" == "dm900" -o "$BOXTYPE" == "dm920" -o "$BOXTYPE" == "sf4008" -o "$BOXTYPE" == "force3uhdplus" -o "$BOXTYPE" == "force3uhd" -o "$BOXTYPE" == "revo4k" -o "$BOXTYPE" == "tmtwin4k" -o "$BOXTYPE" == "galaxy4k" -o "$BOXTYPE" == "tm4ksuper" -o "$BOXTYPE" == "lunix34k" -o "$BOXTYPE" == "force4" -o "$BOXTYPE" == "lunix4k" -o "$BOXTYPE" == "gbquad4k" -o "$BOXTYPE" == "gbue4k" -o "$BOXTYPE" == "spycat4kmini" -o "$BOXTYPE" == "spycat4k" -o "$BOXTYPE" == "spycat4kcombo" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "h9" -o "$BOXTYPE" == "h9combo" -o "$BOXTYPE" == "h10" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$BOXTYPE" == "sf8008" -o "$BOXTYPE" == "sf8008m" -o "$BOXTYPE" == "hd60" -o "$BOXTYPE" == "hd61" -o "$BOXTYPE" == "i55plus" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXBRAND" == "maxytec" -o "$BOXTYPE" == "viper4k" -o "$BOXTYPE" == "beyonwizv2" -o "$BOXTYPE" == "gbtrio4k" -o "$BOXTYPE" == "gbip4k" -o "$BOXTYPE" == "gbx34k" -o "$BOXTYPE" == "odroidc2" -o "$BOXBRAND" == "rpi" -o "$BOXTYPE" == "beyonwizu4" -o "$BOXTYPE" == "bre2ze4k")
+AM_CONDITIONAL(HAVE_ARMV7AHF, test "$STBPLATFORM" == "gfuturesbcmarm" -o "$STBPLATFORM" == "8100s" -o "$STBPLATFORM" == "vu4kgen" -o "$STBPLATFORM" == "dm4kgen" -o "$BOXTYPE" == "sf4008" -o "$STBPLATFORM" == "dags7252" -o "$STBPLATFORM" == "gb7252" -o "$STBPLATFORM" == "4kspycat" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "zgemmahisi3798mv200" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$STBPLATFORM" == "octagonhisil" -o "$STBPLATFORM" == "gfutureshisil" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXBRAND" == "maxytec" -o "$BOXTYPE" == "viper4k" -o "$BOXTYPE" == "beyonwizv2" -o "$STBPLATFORM" == "gbmv200" -o "$BOXTYPE" == "gbx34k" -o "$BOXTYPE" == "odroidc2" -o "$BOXBRAND" == "rpi" -o "$BOXTYPE" == "beyonwizu4")
 
-AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay" -o "$BOXTYPE" == "dinoboth265" -o "$BOXTYPE" == "axashistwin" -o "$BOXTYPE" == "anadolprohd5" -o "$BOXTYPE" == "x8hp")
+AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay" -o "$STBPLATFORM" == "u41" -o "$STBPLATFORM" == "u42" -o "$BOXTYPE" == "x8hp")
 
 AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "wetekhub" -o "$BOXBRAND" == "linkdroid")
 
