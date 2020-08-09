@@ -15,7 +15,7 @@ from Components.MenuList import MenuList
 from Components.config import config, getConfigListEntry, ConfigInteger, ConfigSubsection, ConfigSelection, ConfigText, ConfigYesNo, NoSave, ConfigNothing
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
-from Components.About import about
+from boxbranding import getKernelVersion
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, fileExists
 from enigma import eTimer, eConsoleAppContainer, eSocketNotifier, getDesktop
 from select import POLLIN, POLLPRI
@@ -1065,7 +1065,7 @@ class ModemManager(Screen):
 		return lv_usb_items
 
 	def getUSBList(self):
-		kernel_ver = about.getKernelVersionString()
+		kernel_ver = getKernelVersion()
 		if kernel_ver <= "3.0.0":
 			cmd = "cat /proc/bus/usb/devices"
 		else:
