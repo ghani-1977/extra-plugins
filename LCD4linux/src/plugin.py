@@ -4446,14 +4446,14 @@ def InitWebIF():
 	L4log("WebIf-Init...")
 	i=20
 	if LCD4linux.WebIfInitDelay.value == True:
-		while len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/__init__.py*"))) == 0 and i > 0:
+		while len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/OpenWebif/__init__.pyo"))) == 0 and i > 0:
 			sleep(0.5)
 			i-=1
-	if i > 0 and len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/__init__.py*"))) > 0:
+	if i > 0 and len(glob.glob(resolveFilename(SCOPE_PLUGINS, "Extensions/OpenWebif/__init__.pyo"))) > 0:
 		if i<20:
 			L4log("WebIf-Wait %d s" % int((20-i)/2))
 			sleep(5)
-		from Plugins.Extensions.WebInterface.WebChilds.Toplevel import addExternalChild
+		from Plugins.Extensions.OpenWebif.WebChilds.Toplevel import addExternalChild
 		from twisted.web import static
 		from WebSite import LCD4linuxweb,LCD4linuxwebView
 		from WebConfigSite import LCD4linuxConfigweb
@@ -4463,22 +4463,11 @@ def InitWebIF():
 		root.putChild("view", LCD4linuxwebView())
 		root.putChild("config", LCD4linuxConfigweb())
 		root.putChild("data",static.File(Data[:-1]))
-		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/WebInterface/web/external.xml")):
-			try:
-				addExternalChild( ("lcd4linux", root, "LCD4linux", Version, True) )
-				L4log("use new WebIf")
-			except:
-				addExternalChild( ("lcd4linux", root) )
-				L4log("Error, fall back to old WebIf")
-		else:
-			addExternalChild( ("lcd4linux", root) )
-			L4log("use old WebIf")
-		if os.path.exists(resolveFilename(SCOPE_PLUGINS, "Extensions/OpenWebif/pluginshook.src")):
-			try:
-				addExternalChild( ("lcd4linux", root, "LCD4linux", Version) )
-				L4log("use OpenWebIf")
-			except:
-				pass
+		try:
+			addExternalChild( ("lcd4linux", root, "LCD4linux", Version) )
+			L4log("use OpenWebIf")
+		except:
+			pass
 	else:
 		L4log("no WebIf found")
 
