@@ -11,7 +11,7 @@ from Components.ActionMap import ActionMap
 from Components.config import config, configfile, ConfigSubsection, ConfigEnableDisable, getConfigListEntry, ConfigInteger, ConfigSelection, ConfigYesNo, ConfigSlider
 from Components.ConfigList import ConfigListScreen, ConfigList
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, getBoxType
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap
 from os import system
 from Plugins.Plugin import PluginDescriptor
 from Components.ServiceEventTracker import ServiceEventTracker
@@ -22,6 +22,7 @@ import Screens.Standby
 from enigma import pNavigation
 import Components.RecordingConfig
 from Components.Harddisk import harddiskmanager
+from boxbranding import getBoxType
 
 model = getBoxType()
 
@@ -124,20 +125,20 @@ def setLed(color):
 			value0 = 0
 			value1 = 0
 
+	if model in ("gb800se","gb800solo","gb800ue"):
+	   try:
+		  f = open(led0,"w")
+		  f.write(str(value0))
+		  f.close()
+	   except IOError:
+		  print("[LED-GIGA] set LED Pattern failed!")
 
-	try:
-		f = open(led0,"w")
-		f.write(str(value0))
-		f.close()
-	except IOError:
-		print("[LED-GIGA] set LED Pattern failed!")
-
-	try:
-		f = open(led1,"w")
-		f.write(str(value1))
-		f.close()
-	except IOError:
-		print("[LED-GIGA] set LED Pattern failed!")
+	   try:
+		  f = open(led1,"w")
+		  f.write(str(value1))
+		  f.close()
+	   except IOError:
+		  print("[LED-GIGA] set LED Pattern failed!")
 
 class Channelnumber:
 
