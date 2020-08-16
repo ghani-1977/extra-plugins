@@ -66,7 +66,7 @@ def vfd_write(text):
 def setvfdBrightness(value):
 	if model == "gbtrio4k":
 		value *= 255
-		value /= 10
+		value = 10
 		if value > 255:
 			value = 255
 	try:
