@@ -70,17 +70,13 @@ def setvfdBrightness(value):
 		if value > 255:
 			value = 255
 	try:
-		f = open("/proc/stb/fp/oled_brightness", "w")
-		f.write(str(value))
-		f.close()
+		open("/proc/stb/fp/oled_brightness", "w").write(str(value))
 	except IOError:
 		print("[LED-GIGA] vfdBrightness failed!")
 
 def setvfdDSBY2(value):
 	try:
-		f = open("/proc/stb/fp/enable_led", "w")
-		f.write(str(value))
-		f.close()
+		open("/proc/stb/fp/enable_led", "w").write(str(value))
 	except IOError:
 		print("[LED-GIGA] vfdDSBY2 failed!")
 
@@ -127,16 +123,12 @@ def setLed(color):
 
 	if model in ("gb800se","gb800solo","gb800ue"):
 	   try:
-		  f = open(led0,"w")
-		  f.write(str(value0))
-		  f.close()
+		  open(led0,"w").write(str(value0))
 	   except IOError:
 		  print("[LED-GIGA] set LED Pattern failed!")
 
 	   try:
-		  f = open(led1,"w")
-		  f.write(str(value1))
-		  f.close()
+		  open(led1,"w").write(str(value1))
 	   except IOError:
 		  print("[LED-GIGA] set LED Pattern failed!")
 
