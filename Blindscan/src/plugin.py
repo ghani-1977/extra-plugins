@@ -202,8 +202,7 @@ class BlindscanState(Screen, ConfigListScreen):
 class Blindscan(ConfigListScreen, Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
-		self.setup_title = _("Blindscan")
-		Screen.setTitle(self, _(self.setup_title))
+		Screen.setTitle(self, _("Blindscan"))
 		self.skinName = ["BlindscanScreen", "Blindscan", "Setup"]
 		self.session.postScanService = self.session.nav.getCurrentlyPlayingServiceReference()
 
