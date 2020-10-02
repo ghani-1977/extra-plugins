@@ -20,7 +20,7 @@ platform = getMachineBuild()
 def getRcuDefaultType():
 	if model == "vuultimo4k":
 		return "type5"
-	elif model in ("vuuno4kse","vuzero4k","vuduo4k"):
+	elif model in ("vuuno4kse","vuzero4k","vuduo4k","vuduo4kse"):
 		return "type6"
 	return "legacy"
 

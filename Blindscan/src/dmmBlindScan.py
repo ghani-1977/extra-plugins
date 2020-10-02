@@ -770,7 +770,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			lnbnum = int(currSat.lnb.getValue())
 			currLnb = nimconfig.advanced.lnb[lnbnum]
 			lof = currLnb.lof.getValue()
-			print "[Blindscan][isLNB] LNB type: ", lof
+			print("[Blindscan][isLNB] LNB type: ", lof)
 			if lof == "c_band":
 				self.is_c_band_scan = True
 
@@ -942,7 +942,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		xml.append('	File created on %s\n' % (strftime("%A, %d of %B %Y, %H:%M:%S")))
 		try:
 			xml.append('	using %s receiver running Enigma2 image, version %s,\n' % (boxtype, about.getEnigmaVersionString()))
-			xml.append('	image %s, with the Blind scan plugin\n\n' % (about.getImageTypeString()))
 		except:
 			xml.append('	using %s receiver running Enigma2 image (%s), with the blind scan plugin\n\n' % (boxtype, tuner))
 		xml.append('-->\n\n')
