@@ -54,19 +54,19 @@ def getChannelNumber(frequency, descr):
 	if descr in ("uhf", "uhf_vhf"):
 		if 174 < f < 230: 	# III
 			d = (f + 1) % 7
-			return str(int(f - 174)/7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
+			return str(int(f - 174)//7 + 5) + (d < 3 and "-" or d > 4 and "+" or "")
 		elif 470 <= f < 863: 	# IV,V
 			d = (f + 2) % 8
-			return str(int(f - 470) / 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
+			return str(int(f - 470) // 8 + 21) + (d < 3.5 and "-" or d > 4.5 and "+" or "")
 	elif descr == "australia":
 		if 174 < f < 202:	 # III: CH6-CH9
-			return str(int(f - 174) / 7 + 6)
+			return str(int(f - 174) // 7 + 6)
 		elif 202 <= f < 209:	 # III: CH9A
 			return "9A"
 		elif 209 <= f < 230:	 # III: CH10-CH12
-			return str(int(f - 209) / 7 + 10)
+			return str(int(f - 209) // 7 + 10)
 		elif 526 < f < 820:	 # IV, V: CH28-CH69
-			return str(int(f - 526) / 7 + 28)
+			return str(int(f - 526) // 7 + 28)
 	return ""
 
 class TerrestrialScan(Screen):
@@ -177,11 +177,11 @@ class TerrestrialScan(Screen):
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
-			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency/1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
+			self["action"].setText(_("Tuning %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
 			self["status"].setText((len(self.transponders_unique) == 1 and _("Found %d unique transponder") or _("Found %d unique transponders")) % len(self.transponders_unique))
 			self.index += 1
 			if self.frequency in self.transponders_found or self.system == eDVBFrontendParametersTerrestrial.System_DVB_T2 and self.isT2tuner == False:
-				print("[TerrestrialScan][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency/1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
+				print("[TerrestrialScan][Search] Skipping T2 search of %s MHz (ch %s)" % (str(self.frequency//1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
 				self.search()
 				return
 			self.searchtimer = eTimer()
@@ -305,7 +305,7 @@ class TerrestrialScan(Screen):
 					self.showError(_('Cannot get the NIM'))
 					return
 
-		print("[TerrestrialScan][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout/10))
+		print("[TerrestrialScan][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10))
 
 		self.selectedNIM = current_slotid # Remember for next iteration
 
@@ -343,7 +343,7 @@ class TerrestrialScan(Screen):
 				print("[TerrestrialScan][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
 			print("[TerrestrialScan][checkTunerLock] LOCKED")
-			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency/1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
+			self["action"].setText(_("Reading %s MHz (ch %s)") % (str(self.frequency//1000000), getChannelNumber(self.frequency, self.uhf_vhf)))
 			self.tsidOnidtimer = eTimer()
 			self.tsidOnidtimer.callback.append(self.tsidOnidWait)
 			self.tsidOnidtimer.start(100, 1)

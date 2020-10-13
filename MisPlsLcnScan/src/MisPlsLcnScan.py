@@ -108,7 +108,7 @@ class MisPlsLcnScan(Screen):
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
-			self["action"].setText(_("Tuning %s MHz, IS %s") % (str(self.transpondercurrent.frequency/1000), str(self.transpondercurrent.is_id)))
+			self["action"].setText(_("Tuning %s MHz, IS %s") % (str(self.transpondercurrent.frequency//1000), str(self.transpondercurrent.is_id)))
 			self["status"].setText((len(self.transponders_correct_onid) == 1 and _("Found %d transponder") or _("Found %d transponders")) % len(self.transponders_correct_onid))
 			self.index += 1
 			self.searchtimer = eTimer()
@@ -258,10 +258,10 @@ class MisPlsLcnScan(Screen):
 		if self.isRotorSat(current_slotid, self.transpondercurrent.orbital_position):
 			self.motorised = True
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_ROTOR
-			print("[MisPlsLcnScan][getFrontend] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10))
+			print("[MisPlsLcnScan][getFrontend] Motorised dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10))
 		else:
 			self.LOCK_TIMEOUT = self.LOCK_TIMEOUT_FIXED
-			print("[MisPlsLcnScan][getFrontend] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT/10))
+			print("[MisPlsLcnScan][getFrontend] Fixed dish. Will wait up to %i seconds for tuner lock." % (self.LOCK_TIMEOUT//10))
 
 		self.selectedNIM = current_slotid  # Remember for downloading SI tables
 		
@@ -481,7 +481,7 @@ class MisPlsLcnScan(Screen):
 
 		namespace = self.transpondercurrent.orbital_position << 16
 		if self.namespace_complete:
-			namespace |= ((self.transpondercurrent.frequency / 1000) & 0xFFFF) | ((self.transpondercurrent.polarisation & 1) << 15)
+			namespace |= ((self.transpondercurrent.frequency // 1000) & 0xFFFF) | ((self.transpondercurrent.polarisation & 1) << 15)
 		namespacekey = "%x:%x" % (self.tsid, self.onid)
 		self.namespace_dict[namespacekey] = namespace
 

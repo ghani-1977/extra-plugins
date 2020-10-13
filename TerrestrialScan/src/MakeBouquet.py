@@ -123,7 +123,7 @@ class MakeBouquet(Screen):
 			self.progresscurrent = self.index
 			self["progress_text"].value = self.progresscurrent
 			self["progress"].setValue(self.progresscurrent)
-			self["action"].setText(_("Tuning %s MHz") % str(self.transponder["frequency"]/1000000))
+			self["action"].setText(_("Tuning %s MHz") % str(self.transponder["frequency"]//1000000))
 			self["status"].setText(_("TSID: %d, ONID: %d") % (self.transponder["tsid"], self.transponder["onid"]))
 			self.index += 1
 			self.searchtimer = eTimer()
@@ -160,7 +160,7 @@ class MakeBouquet(Screen):
 			self.showError(_('Cannot get the NIM'))
 			return
 
-		print("[MakeBouquet][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout/10))
+		print("[MakeBouquet][getFrontend] Will wait up to %i seconds for tuner lock." % (self.lockTimeout//10))
 
 		self["tuner_text"].setText(chr(ord('A') + self.selectedNIM))
 
@@ -191,7 +191,7 @@ class MakeBouquet(Screen):
 				print("[MakeBouquet][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
 			print("[MakeBouquet][checkTunerLock] TUNER LOCKED")
-			self["action"].setText(_("Reading SI tables on %s MHz") % str(self.transponder["frequency"]/1000000))
+			self["action"].setText(_("Reading SI tables on %s MHz") % str(self.transponder["frequency"]//1000000))
 			#self["status"].setText(_("???"))
 
 			self.readTransponderCounter = 0
@@ -360,7 +360,7 @@ class MakeBouquet(Screen):
 				self.transponder["system"] = eDVBFrontendParametersTerrestrial.System_DVB_T2
 
 			if "frequency" in transponders[0] and abs((transponders[0]["frequency"]*10) - self.transponder["frequency"]) < 1000000 and self.transponder["frequency"] != transponders[0]["frequency"]*10:
-				print("[MakeBouquet][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.transponder["frequency"]/1000000, transponders[0]["frequency"]/100000))
+				print("[MakeBouquet][readNIT] updating transponder frequency from %.03f MHz to %.03f MHz" % (self.transponder["frequency"]//1000000, transponders[0]["frequency"]//100000))
 				self.transponder["frequency"] = transponders[0]["frequency"]*10
 
 		# LCNs = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] == self.lcndescriptor and t["original_network_id"] == self.transponder["onid"]]
@@ -380,7 +380,7 @@ class MakeBouquet(Screen):
 
 		namespace = 0xEEEE0000
 		if self.namespace_complete_terrestrial:
-			namespace |= (self.transponder['frequency']/1000000)&0xFFFF
+			namespace |= (self.transponder['frequency']//1000000)&0xFFFF
 		namespacekey = "%x:%x" % (self.transponder["tsid"], self.transponder["onid"])
 		self.namespace_dict[namespacekey] = namespace
 
