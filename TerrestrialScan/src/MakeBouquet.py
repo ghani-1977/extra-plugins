@@ -93,7 +93,7 @@ class MakeBouquet(Screen):
 			if "channel_list_id" in args:
 				self.channel_list_id = args["channel_list_id"]
 
-		self.tsidOnidKeys = self.transponders_unique.keys()
+		self.tsidOnidKeys = list(self.transponders_unique.keys())
 		self.index = 0
 		self.lockTimeout = 50 	# 100ms for tick - 5 sec
 
@@ -132,7 +132,8 @@ class MakeBouquet(Screen):
 		else:
 			if len(self.transponders_unique) > 0:
 				self.corelate_data()
-				if self.makexmlfile:
+				self.solveDuplicates()
+				if config.plugins.TerrestrialScan.uhf_vhf.value != "xml" and self.makexmlfile:
 					self.createTerrestrialXml()
 				if self.makebouquet and len(self.services_dict) > 0:
 					self.createBouquet()
@@ -172,7 +173,7 @@ class MakeBouquet(Screen):
 
 		self.demuxer_id = self.rawchannel.reserveDemux()
 		if self.demuxer_id < 0:
-			print>>log, "[MakeBouquet][getFrontend] Cannot allocate the demuxer"
+			print("[MakeBouquet][getFrontend] Cannot allocate the demuxer")
 			self.showError(_('Cannot allocate the demuxer'))
 			return
 
@@ -287,6 +288,7 @@ class MakeBouquet(Screen):
 				continue
 
 			servicekey = "%x:%x:%x" % (service["transport_stream_id"], service["original_network_id"], service["service_id"])
+			service["signalQuality"] = self.transponder["signalQuality"] # Used for sorting of duplicate LCNs
 			self.tmp_services_dict[servicekey] = service
 
 	def readNIT(self):
@@ -385,23 +387,45 @@ class MakeBouquet(Screen):
 		self.namespace_dict[namespacekey] = namespace
 
 	def createBouquet(self):
-		bouquetIndexContent = self.readBouquetIndex()
-		if '"' + self.bouquetFilename + '"' not in bouquetIndexContent: # only edit the index if bouquet file is not present
-			self.writeBouquetIndex(bouquetIndexContent)
-		self.writeBouquet()
+		for tv_radio in ("tv", "radio"):
+			radio_services = [x for x in self.services_dict.values() if x["service_type"] in self.AUDIO_ALLOWED_TYPES]
+			if tv_radio == "radio" and (not radio_services or not config.plugins.TerrestrialScan.makeradiobouquet.value):
+				break
+			self.tv_radio = tv_radio
+			bouquetIndexContent = self.readBouquetIndex()
+			if '"' + self.bouquetFilename[:-2] + tv_radio + '"' not in bouquetIndexContent: # only edit the index if bouquet file is not present
+				self.writeBouquetIndex(bouquetIndexContent)
+			self.writeBouquet()
 
 		eDVBDB.getInstance().reloadBouquets()
 
 	def corelate_data(self):
-		servicekeys = self.tmp_services_dict.keys()
+		servicekeys = self.iterateServicesBySNR(self.tmp_services_dict)
+		self.duplicates = []
 		for servicekey in servicekeys:
-			if servicekey in self.logical_channel_number_dict and self.logical_channel_number_dict[servicekey]["logical_channel_number"] not in self.services_dict:
+			if servicekey in self.logical_channel_number_dict:
 				self.tmp_services_dict[servicekey]["logical_channel_number"] = self.logical_channel_number_dict[servicekey]["logical_channel_number"]
-				self.services_dict[self.logical_channel_number_dict[servicekey]["logical_channel_number"]] = self.tmp_services_dict[servicekey]
+				if self.logical_channel_number_dict[servicekey]["logical_channel_number"] not in self.services_dict:
+					self.services_dict[self.logical_channel_number_dict[servicekey]["logical_channel_number"]] = self.tmp_services_dict[servicekey]
+				else:
+					self.duplicates.append(self.tmp_services_dict[servicekey])
+
+	def solveDuplicates(self):
+		if config.plugins.TerrestrialScan.uhf_vhf.value == "australia":
+			vacant = [i for i in range(350,400) if i not in self.services_dict]
+			for duplicate in self.duplicates:
+				if not vacant: # not slots available
+					break
+				self.services_dict[vacant.pop(0)] = duplicate
+
+	def iterateServicesBySNR(self, servicesDict):
+		# return a key list of services sorted by signal quality descending
+		sort_list = [(k,s["signalQuality"]) for k,s in servicesDict.items()]
+		return [x[0] for x in sorted(sort_list, key=lambda  listItem: listItem[1], reverse=True)]
 
 	def readBouquetIndex(self):
 		try:
-			bouquets = open(self.path + "/" + self.bouquetsIndexFilename, "r")
+			bouquets = open(self.path + "/%s%s" % (self.bouquetsIndexFilename[:-2], self.tv_radio), "r")
 		except Exception as e:
 			return ""
 		content = bouquets.read()
@@ -409,34 +433,37 @@ class MakeBouquet(Screen):
 		return content
 
 	def writeBouquetIndex(self, bouquetIndexContent):
-		bouquets_tv_list = []
-		bouquets_tv_list.append("#NAME Bouquets (TV)\n")
-		bouquets_tv_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s\" ORDER BY bouquet\n" % self.bouquetFilename)
+		bouquets_index_list = []
+		bouquets_index_list.append("#NAME Bouquets (%s)\n" % ("TV" if self.tv_radio == "tv" else "Radio"))
+		bouquets_index_list.append("#SERVICE 1:7:1:0:0:0:0:0:0:0:FROM BOUQUET \"%s%s\" ORDER BY bouquet\n" % (self.bouquetFilename[:-2], self.tv_radio))
 		if bouquetIndexContent:
 			lines = bouquetIndexContent.split("\n", 1)
 			if lines[0][:6] != "#NAME ":
-				bouquets_tv_list.append("%s\n" % lines[0])
+				bouquets_index_list.append("%s\n" % lines[0])
 			if len(lines) > 1:
-				bouquets_tv_list.append("%s" % lines[1])
+				bouquets_index_list.append("%s" % lines[1])
 
-		bouquets_tv = open(self.path + "/" + self.bouquetsIndexFilename, "w")
-		bouquets_tv.write(''.join(bouquets_tv_list))
-		bouquets_tv.close()
-		del bouquets_tv_list
+		bouquets_index = open(self.path + "/" + self.bouquetsIndexFilename[:-2] + self.tv_radio, "w")
+		bouquets_index.write(''.join(bouquets_index_list))
+		bouquets_index.close()
+		del bouquets_index_list
 
 	def writeBouquet(self):
+		allowed_service_types = not config.plugins.TerrestrialScan.makeradiobouquet.value and self.VIDEO_ALLOWED_TYPES + self.AUDIO_ALLOWED_TYPES or\
+					self.tv_radio == "tv" and self.VIDEO_ALLOWED_TYPES or\
+					self.tv_radio == "radio" and self.AUDIO_ALLOWED_TYPES
 		bouquet_list = []
 		bouquet_list.append("#NAME %s\n" % self.bouquetName)
 
 		numbers = range(1, 1001)
 		for number in numbers:
-			if number in self.services_dict:
+			if number in self.services_dict and self.services_dict[number]["service_type"] in allowed_service_types:
 				bouquet_list.append(self.bouquetServiceLine(self.services_dict[number]))
 			else:
 				bouquet_list.append("#SERVICE 1:832:d:0:0:0:0:0:0:0:\n")
 				bouquet_list.append("#DESCRIPTION  \n")
 
-		bouquetFile = open(self.path + "/" + self.bouquetFilename, "w")
+		bouquetFile = open(self.path + "/" + self.bouquetFilename[:-2] + self.tv_radio, "w")
 		bouquetFile.write(''.join(bouquet_list))
 		bouquetFile.close()
 		del bouquet_list

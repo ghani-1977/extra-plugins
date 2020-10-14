@@ -275,7 +275,7 @@ class MisPlsLcnScan(Screen):
 
 		self.demuxer_id = self.rawchannel.reserveDemux()
 		if self.demuxer_id < 0:
-			print("[ABM-main][doTune] Cannot allocate the demuxer.")
+			print("[MisPlsLcnScan][getFrontend] Cannot allocate the demuxer.")
 			self.showError(_('Cannot allocate the demuxer.'))
 			return
 
@@ -300,10 +300,10 @@ class MisPlsLcnScan(Screen):
 		self.frontend.getFrontendStatus(self.dict)
 		if self.dict["tuner_state"] == "TUNING":
 			if self.lockcounter < 1: # only show this once in the log per retune event
-				print("[MakeBouquet][checkTunerLock] TUNING")
+				print("[MisPlsLcnScan][checkTunerLock] TUNING")
 		elif self.dict["tuner_state"] == "LOCKED":
-			print("[MakeBouquet][checkTunerLock] TUNER LOCKED")
-			self["action"].setText(_("Reading SI tables on %s MHz, IS %s") % (str(self.transpondercurrent.frequency/1000), str(self.transpondercurrent.is_id)))
+			print("[MisPlsLcnScan][checkTunerLock] TUNER LOCKED")
+			self["action"].setText(_("Reading SI tables on %s MHz, IS %s") % (str(self.transpondercurrent.frequency//1000), str(self.transpondercurrent.is_id)))
 			#self["status"].setText(_("???"))
 
 			self.readTransponderCounter = 0
@@ -312,13 +312,13 @@ class MisPlsLcnScan(Screen):
 			self.readTranspondertimer.start(100, 1)
 			return
 		elif self.dict["tuner_state"] in ("LOSTLOCK", "FAILED"):
-			print("[MakeBouquet][checkTunerLock] TUNING FAILED")
+			print("[MisPlsLcnScan][checkTunerLock] TUNING FAILED")
 			self.readStreams()
 			return
 
 		self.lockcounter += 1
 		if self.lockcounter > self.LOCK_TIMEOUT:
-			print("[MakeBouquet][checkTunerLock] Timeout for tuner lock")
+			print("[MisPlsLcnScan][checkTunerLock] Timeout for tuner lock")
 			self.readStreams()
 			return
 		self.locktimer.start(100, 1)
@@ -427,7 +427,7 @@ class MisPlsLcnScan(Screen):
 
 		fd = dvbreader.open(demuxer_device, nit_current_pid, nit_current_table_id, mask, self.selectedNIM)
 		if fd < 0:
-			print("[MakeBouquet][readNIT] Cannot open the demuxer")
+			print("[MisPlsLcnScan][readNIT] Cannot open the demuxer")
 			return
 
 		timeout = datetime.datetime.now()
@@ -435,7 +435,7 @@ class MisPlsLcnScan(Screen):
 
 		while True:
 			if datetime.datetime.now() > timeout:
-				print("[MakeBouquet][readNIT] Timed out reading NIT")
+				print("[MisPlsLcnScan][readNIT] Timed out reading NIT")
 				break
 
 			section = dvbreader.read_nit(fd, nit_current_table_id, nit_other_table_id)
@@ -463,11 +463,11 @@ class MisPlsLcnScan(Screen):
 		dvbreader.close(fd)
 
 		if not nit_current_content:
-			print("[MakeBouquet][readNIT] current transponder not found")
+			print("[MisPlsLcnScan][readNIT] current transponder not found")
 			return
 
 		LCNs = [t for t in nit_current_content if "descriptor_tag" in t and t["descriptor_tag"] == 0x83 and t["original_network_id"] in PROVIDERS[config.plugins.MisPlsLcnScan.provider.value]["onids"]]
-		print("[MakeBouquet][readNIT] LCNs", LCNs)
+		print("[MisPlsLcnScan][readNIT] LCNs", LCNs)
 		if LCNs:
 			for LCN in LCNs:
 				LCNkey = "%x:%x:%x" % (LCN["transport_stream_id"], LCN["original_network_id"], LCN["service_id"])
@@ -486,7 +486,7 @@ class MisPlsLcnScan(Screen):
 		self.namespace_dict[namespacekey] = namespace
 
 	def corelate_data(self):
-		servicekeys = self.tmp_services_dict.keys()
+		servicekeys = list(self.tmp_services_dict.keys())
 		for servicekey in servicekeys:
 			if servicekey in self.logical_channel_number_dict and (self.logical_channel_number_dict[servicekey]["logical_channel_number"] not in self.services_dict or \
 				"priority" in PROVIDERS[config.plugins.MisPlsLcnScan.provider.value] and servicekey in PROVIDERS[config.plugins.MisPlsLcnScan.provider.value]["priority"]): # this line decides who wins if an LCN maps to more than one service

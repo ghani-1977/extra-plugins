@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 21:14+0430\n"
+"POT-Creation-Date: 2020-10-15 00:04+0330\n"
 "PO-Revision-Date: 2018-10-14 22:29+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: none\n"
@@ -18,13 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 2.2\n"
 
-msgid "Australia"
+msgid "All"
+msgstr ""
+
+msgid "Australia generic"
 msgstr ""
 
 msgid "Automatic"
 msgstr "Automatisch"
 
-msgid "Band"
+#, fuzzy
+msgid "Bandplan"
 msgstr "Band"
 
 msgid "Cannot allocate the demuxer"
@@ -47,6 +51,13 @@ msgstr ""
 
 msgid "Clear before scan"
 msgstr "Vor dem Suchlauf löschen"
+
+msgid "Country"
+msgstr ""
+
+#, fuzzy
+msgid "Create separate radio bouquet"
+msgstr "Terrestrisches Kanalliste erstellen"
 
 msgid "Create terrestrial bouquet"
 msgstr "Terrestrisches Kanalliste erstellen"
@@ -72,11 +83,17 @@ msgstr "%d gefundene eindeutige Transponder"
 msgid "Found %d unique transponders"
 msgstr "%d gefundene eindeutige Transponder"
 
+msgid "From XML"
+msgstr ""
+
 msgid "If you select \"yes\" all stored terrestrial channels will be deleted before starting the current search."
 msgstr "Wenn Sie \"Ja\" auswählen werden alle gespeicherten terrestrischen Kanäle vor dem Suchlauf gelöscht."
 
 msgid "If you select \"yes\" and LCNs are found in the NIT, the scan will create a bouquet of terrestrial channels in LCN order and add it to the bouquet list."
 msgstr "Wenn Sie \"Ja\" wählen und LCNs im NIT gefunden werden, wird der Scan einen Liste von terrestrischen Kanälen in LCN Reihenfolge erstellen und in die Kanalliste aufgenommen."
+
+msgid "If you select \"yes\" and radio services are fond these will be place in a separate bouquet. Otherwise TV and radio services will be placed in a combined bouquet."
+msgstr ""
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr ""
@@ -92,7 +109,8 @@ msgstr "Kanalliste erstellen"
 msgid "Making bouquet..."
 msgstr "Kanalliste erstellen..."
 
-msgid "Most transmitters in European countries only have TV channels in the UHF band."
+#, fuzzy
+msgid "Most transmitters in European countries only have TV channels in the UHF band. Select \"From XML\" to access bandplans that are preloaded on the device."
 msgstr "Die meisten Sender in den europäischen Ländern haben nur TV-Kanäle im UHF-Band."
 
 msgid "No frequencies to search"
@@ -131,6 +149,9 @@ msgstr "Lese Streams"
 msgid "Really close without saving settings?"
 msgstr "Wirklich beenden ohne zu speichern?"
 
+msgid "Region"
+msgstr ""
+
 msgid "Restrict search to single ONID"
 msgstr "Suche auf Single ONID beschränken"
 
@@ -152,6 +173,12 @@ msgstr ""
 "\"Automatisch\", den Tuner mit dem besten Empfangssignal wählen."
 
 msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
+msgid "Select your country. If not available select 'all'."
+msgstr ""
+
+msgid "Select your region. If not available change 'Country' to 'all' and select one of the default alternatives."
 msgstr ""
 
 msgid "Selected tuner is not cofigured"

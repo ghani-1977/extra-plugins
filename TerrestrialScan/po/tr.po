@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"POT-Creation-Date: 2020-10-15 00:04+0330\n"
 "PO-Revision-Date: 2020-03-31 18:40+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,13 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Australia"
+msgid "All"
+msgstr ""
+
+msgid "Australia generic"
 msgstr ""
 
 msgid "Automatic"
 msgstr "Otomatik"
 
-msgid "Band"
+#, fuzzy
+msgid "Bandplan"
 msgstr "Frekans Bandı"
 
 msgid "Cannot allocate the demuxer"
@@ -46,6 +50,13 @@ msgstr ""
 
 msgid "Clear before scan"
 msgstr "Taramadan önce temizle"
+
+msgid "Country"
+msgstr ""
+
+#, fuzzy
+msgid "Create separate radio bouquet"
+msgstr "Karasal buket oluşturun"
 
 msgid "Create terrestrial bouquet"
 msgstr "Karasal buket oluşturun"
@@ -71,11 +82,17 @@ msgstr ""
 msgid "Found %d unique transponders"
 msgstr "Aktif Transponderleri tarama"
 
+msgid "From XML"
+msgstr ""
+
 msgid "If you select \"yes\" all stored terrestrial channels will be deleted before starting the current search."
 msgstr "\"Evet\" seçeneğini seçerseniz, kayıtlı aramaya başlamadan önce kayıtlı tüm karasal kanallar silinecektir."
 
 msgid "If you select \"yes\" and LCNs are found in the NIT, the scan will create a bouquet of terrestrial channels in LCN order and add it to the bouquet list."
 msgstr "\"Evet\" seçeneğini belirlerseniz ve NIT'de LCN'ler bulunursa, tarama LCN sırasına göre karasal kanallardan oluşan bir buket oluşturur ve buket listesine ekler."
+
+msgid "If you select \"yes\" and radio services are fond these will be place in a separate bouquet. Otherwise TV and radio services will be placed in a combined bouquet."
+msgstr ""
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "\"Evet\" seçeneğini belirlerseniz tarama yalnızca şifrelenmemiş kanalları kaydeder; \"hayır\" şifreli ve şifresiz kanalları bulur."
@@ -89,7 +106,8 @@ msgstr "Buket Yap"
 msgid "Making bouquet..."
 msgstr "Buket yapılıyor..."
 
-msgid "Most transmitters in European countries only have TV channels in the UHF band."
+#, fuzzy
+msgid "Most transmitters in European countries only have TV channels in the UHF band. Select \"From XML\" to access bandplans that are preloaded on the device."
 msgstr "Avrupa ülkelerindeki çoğu vericinin UHF bandında sadece TV kanalları vardır."
 
 msgid "No frequencies to search"
@@ -128,6 +146,9 @@ msgstr "Stream okuma"
 msgid "Really close without saving settings?"
 msgstr "Ayarları kaydetmeden gerçekten kapansınmı?"
 
+msgid "Region"
+msgstr ""
+
 msgid "Restrict search to single ONID"
 msgstr "Aramayı tek bir ONID ile kısıtla"
 
@@ -147,6 +168,12 @@ msgid "Select a tuner that is configured for terrestrial scans. \"Automatic\" wi
 msgstr "Karasal taramalar için yapılandırılmış bir alıcı seçin. \"Otomatik\" en yüksek özellikli tuneri seçecektir."
 
 msgid "Select the LCN descriptor used in your area. 0x83 is the default DVB standard descriptor. 0x87 is used in some Scandinavian countries."
+msgstr ""
+
+msgid "Select your country. If not available select 'all'."
+msgstr ""
+
+msgid "Select your region. If not available change 'Country' to 'all' and select one of the default alternatives."
 msgstr ""
 
 msgid "Selected tuner is not cofigured"
