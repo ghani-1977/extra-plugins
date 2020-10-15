@@ -3,9 +3,7 @@
 from __future__ import print_function
 # for localized messages
 from . import _
-
 import urllib2
-
 from Components.ActionMap import ActionMap
 from Components.config import ConfigSelection, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
@@ -25,9 +23,8 @@ class xmlUpdate(ConfigListScreen, Screen):
 		self.session = session
 		ConfigListScreen.__init__(self, [], session = session)
 
-		self.url = "https://raw.githubusercontent.com/oe-alliance/oe-alliance-tuxbox-common/master/src/%s.xml"
-		self.source = ConfigSelection(default="OE-Alliance", choices=[("OE-Alliance", _("OE-Alliance"))])
-		self.DVBtype = ConfigSelection(default="satellites", choices=[("satellites", _("satellite")), ("cables", _("cable")), ("terrestrial", _("terrestrial"))])
+		self.url = "https://raw.githubusercontent.com/OpenVisionE2/openvision-xml/xml/satellites-%s.xml"
+		self.Satellitestype = ConfigSelection(default="europe", choices=[("america", _("America")), ("asia", _("Asia")), ("atlantic", _("Atlantic")), ("europe", _("Europe"))])
 		self.folder = ConfigSelection(default="/etc/tuxbox", choices=[("/etc/tuxbox", _("/etc/tuxbox (default)")), ("/etc/enigma2", _("/etc/enigma2"))])
 		
 		self["actions"] = ActionMap(["SetupActions"],
@@ -55,8 +52,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 	def createSetup(self):
 		self.list = []
 
-		self.list.append(getConfigListEntry(_("Source"), self.source, _('Online source where the transponder xml file is being retrieved from.')))
-		self.list.append(getConfigListEntry(_("Fetch"), self.DVBtype, _('File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml.')))
+		self.list.append(getConfigListEntry(_("Fetch"), self.Satellitestype, _('File being updated, i.e. satellites.xml')))
 		self.list.append(getConfigListEntry(_("Save to"), self.folder, _('Folder where the downloaded file will be saved. "/etc/tuxbox" is the default location. Files stored in "/etc/enigma2" override the default file and are not updated on a software update.')))
 
 		self["config"].list = self.list
@@ -67,26 +63,26 @@ class xmlUpdate(ConfigListScreen, Screen):
 		if XMLdata:
 			if self.validXML(XMLdata):
 				try:
-					with open(self.folder.value + "/" + self.DVBtype.value + ".xml", "w") as f:
+					with open(self.folder.value + "/satellites" + ".xml", "w") as f:
 						f.write(XMLdata)
 						f.close()
 				except IOError as err:
 					print("[xmlUpdate][keyGo] Saving file failed.", err)
-					self.showError(_("Saving the %s.xml file failed") % self.DVBtype.value)
+					self.showError(_("Saving the %s.xml file failed") % self.Satellitestype.value)
 				else:
 					print("[xmlUpdate][keyGo] Saving file succeeded.")
-					self.showRestartMessage(_("Fetching and saving %s.xml succeeded.\nRestart now for changes to take immediate effect?") % self.DVBtype.value)
+					self.showRestartMessage(_("Fetching and saving %s.xml succeeded.\nRestart now for changes to take immediate effect?") % self.Satellitestype.value)
 			else: # XML did not validate
 				print("[xmlUpdate][validXML] Closing documentElement missing.")
-				self.showError(_("The %s.xml download was corrupt.") % self.DVBtype.value)
+				self.showError(_("The %s.xml download was corrupt.") % self.Satellitestype.value)
 
 	def keyCancel(self):
 		self.close()
 
 	def fetchURL(self):
 		try:
-			print('[xmlUpdate][fetchURL] URL', self.url % self.DVBtype.value)
-			req = urllib2.Request(self.url % self.DVBtype.value)
+			print('[xmlUpdate][fetchURL] URL', self.url % self.Satellitestype.value)
+			req = urllib2.Request(self.url % self.Satellitestype.value)
 			response = urllib2.urlopen(req)
 			print('[xmlUpdate][fetchURL] Response: %d' % response.getcode())
 			if int(response.getcode()) == 200:
@@ -100,10 +96,10 @@ class xmlUpdate(ConfigListScreen, Screen):
 		except:
 			import sys
 			print('[xmlUpdate][fetchURL] undefined error', sys.exc_info()[0])
-		self.showError(_("The %s.xml file could not be fetched") % self.DVBtype.value)
+		self.showError(_("The %s.xml file could not be fetched") % self.Satellitestype.value)
 
-	def validXML(self, XMLdata): # Looks for closing documentElement, i.e. </satellites>, </cables>, or </locations>
-		return self.DVBtype.value in ('satellites', 'cables') and ("</%s>" % self.DVBtype.value) in XMLdata or self.DVBtype.value == "terrestrial" and "</locations>" in XMLdata
+	def validXML(self, XMLdata): # Looks for closing documentElement, i.e. </satellites>, or </locations>
+		return self.Satellitestype.value in ('america', 'asia', 'atlantic', 'europe') and ("</%s>" % self.Satellitestype.value) in XMLdata
 
 	def showError(self, message):
 		mbox = self.session.open(MessageBox, message, MessageBox.TYPE_ERROR)
@@ -127,5 +123,5 @@ def xmlUpdateMain(session, **kwargs):
 
 def Plugins(**kwargs):
 	pList = []
-	pList.append( PluginDescriptor(name=_("XML update"), description="For undating transponder xml files", where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=xmlUpdateStart) )
+	pList.append( PluginDescriptor(name=_("XML update for Open Vision"), description="For undating satellites xml files", where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=xmlUpdateStart) )
 	return pList
