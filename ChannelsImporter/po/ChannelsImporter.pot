@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 00:04+0330\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,82 +132,4 @@ msgid "Starting importer..."
 msgstr ""
 
 msgid "epg.dat not found"
-msgstr ""
-
-msgid "'yes' and remote fallback tuner will be automatically configured to stream from the remote receiver. 'no' and fallback will not be edited."
-msgstr ""
-
-msgid "Allows you to set a schedule to perform an import."
-msgstr ""
-
-msgid "Auto configure remote fallback tuner"
-msgstr ""
-
-msgid "FTP Password"
-msgstr ""
-
-msgid "FTP Port"
-msgstr ""
-
-msgid "FTP Username"
-msgstr ""
-
-msgid "FTP password of the remote receiver the channel list is being imported from."
-msgstr ""
-
-msgid "FTP port of the remote receiver the channel list is being imported from."
-msgstr ""
-
-msgid "FTP username of the remote receiver the channel list is being imported from."
-msgstr ""
-
-msgid "IP address of the remote receiver the channel list is  being imported from."
-msgstr ""
-
-msgid "If 'yes' the importer will automatically import and load EPG data from the remote receiver if the file exists."
-msgstr ""
-
-msgid "If 'yes' the importer will automatically run at startup or reboot."
-msgstr ""
-
-msgid "Import EPG"
-msgstr ""
-
-msgid "Passive mode"
-msgstr ""
-
-msgid "Push error messages to the screen. Switch on for debugging only."
-msgstr ""
-
-msgid "Remote receiver IP"
-msgstr ""
-
-msgid "Repeat how often"
-msgstr ""
-
-msgid "Run at restart"
-msgstr ""
-
-msgid "Schedule import"
-msgstr ""
-
-msgid "Set the repeat interval of the schedule."
-msgstr ""
-
-msgid "Set the time of day to perform the scan."
-msgstr ""
-
-msgid "Should the FTP connection to the remote receiver be established in passive mode?"
-msgstr ""
-
-msgid "Show error messages"
-msgstr ""
-
-msgid "Show in extensions"
-msgstr ""
-
-msgid "Time import should start"
-msgstr ""
-
-msgid "When enabled, allows you start an import from the extensions list."
 msgstr ""

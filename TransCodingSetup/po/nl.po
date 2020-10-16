@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-07-31 10:39+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn/Rob van der Does\n"
@@ -107,72 +107,6 @@ msgstr "Default"
 
 msgid "Encoder"
 msgstr "Encoder"
-
-msgid "Encoder 0: Aspect Ratio"
-msgstr "Encoder 0: Aspectratio"
-
-msgid "Encoder 0: Audio codec"
-msgstr "Encoder 0: Audiocodec"
-
-msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
-msgstr "Encoder 0: Auto mode (Bitrate/Framerate)"
-
-msgid "Encoder 0: Bitrate"
-msgstr "Encoder 0: Bitrate"
-
-msgid "Encoder 0: Framerate"
-msgstr "Encoder 0: Framerate"
-
-msgid "Encoder 0: GOP Frame B"
-msgstr "Encoder 0: GOP Frame B"
-
-msgid "Encoder 0: GOP Frame P"
-msgstr "Encoder 0: GOP Frame P"
-
-msgid "Encoder 0: Level"
-msgstr "Encoder 0: Level"
-
-msgid "Encoder 0: Profile"
-msgstr "Encoder 0: Profiel"
-
-msgid "Encoder 0: Resolution"
-msgstr "Encoder 0: Resolutie"
-
-msgid "Encoder 0: Video codec"
-msgstr "Encoder 0: Videocodec"
-
-msgid "Encoder 1: Aspect Ratio"
-msgstr "Encoder 1: Aspectratio"
-
-msgid "Encoder 1: Audio codec"
-msgstr "Encoder 1: Audiocodec"
-
-msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
-msgstr "Encoder 1: Auto mode (Bitrate/Framerate)"
-
-msgid "Encoder 1: Bitrate"
-msgstr "Encoder 1: Bitrate"
-
-msgid "Encoder 1: Framerate"
-msgstr "Encoder 1: Framerate"
-
-msgid "Encoder 1: GOP Frame B"
-msgstr "Encoder 1: GOP Frame B"
-
-msgid "Encoder 1: GOP Frame P"
-msgstr "Encoder 1: GOP Frame P"
-
-msgid "Encoder 1: Level"
-msgstr "Encoder 1: Level"
-
-msgid "Encoder 1: Profile"
-msgstr "Encoder 1: Profiel"
-
-msgid "Encoder 1: Resolution"
-msgstr "Encoder 1: Resolutie"
-
-msgid "Encoder 1: Video codec"
-msgstr "Encoder 1: Videocodec"
 
 msgid "Framerate"
 msgstr "Framerate"

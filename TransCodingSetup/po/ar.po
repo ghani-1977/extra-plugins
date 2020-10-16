@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-12-08 11:51+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -100,72 +100,6 @@ msgstr "الإفتراضي"
 
 msgid "Encoder"
 msgstr "مشفر"
-
-msgid "Encoder 0: Aspect Ratio"
-msgstr "التشفير 0: أبعاد الشاشة"
-
-msgid "Encoder 0: Audio codec"
-msgstr "التشفير 0: ترميز الصوت"
-
-msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
-msgstr "التشفير 0: وضع تلقائي (معدل البت/معدل الإطارات)"
-
-msgid "Encoder 0: Bitrate"
-msgstr "التشفير 0: معدل البت"
-
-msgid "Encoder 0: Framerate"
-msgstr "التشفير 0: معدل الإطارات"
-
-msgid "Encoder 0: GOP Frame B"
-msgstr "التشفير 0: الإطار ب"
-
-msgid "Encoder 0: GOP Frame P"
-msgstr "التشفير 0: الإطار ب"
-
-msgid "Encoder 0: Level"
-msgstr "التشفير 0: مستوى"
-
-msgid "Encoder 0: Profile"
-msgstr "التشفير 0: ملف التعريف"
-
-msgid "Encoder 0: Resolution"
-msgstr "التشفير 0: دقة الفديو"
-
-msgid "Encoder 0: Video codec"
-msgstr "التشفير 0:ترميز الفيديو"
-
-msgid "Encoder 1: Aspect Ratio"
-msgstr "التشفير 1: أبعاد الشاشة"
-
-msgid "Encoder 1: Audio codec"
-msgstr "التشفير 1: ترميز الصوت"
-
-msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
-msgstr "التشفير 1: وضع تلقائي (معدل البت/معدل الإطارات)"
-
-msgid "Encoder 1: Bitrate"
-msgstr "التشفير 1: معدل البت"
-
-msgid "Encoder 1: Framerate"
-msgstr "التشفير 1: معدل الإطارات"
-
-msgid "Encoder 1: GOP Frame B"
-msgstr "التشفير 1: الإطار ب"
-
-msgid "Encoder 1: GOP Frame P"
-msgstr "التشفير 1: الإطار ب"
-
-msgid "Encoder 1: Level"
-msgstr "التشفير 1:المستوى"
-
-msgid "Encoder 1: Profile"
-msgstr "التشفير 1: ملف التعريف"
-
-msgid "Encoder 1: Resolution"
-msgstr "التشفير 1: دقة الفديو"
-
-msgid "Encoder 1: Video codec"
-msgstr "التشفير 1: ترميز الفيديو"
 
 msgid "Framerate"
 msgstr "معدل الإطار"

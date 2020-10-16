@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-10-14 15:28+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: ViX <LL@li.org>\n"
@@ -100,21 +100,6 @@ msgstr "Auto"
 msgid "Bitrate in bits"
 msgstr "Bitrate in bits"
 
-msgid "Encoder Aspect Ratio"
-msgstr "Encoder-SeitenVerhältnis"
-
-msgid "Encoder Bitrate"
-msgstr "Encoder Bitrate"
-
-msgid "Encoder Framerate"
-msgstr "Encoder Framerate"
-
-msgid "Encoder Interlaced"
-msgstr "Encoder Interlaced"
-
-msgid "Encoder Resolution"
-msgstr "Encoder Auflösung"
-
 msgid "Exit"
 msgstr "Abbrechen"
 
@@ -174,9 +159,6 @@ msgstr "Auflösung"
 
 msgid "Save"
 msgstr "Speichern"
-
-msgid "Setup your timezone."
-msgstr "Ihre Zeitzone einrichten."
 
 msgid "This model does not support transcoding."
 msgstr "Dieses Modell unterstützt kein Transcoding."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-07-31 11:13+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: french-EGAMI\n"
@@ -101,72 +101,6 @@ msgstr "Standard"
 
 msgid "Encoder"
 msgstr "Encoder"
-
-msgid "Encoder 0: Aspect Ratio"
-msgstr "Encodeur 0: Aspectratio"
-
-msgid "Encoder 0: Audio codec"
-msgstr "Encodeur 0: Codec audio"
-
-msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
-msgstr "Encodeur 0: Mode auto (Débit/Cadence)"
-
-msgid "Encoder 0: Bitrate"
-msgstr "Encodeur 0: Débit binaire"
-
-msgid "Encoder 0: Framerate"
-msgstr "Encodeur 0: Cadence trame"
-
-msgid "Encoder 0: GOP Frame B"
-msgstr "Encodeur 0: GOP Trame B"
-
-msgid "Encoder 0: GOP Frame P"
-msgstr "Encodeur 0: GOP Trame P"
-
-msgid "Encoder 0: Level"
-msgstr "Encodeur 0: Level"
-
-msgid "Encoder 0: Profile"
-msgstr "Encodeur 0: Profil"
-
-msgid "Encoder 0: Resolution"
-msgstr "Encodeur 0: Résolution"
-
-msgid "Encoder 0: Video codec"
-msgstr "Encodeur 0: Codec vidéo"
-
-msgid "Encoder 1: Aspect Ratio"
-msgstr "Encodeur 1: Aspect Ratio"
-
-msgid "Encoder 1: Audio codec"
-msgstr "Encodeur 1: Codec audio"
-
-msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
-msgstr "Encodeur 1: Mode auto (Débit/Cadence)"
-
-msgid "Encoder 1: Bitrate"
-msgstr "Encodeur 1: Débit binaire"
-
-msgid "Encoder 1: Framerate"
-msgstr "Encodeur 1: Cadence trame"
-
-msgid "Encoder 1: GOP Frame B"
-msgstr "Encodeur 1: GOP Trame B"
-
-msgid "Encoder 1: GOP Frame P"
-msgstr "Encodeur 1: GOP Trame P"
-
-msgid "Encoder 1: Level"
-msgstr "Encodeur 1: Level"
-
-msgid "Encoder 1: Profile"
-msgstr "Encodeur 1: Profil"
-
-msgid "Encoder 1: Resolution"
-msgstr "Encodeur 1: Résolution"
-
-msgid "Encoder 1: Video codec"
-msgstr "Encodeur 1: Codec vidéo"
 
 msgid "Framerate"
 msgstr "Cadence trame"

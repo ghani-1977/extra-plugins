@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ChannelsImporter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2017-12-03 23:50+0000\n"
 "Last-Translator: insanity\n"
 "Language-Team: vuplus-community.net <insanity>\n"
@@ -22,15 +22,6 @@ msgstr "%a %e %b  %-H:%M"
 #, python-format
 msgid "%d/%d"
 msgstr "%d/%d"
-
-msgid "'yes' and remote fallback tuner will be automatically configured to stream from the remote receiver. 'no' and fallback will not be edited."
-msgstr "'SI': il sintonizzatore fallback remoto verrà automaticamente configurato per lo streaming dal ricevitore remoto. 'NO': il fallback non sarà modificato."
-
-msgid "Allows you to set a schedule to perform an import."
-msgstr "Consente di impostare una pianificazione per eseguire un'importazione."
-
-msgid "Auto configure remote fallback tuner"
-msgstr "Configurazione automatic fallback tuner remoti"
 
 # ChannelsImporter.py
 msgid "Channels importer"
@@ -109,24 +100,6 @@ msgstr "Ogni ora"
 msgid "Exit"
 msgstr "Esci"
 
-msgid "FTP Password"
-msgstr "Password FTP"
-
-msgid "FTP Port"
-msgstr "Porta FTP"
-
-msgid "FTP Username"
-msgstr "Nome utente FTP"
-
-msgid "FTP password of the remote receiver the channel list is being imported from."
-msgstr "Password FTP del ricevitore remoto da cui viene importata la lista canali."
-
-msgid "FTP port of the remote receiver the channel list is being imported from."
-msgstr "Porta FTP del ricevitore remoto da cui viene importata la lista canali."
-
-msgid "FTP username of the remote receiver the channel list is being imported from."
-msgstr "Nome utente FTP del ricevitore remoto da cui viene importata la lista canali."
-
 msgid "Fetch channels from the server."
 msgstr "Leggi canali dal server."
 
@@ -136,20 +109,8 @@ msgstr "Per importare i bouquet da un altro ricevitore"
 msgid "Force EPG save on remote receiver"
 msgstr "Forzare salvataggio EPG sul ricevitore remoto"
 
-msgid "IP address of the remote receiver the channel list is  being imported from."
-msgstr "Indirizzo IP del ricevitore remoto da cui viene importata la lista canali."
-
-msgid "If 'yes' the importer will automatically import and load EPG data from the remote receiver if the file exists."
-msgstr "Se selezioni 'SI', importa e carica automaticamente i dati EPG dal ricevitore remoto, qualora il file esista."
-
-msgid "If 'yes' the importer will automatically run at startup or reboot."
-msgstr "Se selezioni 'SI', verrà automaticamente avviato all'avvio o al riavvio."
-
 msgid "Import"
 msgstr "Importa"
-
-msgid "Import EPG"
-msgstr "Importa EPG"
 
 msgid "Loading epg.dat..."
 msgstr "Caricamento epg.dat..."
@@ -157,63 +118,23 @@ msgstr "Caricamento epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Carico la nuova lista canali..."
 
-msgid "Passive mode"
-msgstr "Modalità passiva"
-
-msgid "Push error messages to the screen. Switch on for debugging only."
-msgstr "Visualizza i messaggi di errore sullo schermo. Attivare solo per debug."
-
 msgid "Really close without saving settings?"
 msgstr "Chiudere senza salvare le impostazioni?"
-
-# setup.xml
-msgid "Remote receiver IP"
-msgstr "IP del ricevitore remoto"
 
 msgid "Removing current channel list..."
 msgstr "Rimozione lista canali corrente…"
 
-msgid "Repeat how often"
-msgstr "Ripeti quanto spesso"
-
-msgid "Run at restart"
-msgstr "Eseguire al riavvio"
-
 msgid "Save"
 msgstr "Salva"
 
-msgid "Schedule import"
-msgstr "Pianifica importazione"
-
 msgid "Searching for epg.dat"
 msgstr "Ricerca del file epg.dat"
-
-msgid "Set the repeat interval of the schedule."
-msgstr "Imposta l'intervallo di ripetizione del programma."
-
-msgid "Set the time of day to perform the scan."
-msgstr "Impostare a quale ora eseguire la ricerca."
-
-msgid "Should the FTP connection to the remote receiver be established in passive mode?"
-msgstr "La connessione FTP al ricevitore remoto deve essere stabilita in modalità passiva?"
-
-msgid "Show error messages"
-msgstr "Mostra i messaggi d'errore"
-
-msgid "Show in extensions"
-msgstr "Mostra in estensioni"
 
 msgid "Starting importer"
 msgstr "Avvio importazione"
 
 msgid "Starting importer..."
 msgstr "Avvio importazione..."
-
-msgid "Time import should start"
-msgstr "Orario previsto per l'importazione"
-
-msgid "When enabled, allows you start an import from the extensions list."
-msgstr "Se abilitato, consente di avviare un'importazione dall'elenco delle estensioni."
 
 msgid "epg.dat not found"
 msgstr "epg.dat non trovato"

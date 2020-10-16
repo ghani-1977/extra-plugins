@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 00:04+0330\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -184,22 +184,4 @@ msgid "disable"
 msgstr ""
 
 msgid "enable"
-msgstr ""
-
-msgid "Encoder Aspect Ratio"
-msgstr ""
-
-msgid "Encoder Bitrate"
-msgstr ""
-
-msgid "Encoder Framerate"
-msgstr ""
-
-msgid "Encoder Interlaced"
-msgstr ""
-
-msgid "Encoder Resolution"
-msgstr ""
-
-msgid "Setup your timezone."
 msgstr ""

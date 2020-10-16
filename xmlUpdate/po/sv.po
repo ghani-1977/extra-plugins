@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-04-10 11:56+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -23,6 +23,18 @@ msgstr ""
 msgid "/etc/tuxbox (default)"
 msgstr ""
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr ""
 
@@ -35,16 +47,10 @@ msgid ""
 "Restart now for changes to take immediate effect?"
 msgstr ""
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+msgid "File being updated, i.e. satellites.xml"
 msgstr ""
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
-msgstr ""
-
-msgid "OE-Alliance"
-msgstr ""
-
-msgid "Online source where the transponder xml file is being retrieved from."
 msgstr ""
 
 msgid "Save to"
@@ -52,9 +58,6 @@ msgstr ""
 
 #, python-format
 msgid "Saving the %s.xml file failed"
-msgstr ""
-
-msgid "Source"
 msgstr ""
 
 #, python-format
@@ -68,11 +71,5 @@ msgstr ""
 msgid "XML update"
 msgstr ""
 
-msgid "cable"
-msgstr ""
-
-msgid "satellite"
-msgstr ""
-
-msgid "terrestrial"
+msgid "XML update for Open Vision"
 msgstr ""

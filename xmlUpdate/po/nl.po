@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-07-31 11:01+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: none\n"
@@ -24,6 +24,18 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (standaard)"
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr "Sluit af"
 
@@ -38,17 +50,12 @@ msgstr ""
 "Ophalen en opslaan van %s.xml gelukt.\n"
 "Nu herstarten om de wijzigingen toe te passen?"
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+#, fuzzy
+msgid "File being updated, i.e. satellites.xml"
 msgstr "Bestand (satellites.xml, cables.xml, of terrestrial.xml) wordt geüpdatet."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "Map waar het bestand wordt opgeslagen. \"/etc/tuxbox\" is de standaard locatie. Bestanden opgeslagen in \"/etc/enigma2\" gaan boven de standaardbestanden en worden niet geupdatet bij een  software update."
-
-msgid "OE-Alliance"
-msgstr "OE-Alliance"
-
-msgid "Online source where the transponder xml file is being retrieved from."
-msgstr "Online bron waar het transponder xml-bestand gehaald wordt."
 
 msgid "Save to"
 msgstr "Sla op naar"
@@ -56,9 +63,6 @@ msgstr "Sla op naar"
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "Opslaan van het %s.xml-bestand is mislukt"
-
-msgid "Source"
-msgstr "Bron"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -71,11 +75,5 @@ msgstr "Het %s.xml-bestand kon niet worden gehaald"
 msgid "XML update"
 msgstr "XML update"
 
-msgid "cable"
-msgstr "kabel"
-
-msgid "satellite"
-msgstr "satelliet"
-
-msgid "terrestrial"
-msgstr "terrestrisch"
+msgid "XML update for Open Vision"
+msgstr ""

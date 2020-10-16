@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2016-01-25 22:12+0100\n"
 "Last-Translator: oe-a >\n"
 "Language-Team: oe-a\n"
@@ -19,9 +19,6 @@ msgstr ""
 msgid "30 Days"
 msgstr "30 Tage"
 
-msgid "Abort this Wizard"
-msgstr "Diesen Assistent abbrechen"
-
 msgid "About"
 msgstr "Über"
 
@@ -30,13 +27,6 @@ msgstr "Authentifizierung"
 
 msgid "Cancel"
 msgstr "Abbrechen"
-
-msgid ""
-"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Herunterladen fehlgeschlagen! Es tut uns leid, aber Wir können Ihre IPbox momentan nicht konfigurieren.\n"
-"Bitte drücken Sie OK um diesen Assistent zu beenden."
 
 msgid "Cannot download data. Please check your configuration"
 msgstr "Daten können nicht geladen werden. Bitte Konfiguration prüfen"
@@ -80,13 +70,6 @@ msgstr "Info: Die Serverbox Festplattenfunktion benötigt samba auf der Serverbo
 msgid "No devices found"
 msgstr "kein Gerät gefunden"
 
-msgid ""
-"No devices found! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Keine Geräte gefunden! Es tut uns leid, aber Wir können Ihre IPbox momentan nicht konfigurieren.\n"
-"Bitte drücken Sie OK um diesen Assistent zu beenden."
-
 msgid "Password"
 msgstr "Passwort"
 
@@ -104,13 +87,6 @@ msgstr ""
 "Es wird gesucht.\n"
 "Das kann etwas dauern"
 
-msgid ""
-"Please wait while scan is in progress.\n"
-"This operation may take a while."
-msgstr ""
-"Bitte warten Sie während der Suchlauf läuft.\n"
-"Dieser Vorgang kann etwas dauern."
-
 msgid "Repeat how often"
 msgstr "Wiederholung wie oft"
 
@@ -120,33 +96,17 @@ msgstr "Speichern"
 msgid "Scan"
 msgstr "Suchen"
 
-msgid "Scan for a server"
-msgstr "Suche einen Server"
-
 msgid "Schedule sync"
 msgstr "Plane Synchronisierung"
 
 msgid "Streaming port"
 msgstr "Streaming Port"
 
-msgid ""
-"Thank you for using the wizard. Your ipbox is now configured.\n"
-"Please press OK to continue."
-msgstr ""
-"Danke das Sie den Assistent benutzt haben. Ihre IPbox ist nun konfiguriert.\n"
-"Bitte drücken Sie OK um fortzufahren."
-
 msgid "Time of sync to start"
 msgstr "Startzeit Synchronisierung"
 
 msgid "To apply new settings, you need to reboot your STB. Do you want reboot it now?"
 msgstr ""
-
-msgid "Try to download again"
-msgstr "Starte den Download erneut"
-
-msgid "Try to scan again"
-msgstr "Starte den Suchlauf erneut"
 
 msgid "Use remote HDD"
 msgstr "Entfernte Festplatte benutzen"
@@ -159,19 +119,3 @@ msgstr "Benutzername"
 
 msgid "Weekly"
 msgstr "Wöchentlich"
-
-msgid ""
-"Welcome.\n"
-"\n"
-"This Wizard will help you to configure your ipbox."
-msgstr ""
-"Willkommen.\n"
-"\n"
-"Dieser Assistent wird Sie bei der Konfiguration der IPbox unterstützen."
-
-msgid ""
-"Your ipbox is not configured.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Ihre IPbox ist nicht konfiguriert.\n"
-"Bitte drücken Sie OK um diesen Assistent zu beenden."

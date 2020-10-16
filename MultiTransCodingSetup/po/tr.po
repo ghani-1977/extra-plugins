@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-31 14:32+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2019-06-21 21:10+0200\n"
 "Last-Translator: Schimmelreiter\n"
 "Language-Team: \n"
@@ -98,21 +98,6 @@ msgstr "Oto"
 msgid "Bitrate in bits"
 msgstr "Bit Hızı bits olarak"
 
-msgid "Encoder Aspect Ratio"
-msgstr "Enkoder Boy Oranı"
-
-msgid "Encoder Bitrate"
-msgstr "Enkoder Bit Hızı"
-
-msgid "Encoder Framerate"
-msgstr "Enkoder Frame (kare) Hızı"
-
-msgid "Encoder Interlaced"
-msgstr "Enkoder üst üste bindirilmiş"
-
-msgid "Encoder Resolution"
-msgstr "Enkoder çözünürlük"
-
 msgid "Exit"
 msgstr "Çıkış"
 
@@ -172,9 +157,6 @@ msgstr "Çözünürlük"
 
 msgid "Save"
 msgstr "Kaydet"
-
-msgid "Setup your timezone."
-msgstr "Saat diliminizi ayarlayın."
 
 msgid "This model does not support transcoding."
 msgstr "Bu Model Transcoding desteklemiyor"

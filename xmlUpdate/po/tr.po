@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2020-03-31 19:10+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -23,6 +23,18 @@ msgstr ""
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (varsayılan)"
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr "Çıkış"
 
@@ -37,17 +49,12 @@ msgstr ""
 "%s.xml getirilip kaydedildi.\n"
 "Değişikliklerin hemen etkili olması için şimdi yeniden başlatılsın mı?"
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+#, fuzzy
+msgid "File being updated, i.e. satellites.xml"
 msgstr "Dosya güncelleniyor, i.e. satellites.xml, cables.xml, veya terrestrial.xml"
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "İndirilen dosyanın kaydedileceği klasör. \"/etc/tuxbox\" varsayılan konumdur. İçinde saklanan dosyalar \"/etc/enigma2\" varsayılan dosyayı geçersiz kılar ve yazılım güncellemesinde güncellenmez."
-
-msgid "OE-Alliance"
-msgstr "OE-Alliance"
-
-msgid "Online source where the transponder xml file is being retrieved from."
-msgstr "Transponder xml dosyasının alındığı çevrimiçi kaynak."
 
 msgid "Save to"
 msgstr "Şuraya kaydet"
@@ -55,9 +62,6 @@ msgstr "Şuraya kaydet"
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "%s.xml dosyası kaydedilemedi"
-
-msgid "Source"
-msgstr "Kaynak"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -70,11 +74,5 @@ msgstr "%s.xml dosyası getirilemedi"
 msgid "XML update"
 msgstr "XML güncellemesi"
 
-msgid "cable"
-msgstr "Kablo TV"
-
-msgid "satellite"
-msgstr "Uydu"
-
-msgid "terrestrial"
-msgstr "Karasal"
+msgid "XML update for Open Vision"
+msgstr ""

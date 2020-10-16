@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,9 +20,6 @@ msgstr ""
 msgid "30 Days"
 msgstr "30 Giorni"
 
-msgid "Abort this Wizard"
-msgstr "Termina questo Wizard"
-
 msgid "About"
 msgstr "Informazioni"
 
@@ -31,13 +28,6 @@ msgstr "Autenticazione"
 
 msgid "Cancel"
 msgstr "Annulla"
-
-msgid ""
-"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Impossibile scaricare i dati! Spiacente, non possiamo configurare il tuo ipbox ora\n"
-"Premi OK per chiudere questo Wizard."
 
 msgid "Cannot download data. Please check your configuration"
 msgstr "Impossibile scaricare i dati. Controllare la configurazione"
@@ -81,13 +71,6 @@ msgstr ""
 msgid "No devices found"
 msgstr "Nessun dispositivo trovato"
 
-msgid ""
-"No devices found! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Nessun dispositivo trovato! Spiacente, non possiamo configurare il tuo ipbox ora\n"
-"Premi OK per chiudere questo Wizard."
-
 msgid "Password"
 msgstr "Password"
 
@@ -105,13 +88,6 @@ msgstr ""
 "Attendere, scansione in corso.\n"
 "L'operazione potrebbe richiedere molto tempo."
 
-msgid ""
-"Please wait while scan is in progress.\n"
-"This operation may take a while."
-msgstr ""
-"Attendere, scansione in corso.\n"
-"L'operazione potrebbe richiedere molto tempo."
-
 msgid "Repeat how often"
 msgstr "Frequenza di ripetizione"
 
@@ -121,33 +97,17 @@ msgstr "Salva"
 msgid "Scan"
 msgstr "Scansiona"
 
-msgid "Scan for a server"
-msgstr "Cerca un server"
-
 msgid "Schedule sync"
 msgstr "Sincronizzazione pianificata"
 
 msgid "Streaming port"
 msgstr "Porta di streaming"
 
-msgid ""
-"Thank you for using the wizard. Your ipbox is now configured.\n"
-"Please press OK to continue."
-msgstr ""
-"Grazie per aver utilizzato il wizard. Il tuo ipbox è configurato\n"
-"Premere OK per continuare."
-
 msgid "Time of sync to start"
 msgstr "Ora di inizio della sincronizzazione"
 
 msgid "To apply new settings, you need to reboot your STB. Do you want reboot it now?"
 msgstr ""
-
-msgid "Try to download again"
-msgstr "Riprova a scaricare"
-
-msgid "Try to scan again"
-msgstr "Riesegui la ricerce"
 
 msgid "Use remote HDD"
 msgstr "Utilizza hard disk remoto"
@@ -161,19 +121,3 @@ msgstr "Nome utente"
 
 msgid "Weekly"
 msgstr "Settimanale"
-
-msgid ""
-"Welcome.\n"
-"\n"
-"This Wizard will help you to configure your ipbox."
-msgstr ""
-"Benvenuto.\n"
-"\n"
-"Questo Wizard ti aiuterà a configurare il tuo ipbox."
-
-msgid ""
-"Your ipbox is not configured.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-"Il tuo ipbox non è configurato.\n"
-"Premi Ok per chiudere questo Wizard."

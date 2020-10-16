@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XML update\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 12:07+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2020-03-06 12:15+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -19,6 +19,18 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (إفتراضي)"
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr "خروج"
 
@@ -33,7 +45,8 @@ msgstr ""
 "نجح جلب وحفظ %s.xml.\n"
 "أعد التشغيل الآن لتصبح التغييرات سارية المفعول؟"
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+#, fuzzy
+msgid "File being updated, i.e. satellites.xml"
 msgstr "يتم تحديث الملف، مثال satellites.xml أو cables.xml أو earth.xml."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
@@ -41,21 +54,12 @@ msgstr ""
 "مجلد حيث سيتم حفظ الملف الذي تم تنزيله. \"/ etc / tuxbox\" هو الموقع الافتراضي. الملفات المخزنة في\n"
 "\"/ etc / enigma2\" تتجاوز الملف الافتراضي ولا يتم تحديثها عند تحديث البرنامج."
 
-msgid "OE-Alliance"
-msgstr "صور مفتوحة المصدر"
-
-msgid "Online source where the transponder xml file is being retrieved from."
-msgstr "مصدر أونلاين حيث سيتم استرداد ملف معلومات الترددات المرسل من."
-
 msgid "Save to"
 msgstr "حفظ إلى"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "فشل حفظ ملف %s.xml"
-
-msgid "Source"
-msgstr "المصدر"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -68,11 +72,5 @@ msgstr "لا يمكن جلب ملف %s.xml"
 msgid "XML update"
 msgstr "تحديث ملف معلومات الترددات"
 
-msgid "cable"
-msgstr "كيبل"
-
-msgid "satellite"
-msgstr "قمر صناعي"
-
-msgid "terrestrial"
-msgstr "بث أرضي"
+msgid "XML update for Open Vision"
+msgstr ""

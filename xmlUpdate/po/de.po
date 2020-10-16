@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-10-14 23:19+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: none\n"
@@ -24,6 +24,18 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (Standard)"
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr "Abbrechen"
 
@@ -38,17 +50,12 @@ msgstr ""
 "Das abholen und Speichern von %s.xml ist gelungen.\n"
 "Starten Sie jetzt neu, damit Änderungen sofort wirksam werden?"
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+#, fuzzy
+msgid "File being updated, i.e. satellites.xml"
 msgstr "Datei aktualisiert werden, d.h. satellites.xml, cables.xml, or terrestrial.xml."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "Ordner, in dem die heruntergeladene Datei gespeichert wird. \"/etc/tuxbox\" ist das Standardverzeichnis. Dateien, die in \"/etc/Enigma2\" gespeichert sind, überschreiben die Standarddatei und werden nicht auf einem Software-Update aktualisiert."
-
-msgid "OE-Alliance"
-msgstr "OE-Alliance"
-
-msgid "Online source where the transponder xml file is being retrieved from."
-msgstr "Online Quelle, von der die Transponder XML Datei abgerufen wird."
 
 msgid "Save to"
 msgstr "Speichern als"
@@ -56,9 +63,6 @@ msgstr "Speichern als"
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "Das Speichern der %s.xml Datei scheiterte"
-
-msgid "Source"
-msgstr "Quelle"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -71,11 +75,5 @@ msgstr "Die %s.xml Datei konnte nicht abgeholt werden"
 msgid "XML update"
 msgstr "XML Update"
 
-msgid "cable"
-msgstr "Kabel"
-
-msgid "satellite"
-msgstr "Satellit"
-
-msgid "terrestrial"
-msgstr "Terrestrisch"
+msgid "XML update for Open Vision"
+msgstr ""

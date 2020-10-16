@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: INI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2016-05-07 13:44+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -96,26 +96,6 @@ msgstr ""
 msgid "Bitrate in bits"
 msgstr ""
 
-#, fuzzy
-msgid "Encoder Aspect Ratio"
-msgstr "Proporcja obrazu"
-
-#, fuzzy
-msgid "Encoder Bitrate"
-msgstr "Bitrate"
-
-#, fuzzy
-msgid "Encoder Framerate"
-msgstr "Ilość klatek"
-
-#, fuzzy
-msgid "Encoder Interlaced"
-msgstr "Przeplot"
-
-#, fuzzy
-msgid "Encoder Resolution"
-msgstr "Rozdzielczość"
-
 msgid "Exit"
 msgstr "Wyjdź"
 
@@ -175,9 +155,6 @@ msgstr "Rozdzielczość"
 
 msgid "Save"
 msgstr "Zapisz"
-
-msgid "Setup your timezone."
-msgstr ""
 
 msgid "This model does not support transcoding."
 msgstr "Ten odbiornik nie wspiera transkodowania"

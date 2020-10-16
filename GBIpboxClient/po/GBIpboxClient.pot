@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 00:04+0330\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,47 +115,4 @@ msgid "Username"
 msgstr ""
 
 msgid "Weekly"
-msgstr ""
-
-msgid "Abort this Wizard"
-msgstr ""
-
-msgid ""
-"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-
-msgid ""
-"No devices found! Sorry, we can't configure your ipbox right now.\n"
-"Please press OK to close this Wizard."
-msgstr ""
-
-msgid ""
-"Please wait while scan is in progress.\n"
-"This operation may take a while."
-msgstr ""
-
-msgid "Scan for a server"
-msgstr ""
-
-msgid ""
-"Thank you for using the wizard. Your ipbox is now configured.\n"
-"Please press OK to continue."
-msgstr ""
-
-msgid "Try to download again"
-msgstr ""
-
-msgid "Try to scan again"
-msgstr ""
-
-msgid ""
-"Welcome.\n"
-"\n"
-"This Wizard will help you to configure your ipbox."
-msgstr ""
-
-msgid ""
-"Your ipbox is not configured.\n"
-"Please press OK to close this Wizard."
 msgstr ""

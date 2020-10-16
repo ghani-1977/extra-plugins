@@ -24,7 +24,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(self, [], session = session)
 
 		self.url = "https://raw.githubusercontent.com/OpenVisionE2/openvision-xml/xml/satellites-%s.xml"
-		self.Satellitestype = ConfigSelection(default="europe", choices=[("america", _("America")), ("asia", _("Asia")), ("atlantic", _("Atlantic")), ("europe", _("Europe"))])
+		self.Satellitestype = ConfigSelection(default="europe", choices=[("america", _("America (61°W-160°W)")), ("asia", _("Asia (160°W-73°E)")), ("atlantic", _("Atlantic (0°W-61°W)")), ("europe", _("Europe (73°E-0°E)"))])
 		self.folder = ConfigSelection(default="/etc/tuxbox", choices=[("/etc/tuxbox", _("/etc/tuxbox (default)")), ("/etc/enigma2", _("/etc/enigma2"))])
 		
 		self["actions"] = ActionMap(["SetupActions"],

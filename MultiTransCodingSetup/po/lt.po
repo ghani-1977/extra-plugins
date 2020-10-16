@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MultiTransCodingSetup oe-alliance\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2017-07-05 20:05+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -100,25 +100,6 @@ msgstr "Automatiškai"
 msgid "Bitrate in bits"
 msgstr "Bitų srautas"
 
-#, fuzzy
-msgid "Encoder Aspect Ratio"
-msgstr "Vaizdo Formatas"
-
-msgid "Encoder Bitrate"
-msgstr ""
-
-#, fuzzy
-msgid "Encoder Framerate"
-msgstr "Kadrų dažnis"
-
-#, fuzzy
-msgid "Encoder Interlaced"
-msgstr "Dvieilio pynimo"
-
-#, fuzzy
-msgid "Encoder Resolution"
-msgstr "Rezoliucija"
-
 msgid "Exit"
 msgstr "Užverti"
 
@@ -178,9 +159,6 @@ msgstr "Rezoliucija"
 
 msgid "Save"
 msgstr "Išsaugoti"
-
-msgid "Setup your timezone."
-msgstr ""
 
 msgid "This model does not support transcoding."
 msgstr "Šis modelis perkoduoti nesugeba."

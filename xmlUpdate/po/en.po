@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2020-10-16 14:20+0330\n"
 "PO-Revision-Date: 2018-04-10 11:56+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -23,6 +23,18 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (default)"
 
+msgid "America (61°W-160°W)"
+msgstr ""
+
+msgid "Asia (160°W-73°E)"
+msgstr ""
+
+msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Europe (73°E-0°E)"
+msgstr ""
+
 msgid "Exit"
 msgstr "Exit"
 
@@ -35,17 +47,12 @@ msgid ""
 "Restart now for changes to take immediate effect?"
 msgstr ""
 
-msgid "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
+#, fuzzy
+msgid "File being updated, i.e. satellites.xml"
 msgstr "File being updated, i.e. satellites.xml, cables.xml, or terrestrial.xml."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
-
-msgid "OE-Alliance"
-msgstr "OE-Alliance"
-
-msgid "Online source where the transponder xml file is being retrieved from."
-msgstr "Online source where the transponder xml file is being retrieved from."
 
 msgid "Save to"
 msgstr "Save to"
@@ -53,9 +60,6 @@ msgstr "Save to"
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "Saving the %s.xml file failed"
-
-msgid "Source"
-msgstr "Source"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -68,11 +72,5 @@ msgstr "The %s.xml file could not be fetched"
 msgid "XML update"
 msgstr "XML update"
 
-msgid "cable"
-msgstr "cable"
-
-msgid "satellite"
-msgstr "satellite"
-
-msgid "terrestrial"
-msgstr "terrestrial"
+msgid "XML update for Open Vision"
+msgstr ""
