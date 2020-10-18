@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#
+from __future__ import division
 # Note for people skinning the scan screen...
 #
 # There are six skinable outputs as follows:
