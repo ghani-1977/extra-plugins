@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2019-01-22 11:39+0200\n"
 "Last-Translator: Dima-73\n"
 "Language-Team: openPli\n"
@@ -101,6 +101,88 @@ msgstr "По умолчанию"
 
 msgid "Encoder"
 msgstr "Encoder"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Соотношение сторон"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Аудиокодек"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Частота кадров"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Encoder"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Разрешение"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Видеокодек"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Соотношение сторон"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Аудиокодек"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Частота кадров"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Encoder"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Разрешение"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Видеокодек"
 
 msgid "Framerate"
 msgstr "Частота кадров"

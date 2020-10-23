@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: INI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-07-30 22:12+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OEA\n"
@@ -97,6 +97,25 @@ msgstr ""
 msgid "Bitrate in bits"
 msgstr "Débit binaire en bits"
 
+#, fuzzy
+msgid "Encoder Aspect Ratio"
+msgstr "Aspect du ratio"
+
+msgid "Encoder Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder Framerate"
+msgstr "Fréquence d'image (framerate)"
+
+#, fuzzy
+msgid "Encoder Interlaced"
+msgstr "Interlacé"
+
+#, fuzzy
+msgid "Encoder Resolution"
+msgstr "Résolution"
+
 msgid "Exit"
 msgstr "Sortir"
 
@@ -156,6 +175,9 @@ msgstr "Résolution"
 
 msgid "Save"
 msgstr "Sauvegarder"
+
+msgid "Setup your timezone."
+msgstr ""
 
 msgid "This model does not support transcoding."
 msgstr "Ce modèle ne supporte pas le transcodage."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WeTek play - RCU Select\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OpenSPA <openspa.info>\n"
@@ -77,11 +77,13 @@ msgstr ""
 msgid "MXQV31 amlogic NEC remote"
 msgstr ""
 
+#, fuzzy
 msgid "Mutant HD2400 remote"
-msgstr ""
+msgstr "Mutant HD2400"
 
+#, fuzzy
 msgid "Octagon SF8 remote"
-msgstr ""
+msgstr "Octagon SF8"
 
 msgid "Qintex Q812 remote"
 msgstr ""
@@ -110,17 +112,21 @@ msgstr ""
 msgid "WeTek OpenELEC NEC remote"
 msgstr ""
 
+#, fuzzy
 msgid "WeTek Play (Classic) remote"
-msgstr ""
+msgstr "WeTek Play Clàssic"
 
+#, fuzzy
 msgid "WeTek Play 2 NEC remote"
-msgstr ""
+msgstr "WeTek Play Enigma2"
 
+#, fuzzy
 msgid "WeTek Play Enigma2 remote"
-msgstr ""
+msgstr "WeTek Play Enigma2"
 
+#, fuzzy
 msgid "WeTek Play NEC remote"
-msgstr ""
+msgstr "WeTek Play Enigma2"
 
 msgid "Wechip V5 amlogic remote"
 msgstr ""
@@ -131,8 +137,9 @@ msgstr ""
 msgid "X98 amlogic remote"
 msgstr ""
 
+#, fuzzy
 msgid "Xtrend ET10000 remote"
-msgstr ""
+msgstr "Xtrend ET10000"
 
 msgid "Zgemma Star remote"
 msgstr ""

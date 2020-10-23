@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openATV-TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2016-05-07 14:04+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: openATV <Mariusz1970@onet.eu>\n"
@@ -102,6 +102,88 @@ msgstr "Domyślne"
 
 msgid "Encoder"
 msgstr "Czynny"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Proporcje obrazu"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Kodek audio"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Ilość klatek na sekundę"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "Rama GOP; P"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "Rama GOP; P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Czynny"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Rozdzielczość"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Kodek wideo"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Proporcje obrazu"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Kodek audio"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Ilość klatek na sekundę"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "Rama GOP; P"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "Rama GOP; P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Czynny"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Rozdzielczość"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Kodek wideo"
 
 msgid "Framerate"
 msgstr "Ilość klatek na sekundę"

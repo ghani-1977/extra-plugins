@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 00:04+0330\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2018-03-16 13:04+0200\n"
 "Last-Translator: JR <openspateam@gmail.com>\n"
 "Language-Team: OpenSPA <openspa.info>\n"
@@ -77,21 +77,20 @@ msgstr "Recerca cega"
 
 #, python-format
 msgid "Blindscan executable not found '%s'!"
-msgstr ""
+msgstr "Executable de búsqueda cega no trobat a '%s'!"
 
 #, fuzzy
 msgid "Blindscan is not supported in "
 msgstr "El hardware de recerca cega no està suportat per aquest sintonitzador (%s)!"
 
 msgid "CAUTION: If you select \"yes\" the scan will not remove \"duplicated\" transponders from the list. Default is \"no\". Only change this if you understand why you are doing it."
-msgstr ""
+msgstr "ATENCIÓ: Si sel·lecciones \"Si\" la búsqueda no eliminarà els transpondedors \"duplicats\" de la llista. Per defecte \"No\". Només canvia això si entens el que estàs fent."
 
-#, fuzzy
 msgid "CAUTION: If you select \"yes\" the scan will not sync with transponders listed in satellites.xml. Default is \"no\". Only change this if you understand why you are doing it."
-msgstr "Si seleccioneu \"Si\", nomes es cercaràn transponedors no inclosos a satellites.xml"
+msgstr "ATENCIÓ: Si sel·lecciones \"Si\" la búsqueda no sincronitzarà amb els transpondedors llistats a satellites.xml. Per defecte \"No\". Només canvia això si entens el que estàs fent."
 
 msgid "CAUTION: Only select \"inverted\" if you are using an inverted LNB (i.e. an LNB where the local oscillator frequency is greater than the scan frequency). Default is \"normal\". Only change this if you understand why you are doing it."
-msgstr ""
+msgstr "ATENCIÓ: Només sel·leccionar \"invertit\" si estàs utilitzant un LNB invertit (per exemple un LNB on la freqüència d'oscilació local és superior a la freqüència de búsqueda). Per defecte \"normal\". Només canvia això si entens el que estàs fent."
 
 msgid "Cancel"
 msgstr ""
@@ -105,11 +104,9 @@ msgid ""
 "Satellite: %s\n"
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MSym/s"
 msgstr ""
-"Estado: %d/%d\n"
-"   Satèl·lit: %s\n"
-"   Polarització: %s\n"
-"   Rang de freqüències: %d - %d MHz\n"
-"   Veloc. de símbol: %d - %d MHz"
+"Estat actual: %d/%d\n"
+"Satèl·lit: %s\n"
+"Polarització: %s  Rang de freqüències: %d-%d MHz Symbol rates: %d-%d MHz"
 
 msgid "DVB-S + DVB-S2"
 msgstr ""
@@ -144,9 +141,8 @@ msgstr "Les freqüències cal que estiguin compreses entre 3000 MHz i 4199 MHz (
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
 msgstr "El hardware de recerca cega no està suportat per aquest sintonitzador (%s)!"
 
-#, fuzzy
 msgid "If you select \"yes\" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
-msgstr "Si seleccioneu \"Si\", tots els canals del satèl·lit a escanejar seràn eliminats abans de començar la recerca cega"
+msgstr "Si sel·lecciones \"Si\" tots els canals buscats del satèl·lit s'eliminaran abans d'iniciar la búsqueda actual, Si (mantenir fonts) significa el mateix però manté totes les fonts de canals/transpondedors."
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "Si seleccioneu \"Si\", l'escaneig només desarà els canals no encriptats; triar \"No\" cercarà canals encriptats i no encriptats"
@@ -158,7 +154,7 @@ msgid "It seems manufacturer does not support blind scan for this tuner."
 msgstr ""
 
 msgid "LNB inversion"
-msgstr ""
+msgstr "Inversió LNB"
 
 msgid "LNB of current satellite not compatible with plugin"
 msgstr ""
@@ -242,16 +238,15 @@ msgstr "Freqüència final de la recerca"
 msgid "Scan stop symbolrate"
 msgstr "Velocitat de símbol final"
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Search completed\n"
 "%d transponders found in %d:%02d minutes.\n"
 "Details saved in: %s"
 msgstr ""
-"Recerca finalitzada. S'han trobat %d transponedors.\n"
-"\n"
-"Dades desades a:\n"
-"%s"
+"Búqueda completa\n"
+"%d transpondedors trobats en %d:%02d minuts.\n"
+"Detalls guardats a: %s"
 
 #, python-format
 msgid ""
@@ -284,10 +279,13 @@ msgstr ""
 msgid "Select the satellite you wish to search"
 msgstr "Seleccioneu el satèl·lit que voleu escanejar"
 
+#, fuzzy
 msgid ""
 "Select transponders and press green to scan.\n"
 "Press yellow to select all transponders and blue to deselect all."
 msgstr ""
+"Sel·leccionar transpondedors i prèmer verd per a buscar.\n"
+"Prem groc per a sel·leccionar tots els transpondedors i blau per a desel·leccionar-los"
 
 msgid "Service searching to be started MANUALLY by the user. To change this press green."
 msgstr ""
@@ -363,9 +361,8 @@ msgstr "Circular dreta"
 msgid "circular right and circular left"
 msgstr "Circular dreta i circular esquerra"
 
-#, fuzzy
 msgid "don't scan"
-msgstr "Recerca cega"
+msgstr "No buscar"
 
 msgid "horizontal"
 msgstr "Horitzontal"
@@ -382,16 +379,14 @@ msgstr ""
 msgid "save to XML file"
 msgstr "Desar a arxiu XML"
 
-#, fuzzy
 msgid "scan"
-msgstr "Recerca cega"
+msgstr "Buscar"
 
 msgid "scan for channels"
 msgstr "Cercar canals"
 
-#, fuzzy
 msgid "scan for transponders"
-msgstr "Cercar només transponedors desconeguts"
+msgstr "Buscar transpondedors"
 
 msgid "up to 1 degree"
 msgstr "Fins a 1º"

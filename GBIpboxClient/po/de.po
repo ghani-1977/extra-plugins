@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2016-01-25 22:12+0100\n"
 "Last-Translator: oe-a >\n"
 "Language-Team: oe-a\n"
@@ -19,6 +19,9 @@ msgstr ""
 msgid "30 Days"
 msgstr "30 Tage"
 
+msgid "Abort this Wizard"
+msgstr ""
+
 msgid "About"
 msgstr "Über"
 
@@ -27,6 +30,11 @@ msgstr "Authentifizierung"
 
 msgid "Cancel"
 msgstr "Abbrechen"
+
+msgid ""
+"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
 
 msgid "Cannot download data. Please check your configuration"
 msgstr "Daten können nicht geladen werden. Bitte Konfiguration prüfen"
@@ -70,6 +78,11 @@ msgstr "Info: Die Serverbox Festplattenfunktion benötigt samba auf der Serverbo
 msgid "No devices found"
 msgstr "kein Gerät gefunden"
 
+msgid ""
+"No devices found! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
+
 msgid "Password"
 msgstr "Passwort"
 
@@ -87,6 +100,14 @@ msgstr ""
 "Es wird gesucht.\n"
 "Das kann etwas dauern"
 
+#, fuzzy
+msgid ""
+"Please wait while scan is in progress.\n"
+"This operation may take a while."
+msgstr ""
+"Es wird gesucht.\n"
+"Das kann etwas dauern"
+
 msgid "Repeat how often"
 msgstr "Wiederholung wie oft"
 
@@ -96,16 +117,31 @@ msgstr "Speichern"
 msgid "Scan"
 msgstr "Suchen"
 
+#, fuzzy
+msgid "Scan for a server"
+msgstr "Nach einem Gerät suchen?"
+
 msgid "Schedule sync"
 msgstr "Plane Synchronisierung"
 
 msgid "Streaming port"
 msgstr "Streaming Port"
 
+msgid ""
+"Thank you for using the wizard. Your ipbox is now configured.\n"
+"Please press OK to continue."
+msgstr ""
+
 msgid "Time of sync to start"
 msgstr "Startzeit Synchronisierung"
 
 msgid "To apply new settings, you need to reboot your STB. Do you want reboot it now?"
+msgstr ""
+
+msgid "Try to download again"
+msgstr ""
+
+msgid "Try to scan again"
 msgstr ""
 
 msgid "Use remote HDD"
@@ -119,3 +155,14 @@ msgstr "Benutzername"
 
 msgid "Weekly"
 msgstr "Wöchentlich"
+
+msgid ""
+"Welcome.\n"
+"\n"
+"This Wizard will help you to configure your ipbox."
+msgstr ""
+
+msgid ""
+"Your ipbox is not configured.\n"
+"Please press OK to close this Wizard."
+msgstr ""

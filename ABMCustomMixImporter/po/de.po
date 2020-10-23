@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-10-10 23:31+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: \n"
@@ -45,11 +45,17 @@ msgstr "ABM CustomMix"
 msgid "ABM CustomMix Importer"
 msgstr "ABM CustomMix Importeur"
 
+msgid "Allows you automatically fetch the CustomMix file."
+msgstr ""
+
 msgid "Channels importer"
 msgstr "Kanäle Importeur"
 
 msgid "Delete file"
 msgstr "Datei löschen"
+
+msgid "Enable autofetch"
+msgstr ""
 
 msgid "Exit"
 msgstr "Beenden"
@@ -63,6 +69,15 @@ msgstr "Abholung von GitHub"
 msgid "File fetched and saved OK"
 msgstr "Datei abgeholt und gespeichert OK"
 
+msgid "Import"
+msgstr ""
+
+msgid "Lead time"
+msgstr ""
+
+msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
+msgstr ""
+
 msgid "Really close without saving settings?"
 msgstr "Wirklich schließen, ohne Einstellungen zu speichern?"
 
@@ -71,6 +86,9 @@ msgstr "Setup speichern"
 
 msgid "Saving CustomMix file"
 msgstr "CustomMix Datei speichern"
+
+msgid "Select the CustomMix you want to import"
+msgstr ""
 
 msgid "Starting importer..."
 msgstr "Start Importeur..."

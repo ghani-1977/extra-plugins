@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
-"PO-Revision-Date: 2018-07-30 22:09+0200\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"PO-Revision-Date: 2019-07-23 15:40+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 
 msgid "%"
 msgstr "%"
@@ -34,16 +34,16 @@ msgid "%d Mails  %d New  %s"
 msgstr "%d Mails  %d Neu  %s"
 
 msgid "%d-%b-%Y"
-msgstr ""
+msgstr "%d-%b-%Y"
 
 msgid "%d.%m.%Y"
-msgstr ""
+msgstr "%d.%m.%Y"
 
 msgid "%d.%m.%Y - %H:%M"
-msgstr ""
+msgstr "%d.%m.%Y - %H:%M"
 
 msgid "%d.%m.%y %H:%M:%S"
-msgstr ""
+msgstr "%d.%m.%y %H:%M:%S"
 
 #, python-format
 msgid "%s - Current value: %s"
@@ -166,9 +166,8 @@ msgstr "- Fichier [ok]>"
 msgid "- File or Path [ok]>"
 msgstr "- Fichier ou Chemin [ok]>"
 
-#, fuzzy
 msgid "- Find Cover File [ok]>"
-msgstr "- Fichier [ok]>"
+msgstr "- Trouver le fichier de couverture [ok]"
 
 msgid "- Font"
 msgstr "- Police"
@@ -434,9 +433,8 @@ msgstr "- Type Météo"
 msgid "- Zoom"
 msgstr "- Zoom"
 
-#, fuzzy
 msgid "- external IP URL"
-msgstr "- Info extra"
+msgstr "- URL IP externe"
 
 msgid "- extra Info"
 msgstr "- Info extra"
@@ -646,7 +644,7 @@ msgid "45%"
 msgstr "45%"
 
 msgid "480x320"
-msgstr ""
+msgstr "480x320"
 
 msgid "4min"
 msgstr "4min"
@@ -712,7 +710,7 @@ msgid "80%"
 msgstr "80%"
 
 msgid "800x480"
-msgstr ""
+msgstr "800x480"
 
 msgid "85%"
 msgstr "85%"
@@ -784,18 +782,16 @@ msgid "Bitrate"
 msgstr "Bitrate"
 
 msgid "BlueSound IP"
-msgstr ""
+msgstr "BlueSound IP"
 
-#, fuzzy
 msgid "BlueSound Ping Timeout [ms]"
-msgstr "Sonos Ping Timeout[ms]"
+msgstr "BlueSound Ping Timeout [ms]"
 
 msgid "BlueSound Play Check"
-msgstr ""
+msgstr "BlueSound Play Check (en)"
 
-#, fuzzy
 msgid "BlueSound Refresh [s]"
-msgstr "Sonos Rafraîchissement[s]"
+msgstr "BlueSound Rafraîchir [s]"
 
 msgid "Box-Skin-LCD"
 msgstr "Box-Skin-LCD"
@@ -1014,7 +1010,7 @@ msgid "Extended Description"
 msgstr "Description étendue"
 
 msgid "External IP Address"
-msgstr ""
+msgstr "Adresse IP externe"
 
 msgid "Fastmode (2s)"
 msgstr "mode rapide (2s)"
@@ -1114,7 +1110,7 @@ msgid "Global"
 msgstr "Global"
 
 msgid "Google API"
-msgstr ""
+msgstr "Google API"
 
 msgid "Gradient"
 msgstr "Dégradé"
@@ -1233,9 +1229,8 @@ msgstr "LCD affichage"
 msgid "LCD Off when shutdown"
 msgstr "Écran LCD éteint lors de l'arrêt"
 
-#, fuzzy
 msgid "LCD4Linux"
-msgstr "LCD4linux"
+msgstr "LCD4Linux"
 
 msgid "LCD4linux"
 msgstr "LCD4linux"
@@ -1264,9 +1259,8 @@ msgstr "Dernier Quart"
 msgid "Line"
 msgstr "Ligne"
 
-#, fuzzy
 msgid "List of Storage Devices"
-msgstr "Périphériques-Stockages"
+msgstr "Liste des périphériques de stockage"
 
 msgid "Load Active Config-File"
 msgstr "Charger fichier configuration actif"
@@ -1531,19 +1525,19 @@ msgid "Moonphase"
 msgstr "Phase de lune"
 
 msgid "MusicCast"
-msgstr ""
+msgstr "MusicCast"
 
 msgid "MusicCast Cover"
 msgstr "MusicCast Pochette"
 
 msgid "MusicCast IP"
-msgstr ""
+msgstr "MusicCast IP"
 
 msgid "MusicCast Ping Timeout [ms]"
 msgstr "MusicCast Ping Timeout[ms]"
 
 msgid "MusicCast Play Check"
-msgstr ""
+msgstr "MusicCast Play Check"
 
 msgid "MusicCast Refresh [s]"
 msgstr "MusicCast Rafraîchissement[s]"
@@ -1653,9 +1647,8 @@ msgstr "Extérieure"
 msgid "PNG"
 msgstr "PNG"
 
-#, fuzzy
 msgid "Parent Directory"
-msgstr "Répertoire image récursive"
+msgstr "Dossier parent"
 
 msgid "Pearl (or compatible LCD) 240x320"
 msgstr "Pearl (ou compatible LCD) 240x320"
@@ -1685,7 +1678,7 @@ msgid "Picon+Position right"
 msgstr "Picon+Position droite"
 
 msgid "Picon+Timeshift"
-msgstr ""
+msgstr "Picon+PauseDirect"
 
 msgid "Picture"
 msgstr "Image"
@@ -2076,16 +2069,16 @@ msgid "Signal Quality Bar"
 msgstr "Afficher Barre de qualité"
 
 msgid "Sonos"
-msgstr ""
+msgstr "Sonos"
 
 msgid "Sonos IP"
-msgstr ""
+msgstr "Sonos IP"
 
 msgid "Sonos Ping Timeout [ms]"
 msgstr "Sonos Ping Timeout[ms]"
 
 msgid "Sonos Play Check"
-msgstr ""
+msgstr "Sonos Play Check"
 
 msgid "Sonos Refresh [s]"
 msgstr "Sonos Rafraîchissement[s]"

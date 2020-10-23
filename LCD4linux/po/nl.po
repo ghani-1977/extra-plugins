@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2019-03-08 14:42+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -432,9 +432,8 @@ msgstr "- Weertype"
 msgid "- Zoom"
 msgstr "- Zoom"
 
-#, fuzzy
 msgid "- external IP URL"
-msgstr "- extra info"
+msgstr "- extern IP URL"
 
 msgid "- extra Info"
 msgstr "- extra info"
@@ -782,19 +781,16 @@ msgid "Bitrate"
 msgstr "Bitrate"
 
 msgid "BlueSound IP"
-msgstr ""
+msgstr "BlueSound IP"
 
-#, fuzzy
 msgid "BlueSound Ping Timeout [ms]"
-msgstr "Sonos Ping Timeout [ms]"
+msgstr "BlueSound ping timeout [ms]"
 
-#, fuzzy
 msgid "BlueSound Play Check"
-msgstr "Sonos afspeelcontrole"
+msgstr "BlueSound play check"
 
-#, fuzzy
 msgid "BlueSound Refresh [s]"
-msgstr "Sonos verversen [s]"
+msgstr "BlueSound ververs [s]"
 
 msgid "Box-Skin-LCD"
 msgstr "Box-Skin-LCD"
@@ -1013,7 +1009,7 @@ msgid "Extended Description"
 msgstr "Uitgebreide beschrijving"
 
 msgid "External IP Address"
-msgstr ""
+msgstr "Extern IP adres"
 
 msgid "Fastmode (2s)"
 msgstr "Snelle modus (2s)"
@@ -1232,7 +1228,6 @@ msgstr "LCD Display"
 msgid "LCD Off when shutdown"
 msgstr "LCD uit wanneer uitgeschakeld"
 
-#, fuzzy
 msgid "LCD4Linux"
 msgstr "LCD4Linux"
 
@@ -1263,9 +1258,8 @@ msgstr "Laatste kwartier"
 msgid "Line"
 msgstr "Regel"
 
-#, fuzzy
 msgid "List of Storage Devices"
-msgstr "Opslagmedia"
+msgstr "Lijst van opslagmedia"
 
 msgid "Load Active Config-File"
 msgstr "Laad actieve configuratiebestand"
@@ -1652,9 +1646,8 @@ msgstr "Buitenshuis"
 msgid "PNG"
 msgstr "PNG"
 
-#, fuzzy
 msgid "Parent Directory"
-msgstr "Plaatje map omgekeerd"
+msgstr "Bovengelegen map"
 
 msgid "Pearl (or compatible LCD) 240x320"
 msgstr "Pearl (of compatible LCD) 240x320"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2018-10-31 22:03+0200\n"
 "Last-Translator: Kojo\n"
 "Language-Team: Kojo\n"
@@ -1237,9 +1237,8 @@ msgstr "LCD-näyttö"
 msgid "LCD Off when shutdown"
 msgstr "LCD: pois päältä kun sammutettuna"
 
-#, fuzzy
 msgid "LCD4Linux"
-msgstr "LCD4linux"
+msgstr "LCD4Linux"
 
 msgid "LCD4linux"
 msgstr "LCD4linux"
@@ -1268,9 +1267,8 @@ msgstr "Viimeinen neljännes"
 msgid "Line"
 msgstr "Line"
 
-#, fuzzy
 msgid "List of Storage Devices"
-msgstr "Tallennusvälineet"
+msgstr "Lista tallennusvälineistä"
 
 msgid "Load Active Config-File"
 msgstr "Lataa aktiivinen asetustiedosto"
@@ -1657,9 +1655,8 @@ msgstr "Ulkoilma"
 msgid "PNG"
 msgstr "PNG"
 
-#, fuzzy
 msgid "Parent Directory"
-msgstr "Rekursiivinen kuvahakemisto"
+msgstr "Kotihakemisto"
 
 msgid "Pearl (or compatible LCD) 240x320"
 msgstr "Pearl (tai yhteensopiva LCD) 240x320"

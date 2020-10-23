@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TranscodingSetup translation for Portuguese Language\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2017-10-08 22:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: BH Team\n"
@@ -103,6 +103,88 @@ msgstr "Padrão"
 
 msgid "Encoder"
 msgstr "Codificador"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Relação de aspeto"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Codec de áudio"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Taxa de imagens"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Codificador"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Resolução"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Codec de Vídeo"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Relação de aspeto"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Codec de áudio"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Taxa de imagens"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Codificador"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Resolução"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Codec de Vídeo"
 
 msgid "Framerate"
 msgstr "Taxa de imagens"

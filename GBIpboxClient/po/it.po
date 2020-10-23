@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,9 @@ msgstr ""
 msgid "30 Days"
 msgstr "30 Giorni"
 
+msgid "Abort this Wizard"
+msgstr ""
+
 msgid "About"
 msgstr "Informazioni"
 
@@ -28,6 +31,11 @@ msgstr "Autenticazione"
 
 msgid "Cancel"
 msgstr "Annulla"
+
+msgid ""
+"Cannot download data! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
 
 msgid "Cannot download data. Please check your configuration"
 msgstr "Impossibile scaricare i dati. Controllare la configurazione"
@@ -71,6 +79,11 @@ msgstr ""
 msgid "No devices found"
 msgstr "Nessun dispositivo trovato"
 
+msgid ""
+"No devices found! Sorry, we can't configure your ipbox right now.\n"
+"Please press OK to close this Wizard."
+msgstr ""
+
 msgid "Password"
 msgstr "Password"
 
@@ -88,6 +101,14 @@ msgstr ""
 "Attendere, scansione in corso.\n"
 "L'operazione potrebbe richiedere molto tempo."
 
+#, fuzzy
+msgid ""
+"Please wait while scan is in progress.\n"
+"This operation may take a while."
+msgstr ""
+"Attendere, scansione in corso.\n"
+"L'operazione potrebbe richiedere molto tempo."
+
 msgid "Repeat how often"
 msgstr "Frequenza di ripetizione"
 
@@ -97,16 +118,31 @@ msgstr "Salva"
 msgid "Scan"
 msgstr "Scansiona"
 
+#, fuzzy
+msgid "Scan for a server"
+msgstr "Vuoi eseguire una ricerca del server?"
+
 msgid "Schedule sync"
 msgstr "Sincronizzazione pianificata"
 
 msgid "Streaming port"
 msgstr "Porta di streaming"
 
+msgid ""
+"Thank you for using the wizard. Your ipbox is now configured.\n"
+"Please press OK to continue."
+msgstr ""
+
 msgid "Time of sync to start"
 msgstr "Ora di inizio della sincronizzazione"
 
 msgid "To apply new settings, you need to reboot your STB. Do you want reboot it now?"
+msgstr ""
+
+msgid "Try to download again"
+msgstr ""
+
+msgid "Try to scan again"
 msgstr ""
 
 msgid "Use remote HDD"
@@ -121,3 +157,14 @@ msgstr "Nome utente"
 
 msgid "Weekly"
 msgstr "Settimanale"
+
+msgid ""
+"Welcome.\n"
+"\n"
+"This Wizard will help you to configure your ipbox."
+msgstr ""
+
+msgid ""
+"Your ipbox is not configured.\n"
+"Please press OK to close this Wizard."
+msgstr ""

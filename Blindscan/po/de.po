@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-15 00:04+0330\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2018-11-08 17:01+0100\n"
 "Last-Translator: Koivo <koivo@hdfreaks.cc>\n"
 "Language-Team: Deutsch <> j-ot&Trial\n"
@@ -40,9 +40,8 @@ msgstr "   Starting Sundtek hardware blind scan."
 msgid " tuner."
 msgstr " Tuner."
 
-#, fuzzy
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
-msgstr "\"Channel Scan\" sucht nach Kanälen und speichert Sie in Ihrem Empfänger; Beide Optionen führen eine Transponder-Suche durch und speichern das Ergebnis im /tmp Verzeichnis als XML Datei"
+msgstr "\"Sender Suche\" sucht nach Sendern und speichert sie auf dem Receiver; \"Transponder Suche\" sucht nach Transpondern und zeigt das Resultat zur Auswahl an. Bei beiden Optionen werden die Ergebnisse in der satellites.xml unter /tmp gespeichert."
 
 #, fuzzy
 msgid "\"scan for channels\" searches for channels and saves them to your receiver; \"Save to XML\" does a transponder search and saves the results in satellites.xml format and stores it in /tmp"
@@ -97,7 +96,7 @@ msgid "CAUTION: Only select \"inverted\" if you are using an inverted LNB (i.e. 
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 msgid "Clear before scan"
 msgstr "Vor der Suche löschen"
@@ -109,10 +108,8 @@ msgid ""
 "Polarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MSym/s"
 msgstr ""
 "Aktueller Status: %d/%d\n"
-"   Satellit: %s\n"
-"   Polarisation: %s\n"
-"   Frequenzbereich: %d - %d MHz\n"
-"   Symbol Rate: %d - %d MHz"
+"Satellit: %s\n"
+"Polarisation: %s  Frequenzbereich: %d - %d MHz  Symbolraten: %d - %d MHz"
 
 msgid "DVB-S + DVB-S2"
 msgstr "DVB-S + DVB-S2"
@@ -121,7 +118,7 @@ msgid "DVB-S only"
 msgstr "Nur DVB-S"
 
 msgid "Deselect all"
-msgstr ""
+msgstr "Alle abwählen"
 
 msgid "Disable remove duplicates"
 msgstr "Deaktivieren Sie das Entfernen von Duplikaten"
@@ -164,7 +161,7 @@ msgid "LNB inversion"
 msgstr ""
 
 msgid "LNB of current satellite not compatible with plugin"
-msgstr ""
+msgstr "LNB des aktuellen Satelliten ist nicht mit dem Plugin kompatibel"
 
 msgid ""
 "Looking for available transponders.\n"
@@ -245,16 +242,15 @@ msgstr "Endfrequenz für Suche"
 msgid "Scan stop symbolrate"
 msgstr "Endsymbolrate für Suche"
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Search completed\n"
 "%d transponders found in %d:%02d minutes.\n"
 "Details saved in: %s"
 msgstr ""
-"Suche beendet. %d Transponder gefunden.\n"
-"\n"
-"Details gespeichert in Datei:\n"
-"%s"
+"Suche abgeschlossen\n"
+"%d Transponder gefunden in %d:%02d Minuten.\n"
+"Details gespeichert in: %s"
 
 #, python-format
 msgid ""
@@ -279,7 +275,7 @@ msgid "Select a tuner that is configured for the satellite you wish to search"
 msgstr "Wählen Sie einen Tuner, der für den gewünschten Satelliten konfiguriert ist"
 
 msgid "Select all"
-msgstr ""
+msgstr "Alle wählen"
 
 msgid "Select between 1 and 5. Higher numbers give more accurat search results."
 msgstr ""
@@ -291,6 +287,8 @@ msgid ""
 "Select transponders and press green to scan.\n"
 "Press yellow to select all transponders and blue to deselect all."
 msgstr ""
+"Wählen einen Transponder und drücken Sie grün zum Scannen.\n"
+"Drücken Sie gelb, um alle Transponder auszuwählen, und blau, um alle abzuwählen."
 
 msgid "Service searching to be started MANUALLY by the user. To change this press green."
 msgstr ""
@@ -366,9 +364,8 @@ msgstr "rechts-zirkulär"
 msgid "circular right and circular left"
 msgstr "Zirkular rechts und zirkular links"
 
-#, fuzzy
 msgid "don't scan"
-msgstr "Blindscan"
+msgstr "nicht scannen"
 
 msgid "horizontal"
 msgstr "horizontal"
@@ -385,16 +382,14 @@ msgstr ""
 msgid "save to XML file"
 msgstr "Sichere in XML-Datei"
 
-#, fuzzy
 msgid "scan"
-msgstr "Blindscan"
+msgstr "scannen"
 
 msgid "scan for channels"
 msgstr "Suche nach Sendern"
 
-#, fuzzy
 msgid "scan for transponders"
-msgstr "Nur unbekannte Transponder durchsuchen"
+msgstr "Suche nach Transpondern"
 
 msgid "up to 1 degree"
 msgstr "Bis zu 1 Grad"

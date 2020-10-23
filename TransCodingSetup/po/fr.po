@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-07-31 11:13+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: french-EGAMI\n"
@@ -101,6 +101,88 @@ msgstr "Standard"
 
 msgid "Encoder"
 msgstr "Encoder"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Aspect Ratio"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Codec audio"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Cadence trame"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Trame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Trame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Encoder"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Résolution"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Codec vidéo"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Aspect Ratio"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Codec audio"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Cadence trame"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Trame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Trame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Encoder"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Résolution"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Codec vidéo"
 
 msgid "Framerate"
 msgstr "Cadence trame"

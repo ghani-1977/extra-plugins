@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 21:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -211,4 +211,70 @@ msgid "mpg"
 msgstr ""
 
 msgid "simple"
+msgstr ""
+
+msgid "Encoder 0: Aspect Ratio"
+msgstr ""
+
+msgid "Encoder 0: Audio codec"
+msgstr ""
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+msgid "Encoder 0: Framerate"
+msgstr ""
+
+msgid "Encoder 0: GOP Frame B"
+msgstr ""
+
+msgid "Encoder 0: GOP Frame P"
+msgstr ""
+
+msgid "Encoder 0: Level"
+msgstr ""
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+msgid "Encoder 0: Resolution"
+msgstr ""
+
+msgid "Encoder 0: Video codec"
+msgstr ""
+
+msgid "Encoder 1: Aspect Ratio"
+msgstr ""
+
+msgid "Encoder 1: Audio codec"
+msgstr ""
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+msgid "Encoder 1: Framerate"
+msgstr ""
+
+msgid "Encoder 1: GOP Frame B"
+msgstr ""
+
+msgid "Encoder 1: GOP Frame P"
+msgstr ""
+
+msgid "Encoder 1: Level"
+msgstr ""
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+msgid "Encoder 1: Resolution"
+msgstr ""
+
+msgid "Encoder 1: Video codec"
 msgstr ""

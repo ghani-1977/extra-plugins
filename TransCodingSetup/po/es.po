@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2016-05-07 14:04+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: spanish <openspa.info>\n"
@@ -101,6 +101,88 @@ msgstr "Predefinidos"
 
 msgid "Encoder"
 msgstr "Codificador"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Relación de aspecto"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Codec de audio"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Framerate"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Codificador"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Resolución"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Codec de video"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Relación de aspecto"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Codec de audio"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Framerate"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Codificador"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Resolución"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Codec de video"
 
 msgid "Framerate"
 msgstr "Framerate"

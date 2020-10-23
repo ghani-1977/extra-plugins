@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2017-11-29 18:42+0100\n"
 "Last-Translator: insanity\n"
 "Language-Team: www.vuplus-community <insanity@>\n"
@@ -101,6 +101,88 @@ msgstr "Predefinito"
 
 msgid "Encoder"
 msgstr "Codificatore"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Rapporto di aspetto"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Codec audio"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Framerate"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Codificatore"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Risoluzione"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Codec video"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Rapporto di aspetto"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Codec audio"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Framerate"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Codificatore"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Risoluzione"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Codec video"
 
 msgid "Framerate"
 msgstr "Framerate"

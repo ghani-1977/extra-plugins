@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-11-05 14:38+0100\n"
 "Last-Translator: Ralf Biedermann <ralf.biedermann@rbsoft.de>\n"
 "Language-Team: none\n"
@@ -23,6 +23,15 @@ msgstr ""
 
 #, python-format
 msgid "%d/%d"
+msgstr ""
+
+msgid "'yes' and remote fallback tuner will be automatically configured to stream from the remote receiver. 'no' and fallback will not be edited."
+msgstr ""
+
+msgid "Allows you to set a schedule to perform an import."
+msgstr ""
+
+msgid "Auto configure remote fallback tuner"
 msgstr ""
 
 msgid "Channels importer"
@@ -98,6 +107,24 @@ msgstr "Jede Stunde"
 msgid "Exit"
 msgstr "Ende"
 
+msgid "FTP Password"
+msgstr ""
+
+msgid "FTP Port"
+msgstr ""
+
+msgid "FTP Username"
+msgstr ""
+
+msgid "FTP password of the remote receiver the channel list is being imported from."
+msgstr ""
+
+msgid "FTP port of the remote receiver the channel list is being imported from."
+msgstr ""
+
+msgid "FTP username of the remote receiver the channel list is being imported from."
+msgstr ""
+
 msgid "Fetch channels from the server."
 msgstr "Hole Kanäle vom Server."
 
@@ -107,7 +134,19 @@ msgstr "Zum Import vom Server"
 msgid "Force EPG save on remote receiver"
 msgstr "Erzwinge Sichern von epg.dat auf dem Server"
 
+msgid "IP address of the remote receiver the channel list is  being imported from."
+msgstr ""
+
+msgid "If 'yes' the importer will automatically import and load EPG data from the remote receiver if the file exists."
+msgstr ""
+
+msgid "If 'yes' the importer will automatically run at startup or reboot."
+msgstr ""
+
 msgid "Import"
+msgstr ""
+
+msgid "Import EPG"
 msgstr ""
 
 msgid "Loading epg.dat..."
@@ -116,23 +155,62 @@ msgstr "Lade epg.dat..."
 msgid "Loading new channel list..."
 msgstr "Lade neue Kanalliste..."
 
+msgid "Passive mode"
+msgstr ""
+
+msgid "Push error messages to the screen. Switch on for debugging only."
+msgstr ""
+
 msgid "Really close without saving settings?"
 msgstr "Ohne Sichern beenden. Sicher?"
+
+msgid "Remote receiver IP"
+msgstr ""
 
 msgid "Removing current channel list..."
 msgstr "Lösche aktuelle Kanalliste..."
 
+msgid "Repeat how often"
+msgstr ""
+
+msgid "Run at restart"
+msgstr ""
+
 msgid "Save"
 msgstr "Sichern"
 
+msgid "Schedule import"
+msgstr ""
+
 msgid "Searching for epg.dat"
 msgstr "Suche epg.dat"
+
+msgid "Set the repeat interval of the schedule."
+msgstr ""
+
+msgid "Set the time of day to perform the scan."
+msgstr ""
+
+msgid "Should the FTP connection to the remote receiver be established in passive mode?"
+msgstr ""
+
+msgid "Show error messages"
+msgstr ""
+
+msgid "Show in extensions"
+msgstr ""
 
 msgid "Starting importer"
 msgstr "Start Import..."
 
 msgid "Starting importer..."
 msgstr "Starte Import...."
+
+msgid "Time import should start"
+msgstr ""
+
+msgid "When enabled, allows you start an import from the extensions list."
+msgstr ""
 
 msgid "epg.dat not found"
 msgstr "epg.dat nicht gefunden"

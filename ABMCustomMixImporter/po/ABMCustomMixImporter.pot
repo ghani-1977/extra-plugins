@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 21:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,4 +72,22 @@ msgid "Saving CustomMix file"
 msgstr ""
 
 msgid "Starting importer..."
+msgstr ""
+
+msgid "Allows you automatically fetch the CustomMix file."
+msgstr ""
+
+msgid "Enable autofetch"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Lead time"
+msgstr ""
+
+msgid "Number of minutes prior to the ABM scan that the CustomMix file should be fetched"
+msgstr ""
+
+msgid "Select the CustomMix you want to import"
 msgstr ""

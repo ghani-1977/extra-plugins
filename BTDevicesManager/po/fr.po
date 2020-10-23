@@ -7,26 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
-"PO-Revision-Date: 2018-07-30 21:21+0200\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"PO-Revision-Date: 2019-07-23 15:35+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "(Re)Scan"
 msgstr "(Re)Scanner"
 
 msgid "Audio Address"
-msgstr ""
+msgstr "Adresse audio"
 
-#, fuzzy
 msgid "Audio Connect"
-msgstr "Connecter"
+msgstr "Connexion audio"
 
 msgid "Autostart"
 msgstr "Démarrage automatique"
@@ -56,9 +55,8 @@ msgstr "Connexion avec :\n"
 msgid "Disconnect"
 msgstr "Déconnecter"
 
-#, fuzzy
 msgid "Disconnect with:\n"
-msgstr "Connexion avec :\n"
+msgstr "Déconnecter avec:\n"
 
 msgid "Exit"
 msgstr "Quitter"
@@ -76,7 +74,7 @@ msgid "Not detected devices around STB"
 msgstr "Dispositifs non détectés autour du STB"
 
 msgid "Please Enter Passkey: \n"
-msgstr ""
+msgstr "Entrer la Passkey: \n"
 
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Veuillez charger le pilote BT en appuyant sur le bouton BLEU."

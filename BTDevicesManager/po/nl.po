@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-31 14:28+0430\n"
+"POT-Creation-Date: 2020-10-23 13:30+0330\n"
 "PO-Revision-Date: 2019-03-08 14:35+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -58,9 +58,8 @@ msgstr "Verbonden met:\n"
 msgid "Disconnect"
 msgstr "Verbinding verbroken"
 
-#, fuzzy
 msgid "Disconnect with:\n"
-msgstr "Verbonden met:\n"
+msgstr "Verbreek verbinding met:\n"
 
 msgid "Exit"
 msgstr "Sluit af"
@@ -78,7 +77,7 @@ msgid "Not detected devices around STB"
 msgstr "Geen aangesloten apparaten gevonden op STB"
 
 msgid "Please Enter Passkey: \n"
-msgstr ""
+msgstr "Geef Passkey in: \n"
 
 msgid "Please load BT driver by pressing BLUE button."
 msgstr "Laad BT-stuurprogramma door op de blauwe knop te drukken."

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-10-14 22:35+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: ViX <LL@li.org>\n"
@@ -106,6 +106,88 @@ msgstr "Standard"
 
 msgid "Encoder"
 msgstr "Encoder"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "Seitenverhältnis"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "Audio codec"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "Wiederholrate"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "Encoder"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "Auflösung"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "Video codec"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "Seitenverhältnis"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "Audio codec"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "Wiederholrate"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "GOP Frame B"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "GOP Frame P"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "Encoder"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "Auflösung"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "Video codec"
 
 msgid "Framerate"
 msgstr "Wiederholrate"

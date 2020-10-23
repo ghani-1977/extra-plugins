@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2-oe-alliance-plugins 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-16 14:20+0330\n"
+"POT-Creation-Date: 2020-10-23 13:41+0330\n"
 "PO-Revision-Date: 2018-12-08 11:51+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -100,6 +100,88 @@ msgstr "الإفتراضي"
 
 msgid "Encoder"
 msgstr "مشفر"
+
+#, fuzzy
+msgid "Encoder 0: Aspect Ratio"
+msgstr "أبعاد الشاشة"
+
+#, fuzzy
+msgid "Encoder 0: Audio codec"
+msgstr "ترميز الصوت"
+
+msgid "Encoder 0: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 0: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Framerate"
+msgstr "معدل الإطار"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame B"
+msgstr "إطار ب"
+
+#, fuzzy
+msgid "Encoder 0: GOP Frame P"
+msgstr "إطار ب"
+
+#, fuzzy
+msgid "Encoder 0: Level"
+msgstr "مشفر"
+
+msgid "Encoder 0: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 0: Resolution"
+msgstr "الدقة"
+
+#, fuzzy
+msgid "Encoder 0: Video codec"
+msgstr "ترميز الفيديو"
+
+#, fuzzy
+msgid "Encoder 1: Aspect Ratio"
+msgstr "أبعاد الشاشة"
+
+#, fuzzy
+msgid "Encoder 1: Audio codec"
+msgstr "ترميز الصوت"
+
+msgid "Encoder 1: Auto mode (Bitrate/Framerate)"
+msgstr ""
+
+msgid "Encoder 1: Bitrate"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Framerate"
+msgstr "معدل الإطار"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame B"
+msgstr "إطار ب"
+
+#, fuzzy
+msgid "Encoder 1: GOP Frame P"
+msgstr "إطار ب"
+
+#, fuzzy
+msgid "Encoder 1: Level"
+msgstr "مشفر"
+
+msgid "Encoder 1: Profile"
+msgstr ""
+
+#, fuzzy
+msgid "Encoder 1: Resolution"
+msgstr "الدقة"
+
+#, fuzzy
+msgid "Encoder 1: Video codec"
+msgstr "ترميز الفيديو"
 
 msgid "Framerate"
 msgstr "معدل الإطار"
