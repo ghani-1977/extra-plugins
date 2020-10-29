@@ -99,7 +99,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 		self.showError(_("The %s.xml file could not be fetched") % self.Satellitestype.value)
 
 	def validXML(self, XMLdata): # Looks for closing documentElement, i.e. </satellites>, or </locations>
-		return self.Satellitestype.value in ('america', 'asia', 'atlantic', 'europe') and ("</%s>" % self.Satellitestype.value) in XMLdata
+		return self.Satellitestype.value in ('america', 'asia', 'atlantic', 'europe') and "</satellites>" in XMLdata
 
 	def showError(self, message):
 		mbox = self.session.open(MessageBox, message, MessageBox.TYPE_ERROR)
