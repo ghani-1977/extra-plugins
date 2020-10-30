@@ -279,7 +279,7 @@ class StreamsThumb(StreamsThumbCommon):
 			fileUrl = self.findPlayUrl(showID)
 
 			if fileUrl:
-				fileRef = eServiceReference(4097,0,fileUrl)
+				fileRef = eServiceReference(4097, 0, fileUrl)
 				fileRef.setName (showName)
 				lastservice = self.session.nav.getCurrentlyPlayingServiceOrGroup()
 				self.session.open(MoviePlayer, fileRef, None, lastservice)
@@ -356,11 +356,11 @@ class StreamsThumb(StreamsThumbCommon):
 			rtmp_chunks = rtmp_url.split('/')
 
 			return {
-				'rtmp_url'  : rtmp_url,
-				'rtmp_host' : rtmp_chunks[2],
-				'rtmp_app'  : rtmp_chunks[3],
-				'api_url' : xml.find('param', attrs={'name':'api'}).get('value'),
-				'categories_url' : xml.find('param', attrs={'name':'categories'}).get('value'),
+				'rtmp_url': rtmp_url,
+				'rtmp_host': rtmp_chunks[2],
+				'rtmp_app': rtmp_chunks[3],
+				'api_url': xml.find('param', attrs={'name':'api'}).get('value'),
+				'categories_url': xml.find('param', attrs={'name':'categories'}).get('value'),
 			}
 		except (Exception) as exception:
 			print("%s: version %s: parse_config: Problem Parsing Config: %s" % (__plugin__, __version__, exception))

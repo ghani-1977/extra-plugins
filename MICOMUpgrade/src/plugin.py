@@ -239,7 +239,7 @@ class Filebrowser(Screen):
 		#print("[FirmwareUpgrade] - Verify : file[%s], md5[%s]"%(md5sum_A,md5sum_B))
 
 		if md5sum_A != md5sum_B:
-			self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]"%(md5sum_A,md5sum_B)), MessageBox.TYPE_INFO, timeout = 10)
+			self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]"%(md5sum_A, md5sum_B)), MessageBox.TYPE_INFO, timeout = 10)
 			return
 
 		
@@ -265,7 +265,7 @@ class Filebrowser(Screen):
 			opener.open(uri)
 		except:
 			#self.session.open(MessageBox, _("File not found in this URL:\n%s"%(uri)), MessageBox.TYPE_INFO, timeout = 10)
-			print("[FirmwareUpgrade] - Fail to download. URL :",uri)
+			print("[FirmwareUpgrade] - Fail to download. URL :", uri)
 			self.session.open(MessageBox, _(errmsg), MessageBox.TYPE_INFO, timeout = 10)
 			del opener
 			return False
@@ -273,7 +273,7 @@ class Filebrowser(Screen):
 			f, h = urlretrieve(uri, tar, doHook)
 		except IOError as msg:
 			#self.session.open(MessageBox, _(str(msg)), MessageBox.TYPE_INFO, timeout = 10)
-			print("[FirmwareUpgrade] - Fail to download. ERR_MSG :",str(msg))
+			print("[FirmwareUpgrade] - Fail to download. ERR_MSG :", str(msg))
 			self.session.open(MessageBox, _(errmsg), MessageBox.TYPE_INFO, timeout = 10)
 			del opener
 			return False
@@ -487,7 +487,7 @@ class FirmwareUpgrade(Screen):
 			self.session.open(MessageBox, _("Can't found device file!!"), MessageBox.TYPE_INFO, timeout = 10)
 			return
 		      
-		copyfile(self.updateFilePath,"/tmp/micom.bin")
+		copyfile(self.updateFilePath, "/tmp/micom.bin")
 		self.doReboot()
 		return
 

@@ -206,7 +206,7 @@ class StreamsThumb(StreamsThumbCommon):
 				print('fileUrl: ', fileUrl)
 				
 			if fileUrl:
-				fileRef = eServiceReference(4097,0,str(fileUrl))
+				fileRef = eServiceReference(4097, 0, str(fileUrl))
 				fileRef.setName (showName)
 				lastservice = self.session.nav.getCurrentlyPlayingServiceOrGroup()
 				self.session.open(MoviePlayer, fileRef, None, lastservice)

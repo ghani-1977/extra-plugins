@@ -22,8 +22,8 @@ from time import localtime, time
 import Screens.Standby
 
 config.plugins.VFD_odin = ConfigSubsection()
-config.plugins.VFD_odin.showClock = ConfigSelection(default = "True_Switch", choices = [("False",_("Channelnumber in Standby off")),("True",_("Channelnumber in Standby Clock")), ("True_Switch",_("Channelnumber/Clock in Standby Clock")),("True_All",_("Clock always")),("Off",_("Always off"))])
-config.plugins.VFD_odin.timeMode = ConfigSelection(default = "24h", choices = [("12h"),("24h")])
+config.plugins.VFD_odin.showClock = ConfigSelection(default = "True_Switch", choices = [("False", _("Channelnumber in Standby off")), ("True", _("Channelnumber in Standby Clock")), ("True_Switch", _("Channelnumber/Clock in Standby Clock")), ("True_All", _("Clock always")), ("Off", _("Always off"))])
+config.plugins.VFD_odin.timeMode = ConfigSelection(default = "24h", choices = [("12h"), ("24h")])
 
 def vfd_write(text):
 	open("/dev/dbox/oled0", "w").write(text)
@@ -44,7 +44,7 @@ class Channelnumber:
 		self.zaPrik.start(1000, 1)
 		self.onClose = [ ]
 
-		self.__event_tracker = ServiceEventTracker(screen=self,eventmap=
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
 			{
 				iPlayableService.evUpdatedEventInfo: self.__eventInfoChanged
 			})
@@ -187,7 +187,7 @@ class VFD_OdinM7Setup(ConfigListScreen, Screen):
 		self["key_red"] = Button(_("Cancel"))
 		self["key_green"] = Button(_("Save"))
 
-		self["setupActions"] = ActionMap(["SetupActions","ColorActions"],
+		self["setupActions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"save": self.save,
 			"cancel": self.cancel,
@@ -292,4 +292,4 @@ def sessionstart(reason, **kwargs):
 
 def Plugins(**kwargs):
  	return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
- 		PluginDescriptor(name="Odin M7 LED Display Setup", description="Change VFD display settings",where = PluginDescriptor.WHERE_MENU, fnc = main) ]
+ 		PluginDescriptor(name="Odin M7 LED Display Setup", description="Change VFD display settings", where = PluginDescriptor.WHERE_MENU, fnc = main) ]

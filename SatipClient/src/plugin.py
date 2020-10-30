@@ -111,7 +111,7 @@ class SATIPDiscovery:
 		if not address:
 			return None
 
-		return "%d.%d.%d.%d"%(address[0],address[1],address[2],address[3])
+		return "%d.%d.%d.%d"%(address[0], address[1], address[2], address[3])
 
 	def getEthernetAddr(self):
 		return self.formatAddr(iNetwork.getAdapterAttribute("eth0", "ip") )
@@ -172,7 +172,7 @@ class SATIPDiscovery:
 
 			return None
 
-		def getAttrN2(root, parent, tag, namespace_1 , namespace_2):
+		def getAttrN2(root, parent, tag, namespace_1, namespace_2):
 			try:
 				pElem = findChild(root, parent, namespace_1)
 				if pElem is not None:
@@ -340,7 +340,7 @@ class SATIPTuner(Screen, ConfigListScreen):
 			"cancel": self.keyCancel,
 			"red": self.keyCancel,
 			"green": self.keySave,
-			"yellow" : self.DiscoveryStart,
+			"yellow": self.DiscoveryStart,
 		}, -2)
 
 		self.list = []
@@ -678,7 +678,7 @@ class SATIPClient(Screen):
 			if vtuner['vtuner_type'] == "satip_client":
 				entry = (
 				_("VIRTUAL TUNER %s") % vtuner_idx,
-				_("TYPE : %s") % vtuner['vtuner_type'].replace('_',' ').upper(),
+				_("TYPE : %s") % vtuner['vtuner_type'].replace('_', ' ').upper(),
 				_("IP : %s") % vtuner['ipaddr'],
 				_("TUNER TYPE : %s") % vtuner['tuner_type'],
 				_("SAT>IP SERVER : %s") % vtuner['desc'],
@@ -690,7 +690,7 @@ class SATIPClient(Screen):
 			else:
 				entry = (
 				_("VIRTUAL TUNER %s") % vtuner_idx,
-				_("TYPE : %s") % vtuner['vtuner_type'].replace('_',' ').upper(),
+				_("TYPE : %s") % vtuner['vtuner_type'].replace('_', ' ').upper(),
 				"",
 				"",
 				"",

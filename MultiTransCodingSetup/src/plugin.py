@@ -31,7 +31,7 @@ if fileExists("/proc/stb/encoder/0/vcodec"):
 	config.plugins.transcodingsetup.framerate = ConfigSelection([("23976", _("23.976 fps")), ("24000", _("24 fps")), ("25000", _("25 fps")), ("30000", _("30 fps"))], default="25000")
 	config.plugins.transcodingsetup.aspectratio = ConfigInteger(default = 2)
 	config.plugins.transcodingsetup.interlaced = ConfigInteger(default = 0)
-elif model in ("x2plus","formuler1"):
+elif model in ("x2plus", "formuler1"):
 	choice = ConfigSelection(default = "400000", choices=[("-1", "Auto"), ("50000", "50 Kbits"), ("100000", "100 Kbits"), ("150000", "150 Kbits"), ("200000", "200 Kbits"), ("250000", "250 Kbits"), ("300000", "300 Kbits"), ("350000", "350 Kbits"), ("400000", "400 Kbits"), ("450000", "450 Kbits"), ("500000", "500 Kbits"), ("600000", "600 Kbits"), ("700000", "700 Kbits"), ("800000", "800 Kbits"), ("900000", "900 Kbits"), ("1000000", "1 Mbits")])
 	config.plugins.transcodingsetup.bitrate = choice
 	choice = ConfigSelection(default = "50000", choices = [("-1", "Auto"), ("23976", "23.976 fps"), ("24000", "24 fps"), ("25000", "25 fps"), ("29970", "29.970 fps"), ("30000", "30 fps"), ("50000", "50 fps"), ("59940", "59.940 fps"), ("60000", "60 fps")])
@@ -46,7 +46,7 @@ else:
 	config.plugins.transcodingsetup.aspectratio = ConfigSelection(default = "2", choices = [("0", _("4x3")), ("1", _("16x9")), ("2", _("Auto")) ])
 	config.plugins.transcodingsetup.interlaced = ConfigSelection(default = "0", choices = [ ("1", _("Yes")), ("0", _("No"))])
 
-class TranscodingSetup(Screen,ConfigListScreen):
+class TranscodingSetup(Screen, ConfigListScreen):
 	skin =  """
 		<screen name="TranscodingSetup" position="center,center" size="900,500">
 			<ePixmap pixmap="buttons/red.png" position="5,0" size="140,40" alphatest="on" />
@@ -62,8 +62,8 @@ class TranscodingSetup(Screen,ConfigListScreen):
 		</screen>
 		"""
 
-	def __init__(self,session):
-		Screen.__init__(self,session)
+	def __init__(self, session):
+		Screen.__init__(self, session)
 		self.session = session
 
 		self.skinName = "TranscodingSetup"
@@ -115,7 +115,7 @@ class TranscodingSetup(Screen,ConfigListScreen):
 
 	def checkEncoder(self):
 		if not path.exists("/proc/stb/encoder"):
-			self.invaliedModelTimer.start(100,True)
+			self.invaliedModelTimer.start(100, True)
 
 	def invalidmodel(self):
 		self.session.openWithCallback(self.close, MessageBox, _("This model does not support transcoding."), MessageBox.TYPE_ERROR)
@@ -129,7 +129,7 @@ class TranscodingSetup(Screen,ConfigListScreen):
 			self.list.append(getConfigListEntry(_("Video codec"), config.plugins.transcodingsetup.vcodec))
 			self.list.append(getConfigListEntry(_("Aspect Ratio"), config.plugins.transcodingsetup.aspectratio))
 			self.list.append(getConfigListEntry(_("Interlaced"), config.plugins.transcodingsetup.interlaced))
-		elif model in ("x2plus","formuler1"):
+		elif model in ("x2plus", "formuler1"):
 			self.list.append(getConfigListEntry(_("Bitrate in bits"), config.plugins.transcodingsetup.bitrate))
 			self.list.append(getConfigListEntry(_("Framerate"), config.plugins.transcodingsetup.framerate))
 		else:

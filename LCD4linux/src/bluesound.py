@@ -19,7 +19,7 @@ def parseXmlToJson(xml):
 	return response
 
 class BlueSound:
-	def __init__(self,ip):
+	def __init__(self, ip):
 		self.IP = ip
 		self.baseUrl = "http://" + ip + ":11000/"
 	def Urlget(self, url):
@@ -34,7 +34,7 @@ class BlueSound:
 
 	def getStatus(self):
 		try:
-			content,resp=self.Urlget(self.baseUrl + "Status")
+			content, resp=self.Urlget(self.baseUrl + "Status")
 			if resp == 200:
 				xml = ET.fromstring(content)
 				r = parseXmlToJson(xml)
@@ -44,5 +44,5 @@ class BlueSound:
 		except:
 			print("Bluesound Error")
 			from traceback import format_exc
-			print("Error:",format_exc() )
+			print("Error:", format_exc() )
 			return {}

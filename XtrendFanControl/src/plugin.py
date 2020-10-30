@@ -71,10 +71,10 @@ config.plugins.FanSetup.timeendoff = ConfigClock(default = ((7 * 60 + 0) * 60) )
 config.plugins.FanSetup.hddwatch = ConfigSelection(choices = hddwatchlist, default = "none")
 config.plugins.FanSetup.hdddevice = ConfigText(default = "all")
 config.plugins.FanSetup.hddsleep = ConfigBoolean(default = False)
-config.plugins.FanSetup.hddtemp = ConfigInteger(0, limits = (0,80))
+config.plugins.FanSetup.hddtemp = ConfigInteger(0, limits = (0, 80))
 config.plugins.FanSetup.menuhdd = ConfigYesNo(default = False)
 config.plugins.FanSetup.fanspeed = ConfigSlider(default=127, increment=8, limits=(0, 255))
-config.plugins.FanSetup.systemtemp = ConfigInteger(40, limits = (15,80))
+config.plugins.FanSetup.systemtemp = ConfigInteger(40, limits = (15, 80))
 config.plugins.FanSetup.systempwatch = ConfigSelection(choices = syswatchlist, default = "off")
 
 
@@ -216,7 +216,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 	def initConfig(self):
 		def getPrevValues(section):
 			res = { }
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -275,7 +275,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key,val) in section.content.items.items():
+			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):
@@ -466,7 +466,7 @@ def getTempForDevice(device):
 		pos2 = temperature.rfind('C')
 		if pos1 != -1 and pos2 != -1 and pos1 < pos2:
 			temp = int(temperature[pos1+1:pos2])
-			disk = temperature[1:pos1].replace('\x10\x80','').strip()
+			disk = temperature[1:pos1].replace('\x10\x80', '').strip()
 			return disk, temp
 	except:
 		pass

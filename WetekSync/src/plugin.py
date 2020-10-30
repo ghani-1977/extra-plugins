@@ -53,7 +53,7 @@ class LoopSyncMain(Screen):
 						self.AVSyncTimer.start(500, True)
 						self.ResetFlag()
 						try:
-							self.session.open(DoWetekSync,service1)
+							self.session.open(DoWetekSync, service1)
 						except Exception as e:
 							print("[WetekSync] Can't WetekSync")
 					self.AVSyncTimer.start(100, True)
@@ -68,7 +68,7 @@ class LoopSyncMain(Screen):
 
 	def CheckFlag(self):
 		try:
-			if int(open("/sys/class/tsync/reset_flag", "r").read(),16) == 1: return True;
+			if int(open("/sys/class/tsync/reset_flag", "r").read(), 16) == 1: return True;
 		except Exception as e:
 			print("[WetekSync] Can't read class")
 			self.AVSyncTimer.start(500, True)

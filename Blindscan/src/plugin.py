@@ -49,7 +49,7 @@ def getMisPlsValue(d, idx, defaultValue):
 
 #used for blindscan-s2
 def getAdapterFrontend(frontend, description):
-	for adapter in range(1,5):
+	for adapter in range(1, 5):
 		try:
 			product = open("/sys/class/dvb/dvb%d.frontend0/device/product" % adapter).read()
 			if description in product:
@@ -397,7 +397,7 @@ class Blindscan(ConfigListScreen, Screen):
 					self.session.pipshown = False
 					del self.session.pip
 					self.openFrontend()
-		print('[Blindscan] self.frontend:',self.frontend)
+		print('[Blindscan] self.frontend:', self.frontend)
 		if self.frontend is None:
 			self.session.open(MessageBox, _("Sorry, this tuner is in use."), MessageBox.TYPE_ERROR)
 			return False
@@ -528,7 +528,7 @@ class Blindscan(ConfigListScreen, Screen):
 		elif self.SundtekScan:
 			warning_text = _("\nYou must use the power adapter.")
 
-		self.tunerEntry = getConfigListEntry(_("Tuner"), self.scan_nims,(_('Select a tuner that is configured for the satellite you wish to search') + warning_text))
+		self.tunerEntry = getConfigListEntry(_("Tuner"), self.scan_nims, (_('Select a tuner that is configured for the satellite you wish to search') + warning_text))
 		self.list.append(self.tunerEntry)
 
 		self.satelliteEntry = None
@@ -536,7 +536,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.userDefinedLnbInversionEntry = None
 
 		if nim.canBeCompatible("DVB-S"):
-			self.satelliteEntry = getConfigListEntry(_('Satellite'), self.scan_satselection[self.getSelectedSatIndex(index_to_scan)],_('Select the satellite you wish to search'))
+			self.satelliteEntry = getConfigListEntry(_('Satellite'), self.scan_satselection[self.getSelectedSatIndex(index_to_scan)], _('Select the satellite you wish to search'))
 			self.list.append(self.satelliteEntry)
 
 			if not self.SatBandCheck():
@@ -548,17 +548,17 @@ class Blindscan(ConfigListScreen, Screen):
 				self["actions2"].setEnabled(False)
 				return
 
-			self.searchtypeEntry = getConfigListEntry(_("Search type"), config.blindscan.search_type,_('"channel scan" searches for channels and saves them to your receiver; "transponder scan" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp'))
+			self.searchtypeEntry = getConfigListEntry(_("Search type"), config.blindscan.search_type, _('"channel scan" searches for channels and saves them to your receiver; "transponder scan" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp'))
 			self.list.append(self.searchtypeEntry)
 
 			if self.is_c_band_scan:
-				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_C_band_start_frequency,_('Frequency values must be between %d MHz and %d MHz (C-band)') % (self.c_band_freq_limits["low"], self.c_band_freq_limits["high"]-1)))
-				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_C_band_stop_frequency,_('Frequency values must be between %d MHz and %d MHz (C-band)') % (self.c_band_freq_limits["low"]+1, self.c_band_freq_limits["high"])))
+				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_C_band_start_frequency, _('Frequency values must be between %d MHz and %d MHz (C-band)') % (self.c_band_freq_limits["low"], self.c_band_freq_limits["high"]-1)))
+				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_C_band_stop_frequency, _('Frequency values must be between %d MHz and %d MHz (C-band)') % (self.c_band_freq_limits["low"]+1, self.c_band_freq_limits["high"])))
 			elif self.is_Ku_band_scan:
-				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_Ku_band_start_frequency,_('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"],self.Ku_band_freq_limits["high"]-1)))
-				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_Ku_band_stop_frequency,_('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"]+1, self.Ku_band_freq_limits["high"])))
+				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_Ku_band_start_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"]-1)))
+				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_Ku_band_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"]+1, self.Ku_band_freq_limits["high"])))
 			elif self.user_defined_lnb_scan:
-				self.userDefinedLnbInversionEntry = getConfigListEntry(_('LNB inversion'), config.blindscan.user_defined_lnb_inversion,_('CAUTION: Only select "inverted" if you are using an inverted LNB (i.e. an LNB where the local oscillator frequency is greater than the scan frequency). Default is "normal". Only change this if you understand why you are doing it.'))
+				self.userDefinedLnbInversionEntry = getConfigListEntry(_('LNB inversion'), config.blindscan.user_defined_lnb_inversion, _('CAUTION: Only select "inverted" if you are using an inverted LNB (i.e. an LNB where the local oscillator frequency is greater than the scan frequency). Default is "normal". Only change this if you understand why you are doing it.'))
 				self.list.append(self.userDefinedLnbInversionEntry)
 				if self.last_user_defined_lo_freq != self.user_defined_lnb_lo_freq: # only recreate user defined config if user defined local oscillator changed frequency when moving to another user defined LNB
 					self.last_user_defined_lo_freq = self.user_defined_lnb_lo_freq
@@ -567,25 +567,25 @@ class Blindscan(ConfigListScreen, Screen):
 					self.blindscan_user_defined_lnb_start_frequency = ConfigInteger(default = self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], limits = (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1))
 					self.blindscan_user_defined_lnb_stop_frequency = ConfigInteger(default = self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"], limits = (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]))
 				if config.blindscan.user_defined_lnb_inversion.value:
-					self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_inverted_start_frequency,_('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq - self.tunerIfLimits["high"], self.user_defined_lnb_lo_freq - self.tunerIfLimits["low"]-1)))
-					self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_inverted_stop_frequency,_('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq - self.tunerIfLimits["high"]+1, self.user_defined_lnb_lo_freq - self.tunerIfLimits["low"])))
+					self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_inverted_start_frequency, _('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq - self.tunerIfLimits["high"], self.user_defined_lnb_lo_freq - self.tunerIfLimits["low"]-1)))
+					self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_inverted_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq - self.tunerIfLimits["high"]+1, self.user_defined_lnb_lo_freq - self.tunerIfLimits["low"])))
 				else: # Normal LNB, not inverted
-					self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_start_frequency,_('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1)))
-					self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_stop_frequency,_('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])))
+					self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_start_frequency, _('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1)))
+					self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])))
 
 			if "TBS" or "5925" in nim.description:
-				self.list.append(getConfigListEntry(_("Scan Step in MHz(TBS5925)"), config.blindscan.step_mhz_tbs5925,_('Smaller steps takes longer but scan is more thorough')))
-			self.list.append(getConfigListEntry(_("Polarisation"), config.blindscan.polarization,_('The suggested polarisation for this satellite is "%s"') % (self.suggestedPolarisation)))
-			self.list.append(getConfigListEntry(_('Scan start symbolrate'), config.blindscan.start_symbol,_('Symbol rate values are in megasymbols; enter a value between 1 and 44')))
-			self.list.append(getConfigListEntry(_('Scan stop symbolrate'), config.blindscan.stop_symbol,_('Symbol rate values are in megasymbols; enter a value between 2 and 45')))
-			self.list.append(getConfigListEntry(_("Clear before scan"), config.blindscan.clearallservices,_('If you select "yes" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders.')))
-			self.list.append(getConfigListEntry(_("Only free scan"), config.blindscan.onlyFTA,_('If you select "yes" the scan will only save channels that are not encrypted; "no" will find encrypted and non-encrypted channels.')))
-			self.onlyUnknownTpsEntry = getConfigListEntry(_("Only scan unknown transponders"), config.blindscan.dont_scan_known_tps,_('If you select "yes" the scan will only search transponders not listed in satellites.xml'))
+				self.list.append(getConfigListEntry(_("Scan Step in MHz(TBS5925)"), config.blindscan.step_mhz_tbs5925, _('Smaller steps takes longer but scan is more thorough')))
+			self.list.append(getConfigListEntry(_("Polarisation"), config.blindscan.polarization, _('The suggested polarisation for this satellite is "%s"') % (self.suggestedPolarisation)))
+			self.list.append(getConfigListEntry(_('Scan start symbolrate'), config.blindscan.start_symbol, _('Symbol rate values are in megasymbols; enter a value between 1 and 44')))
+			self.list.append(getConfigListEntry(_('Scan stop symbolrate'), config.blindscan.stop_symbol, _('Symbol rate values are in megasymbols; enter a value between 2 and 45')))
+			self.list.append(getConfigListEntry(_("Clear before scan"), config.blindscan.clearallservices, _('If you select "yes" all channels on the satellite being searched will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders.')))
+			self.list.append(getConfigListEntry(_("Only free scan"), config.blindscan.onlyFTA, _('If you select "yes" the scan will only save channels that are not encrypted; "no" will find encrypted and non-encrypted channels.')))
+			self.onlyUnknownTpsEntry = getConfigListEntry(_("Only scan unknown transponders"), config.blindscan.dont_scan_known_tps, _('If you select "yes" the scan will only search transponders not listed in satellites.xml'))
 			self.list.append(self.onlyUnknownTpsEntry)
 			if not config.blindscan.dont_scan_known_tps.value:
-				self.list.append(getConfigListEntry(_("Disable sync with known transponders"), config.blindscan.disable_sync_with_known_tps,_('CAUTION: If you select "yes" the scan will not sync with transponders listed in satellites.xml. Default is "no". Only change this if you understand why you are doing it.')))
-			self.list.append(getConfigListEntry(_("Disable remove duplicates"), config.blindscan.disable_remove_duplicate_tps,_('CAUTION: If you select "yes" the scan will not remove "duplicated" transponders from the list. Default is "no". Only change this if you understand why you are doing it.')))
-			self.list.append(getConfigListEntry(_("Filter out adjacent satellites"), config.blindscan.filter_off_adjacent_satellites,_('When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite.')))
+				self.list.append(getConfigListEntry(_("Disable sync with known transponders"), config.blindscan.disable_sync_with_known_tps, _('CAUTION: If you select "yes" the scan will not sync with transponders listed in satellites.xml. Default is "no". Only change this if you understand why you are doing it.')))
+			self.list.append(getConfigListEntry(_("Disable remove duplicates"), config.blindscan.disable_remove_duplicate_tps, _('CAUTION: If you select "yes" the scan will not remove "duplicated" transponders from the list. Default is "no". Only change this if you understand why you are doing it.')))
+			self.list.append(getConfigListEntry(_("Filter out adjacent satellites"), config.blindscan.filter_off_adjacent_satellites, _('When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite.')))
 			self["config"].list = self.list
 			self["config"].l.setList(self.list)
 			self["key_green"].setText(_("Scan"))
@@ -666,7 +666,7 @@ class Blindscan(ConfigListScreen, Screen):
 			uni_lnb_cutoff = self.uni_lnb_cutoff
 
 		if self.blindscan_start_frequency < uni_lnb_cutoff and self.blindscan_stop_frequency > uni_lnb_cutoff:
-			tmp_band=["low","high"]
+			tmp_band=["low", "high"]
 		elif self.blindscan_start_frequency < uni_lnb_cutoff:
 			tmp_band=["low"]
 		else:
@@ -699,7 +699,7 @@ class Blindscan(ConfigListScreen, Screen):
 			except: pass
 			return "vuplus_blindscan", ""
 		if brand == "vuplus" and not self.SundtekScan:
-			self.binName,nimName =  GetCommand(self.scan_nims.value)
+			self.binName, nimName =  GetCommand(self.scan_nims.value)
 
 			self.makeNimSocket(nimName)
 			if self.binName is None:
@@ -712,7 +712,7 @@ class Blindscan(ConfigListScreen, Screen):
 		for x in tmp_list:
 			for y in tmp_pol:
 				for z in tmp_band:
-					self.total_list.append([x,y,z])
+					self.total_list.append([x, y, z])
 					print("[Blindscan][doRun] add scan item: ", x, ", ", y, ", ", z)
 
 		self.max_count = len(self.total_list)
@@ -877,7 +877,7 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif brand in ("azbox","amiko","ceryon","dinobot","gigablue","ini","uclan","vuplus","xtrend") or platform in ("octagonhisil","dags72604"):
+		elif brand in ("azbox", "amiko", "ceryon", "dinobot", "gigablue", "ini", "uclan", "vuplus", "xtrend") or platform in ("octagonhisil", "dags72604"):
 			if brand == "vuplus":
 				exe_filename = self.binName
 			else:
@@ -885,13 +885,13 @@ class Blindscan(ConfigListScreen, Screen):
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
-				if brand in ("ceryon","dinobot","uclan","amiko") or platform in ("octagonhisil","gbmv200","dags72604"):
+				if brand in ("ceryon", "dinobot", "uclan", "amiko") or platform in ("octagonhisil", "gbmv200", "dags72604"):
 					cmd += " %d" % self.is_c_band_scan
-				if brand in ("dinobot","uclan","amiko") or platform in ("octagonhisil","gbmv200","dags72604"):
+				if brand in ("dinobot", "uclan", "amiko") or platform in ("octagonhisil", "gbmv200", "dags72604"):
 					cmd += " %d" % orb[0]
 				if brand == "azbox":
 					self.polsave=tab_pol[pol] # Data returned by the binary is not good we must save polarisation
-				if brand in ("uclan","amiko") or platform == "gbmv200":
+				if brand in ("uclan", "amiko") or platform == "gbmv200":
 					self.adjust_freq = False
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
@@ -904,7 +904,7 @@ class Blindscan(ConfigListScreen, Screen):
 			else:
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
-		elif brand in ("xcore","edision"):
+		elif brand in ("xcore", "edision"):
 			exe_filename = getBlindscanBin()
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
@@ -1133,7 +1133,7 @@ class Blindscan(ConfigListScreen, Screen):
 				if 'Scanning' in data:
 					self.tp_found.append(str)
 					seconds_done = int(time() - self.start_time)
-					tmpstr = "\n" + str + _("Step %d %d:%02d min") %(len(self.tp_found),seconds_done / 60, seconds_done % 60)
+					tmpstr = "\n" + str + _("Step %d %d:%02d min") %(len(self.tp_found), seconds_done / 60, seconds_done % 60)
 					self.blindscan_session["progress"].setText(self.tmpstr + tmpstr)
 				if len(data) >= 6 and data[0] == 'OK':
 					self.blindscan_session["post_action"].setText(str)
@@ -1514,7 +1514,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 	def keyYellow(self):
 		if XML_FILE and os.path.exists(XML_FILE):
-			self.session.open(Console,_(XML_FILE),["cat %s" % XML_FILE])
+			self.session.open(Console, _(XML_FILE), ["cat %s" % XML_FILE])
 
 	def resetDefaults(self):
 		for key in defaults.keys():

@@ -125,18 +125,18 @@ class TerrestrialScan(Screen):
 		self.scanTransponders = []
 		if self.uhf_vhf == "uhf_vhf":
 			bandwidth = 7
-			for a in range(5,13):
+			for a in range(5, 13):
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		if self.uhf_vhf in ("uhf", "uhf_vhf"):
 			bandwidth = 8
-			for a in range(21,70):
+			for a in range(21, 70):
 				for b in (eDVBFrontendParametersTerrestrial.System_DVB_T, eDVBFrontendParametersTerrestrial.System_DVB_T2): # system
 					self.scanTransponders.append({"frequency": channel2freq(a, bandwidth), "system": b, "bandwidth": bandwidth})
 		if self.uhf_vhf == "australia":
 			bandwidth = 7
 			base_frequency = 177500000
-			for a in range(0,8) + range(50,74):
+			for a in range(0, 8) + range(50, 74):
 				freq = (base_frequency + (a * bandwidth * 1000000 + (2000000 if a > 8 else 0)))
 				self.scanTransponders.append({"frequency": freq, "system": eDVBFrontendParametersTerrestrial.System_DVB_T, "bandwidth": bandwidth})
 		if self.uhf_vhf == "xml":

@@ -135,13 +135,13 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
 		print("[__evDecodeError] video-codec %s can't be decoded by hardware" % (sVideoType))
-		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO,timeout = 20 )
+		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO, timeout = 20 )
 
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
-		print("[__evPluginError]" , message)
-		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO,timeout = 20 )
+		print("[__evPluginError]", message)
+		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO, timeout = 20 )
 
 	def hideAfterResume(self):
 		self.hide()
@@ -163,16 +163,16 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			if text[:2] != "..":
 				text = "/" + text
 				
-			self.summaries.setText(text,1)
+			self.summaries.setText(text, 1)
 			idx += 1
 		if idx < len(self.filelist.list):
 			r = self.filelist.list[idx]
 			text = r[1][7]
 			if r[0][1] == True:
 				text = "/" + text
-			self.summaries.setText(text,3)
+			self.summaries.setText(text, 3)
 		else:
-			self.summaries.setText(" ",3)
+			self.summaries.setText(" ", 3)
 	
 	def ok(self):
 		selection = self["filelist"].getSelection()

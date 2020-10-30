@@ -88,13 +88,13 @@ def get_known_devices():
 	return dList
      
 
-def find_device(Anzahl,device,device2):
+def find_device(Anzahl, device, device2):
 	"""Try to find device on USB bus."""
 	try:
-		print("[LCD4linux] looking for frame",Anzahl, device['name'], device['idVendor'], device['idProduct'], device2['idProduct'])
+		print("[LCD4linux] looking for frame", Anzahl, device['name'], device['idVendor'], device['idProduct'], device2['idProduct'])
 		if Anzahl == 2:
 			d = list(usb.core.find(idVendor=device['idVendor'], idProduct=device['idProduct'], find_all=True))+list(usb.core.find(idVendor=device2['idVendor'], idProduct=device2['idProduct'], find_all=True))
-			if isinstance(d,list):
+			if isinstance(d, list):
 				if len(d) >= 2:
 					d = d[1]
 				else:
@@ -106,17 +106,17 @@ def find_device(Anzahl,device,device2):
 	except:
 		from traceback import format_exc
 		print("[LCD4linux] find exception")
-		print("Error:",format_exc())
+		print("Error:", format_exc())
 		d = None
 	return d  
 
-def init_device(Anzahl,device0, device1):
+def init_device(Anzahl, device0, device1):
 	"""First try Mini Monitor mode, then Mass storage mode"""
-	dev = find_device(Anzahl,device0,device1)
+	dev = find_device(Anzahl, device0, device1)
 
 	if dev is not None:
 		## found it, trying to init it
-		print("[LCD4linux] Find frame device",dev)
+		print("[LCD4linux] Find frame device", dev)
 		if dev.idProduct == device0["idProduct"]:
 			print("[LCD4linux] init Device")
 			frame_init(dev)
@@ -126,7 +126,7 @@ def init_device(Anzahl,device0, device1):
 			ts = time.time()
 			while True:
 				# may need to burn some time
-				dev = find_device(Anzahl,device0,device1)
+				dev = find_device(Anzahl, device0, device1)
 				if dev is not None and dev.idProduct == device0["idProduct"]:
 					#switching successful
 					break
@@ -175,10 +175,10 @@ def frame_switch(dev):
 
 def name(dev):
 	try:
-		return usb.util.get_string(dev,1) 
+		return usb.util.get_string(dev, 1) 
 	except:
 		try:
-			return usb.util.get_string(dev,256,2) 
+			return usb.util.get_string(dev, 256, 2) 
 		except:
 			return None
 
@@ -200,7 +200,7 @@ def main():
 	#  thumbnail
 	#  rotate
 	#  crop
-	image = image.resize((800,480))
+	image = image.resize((800, 480))
 	output = StringIO.StringIO()
 	image.save(output, "JPEG", quality=94)
 	pic  = output.getvalue()

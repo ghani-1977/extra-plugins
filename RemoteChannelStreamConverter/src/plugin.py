@@ -26,7 +26,7 @@ RCSC_PREFIX = 'userbouquet.rcsc.'
 
 config.plugins.RemoteStreamConverter = ConfigSubsection()
 config.plugins.RemoteStreamConverter.address = ConfigText(default = "", fixed_size = False)
-config.plugins.RemoteStreamConverter.ip = ConfigIP(default = [0,0,0,0])
+config.plugins.RemoteStreamConverter.ip = ConfigIP(default = [0, 0, 0, 0])
 config.plugins.RemoteStreamConverter.username = ConfigText(default = "root", fixed_size = False)
 config.plugins.RemoteStreamConverter.password = ConfigText(default = "", fixed_size = False)
 config.plugins.RemoteStreamConverter.port = ConfigInteger(21, (0, 65535))
@@ -565,7 +565,7 @@ class StreamingChannelFromServerScreen(Screen):
 							break
 						tmp = service.toString()
 						if len(tmp) > 1 and len(tmp[1]) > 0:
-							tmp2 = tmp.split()[2].replace('"','')
+							tmp2 = tmp.split()[2].replace('"', '')
 							name = self.readBouquetName(DIR_ENIGMA2 + tmp2)
 							list.append((name, tmp2))
 
@@ -652,7 +652,7 @@ def main(session, **kwargs):
 	session.open(StreamingChannelFromServerScreen)
 
 def mainInMenu(menuid, **kwargs):
-	if getBoxType() in ("gbipbox","gbx2"):
+	if getBoxType() in ("gbipbox", "gbx2"):
 		if menuid == "setup":
 			return [(_("Remote channel stream converter"), main, "streamconvert", 20)]
 		else:

@@ -25,28 +25,28 @@ from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 from Components.Console import Console
 
 EXTENSIONS = {
-	".m4a" : "music",
-	".mp2" : "music",
-	".mp3" : "music",
-	".wav" : "music",
-	".ogg" : "music",
+	".m4a": "music",
+	".mp2": "music",
+	".mp3": "music",
+	".wav": "music",
+	".ogg": "music",
 	".flac": "music",
-	".ts"  : "movie",
-	".avi" : "movie",
+	".ts": "movie",
+	".avi": "movie",
 	".divx": "movie",
-	".m4v" : "movie",
-	".mpg" : "movie",
+	".m4v": "movie",
+	".mpg": "movie",
 	".mpeg": "movie",
-	".mkv" : "movie",
-	".mp4" : "movie",
-	".mov" : "movie",
+	".mkv": "movie",
+	".mp4": "movie",
+	".mov": "movie",
 	".m2ts": "movie",
-	".wmv" : "movie",
-	".jpg" : "picture",
+	".wmv": "movie",
+	".jpg": "picture",
 	".jpeg": "picture",
-	".png" : "picture",
-	".bmp" : "picture",
-	".m3u" : "stream",
+	".png": "picture",
+	".bmp": "picture",
+	".m3u": "stream",
 	".m3u8": "stream",
 }
 
@@ -157,11 +157,11 @@ class DLNAFileBrowser(Screen):
 		self.onLayoutFinish.append(self.layoutFinished)
 
 		self.showCB = {
-			'movie'   : self.showMovie,
-			'music'   : self.showMusic,
-			'picture' : self.showPicture,
-			'stream'  : self.showStream,
-			'unknown' : self.showUnknown,
+			'movie': self.showMovie,
+			'music': self.showMusic,
+			'picture': self.showPicture,
+			'stream': self.showStream,
+			'unknown': self.showUnknown,
 		}
 
 	def layoutFinished(self):
@@ -458,9 +458,9 @@ class DLNAImageViewer(Screen):
 		Screen.__init__(self, session)
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions", "DirectionActions", "MovieSelectionActions"], {
 			"cancel": self.keyCancel,
-			"left"  : self.keyLeft,
-			"right" : self.keyRight,
-			"blue"  : self.keyBlue,
+			"left": self.keyLeft,
+			"right": self.keyRight,
+			"blue": self.keyBlue,
 			"yellow": self.keyYellow,
 		}, -1)
 
@@ -577,7 +577,7 @@ class DLNAImageViewer(Screen):
 		if ptr != None:
 			text = ""
 			try:
-				text = picInfo.split('\n',1)
+				text = picInfo.split('\n', 1)
 				text = "(" + str(self.currentIndex+1) + "/" + str(self.fileListLen+1) + ") " + text[0].split('/')[-1]
 			except:
 				pass
@@ -696,10 +696,10 @@ class DLNAClientConfig(ConfigListScreen, Screen):
 		global DLNA_CONFIG_CLIENT_CONFNAME
 		self.configFileName = DLNA_CONFIG_CLIENT_CONFNAME
 		self["actions"] = ActionMap(["OkCancelActions", "ShortcutActions", "WizardActions", "ColorActions", "SetupActions", ], {
-			"red"    : self.keyExit,
-			"green"  : self.keyOK,
-			"cancel" : self.keyExit,
-			"ok"     : self.keyOK,
+			"red": self.keyExit,
+			"green": self.keyOK,
+			"cancel": self.keyExit,
+			"ok": self.keyOK,
                 }, -2)
 		self["key_red"]     = StaticText(_("Exit"))
 		self["key_green"]   = StaticText(_("Save"))
@@ -742,7 +742,7 @@ class DLNAClientConfig(ConfigListScreen, Screen):
 	def writeConfigFile(self):
 		def configDataAppend(origin, key, value):
 			if key.strip() != '' and value.strip() != '':
-				origin += "%s=%s\n" % (key,value)
+				origin += "%s=%s\n" % (key, value)
 			return origin
 		configString = ""
 		#configString = configDataAppend(configString, "rootdir", self.menuItemRootDir.value)
@@ -773,7 +773,7 @@ class DLNAClientConfig(ConfigListScreen, Screen):
 				continue
 			try:
 				i   = line.find('=')
-				k,v = line[:i],line[i+1:]
+				k, v = line[:i], line[i+1:]
 				self.oldConfig[k] = v
 			except : pass
 
@@ -802,12 +802,12 @@ class DLNADeviceBrowser(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self["actions"]  = ActionMap(["OkCancelActions", "ShortcutActions", "WizardActions", "ColorActions", "SetupActions", "NumberActions", "MenuActions"], {
-			"ok"    : self.keyOK,
+			"ok": self.keyOK,
 			"cancel": self.keyCancel,
-			"red"   : self.keyCancel,
-			"green" : self.keyGreen,
+			"red": self.keyCancel,
+			"green": self.keyGreen,
 			"yellow": self.keyYellow,
-			"blue"  : self.keyBlue,
+			"blue": self.keyBlue,
 		}, -1)
 
 		global DLNA_CONFIG_CLIENT_CONFNAME
@@ -893,7 +893,7 @@ class DLNADeviceBrowser(Screen):
 				continue
 			try:
 				i   = line.find('=')
-				k,v = line[:i],line[i+1:]
+				k, v = line[:i], line[i+1:]
 				if k == 'rootdir':	DLNA_CONFIG_ROOT_DIR = v
 				elif k == 'refresh':	DLNA_CONFIG_DEVICE_REFRESH = int(v)*1000
 				elif k == 'slideshow':	DLNA_CONFIG_SLIDESHOW = int(v)*1000
@@ -960,12 +960,12 @@ class DLNADeviceBrowser(Screen):
 
 	def setListOnView(slelf):
 		global DLNA_CONFIG_ROOT_DIR
-		items,rootdir = [],DLNA_CONFIG_ROOT_DIR
+		items, rootdir = [], DLNA_CONFIG_ROOT_DIR
 		deviceList = [ name for name in os.listdir(rootdir) if os.path.isdir(os.path.join(rootdir, name)) ]
 		deviceList.sort()
 		for d in deviceList:
 			if d[0] in ('.', '_'): continue
-			items.append((d,d))
+			items.append((d, d))
 		return items
 
 def autostart(reason, **kwargs):
