@@ -13,6 +13,11 @@ from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
+from Components.config import config, ConfigSelection
+
+config.dvbtypexmlupdate = ConfigSelection(default="satellites", choices=[("atsc", _("ATSC")), ("cables", _("Cables")), ("satellites", _("Satellites")), ("terrestrial", _("Terrestrial")), ("unicable", _("Unicable"))])
+config.satellitestypexmlupdate = ConfigSelection(default="europe", choices=[("all", _("All (not recommended)")), ("america", _("America (61°W-160°W)")), ("asia", _("Asia (160°W-73°E)")), ("atlantic", _("Atlantic (0°W-61°W)")), ("europe", _("Europe (73°E-0°E)"))])
+config.foldertypexmlupdate = ConfigSelection(default="/etc/tuxbox", choices=[("/etc/tuxbox", _("/etc/tuxbox (default)")), ("/etc/enigma2", _("/etc/enigma2")), ("/usr/share/enigma2", _("/usr/share/enigma2 (default for unicable)"))])
 
 class xmlUpdate(ConfigListScreen, Screen):
 	def __init__(self, session):
@@ -23,10 +28,10 @@ class xmlUpdate(ConfigListScreen, Screen):
 		self.session = session
 		ConfigListScreen.__init__(self, [], session = self.session)
 
-		self.DVBtype = ConfigSelection(default="satellites", choices=[("atsc", _("ATSC")), ("cables", _("Cables")), ("satellites", _("Satellites")), ("terrestrial", _("Terrestrial")), ("unicable", _("Unicable"))])
-		self.Satellitestype = ConfigSelection(default="europe", choices=[("all", _("All (not recommended)")), ("america", _("America (61°W-160°W)")), ("asia", _("Asia (160°W-73°E)")), ("atlantic", _("Atlantic (0°W-61°W)")), ("europe", _("Europe (73°E-0°E)"))])
-		self.folder = ConfigSelection(default="/etc/tuxbox", choices=[("/etc/tuxbox", _("/etc/tuxbox (default)")), ("/etc/enigma2", _("/etc/enigma2")), ("/usr/share/enigma2", _("/usr/share/enigma2 (default for unicable)"))])
-		
+		self.DVBtype = config.dvbtypexmlupdate
+		self.Satellitestype = config.satellitestypexmlupdate
+		self.folder = config.foldertypexmlupdate
+
 		self["actions"] = ActionMap(["SetupActions", "ColorActions"],
 		{
 			"ok": self.keyGo,
@@ -42,7 +47,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 		self["key_yellow"] = StaticText(_("Save"))
 
 		self["description"] = Label("")
-		
+
 		self.createSetup()
 
 		if not self.selectionChanged in self["config"].onSelectionChanged:
@@ -57,7 +62,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 
 		self.list.append(getConfigListEntry(_("Fetch"), self.DVBtype, _('File being updated, i.e. satellites.xml')))
 		if self.DVBtype.value == "satellites":
-			self.list.append(getConfigListEntry(_("Region"), self.Satellitestype, _('Choose where you live.')))		
+			self.list.append(getConfigListEntry(_("Region"), self.Satellitestype, _('Choose where you live.')))
 		self.list.append(getConfigListEntry(_("Save to"), self.folder, _('Folder where the downloaded file will be saved. "/etc/tuxbox" is the default location. Files stored in "/etc/enigma2" override the default file and are not updated on a software update.')))
 
 		self["config"].list = self.list
@@ -66,7 +71,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 	def keySave(self):
 		for x in self["config"].list:
 			x[1].save()
-		self.createSetup()
+			self.close()
 
 	def keyGo(self):
 		XMLdata = self.fetchURL()
@@ -96,7 +101,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 				print('[xmlUpdate][fetchURL] URL', self.url % self.Satellitestype.value)
 			else:
 				self.url = "https://raw.githubusercontent.com/OpenVisionE2/openvision-xml/master/xml/%s.xml"
-				print('[xmlUpdate][fetchURL] URL', self.url % self.DVBtype.value)		
+				print('[xmlUpdate][fetchURL] URL', self.url % self.DVBtype.value)
 		else:
 			self.url = "https://raw.githubusercontent.com/OpenVisionE2/openvision-xml/master/xml/%s.xml"
 			print('[xmlUpdate][fetchURL] URL', self.url % self.DVBtype.value)
@@ -105,9 +110,9 @@ class xmlUpdate(ConfigListScreen, Screen):
 				if self.Satellitestype.value != "all":
 					req = urllib2.Request(self.url % self.Satellitestype.value)
 				else:
-					req = urllib2.Request(self.url % self.DVBtype.value)					
+					req = urllib2.Request(self.url % self.DVBtype.value)
 			else:
-				req = urllib2.Request(self.url % self.DVBtype.value)			
+				req = urllib2.Request(self.url % self.DVBtype.value)
 			response = urllib2.urlopen(req)
 			print('[xmlUpdate][fetchURL] Response: %d' % response.getcode())
 			if int(response.getcode()) == 200:
