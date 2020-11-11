@@ -5,7 +5,7 @@ from __future__ import print_function
 from . import _
 import urllib2
 from Components.ActionMap import ActionMap
-from Components.config import ConfigSelection, getConfigListEntry
+from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
@@ -13,7 +13,6 @@ from Plugins.Plugin import PluginDescriptor
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
-from Components.config import config, ConfigSelection
 
 config.dvbtypexmlupdate = ConfigSelection(default="satellites", choices=[("atsc", _("ATSC")), ("cables", _("Cables")), ("satellites", _("Satellites")), ("terrestrial", _("Terrestrial")), ("unicable", _("Unicable"))])
 config.satellitestypexmlupdate = ConfigSelection(default="europe", choices=[("all", _("All (not recommended)")), ("america", _("America (61°W-160°W)")), ("asia", _("Asia (160°W-73°E)")), ("atlantic", _("Atlantic (0°W-61°W)")), ("europe", _("Europe (73°E-0°E)"))])
