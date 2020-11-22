@@ -18,132 +18,136 @@ from shutil import copyfile
 from Tools.StbHardware import getBoxProc
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from boxbranding import getMachineProcModel
 
 fwlist = None
 fwdata = None
 
-info = getBoxProc()
+try:
+	procmodel = getBoxProc()
+except:
+	procmodel = getMachineProcModel()
 
-if info == "ini-1000":
+if procmodel == "ini-1000":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-1000ru":
+elif procmodel == "ini-1000ru":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-1000sv":
+elif procmodel == "ini-1000sv":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-1000de":
+elif procmodel == "ini-1000de":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS100DE_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-1000am":
+elif procmodel == "ini-1000am":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-2000am":
+elif procmodel == "ini-2000am":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200AM_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-2000sv":
+elif procmodel == "ini-2000sv":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS200SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-3000":
+elif procmodel == "ini-3000":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS300_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-5000":
+elif procmodel == "ini-5000":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-5000ru":
+elif procmodel == "ini-5000ru":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500RU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-5000sv":
+elif procmodel == "ini-5000sv":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS500SV_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-7000":
+elif procmodel == "ini-7000":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS700_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-7012":
+elif procmodel == "ini-7012":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-7012au":
+elif procmodel == "ini-7012au":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "RHS712AU_Micom.bin", "/dev/dbox/oled0;/dev/mcu;"]
 		}
-elif info == "ini-8000am":
+elif procmodel == "ini-8000am":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800AM_Micom.bin", "/proc/vfd;/dev/mcu;"]
 		}
-elif info == "ini-8000sv":
+elif procmodel == "ini-8000sv":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI800SV_Micom.bin", "/proc/vfd;/dev/mcu;"]
 		}
-elif info == "ini-9000de":
+elif procmodel == "ini-9000de":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
 	fwdata= {
 		 "micom" : ["http://micom.mynonpublic.com/software/micom/", "INI900DE_Micom.bin", "/proc/vfd;/dev/mcu;"]
 		}
-elif info == "ini-9000ru":
+elif procmodel == "ini-9000ru":
 	fwlist= [
 		("fp", _("Front Panel"))
 		]
@@ -532,4 +536,3 @@ def main(session, **kwargs):
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("Front Panel Update"), description="Upgrade Front panel..", where = PluginDescriptor.WHERE_PLUGINMENU, fnc=main)
-
