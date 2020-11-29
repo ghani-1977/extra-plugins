@@ -110,6 +110,10 @@ ABMCustomMixImporter/po/Makefile
 ABMCustomMixImporter/src/Makefile
 ABMCustomMixImporter/mixes/Makefile
 
+AboutBoxBranding/Makefile
+AboutBoxBranding/meta/Makefile
+AboutBoxBranding/src/Makefile
+
 Fempa/Makefile
 Fempa/meta/Makefile
 Fempa/src/Makefile
