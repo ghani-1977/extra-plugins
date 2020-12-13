@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2020-12-13 19:32+0330\n"
 "PO-Revision-Date: 2020-03-31 19:10+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -23,6 +23,15 @@ msgstr ""
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (varsayılan)"
 
+msgid "/usr/share/enigma2 (default for unicable)"
+msgstr ""
+
+msgid "ATSC"
+msgstr ""
+
+msgid "All (not recommended)"
+msgstr ""
+
 msgid "America (61°W-160°W)"
 msgstr ""
 
@@ -30,6 +39,12 @@ msgid "Asia (160°W-73°E)"
 msgstr ""
 
 msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Cables"
+msgstr ""
+
+msgid "Choose where you live."
 msgstr ""
 
 msgid "Europe (73°E-0°E)"
@@ -56,12 +71,25 @@ msgstr "Dosya güncelleniyor, i.e. satellites.xml, cables.xml, veya terrestrial.
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "İndirilen dosyanın kaydedileceği klasör. \"/etc/tuxbox\" varsayılan konumdur. İçinde saklanan dosyalar \"/etc/enigma2\" varsayılan dosyayı geçersiz kılar ve yazılım güncellemesinde güncellenmez."
 
+msgid "Region"
+msgstr ""
+
+msgid "Satellites"
+msgstr ""
+
+#, fuzzy
+msgid "Save"
+msgstr "Şuraya kaydet"
+
 msgid "Save to"
 msgstr "Şuraya kaydet"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "%s.xml dosyası kaydedilemedi"
+
+msgid "Terrestrial"
+msgstr ""
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -70,6 +98,9 @@ msgstr "%s.xml indirmesi bozuk."
 #, python-format
 msgid "The %s.xml file could not be fetched"
 msgstr "%s.xml dosyası getirilemedi"
+
+msgid "Unicable"
+msgstr ""
 
 msgid "XML update"
 msgstr "XML güncellemesi"

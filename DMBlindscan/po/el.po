@@ -1,14 +1,9 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan Official Greek Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
-"PO-Revision-Date: 2018-11-26 05:02+0200\n"
+"POT-Creation-Date: 2020-12-13 19:32+0330\n"
+"PO-Revision-Date: 2018-11-26 04:37+0200\n"
 "Last-Translator: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language-Team: MCelliot_g <mcelliot_g@hotmail.com>\n"
 "Language: el_GR\n"
@@ -24,7 +19,7 @@ msgid ""
 "You must use the power adapter."
 msgstr ""
 "\n"
-"Πρέπει να χρησιμοποιήσετε την τροφοδοσία."
+"Πρέπει να χρησιμοποιηθεί το τροδοφοδοτικό."
 
 msgid "   Starting Sundtek hardware blind scan."
 msgstr "   Εκκίνηση τυφλής ανίχνευσης Sundtek."
@@ -54,11 +49,12 @@ msgstr ""
 msgid "Accuracy (higher is better)"
 msgstr ""
 
+#, fuzzy
 msgid "Another type"
-msgstr "Άλλος τύπος"
+msgstr "Τύπος ανίχνευσης"
 
 msgid "Blind scan for DVB-S2 tuners"
-msgstr "Τυφλή ανίχνευση για DVB-S2 tuners"
+msgstr ""
 
 msgid "Blind scan state"
 msgstr "Κατάσταση τυφλής ανίχνευσης"
@@ -105,7 +101,7 @@ msgid "Disable sync with known transponders"
 msgstr "Απενεργοποίηση συγχρονισμού με γνωστούς αναμεταδότες"
 
 msgid "Dreambox type"
-msgstr "Τύπος Dreambox"
+msgstr ""
 
 msgid "Exit"
 msgstr "Έξοδος"
@@ -117,11 +113,13 @@ msgstr "Φιλτράρισμα παρακείμενων δορυφόρων"
 msgid "Frequency values must be between %d MHz and %d MHz"
 msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz"
 
+#, fuzzy
 msgid "Frequency values must be between 3000 MHz and 4199 MHz (C-band)"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ 3000 MHz και 4199 MHz (μπάντα C)"
+msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
 
+#, fuzzy
 msgid "Frequency values must be between 3001 MHz and 4200 MHz (C-band)"
-msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ 3001 MHz και 4200 MHz (μπάντα C)"
+msgstr "Οι τιμές συχνοτήτων πρέπει να είναι μεταξύ %d MHz και %d MHz (μπάντα C)"
 
 #, fuzzy, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
@@ -131,8 +129,9 @@ msgstr "Η τυφλή ανίχνευση δεν υποστηρίζεται απ�
 msgid "Horizontal"
 msgstr "οριζόντια"
 
+#, fuzzy
 msgid "If you select \"yes\" all channels on the satellite being search will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
-msgstr "Αν επιλέξετε  \"ναι\" όλα τα κανάλια στο δορυφόρο που ανιχνεύεται θα διαγραφούν πριν την εκκίνηση της τρέχουσας ανίχνευσης, ναι (διατήρηση των feeds) σημαίνει το ίδιο αλλά θα διατηρηθούν όλες οι feed υπηρεσίες/αναμεταδότες."
+msgstr "Αν επιλέξετε \"ναι\" όλα τα κανάλια του δορυφόρου που ανιχνεύεται θα διαγραφούν πριν την εκκίνηση της ανίχνευσης, το \"διατήρηση των feeds\", σημαίνει το ίδιο αλλά θα διατηρηθούν όλοι οι αναμεταδότες/υπηρεσίες feeds."
 
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "Αν επιλέξετε \"ναι\" η ανίχνευση θα αποθηκεύσει μόνο τα κανάλια που δεν είναι κωδικοποιημένα: \"όχι\" θα ανιχνευθούν κωδικοποιημένα και ελεύθερα κανάλια."
@@ -157,13 +156,13 @@ msgid "MANUALLY start service searching, press green to change."
 msgstr ""
 
 msgid "Maybe the reason that recording is currently running."
-msgstr "Ίσως ο λόγος είναι ότι υπάρχει εγγραφή σε εξέλιξη."
+msgstr ""
 
 msgid "Moving to "
-msgstr "Κίνηση σε "
+msgstr ""
 
 msgid "Network scan"
-msgstr "Ανίχνευση δικτύου"
+msgstr ""
 
 msgid ""
 "No new transponders found! \n"
@@ -186,7 +185,7 @@ msgstr ""
 
 #, python-format
 msgid "Not found blind scan utility '%s'!"
-msgstr "Το εργαλείο τυφλής ανίχνευσης '%s' δεν βρέθηκε!"
+msgstr ""
 
 msgid ""
 "Nothing to scan!\n"
@@ -212,30 +211,29 @@ msgid "Polarisation"
 msgstr "Πόλωση"
 
 msgid "Press Green/OK to start the scan"
-msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
+msgstr ""
 
-#, fuzzy
 msgid "Press OK to start the scan."
-msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
+msgstr ""
 
-#, fuzzy
 msgid "Press green to start service searching."
-msgstr "Πιέστε το Πράσινο/ΟΚ για να ξεκινήσει η αναζήτηση"
+msgstr ""
 
 msgid "Rotor: "
-msgstr "Μοτέρ: "
+msgstr ""
 
 msgid "Satellite"
 msgstr "Δορυφόρος"
 
+#, fuzzy
 msgid "Satellite blind scan"
-msgstr "Τυφλή ανίχνευση δορυφόρων"
+msgstr "Δορυφόρος"
 
 msgid "Scan"
 msgstr "Ανίχνευση"
 
 msgid "Scan Step in MHz(TBS5925)"
-msgstr "Βήμα Ανίχνευσης σε MHz (TBS5925)"
+msgstr "Βήμα σάρωσης σε MHz (TBS5925)"
 
 msgid "Scan satellites for new transponders"
 msgstr "Ανίχνευση δορυφόρων για νέους αναμεταδότες"
@@ -292,17 +290,19 @@ msgstr ""
 "Επιλέξτε αναμεταδότες και πιέστε το πράσινο για να ανιχνευθούν.\n"
 "Πιέστε το κίτρινο για επιλογή όλων και το μπλε για αποεπιλογή όλων."
 
+#, fuzzy
 msgid "Select type for scan:"
-msgstr "Επιλογή τύπου προς ανίχνευση:"
+msgstr "Εκκαθάριση πριν την ανίχνευση"
 
 msgid "Smaller steps takes longer but scan is more thorough"
-msgstr "Τα μικρά βήματα είναι πιο χρονοβόρα, αλλά η ανίχνευση είναι πιο ακριβής"
+msgstr "Τα μικρότερα βήματα διαρκούν περισσότερο αλλά η ανίχνευση είναι πιο ακριβής"
 
 msgid "Sorry, this tuner is in use."
 msgstr "Λυπούμαστε, αυτό το tuner χρησιμοποιείται."
 
+#, fuzzy
 msgid "Start scan"
-msgstr "Εκκίνηση ανίχνευσης"
+msgstr "χωρίς ανίχνευση"
 
 #, python-format
 msgid "Step %d %d:%02d min"

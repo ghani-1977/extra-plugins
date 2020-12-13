@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-06 15:48+0330\n"
-"PO-Revision-Date: 2014-04-06 10:24+0300\n"
-"Last-Translator: rimas\n"
+"POT-Creation-Date: 2020-12-13 19:32+0330\n"
+"PO-Revision-Date: 2016-05-07 13:06+0200\n"
+"Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: Raivo, Henkka, eesatfan, rimas\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7\n"
 
 msgid ""
 "\n"
@@ -21,9 +21,8 @@ msgstr ""
 msgid "   Starting Sundtek hardware blind scan."
 msgstr ""
 
-#, fuzzy
 msgid "\"channel scan\" searches for channels and saves them to your receiver; \"transponder scan\" does a transponder search and displays the results allowing user to select some or all transponder. Both options save the results in satellites.xml format under /tmp"
-msgstr "\"kanaliotsing\" otsib kanaleid ja salvestab need vastuvõtjasse; \"salvesta XML faili\" otsib transpondereid ja salvestab need XML faili 'satellites.xml' vormis"
+msgstr ""
 
 #, python-format
 msgid "%d transponder(s) found"
@@ -116,11 +115,13 @@ msgstr "Filtreeri kõrvutised satelliidid"
 msgid "Frequency values must be between %d MHz and %d MHz"
 msgstr "Sagedusvahemik peab olema 10700 MHz kuni 12749 MHz"
 
+#, fuzzy
 msgid "Frequency values must be between 3000 MHz and 4199 MHz (C-band)"
 msgstr "Sagedusvahemik peab olema 3000 MHz kuni4199 MHz (C-band)"
 
+#, fuzzy
 msgid "Frequency values must be between 3001 MHz and 4200 MHz (C-band)"
-msgstr "Sagedusvahemik peab olema 3001 MHz kuni 4200 MHz (C-band)"
+msgstr "Sagedusvahemik peab olema 3000 MHz kuni4199 MHz (C-band)"
 
 #, python-format
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
@@ -134,7 +135,6 @@ msgstr "horisontaalne"
 msgid "If you select \"yes\" all channels on the satellite being search will be deleted before starting the current search, yes (keep feeds) means the same but hold all feed services/transponders."
 msgstr "Määrates 'jah', kustutatakse kõik otsitava satelliidi kanalid enne kanaliotsingu alustamist"
 
-#, fuzzy
 msgid "If you select \"yes\" the scan will only save channels that are not encrypted; \"no\" will find encrypted and non-encrypted channels."
 msgstr "Määrates 'jah', salvestab otsing ainult koodivabad kanalid; 'ei' leiab kodeeritud ja koodivabad kanalid"
 
@@ -212,6 +212,7 @@ msgstr "Häälesta tuuner."
 msgid "Polarisation"
 msgstr "Polarisatsioon"
 
+#, fuzzy
 msgid "Press Green/OK to start the scan"
 msgstr "Otsingu alustamiseks vajuta OK või rohelist"
 
@@ -234,7 +235,7 @@ msgid "Satellite blind scan"
 msgstr "Satelliit"
 
 msgid "Scan"
-msgstr ""
+msgstr "Otsi"
 
 msgid "Scan Step in MHz(TBS5925)"
 msgstr ""
@@ -304,8 +305,9 @@ msgstr ""
 msgid "Sorry, this tuner is in use."
 msgstr "See tuuner on kasutuses."
 
+#, fuzzy
 msgid "Start scan"
-msgstr ""
+msgstr "Pimeotsing"
 
 #, python-format
 msgid "Step %d %d:%02d min"
@@ -320,9 +322,9 @@ msgstr "Sümbolikiiruse väärtused on megasümbolites; sisesta väärtus vahemi
 msgid "The blindscan run was cancelled by the user."
 msgstr "Kasutaja katkestas pimeotsingu."
 
-#, fuzzy, python-format
+#, python-format
 msgid "The suggested polarisation for this satellite is \"%s\""
-msgstr "Soovitatav polarisatsioon antud satellidile on \""
+msgstr ""
 
 msgid "Transponder searching finished!"
 msgstr ""
@@ -341,7 +343,6 @@ msgstr ""
 msgid "Vertical"
 msgstr "vertikaalne"
 
-#, fuzzy
 msgid "When a neighbouring satellite is very strong this avoids searching transponders known to be coming from the neighbouring satellite."
 msgstr "Kui naabersatelliit on väga tugeva signaaliga, väldib see otsimist transponderitelt, mis tulevad naabersatelliidilt."
 
@@ -371,8 +372,9 @@ msgstr "ei"
 msgid "save to XML file"
 msgstr "salvesta XML faili"
 
+#, fuzzy
 msgid "scan"
-msgstr ""
+msgstr "Pimeotsing"
 
 msgid "scan for channels"
 msgstr "kanaliotsing"

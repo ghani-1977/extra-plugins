@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: XML update\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2020-12-13 19:32+0330\n"
 "PO-Revision-Date: 2020-03-06 12:15+0300\n"
 "Last-Translator: mosad - مساعد الجعيد <abo-mishal@hotmail.com>\n"
 "Language-Team: mosad - مساعد الجعيد\n"
@@ -19,6 +19,15 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (إفتراضي)"
 
+msgid "/usr/share/enigma2 (default for unicable)"
+msgstr ""
+
+msgid "ATSC"
+msgstr ""
+
+msgid "All (not recommended)"
+msgstr ""
+
 msgid "America (61°W-160°W)"
 msgstr ""
 
@@ -26,6 +35,12 @@ msgid "Asia (160°W-73°E)"
 msgstr ""
 
 msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Cables"
+msgstr ""
+
+msgid "Choose where you live."
 msgstr ""
 
 msgid "Europe (73°E-0°E)"
@@ -54,12 +69,25 @@ msgstr ""
 "مجلد حيث سيتم حفظ الملف الذي تم تنزيله. \"/ etc / tuxbox\" هو الموقع الافتراضي. الملفات المخزنة في\n"
 "\"/ etc / enigma2\" تتجاوز الملف الافتراضي ولا يتم تحديثها عند تحديث البرنامج."
 
+msgid "Region"
+msgstr ""
+
+msgid "Satellites"
+msgstr ""
+
+#, fuzzy
+msgid "Save"
+msgstr "حفظ إلى"
+
 msgid "Save to"
 msgstr "حفظ إلى"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "فشل حفظ ملف %s.xml"
+
+msgid "Terrestrial"
+msgstr ""
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -68,6 +96,9 @@ msgstr "تحميل %s.xml تألف."
 #, python-format
 msgid "The %s.xml file could not be fetched"
 msgstr "لا يمكن جلب ملف %s.xml"
+
+msgid "Unicable"
+msgstr ""
 
 msgid "XML update"
 msgstr "تحديث ملف معلومات الترددات"

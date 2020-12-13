@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2020-12-13 19:32+0330\n"
 "PO-Revision-Date: 2018-10-14 23:19+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: none\n"
@@ -24,6 +24,15 @@ msgstr "/etc/enigma2"
 msgid "/etc/tuxbox (default)"
 msgstr "/etc/tuxbox (Standard)"
 
+msgid "/usr/share/enigma2 (default for unicable)"
+msgstr ""
+
+msgid "ATSC"
+msgstr ""
+
+msgid "All (not recommended)"
+msgstr ""
+
 msgid "America (61°W-160°W)"
 msgstr ""
 
@@ -31,6 +40,12 @@ msgid "Asia (160°W-73°E)"
 msgstr ""
 
 msgid "Atlantic (0°W-61°W)"
+msgstr ""
+
+msgid "Cables"
+msgstr ""
+
+msgid "Choose where you live."
 msgstr ""
 
 msgid "Europe (73°E-0°E)"
@@ -57,12 +72,25 @@ msgstr "Datei aktualisiert werden, d.h. satellites.xml, cables.xml, or terrestri
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
 msgstr "Ordner, in dem die heruntergeladene Datei gespeichert wird. \"/etc/tuxbox\" ist das Standardverzeichnis. Dateien, die in \"/etc/Enigma2\" gespeichert sind, überschreiben die Standarddatei und werden nicht auf einem Software-Update aktualisiert."
 
+msgid "Region"
+msgstr ""
+
+msgid "Satellites"
+msgstr ""
+
+#, fuzzy
+msgid "Save"
+msgstr "Speichern als"
+
 msgid "Save to"
 msgstr "Speichern als"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
 msgstr "Das Speichern der %s.xml Datei scheiterte"
+
+msgid "Terrestrial"
+msgstr ""
 
 #, python-format
 msgid "The %s.xml download was corrupt."
@@ -71,6 +99,9 @@ msgstr "Die %s.xml Download war korrupt."
 #, python-format
 msgid "The %s.xml file could not be fetched"
 msgstr "Die %s.xml Datei konnte nicht abgeholt werden"
+
+msgid "Unicable"
+msgstr ""
 
 msgid "XML update"
 msgstr "XML Update"
