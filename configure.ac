@@ -186,9 +186,7 @@ LCD4linux/meta/Makefile
 LCD4linux/po/Makefile
 
 MisPlsLcnScan/Makefile
-MisPlsLcnScan/images/Makefile
 MisPlsLcnScan/lib/Makefile
-MisPlsLcnScan/meta/Makefile
 MisPlsLcnScan/po/Makefile
 MisPlsLcnScan/src/Makefile
 
@@ -216,9 +214,7 @@ OnDemand/meta/Makefile
 OnDemand/po/Makefile
 
 TerrestrialScan/Makefile
-TerrestrialScan/images/Makefile
 TerrestrialScan/lib/Makefile
-TerrestrialScan/meta/Makefile
 TerrestrialScan/po/Makefile
 TerrestrialScan/src/Makefile
 

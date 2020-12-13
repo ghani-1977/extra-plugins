@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -22,10 +22,10 @@ import sys
 import datetime
 import time
 
-from TerrestrialScan import setParams, setParamsFe
+from .TerrestrialScan import setParams, setParamsFe
 
-import dvbreader
-from TerrestrialScanSkin import downloadBar
+from . import dvbreader
+from .TerrestrialScanSkin import downloadBar
 
 class MakeBouquet(Screen):
 	skin = downloadBar

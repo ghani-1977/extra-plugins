@@ -19,8 +19,8 @@ from Tools.BoundFunction import boundFunction
 
 from enigma import eComponentScan
 
-from TerrestrialScan import TerrestrialScan, setParams
-from MakeBouquet import MakeBouquet
+from .TerrestrialScan import TerrestrialScan, setParams
+from .MakeBouquet import MakeBouquet
 
 import os
 

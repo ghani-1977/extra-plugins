@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function
+from __future__ import print_function
 # for localized messages
 from . import _
 
@@ -16,13 +16,12 @@ from Components.NimManager import nimmanager
 
 from enigma import eDVBResourceManager, eTimer, eDVBDB, eDVBFrontendParameters, eDVBFrontendParametersSatellite
 
-from providers import PROVIDERS
-
+from .providers import PROVIDERS
+from . import dvbreader
 import datetime
 import time
 
-import dvbreader
-from MisPlsLcnScanSkin import downloadBar
+from .MisPlsLcnScanSkin import downloadBar
 
 class MisPlsLcnScan(Screen):
 	skin = downloadBar
