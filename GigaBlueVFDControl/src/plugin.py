@@ -119,7 +119,7 @@ def setLed(color):
 			value0 = 0
 			value1 = 0
 
-	if BOX in ("gb800se", "gb800solo", "gb800ue", "gbip4k"):
+	if BOX in ("gb800se", "gb800solo", "gb800ue", "gbip4k", "gbtrio4k"):
 	   try:
 		  open(led0, "w").write(str(value0))
 	   except IOError:
