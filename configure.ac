@@ -168,11 +168,6 @@ LCD4linux/src/wetter/Makefile
 LCD4linux/meta/Makefile
 LCD4linux/po/Makefile
 
-MisPlsLcnScan/Makefile
-MisPlsLcnScan/lib/Makefile
-MisPlsLcnScan/po/Makefile
-MisPlsLcnScan/src/Makefile
-
 OdinM7VFDControl/Makefile
 OdinM7VFDControl/src/Makefile
 OdinM7VFDControl/meta/Makefile
@@ -195,11 +190,6 @@ OnDemand/src/Makefile
 OnDemand/src/icons/Makefile
 OnDemand/meta/Makefile
 OnDemand/po/Makefile
-
-TerrestrialScan/Makefile
-TerrestrialScan/lib/Makefile
-TerrestrialScan/po/Makefile
-TerrestrialScan/src/Makefile
 
 TransCodingSetup/Makefile
 TransCodingSetup/meta/Makefile
