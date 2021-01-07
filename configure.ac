@@ -54,16 +54,6 @@ AC_ARG_WITH(stbplatform,
 AC_SUBST(STBPLATFORM)
 AC_DEFINE_UNQUOTED(STBPLATFORM,"$STBPLATFORM",[stb platform])
 
-AM_CONDITIONAL(DINOBOT, test `echo "$STBPLATFORM" | cut -b 1-2` == "u5")
-
-AM_CONDITIONAL(HAVE_ARMV7A, test "$BOXTYPE" == "cube" -o "$BOXTYPE" == "su980")
-
-AM_CONDITIONAL(HAVE_ARMV7AHF, test "$STBPLATFORM" == "gfuturesbcmarm" -o "$STBPLATFORM" == "8100s" -o "$STBPLATFORM" == "vu4kgen" -o "$STBPLATFORM" == "dm4kgen" -o "$BOXTYPE" == "sf4008" -o "$STBPLATFORM" == "dags7252" -o "$STBPLATFORM" == "gb7252" -o "$STBPLATFORM" == "4kspycat" -o "$BOXTYPE" == "h7" -o "$BOXTYPE" == "zgemmahisi3798mv200" -o "$STBPLATFORM" == "zgemmahisi3716mv430" -o "$BOXTYPE" == "sf5008" -o "$BOXTYPE" == "et1x000" -o "$BOXTYPE" == "et13000" -o "$STBPLATFORM" == "octagonhisil" -o "$STBPLATFORM" == "gfutureshisil" -o "$BOXTYPE" == "ustym4kpro" -o "$BOXBRAND" == "maxytec" -o "$BOXTYPE" == "viper4k" -o "$BOXTYPE" == "beyonwizv2" -o "$STBPLATFORM" == "gbmv200" -o "$BOXTYPE" == "gbx34k" -o "$BOXTYPE" == "odroidc2" -o "$BOXBRAND" == "rpi" -o "$BOXTYPE" == "beyonwizu4")
-
-AM_CONDITIONAL(HAVE_CORTEXA9HF, test "$BOXTYPE" == "wetekplay" -o "$STBPLATFORM" == "u41" -o "$STBPLATFORM" == "u42" -o "$BOXTYPE" == "x8hp")
-
-AM_CONDITIONAL(HAVE_AARCH64, test "$BOXTYPE" == "wetekplay2" -o "$BOXTYPE" == "wetekhub" -o "$BOXBRAND" == "linkdroid")
-
 AC_CONFIG_FILES([
 Makefile
 
@@ -175,13 +165,6 @@ LCD4linux/src/data/Clock6/Makefile
 LCD4linux/src/meteo/Makefile
 LCD4linux/src/renderer/Makefile
 LCD4linux/src/wetter/Makefile
-LCD4linux/src/dinobot/Makefile
-LCD4linux/src/aarch64/Makefile
-LCD4linux/src/armv7a/Makefile
-LCD4linux/src/armv7ahf/Makefile
-LCD4linux/src/cortexa9hf/Makefile
-LCD4linux/src/mips/Makefile
-LCD4linux/src/sh4/Makefile
 LCD4linux/meta/Makefile
 LCD4linux/po/Makefile
 
