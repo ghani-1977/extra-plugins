@@ -73,7 +73,12 @@ if os.path.exists("/proc/stb/info/vumodel"):
 			,"fp"   : ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
 
-import os, fcntl, thread
+import os, fcntl
+try:
+	import thread
+except:
+	import _thread as thread
+
 STATUS_READY 		= 0
 STATUS_DONE 		= 1
 STATUS_ERROR		= 2

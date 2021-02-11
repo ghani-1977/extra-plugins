@@ -4,7 +4,11 @@ from __future__ import print_function
 # for localized messages
 from . import _
 
-import os, fcntl, thread
+import os, fcntl
+try:
+	import thread
+except:
+	import _thread as thread
 
 from enigma import eTimer
 

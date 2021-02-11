@@ -4,7 +4,11 @@ from __future__ import print_function
 # for localized messages
 from . import _
 from Plugins.Plugin import PluginDescriptor
-import time, os, socket, thread, socket, copy
+import time, os, socket, copy
+try:
+	import thread
+except:
+	import _thread as thread
 from socket import gaierror, error
 from os import path as os_path, remove as os_remove
 import gdata.youtube
