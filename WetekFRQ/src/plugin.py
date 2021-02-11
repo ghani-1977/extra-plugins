@@ -248,7 +248,7 @@ def sessionstart(reason, **kwargs):
 	global mySession
 	global gReason
 	print('[WetekFRQ] sessionstart')
-	if kwargs.has_key('session'):
+	if 'session' in kwargs:
 		mySession = kwargs['session']
 	else:
 		gReason = reason

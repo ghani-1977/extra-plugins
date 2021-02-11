@@ -12098,7 +12098,7 @@ def LCD4linuxPIC(self, session):
 			if isinstance(transponderData, float):
 				L4logE("Transponder Float?")
 				return
-			if transponderData.has_key("tuner_type"):
+			if "tuner_type" in transponderData:
 				orbital=""
 				if transponderData["tuner_type"] == "IPTV":
 					orbital = transponderData["tuner_type"]
