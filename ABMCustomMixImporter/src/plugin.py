@@ -176,11 +176,11 @@ class ABMCustomMixImporter(Screen):
 			print('[ABMCustomMixImporter][fetchURL] Response: %d' % response.getcode())
 			if int(response.getcode()) == 200:
 				return response.read()
-		except urllib2.HTTPError, err:
+		except urllib2.HTTPError as err:
 			print('[ABMCustomMixImporter][fetchURL] ERROR:', err)
-		except urllib2.URLError, err:
+		except urllib2.URLError as err:
 			print('[ABMCustomMixImporter][fetchURL] ERROR:', err.reason[0])
-		except urllib2, err:
+		except urllib2 as err:
 			print('[ABMCustomMixImporter][fetchURL] ERROR:', err)
 		except:
 			import sys
