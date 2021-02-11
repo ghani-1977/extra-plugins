@@ -761,8 +761,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			html += "<script language=\"JavaScript\">\n"
 			html += "function Efensterchen() {\n"
 			html += "fens1=window.open(\"\", \"Externals\",\"width=500,height=300,resizable=yes\");\n"
-			L4Lkeys = L4LElement.get().keys()
-			L4Lkeys.sort()
+			L4Lkeys = sorted(L4LElement.get().keys())
 			for CUR in L4Lkeys:
 				html += "fens1.document.write('%s %s<BR>');\n" % (CUR, str(L4LElement.get(CUR)).replace("\n", "<br>").replace("'", "\\'"))
 			html += "} </script>\n"

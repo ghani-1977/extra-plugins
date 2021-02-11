@@ -4981,8 +4981,7 @@ class LCDdisplayMenu(Screen):
 		self.list.append((_("Load Active Config-File"), "LoadConfig", ""))
 		self.list.append((_("Load Defaults / Empty Config"), "LoadDefault", ""))
 		self.list.append((_("Save Config to File... (%s)") % LCD4linux.ConfigPath.value, "SaveToConfig", ""))
-		Cdir = glob.glob(os.path.join(LCD4linux.ConfigPath.value, "*.lcd"))
-		Cdir.sort()
+		Cdir = sorted(glob.glob(os.path.join(LCD4linux.ConfigPath.value, "*.lcd")))
 		xx = 3
 		for ii in Cdir:
 			self.list.append((_("Load File : %s") % os.path.basename(ii), "LoadFile %d" % xx, ii))
@@ -13877,8 +13876,7 @@ def LCD4linuxPIC(self, session):
 			elif "3" in L and str(LCD4linux.LCDType3.value) != "00":
 				Brief3.join()
 
-		L4Lkeys = L4LElist.get().keys()
-		L4Lkeys.sort()
+		L4Lkeys = sorted(L4LElist.get().keys())
 		for E in L4Lkeys:
 			CUR = L4LElist.get(E)
 #			L4logE("CUR: %s Active %s" % (CUR,ScreenActive[0]))
