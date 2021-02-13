@@ -22,6 +22,8 @@ from __future__ import print_function
 #
 #######################################################################
 
+
+from re import compile as re_compile
 from os import path as os_path, listdir, stat as os_stat
 from Components.MenuList import MenuList
 from Components.Harddisk import harddiskmanager
