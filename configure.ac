@@ -94,6 +94,14 @@ DMBlindscan/Makefile
 DMBlindscan/meta/Makefile
 DMBlindscan/src/images/Makefile
 
+EPGTranslator/Makefile
+EPGTranslator/meta/Makefile
+EPGTranslator/po/Makefile
+EPGTranslator/src/Makefile
+EPGTranslator/src/pic/Makefile
+EPGTranslator/src/pic/buttons/Makefile
+EPGTranslator/src/pic/flag/Makefile
+
 ABMCustomMixImporter/Makefile
 ABMCustomMixImporter/meta/Makefile
 ABMCustomMixImporter/po/Makefile
