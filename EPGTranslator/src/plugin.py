@@ -469,7 +469,6 @@ def make_uref(sv_id, sv_name):
 #
 plugin_location = os.path.dirname(os.path.realpath(__file__))
 def lang_flag(lang):    # Where the language images are
-    global plugin_location
     return plugin_location + '/pic/flag/' + lang  + '.png'
 
 # -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
@@ -479,8 +478,6 @@ class translatorConfig(ConfigListScreen, Screen):
 
 # ==================================================================
     def __init__(self, session):
-        global plugin_location
-
         self.dict = {'plug_loc': plugin_location}
         self.skin = applySkinVars(MySD.translatorConfig_skin, self.dict)
         Screen.__init__(self, session)
@@ -555,8 +552,6 @@ Red: Refresh EPG
 
 # ==================================================================
     def __init__(self, session, text):
-        global plugin_location
-
         self.showsource = CfgPlTr.showsource.getValue()
         if self.showsource == 'yes':    size = MySD.tMyes
         else:                           size = MySD.tMno
