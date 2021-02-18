@@ -1,4 +1,4 @@
-installdir = $(pkglibdir)/python/Plugins/SystemPlugins/IceTV
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/IceTV
 
 install_PYTHON = \
 	__init__.py \

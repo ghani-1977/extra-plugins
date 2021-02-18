@@ -1,4 +1,4 @@
-installdir = $(pkglibdir)/python/Plugins/SystemPlugins/SABnzbd
+installdir = $(libdir)/enigma2/python/Plugins/SystemPlugins/SABnzbd
 
 install_PYTHON = \
 	__init__.py \
