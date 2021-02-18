@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:41+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2018-07-31 09:21+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn/Rob van der Does\n"
@@ -119,6 +119,10 @@ msgstr "Interlaced"
 #, fuzzy
 msgid "Encoder Resolution"
 msgstr "Resolutie"
+
+#, fuzzy
+msgid "Encoder Video Codec"
+msgstr "Videocodec"
 
 msgid "Exit"
 msgstr "Sluit af"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 21:43+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2020-10-23 21:42+0330\n"
 "Last-Translator: 孤独之剑 <haotzyy1970@163.com>\n"
 "Language-Team: 孤独之剑 <haotzyy1970@163.com>\n"
@@ -783,6 +783,10 @@ msgstr "条形+数值"
 
 msgid "Bitrate"
 msgstr "比特率"
+
+#, fuzzy
+msgid "BlueSound"
+msgstr "休眠播放检查"
 
 msgid "BlueSound IP"
 msgstr ""

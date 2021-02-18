@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 20:38+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,6 +199,9 @@ msgid "Encoder Interlaced"
 msgstr ""
 
 msgid "Encoder Resolution"
+msgstr ""
+
+msgid "Encoder Video Codec"
 msgstr ""
 
 msgid "Setup your timezone."

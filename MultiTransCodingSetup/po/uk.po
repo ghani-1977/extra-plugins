@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenATV\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:41+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2019-07-24 11:51+0300\n"
 "Last-Translator: kvinto <badsystem@ukr.net>\n"
 "Language-Team: <sat-ukraine.info>\n"
@@ -118,6 +118,10 @@ msgstr "Черезстрочна"
 #, fuzzy
 msgid "Encoder Resolution"
 msgstr "Роздільна здатність"
+
+#, fuzzy
+msgid "Encoder Video Codec"
+msgstr "Відеокодек"
 
 msgid "Exit"
 msgstr "Вихід"

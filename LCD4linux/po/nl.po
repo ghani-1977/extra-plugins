@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2019-03-08 14:42+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -779,6 +779,10 @@ msgstr "Balk+waarde"
 
 msgid "Bitrate"
 msgstr "Bitrate"
+
+#, fuzzy
+msgid "BlueSound"
+msgstr "BlueSound IP"
 
 msgid "BlueSound IP"
 msgstr "BlueSound IP"

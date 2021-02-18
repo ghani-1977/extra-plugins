@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:41+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2019-06-21 21:10+0200\n"
 "Last-Translator: Schimmelreiter\n"
 "Language-Team: \n"
@@ -116,6 +116,10 @@ msgstr "Üst üste bindirilmiş"
 #, fuzzy
 msgid "Encoder Resolution"
 msgstr "Çözünürlük"
+
+#, fuzzy
+msgid "Encoder Video Codec"
+msgstr "Vidyo codec bileseni"
 
 msgid "Exit"
 msgstr "Çıkış"

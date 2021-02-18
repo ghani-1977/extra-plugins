@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MultiTransCodingSetup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:41+0330\n"
+"POT-Creation-Date: 2021-02-18 13:43+0330\n"
 "PO-Revision-Date: 2017-12-03 19:32+0000\n"
 "Last-Translator: insanity\n"
 "Language-Team: www.vuplus-community.net <insanity@>\n"
@@ -114,6 +114,9 @@ msgstr "Interlacciato"
 #, fuzzy
 msgid "Encoder Resolution"
 msgstr "Risoluzione"
+
+msgid "Encoder Video Codec"
+msgstr ""
 
 msgid "Exit"
 msgstr "Esci"
