@@ -141,6 +141,9 @@ GigaBlueVFDControl/src/Makefile
 GigaBlueVFDControl/meta/Makefile
 GigaBlueVFDControl/po/Makefile
 
+IceTV/Makefile
+IceTV/src/Makefile
+
 INIVFDControl/Makefile
 INIVFDControl/src/Makefile
 INIVFDControl/meta/Makefile
@@ -198,10 +201,8 @@ LCD4linux/src/wetter/Makefile
 LCD4linux/meta/Makefile
 LCD4linux/po/Makefile
 
-OdinM7VFDControl/Makefile
-OdinM7VFDControl/src/Makefile
-OdinM7VFDControl/meta/Makefile
-OdinM7VFDControl/po/Makefile
+LCNScanner/Makefile
+LCNScanner/src/Makefile
 
 MICOMUpgrade/Makefile
 MICOMUpgrade/src/Makefile
@@ -210,16 +211,30 @@ MICOMUpgrade/meta/Makefile
 MICOMUpgrade/po/Makefile
 MICOMUpgrade/buttons/Makefile
 
+MiniTV/Makefile
+MiniTV/src/Makefile
+
 MultiTransCodingSetup/Makefile
 MultiTransCodingSetup/src/Makefile
 MultiTransCodingSetup/meta/Makefile
 MultiTransCodingSetup/po/Makefile
+
+OdinM7VFDControl/Makefile
+OdinM7VFDControl/src/Makefile
+OdinM7VFDControl/meta/Makefile
+OdinM7VFDControl/po/Makefile
 
 OnDemand/Makefile
 OnDemand/src/Makefile
 OnDemand/src/icons/Makefile
 OnDemand/meta/Makefile
 OnDemand/po/Makefile
+
+OpentvZapper/Makefile
+OpentvZapper/src/Makefile
+
+ProgrammlistenUpdater/Makefile
+ProgrammlistenUpdater/src/Makefile
 
 TransCodingSetup/Makefile
 TransCodingSetup/meta/Makefile
@@ -240,6 +255,9 @@ RCUSelect/src/Makefile
 RCUSelect/conf/Makefile
 RCUSelect/po/Makefile
 RCUSelect/meta/Makefile
+
+SABnzbdSetup/Makefile
+SABnzbdSetup/src/Makefile
 
 SatipClient/Makefile
 SatipClient/src/Makefile
