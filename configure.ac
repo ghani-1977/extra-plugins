@@ -204,6 +204,10 @@ LCD4linux/po/Makefile
 LCNScanner/Makefile
 LCNScanner/src/Makefile
 
+LEDBrightnessSetup/Makefile
+LEDBrightnessSetup/src/Makefile
+LEDBrightnessSetup/meta/Makefile
+
 MICOMUpgrade/Makefile
 MICOMUpgrade/src/Makefile
 MICOMUpgrade/src/bin/Makefile
