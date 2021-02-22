@@ -7,9 +7,6 @@ from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from Plugins.Plugin import PluginDescriptor
-from Screens.MessageBox import MessageBox
-from Tools.Directories import fileExists
-from enigma import eTimer
 import fcntl
 
 config.plugins.brightnesssetup = ConfigSubsection()
@@ -96,9 +93,6 @@ class LEDBrightnessSetup(Screen, ConfigListScreen):
 		self["key_yellow"] = StaticText(_("Defalut"))
 		self["current_entry"] = Label("")
 		self.createSetup()
-		self.onLayoutFinish.append(self.checkModel)
-		self.checkModelTimer = eTimer()
-		self.checkModelTimer.callback.append(self.invalidmodel)
 		if not self.displayText in self["config"].onSelectionChanged:
 			self["config"].onSelectionChanged.append(self.displayText)
 
@@ -110,25 +104,6 @@ class LEDBrightnessSetup(Screen, ConfigListScreen):
 		elif self["config"].getCurrent() == self.blinkingtime:
 			self["current_entry"].setText("Touch LED Blinking time")
 		self.setCurrentValue()
-
-	def getModel(self):
-		if fileExists("/proc/stb/info/vumodel"):
-			vumodel = open("/proc/stb/info/vumodel")
-			info = vumodel.read().strip()
-			vumodel.close()
-			if info == "ultimo":
-				return True
-			else:
-				return False
-		else:
-			return False
-
-	def checkModel(self):
-		if not self.getModel():
-			self.checkModelTimer.start(100, True)
-
-	def invalidmodel(self):
-			self.session.openWithCallback(self.close, MessageBox, _("This Plugin only support for ULTIMO"), MessageBox.TYPE_ERROR, timeout=30)
 
 	def createSetup(self):
 		self.list = []
@@ -196,4 +171,4 @@ def main(session, **kwargs):
 
 
 def Plugins(**kwargs):
-	return [PluginDescriptor(name=_("LED Brightness Setup"), description="Setup LED brightness and blink interval", where=PluginDescriptor.WHERE_PLUGINMENU, needsRestart=False, fnc=main)]
+	return [PluginDescriptor(name=_("LED Brightness Setup"), description="Setup LED brightness and blink interval for Vu+ Ultimo", where=PluginDescriptor.WHERE_PLUGINMENU, needsRestart=False, fnc=main)]
