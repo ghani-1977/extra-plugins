@@ -1,0 +1,170 @@
+#!/bin/sh
+if [ -e /tmp/.sh4multi.inf ]; then
+          rm -f /tmp/.sh4multi.inf
+	  break;
+else
+	LIBDIR=/lib/modules/`uname -r`
+	if [ ! -d $LIBDIR ]; then
+		LIBDIR=/lib/modules/`ls /lib/modules | tail -n 1`
+	fi
+	if [ `mount | grep /proc | wc -l` -lt 1 ]; then
+		/bin/mount -t proc proc /proc > /dev/null 2>&1
+		/bin/mount -t sysfs sysfs /sys > /dev/null 2>&1
+		/sbin/depmod -A > /dev/null 2>&1
+	fi
+
+	if [ -f /sbin/mdev ]; then
+		echo "SH4MultiBoot is starting mdev"
+		echo "/sbin/mdev" > /proc/sys/kernel/hotplug
+		/etc/init.d/mdev > /dev/null 2>&1
+	elif [ -f /sbin/udevd ]; then
+		echo "SH4MultiBoot is starting eudev"
+		echo "/sbin/udevd" > /proc/sys/kernel/hotplug
+		/etc/init.d/udev > /dev/null 2>&1
+	fi
+
+	sleep 5
+	mnttest="nouuid"
+	if [ -e /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/install ]; then
+        	orgimag1=`mount | sed '/sd/!d' | cut -d" " -f1`
+		selectinstall=`cat /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/install`
+		for item in $orgimag1; do
+			selectmnt=`blkid | sed "/$selectinstall/!d" | cut -d":" -f1`
+			if [ $selectmnt == $item ]; then
+				echo "selectmnt=" $selectmnt
+                        	mnttest="uuid"
+				mount $selectmnt /media/sh4multiboot > /dev/null 2>&1
+			fi
+			if [ ! -e /media/sh4multiboot/SH4MultiBootI ]; then
+				echo "SH4MultiBoot hasn't been installed on: " $selectmnt
+				umount /media/sh4multiboot > /dev/null 2>&1 
+			else
+				echo "SH4MultiBoot has been installed on: " $selectmnt
+				break;
+			fi 			
+		done
+	fi	
+
+	if [ ! -e /media/sh4multiboot ]; then
+		mkdir -p /media/sh4multiboot > /dev/null 2>&1
+	fi
+	if [ $mnttest == "nouuid" ] ; then
+	        echo "SH4MultiBoot mount by device"
+		DEVICES1=`find /dev/sd??`
+		for DEVICE in $DEVICES1;
+		do
+			if [ -e /media/sh4multiboot ]; then
+				echo "SH4MultiBoot checking installation on: " $DEVICE
+				mount $DEVICE /media/sh4multiboot > /dev/null 2>&1 
+			fi
+			if [ ! -e /media/sh4multiboot/SH4MultiBootI ]; then
+				echo "SH4MultiBoot hasn't been installed on: " $DEVICE
+				umount /media/sh4multiboot > /dev/null 2>&1 
+			else
+				echo "SH4MultiBoot has been installed on: " $DEVICE
+				break;
+			fi 
+		done
+	elif [ $mnttest == "uuid" ]; then	
+		echo "SH4MultiBoot mount by UUID"
+	fi
+
+	MODPROBE=/sbin/modprobe
+
+	echo "SH4MultiBoot is loading modules"
+	if [ -d $LIBDIR/extra/frontends/spark7162 ]; then	
+		for mod in spark7162; do
+			$MODPROBE $mod
+		done
+	fi
+	if [ -d $LIBDIR/extra/frontends/stv090x ]; then
+		for mod in stv090x; do
+			$MODPROBE $mod
+		done
+	fi
+	
+        /etc/init.d/stslave.sh
+
+	# We must wait until udev has created the video device
+	(
+	if [ -d /proc/stb ]; then
+		while true; do
+			if [ -e /dev/dvb/adapter0/video0 ]; then
+				break;
+			fi;
+		done;
+	fi;
+	[ -e /etc/dropbear/dropbear_rsa_host_key ] && /usr/bin/showiframe /usr/share/bootlogo.mvi;
+	) &
+
+	if [ -f $LIBDIR/kernel/fs/autofs4/autofs4.ko ]; then
+		/sbin/insmod $LIBDIR/kernel/fs/autofs4/autofs4.ko > /dev/null 2>&1
+	fi
+
+	if [ -e /tmp/.sh4multi.inf ]; then
+		  break;
+	fi
+
+	TARGET=Flash
+	if [ -f /media/sh4multiboot/SH4MultiBootI/.sh4multiboot ]; then
+	  TARGET=`cat /media/sh4multiboot/SH4MultiBootI/.sh4multiboot`
+	fi
+
+	if [ $TARGET = "Flash" ]; then
+		echo "SH4MultiBoot is booting image from " $TARGET
+		/bin/umount /media/sh4multiboot > /dev/null 2>&1
+		/bin/umount /media/usb > /dev/null 2>&1
+		/bin/umount /media/hdd > /dev/null 2>&1
+	else
+		echo "SH4MultiBoot is booting" $TARGET " from " $DEVICE
+		if [ -d /media/sh4multiboot/SH4MultiBootI/$TARGET ]; then
+			if [ -f /media/sh4multiboot/SH4MultiBootI/$TARGET/etc/init.d/udev ]; then
+				sed -ie s!"\$4"!"\$3"!g /media/sh4multiboot/SH4MultiBootI/$TARGET/etc/init.d/udev
+			fi
+			if [ -f /media/sh4multiboot/SH4MultiBootI/$TARGET/usr/share/bootlogo.mvi ]; then
+				/usr/bin/showiframe /media/sh4multiboot/SH4MultiBootI/$TARGET/usr/share/bootlogo.mvi
+			fi
+
+			sleep 1
+
+			/bin/mount -o bind /dev /media/sh4multiboot/SH4MultiBootI/$TARGET/dev
+			/bin/mount -o bind /proc /media/sh4multiboot/SH4MultiBootI/$TARGET/proc
+			/bin/mount -o bind /sys /media/sh4multiboot/SH4MultiBootI/$TARGET/sys
+			rm -rf /media/sh4multiboot/SH4MultiBootI/$TARGET/media/sh4multiboot > /dev/null 2>&1
+			mkdir -p /media/sh4multiboot/SH4MultiBootI/$TARGET/media/sh4multiboot > /dev/null 2>&1
+                        orgimag=`mount | sed '/sd/!d' | cut -d" " -f1`
+                        rm -f media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh
+                           for item in $orgimag; do
+                               ohdd=`echo  $item | cut -d"/" -f3`
+                               nhdd=`mount | sed "/\$ohdd/!d" | sed q | cut -d" " -f3`
+                               if [ $nhdd == '/media/sh4multiboot' ]; then
+                                  echo $nhdd
+                                  echo "mkdir -p "$nhdd  >> media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh
+                                  echo "mount "$item $nhdd  >> media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh 
+                               else
+                                  echo "umount "$nhdd  >> media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh
+                                  echo "mkdir -p "$nhdd  >> media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh
+                                  echo "mount "$item $nhdd  >> media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh 
+                                  echo ok 
+                               fi    
+                           done	
+                        chmod 755 media/sh4multiboot/SH4MultiBootI/$TARGET/usr/bin/enigma2_pre_start.sh   
+			#/bin/mount /dev/sda1 /media/sh4multiboot/SH4MultiBootI/$TARGET/media/hdd
+			if [ -f /media/sh4multiboot/SH4MultiBootI/$TARGET/sbin/init ]; then
+			        exec /usr/sbin/chroot /media/sh4multiboot/SH4MultiBootI/$TARGET /sbin/init
+			elif [ -f /media/sh4multiboot/SH4MultiBootI/$TARGET/sbin/init.sysvinit ]; then
+				exec /usr/sbin/chroot /media/sh4multiboot/SH4MultiBootI/$TARGET /sbin/init.sysvinit
+			fi
+
+			exit 0
+		fi
+	fi
+fi
+# boot Flash 
+
+if [ -f /sbin/init.sysvinit ]; then
+	#echo "Running /sbin/init.sysvinit"
+	exec /sbin/init.sysvinit $1
+fi
+
+exit 0

@@ -278,6 +278,12 @@ SF8VFDControl/src/Makefile
 SF8VFDControl/meta/Makefile
 SF8VFDControl/po/Makefile
 
+SH4MultiBoot/Makefile
+SH4MultiBoot/src/Makefile
+SH4MultiBoot/src/bin/Makefile
+SH4MultiBoot/src/images/Makefile
+SH4MultiBoot/src/SH4MultiBootClient/Makefile
+
 StreamTV/Makefile
 StreamTV/src/Makefile
 StreamTV/meta/Makefile
