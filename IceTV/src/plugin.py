@@ -1301,8 +1301,8 @@ class IceTVServerSetup(Screen, IceTVUIBase):
     <widget name="config" position="30,120" size="580,300" enableWrapAround="1" scrollbarMode="showAlways"/>
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/icetv_logo172x100.png" position="804,0" size="172,100" alphatest="on" />
     <widget name="banner" position="630,105" size="520,350" font="Regular;22" valign="center" halign="center" />
-    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="skin_default/buttons/button_red.png" alphatest="blend" />
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphatest="blend" />
+    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="buttons/button_red.png" alphatest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphatest="blend" />
     <widget name="key_red" position="40,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_green" position="190,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_yellow" position="340,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
@@ -1412,9 +1412,9 @@ class IceTVNewUserSetup(ConfigListScreen, Screen, IceTVUIBase):
     <widget name="description" position="20,e-90" size="600,60" font="Regular;18" foregroundColor="grey" halign="left" valign="top" />
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/icetv_logo172x100.png" position="804,0" size="172,100" alphatest="on" />
     <widget name="banner" position="630,105" size="520,350" font="Regular;22" valign="center" halign="center" />
-    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="skin_default/buttons/button_red.png" alphatest="blend" />
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphatest="blend" />
-    <ePixmap name="blue" position="470,e-28" size="15,16" pixmap="skin_default/buttons/button_blue.png" alphatest="blend" />
+    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="buttons/button_red.png" alphatest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphatest="blend" />
+    <ePixmap name="blue" position="470,e-28" size="15,16" pixmap="buttons/button_blue.png" alphatest="blend" />
     <widget name="key_red" position="40,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_green" position="190,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_yellow" position="340,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
@@ -1513,8 +1513,8 @@ class IceTVRegionSetup(Screen, IceTVUIBase):
     <widget name="description" position="20,e-90" size="600,60" font="Regular;18" foregroundColor="grey" halign="left" valign="top" />
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/icetv_logo172x100.png" position="804,0" size="172,100" alphatest="on" />
     <widget name="banner" position="630,105" size="520,350" font="Regular;22" valign="center" halign="center" />
-    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="skin_default/buttons/button_red.png" alphatest="blend" />
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphatest="blend" />
+    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="buttons/button_red.png" alphatest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphatest="blend" />
     <widget name="key_red" position="40,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_green" position="190,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_yellow" position="340,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
@@ -1595,7 +1595,7 @@ class IceTVLogin(Screen, IceTVUIBase):
     <widget name="qrcode" position="342,90" size="256,256" pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/de_qr_code.png" zPosition="1" />
     <widget name="message" position="20,360" size="950,250" font="Regular;22" />
 
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphatest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphatest="blend" />
     <widget name="key_red" position="40,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_green" position="190,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_yellow" position="340,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
@@ -1731,9 +1731,9 @@ class IceTVNeedPassword(ConfigListScreen, Screen, IceTVUIBase):
     <widget name="description" position="20,e-90" size="600,60" font="Regular;18" foregroundColor="grey" halign="left" valign="top" />
     <ePixmap pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/icetv_logo172x100.png" position="804,0" size="172,100" alphatest="on" />
     <widget name="banner" position="630,105" size="520,350" font="Regular;22" valign="center" halign="center" />
-    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="skin_default/buttons/button_red.png" alphatest="blend" />
-    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="skin_default/buttons/button_green.png" alphatest="blend" />
-    <ePixmap name="blue" position="470,e-28" size="15,16" pixmap="skin_default/buttons/button_blue.png" alphatest="blend" />
+    <ePixmap name="red" position="20,e-28" size="15,16" pixmap="buttons/button_red.png" alphatest="blend" />
+    <ePixmap name="green" position="170,e-28" size="15,16" pixmap="buttons/button_green.png" alphatest="blend" />
+    <ePixmap name="blue" position="470,e-28" size="15,16" pixmap="buttons/button_blue.png" alphatest="blend" />
     <widget name="key_red" position="40,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_green" position="190,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />
     <widget name="key_yellow" position="340,e-30" size="150,25" valign="top" halign="left" font="Regular;20" />

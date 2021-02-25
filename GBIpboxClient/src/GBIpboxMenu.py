@@ -100,7 +100,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					font="Regular;18" />
 	
 			<ePixmap name="red"
-					 pixmap="skin_default/buttons/red.png"
+					 pixmap="buttons/red.png"
 					 position="0,360"
 					 size="140,40"
 					 zPosition="4"
@@ -108,7 +108,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 alphatest="on" />
 					 
 			<ePixmap name="green"
-					 pixmap="skin_default/buttons/green.png"
+					 pixmap="buttons/green.png"
 					 position="140,360"
 					 size="140,40"
 					 zPosition="4"
@@ -116,7 +116,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 alphatest="on" />
 					 
 			<ePixmap name="yellow"
-					 pixmap="skin_default/buttons/yellow.png"
+					 pixmap="buttons/yellow.png"
 					 position="280,360"
 					 size="140,40"
 					 zPosition="4"
@@ -124,7 +124,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 alphatest="on" />
 					 
 			<ePixmap name="blue"
-					 pixmap="skin_default/buttons/blue.png"
+					 pixmap="buttons/blue.png"
 					 position="420,360"
 					 size="140,40"
 					 zPosition="4"

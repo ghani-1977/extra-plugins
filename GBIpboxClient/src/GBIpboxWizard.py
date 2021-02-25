@@ -64,7 +64,7 @@ class GBIpboxWizard(Wizard):
 					transparent="1"
 					scrollbarMode="showOnDemand" />
 					
-			<ePixmap pixmap="skin_default/buttons/button_red.png"
+			<ePixmap pixmap="buttons/button_red.png"
 					 position="40,225"
 					 zPosition="0"
 					 size="15,16"
@@ -77,42 +77,42 @@ class GBIpboxWizard(Wizard):
 					font="Regular;18" />
 					
 			<widget name="wizard"
-					pixmap="skin_default/wizard.png"
+					pixmap="wizard.png"
 					position="40,50"
 					zPosition="10"
 					size="110,174"
 					alphatest="on" />
 					
 			<widget name="rc"
-					pixmaps="skin_default/rc0.png,skin_default/rc1.png,skin_default/rc2.png"
+					pixmaps="rc0.png,rc1.png,rc2.png"
 					position="500,50"
 					zPosition="10"
 					size="154,500"
 					alphatest="on" />
 					
 			<widget name="arrowdown"
-					pixmap="skin_default/arrowdown.png"
+					pixmap="arrowdown.png"
 					position="-100,-100"
 					zPosition="11"
 					size="37,70"
 					alphatest="on" />
 					
 			<widget name="arrowdown2"
-					pixmap="skin_default/arrowdown.png"
+					pixmap="arrowdown.png"
 					position="-100,-100"
 					zPosition="11"
 					size="37,70"
 					alphatest="on" />
 					
 			<widget name="arrowup"
-					pixmap="skin_default/arrowup.png"
+					pixmap="arrowup.png"
 					position="-100,-100"
 					zPosition="11"
 					size="37,70"
 					alphatest="on" />
 					
 			<widget name="arrowup2"
-					pixmap="skin_default/arrowup.png"
+					pixmap="arrowup.png"
 					position="-100,-100"
 					zPosition="11"
 					size="37,70"
@@ -120,7 +120,7 @@ class GBIpboxWizard(Wizard):
 					
 			<widget source="VKeyIcon"
 					render="Pixmap"
-					pixmap="skin_default/buttons/key_text.png"
+					pixmap="buttons/key_text.png"
 					position="40,260"
 					zPosition="0"
 					size="35,25"
@@ -132,7 +132,7 @@ class GBIpboxWizard(Wizard):
 			</widget>
 			
 			<widget name="HelpWindow"
-					pixmap="skin_default/buttons/key_text.png"
+					pixmap="buttons/key_text.png"
 					position="310,435"
 					zPosition="1"
 					size="1,1"
