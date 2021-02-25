@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from __future__ import print_function
 # Embedded file name: /usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/TVSpielfilm.py
 from base64 import b64encode, b64decode
 from Components.ActionMap import ActionMap, NumberActionMap
@@ -38,7 +41,14 @@ from httplib import HTTPException
 from urllib import unquote_plus, urlencode
 from urllib2 import Request, urlopen, URLError, HTTPError
 from urlparse import parse_qs
-import cookielib, datetime, os, re, socket, sys, time, urllib2
+import cookielib
+import datetime
+import os
+import re
+import socket
+import sys
+import time
+import urllib2
 from os import path
 config.plugins.tvspielfilm = ConfigSubsection()
 deskWidth = getDesktop(0).size().width()
@@ -99,12 +109,13 @@ config.plugins.tvspielfilm.autotimer = ConfigSelection(default='yes', choices=[(
 config.plugins.tvspielfilm.autoupdate = ConfigSelection(default='yes', choices=[('yes', 'Ja'), ('no', 'Nein')])
 config.plugins.tvspielfilm.paypal = ConfigSelection(default='yes', choices=[('yes', 'Ja'), ('no', 'Nein')])
 
+
 def applySkinVars(skin, dict):
     for key in dict.keys():
         try:
             skin = skin.replace('{' + key + '}', dict[key])
         except Exception as e:
-            print e, '@key=', key
+            print(e, '@key=', key)
 
     return skin
 
@@ -8502,7 +8513,7 @@ class TVJetztView(Screen):
         f = open(self.servicefile, 'r')
         lines = f.readlines()
         f.close()
-        ordertext = [ '"%s": %d, ' % (line.partition(' ')[0], i) for i, line in enumerate(lines) ]
+        ordertext = ['"%s": %d, ' % (line.partition(' ')[0], i) for i, line in enumerate(lines)]
         self.order = '{' + str(''.join(ordertext)) + '}'
         if self.standalone == True:
             self.movie_stop = config.usage.on_movie_stop.value
@@ -16255,13 +16266,13 @@ class TVBlog(Screen):
         else:
             video_fmt_map = {}
             fmt_infomap = {}
-            if videoinfo.has_key('url_encoded_fmt_stream_map'):
+            if 'url_encoded_fmt_stream_map' in videoinfo:
                 tmp_fmtUrlDATA = videoinfo['url_encoded_fmt_stream_map'][0].split(',')
             else:
                 tmp_fmtUrlDATA = videoinfo['fmt_url_map'][0].split(',')
             for fmtstring in tmp_fmtUrlDATA:
                 fmturl = fmtid = ''
-                if videoinfo.has_key('url_encoded_fmt_stream_map'):
+                if 'url_encoded_fmt_stream_map' in videoinfo:
                     try:
                         for arg in fmtstring.split('&'):
                             if arg.find('=') >= 0:
@@ -16273,7 +16284,7 @@ class TVBlog(Screen):
                                 elif key == 'url':
                                     fmturl = value
 
-                        if fmtid != '' and fmturl != '' and VIDEO_FMT_PRIORITY_MAP.has_key(fmtid):
+                        if fmtid != '' and fmturl != '' and fmtid in VIDEO_FMT_PRIORITY_MAP:
                             video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = {'fmtid': fmtid,
                              'fmturl': unquote_plus(fmturl)}
                             fmt_infomap[int(fmtid)] = '%s' % unquote_plus(fmturl)
@@ -16283,7 +16294,7 @@ class TVBlog(Screen):
 
                 else:
                     fmtid, fmturl = fmtstring.split('|')
-                if VIDEO_FMT_PRIORITY_MAP.has_key(fmtid) and fmtid != '':
+                if fmtid in VIDEO_FMT_PRIORITY_MAP and fmtid != '':
                     video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = {'fmtid': fmtid,
                      'fmturl': unquote_plus(fmturl)}
                     fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
@@ -17769,13 +17780,13 @@ class searchYouTube(Screen):
         else:
             video_fmt_map = {}
             fmt_infomap = {}
-            if videoinfo.has_key('url_encoded_fmt_stream_map'):
+            if 'url_encoded_fmt_stream_map' in videoinfo:
                 tmp_fmtUrlDATA = videoinfo['url_encoded_fmt_stream_map'][0].split(',')
             else:
                 tmp_fmtUrlDATA = videoinfo['fmt_url_map'][0].split(',')
             for fmtstring in tmp_fmtUrlDATA:
                 fmturl = fmtid = ''
-                if videoinfo.has_key('url_encoded_fmt_stream_map'):
+                if 'url_encoded_fmt_stream_map' in videoinfo:
                     try:
                         for arg in fmtstring.split('&'):
                             if arg.find('=') >= 0:
@@ -17787,7 +17798,7 @@ class searchYouTube(Screen):
                                 elif key == 'url':
                                     fmturl = value
 
-                        if fmtid != '' and fmturl != '' and VIDEO_FMT_PRIORITY_MAP.has_key(fmtid):
+                        if fmtid != '' and fmturl != '' and fmtid in VIDEO_FMT_PRIORITY_MAP:
                             video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = {'fmtid': fmtid,
                              'fmturl': unquote_plus(fmturl)}
                             fmt_infomap[int(fmtid)] = '%s' % unquote_plus(fmturl)
@@ -17797,7 +17808,7 @@ class searchYouTube(Screen):
 
                 else:
                     fmtid, fmturl = fmtstring.split('|')
-                if VIDEO_FMT_PRIORITY_MAP.has_key(fmtid) and fmtid != '':
+                if fmtid in VIDEO_FMT_PRIORITY_MAP and fmtid != '':
                     video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = {'fmtid': fmtid,
                      'fmturl': unquote_plus(fmturl)}
                     fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
@@ -20766,7 +20777,7 @@ class makeServiceFile(Screen):
             info = serviceHandler.info(bouquet_root)
             if info:
                 bouquets.append((info.getName(bouquet_root), bouquet_root))
-        entrys = [ (x[0], x[1]) for x in bouquets ]
+        entrys = [(x[0], x[1]) for x in bouquets]
         self['list'].l.setList(entrys)
         try:
             if config.plugins.tvspielfilm.font.value == 'yes':
@@ -20787,7 +20798,7 @@ class makeServiceFile(Screen):
                 slist = ServiceList(bouquet, validate_commands=False)
                 services = slist.getServicesAsList(format='S')
                 search = ['IBDCTSERNX']
-                search.extend([ (service, 0, -1) for service in services ])
+                search.extend([(service, 0, -1) for service in services])
                 self.epgcache = eEPGCache.getInstance()
                 events = self.epgcache.lookupEvent(search)
                 eventlist = []
@@ -20801,7 +20812,7 @@ class makeServiceFile(Screen):
                 slist = ServiceList(bouquet, validate_commands=False)
                 services = slist.getServicesAsList(format='S')
                 search = ['IBDCTSERNX']
-                search.extend([ (service, 0, -1) for service in services ])
+                search.extend([(service, 0, -1) for service in services])
                 self.epgcache = eEPGCache.getInstance()
                 events = self.epgcache.lookupEvent(search)
                 eventlist = []
@@ -21391,7 +21402,7 @@ class FolderSelection(Screen):
 
 class ItemList(MenuList):
 
-    def __init__(self, items, enableWrapAround = True):
+    def __init__(self, items, enableWrapAround=True):
         MenuList.__init__(self, items, enableWrapAround, eListboxPythonMultiContent)
         if config.plugins.tvspielfilm.font.value == 'yes':
             self.l.setFont(-2, gFont('Sans', 24))
@@ -21431,7 +21442,7 @@ class ItemList(MenuList):
 
 class BlinkingLabel(Label, BlinkingWidget):
 
-    def __init__(self, text = ''):
+    def __init__(self, text=''):
         Label.__init__(self, text=text)
         BlinkingWidget.__init__(self)
 
