@@ -518,8 +518,8 @@ class translatorConfig(ConfigListScreen, Screen):
 # ==================================================================
 
     def selectionChanged(self):
-		self["description"].setText(self.getCurrentDescription())
-		
+        self["description"].setText(self.getCurrentDescription())
+
 # ==================================================================
     def UpdateComponents(self):
         png = lang_flag(str(CfgPlTr.destination.getValue()))
