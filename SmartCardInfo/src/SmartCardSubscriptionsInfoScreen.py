@@ -32,14 +32,14 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 		self.showSmartCardSubscriptionsInfo()
 
 		self.timer = eTimer()
-		self.timer.timeout.get().append(self.showSmartCardSubscriptionsInfo) 
+		self.timer.timeout.get().append(self.showSmartCardSubscriptionsInfo)
 		self.onShown.append(lambda: self.timer.start(500))
 
 		self["actions"] = NumberActionMap(["WizardActions", "InputActions", "EPGSelectActions"],
 		{
 			"ok": self.exit,
 			"back": self.exit,
-		}, -1)	
+		}, -1)
 
 	def showSmartCardSubscriptionsInfo(self):
 		self.list = []
@@ -59,4 +59,4 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 
 	def exit(self):
 		self.timer.stop()
-		self.close()	
+		self.close()

@@ -138,12 +138,12 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 		self.list = []
 		self.timerinstance = timerinstance
 		self.remotetimer_old = config.ipboxclient.remotetimers.value
-		
+
 		Screen.__init__(self, session)
 		ConfigListScreen.__init__(self, self.list)
 
 		self.setTitle(_('GBIpbox Client'))
-		
+
 		self["VKeyIcon"] = Boolean(False)
 		self["text"] = StaticText(_('NOTE: the remote HDD feature require samba installed on server box.'))
 		self["key_red"] = Button(_('Cancel'))
@@ -158,9 +158,9 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			"yellow": self.keyScan,
 			"blue": self.keyAbout
 		}, -2)
-		
+
 		self.populateMenu()
-		
+
 		if not config.ipboxclient.firstconf.value:
 			self.timer = eTimer()
 			self.timer.callback.append(self.scanAsk)
@@ -169,11 +169,11 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 	def scanAsk(self):
 		self.timer.stop()
 		self.session.openWithCallback(self.scanConfirm, MessageBox, _("Do you want to scan for a server?"), MessageBox.TYPE_YESNO)
-		
+
 	def scanConfirm(self, confirmed):
 		if confirmed:
 			self.keyScan()
-			
+
 	def populateMenu(self):
 		self.list = []
 		self.list.append(getConfigListEntry(_("Host"), config.ipboxclient.host))
@@ -189,10 +189,10 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 		if config.ipboxclient.schedule.getValue():
 			self.list.append(getConfigListEntry(_("Time of sync to start"), config.ipboxclient.scheduletime))
 			self.list.append(getConfigListEntry(_("Repeat how often"), config.ipboxclient.repeattype))
-		
+
 		self["config"].list = self.list
 		self["config"].l.setList(self.list)
-		
+
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
 		self.populateMenu()
@@ -208,29 +208,29 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 		config.ipboxclient.firstconf.save()
 		if self.timerinstance:
 			self.timerinstance.refreshScheduler()
-			
+
 		mount = GBIpboxMount(self.session)
 		mount.remount()
-			
+
 		self.messagebox = self.session.open(MessageBox, _('Please wait while download is in progress.\nNOTE: If you have parental control enabled on remote box, the local settings will be overwritten.'), MessageBox.TYPE_INFO, enable_input=False)
 		self.timer = eTimer()
 		self.timer.callback.append(self.download)
 		self.timer.start(100)
-	
+
 	def keyCancel(self):
 		for x in self["config"].list:
 			x[1].cancel()
 		self.close()
-		
+
 	def keyAbout(self):
 		self.session.open(GBIpboxAbout)
-		
+
 	def keyScan(self):
 		self.messagebox = self.session.open(MessageBox, _('Please wait while scan is in progress.\nThis operation may take a while'), MessageBox.TYPE_INFO, enable_input=False)
 		self.timer = eTimer()
 		self.timer.callback.append(self.scan)
 		self.timer.start(100)
-		
+
 	def scan(self):
 		self.timer.stop()
 		scanner = GBIpboxScan(self.session)
@@ -239,7 +239,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 		self.timer = eTimer()
 		self.timer.callback.append(self.parseScanResults)
 		self.timer.start(100)
-		
+
 	def parseScanResults(self):
 		self.timer.stop()
 		if len(self.scanresults) > 0:
@@ -251,7 +251,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			self.session.openWithCallback(self.scanCallback, MessageBox, message, list=menulist)
 		else:
 			self.session.open(MessageBox, _("No devices found"), type=MessageBox.TYPE_ERROR)
-		
+
 	def scanCallback(self, result):
 		if (result):
 			config.ipboxclient.host.value = result[1]
@@ -264,12 +264,12 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			config.ipboxclient.auth.save()
 			config.ipboxclient.firstconf.value = True
 			config.ipboxclient.firstconf.save()
-			
+
 			mount = GBIpboxMount(self.session)
 			mount.remount()
 
 			self.populateMenu()
-			
+
 	def download(self):
 		self.timer.stop()
 		downloader = GBIpboxDownloader(self.session)
@@ -291,14 +291,14 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 			self.session.open(TryQuitMainloop, 3)
 		else:
 			self.close()
-	
+
 	def downloadCompleted(self):
 		self.timer.stop()
 		if self.remotetimer_old != config.ipboxclient.remotetimers.value:
 			self.session.openWithCallback(self.restart, MessageBox, _("To apply new settings, you need to reboot your STB. Do you want reboot it now?"), type=MessageBox.TYPE_YESNO)
 		else:
 			self.session.openWithCallback(self.close, MessageBox, _("Download completed"), type=MessageBox.TYPE_INFO)
-		
+
 	def downloadError(self):
 		self.timer.stop()
 		self.session.open(MessageBox, _("Cannot download data. Please check your configuration"), type=MessageBox.TYPE_ERROR)

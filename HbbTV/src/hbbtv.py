@@ -100,4 +100,3 @@ class HbbTVWindow(Screen):
 
 		vbcfg.LOG("Stop HbbTV")
 		self.close()
-

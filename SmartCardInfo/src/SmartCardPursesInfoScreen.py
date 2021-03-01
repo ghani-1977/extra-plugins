@@ -32,14 +32,14 @@ class SmartCardPursesInfoScreen(Screen):
 		self.showSmartCardPursesInfo()
 
 		self.timer = eTimer()
-		self.timer.timeout.get().append(self.showSmartCardPursesInfo) 
+		self.timer.timeout.get().append(self.showSmartCardPursesInfo)
 		self.onShown.append(lambda: self.timer.start(500))
 
 		self["actions"] = NumberActionMap(["WizardActions", "InputActions", "EPGSelectActions"],
 		{
 			"ok": self.exit,
 			"back": self.exit,
-		}, -1)	
+		}, -1)
 
 	def showSmartCardPursesInfo(self):
 		self.list = []
@@ -58,4 +58,4 @@ class SmartCardPursesInfoScreen(Screen):
 
 	def exit(self):
 		self.timer.stop()
-		self.close()	
+		self.close()

@@ -83,7 +83,7 @@ def applySettings(mode):
 
 	else:
 		setMode = "3"
-	
+
 	try:
 		file = open("/proc/stb/fp/fan", "w")
 		file.write('%s' % setMode)
@@ -113,7 +113,7 @@ def FanSetup(menuid, **kwargs):
 		return [(_("FAN Control"), FanMain, "fan_control", None)]
 	else:
 		return []
-		
+
 
 def Plugins(**kwargs):
 	from os import path

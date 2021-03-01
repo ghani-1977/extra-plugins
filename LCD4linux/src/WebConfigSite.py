@@ -220,7 +220,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			if Mode in ["1", "2"]:
 				setisMediaPlayer("")
 				setConfigStandby(False)
-			elif Mode == "3":	
+			elif Mode == "3":
 				setisMediaPlayer("config")
 				setConfigStandby(False)
 			elif Mode == "4":
@@ -645,7 +645,7 @@ class LCD4linuxConfigweb(resource.Resource):
 				Conf = LL[2].strip()
 
 				if (Conf.startswith(Element) and (LL[3] == AktCode or AktCode == 0)) or (Element == "other" and LL[3] == 0):
-				
+
 					if Mode in "2":
 						if "." in Conf:
 							b = Conf.replace(".", ".MP")
@@ -670,7 +670,7 @@ class LCD4linuxConfigweb(resource.Resource):
 							b = Conf.replace(".Standby", ".MP")
 							if (" " + b) in zip(*L3)[2]:
 								isMP = True
-		
+
 					if AktCode == 0:
 						AktCode = LL[3]
 					exec("Curr = %s.value" % Conf)
@@ -701,7 +701,7 @@ class LCD4linuxConfigweb(resource.Resource):
 							html += "<input type=\"checkbox\" name=\"%s\" value=\"%s\" %s>" % (Conf, "checked", Aktiv)
 							html += "</td>\n"
 						else:
-#ConfigText	
+#ConfigText
 							exec("Typ = isinstance(%s,ConfigText)" % Conf)
 							if Typ == True:
 								html += "<td width=\"300\">%s</td><td>\n" % _l(_(LL[1]))
@@ -763,7 +763,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			html += "Screen: %s<br />\n" % str(getScreenActive(True))
 			html += "Hold/HoldKey: %s/%s<br />\n" % (str(getSaveEventListChanged()), str(L4LElement.getHoldKey()))
 			html += "Brightness org/set %s/%s<br />\n" % (str(L4LElement.getBrightness()), str(L4LElement.getBrightness(0, False)))
-	
+
 		html += "<hr><span style=\"font-size:8pt\">%s (%s)</span>" % (getINFO(), IP)
 		html += "<BR><a style=\"font-size:10pt; color:#FFCC00;\" href=\"http://www.i-have-a-dreambox.com/wbb2/thread.php?postid=1634882\">Support & FAQ & Info & Donation</a>"
 		if len(L4LElement.get()) > 0:

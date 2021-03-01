@@ -162,7 +162,7 @@ class GBIpboxWizard(Wizard):
 		self.timer = eTimer()
 		self.timer.callback.append(self.doscan)
 		self.timer.start(100)
-		
+
 	def doscan(self):
 		self.timer.stop()
 		scanner = GBIpboxScan(self.session)
@@ -178,7 +178,7 @@ class GBIpboxWizard(Wizard):
 		devices = []
 		for result in self.scanresults:
 			devices.append((result[0] + ' (' + result[1] + ')', result[1]))
-		
+
 		devices.append((_('Cancel'), 'cancel'))
 		return devices
 
@@ -199,7 +199,7 @@ class GBIpboxWizard(Wizard):
 			config.ipboxclient.auth.save()
 			config.ipboxclient.firstconf.value = True
 			config.ipboxclient.firstconf.save()
-			
+
 			mount = GBIpboxMount(self.session)
 			mount.remount()
 
@@ -211,7 +211,7 @@ class GBIpboxWizard(Wizard):
 		self.timer = eTimer()
 		self.timer.callback.append(self.dodownload)
 		self.timer.start(100)
-		
+
 	def dodownload(self):
 		self.timer.stop()
 		downloader = GBIpboxDownloader(self.session)
@@ -223,4 +223,3 @@ class GBIpboxWizard(Wizard):
 			self.currStep = self.getStepWithID('nodownload')
 		self.currStep += 1
 		self.updateValues()
-

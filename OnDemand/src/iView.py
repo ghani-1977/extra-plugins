@@ -139,16 +139,16 @@ class iViewMenu(Screen):
 		{
 			"ok": self.go,
 			"cancel": self.cancel
-		}, -1)	  
+		}, -1)
 
 	def go(self):
 		name = self["iViewMenu"].l.getCurrentSelection()[0]
 		selection = self["iViewMenu"].l.getCurrentSelection()[1]
-		
+
 		if selection is "exit":
 			self.removeFiles(self.imagedir)
 			self.close(None)
-			
+
 		elif self.action is "start":
 			if selection is "atoz":
 				self.session.open(StreamsMenu, selection, name, selection)
@@ -157,7 +157,7 @@ class iViewMenu(Screen):
 
 	def cancel(self):
 		self.removeFiles(self.imagedir)
-		self.close(None)		
+		self.close(None)
 
 	def removeFiles(self, targetdir):
 		for root, dirs, files in os_walk(targetdir):
@@ -201,12 +201,12 @@ class StreamsMenu(Screen):
 		{
 			"ok": self.go,
 			"cancel": self.cancel
-		}, -1) 
+		}, -1)
 
 	def go(self):
 		title = self["latestMenu"].l.getCurrentSelection()[0]
 		selection = self["latestMenu"].l.getCurrentSelection()[1]
-		
+
 		if selection is not None:
 			if selection is "exit":
 				self.close(None)
@@ -220,11 +220,11 @@ class StreamsMenu(Screen):
 
 
 def checkUnicode(value, **kwargs):
-	stringValue = value 
+	stringValue = value
 	stringValue = stringValue.replace('&#39;', '\'')
 	stringValue = stringValue.replace('&amp;', '&')
 	return stringValue
-	
+
 #==============================================================================
 
 
@@ -237,10 +237,10 @@ def remove_extra_spaces(data):
 
 def main(session, **kwargs):
 	action = "start"
-	value = 0 
+	value = 0
 	start = session.open(iViewMenu, action, value)
 
-#==============================================================================	   
+#==============================================================================
 
 
 class StreamsThumb(StreamsThumbCommon):
@@ -256,7 +256,7 @@ class StreamsThumb(StreamsThumbCommon):
 	def setupCallback(self, retval=None):
 		if retval == 'cancel' or retval is None:
 			return
-			
+
 		if retval == 'search':
 			self.timerCmd = self.TIMER_CMD_VKEY
 			self.cbTimer.start(10)
@@ -266,7 +266,7 @@ class StreamsThumb(StreamsThumbCommon):
 			if len(self.mediaList) == 0:
 				self.mediaProblemPopup("No Episodes Found!")
 			self.updateMenu()
-			
+
 		else:
 			self.getCatsMediaData(self.mediaList, self.url)
 			if len(self.mediaList) == 0:
@@ -320,7 +320,7 @@ class StreamsThumb(StreamsThumbCommon):
 				# Strip off the .flv or .mp4
 				playpath = playpath.split('.')[0]
 
-				# rtmp://cp53909.edgefcs.net/ondemand?auth=daEbjbeaCbGcgb6bedYacdWcsdXc7cWbDda-bmt0Pk-8-slp_zFtpL&aifp=v001 
+				# rtmp://cp53909.edgefcs.net/ondemand?auth=daEbjbeaCbGcgb6bedYacdWcsdXc7cWbDda-bmt0Pk-8-slp_zFtpL&aifp=v001
 				# playpath=mp4:flash/playback/_definst_/kids/astroboy_10_01_22 swfurl=http://www.abc.net.au/iview/images/iview.jpg swfvfy=true
 				rtmp_url = "%s?auth=%s playpath=%s swfurl=%s swfvfy=true" % (auth['rtmp_url'], auth['token'], playpath, swf_url)
 				print("%s: version %s: findPlayUrl: rtmp_url: %s" % (__plugin__, __version__, rtmp_url))
@@ -526,7 +526,7 @@ class StreamsThumb(StreamsThumbCommon):
 					except (Exception) as exception:
 						channel = ""
 
-					weekList.append((date1, name, short, channel, stream, icon, duration, False))			
+					weekList.append((date1, name, short, channel, stream, icon, duration, False))
 
 		except (Exception) as exception:
 			print("%s: version %s: getMediaData: Error parsing feed: %s" % (__plugin__, __version__, exception))
@@ -628,7 +628,7 @@ class StreamsThumb(StreamsThumbCommon):
 						short = remove_extra_spaces(short_tmp1)
 					except (Exception) as exception:
 						short = ""
-					
+
 					# Only output the names that match the search query
 					if re.search(query, name, re.IGNORECASE) or re.search(query, short, re.IGNORECASE):
 						try:

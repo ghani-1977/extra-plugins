@@ -35,9 +35,9 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		InfoBarBase.__init__(self)
 		InfoBarSubtitleSupport.__init__(self)
 		HelpableScreen.__init__(self)
-		
+
 		self.container = eConsoleAppContainer()
-		
+
 		self.summary = None
 		self.oldService = self.session.nav.getCurrentlyPlayingServiceReference()
 		self.session.nav.stopService()
@@ -48,13 +48,13 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 
 		self.is_closing = False
 		self.delname = ""
-		
+
 		self.next_operation = ""
 		self.lastServicePlayed = None
 		self.current_service = None
 
 		self["PositionGauge"] = ServicePositionGauge(self.session.nav)
-		
+
 		self["currenttext"] = Label("")
 
 		self.repeat = False
@@ -69,7 +69,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				self.player.show()
 				return NumberActionMap.action(self, contexts, action)
 
-		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions", 
+		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions",
 			{
 				"ok": (self.ok, _("play divx file")),
 				"cancel": (self.exit, _("exit divxplayer")),
@@ -85,7 +85,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				"menu": (self.showMenu, _("menu")),
 			}, -2)
 
-		self["actions"] = DivXPlayerActionMap(self, ["DirectionActions"], 
+		self["actions"] = DivXPlayerActionMap(self, ["DirectionActions"],
 		{
 			"right": self.right,
 			"left": self.left,
@@ -112,7 +112,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 
 	def createSummary(self):
 		return DivXPlayerLCDScreen
-	
+
 	def exit(self):
 		self.hide()
 		self.session.openWithCallback(self.exitCB, MessageBox, _("Do you really want to exit?"), timeout=5)
@@ -147,19 +147,19 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		text = ref.getPath()
 		return text.split('/')[-1]
 
-	# FIXME: maybe this code can be optimized 
+	# FIXME: maybe this code can be optimized
 	def updateCurrentInfo(self):
 		text = ""
 		idx = self.filelist.getSelectionIndex()
 		r = self.filelist.list[idx]
 		text = r[1][7]
-					
+
 		if r[0][1] == True:
 			if len(text) < 2:
 				text += " "
 			if text[:2] != "..":
 				text = "/" + text
-				
+
 			self.summaries.setText(text, 1)
 			idx += 1
 		if idx < len(self.filelist.list):
@@ -170,11 +170,11 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			self.summaries.setText(text, 3)
 		else:
 			self.summaries.setText(" ", 3)
-	
+
 	def ok(self):
 		selection = self["filelist"].getSelection()
 		print("[DivX Player] %s\n" % str(selection[0]))
-		
+
 		if selection[1] == True: # isDir
 			self["filelist"].changeDir(selection[0])
 		else:
@@ -182,7 +182,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			if r is None:
 				return
 			text = r.getPath()
-			
+
 			self.playEntry()
 			self.hide()
 
@@ -194,7 +194,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def menuCallback(self, choice):
 		if choice is None:
 			return
-		
+
 		elif choice[1] == "hide":
 			self.hide()
 
@@ -205,7 +205,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def right(self):
 		self["filelist"].pageDown()
 		self.updateCurrentInfo()
-		
+
 	def up(self):
 		self["filelist"].up()
 		self.updateCurrentInfo()
@@ -216,20 +216,20 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 
 	def IsPlayingDivXService(self):
 		return self.container.running()
-				
+
 	def performNextOperation(self):
 		if len(self.next_operation) > 0:
 			print("[DivX Player] NEXT OPERATION %s" % self.next_operation)
-			
+
 			if self.next_operation == "PLAY_DIVX":
 				print("[DivX Player] Play new %s" % self.current_service.getPath())
-			
+
 				self.lastServicePlayed = self.current_service
 				self.playDivXService(self.current_service)
 				self.seekstate = self.SEEK_STATE_PLAY
-			
+
 		self.next_operation = ""
-				
+
 	def playDivXService(self, currref):
 		if not self.IsPlayingDivXService():
 			text = currref.getPath()
@@ -238,49 +238,49 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			print(cmd)
 			self.container.appClosed.append(self.divxPlayFinish)
 			self.container.execute(cmd)
-			
+
 	def timeStampDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("t", 1)
 			print("[DivX Player] show TimeStamp")
-		
+
 	def forwardDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("+", 1)
 			print("[DivX Player] Forward Speed")
-				
+
 	def stopDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("x", 1)
 			print("[DivX Player] Stopped")
-			
+
 	def pauseDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("z", 1)
 			print("[DivX Player] Paused")
-			
+
 	def resumeDivXPlay(self):
 		if self.IsPlayingDivXService():
 			print("[DivX Player] Resume Play")
 			self.container.write("c", 1)
-					
+
 	def divxPlayFinish(self, retval):
 		self.lastServicePlayed = None
 		self.container.appClosed.remove(self.divxPlayFinish)
 		print("[DivX Player] Killed")
-		
+
 		self.performNextOperation()
-	
+
 	def playEntry(self):
-		
+
 		selection = self["filelist"].getSelection()
 		if selection[1] == True: # isDir
 			return
-		
+
 		self.current_service = self.filelist.getServiceRef()
-		
+
 		self.next_operation = "PLAY_DIVX"
-		
+
 		#if last service played stop it ...
 		if self.lastServicePlayed is not None and self.lastServicePlayed != self.current_service:
 			self.stopDivXService()
@@ -292,7 +292,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				print("playDivXService")
 				self.lastServicePlayed = self.current_service
 				self.playDivXService(self.current_service)
-				
+
 			self.seekstate = self.SEEK_STATE_PLAY
 
 	def pauseEntry(self):
@@ -304,7 +304,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.next_operation = ""
 		self.stopDivXService()
 		self.show()
-		
+
 	def forwardEntry(self):
 		self.forwardDivXService()
 		self.seekstate = self.SEEK_STATE_FWD

@@ -31,7 +31,7 @@ class RCUSelect(Screen):
 	def __init__(self, session, args=0):
 		self.session = session
 		Screen.__init__(self, session)
-		self.skinName = "RCUSelect"                 
+		self.skinName = "RCUSelect"
 		self.index = 0
 		self.rcuval = []
 		self.rcuvalOSD = []
@@ -44,7 +44,7 @@ class RCUSelect(Screen):
 		}, -1)
 		self["key_green"] = Button(_("Apply"))
 		self["key_red"] = Button(_("Cancel"))
-		
+
 		self.testlist = []
 		self["info"] = Label()
 		self["list"] = MenuList(self.rcuvalOSD)
@@ -240,7 +240,7 @@ def system(menuid):
 		return [(_("RCU Select"), startConfig, "RCU Select", None)]
 	else:
 		return []
-        
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("RCU Select"), where=PluginDescriptor.WHERE_MENU, fnc=system)

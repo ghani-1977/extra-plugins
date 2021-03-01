@@ -599,7 +599,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		if not self.selectionChanged in self["config"].onSelectionChanged:
 			self["config"].onSelectionChanged.append(self.selectionChanged)
 		self.selectionChanged()
-		
+
 	def selectionChanged(self):
 		self["description"].setText(self["config"].getCurrent() and len(self["config"].getCurrent()) > 2 and self["config"].getCurrent()[2] or "")
 
@@ -661,7 +661,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 
 		self["config"].list = self.list
 		self["config"].l.setList(self.list)
-		
+
 		self["key_green"].setText(_("Scan"))
 		self["actions2"].setEnabled(True)
 
@@ -734,7 +734,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			("0", _("no")),
 			("1", _("up to 1 degree")),
 			("2", _("up to 2 degrees")),
-			("3", _("up to 3 degrees"))])		
+			("3", _("up to 3 degrees"))])
 
 		nim_list = []
 		for n in nimmanager.nim_slots:
@@ -779,7 +779,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 				self.is_c_band_scan = True
 
 		# this is not currently a user option
-		self.dmmBlindscan.system = ConfigSelection(default=eDVBFrontendParametersSatellite.System_DVB_S2, 
+		self.dmmBlindscan.system = ConfigSelection(default=eDVBFrontendParametersSatellite.System_DVB_S2,
 			choices=[(eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
 				(eDVBFrontendParametersSatellite.System_DVB_S, _("DVB-S only"))])
 
@@ -828,7 +828,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 
 	def keyGo(self):
 		self.feid = int(self.scan_nims.value)
-		
+
 		self.checkStartStopValues(self.dmmBlindscan.freq_start, self.dmmBlindscan.freq_stop)
 		self.checkStartStopValues(self.dmmBlindscan.sr_start, self.dmmBlindscan.sr_stop)
 
@@ -843,7 +843,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		# swap start and stop values if entered the wrong way round
 		if start.value > stop.value:
 			start.value, stop.value = (stop.value, start.value)
-	
+
 	def TransponderSearchFinished(self, user_aborted_scan=False):
 		if self.tlist is None:
 			self.tlist = []
@@ -885,7 +885,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			tplist = self.filterOffAdjacentSatellites(tplist, self.orb_pos, int(self.dmmBlindscan.filter_off_adjacent_satellites.value))
 
 		tplist = self.checkFrequencyAndSymbol(tplist)
-		
+
 		return tplist
 
 	def checkFrequencyAndSymbol(self, tplist):
@@ -899,7 +899,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			if lower_freq <= tp.frequency <= upper_freq and lower_symbol <= tp.symbol_rate <= upper_symbol:
 				new_tplist.append(tp)
 		return new_tplist
-		
+
 	def startScan(self):
 		networkid = 0
 		flags = 0
@@ -913,7 +913,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			flags |= eComponentScan.scanDontRemoveFeeds
 		if self.dmmBlindscan.scan_onlyfree.value:
 			flags |= eComponentScan.scanOnlyFree
-			
+
 		self.session.openWithCallback(self.startScanCallback, ServiceScan, [{"transponders": self.tlist, "feid": self.feid, "flags": flags, "networkid": networkid}])
 
 	def keyCancel(self):
@@ -928,7 +928,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			self.releaseFrontend()
 			self.session.nav.playService(self.session.postScanService)
 			self.close(True)
-			
+
 	def createSatellitesXMLfile(self):
 		pos = self.orb_pos
 		if pos > 1800:

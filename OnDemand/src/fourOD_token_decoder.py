@@ -86,7 +86,7 @@ def Base64_decodeToByteArray(s):
                 except KeyError:
                     pass
         return None
-    
+
     quad_pos = 0
     leftbits = 0
     leftchar = 0
@@ -113,7 +113,7 @@ def Base64_decodeToByteArray(s):
             leftchar &= ((1 << leftbits) - 1)
     if leftbits != 0:
         raise Error('Incorrect padding')
-    
+
     return res
 
 
@@ -136,7 +136,7 @@ class MyBlowfish:
     ROUNDS = 16
     P_SZ = ROUNDS + 2
     SBOX_SK = 256
-    
+
     def __init__(self, keyByteArray):
         self.P = [
             0x243F6A88, 0x85A308D3, 0x13198A2E, 0x03707344,
@@ -433,7 +433,7 @@ class MyBlowfish:
         result = (((self.S0[(x >> 24)] + self.S1[(x >> 16) & 0xff]) ^ self.S2[(x >> 8) & 0xff]) + self.S3[x & 0xff])
         result = result & 0xffffffff
         return result
-    
+
     def processTable(self, xl, xr, table):
         size = len(table)
         for s in range(0, size, 2):
@@ -463,7 +463,7 @@ class MyBlowfish:
         c = a[len(a) - 1]
         for i in range(c, 0, -1):
             a.pop()
-    
+
     def decryptBlock(self, src):
         xl = self.BytesTo32bits(src, 0)
         xr = self.BytesTo32bits(src, 4)
@@ -493,7 +493,7 @@ class MyBlowfish:
 
 def Decode4odToken(token):
     encryptedBytes = Base64_decodeToByteArray(token)
-    
+
     #key = "STINGMIMI"
     key = "wHcnqpHNN"
     keyBytes = StringToByteArray(key)

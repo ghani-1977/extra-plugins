@@ -8,15 +8,15 @@ from __future__ import print_function
 #
 # requierments: bluez4-testtools bluez4 bluez-hcidump
 # Some Kernel modules for support HID devices
-# 
-# For example: 
-# kernel-module-hid-a4tech 
-# kernel-module-hid-apple 
-# kernel-module-hid-appleir 
-# kernel-module-hid-belkin 
-# kernel-module-hid-magicmouse 
-# kernel-module-hid-microsoft 
-# kernel-module-hid-wacom 
+#
+# For example:
+# kernel-module-hid-a4tech
+# kernel-module-hid-apple
+# kernel-module-hid-appleir
+# kernel-module-hid-belkin
+# kernel-module-hid-magicmouse
+# kernel-module-hid-microsoft
+# kernel-module-hid-wacom
 #====================================================
 
 from . import _
@@ -120,7 +120,7 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 		Screen.__init__(self, session)
 		Screen.setTitle(self, _("Bluetooth Devices Manager Setup"))
 		self.skinName = ["Setup"]
-			
+
 		list = []
 		list.append(getConfigListEntry(_('Autostart'), config.btdevicesmanager.autostart))
 		list.append(getConfigListEntry(_('Audio Connect'), config.btdevicesmanager.audioconnect))
@@ -128,12 +128,12 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 
 		self["key_red"] = Label(_("Exit"))
 		self["key_green"] = Label(_("Save"))
-			
+
 		ConfigListScreen.__init__(self, list)
-		self['actions'] = ActionMap(['OkCancelActions', 'ColorActions'], 
+		self['actions'] = ActionMap(['OkCancelActions', 'ColorActions'],
 		{
-			'red': self.dontSaveAndExit,  
-			'green': self.saveAndExit, 
+			'red': self.dontSaveAndExit,
+			'green': self.saveAndExit,
 			'cancel': self.dontSaveAndExit
 		}, -1)
 
@@ -156,7 +156,7 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 				Console().ePopen("%s" % commandconnect)
 
 		config.btdevicesmanager.save()
-		
+
 		self.close()
 
 	def dontSaveAndExit(self):
@@ -164,7 +164,7 @@ class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
 		    x[1].cancel()
 
 		self.close()
-		
+
 
 class BluetoothDevicesManager(Screen):
 	skin = """
@@ -205,7 +205,7 @@ class BluetoothDevicesManager(Screen):
 		self["key_blue"] = Label(_("Config"))
 
 		self["ConnStatus"] = Label(_("No connected to any device"))
-    
+
 		self.devicelist = []
 		self["devicelist"] = MenuList(self.devicelist)
 
@@ -227,7 +227,7 @@ class BluetoothDevicesManager(Screen):
 		cmd = "hcitool dev" ## check if hci0 is on the dev list, then make scan
 		self.taskManager.append(cmd, self.cbPrintAvailBTDev, self.cbStopDone)
 		self.taskManager.next()
-		
+
 	def cbPrintAvailBTDev(self, data):
 		print("[BluetoothManager] cbPrintAvailBTDev")
 		if data in ("Device is not available: No such device\n", "Devices:\n"): ## This message hidd return while it can not find bt dev
@@ -235,7 +235,7 @@ class BluetoothDevicesManager(Screen):
 			self["ConnStatus"].setText(_(msg))
 		else:
 			self.scanForDevices()
-			
+
 	def keyGreen(self):
 		print("[BluetoothManager] keyGreen")
 		if config.btdevicesmanager.autostart.getValue() or brand in ("xcore", "edision"):
@@ -244,14 +244,14 @@ class BluetoothDevicesManager(Screen):
 		else:
 			self["devicelist"].setList([])
 			self["ConnStatus"].setText(_("Please load BT driver by pressing BLUE button."))
-	  
-	def scanForDevices(self):  
+
+	def scanForDevices(self):
 		print("[BluetoothManager] scanForDevices")
 		# lets clear the list before Rescanning
 		self.devicelist = []
 		self.devicelist.append((_("Scanning for devices..."), _("Scanning...")))
 		self["devicelist"].setList(self.devicelist)
-		
+
 		# add background task for scanning
 		cmd = 'hcitool scan'
 		self.taskManager.append(cmd, self.cbPrintAvailDevices, self.cbRunNextTask)
@@ -259,10 +259,10 @@ class BluetoothDevicesManager(Screen):
 
 	def cbPrintAvailDevices(self, data):
 		print("[BluetoothManager] cbPrintAvailDevices")
-		
+
 		self.devicelist = []
 		self.devicelist.append((_("MAC:\t\tDevice name:"), _("entry")))
-		
+
 		data = data.splitlines()
 		i = 1
 		for x in data:
@@ -270,15 +270,15 @@ class BluetoothDevicesManager(Screen):
 			if not y[0] == "Scanning ...": ## We do not need to put this to the list
 			        i += 1
 				self.devicelist.append((y[1] + "\t" + y[2], y[1]))
-		
+
 		if i == 1: ## Not sure if it is good idea, but worth to inform user that BT can not detect any other devices
 			self.devicelist = []
 			self.devicelist.append((_("MAC:\t\tDevice name:"), _("entry")))
 			self["ConnStatus"].setText(_("Not detected devices around STB"))
-			
+
 		self["devicelist"].setList(self.devicelist)
 		self.showConnections()
-		
+
 	def showConnections(self):
 		print("[BluetoothManager] showConnections")
 		if brand not in ("xcore", "edision"):
@@ -297,13 +297,13 @@ class BluetoothDevicesManager(Screen):
 						self["key_yellow"].setText(_("Disconnect"))
 			else:
 				self["ConnStatus"].setText(_("No connected to any device"))
-			
+
 	def cbPrintCurrentConnections(self, data):
 		print("[BluetoothManager] cbPrintCurrentConnections")
 		msg = _("Connection with:\n") + data[:-12]
 		self["ConnStatus"].setText(msg)
 		self["key_yellow"].setText(_("Disconnect"))
-		
+
 	def cbRefreshStatus(self):
 		self.refreshStatusTimer.stop()
 		mac_address = self.cb_mac_address
@@ -355,11 +355,11 @@ class BluetoothDevicesManager(Screen):
 			selectedItem = self["devicelist"].getCurrent()
 			if selectedItem is None or selectedItem[0] == "Scanning for devices...": ## If list is empty somehow or somebody pressed button while scanning
 				return
-			      
+
 			print("[BluetoothManager] trying to pair with: ", selectedItem[1])
 			msg = _("Trying to pair with:") + " " + selectedItem[1]
 			self["ConnStatus"].setText(msg)
-			
+
 			if brand not in ("xcore", "edision"):
 				cmd = "hidd --connect " + selectedItem[1]
 				self.taskManager.append(cmd, self.cbPrintAvailConnections, self.cbRunNextTask)
@@ -417,7 +417,7 @@ class BluetoothDevicesManager(Screen):
 			print("[BluetoothManager] connection faild")
 			msg = _("Can't not pair with selected device!")
 			self["ConnStatus"].setText(msg)
-			
+
 	def keyBlue(self):
 		print("[BluetoothManager] keyBlue")
 		self.session.openWithCallback(self.keyGreen, BluetoothDevicesManagerSetup)
@@ -435,7 +435,7 @@ class BluetoothDevicesManager(Screen):
 
 	def cbRunNextTask(self, ret):
 		self.taskManager.next()
-		
+
 	def cbStopDone(self, ret):
 		print("[BluetoothManager] cbStopDone")
 		self.taskManager.clean()
@@ -449,7 +449,7 @@ def start_menu_main(menuid, **kwargs):
 		return [(_("Bluetooth Devices Manager"), main, "bt_control", None)]
 	else:
 		return []
-		      
+
 
 def main(session, **kwargs):
 	session.open(BluetoothDevicesManager)

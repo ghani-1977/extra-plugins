@@ -33,18 +33,18 @@ class SmartCardATRInfoScreen(Screen):
 		self.showSmartCardATRInfo()
 
 		self.timer = eTimer()
-		self.timer.timeout.get().append(self.showSmartCardATRInfo) 
+		self.timer.timeout.get().append(self.showSmartCardATRInfo)
 		self.onShown.append(lambda: self.timer.start(500))
 
 		self["actions"] = NumberActionMap(["WizardActions", "InputActions", "EPGSelectActions"],
 		{
 			"ok": self.exit,
 			"back": self.exit,
-		}, -1)	
+		}, -1)
 
 	def showSmartCardATRInfo(self):
 		if (self.smartcard.state == CARD_INITIALIZED):
-			self["CodingSystemdataLabel"].setText(str(self.smartcard.codingsystem))		
+			self["CodingSystemdataLabel"].setText(str(self.smartcard.codingsystem))
 			self["ATRdataLabel"].setText(str(self.smartcard.atr))
 		else:
 			self["CodingSystemdataLabel"].setText(_(" "))
@@ -52,4 +52,4 @@ class SmartCardATRInfoScreen(Screen):
 
 	def exit(self):
 		self.timer.stop()
-		self.close()	
+		self.close()

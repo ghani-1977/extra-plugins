@@ -71,7 +71,7 @@ def checksum(str):
 
   # Swap bytes. Bugger me if I know why.
   answer = answer >> 8 | (answer << 8 & 0xff00)
-  
+
   return answer
 
 
@@ -117,7 +117,7 @@ def sendOnePing(mySocket, destAddr, ID):
   except:
     pass
   return None
-  
+
 
 def doOne(destAddr, timeout=10):
   # Returns either the delay (in seconds) or none on timeout.
@@ -148,4 +148,3 @@ def main():
 if __name__ == '__main__':
   main()
   sys.exit(0)
-

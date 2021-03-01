@@ -77,7 +77,7 @@ _unsupportedNims = ('Vuplus DVB-S NIM(7376 FBC)', 'Vuplus DVB-S NIM(45308X FBC)'
 # blindscan-s2 supported tuners
 _blindscans2Nims = ('TBS-5925', 'DVBS2BOX', 'M88DS3103')
 
-defaults = {"search_type": "transponders", 
+defaults = {"search_type": "transponders",
 	"user_defined_lnb_inversion": False,
 	"step_mhz_tbs5925": 10,
 	"polarization": str(eDVBFrontendParametersSatellite.Polarisation_CircularRight + 1), # "vertical and horizontal"
@@ -115,7 +115,7 @@ config.blindscan.filter_off_adjacent_satellites = ConfigSelection(default=defaul
 	("1", _("up to 1 degree")),
 	("2", _("up to 2 degrees")),
 	("3", _("up to 3 degrees"))])
-			
+
 
 class BlindscanState(Screen, ConfigListScreen):
 	skin = """
@@ -262,7 +262,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 		ConfigListScreen.__init__(self, self.list, session=session)
 		self["footnote"] = Label("")
-		
+
 		self["actions"] = ActionMap(["SetupActions"],
 		{
 			"cancel": self.keyCancel,
@@ -285,11 +285,11 @@ class Blindscan(ConfigListScreen, Screen):
 		self["key_red"] = StaticText(_("Exit"))
 		self["key_yellow"] = StaticText("")
 		self["key_blue"] = StaticText(_("Restore defaults"))
-		
+
 		if self.scan_nims.value is not None and self.scan_nims.value != "": # self.scan_nims set in createConfig()
 			self["key_green"] = StaticText(_("Scan"))
 			self.createSetup()
-			
+
 		else:
 			self["footnote"].setText(_("Please setup your tuner configuration."))
 
@@ -306,7 +306,7 @@ class Blindscan(ConfigListScreen, Screen):
 		if not self.selectionChanged in self["config"].onSelectionChanged:
 			self["config"].onSelectionChanged.append(self.selectionChanged)
 		self.selectionChanged()
-		
+
 	def selectionChanged(self):
 		self["description"].setText(self["config"].getCurrent() and len(self["config"].getCurrent()) > 2 and self["config"].getCurrent()[2] or "")
 		self.setBlueText()
@@ -706,7 +706,7 @@ class Blindscan(ConfigListScreen, Screen):
 		# swap start and stop values if entered the wrong way round
 		if start.value > stop.value:
 			start.value, stop.value = (stop.value, start.value)
-	
+
 	def doRun(self, tmp_list, tmp_pol, tmp_band):
 		print("[Blindscan][doRun] started")
 
@@ -1388,7 +1388,7 @@ class Blindscan(ConfigListScreen, Screen):
 		return new_tplist
 
 	def tweakSR(self, t):
-		pull_sr_max = 4 
+		pull_sr_max = 4
 		lowest_sr_to_adjust = 4996
 		multiplier = 1000
 		# Cosmetic: tweak symbol rates to nearest multiple of 100 if this is closer than "pull_sr_max" away and t.symbol_rate > lowest_sr_to_adjust
@@ -1550,7 +1550,7 @@ class Blindscan(ConfigListScreen, Screen):
 			self.blindscan_user_defined_lnb_inverted_stop_frequency.value = self.user_defined_lnb_lo_freq - self.tunerIfLimits["low"]
 		self.createSetup()
 		self.setBlueText()
-			
+
 	def setBlueText(self):
 		for key in defaults.keys():
 			if getattr(config.blindscan, key).value != defaults[key]:
@@ -1595,7 +1595,7 @@ class Blindscan(ConfigListScreen, Screen):
 				userSatellitesList = ast.literal_eval(currSat.userSatellitesList.getValue())
 				if not cur_orb_pos in userSatellitesList:
 					currSat = nimconfig.advanced.sat[cur_orb_pos]
-			else: 
+			else:
 				currSat = nimconfig.advanced.sat[cur_orb_pos]
 			lnbnum = int(currSat.lnb.getValue())
 			if lnbnum == 0 and nimconfig.advanced.sats.value in ("3601", "3602", "3603", "3604"):

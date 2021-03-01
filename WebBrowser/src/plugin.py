@@ -447,17 +447,17 @@ class BrowserLauncher(ConfigListScreen, Screen):
 		</screen>
 		""" % model_rc
 
-	def __init__(self, session): 
+	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser")
                 self.session = session
 		self.list = []
 		ConfigListScreen.__init__(self, self.list)
-		
+
 		#refresh devices
 		iInputDevices.getInputDevices()
 		self.browser_root = "/usr/bin"
-		
+
 		self.browser_name = "arora"
 		self.conf_file = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser/settings.conf")
 		self["actions"] = ActionMap(["OkCancelActions", "ShortcutActions", "WizardActions", "ColorActions", "SetupActions", ],
@@ -571,13 +571,13 @@ class BrowserLauncher(ConfigListScreen, Screen):
 		self.name_list = []
 		self.mouse_list = None
 		self.keyboard_list = None
-		
+
 		self.devices = [(x, iInputDevices.getDeviceName(x).replace("dreambox advanced remote control (native)", "Remote Control").replace("dreambox front panel", "Front Panel") + "(" + x + ")") for x in iInputDevices.getDeviceList()]
 
 		if self.conf_mouse == "":
 			self.conf_mouse = "event1"
 		self.mouse = ConfigSelection(default=self.conf_mouse, choices=self.devices)
-		self.list.append(getConfigListEntry(_('Mouse'), _(self.mouse)))		
+		self.list.append(getConfigListEntry(_('Mouse'), _(self.mouse)))
 
 		if self.conf_keyboard == "":
 			self.conf_keyboard = "event1"
@@ -602,7 +602,7 @@ class BrowserLauncher(ConfigListScreen, Screen):
 		if self.current_lang_idx == 1:
 			return "de"
 		return "en"
-		
+
 	def startBrowser(self):
 		self.timer_start.stop()
 
@@ -612,7 +612,7 @@ class BrowserLauncher(ConfigListScreen, Screen):
 
 		kbd_cmd = " "
 		mouse_cmd = " "
-		extra_cmd = " " 
+		extra_cmd = " "
 		browser_cmd = "%s/%s -qws" % (self.browser_root, self.browser_name)
 
 		mouse_param = self.mouse.value
@@ -675,4 +675,3 @@ def main(session, **kwargs):
 def Plugins(**kwargs):
 	return [PluginDescriptor(where=PluginDescriptor.WHERE_SESSIONSTART, needsRestart=False, fnc=sessionstart),
 		PluginDescriptor(name=_("Web Browser"), description="start web browser", where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main)]
-		

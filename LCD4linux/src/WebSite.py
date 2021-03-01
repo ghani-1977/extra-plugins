@@ -8,7 +8,7 @@ import time
 
 
 class LCD4linuxweb(resource.Resource):
-    
+
 	title = "LCD4Linux Webinterface"
  	isLeaf = False
 
@@ -87,6 +87,6 @@ class LCD4linuxweb(resource.Resource):
 
 
 class LCD4linuxwebView(LCD4linuxweb):
-    
+
 	def __init__(self):
 		self.HREF = ""

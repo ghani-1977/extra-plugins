@@ -36,7 +36,7 @@ class SmartCardSelectDetailsScreen(Screen):
 		self.PollingSmartCardShowDetails()
 
 		self.timer = eTimer()
-		self.timer.timeout.get().append(self.PollingSmartCardShowDetails) 
+		self.timer.timeout.get().append(self.PollingSmartCardShowDetails)
 		self.onShown.append(lambda: self.timer.start(1000))
 
 		self["actions"] = NumberActionMap(["WizardActions", "InputActions", "EPGSelectActions"],
@@ -44,25 +44,25 @@ class SmartCardSelectDetailsScreen(Screen):
 			"ok": self.ok,
 			"back": self.exit,
 		}, -1)
-		
+
 	def PollingSmartCardShowDetails(self):
 
 #		self.timer.stop()
-		
+
 		smartinfo = SmartCardConfig()
 		self.list = []
-		
+
 		self.list.append(_("ATR"))
-		
+
 		#if smartinfo.checkSmartCardInserted( self.idx, self.smartcard ) == True:
-		
+
 		if (smartinfo.loadSmartCardConfigfromSock(self.idx, self.smartcard)):
 			if (self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
 				self.list.append(_("Subscriptions"))
 				self.list.append(_("Tokens"))
 
 		self["menu"].setList(self.list)
-		
+
 #		self.timer.start(1000)
 
 	def ok(self):

@@ -21,7 +21,7 @@ def setBacklight(dev, value):
 	except:
 		print("[LCD4linux] Error set Backlight")
 		return False
-	
+
 
 def showImage(dev, image):
 	try:
@@ -30,7 +30,7 @@ def showImage(dev, image):
 		dev.showRGBAImage(0, 0, x, y, ir.tostring())
 		return True
 	except:
-		print("[LCD4linux] Error writing DPF Device") 
+		print("[LCD4linux] Error writing DPF Device")
 		return False
 
 

@@ -70,7 +70,7 @@ class SmartCardConfig:
 
 	__SmartCardxmlfile = "/var/etc/smartcardinfo.xml"
 	__scinfo_request = 'scinfo_request'
-	
+
 	serverHost = 'localhost'
 	serverPort = 50007
 
@@ -84,7 +84,7 @@ class SmartCardConfig:
 			if (child.nodeType == Node.ELEMENT_NODE and child.tagName == tagname):
 				L.append(child)
 		return L
-	
+
 	def loadConaxpursesConfig(self, scnode, smartcard):
 		"""
 		Load SmartCard Conax purses from File"""
@@ -103,9 +103,9 @@ class SmartCardConfig:
 	def loadConaxsubscriptionsConfig(self, scnode, smartcard):
 		"""
 		Load SmartCard Conax subscriptions from File"""
-				
+
 		smartcard.subscriptions = []
-		
+
 		# Parse all subscriptions
 		subscriptionnodes = self.findChildrenByTagName(scnode, "subscription")
 
@@ -135,81 +135,81 @@ class SmartCardConfig:
 		smartcard.purses = []
 		smartcard.atr = ""
 		smartcard.codingsystem = _("UNKNOWN")
-		
+
 		if (len(scxnodes[0].getAttribute("state")) == 0):
 			return False
-			
+
 		if (scxnodes[0].getAttribute("state") == "CARD_REMOVED"):
 			smartcard.state = CARD_REMOVED
 			return True
-		
+
 		elif (scxnodes[0].getAttribute("state") == "CARD_UNKNOWN"):
 			smartcard.state = CARD_UNKNOWN
 			return True
-		
+
 		elif (scxnodes[0].getAttribute("state") == "CARD_INITIALIZING"):
 			smartcard.state = CARD_INITIALIZING
 			return True
-		
+
 		elif (scxnodes[0].getAttribute("state") == "CARD_INITIALIZED"):
 			smartcard.state = CARD_INITIALIZED
 		else:
 			return False
-		
+
 		smartcard.codingsystem = scxnodes[0].getAttribute("codingsystem")
 		smartcard.atr = scxnodes[0].getAttribute("atr")
 		smartcard.sn = scxnodes[0].getAttribute("sn")
-			
+
 		# Parse SC Conax Info
 		if (smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
 			self.loadConaxsubscriptionsConfig(scxnodes[0], smartcard)
 			self.loadConaxpursesConfig(scxnodes[0], smartcard)
 
 		return True
-			
+
 	def getIdentifierParameter(self, configStr, identifier):
 		for s in configStr:
 			split = s.strip().split(': ', 1)
 			if split[0] == identifier:
 				print("[SmartCard.py] Got " + identifier + " :" + split[1])#[0:-1]
 				return split[1]#[0:-1]
-				
+
 		print("[SmartCard.py] No " + identifier + " present.")
 		return None
-			
+
 	def checkSmartCardInserted(self, idx, smartcard):
 		"""
 		Check if smartcard present"""
-		
+
 		print("[SMARTCARDINFO] Get Slot status")
-		
+
 		fp = open('/proc/sc', 'r')
 		result = fp.readlines()
 		fp.close()
-		
+
 		status = self.getIdentifierParameter(result, 'sc%d' % idx)
-	
+
 		if status is None:
 			return False
-		
+
 		if (status.find("no card") >= 0) and (smartcard.inserted):
 			print("[SMARTCARDINFO] Slot %d status changed prev (inserted) actual (removed)" % idx)
 			smartcard.inserted = False
 			return False
-		
+
 		if (status.find("card detected") >= 0) and (not smartcard.inserted):
 			print("[SMARTCARDINFO] Slot %d status changed prev (removed) actual (present)" % idx)
 			smartcard.inserted = True
 			return True
-			
-		return False	
-		
+
+		return False
+
 	def loadSmartCardConfigfromSock(self, idx, smartcard):
 		"""
 		Load SmartCard Information from File"""
 
 		print("[SMARTCARDINFO] Getting smartcard info ...")
-		
+
 		sockobj = socket(AF_INET, SOCK_STREAM)
 		sockobj.settimeout(1)
 		try:
@@ -218,7 +218,7 @@ class SmartCardConfig:
 			# Connection refused
 			print("[SMARTCARDINFO] SmartcardServer not active.")
 			return False
-		
+
 		try:
 			sockobj.send(SmartCardConfig.__scinfo_request)
 		except:
@@ -230,20 +230,20 @@ class SmartCardConfig:
 		except:
 			# Receive error
 			return False
-		
+
 		if (data is None):
 			#No data received
 			return False
-		
+
 		data = data.strip()
-		
+
 		try:
 			self.xmldoc = xml.dom.minidom.parseString(data)
 		except:
 			print('[SMARTCARDINFO] malformed xml. discard it.\n')
-			return False				
+			return False
 
 		if (self.xmldoc is None):
-			return False		
-		
+			return False
+
 		return self.parse_data_from_xml(idx, smartcard)

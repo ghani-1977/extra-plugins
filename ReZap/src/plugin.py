@@ -51,7 +51,7 @@ class LoopSyncMain(Screen):
 				else:		### IPTV or VOD ###
 					self.ResetFlag()
 					self.AVSyncTimer.start(500, True)
-					return				
+					return
 			else:
 				self.AVSyncTimer.start(500, True)
 				return
@@ -75,11 +75,11 @@ class LoopSyncMain(Screen):
 		except Exception as e:
 			print("[ReZap] Can't ResetFlag")
 
-###################################                
+###################################
 
 
 class DoReZap(Screen):
-  
+
 	skin = """
 		<screen position="center,center" size="1920,1080" title="" >
 		</screen>"""
@@ -96,14 +96,14 @@ class DoReZap(Screen):
 			open("/sys/class/video/blackout_policy", "w").write("1")
 		except Exception as e:
 			print("[ReZap] Can't change policy(1)")
-		self.close()	
+		self.close()
 
 
-###################################                
+###################################
 
 def sessionstart(session, **kwargs):
 	session.open(LoopSyncMain)
-       
+
 
 def Plugins(**kwargs):
 	return [
