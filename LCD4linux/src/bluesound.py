@@ -34,7 +34,7 @@ class BlueSound:
 
 	def getStatus(self):
 		try:
-			content, resp=self.Urlget(self.baseUrl + "Status")
+			content, resp = self.Urlget(self.baseUrl + "Status")
 			if resp == 200:
 				xml = ET.fromstring(content)
 				r = parseXmlToJson(xml)

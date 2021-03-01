@@ -103,8 +103,8 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.onClose.append(self.__onClose)
 
 		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
-				iPlayableService.evUser+11: self.__evDecodeError,
-				iPlayableService.evUser+12: self.__evPluginError
+				iPlayableService.evUser + 11: self.__evDecodeError,
+				iPlayableService.evUser + 12: self.__evPluginError
 			})
 
 	def doNothing(self):
@@ -138,7 +138,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
-		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
+		message = currPlay.info().getInfoString(iServiceInformation.sUser + 12)
 		print("[__evPluginError]", message)
 		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20)
 
@@ -352,7 +352,7 @@ class DivXPlayerLCDScreen(Screen):
 			if text[-4:] == ".mp3":
 				text = text[:-4]
 		textleer = "    "
-		text = text + textleer*10
+		text = text + textleer * 10
 		if line == 1:
 			self["text1"].setText(text)
 		elif line == 3:

@@ -239,7 +239,7 @@ class SmartCardConfig:
 			return False
 
 		try:
-			data=sockobj.recv(1024)
+			data = sockobj.recv(1024)
 		except:
 			# Receive error
 			return False
@@ -248,7 +248,7 @@ class SmartCardConfig:
 			#No data received
 			return False
 		
-		data=data.strip()
+		data = data.strip()
 		
 		try:
 			self.xmldoc = xml.dom.minidom.parseString(data)

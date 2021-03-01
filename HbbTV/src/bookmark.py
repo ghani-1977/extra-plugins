@@ -6,19 +6,19 @@ from Components.Console import Console
 
 class BookmarkData:
 	def __init__(self, _id, _title, _url, _parent, _type):
-		self.mId 	= _id
-		self.mTitle 	= _title
-		self.mUrl 	= _url
-		self.mParent 	= _parent
-		self.mType	= _type
+		self.mId = _id
+		self.mTitle = _title
+		self.mUrl = _url
+		self.mParent = _parent
+		self.mType = _type
 	def dump(self, _intent='  '):
 		print("%s-> %d, %s, %s, %d, %d" % (_intent, self.mId, self.mTitle, self.mUrl, self.mParent, self.mType))
 
 class CategoryData:
 	def __init__(self, _id, _name):
-		self.mId 	= _id
-		self.mName	= _name
-		self.mBookmarks	= {}
+		self.mId = _id
+		self.mName = _name
+		self.mBookmarks = {}
 
 	def setBookmarks(self, _bookmarks):
 		self.mBookmarks = _bookmarks

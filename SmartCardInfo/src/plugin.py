@@ -56,7 +56,7 @@ class SmartCardSelectScreen(Screen):
 
 	def requestInfoaboutSmartCard(self, idx):
 		self.session.open(SmartCardSelectDetailsScreen, idx)
-		print("[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot "+str(idx))
+		print("[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot " + str(idx))
 
 
 

@@ -74,7 +74,7 @@ _supportNimType = {'AVL1208':'', 'AVL6222':'6222_', 'AVL6211':'6211_', 'BCM7356'
 _blindscans2Nims = ('TBS-5925', 'DVBS2BOX', 'M88DS3103')
 
 class BlindscanState(Screen, ConfigListScreen):
-	skin="""
+	skin = """
 	<screen position="center,center" size="820,570" title="Satellite Blindscan">
 		<widget name="progress" position="10,5" size="800,85" font="Regular;19" />
 		<eLabel	position="10,95" size="800,1" backgroundColor="grey"/>
@@ -466,7 +466,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.scan_sat = ConfigSubsection()
 
 		self.Ku_band_freq_limits = {"low": 10700, "high": 12750}
-		self.universal_lo_freq  = {"low": 9750, "high": 10600}
+		self.universal_lo_freq = {"low": 9750, "high": 10600}
 		self.c_band_lo_freq = 5150
 		self.tunerIfLimits = {"low": 950, "high": 2150}
 		self.uni_lnb_cutoff = 11700
@@ -476,8 +476,8 @@ class Blindscan(ConfigListScreen, Screen):
 						eDVBFrontendParametersSatellite.Polarisation_Vertical,
 						eDVBFrontendParametersSatellite.Polarisation_CircularRight + 1)
 
-		self.blindscan_Ku_band_start_frequency = ConfigInteger(default=self.Ku_band_freq_limits["low"], limits=(self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"]-1))
-		self.blindscan_Ku_band_stop_frequency = ConfigInteger(default=self.Ku_band_freq_limits["high"], limits=(self.Ku_band_freq_limits["low"]+1, self.Ku_band_freq_limits["high"]))
+		self.blindscan_Ku_band_start_frequency = ConfigInteger(default=self.Ku_band_freq_limits["low"], limits=(self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"] - 1))
+		self.blindscan_Ku_band_stop_frequency = ConfigInteger(default=self.Ku_band_freq_limits["high"], limits=(self.Ku_band_freq_limits["low"] + 1, self.Ku_band_freq_limits["high"]))
 		self.blindscan_C_band_start_frequency = ConfigInteger(default=3400, limits=(3000, 4199))
 		self.blindscan_C_band_stop_frequency = ConfigInteger(default=4200, limits=(3001, 4200))
 		self.blindscan_start_symbol = ConfigInteger(default=1, limits=(0, 59))
@@ -540,13 +540,13 @@ class Blindscan(ConfigListScreen, Screen):
 		return True
 
 	def getSelectedSatIndex(self, v):
-		index    = 0
+		index = 0
 		none_cnt = 0
 		for n in self.satList:
 			if self.satList[index] is None:
 				none_cnt = none_cnt + 1
 			if index == int(v):
-				return (index-none_cnt)
+				return (index - none_cnt)
 			index = index + 1
 		return -1
 
@@ -586,15 +586,15 @@ class Blindscan(ConfigListScreen, Screen):
 				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_C_band_start_frequency, _('Frequency values must be between 3000 MHz and 4199 MHz (C-band)')))
 				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_C_band_stop_frequency, _('Frequency values must be between 3001 MHz and 4200 MHz (C-band)')))
 			elif self.is_Ku_band_scan:
-				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_Ku_band_start_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"]-1)))
-				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_Ku_band_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"]+1, self.Ku_band_freq_limits["high"])))
+				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_Ku_band_start_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"] - 1)))
+				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_Ku_band_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.Ku_band_freq_limits["low"] + 1, self.Ku_band_freq_limits["high"])))
 			elif self.user_defined_lnb_scan:
 				if self.last_user_defined_lo_freq != self.user_defined_lnb_lo_freq: # only recreate user defined config if user defined local oscillator changed frequency when moving to another user defined LNB
 					self.last_user_defined_lo_freq = self.user_defined_lnb_lo_freq
-					self.blindscan_user_defined_lnb_start_frequency = ConfigInteger(default=self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], limits=(self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1))
-					self.blindscan_user_defined_lnb_stop_frequency = ConfigInteger(default=self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"], limits=(self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]))
-				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_start_frequency, _('Frequency values must be between %d MHz and %d MHz')% (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]-1)))
-				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"]+1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])))
+					self.blindscan_user_defined_lnb_start_frequency = ConfigInteger(default=self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], limits=(self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"] - 1))
+					self.blindscan_user_defined_lnb_stop_frequency = ConfigInteger(default=self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"], limits=(self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"] + 1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"]))
+				self.list.append(getConfigListEntry(_('Scan start frequency'), self.blindscan_user_defined_lnb_start_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"] - 1)))
+				self.list.append(getConfigListEntry(_('Scan stop frequency'), self.blindscan_user_defined_lnb_stop_frequency, _('Frequency values must be between %d MHz and %d MHz') % (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"] + 1, self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])))
 
 			if "TBS" or "5925" in nim.description:
 				self.list.append(getConfigListEntry(_("Scan Step in MHz(TBS5925)"), self.blindscan_step_mhz_tbs5925, _('Smaller steps takes longer but scan is more thorough')))
@@ -651,11 +651,11 @@ class Blindscan(ConfigListScreen, Screen):
 			eDVBFrontendParametersSatellite.Polarisation_CircularRight + 2: "circular left and circular right"
 		}
 
-		self.tmp_tplist=[]
+		self.tmp_tplist = []
 		tmp_pol = []
 		tmp_band = []
 		idx_selected_sat = int(self.getSelectedSatIndex(self.scan_nims.value))
-		tmp_list=[self.satList[int(self.scan_nims.value)][self.scan_satselection[idx_selected_sat].index]]
+		tmp_list = [self.satList[int(self.scan_nims.value)][self.scan_satselection[idx_selected_sat].index]]
 
 		if self.is_Ku_band_scan:
 			self.blindscan_start_frequency = self.blindscan_Ku_band_start_frequency
@@ -691,20 +691,20 @@ class Blindscan(ConfigListScreen, Screen):
 			uni_lnb_cutoff = self.uni_lnb_cutoff
 
 		if self.blindscan_start_frequency.value < uni_lnb_cutoff and self.blindscan_stop_frequency.value > uni_lnb_cutoff:
-			tmp_band=["low", "high"]
+			tmp_band = ["low", "high"]
 		elif self.blindscan_start_frequency.value < uni_lnb_cutoff:
-			tmp_band=["low"]
+			tmp_band = ["low"]
 		else:
-			tmp_band=["high"]
+			tmp_band = ["high"]
 
-		if self.scan_sat.polarization.value >  eDVBFrontendParametersSatellite.Polarisation_CircularRight: # must be searching both polarisations, either V and H, or R and L
-			tmp_pol=["vertical", "horizontal"]
-		elif self.scan_sat.polarization.value ==  eDVBFrontendParametersSatellite.Polarisation_CircularRight:
-			tmp_pol=["vertical"]
-		elif self.scan_sat.polarization.value ==  eDVBFrontendParametersSatellite.Polarisation_CircularLeft:
-			tmp_pol=["horizontal"]
+		if self.scan_sat.polarization.value > eDVBFrontendParametersSatellite.Polarisation_CircularRight: # must be searching both polarisations, either V and H, or R and L
+			tmp_pol = ["vertical", "horizontal"]
+		elif self.scan_sat.polarization.value == eDVBFrontendParametersSatellite.Polarisation_CircularRight:
+			tmp_pol = ["vertical"]
+		elif self.scan_sat.polarization.value == eDVBFrontendParametersSatellite.Polarisation_CircularLeft:
+			tmp_pol = ["horizontal"]
 		else:
-			tmp_pol=[tab_pol[self.scan_sat.polarization.value]]
+			tmp_pol = [tab_pol[self.scan_sat.polarization.value]]
 
 		self.doRun(tmp_list, tmp_pol, tmp_band)
 
@@ -714,13 +714,13 @@ class Blindscan(ConfigListScreen, Screen):
 			try:
 				sName = _nimSocket[str(nimIdx)][0]
 				sType = _supportNimType[sName]
-				return "vuplus_%(TYPE)sblindscan"%{'TYPE':sType}, sName
+				return "vuplus_%(TYPE)sblindscan" % {'TYPE':sType}, sName
 			except:
 				pass
 			return "vuplus_blindscan", ""
 
 		self.full_data = ""
-		self.total_list=[]
+		self.total_list = []
 		for x in tmp_list:
 			for y in tmp_pol:
 				for z in tmp_band:
@@ -758,7 +758,7 @@ class Blindscan(ConfigListScreen, Screen):
 			pol = self.total_list[self.running_count][1]
 			band = self.total_list[self.running_count][2]
 			self.running_count = self.running_count + 1
-			print("[Blind scan] running status-[%d] : [%d][%s][%s]" %(self.running_count, orb[0], pol, band))
+			print("[Blind scan] running status-[%d] : [%d][%s][%s]" % (self.running_count, orb[0], pol, band))
 			if self.running_count == self.max_count:
 				is_scan = True
 			self.prepareScanData(orb, pol, band, is_scan)
@@ -906,7 +906,7 @@ class Blindscan(ConfigListScreen, Screen):
 			display_pol = _("circular right")
 		elif self.scan_sat.polarization.value == eDVBFrontendParametersSatellite.Polarisation_CircularLeft:
 			display_pol = _("circular left")
-		elif  self.scan_sat.polarization.value == eDVBFrontendParametersSatellite.Polarisation_CircularRight + 2:
+		elif self.scan_sat.polarization.value == eDVBFrontendParametersSatellite.Polarisation_CircularRight + 2:
 			if pol == "horizontal":
 				display_pol = _("circular left")
 			else:
@@ -918,7 +918,7 @@ class Blindscan(ConfigListScreen, Screen):
 		if self.SundtekScan:
 			tmpmes = _("   Starting Sundtek hardware blind scan.")
 		else:
-			tmpmes = _("Current Status: %d/%d\nSatellite: %s\nPolarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MSym/s") %(self.running_count, self.max_count, orb[1], display_pol, status_box_start_freq, status_box_end_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value)
+			tmpmes = _("Current Status: %d/%d\nSatellite: %s\nPolarization: %s  Frequency range: %d - %d MHz  Symbol rates: %d - %d MSym/s") % (self.running_count, self.max_count, orb[1], display_pol, status_box_start_freq, status_box_end_freq, self.blindscan_start_symbol.value, self.blindscan_stop_symbol.value)
 		tmpmes2 = _("Looking for available transponders.\nThis will take a long time, please be patient.")
 		self.tmpstr = tmpmes + '\n\n' + tmpmes2 + '\n\n'
 		if is_scan:
@@ -952,7 +952,7 @@ class Blindscan(ConfigListScreen, Screen):
 				else:
 					add_tp = False
 			else:
-				if self.Ku_band_freq_limits["low"]-1 < freq < self.Ku_band_freq_limits["high"]+1:
+				if self.Ku_band_freq_limits["low"] - 1 < freq < self.Ku_band_freq_limits["high"] + 1:
 					add_tp = True
 				else:
 					add_tp = False
@@ -1040,11 +1040,11 @@ class Blindscan(ConfigListScreen, Screen):
 						"FEC_3_5": parm.FEC_3_5,
 						"FEC_9_10": parm.FEC_9_10,
 						"FEC_NONE": parm.FEC_None}
-					roll ={"ROLLOFF_20": parm.RollOff_alpha_0_20,
+					roll = {"ROLLOFF_20": parm.RollOff_alpha_0_20,
 						"ROLLOFF_25": parm.RollOff_alpha_0_25,
 						"ROLLOFF_35": parm.RollOff_alpha_0_35,
 						"ROLLOFF_AUTO": parm.RollOff_auto}
-					pilot={"PILOT_ON": parm.Pilot_On,
+					pilot = {"PILOT_ON": parm.Pilot_On,
 						"PILOT_OFF": parm.Pilot_Off,
 						"PILOT_AUTO": parm.Pilot_Unknown}
 					pol = {"HORIZONTAL": parm.Polarisation_Horizontal,
@@ -1111,7 +1111,7 @@ class Blindscan(ConfigListScreen, Screen):
 					self.tp_found.append(str)
 					seconds_done = int(time() - self.start_time)
 					tmpstr += '\n'
-					tmpstr += _("Step %d %d:%02d min") %(len(self.tp_found), seconds_done / 60, seconds_done % 60)
+					tmpstr += _("Step %d %d:%02d min") % (len(self.tp_found), seconds_done / 60, seconds_done % 60)
 					self.blindscan_session["text"].setText(self.tmpstr + tmpstr)
 
 	def blindscanSessionNone(self, *val):
@@ -1193,7 +1193,7 @@ class Blindscan(ConfigListScreen, Screen):
 						p.Modulation_8PSK: "8PSK",
 						p.Modulation_16APSK: "16APSK",
 						p.Modulation_32APSK: "32APSK"}
-					tp_str = "%g%s %d FEC %s %s %s" % (p.frequency/1000.0, pol[p.polarisation], p.symbol_rate/1000, fec[p.fec], sys[p.system], qam[p.modulation])
+					tp_str = "%g%s %d FEC %s %s %s" % (p.frequency / 1000.0, pol[p.polarisation], p.symbol_rate / 1000, fec[p.fec], sys[p.system], qam[p.modulation])
 					if p.is_id > eDVBFrontendParametersSatellite.No_Stream_Id_Filter:
 						tp_str += " MIS %d" % p.is_id
 					if p.pls_code > 0:
@@ -1275,8 +1275,8 @@ class Blindscan(ConfigListScreen, Screen):
 				else:
 					t2mi_check = True # skip check
 				if (t.polarisation % 2) == (k.polarisation % 2) and \
-					abs(t.frequency - k.frequency) < (tolerance*multiplier) and \
-					abs(t.symbol_rate - k.symbol_rate) < (tolerance*multiplier) and \
+					abs(t.frequency - k.frequency) < (tolerance * multiplier) and \
+					abs(t.symbol_rate - k.symbol_rate) < (tolerance * multiplier) and \
 					t.is_id == k.is_id and t.pls_code == k.pls_code and t.pls_mode == k.pls_mode and \
 					t2mi_check:
 					tplist[x] = k
@@ -1294,14 +1294,14 @@ class Blindscan(ConfigListScreen, Screen):
 		for i in range(len(tplist)):
 			t = tplist[i]
 			found = False
-			for k in tplist[i+1:]:
+			for k in tplist[i + 1:]:
 				if hasattr(t, "t2mi_plp_id"):
 					t2mi_check = t.t2mi_plp_id == eDVBFrontendParametersSatellite.No_T2MI_PLP_Id or t.t2mi_plp_id == k.t2mi_plp_id
 				else:
 					t2mi_check = True # skip check
 				if (t.polarisation % 2) == (k.polarisation % 2) and \
-					abs(t.frequency - k.frequency) < (tolerance*multiplier) and \
-					abs(t.symbol_rate - k.symbol_rate) < (tolerance*multiplier) and \
+					abs(t.frequency - k.frequency) < (tolerance * multiplier) and \
+					abs(t.symbol_rate - k.symbol_rate) < (tolerance * multiplier) and \
 					t.is_id == k.is_id and t.pls_code == k.pls_code and t.pls_mode == k.pls_mode and \
 					t2mi_check:
 					found = True
@@ -1322,8 +1322,8 @@ class Blindscan(ConfigListScreen, Screen):
 				else:
 					t2mi_check = True # skip check
 				if (t.polarisation % 2) == (k.polarisation % 2) and \
-					abs(t.frequency - k.frequency) < (tolerance*multiplier) and \
-					abs(t.symbol_rate - k.symbol_rate) < (tolerance*multiplier) and \
+					abs(t.frequency - k.frequency) < (tolerance * multiplier) and \
+					abs(t.symbol_rate - k.symbol_rate) < (tolerance * multiplier) and \
 					t.is_id == k.is_id and t.pls_code == k.pls_code and t.pls_mode == k.pls_mode and \
 					t2mi_check:
 					isnt_known = False
@@ -1338,7 +1338,7 @@ class Blindscan(ConfigListScreen, Screen):
 		lowest_sr_to_adjust = 4996
 		multiplier = 1000
 		# Cosmetic: tweak symbol rates to nearest multiple of 100 if this is closer than "pull_sr_max" away and t.symbol_rate > lowest_sr_to_adjust
-		if t.symbol_rate > (lowest_sr_to_adjust*multiplier) and abs(t.symbol_rate - int(round(t.symbol_rate, -5))) <= (pull_sr_max*multiplier):
+		if t.symbol_rate > (lowest_sr_to_adjust * multiplier) and abs(t.symbol_rate - int(round(t.symbol_rate, -5))) <= (pull_sr_max * multiplier):
 			t.symbol_rate = int(round(t.symbol_rate, -5))
 
 	def filterOffAdjacentSatellites(self, tplist, pos, degrees):
@@ -1356,13 +1356,13 @@ class Blindscan(ConfigListScreen, Screen):
 		if self.is_c_band_scan: # for some reason a c-band scan (with a Vu+) returns the transponder frequencies in Ku band format so they have to be converted back to c-band numbers before the subsequent service search
 			x = 0
 			for transponders in tplist:
-				if tplist[x].frequency > (4200*multiplier):
-					tplist[x].frequency = (self.c_band_lo_freq*multiplier) - (tplist[x].frequency - (self.universal_lo_freq["low"]*multiplier))
+				if tplist[x].frequency > (4200 * multiplier):
+					tplist[x].frequency = (self.c_band_lo_freq * multiplier) - (tplist[x].frequency - (self.universal_lo_freq["low"] * multiplier))
 				x += 1
 		elif self.user_defined_lnb_scan:
 			x = 0
 			for transponders in tplist:
-				tplist[x].frequency = tplist[x].frequency + ((self.user_defined_lnb_lo_freq - self.universal_lo_freq["low"])*multiplier)
+				tplist[x].frequency = tplist[x].frequency + ((self.user_defined_lnb_lo_freq - self.universal_lo_freq["low"]) * multiplier)
 				x += 1
 		x = 0
 		for transponders in tplist:
@@ -1389,7 +1389,7 @@ class Blindscan(ConfigListScreen, Screen):
 		lower_freq = self.thisRun[0]
 		upper_freq = self.thisRun[1]
 		high_band = self.thisRun[2]
-		data_freq = int(int(data[2])/1000)
+		data_freq = int(int(data[2]) / 1000)
 		data_symbol = int(data[3])
 		lower_symbol = (self.blindscan_start_symbol.value * 1000000) - 200000
 		upper_symbol = (self.blindscan_stop_symbol.value * 1000000) + 200000
@@ -1417,16 +1417,16 @@ class Blindscan(ConfigListScreen, Screen):
 		if pos > 1800:
 			pos -= 3600
 		if pos < 0:
-			pos_name = '%dW' % (abs(int(pos))/10)
+			pos_name = '%dW' % (abs(int(pos)) / 10)
 		else:
-			pos_name = '%dE' % (abs(int(pos))/10)
-		location = '%s/blindscan_%s_%s.xml' %(save_xml_dir, pos_name, strftime("%d-%m-%Y_%H-%M-%S"))
+			pos_name = '%dE' % (abs(int(pos)) / 10)
+		location = '%s/blindscan_%s_%s.xml' % (save_xml_dir, pos_name, strftime("%d-%m-%Y_%H-%M-%S"))
 		tuner = nimmanager.nim_slots[self.feid].friendly_full_description
 		polarisation = ['horizontal', 'vertical', 'circular left', 'circular right', 'vertical and horizontal', 'circular right and circular left']
 		adjacent = ['no', 'up to 1 degree', 'up to 2 degrees', 'up to 3 degrees']
 		known_txp = 'no'
 		if self.filter_off_adjacent_satellites.value:
-			known_txp ='yes'
+			known_txp = 'yes'
 		xml = ['<?xml version="1.0" encoding="iso-8859-1"?>\n\n']
 		xml.append('<!--\n')
 		xml.append('	File created on %s\n' % (strftime("%A, %d of %B %Y, %H:%M:%S")))
@@ -1600,8 +1600,8 @@ class Blindscan(ConfigListScreen, Screen):
 	def OrbToStr(self, orbpos):
 		if orbpos > 1800:
 			orbpos = 3600 - orbpos
-			return "%d.%d\xc2\xb0 W" % (orbpos/10, orbpos%10)
-		return "%d.%d\xc2\xb0 E" % (orbpos/10, orbpos%10)
+			return "%d.%d\xc2\xb0 W" % (orbpos / 10, orbpos % 10)
+		return "%d.%d\xc2\xb0 E" % (orbpos / 10, orbpos % 10)
 
 	def setDishOrbosValue(self):
 		if self.getRotorMovingState():

@@ -22,7 +22,7 @@ model = getBoxType()
 config.plugins.transcodingsetup = ConfigSubsection()
 config.plugins.transcodingsetup.transcoding = ConfigSelection(default="enable", choices=[("enable", _("enable")), ("disable", _("disable"))])
 if fileExists("/proc/stb/encoder/0/vcodec"):
-	config.plugins.transcodingsetup.bitrate = ConfigSelection([("100000", _("100 kbps")), ("300000", _("300 kbps")), ("500000", _("500 kbps")), ("800000", _("800 kbps")), ("1000000", _("1.0 Mbps")),  ("1200000", _("1.2 Mbps")), ("1500000", _("1.5 Mbps")), ("2000000", _("2.0 Mbps")), ("2500000", _("2.5 Mbps")), ("3000000", _("3.0 Mbps")), ("3500000", _("3.5 Mbps")), ("4000000", _("4.0 Mbps")), ("5000000", _("5.0 Mbps"))], default="1500000")
+	config.plugins.transcodingsetup.bitrate = ConfigSelection([("100000", _("100 kbps")), ("300000", _("300 kbps")), ("500000", _("500 kbps")), ("800000", _("800 kbps")), ("1000000", _("1.0 Mbps")), ("1200000", _("1.2 Mbps")), ("1500000", _("1.5 Mbps")), ("2000000", _("2.0 Mbps")), ("2500000", _("2.5 Mbps")), ("3000000", _("3.0 Mbps")), ("3500000", _("3.5 Mbps")), ("4000000", _("4.0 Mbps")), ("5000000", _("5.0 Mbps"))], default="1500000")
 	if SystemInfo["HiSilicon"]:
 		config.plugins.transcodingsetup.resolution = ConfigSelection([("720x480", _("PAL SVCD")), ("720x576", _("PAL DV")), ("768x576", _("PAL")), ("1024x576", _("PAL-wide")), ("1280x720", _("HD720")), ("1440x1080", _("HD1080 DV")), ("1920x1080", _("HD1080"))], default="720x576")
 	else:
@@ -47,7 +47,7 @@ else:
 	config.plugins.transcodingsetup.interlaced = ConfigSelection(default="0", choices=[("1", _("Yes")), ("0", _("No"))])
 
 class TranscodingSetup(Screen, ConfigListScreen):
-	skin =  """
+	skin = """
 		<screen name="TranscodingSetup" position="center,center" size="900,500">
 			<ePixmap pixmap="buttons/red.png" position="5,0" size="140,40" alphatest="on" />
 			<ePixmap pixmap="buttons/green.png" position="155,0" size="140,40" alphatest="on" />
@@ -90,7 +90,7 @@ class TranscodingSetup(Screen, ConfigListScreen):
 		self["description"] = Label()
 		self["text"] = Label("")
 
-		text =  (_("To use transcoding You can build URL for VLC by Yourself\n\n"))
+		text = (_("To use transcoding You can build URL for VLC by Yourself\n\n"))
 		self["HelpTextHeader1"] = Label(text)
 		if fileExists("/proc/stb/encoder/0/vcodec"):
 			text2 = "http://STB_IP:PORT/CH_REF:?bitrate=BITRATE?width=WIDTH?height=HEIGHT?vcodec=VCODEC?aspectration=ASPECT?interlaced=0\n\ne.x:\n\n"
@@ -142,7 +142,7 @@ class TranscodingSetup(Screen, ConfigListScreen):
 		self["config"].l.setList(self.list)
 
 	def showDescription(self):
-		configName = "<%s>\n"%self["config"].getCurrent()[0]
+		configName = "<%s>\n" % self["config"].getCurrent()[0]
 		current = self["config"].getCurrent()[1]
 		className = self["config"].getCurrent()[1].__class__.__name__
 		text = ""

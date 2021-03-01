@@ -19,7 +19,7 @@ APP_RUN = "run.sh"
 PLUGINROOT = resolveFilename(SCOPE_PLUGINS, "Extensions/HbbTV")
 MANUALROOT = "/usr/local/manual"
 
-SOCKETFILE  = None
+SOCKETFILE = None
 CONTROLFILE = None
 
 def getPosition():

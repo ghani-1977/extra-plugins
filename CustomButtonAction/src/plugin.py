@@ -34,7 +34,7 @@ class CustomButtonActionMenu(Screen):
 		
 		self.skin = CustomButtonActionMenu.skin
 		self.list = []
-		self["actionlist"] =  MenuList(self.list)
+		self["actionlist"] = MenuList(self.list)
 		
 		activecustom = ""
 		
@@ -48,12 +48,12 @@ class CustomButtonActionMenu(Screen):
 		
 		xmldata = keycustomxml.childNodes[0]
 		entries = xmldata.childNodes
-		idx=-1
-		self.idxactive=-1
+		idx = -1
+		self.idxactive = -1
 		for x in entries:             #walk through the actual nodelist
 			if (x.nodeType == Node.ELEMENT_NODE and x.tagName == 'item'):
 				
-				if ((len(str(x.getAttribute("requires")))>0) and (not SystemInfo.get(str(x.getAttribute("requires")), False))):
+				if ((len(str(x.getAttribute("requires"))) > 0) and (not SystemInfo.get(str(x.getAttribute("requires")), False))):
 					pass
 				else:
 					idx = idx + 1
@@ -61,7 +61,7 @@ class CustomButtonActionMenu(Screen):
 					self.list.append(str(x.getAttribute("name")))
 					if len(activecustom) > 0:
 						if activecustom == str(x.getAttribute("name")):
-							self.idxactive=idx
+							self.idxactive = idx
 						
 		self["actionlist"].l.setList(self.list)
 		

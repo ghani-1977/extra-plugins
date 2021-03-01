@@ -364,7 +364,7 @@ class VBMain(Screen):
 
 	def check_browser(self):
 		try:
-			ret = os.popen('%s/%s check'%(vbcfg.APPROOT, vbcfg.APP_RUN)).read()
+			ret = os.popen('%s/%s check' % (vbcfg.APPROOT, vbcfg.APP_RUN)).read()
 			return ret.strip() != "0"
 		except Exception as ErrMsg:
 			vbcfg.ERR("check browser running: %s" % ErrMsg)
