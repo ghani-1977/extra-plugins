@@ -18,6 +18,7 @@ config.dvbtypexmlupdate = ConfigSelection(default="satellites", choices=[("atsc"
 config.satellitestypexmlupdate = ConfigSelection(default="europe", choices=[("all", _("All (not recommended)")), ("america", _("America (61°W-160°W)")), ("asia", _("Asia (160°W-73°E)")), ("atlantic", _("Atlantic (0°W-61°W)")), ("europe", _("Europe (73°E-0°E)"))])
 config.foldertypexmlupdate = ConfigSelection(default="/etc/tuxbox", choices=[("/etc/tuxbox", _("/etc/tuxbox (default)")), ("/etc/enigma2", _("/etc/enigma2")), ("/usr/share/enigma2", _("/usr/share/enigma2 (default for unicable)"))])
 
+
 class xmlUpdate(ConfigListScreen, Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
@@ -142,13 +143,16 @@ class xmlUpdate(ConfigListScreen, Screen):
 		if answer:
 			self.session.open(TryQuitMainloop, 3)
 
+
 def xmlUpdateStart(menuid, **kwargs):
 	if menuid == "scan":
 		return [(_("XML update"), xmlUpdateMain, "xmlUpdate", 70)]
 	return []
 
+
 def xmlUpdateMain(session, **kwargs):
 	session.open(xmlUpdate)
+
 
 def Plugins(**kwargs):
 	pList = []

@@ -45,6 +45,7 @@ if fileExists(AUDIOEFFECT_PROC_PATH["AVL"]) and fileExists(AUDIOEFFECT_PROC_PATH
 if SUPPORT_3D_SURROUND or SUPPORT_AVL:
 	SUPPORT_AUDIOEFFECT = True
 
+
 def getProcValue(procPath):
 	fd = open(procPath, 'r')
 	curValue = fd.read().strip(' ').strip('\n')
@@ -52,11 +53,13 @@ def getProcValue(procPath):
 #	print("[AudioEffect] get %s from %s" % (curValue, procPath))
 	return curValue
 
+
 def setProcValue(procPath, value):
 #	print("[AudioEffect] set %s to %s" % (value, procPath))
 	fd = open(procPath, 'w')
 	fd.write(value)
 	fd.close()
+
 
 def setConfigValue(procPath, value):
 #	print("[AudioEffect][setConfigValue] try set %s to %s" % (value, procPath))
@@ -65,6 +68,7 @@ def setConfigValue(procPath, value):
 		setProcValue(procPath, value)
 	return 0
 
+
 def getEffectChoices():
 	choices = [("none", _("none"))]
 	if SUPPORT_3D_SURROUND:
@@ -72,6 +76,7 @@ def getEffectChoices():
 	if SUPPORT_AVL:
 		choices.append(("AVL", _("AVL (Automatic Volume Leveler)")))
 	return choices
+
 
 def getAudioOutTypes():
 	if SUPPORT_3D_SURROUND:
@@ -85,8 +90,10 @@ def getAudioOutTypes():
 		aTypes.append(aType)
 	return aTypes
 
+
 if SUPPORT_AUDIOEFFECT:
 	AUDIOOUT_TYPES = getAudioOutTypes()
+
 
 def getSpeakerPosition():
 	choices = []
@@ -95,6 +102,7 @@ def getSpeakerPosition():
 		choices.append((choice, _(choice)))
 	return choices
 
+
 config.plugins.audioeffect = ConfigSubsection()
 config.plugins.audioeffect.effect = ConfigSelection(default=AUDIOEFFECT_DEFAULT, choices=getEffectChoices())
 if SUPPORT_AUDIOEFFECT:
@@ -102,6 +110,7 @@ if SUPPORT_AUDIOEFFECT:
 		setattr(config.plugins.audioeffect, aout, ConfigSelection(default=AUDIOOUT_DEFAULT, choices=[("on", _("On")), ("off", _("Off"))]))
 	if SUPPORT_3D_SURROUND_SPEAKER_POSITION:
 		config.plugins.audioeffect.speakerposition = ConfigSelection(default=SPEAKER_POSITION_DEFAULT, choices=getSpeakerPosition())
+
 
 def setAudioEffectConfigs():
 		if not SUPPORT_AUDIOEFFECT:
@@ -136,6 +145,7 @@ def setAudioEffectConfigs():
 				config.plugins.audioeffect.speakerposition.value = config.plugins.audioeffect.speakerposition.default
 			_3DSpeakerPosition = config.plugins.audioeffect.speakerposition.value
 			setConfigValue(AUDIOEFFECT_PROC_PATH["3D_SURROUND_SPEAKER_POSITION"], _3DSpeakerPosition)
+
 
 class AudioEffect(Screen, ConfigListScreen):
 	skin = """
@@ -246,11 +256,14 @@ class AudioEffect(Screen, ConfigListScreen):
 					text += ', ' + choice[1]
 		self["description"].setText(_(text))
 
+
 def main(session, **kwargs):
 	session.open(AudioEffect)
 
+
 def OnSessionStart(session, **kwargs):
 	setAudioEffectConfigs()
+
 
 def Plugins(**kwargs):
 	if SUPPORT_AUDIOEFFECT:

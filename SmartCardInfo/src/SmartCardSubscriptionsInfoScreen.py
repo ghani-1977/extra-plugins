@@ -41,8 +41,6 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 			"back": self.exit,
 		}, -1)	
 
-
-
 	def showSmartCardSubscriptionsInfo(self):
 		self.list = []
 		if ((self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER)):
@@ -58,8 +56,6 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 				self.list.append(_("No subscription defined."))
 
 		self["SubScriptionList"].setList(self.list)
-
-
 
 	def exit(self):
 		self.timer.stop()

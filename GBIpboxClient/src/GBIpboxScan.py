@@ -35,6 +35,7 @@ from xml.dom import minidom
 
 MAX_THREAD_COUNT = 40
 
+
 class ScanHost(threading.Thread):
 	def __init__(self, ipaddress, port):
 		threading.Thread.__init__(self)
@@ -57,6 +58,7 @@ class ScanHost(threading.Thread):
 			
 		except socket.error:
 			self.isopen = False
+
 
 class GBIpboxScan:
 	def __init__(self, session):

@@ -42,8 +42,6 @@ class SmartCardATRInfoScreen(Screen):
 			"back": self.exit,
 		}, -1)	
 
-
-
 	def showSmartCardATRInfo(self):
 		if (self.smartcard.state == CARD_INITIALIZED):
 			self["CodingSystemdataLabel"].setText(str(self.smartcard.codingsystem))		
@@ -51,7 +49,6 @@ class SmartCardATRInfoScreen(Screen):
 		else:
 			self["CodingSystemdataLabel"].setText(_(" "))
 			self["ATRdataLabel"].setText(_("..."))
-
 
 	def exit(self):
 		self.timer.stop()

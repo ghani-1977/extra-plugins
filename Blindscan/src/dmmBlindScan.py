@@ -26,10 +26,12 @@ XML_BLINDSCAN_DIR = "/tmp"
 
 boxtype = getBoxType()
 
+
 def insertValues(xml, values):
 	# The skin template is designed for an HD screen so the scaling factor is 720.
 	# double negative to round up not round down
 	return xml % tuple([int(-(x * getDesktop(0).size().height() // (-720))) for x in values])
+
 
 class DmmBlindscanState(Screen):
 	skin = insertValues("""
@@ -181,6 +183,7 @@ class DmmBlindscanState(Screen):
 	def keyCancel(self):
 		self.tmr.stop()
 		self.close(False)
+
 
 class SatelliteTransponderSearchSupport:
 	def satelliteTransponderSearchSessionClosed(self, *val):
@@ -535,6 +538,7 @@ class SatelliteTransponderSearchSupport:
 		self.timer.callback.append(self.updateStateSat)
 		self.timer.stop()
 		self.updateStateSat()
+
 
 class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, TransponderFiltering):
 	def __init__(self, session):
@@ -896,7 +900,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 				new_tplist.append(tp)
 		return new_tplist
 		
-
 	def startScan(self):
 		networkid = 0
 		flags = 0
@@ -926,7 +929,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			self.session.nav.playService(self.session.postScanService)
 			self.close(True)
 			
-
 	def createSatellitesXMLfile(self):
 		pos = self.orb_pos
 		if pos > 1800:

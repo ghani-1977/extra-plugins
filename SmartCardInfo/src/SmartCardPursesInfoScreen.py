@@ -41,8 +41,6 @@ class SmartCardPursesInfoScreen(Screen):
 			"back": self.exit,
 		}, -1)	
 
-
-
 	def showSmartCardPursesInfo(self):
 		self.list = []
 		if ((self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER)):

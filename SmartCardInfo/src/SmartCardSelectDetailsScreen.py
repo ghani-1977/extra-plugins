@@ -14,7 +14,6 @@ from SmartCardSubscriptionsInfoScreen import *
 from SmartCardPursesInfoScreen import *
 
 
-
 class SmartCardSelectDetailsScreen(Screen):
 	""" 
 	SmartCard view details"""
@@ -66,8 +65,6 @@ class SmartCardSelectDetailsScreen(Screen):
 		
 #		self.timer.start(1000)
 
-
-
 	def ok(self):
 		idx = self["menu"].getSelectedIndex()
 		if idx is 0:
@@ -89,7 +86,6 @@ class SmartCardSelectDetailsScreen(Screen):
 		else:
 			print("[plugin.py:SmartCardSelectDetailsScreen] Unknown Menupoint")
 
-	
 	def exit(self):
 		self.timer.stop()
 		self.close()

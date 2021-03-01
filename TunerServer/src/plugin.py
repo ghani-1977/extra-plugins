@@ -28,6 +28,7 @@ from enigma import eServiceCenter, eServiceReference, eTimer
 from shutil import rmtree, move, copy
 import os
 
+
 class TunerServer(Screen):
 	skin = """
 	<screen position="center,center" size="800,505" >
@@ -112,7 +113,6 @@ NOTE: The server is built, based on your current ip and the current channel list
 		self.session.open(MessageBox, _("Build Complete!"), MessageBox.TYPE_INFO)
 		self.updateServ()
 
-
 	def poPulate(self, bouquet, count):
 		n = "%03d_" % (count)
 		name = n + self.cleanName(bouquet[1])
@@ -177,8 +177,10 @@ def settings(menuid, **kwargs):
 		return [(_("Tuner Server setup"), main, "tuner_server_setup", None)]
 	return []
 
+
 def main(session, **kwargs):
 	session.open(TunerServer)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("Tuner Server"), description=_("Allow Streaming From Box Tuners"), where=PluginDescriptor.WHERE_PLUGINMENU, needsRestart=False, fnc=main)

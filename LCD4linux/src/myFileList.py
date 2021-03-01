@@ -51,7 +51,6 @@ def FileEntryComponent(name, absolute=None, isDir=False):
 	return res
 
 
-
 class FileList(MenuList):
 	def __init__(self, directory, showDirectories=True, showFiles=True, showMountpoints=True, matchingPattern=None, useServiceRef=False, inhibitDirs=False, inhibitMounts=False, isTop=False, enableWrapAround=True, additionalExtensions=None):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)

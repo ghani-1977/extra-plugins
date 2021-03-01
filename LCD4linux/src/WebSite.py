@@ -5,6 +5,8 @@ from plugin import *
 import os
 import time
 ########################################################
+
+
 class LCD4linuxweb(resource.Resource):
     
 	title = "LCD4Linux Webinterface"
@@ -82,6 +84,7 @@ class LCD4linuxweb(resource.Resource):
 		html += "</form>\n"
 
 		return html
+
 
 class LCD4linuxwebView(LCD4linuxweb):
     

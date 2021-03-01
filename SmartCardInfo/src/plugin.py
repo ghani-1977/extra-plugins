@@ -12,7 +12,6 @@ from SmartCard import *
 from SmartCardSelectDetailsScreen import SmartCardSelectDetailsScreen
 
 
-
 class SmartCardSelectScreen(Screen):
 
 	skin = """
@@ -38,8 +37,6 @@ class SmartCardSelectScreen(Screen):
 			"back": self.exit,
 		}, -1)
 
-
-
 	def ok(self):
 		idx = self["menu"].getSelectedIndex()
 		if idx is 0:
@@ -51,29 +48,23 @@ class SmartCardSelectScreen(Screen):
 		else:
 			print("[plugin.py:SmartCardInfoScreen] Unknown Menupoint")
 
-
-
-
 	def requestInfoaboutSmartCard(self, idx):
 		self.session.open(SmartCardSelectDetailsScreen, idx)
 		print("[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot " + str(idx))
-
-
-
 
 	def exit(self):
 		self.close()
 
 
-
-
 def main(session, **kwargs):
 	session.open(SmartCardSelectScreen)
+
 
 def menu(menuid, **kwargs):
 	if menuid == "information":
 		return [(_("SmartCard Information"), main, "smartcardinfo", None)]
 	return []
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="SmartCard Information", description="plugin to view smartcard informations", where=PluginDescriptor.WHERE_MENU, fnc=menu)

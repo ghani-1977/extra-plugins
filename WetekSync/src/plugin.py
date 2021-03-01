@@ -26,6 +26,7 @@ from Screens.Screen import Screen
 import os
 from enigma import eTimer
 
+
 class LoopSyncMain(Screen):
 
 	def __init__(self, session, args=None):
@@ -81,6 +82,7 @@ class LoopSyncMain(Screen):
 		except Exception as e:
 			print("[WetekSync] Can't ResetFlag")
 
+
 class DoWetekSync(Screen):
 	skin = '\n\t\t<screen position="center,center" size="1920,1080" title="" >\n\t\t</screen>'
 
@@ -101,6 +103,7 @@ class DoWetekSync(Screen):
 
 def sessionstart(session, **kwargs):
 	session.open(LoopSyncMain)
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart)]

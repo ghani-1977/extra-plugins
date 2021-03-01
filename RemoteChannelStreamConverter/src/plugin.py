@@ -171,6 +171,7 @@ class ServerEditor(ConfigListScreen, Screen):
 		configfile.save()
 		self.close(True)
 
+
 class StreamingChannelFromServerScreen(Screen):
 	skin = """
 		<screen name="StreamingChannelFromServerScreen" position="center,center" size="550,450" >
@@ -649,8 +650,10 @@ class StreamingChannelFromServerScreen(Screen):
 				pass
 		return None
 
+
 def main(session, **kwargs):
 	session.open(StreamingChannelFromServerScreen)
+
 
 def mainInMenu(menuid, **kwargs):
 	if getBoxType() in ("gbipbox", "gbx2"):
@@ -663,6 +666,7 @@ def mainInMenu(menuid, **kwargs):
 			return [(_("Remote channel stream converter"), main, "streamconvert", 99)]
 		else:
 			return []
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(name=_("Remote channel stream converter"), description=_("Convert remote channel list for streaming"), where=PluginDescriptor.WHERE_MENU, fnc=mainInMenu)]

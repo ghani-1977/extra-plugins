@@ -156,6 +156,7 @@ elif procmodel == "ini-9000ru":
 		 "micom": ["http://micom.mynonpublic.com/software/micom/", "INI900RU_Micom.bin", "/proc/vfd;/dev/mcu;"]
 		}
 			
+
 class Filebrowser(Screen):
 	skin = """
 		<screen position="center,center" size="500,490" title="File Browser" >
@@ -247,7 +248,6 @@ class Filebrowser(Screen):
 			self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]" % (md5sum_A, md5sum_B)), MessageBox.TYPE_INFO, timeout=10)
 			return
 
-		
 		if self.callback is not None:
 			self.callback(_(self.gbin))
 		self.close()
@@ -262,6 +262,7 @@ class Filebrowser(Screen):
 	def doDownload(self, uri, tf, bd='/tmp', cbfunc=None, errmsg="Fail to download."):
 		tar = bd + "/" + tf
 		#print("[FirmwareUpgrade] - Download Info : [%s][%s]" % (uri, tar))
+
 		def doHook(blockNumber, blockSize, totalSize):
 			if blockNumber * blockSize > totalSize and cbfunc is not None:
 				cbfunc(tar)
@@ -374,6 +375,7 @@ class Filebrowser(Screen):
 
 	def keyNone(self):
 		None
+
 
 class FirmwareUpgrade(Screen):
 	skin = """
@@ -522,7 +524,6 @@ class FirmwareUpgrade(Screen):
 		self.session.openWithCallback(self.cbRunUpgrade, MessageBox, _(msg), MessageBox.TYPE_YESNO, timeout=15, default=True)
 		self.fileopenmode = False
 
-
 	def keyRed(self):
 		if self.rebootLock:
 			return
@@ -534,6 +535,7 @@ class FirmwareUpgrade(Screen):
       
 def main(session, **kwargs):
         session.open(FirmwareUpgrade)
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("Front Panel Update"), description="Upgrade Front panel..", where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main)

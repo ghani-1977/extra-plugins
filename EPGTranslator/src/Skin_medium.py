@@ -4,6 +4,7 @@
 # Only contains "class" data.  No instance data
 #
 
+
 class MySkinData:
 
 # class translatorConfig bits

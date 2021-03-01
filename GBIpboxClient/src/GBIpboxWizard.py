@@ -38,6 +38,7 @@ from GBIpboxLocale import _
 
 from enigma import eTimer
 
+
 class GBIpboxWizard(Wizard):
 
 	skin = """

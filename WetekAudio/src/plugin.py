@@ -46,6 +46,7 @@ config.plugins.wea.amask = ConfigSelection(default='s', choices=[('l', _('Left m
  ('s', _('Stereo-Multi (default)')),
  ('c', _('Swap Left and Right'))])
 
+
 class WetekAudio(ConfigListScreen, Screen):
 
 	def __init__(self, session, args=None):
@@ -143,6 +144,7 @@ def main(menuid):
 
 
 WEASet = None
+
 
 def autostartWEA(session, **kwargs):
 	global WEASet

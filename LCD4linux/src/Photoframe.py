@@ -11,6 +11,7 @@ import StringIO
 import Image
 import struct
 
+
 def write_jpg2frame(dev, pic):
 	"""Attach header to picture, pad with zeros if necessary, and send to frame"""
 	# create header and stack before picture
@@ -110,6 +111,7 @@ def find_device(Anzahl, device, device2):
 		d = None
 	return d  
 
+
 def init_device(Anzahl, device0, device1):
 	"""First try Mini Monitor mode, then Mass storage mode"""
 	dev = find_device(Anzahl, device0, device1)
@@ -140,12 +142,14 @@ def init_device(Anzahl, device0, device1):
 		return None
 	return dev
 
+
 def frame_init(dev):
 	"""Init device so it stays in Mini Monitor mode"""
 	# this is the minimum required to keep the frame in Mini Monitor mode!!!
 #	dev.ctrl_transfer(0xc0, 4 )
 #	dev.ctrl_transfer(0xc0, 0x01, 0x00, 0x00, 0x09, 0x04 )
 	dev.ctrl_transfer(0xc0, 0x01, 0x00, 0x00, 0x02)
+
 
 def frame_switch(dev):
 	"""Switch device from Mass Storage to Mini Monitor""" 
@@ -173,6 +177,7 @@ def frame_switch(dev):
 	finally:
 		time.sleep(2)
 
+
 def name(dev):
 	try:
 		return usb.util.get_string(dev, 1) 
@@ -181,6 +186,7 @@ def name(dev):
 			return usb.util.get_string(dev, 256, 2) 
 		except:
 			return None
+
 
 def main():
 	global dev, known_devices_list

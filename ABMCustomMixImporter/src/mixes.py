@@ -4,6 +4,7 @@ from __future__ import print_function
 import os
 import xml.dom.minidom
 
+
 class Mixes():
 	MIXES_DIR = os.path.dirname(__file__) + "/mixes"
 

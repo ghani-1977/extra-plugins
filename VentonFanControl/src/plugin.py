@@ -9,6 +9,7 @@ modelist = {"1": _("Off"), "2": _("On"), "3": _("Auto")}
 config.plugins.FanSetup = ConfigSubsection()
 config.plugins.FanSetup.mode = ConfigSelection(choices=modelist, default="3")
 
+
 class FanSetupScreen(Screen, ConfigListScreen):
 	skin = """
 	<screen position="center,center" size="400,200" title="Fan setup">
@@ -71,6 +72,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		setConfiguredSettings()
 		self.close()
 
+
 def applySettings(mode):
 	setMode = ""
 	if mode == 1:
@@ -89,17 +91,22 @@ def applySettings(mode):
 	except:
 		return
 
+
 def setConfiguredSettings():
 	applySettings(int(config.plugins.FanSetup.mode.value))
+
 
 def main(session, **kwargs):
 	session.open(FanSetupScreen)
 
+
 def startup(reason, **kwargs):
 	setConfiguredSettings()
 
+
 def FanMain(session, **kwargs):
 	session.open(FanSetupScreen)
+
 
 def FanSetup(menuid, **kwargs):
 	if menuid == "system":
@@ -107,6 +114,7 @@ def FanSetup(menuid, **kwargs):
 	else:
 		return []
 		
+
 def Plugins(**kwargs):
 	from os import path
 	if path.exists("/proc/stb/fp/fan"):

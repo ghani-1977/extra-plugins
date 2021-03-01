@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 def getIPTVProvider(url):
 	'''
 	This function determines the name of the IPTV provider by

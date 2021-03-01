@@ -22,6 +22,7 @@ MANUALROOT = "/usr/local/manual"
 SOCKETFILE = None
 CONTROLFILE = None
 
+
 def getPosition():
 	dst_left = 0
 	dst_width = 720
@@ -46,6 +47,7 @@ def getPosition():
 			return None
 	return (dst_left, dst_width, dst_top, dst_height)
 
+
 def setPosition(params):
 	if params is None:
 		return
@@ -69,8 +71,10 @@ def setPosition(params):
 			ERR(Err)
 			return
 
+
 # for debug True
 g_debug = False
+
 
 def LogEntry(mode, string):
 	if g_debug:
@@ -78,14 +82,18 @@ def LogEntry(mode, string):
 	elif mode != "DEBUG":
 		print("[browser]", string)
 
+
 def DEBUG(string):
 	LogEntry("DEBUG", string)
+
 
 def LOG(string):
 	LogEntry("LOG", string)
 
+
 def WARN(string):
 	LogEntry("WARN", string)
+
 
 def ERR(string):
 	LogEntry("ERROR", string)

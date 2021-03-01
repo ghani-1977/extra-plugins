@@ -91,6 +91,7 @@ config.plugins.wetek.stdbyfrq = ConfigSelection(default='600000', choices=[('960
 ('1104000', _('1.104GHz')),
 ('1200000', _('1.2GHz'))])
 
+
 def leaveStandby():
 	print('[WetekFRQ] Leave Standby')
 	initBooster()
@@ -231,6 +232,7 @@ def startBooster(session, **kwargs):
 wbooster = None
 gReason = -1
 mySession = None
+
 
 def wetekbooster():
 	global wbooster

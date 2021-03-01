@@ -31,6 +31,7 @@ from Components.Label import Label
 from Components.MenuList import MenuList
 import os
 
+
 class USBsafe(Screen):
 	skin = '\n<screen position="center,center" size="750,400" title="Safely Remove USB Devices" >\n\t<ePixmap position="0,0" zPosition="-10" size="750,400" />\n        <widget name="lab_heading" position="30,40" size="700,30" font="Regular;25"    backgroundColor="black" foregroundColor="white" shadowOffset="-2,-2" shadowColor="black" transparent="1"/>\n\t<widget name="lab_usage" position="30,340" size="660,30" font="Regular;25"    backgroundColor="black" foregroundColor="grey" shadowOffset="-2,-2" shadowColor="black" transparent="1"/>\n\t<widget name="menulist_device" position="30,90" size="700,300" font="Fixed;22"  backgroundColor="background" foregroundColor="grey" shadowOffset="-2,-2" shadowColor="black" transparent="1"/>\n</screen>\n\t\t'
 

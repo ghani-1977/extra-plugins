@@ -21,6 +21,7 @@ keycustomfile = open(resolveFilename(SCOPE_SKIN, 'keycustomactions.xml'), 'r')
 keycustomxml = xml.dom.minidom.parseString(keycustomfile.read())
 keycustomfile.close()
 
+
 class CustomButtonActionMenu(Screen):
 	
 	skin = """
@@ -94,20 +95,19 @@ class CustomButtonActionMenu(Screen):
 		else:
 			self.close()
 
-	
 	def exit(self):
 		self.close()
-
-
 
 
 def main(session, **kwargs):
 	session.open(CustomButtonActionMenu)
 	
+
 def menu(menuid, **kwargs):
 	if menuid == "miscellaneous":
 		return [(_("Define Custom Button"), main, "custombuttondefine", None)]
 	return []
 	
+
 def Plugins(**kwargs):
 	return PluginDescriptor(name="Define Custom Button", description="define custom button", where=PluginDescriptor.WHERE_MENU, fnc=menu)

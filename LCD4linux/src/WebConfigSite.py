@@ -39,6 +39,7 @@ ElementList = []
 ExeMode = False
 StatusMode = False
 
+
 def ParseCode():
 	global L1
 	global L2
@@ -81,8 +82,10 @@ def ParseCode():
 				Z.append(i4)
 				L4.append(Z)
 
+
 def _l(st):
 	return st.decode("utf-8", "ignore").replace(" [ok]>", "").encode('ascii', 'xmlcharrefreplace')
+
 
 def AktiveMode(Test, R):
 	Aktiv = ""
@@ -92,6 +95,7 @@ def AktiveMode(Test, R):
 		Color = "style=\"color: #FFCC00\""
 	return Aktiv, Color, R
 
+
 def AktiveElement(Test):
 	Aktiv = ""
 	Color = ""
@@ -99,6 +103,7 @@ def AktiveElement(Test):
 		Aktiv = "checked"
 		Color = "style=\"color: #FFCC00\""
 	return Aktiv, Color
+
 
 def AktiveScreen(Test):
 	Color = ""
@@ -109,10 +114,13 @@ def AktiveScreen(Test):
 	return Color
 
 ########################################################
+
+
 class LCD4linuxConfigweb(resource.Resource):
 	title = "L4L Webinterface"
 	isLeaf = True
 	RestartGUI = False
+
 	def __init__(self):
 		self.StatusTimer = eTimer()
 		if DPKG:
@@ -137,6 +145,7 @@ class LCD4linuxConfigweb(resource.Resource):
 	def render_GET(self, request):
 		L4logE("GET received", request.args)
 		return self.action(request)
+
 	def render_POST(self, request):
 		L4logE("POST received", request.args)
 		return self.action(request)

@@ -9,6 +9,7 @@ except:
 	import urllib
 from xml.etree import ElementTree as ET
 
+
 def parseXmlToJson(xml):
 	response = {}
 	for child in list(xml):
@@ -18,10 +19,12 @@ def parseXmlToJson(xml):
 			response[child.tag] = child.text or ''
 	return response
 
+
 class BlueSound:
 	def __init__(self, ip):
 		self.IP = ip
 		self.baseUrl = "http://" + ip + ":11000/"
+
 	def Urlget(self, url):
 		if url2:
 			f = urllib2.urlopen(url, timeout=1)

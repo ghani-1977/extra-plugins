@@ -56,11 +56,13 @@ config.plugins.VFD_Giga.vfdBrightnessStandby = ConfigSlider(default=Brightness_d
 
 RecLed = None
 
+
 def vfd_write(text):
 	try:
 		open("/dev/mcu", "w").write(text)
 	except IOError:
 		print("[LED-GIGA] vfd_write failed!")
+
 
 def setvfdBrightness(value):
 	if BOX in ('gbtrio4k'):
@@ -72,11 +74,13 @@ def setvfdBrightness(value):
 	except IOError:
 		print("[LED-GIGA] vfdBrightness failed!")
 
+
 def setvfdDSBY2(value):
 	try:
 		open("/proc/stb/fp/enable_led", "w").write(str(value))
 	except IOError:
 		print("[LED-GIGA] vfdDSBY2 failed!")
+
 
 def setLed(color):
 	# 0 = off
@@ -129,6 +133,7 @@ def setLed(color):
 		  open(led1, "w").write(str(value1))
 	   except IOError:
 		  print("[LED-GIGA] set LED Pattern failed!")
+
 
 class Channelnumber:
 
@@ -303,7 +308,9 @@ class Channelnumber:
 		self.begin = time() + int(self.channelnrdelay)
 		self.endkeypress = True
 
+
 ChannelnumberInstance = None
+
 
 def leaveStandby():
 	print("[LED-GIGA] Leave Standby")
@@ -324,6 +331,7 @@ def leaveStandby():
 			setvfdBrightness(config.plugins.VFD_Giga.vfdBrightness.getValue())
 		else:
 			setvfdBrightness(Brightness_default)
+
 
 def standbyCounterChanged(configElement):
 	print("[LED-GIGA] In Standby")
@@ -347,6 +355,7 @@ def standbyCounterChanged(configElement):
 			setvfdBrightness(config.plugins.VFD_Giga.vfdBrightnessStandby.getValue())
 		else:
 			setvfdBrightness("0")
+
 
 def initLED():
 	print("[LED-GIGA] initVFD box = %s" % BOX)
@@ -380,6 +389,7 @@ def initLED():
 			setvfdDSBY2("1")
 		else:
 			setvfdDSBY2("0")
+
 
 class LED_GigaSetup(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
@@ -496,6 +506,7 @@ class LED_GigaSetup(ConfigListScreen, Screen):
 		self.createSetup()
 		initLED()
 
+
 class LED_Giga:
 	def __init__(self, session):
 		print("[LED-GIGA] initializing")
@@ -526,6 +537,7 @@ class LED_Giga:
 
 	config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call=False)
 
+
 def main(menuid, **kwargs):
 	if menuid != "system":
 		return []
@@ -534,12 +546,15 @@ def main(menuid, **kwargs):
 	else:
 		return [(_("LED"), startLED, "LED_Giga", None)]
 
+
 def startLED(session, **kwargs):
 	session.open(LED_GigaSetup)
+
 
 gigaLED = None
 gReason = -1
 mySession = None
+
 
 def controlgigaLED():
 	global gigaLED
@@ -552,6 +567,7 @@ def controlgigaLED():
 	elif gReason == 1 and gigaLED != None:
 		print("[LED-GIGA] Stopping !!")
 		gigaLED = None
+
 
 def SetTime():
 	print("[LED-GIGA] Set RTC time")
@@ -576,6 +592,7 @@ def SetTime():
 	except IOError:
 		print("[LED-GIGA] set RTC time failed!")
 
+
 def sessionstart(reason, **kwargs):
 	print("[LED-GIGA] sessionstart")
 	global gigaLED
@@ -587,6 +604,7 @@ def sessionstart(reason, **kwargs):
 	else:
 		gReason = reason
 	controlgigaLED()
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),

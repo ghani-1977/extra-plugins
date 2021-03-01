@@ -35,6 +35,7 @@ use_oled = False
 if getBoxType() in ("gbtrio4k", "viper4k") or getMachineBuild() == "octagonhisil":
 	use_oled = True
 	
+
 def vfd_write(text):
 	if use_oled:
 		try:
@@ -46,6 +47,7 @@ def vfd_write(text):
 			open("/dev/dbox/lcd0", "w").write(text)
 		except:
 			pass
+
 
 class Channelnumber:
 
@@ -195,13 +197,16 @@ class Channelnumber:
 				eDBoxLCD.getInstance().setLCDBrightness(config.lcd.bright.value * 255 / 10)
 				self.blink = False
 			
+
 ChannelnumberInstance = None
+
 
 def leaveStandby():
 	print("[Stb LED] Leave Standby")
 
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("    ")
+
 
 def standbyCounterChanged(configElement):
 	print("[Stb LED] In Standby")
@@ -212,11 +217,13 @@ def standbyCounterChanged(configElement):
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("    ")
 
+
 def initVFD():
 	print("[Stb LED] initVFD")
 
 	if config.plugins.VFD_ini.showClock.value == 'Off':
 		vfd_write("    ")
+
 
 class VFD_INISetup(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
@@ -305,6 +312,7 @@ class VFD_INISetup(ConfigListScreen, Screen):
 		self.createSetup()
 		initVFD()
 
+
 class VFD_INI:
 	def __init__(self, session):
 		print("[Stb LED] initializing")
@@ -327,18 +335,22 @@ class VFD_INI:
 		print("[Stb LED] aborting")
 		config.misc.standbyCounter.addNotifier(standbyCounterChanged, initial_call=False)
 
+
 def main(menuid):
 		if menuid != "system":
 			return []
 		else:
 			return [(_("LED Display Setup"), startVFD, "VFD_INI", None)]
 
+
 def startVFD(session, **kwargs):
 	session.open(VFD_INISetup)
+
 
 iniVfd = None
 gReason = -1
 mySession = None
+
 
 def controliniVfd():
 	global iniVfd
@@ -353,6 +365,7 @@ def controliniVfd():
 
 		iniVfd = None
 
+
 def sessionstart(reason, **kwargs):
 	print("[Stb LED] sessionstart")
 	global iniVfd
@@ -364,6 +377,7 @@ def sessionstart(reason, **kwargs):
 	else:
 		gReason = reason
 	controliniVfd()
+
 
 def Plugins(**kwargs):
 	return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),

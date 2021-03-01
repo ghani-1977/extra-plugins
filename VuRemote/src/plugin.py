@@ -17,12 +17,14 @@ from boxbranding import getMachineBuild
 model = getBoxType()
 platform = getMachineBuild()
 
+
 def getRcuDefaultType():
 	if model == "vuultimo4k":
 		return "type5"
 	elif model in ("vuuno4kse", "vuzero4k", "vuduo4k", "vuduo4kse"):
 		return "type6"
 	return "legacy"
+
 
 config.misc.remotecontrol_text_support = ConfigYesNo(default=True)
 
@@ -32,6 +34,7 @@ if model in ("vusolo", "vuduo"):
 else:
 	config.plugins.remotecontrolcode.systemcode = ConfigSelection(default="2", choices=[("1", "1 "), ("2", "2 "), ("3", "3 "), ("4", "4 ")])
 config.plugins.remotecontrolcode.rcuType = ConfigSelection(default=getRcuDefaultType(), choices=[("legacy", "Legacy Vu+ Universal RCU"), ("type5", "New Vu+ Bluetooth RCU"), ("type6", "New Vu+ Type 6 RCU")])
+
 
 class RemoteControlCodeInit:
 	def __init__(self):
@@ -51,6 +54,7 @@ class RemoteControlCodeInit:
 			return True
 		else:
 			return False
+
 
 class RemoteControlCode(Screen, ConfigListScreen, RemoteControlCodeInit):
 	skin = """
@@ -130,6 +134,7 @@ class RemoteControlCode(Screen, ConfigListScreen, RemoteControlCodeInit):
 			self.restoreCode()
 			self.setSystemCode(int(config.plugins.remotecontrolcode.systemcode.value))
 
+
 class MessageBoxConfirmCode(MessageBox):
 	def __init__(self, session, text, type=MessageBox.TYPE_YESNO, timeout=-1, close_on_any_key=False, default=True, enable_input=True, msgBoxID=None):
 		MessageBox.__init__(self, session, text, type, timeout, close_on_any_key, default, enable_input, msgBoxID)
@@ -158,16 +163,20 @@ class MessageBoxConfirmCode(MessageBox):
 	def timeoutCallback(self):
 		self.close(False)
 
+
 remotecontrolcodeinit = RemoteControlCodeInit()
+
 
 def main(session, **kwargs):
 	session.open(RemoteControlCode)
+
 
 def RemoteControlSetup(menuid, **kwargs):
 	if menuid == "system":
 		return [(_("Remote Control Code"), main, "remotecontrolcode", 50)]
 	else:
 		return []
+
 
 def Plugins(**kwargs):
 	if fileExists("/proc/stb/fp/remote_code"):

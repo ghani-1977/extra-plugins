@@ -42,6 +42,7 @@ from GBIpboxLocale import _
 
 from enigma import eTimer
 
+
 class GBIpboxMenu(Screen, ConfigListScreen):
 	skin = """
 		<screen position="360,150" size="560,400">
@@ -131,6 +132,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 transparent="1"
 					 alphatest="on" />
 		</screen>"""
+
 	def __init__(self, session, timerinstance):
 		self.session = session
 		self.list = []

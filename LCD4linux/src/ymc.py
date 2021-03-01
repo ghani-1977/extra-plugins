@@ -12,9 +12,11 @@ except:
 	url2 = False
 	import urllib
 
+
 class YMC:
 	def __init__(self, ip):
 		self.IP = ip
+
 	def Urlget(self, url):
 		if url2:
 			f = urllib2.urlopen(url, timeout=1)

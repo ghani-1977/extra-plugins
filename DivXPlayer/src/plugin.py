@@ -19,6 +19,7 @@ from Screens.HelpMenu import HelpableScreen
 import os
 import time
 
+
 class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBarCueSheetSupport, InfoBarNotifications, InfoBarSubtitleSupport, HelpableScreen):
 	ALLOW_SUSPEND = True
 	ENABLE_RESUME_SUPPORT = True
@@ -68,7 +69,6 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				self.player.show()
 				return NumberActionMap.action(self, contexts, action)
 
-
 		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions", 
 			{
 				"ok": (self.ok, _("play divx file")),
@@ -113,12 +113,10 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def createSummary(self):
 		return DivXPlayerLCDScreen
 	
-
 	def exit(self):
 		self.hide()
 		self.session.openWithCallback(self.exitCB, MessageBox, _("Do you really want to exit?"), timeout=5)
 
-	
 	def exitCB(self, answer):
 		if answer == True:
 			self.close()
@@ -188,12 +186,10 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			self.playEntry()
 			self.hide()
 
-
 	def showMenu(self):
 		menu = []
 		menu.append((_("hide player"), "hide"))
 		self.session.openWithCallback(self.menuCallback, ChoiceBox, title="", list=menu)
-
 
 	def menuCallback(self, choice):
 		if choice is None:
@@ -221,7 +217,6 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	def IsPlayingDivXService(self):
 		return self.container.running()
 				
-				
 	def performNextOperation(self):
 		if len(self.next_operation) > 0:
 			print("[DivX Player] NEXT OPERATION %s" % self.next_operation)
@@ -235,8 +230,6 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			
 		self.next_operation = ""
 				
-				
-				
 	def playDivXService(self, currref):
 		if not self.IsPlayingDivXService():
 			text = currref.getPath()
@@ -245,7 +238,6 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			print(cmd)
 			self.container.appClosed.append(self.divxPlayFinish)
 			self.container.execute(cmd)
-			
 			
 	def timeStampDivXService(self):
 		if self.IsPlayingDivXService():
@@ -257,24 +249,20 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			self.container.write("+", 1)
 			print("[DivX Player] Forward Speed")
 				
-		
 	def stopDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("x", 1)
 			print("[DivX Player] Stopped")
 			
-		
 	def pauseDivXService(self):
 		if self.IsPlayingDivXService():
 			self.container.write("z", 1)
 			print("[DivX Player] Paused")
 			
-			
 	def resumeDivXPlay(self):
 		if self.IsPlayingDivXService():
 			print("[DivX Player] Resume Play")
 			self.container.write("c", 1)
-					
 					
 	def divxPlayFinish(self, retval):
 		self.lastServicePlayed = None
@@ -282,7 +270,6 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		print("[DivX Player] Killed")
 		
 		self.performNextOperation()
-	
 	
 	def playEntry(self):
 		
@@ -308,24 +295,20 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				
 			self.seekstate = self.SEEK_STATE_PLAY
 
-
 	def pauseEntry(self):
 		self.pauseDivXService()
 		self.seekstate = self.SEEK_STATE_PAUSE
 		self.hide()
-
 
 	def stopEntry(self):
 		self.next_operation = ""
 		self.stopDivXService()
 		self.show()
 		
-		
 	def forwardEntry(self):
 		self.forwardDivXService()
 		self.seekstate = self.SEEK_STATE_FWD
 
-		
 	def subtitleSelection(self):
 		from Screens.Subtitles import Subtitles
 		self.session.open(Subtitles)
@@ -360,13 +343,16 @@ class DivXPlayerLCDScreen(Screen):
 		elif line == 4:
 			self["text4"].setText(text)
 
+
 def main(session, **kwargs):
 	session.open(DivXPlayer)
+
 
 def menu(menuid, **kwargs):
 	if menuid == "mainmenu":
 		return [(_("DivX player"), main, "divx_player", 45)]
 	return []
+
 
 def filescan_open(list, session, **kwargs):
 	from enigma import eServiceReference
@@ -386,6 +372,7 @@ def filescan_open(list, session, **kwargs):
 	mp.changeEntry(0)
 	mp.switchToPlayList()
 
+
 def filescan(**kwargs):
 	from Components.Scanner import Scanner, ScanPath
 	mediatypes = [
@@ -399,7 +386,10 @@ def filescan(**kwargs):
 		)]
 	return mediatypes
 
+
 from Plugins.Plugin import PluginDescriptor
+
+
 def Plugins(**kwargs):
 	return [
 		PluginDescriptor(name="DivXPlayer", description="Play back divx media files", where=PluginDescriptor.WHERE_MENU, fnc=menu),

@@ -103,6 +103,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		<widget name="hddTemp" position="c+0,e-75" size="260,20" font="Regular;19" halign="right" zPosition="1" transparent="1" />
 	</screen>
 	"""
+
 	def __init__(self, session, args=None):
 		self.skin = FanSetupScreen.skin
 		self.setup_title = _("Fan setup:") + PLUGIN_VERSION
@@ -440,6 +441,7 @@ class FanManager:
 		except:
 			pass
 
+
 def getSysTemp():
 	try:
 		if os.path.exists("/proc/stb/sensors/temp/value"):
@@ -453,6 +455,7 @@ def getSysTemp():
 		return temp
 	except:
 		return None
+
 
 def getTempForDevice(device):
 	try:
@@ -471,6 +474,7 @@ def getTempForDevice(device):
 	except:
 		pass
 	return None, None
+
 
 def getHddTemp():
 	if os.path.exists("/usr/sbin/hddtemp"):
@@ -493,10 +497,12 @@ def getHddTemp():
 				return None, None
 	return None, None
 
+
 def selSetup(menuid, **kwargs):
 	if menuid != "system":
 		return []
 	return [(_("Fan Control"), main, "fansetup_config", 70)]
+
 
 def show_temp(session, **kwargs):
 	sysTemp = getSysTemp()
@@ -513,11 +519,14 @@ def show_temp(session, **kwargs):
 		message += "\n\n" + _("System temperature") + " " + str(sysTemp) + str('\xc2\xb0') + ' C'
 	session.open(MessageBox, message, type=MessageBox.TYPE_INFO)
 
+
 def main(session, **kwargs):
 	session.open(FanSetupScreen)
 
+
 def startup(reason, **kwargs):
 	fanmanager = FanManager()
+
 
 def Plugins(**kwargs):
 	from os import path

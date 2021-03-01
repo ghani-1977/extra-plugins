@@ -27,8 +27,6 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 socket.setdefaulttimeout(300) #in seconds
 
 
-	 
-
 ###########################################################################
 
 class fempa(Screen):
@@ -48,6 +46,7 @@ class fempa(Screen):
 	historyList = []
 	historyInt = 0
 	currentService = ""	  
+
 	def __init__(self, session):
 		
 		def gethtml(url, data=''):
@@ -97,8 +96,6 @@ class fempa(Screen):
 			fileRef.setName(returnTitle)
 			self.session.nav.playService(fileRef)
 			 
-					
-				
 	def gethtml(self, url, data=''):
 		try:
 			req = urllib2.Request(url)
@@ -125,6 +122,7 @@ def main(session, **kwargs):
 	burek = session.open(fempa)
 		
 ###########################################################################
+
 
 def Plugins(**kwargs):
 	return PluginDescriptor(

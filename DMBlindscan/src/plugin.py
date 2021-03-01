@@ -26,6 +26,8 @@ import os
 from time import strftime, time
 
 # root2gold based on https://github.com/OpenPLi/enigma2/blob/develop/lib/dvb/db.cpp#L27
+
+
 def root2gold(root):
 	if root < 0 or root > 0x3ffff:
 		return 0
@@ -39,16 +41,21 @@ def root2gold(root):
 	return 0
 
 # helper function for initializing mis/pls properties
+
+
 def getMisPlsValue(d, idx, defaultValue):
 	try:
 		return int(d[idx])
 	except:
 		return defaultValue
 
+
 BOX_MODEL = getBoxBrand()
 BOX_NAME = getBoxType()
 
 #used for blindscan-s2
+
+
 def getAdapterFrontend(frontend, description):
 	for adapter in range(1, 5):
 		try:
@@ -58,6 +65,7 @@ def getAdapterFrontend(frontend, description):
 		except:
 			break
 	return " -f %d" % frontend
+
 
 try:
 	Lastrotorposition = config.misc.lastrotorposition
@@ -72,6 +80,7 @@ _supportNimType = {'AVL1208': '', 'AVL6222': '6222_', 'AVL6211': '6211_', 'BCM73
 
 # blindscan-s2 supported tuners
 _blindscans2Nims = ('TBS-5925', 'DVBS2BOX', 'M88DS3103')
+
 
 class BlindscanState(Screen, ConfigListScreen):
 	skin = """
@@ -171,6 +180,7 @@ class BlindscanState(Screen, ConfigListScreen):
 	def keyCancel(self):
 		self.close(False)
 
+
 class Blindscan(ConfigListScreen, Screen):
 	skin = """
 		<screen position="center,center" size="640,565" title="Blind scan">
@@ -192,6 +202,7 @@ class Blindscan(ConfigListScreen, Screen):
 			</widget>
 		</screen>
 		"""
+
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self.skin_path = resolveFilename(SCOPE_PLUGINS, "SystemPlugins/Blindscan")
@@ -1627,9 +1638,11 @@ class Blindscan(ConfigListScreen, Screen):
 		if hasattr(self, 'raw_channel'):
 			del self.raw_channel
 
+
 def BlindscanCallback(close, answer):
 	if close and answer:
 		close(True)
+
 
 def BlindscanMain(session, close=None, **kwargs):
 	have_Support_Blindscan = False
@@ -1643,6 +1656,7 @@ def BlindscanMain(session, close=None, **kwargs):
 		session.openWithCallback(boundFunction(BlindscanCallback, close), dmmBlindScan.DmmBlindscan)
 	elif BOX_MODEL == "dreambox":
 		menu = [(_("Another type"), "all"), (_("Dreambox type"), "dmm")]
+
 		def scanType(choice):
 			if choice:
 				if choice[1] == "all":
@@ -1654,11 +1668,13 @@ def BlindscanMain(session, close=None, **kwargs):
 	else:
 		session.openWithCallback(boundFunction(BlindscanCallback, close), Blindscan)
 
+
 def BlindscanSetup(menuid, **kwargs):
 	if menuid == "scan":
 		return [(_("Satellite blind scan"), BlindscanMain, "blindscan", 50)]
 	else:
 		return []
+
 
 def Plugins(**kwargs):
 	if nimmanager.hasNimType("DVB-S"):

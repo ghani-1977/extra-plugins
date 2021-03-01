@@ -51,6 +51,7 @@ __version__ = "Version 1.0.2: "
 
 #===================================================================================
 
+
 def wgetUrl(target):
 	try:
 		req = urllib2.Request(target)
@@ -64,6 +65,8 @@ def wgetUrl(target):
 		return ""
 
 #===================================================================================
+
+
 def checkUnicode(value, **kwargs):
 	stringValue = value 
 	stringValue = stringValue.replace('&#39;', '\'')
@@ -71,6 +74,8 @@ def checkUnicode(value, **kwargs):
 	return stringValue
 
 #===================================================================================
+
+
 class BBCiMenu(Screen):
 	wsize = getDesktop(0).size().width() - 200
 	hsize = getDesktop(0).size().height() - 300
@@ -208,6 +213,8 @@ class BBCiMenu(Screen):
 				os_remove(os_path.join(root, name))		
 
 #===================================================================================
+
+
 class StreamsThumb(StreamsThumbCommon):
 	def __init__(self, session, action, value, url):
 		self.defaultImg = "Extensions/OnDemand/icons/bbciplayer.png"
@@ -377,7 +384,6 @@ class StreamsThumb(StreamsThumbCommon):
 	
 	def findPlayUrl(self, showID):
 
-		
 		notUK = 0
 		url1 = 'http://www.bbc.co.uk/iplayer/playlist/' + showID
 		supplier = ""
@@ -512,7 +518,6 @@ class StreamsThumb(StreamsThumbCommon):
 
 				i = i + 1
 
-
 			# If we have found our required Stream Quality and it's limelight return the URL.
 			if limelightFound:
 				return (limelightFileUrl, "")
@@ -585,6 +590,8 @@ class StreamsThumb(StreamsThumbCommon):
 			return ""
 
 #===================================================================================
+
+
 def main(session, **kwargs):
 	action = "start"
 	value = 0 

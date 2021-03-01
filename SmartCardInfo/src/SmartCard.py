@@ -14,7 +14,6 @@ CARD_INITIALIZING = 3
 CARD_INITIALIZED = 4
 
 
-
 class SmartCard:
 	""" 
 	SmartCard Information"""
@@ -42,7 +41,6 @@ class SubscriptionStatus:
 		self.entitlement2 = entitlement2
 
 
-
 class PurseStatus:
 	""" 	
 	Purse status for Conax Card"""
@@ -50,8 +48,6 @@ class PurseStatus:
 	def __init__(self, label="", balance=""):
 		self.label = label
 		self.balance = balance
-
-
 
 
 class SmartCardConax(SmartCard):
@@ -66,7 +62,6 @@ class SmartCardConax(SmartCard):
 		self.subscriptions = subscriptions
 		self.purses = purses
 		self.pin = pin
-
 
 
 class SmartCardConfig:
@@ -90,8 +85,6 @@ class SmartCardConfig:
 				L.append(child)
 		return L
 	
-	
-	
 	def loadConaxpursesConfig(self, scnode, smartcard):
 		"""
 		Load SmartCard Conax purses from File"""
@@ -107,8 +100,6 @@ class SmartCardConfig:
 
 			smartcard.purses.append(PurseStatus(ps_label, ps_balance))
 
-
-	
 	def loadConaxsubscriptionsConfig(self, scnode, smartcard):
 		"""
 		Load SmartCard Conax subscriptions from File"""
@@ -128,7 +119,6 @@ class SmartCardConfig:
 			ss_entitlement2 = subscriptionnode.getAttribute("entitlement2")
 
 			smartcard.subscriptions.append(SubscriptionStatus(ss_label, ss_start_date1, ss_end_date1, ss_entitlement1, ss_start_date2, ss_end_date2, ss_entitlement2))
-
 
 	def parse_data_from_xml(self, idx, smartcard):
 		scinfonode = self.findChildrenByTagName(self.xmldoc, "scinfo")
@@ -177,7 +167,6 @@ class SmartCardConfig:
 
 		return True
 			
-			
 	def getIdentifierParameter(self, configStr, identifier):
 		for s in configStr:
 			split = s.strip().split(': ', 1)
@@ -187,7 +176,6 @@ class SmartCardConfig:
 				
 		print("[SmartCard.py] No " + identifier + " present.")
 		return None
-			
 			
 	def checkSmartCardInserted(self, idx, smartcard):
 		"""
@@ -216,7 +204,6 @@ class SmartCardConfig:
 			
 		return False	
 		
-	
 	def loadSmartCardConfigfromSock(self, idx, smartcard):
 		"""
 		Load SmartCard Information from File"""

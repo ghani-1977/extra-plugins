@@ -16,6 +16,7 @@ import os
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
+
 class RCUSelect(Screen):
 	skin = """
 	<screen name="Menusimple" position="center,center" size="600,475" title="" >
@@ -229,8 +230,10 @@ class RCUSelect(Screen):
 	def cancel(self):
 		self.close()
 
+
 def startConfig(session, **kwargs):
         session.open(RCUSelect)
+
 
 def system(menuid):
 	if menuid == "system":
@@ -238,5 +241,6 @@ def system(menuid):
 	else:
 		return []
         
+
 def Plugins(**kwargs):
 	return PluginDescriptor(name=_("RCU Select"), where=PluginDescriptor.WHERE_MENU, fnc=system)

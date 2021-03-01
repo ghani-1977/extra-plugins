@@ -18,6 +18,7 @@ config.plugins.youtubetv.uri = ConfigText(default="http://www.youtube.com/tv", v
 
 vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
 
+
 class YoutubeTVWindow(Screen, HelpableScreen):
 	skin = """
 		<screen name="YoutubeTVWindow" position="center,center" size="550,160" title="Start YouTube TV" >
@@ -106,6 +107,7 @@ class YoutubeTVWindow(Screen, HelpableScreen):
 			config.plugins.youtubetv.showhelp.setValue(False)
 		else:
 			config.plugins.youtubetv.showhelp.setValue(True)
+
 
 class YoutubeTVSettings(ConfigListScreen, Screen):
 	skin = """
