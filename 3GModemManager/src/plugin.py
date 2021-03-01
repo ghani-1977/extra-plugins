@@ -630,11 +630,11 @@ class ModemManager(Screen):
 			<ePixmap pixmap="buttons/blue.png" position="455,420" size="140,40" alphatest="on" />
 
 			<widget name="myip" position="50,320" size="600,120" font="Regular;20" halign="left" backgroundColor="#a08500" transparent="1" />
-			
+
 			<widget name="autostart_text" position="50,360" size="200,120" font="Regular;20" halign="left" backgroundColor="#a08500" transparent="1" />
 			<widget name="autostart_stop" position="190,357" size="100,30" font="Regular;20" valign="center"  halign="center" backgroundColor="red"/>
 			<widget name="autostart_start" position="190,357" size="100,30" zPosition="1" font="Regular;20" valign="center"  halign="center" backgroundColor="green"/>
-			
+
 			<widget source="key_red" render="Label" position="5,420" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" foregroundColor="#ffffff" transparent="1" />
 			<widget source="key_green" render="Label" position="155,420" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" foregroundColor="#ffffff" transparent="1" />
 			<widget source="key_yellow" render="Label" position="305,420" zPosition="1" size="140,40" font="Regular;20" valign="center" halign="center" backgroundColor="#a08500"  foregroundColor="#ffffff" transparent="1" />

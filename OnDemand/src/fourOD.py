@@ -671,7 +671,7 @@ class StreamsThumb(StreamsThumbCommon):
 		    {    "title":"The Function Room",
 			 "url":"/4od/the-function-room",
 			 "img":"http://cache.channel4.com/assets/programmes/images/the-function-room/7d5d701c-f7f8-4357-a128-67cac7896f95_200x113.jpg"
-		    },...        
+		    },...
 		"""
 
 		# You can specify the order and page number but I'm just hard-coding for now.

@@ -69,7 +69,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					transparent="1"
 					foregroundColor="white"
 					font="Regular;18" />
-					
+
 			<widget name="key_green"
 					position="140,360"
 					size="140,40"
@@ -79,7 +79,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					transparent="1"
 					foregroundColor="white"
 					font="Regular;18" />
-					
+
 			<widget name="key_yellow"
 					position="280,360"
 					size="140,40"
@@ -89,7 +89,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					transparent="1"
 					foregroundColor="white"
 					font="Regular;18" />
-					
+
 			<widget name="key_blue"
 					position="420,360"
 					size="140,40"
@@ -99,7 +99,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					transparent="1"
 					foregroundColor="white"
 					font="Regular;18" />
-	
+
 			<ePixmap name="red"
 					 pixmap="buttons/red.png"
 					 position="0,360"
@@ -107,7 +107,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 zPosition="4"
 					 transparent="1"
 					 alphatest="on" />
-					 
+
 			<ePixmap name="green"
 					 pixmap="buttons/green.png"
 					 position="140,360"
@@ -115,7 +115,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 zPosition="4"
 					 transparent="1"
 					 alphatest="on" />
-					 
+
 			<ePixmap name="yellow"
 					 pixmap="buttons/yellow.png"
 					 position="280,360"
@@ -123,7 +123,7 @@ class GBIpboxMenu(Screen, ConfigListScreen):
 					 zPosition="4"
 					 transparent="1"
 					 alphatest="on" />
-					 
+
 			<ePixmap name="blue"
 					 pixmap="buttons/blue.png"
 					 position="420,360"

@@ -15,7 +15,7 @@ from SmartCardPursesInfoScreen import *
 
 
 class SmartCardSelectDetailsScreen(Screen):
-	""" 
+	"""
 	SmartCard view details"""
 
 	skin = """

@@ -160,7 +160,7 @@ elif procmodel == "ini-9000ru":
 class Filebrowser(Screen):
 	skin = """
 		<screen position="center,center" size="500,490" title="File Browser" >
-			<ePixmap pixmap="~/buttons/yellow.png" position="5,7" size="140,40" alphatest="blend" />		
+			<ePixmap pixmap="~/buttons/yellow.png" position="5,7" size="140,40" alphatest="blend" />
 			<ePixmap pixmap="~/buttons/blue-340.png" position="150,7" size="340,40" alphatest="blend" />
 			<widget source="key_yellow" render="Label" position="5,7" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" transparent="1"/>
 			<widget source="key_blue" render="Label" position="150,7" zPosition="1" size="340,40" font="Regular;20" halign="center" valign="center" transparent="1"/>

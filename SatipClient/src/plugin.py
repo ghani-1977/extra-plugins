@@ -589,8 +589,8 @@ class SATIPClient(Screen):
 							MultiContentEntryText(pos = (210, 28), size = (140, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
 							MultiContentEntryText(pos = (370, 28), size = (140, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
 							MultiContentEntryText(pos = (50, 48), size = (490, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
-							
-							
+
+
 					]),
 					},
 					"fonts": [gFont("Regular", 24),gFont("Regular", 16)],

@@ -15,7 +15,7 @@ CARD_INITIALIZED = 4
 
 
 class SmartCard:
-	""" 
+	"""
 	SmartCard Information"""
 
 	def __init__(self, iface, inserted=False, state=CARD_REMOVED, sn="", codingsystem="UNKNOWN", atr=""):
@@ -28,7 +28,7 @@ class SmartCard:
 
 
 class SubscriptionStatus:
-	""" 
+	"""
 	Subscription status for Conax Card"""
 
 	def __init__(self, label="", start_date1="", end_date1="", entitlement1="", start_date2="", end_date2="", entitlement2=""):
@@ -42,7 +42,7 @@ class SubscriptionStatus:
 
 
 class PurseStatus:
-	""" 	
+	"""
 	Purse status for Conax Card"""
 
 	def __init__(self, label="", balance=""):
@@ -51,7 +51,7 @@ class PurseStatus:
 
 
 class SmartCardConax(SmartCard):
-	""" 
+	"""
 	SmartCard Conax Information"""
 
 	CODINGSYSTEM_CONAX_IDENTIFIER = _("CONAX")
