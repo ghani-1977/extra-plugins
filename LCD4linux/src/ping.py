@@ -114,7 +114,7 @@ def sendOnePing(mySocket, destAddr, ID):
     pass
   return None
   
-def doOne(destAddr,timeout=10):
+def doOne(destAddr, timeout=10):
   # Returns either the delay (in seconds) or none on timeout.
   try:
     destAddr = gethostbyname(destAddr)

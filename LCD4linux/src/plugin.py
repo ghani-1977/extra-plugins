@@ -2357,7 +2357,7 @@ def Code_utf8(wert):
 	wert = wert.replace('\xc2\x86', '').replace('\xc2\x87', '').decode("utf-8", "ignore").encode("utf-8") or ""
 	return codecs.decode(wert, 'UTF-8')
 
-def L4log(nfo,wert=""):
+def L4log(nfo, wert=""):
 	if str(LCD4linux.EnableEventLog.value) != "0":
 		print("[LCD4linux]", nfo, wert)
 		if str(LCD4linux.EnableEventLog.value) != "3":
@@ -2370,7 +2370,7 @@ def L4log(nfo,wert=""):
 			except IOError:
 				print("[LCD4linux]", strftime("%H:%M:%S"), "Logging-Error")
 
-def L4logE(nfo,wert=""):
+def L4logE(nfo, wert=""):
 	if str(LCD4linux.EnableEventLog.value) == "2":
 		L4log(nfo, wert)
 def getMJPEGrun(lcd):
@@ -2384,7 +2384,7 @@ def setConfigStandby(w):
 def setisMediaPlayer(w):
 	global isMediaPlayer
 	isMediaPlayer = w
-def setScreenActive(w,lcd=""):
+def setScreenActive(w, lcd=""):
 	global ScreenActive
 	global ScreenTime
 	if lcd == "":
@@ -3050,7 +3050,7 @@ def doDPF(dev, im, s):
 			dpf.close(SamsungDevice3)
 			SamsungDevice3 = None
 
-def writeLCD1(s,im,quality,SAVE=True):
+def writeLCD1(s, im, quality, SAVE=True):
 	global SamsungDevice
 	global MJPEGreader
 	if s.imWrite[im] == True:
@@ -3165,7 +3165,7 @@ def writeLCD1(s,im,quality,SAVE=True):
 		MJPEGreader[1] += 1 if MJPEGreader[1] < 100 else 0
 	s.imWrite[im] = False
 
-def writeLCD2(s,im,quality,SAVE=True):
+def writeLCD2(s, im, quality, SAVE=True):
 	global SamsungDevice2
 	global MJPEGreader
 	if s.imWrite[im] == True:
@@ -3280,7 +3280,7 @@ def writeLCD2(s,im,quality,SAVE=True):
 		MJPEGreader[2] += 1 if MJPEGreader[2] < 100 else 0
 	s.imWrite[im] = False
 
-def writeLCD3(s,im,quality,SAVE=True):
+def writeLCD3(s, im, quality, SAVE=True):
 	global SamsungDevice3
 	global MJPEGreader
 	if s.imWrite[im] == True:
@@ -3874,9 +3874,9 @@ def getHTMLwwwCloudconvert(fn, www):
 	filename = WWWpic % str(fn)
 	L4log("downloading HTMLwww from", www)
 	try:
-		datastart = {"input": "url","file": www,"filename": "convert.website","outputformat": "jpg"}
+		datastart = {"input": "url", "file": www, "filename": "convert.website", "outputformat": "jpg"}
 		for API in LCD4linux.WwwApiKeyCloudconvert.value.split():
-			dataget = {"apikey": API,"inputformat": "website","outputformat": "jpg"}
+			dataget = {"apikey": API, "inputformat": "website", "outputformat": "jpg"}
 			content, resp = Urlget("https://api.cloudconvert.org/process", dataget, "POST")
 			L4logE(content, resp)
 			if resp == 200:
@@ -4058,7 +4058,7 @@ class RunShell:
 		ShellRunning = False
 		L4log("Shell Data")
 
-def TFTCheck(Force,SetMode=""):
+def TFTCheck(Force, SetMode=""):
 	global AktTFT
 	if os.path.isfile("/usr/bin/tft-bmp-mode.sh") == True and os.path.isfile("/usr/bin/tft-dream-mode.sh") == True:
 		CurTFT = os.path.isfile("/etc/grautec/settings/takeownership")
@@ -8455,7 +8455,7 @@ class UpdateStatus(Screen):
 							L4log("please use newer Netatmo-Plugin")
 						self.oM.append([]) # Wert1,Wert2,Wert3,Wert4,Name,Type,Batt
 						# Outdoor , Wind , Rain , Indoor
-						Batterylist = {"NAModule1":4000,"NAModule2":4360,"NAModule3":4000,"NAModule4":4560}
+						Batterylist = {"NAModule1": 4000, "NAModule2": 4360, "NAModule3": 4000, "NAModule4": 4560}
 						for Mod in na.modules:
 							Battery = False
 							if Mod.module_type.startswith("NAModule"):
@@ -9345,7 +9345,7 @@ class UpdateStatus(Screen):
 				L4log("Error:", format_exc())
 			i += 1
 
-	def downloadwwwBoxCallback(self,element, page=""):
+	def downloadwwwBoxCallback(self, element, page=""):
 		sR = sN = sS = ""
 		dom = parseString(page)
 		serv = dom.getElementsByTagName("e2servicename")
@@ -9360,7 +9360,7 @@ class UpdateStatus(Screen):
 		self.wwwBox[element] = [self.wwwBox[element][0], sR, sN, sS]
 		L4logE("wwwBox %d" % element, self.wwwBox[element])
 
-	def downloadwwwBoxError(self,element,error=""):
+	def downloadwwwBoxError(self, element, error=""):
 		self.wwwBox[element] = [[""], [""], [""], [""], [""]]
 		if error == "":
 			L4log("wwwBox Error %d?" % elemtent)
@@ -9397,7 +9397,7 @@ class UpdateStatus(Screen):
 				L4log("Error:", format_exc())
 			i += 1
 
-	def downloadwwwBoxTimerCallback(self,element, page=""):
+	def downloadwwwBoxTimerCallback(self, element, page=""):
 		L4logE("download BoxTimer", element)
 		self.wwwBoxTimer = []
 		dom = parseString(page)
@@ -9428,7 +9428,7 @@ class UpdateStatus(Screen):
 				self.wwwBoxTimer.append(e2t)
 				L4logE("wwwBoxTimer", e2t.values())
 
-	def downloadwwwBoxTimerError(self,element,error=""):
+	def downloadwwwBoxTimerError(self, element, error=""):
 		self.wwwBoxTimer = []
 		if error == "":
 			L4log("wwwBox Error %d?" % elemtent)
@@ -9528,7 +9528,7 @@ class UpdateStatus(Screen):
 					L4logE("Error: MSN date check", date)
 					days = -1
 				if days < 0:
-					self.WWeek[ConfigWWW].append({"High":High,"Low":Low,"Day":Day,"Icon":Icon,"Cond":Cond,"Regen":Regen})
+					self.WWeek[ConfigWWW].append({"High": High, "Low": Low, "Day": Day, "Icon": Icon, "Cond": Cond, "Regen": Regen})
 				else:
 					L4log("MSN ignore", date)
 			self.WDay[ConfigWWW] = {}
@@ -9589,7 +9589,7 @@ class UpdateStatus(Screen):
 				Cond = curr.get("weather", [{}])[0].get("description", "")
 				Regen = "%.1f" % (curr.get("rain", 0) + curr.get("snow", 0))
 				IconID = curr.get("weather", [{}])[0].get("id", "0")
-				self.WWeek[ConfigWWW].append({"High":High,"Low":Low,"Day":Day,"Icon":Icon,"Cond":Cond,"Regen":Regen,"IconID":IconID})
+				self.WWeek[ConfigWWW].append({"High": High, "Low": Low, "Day": Day, "Icon": Icon, "Cond": Cond, "Regen": Regen, "IconID": IconID})
 			PICwetter[ConfigWWW] = None
 
 		elif r.get("name", None) != None:
@@ -9649,7 +9649,7 @@ class UpdateStatus(Screen):
 				Cond = curr["Timeframes"][4]["wx_desc"]
 				Regen = "%.1f" % (curr["Timeframes"][4]["rain_mm"])
 				IconID = curr["Timeframes"][4]["wx_code"]
-				self.WWeek[ConfigWWW].append({"High":High,"Low":Low,"Day":Day,"Icon":Icon,"Cond":Cond,"Regen":Regen,"IconID":IconID})
+				self.WWeek[ConfigWWW].append({"High": High, "Low": Low, "Day": Day, "Icon": Icon, "Cond": Cond, "Regen": Regen, "IconID": IconID})
 			PICwetter[ConfigWWW] = None
 			L4logE("Wetter:", self.WWeek[ConfigWWW])
 
@@ -10244,7 +10244,7 @@ def LCD4linuxPIC(self, session):
 		else:
 			self.draw[draw].text((tx, ty), TXT, font=font, fill=tCol)
 
-	def writeMultiline(sts,ConfigSize,ConfigPos,ConfigLines,ConfigColor,ConfigAlign,ConfigSplit,draw,im,utf=True,ConfigBackColor="0",ConfigFont=FONT,Shadow=False,Width=0,PosX=-1):
+	def writeMultiline(sts, ConfigSize, ConfigPos, ConfigLines, ConfigColor, ConfigAlign, ConfigSplit, draw, im, utf=True, ConfigBackColor="0", ConfigFont=FONT, Shadow=False, Width=0, PosX=-1):
 		MAX_W, MAX_H = self.im[im].size
 		if ConfigSplit == True:
 			MAX_W = int(MAX_W / 2)
@@ -10286,7 +10286,7 @@ def LCD4linuxPIC(self, session):
 			ShadowText(draw, POSX, current_h, line, font, ConfigColor, Shadow)
 			current_h += h
 
-	def writeMultiline2(sts,ConfigSize,ConfigPos,ConfigLines,ConfigColor,ConfigX,MAX_W,draw,im,ConfigFont=FONT,Shadow=False):
+	def writeMultiline2(sts, ConfigSize, ConfigPos, ConfigLines, ConfigColor, ConfigX, MAX_W, draw, im, ConfigFont=FONT, Shadow=False):
 		para = sts.split("\n")
 
 		current_h = ConfigPos
@@ -14852,9 +14852,9 @@ def LCD4linuxPIC(self, session):
 	INFO = PUSH + "   " + INFO
 	return
 
-def main(session,**kwargs):
+def main(session, **kwargs):
 	session.open(LCDdisplayConfig)
-def screenswitch(session,**kwargs):
+def screenswitch(session, **kwargs):
 	session.open(LCDscreenSwitch)
 
 def autostart(reason, **kwargs):

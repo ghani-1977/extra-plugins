@@ -707,7 +707,7 @@ class SATIPClient(Screen):
 
 		self.vtunerConfig[int(idx)] = copy.deepcopy(self.old_vtunerConfig[int(idx)])
 		if self.vtunerConfig[int(idx)] and self.vtunerConfig[int(idx)]['vtuner_type'] == "satip_client":
-			self.vtunerConfig[int(idx)] = {'vtuner_type':"usb_tuner"}
+			self.vtunerConfig[int(idx)] = {'vtuner_type': "usb_tuner"}
 
 		self.sortVtunerConfig()
 		self.createSetup()
@@ -764,7 +764,7 @@ class SATIPClient(Screen):
 		vtunerConfig = []
 
 		for idx in self.vtunerIndex:
-			vtunerConfig.append({'vtuner_type':"usb_tuner"})
+			vtunerConfig.append({'vtuner_type': "usb_tuner"})
 
 		if os.access(SATIP_CONFFILE, os.R_OK):
 			fd = open(SATIP_CONFFILE)

@@ -197,7 +197,7 @@ class StreamURIParser:
 			i = str(iptv.findtext('icon'))
 			u = str(iptv.findtext('uri'))
 			t = str(iptv.findtext('type'))
-			tvlist.append({'name':n, 'icon':i, 'type':t, 'uri':self.parseStreamURI(u)})
+			tvlist.append({'name': n, 'icon': i, 'type': t, 'uri': self.parseStreamURI(u)})
 		return tvlist
 
 	def parseStreamURI(self, uri):

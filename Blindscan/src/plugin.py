@@ -63,7 +63,7 @@ XML_BLINDSCAN_DIR = "/tmp"
 XML_FILE = None
 
 # _supportNimType is only used by vuplus hardware
-_supportNimType = {'AVL1208':'', 'AVL6222':'6222_', 'AVL6211':'6211_', 'BCM7356':'bcm7346_', 'SI2166':'si2166_'}
+_supportNimType = {'AVL1208': '', 'AVL6222': '6222_', 'AVL6211': '6211_', 'BCM7356': 'bcm7346_', 'SI2166': 'si2166_'}
 
 # For STBs that support multiple DVB-S tuner models, e.g. Solo 4K.
 _unsupportedNims = ('Vuplus DVB-S NIM(7376 FBC)', 'Vuplus DVB-S NIM(45308X FBC)', 'DVB-S2 NIM(45308 FBC)') # format = nim.description from nimmanager
@@ -347,7 +347,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 	def makeNimSocket(self, nimname=""):
 		is_exist_i2c = False
-		self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
+		self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
 		if self.nimSockets is not None:
 			for XX in self.nimSockets.keys():
 				nimsocket = self.nimSockets[XX]
@@ -363,20 +363,20 @@ class Blindscan(ConfigListScreen, Screen):
 
 		if nimname == "AVL6222":
 			if model == "vuuno":
-				self.i2c_mapping_table = {0:3, 1:3, 2:1, 3:0}
+				self.i2c_mapping_table = {0: 3, 1: 3, 2: 1, 3: 0}
 			elif model == "vuduo2":
 				nimdata = self.nimSockets['0']
 				try:
 					if nimdata[0] == "AVL6222":
-						self.i2c_mapping_table = {0:2, 1:2, 2:4, 3:4}
+						self.i2c_mapping_table = {0: 2, 1: 2, 2: 4, 3: 4}
 					else:
-						self.i2c_mapping_table = {0:2, 1:4, 2:4, 3:0}
+						self.i2c_mapping_table = {0: 2, 1: 4, 2: 4, 3: 0}
 				except:
-					self.i2c_mapping_table = {0:2, 1:4, 2:4, 3:0}
+					self.i2c_mapping_table = {0: 2, 1: 4, 2: 4, 3: 0}
 			else:
-				self.i2c_mapping_table = {0:2, 1:4, 2:0, 3:0}
+				self.i2c_mapping_table = {0: 2, 1: 4, 2: 0, 3: 0}
 		else:
-			self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
+			self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
 
 	def getNimSocket(self, slot_number):
 		return self.i2c_mapping_table.get(slot_number, -1)
@@ -708,7 +708,7 @@ class Blindscan(ConfigListScreen, Screen):
 			try:
 				sName = _nimSocket[str(nimIdx)][0]
 				sType = _supportNimType[sName]
-				return "vuplus_%(TYPE)sblindscan" % {'TYPE':sType}, sName
+				return "vuplus_%(TYPE)sblindscan" % {'TYPE': sType}, sName
 			except:
 				pass
 			return "vuplus_blindscan", ""
