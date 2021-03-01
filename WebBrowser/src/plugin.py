@@ -4,7 +4,10 @@ from __future__ import print_function
 # for localized messages
 from . import _
 from Plugins.Plugin import PluginDescriptor
-import time, os, socket, copy
+import time
+import os
+import socket
+import copy
 try:
 	import thread
 except:

@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 # for localized messages
-import os, re
+import os
+import re
 from . import _
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen

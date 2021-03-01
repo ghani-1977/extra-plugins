@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import os, xml.dom.minidom, re
+import os
+import xml.dom.minidom
+import re
 from enigma import iServiceInformation
 
 RE_XML_ILLEGAL = u'([\u0000-\u0008\u000b-\u000c\u000e-\u001f\ufffe-\uffff])' + \

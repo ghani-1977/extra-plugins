@@ -4,7 +4,8 @@ from __future__ import print_function
 # for localized messages
 from . import _
 
-import os, fcntl
+import os
+import fcntl
 try:
 	import thread
 except:

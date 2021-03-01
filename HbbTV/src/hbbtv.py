@@ -4,7 +4,8 @@ from Screens.Screen import Screen
 
 from enigma import eTimer, fbClass, eRCInput
 
-import struct, vbcfg
+import struct
+import vbcfg
 
 from __init__ import _
 from vbipc import VBController

@@ -38,11 +38,14 @@ from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 import NavigationInstance
 
-import time, random
+import time
+import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib, urllib2, re
+import urllib
+import urllib2
+import re
 from urllib import quote
 
 import xml.etree.cElementTree as ET
