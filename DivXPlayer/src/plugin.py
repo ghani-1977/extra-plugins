@@ -192,7 +192,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 
 	def showMenu(self):
 		menu = []
-		menu.append((_("hide player"), "hide"));
+		menu.append((_("hide player"), "hide"))
 		self.session.openWithCallback(self.menuCallback, ChoiceBox, title="", list=menu)
 
 

@@ -116,7 +116,7 @@ class SmartCardConfig:
 		smartcard.subscriptions = []
 		
 		# Parse all subscriptions
-		subscriptionnodes = self.findChildrenByTagName( scnode, "subscription" );
+		subscriptionnodes = self.findChildrenByTagName( scnode, "subscription" )
 
 		for subscriptionnode in subscriptionnodes:
 			ss_label = subscriptionnode.getAttribute("label")
@@ -134,12 +134,12 @@ class SmartCardConfig:
 		scinfonode = self.findChildrenByTagName( self.xmldoc, "scinfo")
 
 		if ( len(scinfonode) != 1 ):
-			return False;
+			return False
 
 		scxnodes = self.findChildrenByTagName( scinfonode[0], "sci%s" % str(idx))
 
 		if ( len(scxnodes) != 1 ):
-			return False;
+			return False
 
 		smartcard.subscription = []
 		smartcard.purses = []

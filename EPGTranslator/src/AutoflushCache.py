@@ -31,7 +31,8 @@ class AutoflushCache:
         ix = 0
         while ix < len(self.clear_time):
             nx = ix + 1
-            if self.clear_time[ix][0] > clear_to: break
+            if self.clear_time[ix][0] > clear_to:
+                break
             ix = nx
         if ix > 0:  # Something to clear
             for kx in range(ix):    # Delete the key/vals
@@ -58,7 +59,8 @@ class AutoflushCache:
         ix = 0
         while ix < len(self.clear_time):
             nx = ix + 1
-            if self.clear_time[ix][0] > until: break
+            if self.clear_time[ix][0] > until:
+                break
             ix = nx
         self.clear_time.insert(ix, (until, key))
 

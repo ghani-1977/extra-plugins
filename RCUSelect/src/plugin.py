@@ -207,7 +207,8 @@ class RCUSelect(Screen):
 					fin = open("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
 					for line in fin :
-						if "work_mode" in line: line = "work_mode  	= 0\n"
+						if "work_mode" in line:
+							line = "work_mode  	= 0\n"
 						fout.write(line)
 					fout.close()
 					Console().ePopen("mv -f /etc/amremote/rcuselect_tmp.conf /etc/amremote/rcuselect.conf &")

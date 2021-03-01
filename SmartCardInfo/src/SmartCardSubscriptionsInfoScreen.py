@@ -49,7 +49,7 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 			self.list.append(_("SmartCard not supported."))
 		else:
 			for subscription in self.smartcard.subscriptions:
-				self.list.append( str(subscription.label) );
+				self.list.append( str(subscription.label) )
 				self.list.append( ("%s - %s %s") % (str(subscription.start_date1), str(subscription.end_date1), str(subscription.entitlement1) ) )
 				self.list.append( ("%s - %s %s") % (str(subscription.start_date2), str(subscription.end_date2), str(subscription.entitlement2) ) )
 				self.list.append( _(" ") )

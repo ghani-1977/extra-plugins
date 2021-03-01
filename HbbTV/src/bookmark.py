@@ -72,7 +72,8 @@ class SimpleConfigParser:
 		except Exception as e:
 			vbcfg.ERR(e)
 			return _default
-		else :	return data
+		else :
+			return data
 
 	def _set(self, _section, _option, _value):
 		self.mConfig.set(_section, _option, _value)
@@ -217,7 +218,8 @@ class BookmarkManager(SimpleConfigParser):
 		try:
 			for key in self.mBookmarkRoot[_id].mBookmarks.iterkeys():
 				self.delSection('b-%d' % (key,))
-		except: pass
+		except:
+			pass
 		self.delSection('c-%d' % (_id,))
 		self._save()
 
@@ -255,7 +257,8 @@ class BookmarkManager(SimpleConfigParser):
 				e = self.getNumber(s, 'type')
 				try:
 					categoryList[p].appendBookmark(BookmarkData(i, t, u, p, e))
-				except Exception as e: self._del(s)
+				except Exception as e:
+					self._del(s)
 			bx += 1
 		for key in categoryList.iterkeys():
 			sorted(categoryList[key].mBookmarks)

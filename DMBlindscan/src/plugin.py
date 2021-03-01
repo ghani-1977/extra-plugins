@@ -316,11 +316,15 @@ class Blindscan(ConfigListScreen, Screen):
 			line = line.strip()
 			if line.startswith('NIM Socket'):
 				sNo, sName, sI2C = -1, '', -1
-				try:    sNo = line.split()[2][:-1]
-				except:	sNo = -1
+				try:
+					sNo = line.split()[2][:-1]
+				except:
+					sNo = -1
 			elif line.startswith('I2C_Device:'):
-				try:    sI2C = line.split()[1]
-				except: sI2C = -1
+				try:
+					sI2C = line.split()[1]
+				except:
+					sI2C = -1
 			elif line.startswith('Name:'):
 				splitLines = line.split()
 				try:
@@ -328,13 +332,15 @@ class Blindscan(ConfigListScreen, Screen):
 						sName = splitLines[1]
 					else:
 						sName = splitLines[3][4:-1]
-				except: sName = ""
+				except:
+					sName = ""
 			if sNo >= 0 and sName != "":
 				if sName.startswith('BCM'):
 					sI2C = sNo
 				if sI2C != -1:
 					_nimSocket[sNo] = [sName, sI2C]
-				else:	_nimSocket[sNo] = [sName]
+				else:
+					_nimSocket[sNo] = [sName]
 		fp.close()
 		print("[Blind scan] parsed nimsocket :", _nimSocket)
 		return _nimSocket
@@ -346,11 +352,14 @@ class Blindscan(ConfigListScreen, Screen):
 			for XX in self.nimSockets.keys():
 				nimsocket = self.nimSockets[XX]
 				if len(nimsocket) > 1:
-					try:	self.i2c_mapping_table[int(XX)] = int(nimsocket[1])
-					except: continue
+					try:
+						self.i2c_mapping_table[int(XX)] = int(nimsocket[1])
+					except:
+						continue
 					is_exist_i2c = True
 		print("[Blind scan] i2c_mapping_table :", self.i2c_mapping_table, ", is_exist_i2c :", is_exist_i2c)
-		if is_exist_i2c: return
+		if is_exist_i2c:
+			return
 
 		self.i2c_mapping_table = {0:2, 1:3, 2:1, 3:0}
 
@@ -706,7 +715,8 @@ class Blindscan(ConfigListScreen, Screen):
 				sName = _nimSocket[str(nimIdx)][0]
 				sType = _supportNimType[sName]
 				return "vuplus_%(TYPE)sblindscan"%{'TYPE':sType}, sName
-			except: pass
+			except:
+				pass
 			return "vuplus_blindscan", ""
 
 		self.full_data = ""
