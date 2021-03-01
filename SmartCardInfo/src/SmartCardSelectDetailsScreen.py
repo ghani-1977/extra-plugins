@@ -30,7 +30,7 @@ class SmartCardSelectDetailsScreen(Screen):
 		self.skin = SmartCardSelectDetailsScreen.skin
 		self.idx = idx
 		self.list = []
-		self.smartcard = SmartCardConax( idx )
+		self.smartcard = SmartCardConax(idx)
 
 		self["menu"] = MenuList(self.list)
 
@@ -57,12 +57,12 @@ class SmartCardSelectDetailsScreen(Screen):
 		
 		#if smartinfo.checkSmartCardInserted( self.idx, self.smartcard ) == True:
 		
-		if ( smartinfo.loadSmartCardConfigfromSock( self.idx, self.smartcard ) ):
-			if ( self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
+		if (smartinfo.loadSmartCardConfigfromSock(self.idx, self.smartcard)):
+			if (self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
 				self.list.append(_("Subscriptions"))
 				self.list.append(_("Tokens"))
 
-		self["menu"].setList( self.list )
+		self["menu"].setList(self.list)
 		
 #		self.timer.start(1000)
 
@@ -71,19 +71,19 @@ class SmartCardSelectDetailsScreen(Screen):
 	def ok(self):
 		idx = self["menu"].getSelectedIndex()
 		if idx is 0:
-			self.session.open( SmartCardATRInfoScreen, self.smartcard )
+			self.session.open(SmartCardATRInfoScreen, self.smartcard)
 			print("[plugin.py:SmartCardATRInfoScreen] Select ATR")
 
 		elif idx is 1:
-			if ( self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
+			if (self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
 				print("[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions")
-				self.session.open( SmartCardSubscriptionsInfoScreen, self.smartcard )
+				self.session.open(SmartCardSubscriptionsInfoScreen, self.smartcard)
 			else:
 				print("[plugin.py:SmartCardSubscriptionsInfoScreen] Select Subscriptions - Not supported for this card")
 		elif idx is 2:
-			if ( self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
+			if (self.smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
 				print("[plugin.py:SmartCardSelectDetailsScreen] Select Tokens")
-				self.session.open( SmartCardPursesInfoScreen, self.smartcard )
+				self.session.open(SmartCardPursesInfoScreen, self.smartcard)
 			else:
 				print("[plugin.py:SmartCardSelectDetailsScreen] Select Tokens - Not supported for this card")
 		else:

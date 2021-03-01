@@ -43,10 +43,10 @@ class SmartCardSelectScreen(Screen):
 	def ok(self):
 		idx = self["menu"].getSelectedIndex()
 		if idx is 0:
-			self.requestInfoaboutSmartCard( idx )
+			self.requestInfoaboutSmartCard(idx)
 
 		elif idx is 1:
-			self.requestInfoaboutSmartCard( idx )
+			self.requestInfoaboutSmartCard(idx)
 
 		else:
 			print("[plugin.py:SmartCardInfoScreen] Unknown Menupoint")
@@ -55,7 +55,7 @@ class SmartCardSelectScreen(Screen):
 
 
 	def requestInfoaboutSmartCard(self, idx):
-		self.session.open( SmartCardSelectDetailsScreen, idx )
+		self.session.open(SmartCardSelectDetailsScreen, idx)
 		print("[plugin.py:SmartCardSelectDetailsScreen] Starting SmartCardSelectDetailsScreen Slot "+str(idx))
 
 

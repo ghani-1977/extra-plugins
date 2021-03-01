@@ -144,7 +144,7 @@ class Channelnumber:
 		self.zaPrik = eTimer()
 		self.zaPrik.timeout.get().append(self.vrime)
 		self.zaPrik.start(1000, 1)
-		self.onClose = [ ]
+		self.onClose = []
 
 		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evUpdatedEventInfo: self.__eventInfoChanged
@@ -397,7 +397,7 @@ class LED_GigaSetup(ConfigListScreen, Screen):
 		self.setTitle(_("GigaBlue Setup"))
 		self.onClose.append(self.abort)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
@@ -501,7 +501,7 @@ class LED_Giga:
 		print("[LED-GIGA] initializing")
 		self.session = session
 		self.service = None
-		self.onClose = [ ]
+		self.onClose = []
 
 		self.Console = Console()
 
@@ -528,7 +528,7 @@ class LED_Giga:
 
 def main(menuid, **kwargs):
 	if menuid != "system":
-		return [ ]
+		return []
 	if BOX in ("gb800se", "gb800solo", "gb800seplus", "gbultra", "gbultrase", "gbtrio4k"):
 		return [(_("Display/LED"), startLED, "LED_Giga", None)]
 	else:
@@ -589,5 +589,5 @@ def sessionstart(reason, **kwargs):
 	controlgigaLED()
 
 def Plugins(**kwargs):
-	return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
-		PluginDescriptor(name="LED_Giga", description="Change LED display settings", where=PluginDescriptor.WHERE_MENU, fnc=main) ]
+	return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
+		PluginDescriptor(name="LED_Giga", description="Change LED display settings", where=PluginDescriptor.WHERE_MENU, fnc=main)]

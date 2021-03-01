@@ -60,7 +60,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.seek_target = None
 
 		class DivXPlayerActionMap(NumberActionMap):
-			def __init__(self, player, contexts=[ ], actions={ }, prio=0):
+			def __init__(self, player, contexts=[], actions={}, prio=0):
 				NumberActionMap.__init__(self, contexts, actions, prio)
 				self.player = player
 
@@ -134,13 +134,13 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
 		print("[__evDecodeError] video-codec %s can't be decoded by hardware" % (sVideoType))
-		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type=MessageBox.TYPE_INFO, timeout=20 )
+		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type=MessageBox.TYPE_INFO, timeout=20)
 
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
 		print("[__evPluginError]", message)
-		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20 )
+		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20)
 
 	def hideAfterResume(self):
 		self.hide()
@@ -230,7 +230,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 				print("[DivX Player] Play new %s" % self.current_service.getPath())
 			
 				self.lastServicePlayed = self.current_service
-				self.playDivXService( self.current_service )
+				self.playDivXService(self.current_service)
 				self.seekstate = self.SEEK_STATE_PLAY
 			
 		self.next_operation = ""
@@ -249,31 +249,31 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			
 	def timeStampDivXService(self):
 		if self.IsPlayingDivXService():
-			self.container.write( "t", 1 )
+			self.container.write("t", 1)
 			print("[DivX Player] show TimeStamp")
 		
 	def forwardDivXService(self):
 		if self.IsPlayingDivXService():
-			self.container.write( "+", 1 )
+			self.container.write("+", 1)
 			print("[DivX Player] Forward Speed")
 				
 		
 	def stopDivXService(self):
 		if self.IsPlayingDivXService():
-			self.container.write( "x", 1 )
+			self.container.write("x", 1)
 			print("[DivX Player] Stopped")
 			
 		
 	def pauseDivXService(self):
 		if self.IsPlayingDivXService():
-			self.container.write( "z", 1 )
+			self.container.write("z", 1)
 			print("[DivX Player] Paused")
 			
 			
 	def resumeDivXPlay(self):
 		if self.IsPlayingDivXService():
 			print("[DivX Player] Resume Play")
-			self.container.write( "c", 1 )
+			self.container.write("c", 1)
 					
 					
 	def divxPlayFinish(self, retval):
@@ -304,7 +304,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			else:
 				print("playDivXService")
 				self.lastServicePlayed = self.current_service
-				self.playDivXService( self.current_service )
+				self.playDivXService(self.current_service)
 				
 			self.seekstate = self.SEEK_STATE_PLAY
 

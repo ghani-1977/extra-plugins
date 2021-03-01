@@ -27,7 +27,7 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 
 		self.list = []
 
-		self["SubScriptionList"] = MenuList( self.list )
+		self["SubScriptionList"] = MenuList(self.list)
 
 		self.showSmartCardSubscriptionsInfo()
 
@@ -45,19 +45,19 @@ class SmartCardSubscriptionsInfoScreen(Screen):
 
 	def showSmartCardSubscriptionsInfo(self):
 		self.list = []
-		if ( (self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER) ):
+		if ((self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER)):
 			self.list.append(_("SmartCard not supported."))
 		else:
 			for subscription in self.smartcard.subscriptions:
-				self.list.append( str(subscription.label) )
-				self.list.append( ("%s - %s %s") % (str(subscription.start_date1), str(subscription.end_date1), str(subscription.entitlement1) ) )
-				self.list.append( ("%s - %s %s") % (str(subscription.start_date2), str(subscription.end_date2), str(subscription.entitlement2) ) )
-				self.list.append( _(" ") )
+				self.list.append(str(subscription.label))
+				self.list.append(("%s - %s %s") % (str(subscription.start_date1), str(subscription.end_date1), str(subscription.entitlement1)))
+				self.list.append(("%s - %s %s") % (str(subscription.start_date2), str(subscription.end_date2), str(subscription.entitlement2)))
+				self.list.append(_(" "))
 
-			if ( len(self.list) == 0 ):
-				self.list.append( _("No subscription defined.") )
+			if (len(self.list) == 0):
+				self.list.append(_("No subscription defined."))
 
-		self["SubScriptionList"].setList( self.list )
+		self["SubScriptionList"].setList(self.list)
 
 
 

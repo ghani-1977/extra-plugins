@@ -32,7 +32,7 @@ class SubscriptionStatus:
 	""" 
 	Subscription status for Conax Card"""
 
-	def __init__(self, label="", start_date1="", end_date1="", entitlement1="", start_date2="", end_date2="", entitlement2="" ):
+	def __init__(self, label="", start_date1="", end_date1="", entitlement1="", start_date2="", end_date2="", entitlement2=""):
 		self.label = label
 		self.start_date1 = start_date1
 		self.end_date1 = end_date1
@@ -47,7 +47,7 @@ class PurseStatus:
 	""" 	
 	Purse status for Conax Card"""
 
-	def __init__(self, label="", balance="" ):
+	def __init__(self, label="", balance=""):
 		self.label = label
 		self.balance = balance
 
@@ -60,8 +60,8 @@ class SmartCardConax(SmartCard):
 
 	CODINGSYSTEM_CONAX_IDENTIFIER = _("CONAX")
 
-	def __init__(self, iface, inserted=False, state=CARD_REMOVED, sn="", atr="", subscriptions=[], purses=[], pin="" ):
-		SmartCard.__init__( self, iface, inserted, state, sn, _("CONAX"), atr )
+	def __init__(self, iface, inserted=False, state=CARD_REMOVED, sn="", atr="", subscriptions=[], purses=[], pin=""):
+		SmartCard.__init__(self, iface, inserted, state, sn, _("CONAX"), atr)
 
 		self.subscriptions = subscriptions
 		self.purses = purses
@@ -79,7 +79,7 @@ class SmartCardConfig:
 	serverHost = 'localhost'
 	serverPort = 50007
 
-	def __init__( self ):
+	def __init__(self):
 		pass
 
 	def findChildrenByTagName(self, parent, tagname):
@@ -99,13 +99,13 @@ class SmartCardConfig:
 		smartcard.purses = []
 
 		# Parse all purses
-		pursesnodes = self.findChildrenByTagName( scnode, "purse" )
+		pursesnodes = self.findChildrenByTagName(scnode, "purse")
 
 		for pursenode in pursesnodes:
 			ps_label = pursenode.getAttribute("label")
 			ps_balance = pursenode.getAttribute("balance")
 
-			smartcard.purses.append( PurseStatus( ps_label, ps_balance ) )
+			smartcard.purses.append(PurseStatus(ps_label, ps_balance))
 
 
 	
@@ -116,7 +116,7 @@ class SmartCardConfig:
 		smartcard.subscriptions = []
 		
 		# Parse all subscriptions
-		subscriptionnodes = self.findChildrenByTagName( scnode, "subscription" )
+		subscriptionnodes = self.findChildrenByTagName(scnode, "subscription")
 
 		for subscriptionnode in subscriptionnodes:
 			ss_label = subscriptionnode.getAttribute("label")
@@ -127,18 +127,18 @@ class SmartCardConfig:
 			ss_end_date2 = subscriptionnode.getAttribute("end_date2")
 			ss_entitlement2 = subscriptionnode.getAttribute("entitlement2")
 
-			smartcard.subscriptions.append( SubscriptionStatus( ss_label, ss_start_date1, ss_end_date1, ss_entitlement1, ss_start_date2, ss_end_date2, ss_entitlement2))
+			smartcard.subscriptions.append(SubscriptionStatus(ss_label, ss_start_date1, ss_end_date1, ss_entitlement1, ss_start_date2, ss_end_date2, ss_entitlement2))
 
 
-	def parse_data_from_xml( self, idx, smartcard ):
-		scinfonode = self.findChildrenByTagName( self.xmldoc, "scinfo")
+	def parse_data_from_xml(self, idx, smartcard):
+		scinfonode = self.findChildrenByTagName(self.xmldoc, "scinfo")
 
-		if ( len(scinfonode) != 1 ):
+		if (len(scinfonode) != 1):
 			return False
 
-		scxnodes = self.findChildrenByTagName( scinfonode[0], "sci%s" % str(idx))
+		scxnodes = self.findChildrenByTagName(scinfonode[0], "sci%s" % str(idx))
 
-		if ( len(scxnodes) != 1 ):
+		if (len(scxnodes) != 1):
 			return False
 
 		smartcard.subscription = []
@@ -146,7 +146,7 @@ class SmartCardConfig:
 		smartcard.atr = ""
 		smartcard.codingsystem = _("UNKNOWN")
 		
-		if (len(scxnodes[0].getAttribute("state") ) == 0):
+		if (len(scxnodes[0].getAttribute("state")) == 0):
 			return False
 			
 		if (scxnodes[0].getAttribute("state") == "CARD_REMOVED"):
@@ -171,9 +171,9 @@ class SmartCardConfig:
 		smartcard.sn = scxnodes[0].getAttribute("sn")
 			
 		# Parse SC Conax Info
-		if ( smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER ):
-			self.loadConaxsubscriptionsConfig( scxnodes[0], smartcard )
-			self.loadConaxpursesConfig( scxnodes[0], smartcard )
+		if (smartcard.codingsystem == SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER):
+			self.loadConaxsubscriptionsConfig(scxnodes[0], smartcard)
+			self.loadConaxpursesConfig(scxnodes[0], smartcard)
 
 		return True
 			
@@ -199,7 +199,7 @@ class SmartCardConfig:
 		result = fp.readlines()
 		fp.close()
 		
-		status = self.getIdentifierParameter( result, 'sc%d' % idx )
+		status = self.getIdentifierParameter(result, 'sc%d' % idx)
 	
 		if status is None:
 			return False
@@ -223,7 +223,7 @@ class SmartCardConfig:
 
 		print("[SMARTCARDINFO] Getting smartcard info ...")
 		
-		sockobj = socket( AF_INET, SOCK_STREAM )
+		sockobj = socket(AF_INET, SOCK_STREAM)
 		sockobj.settimeout(1)
 		try:
 			sockobj.connect((SmartCardConfig.serverHost, SmartCardConfig.serverPort))
@@ -239,7 +239,7 @@ class SmartCardConfig:
 			return False
 
 		try:
-			data=sockobj.recv( 1024 )
+			data=sockobj.recv(1024)
 		except:
 			# Receive error
 			return False
@@ -256,7 +256,7 @@ class SmartCardConfig:
 			print('[SMARTCARDINFO] malformed xml. discard it.\n')
 			return False				
 
-		if ( self.xmldoc is None ):
+		if (self.xmldoc is None):
 			return False		
 		
-		return self.parse_data_from_xml( idx, smartcard )
+		return self.parse_data_from_xml(idx, smartcard)

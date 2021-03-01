@@ -66,8 +66,8 @@ syswatchlist = {"off": _("Off"), "on": _("On")}
 config.plugins.FanSetup = ConfigSubsection()
 config.plugins.FanSetup.mode = ConfigSelection(choices=modelist, default="auto")
 config.plugins.FanSetup.timeset = ConfigSelection(choices=timsetlist, default="none")
-config.plugins.FanSetup.timestartoff = ConfigClock(default=((21 * 60 + 30) * 60) )
-config.plugins.FanSetup.timeendoff = ConfigClock(default=((7 * 60 + 0) * 60) )
+config.plugins.FanSetup.timestartoff = ConfigClock(default=((21 * 60 + 30) * 60))
+config.plugins.FanSetup.timeendoff = ConfigClock(default=((7 * 60 + 0) * 60))
 config.plugins.FanSetup.hddwatch = ConfigSelection(choices=hddwatchlist, default="none")
 config.plugins.FanSetup.hdddevice = ConfigText(default="all")
 config.plugins.FanSetup.hddsleep = ConfigBoolean(default=False)
@@ -203,7 +203,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		self.timer.start(1000, True)
 
 	def getHddList(self):
-		hddlist = { }
+		hddlist = {}
 		for hdd in harddiskmanager.HDDList():
 			if "pci" in hdd[1].phys_path or "ahci" in hdd[1].phys_path:
 				devdir = hdd[1].getDeviceDir()
@@ -215,7 +215,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 
 	def initConfig(self):
 		def getPrevValues(section):
-			res = { }
+			res = {}
 			for (key, val) in section.content.items.items():
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
@@ -239,7 +239,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		self.prev_hdddevice = self.FAN.hdddevice.value
 
 	def createSetup(self):
-		list = [ self.cfg_mode ]
+		list = [self.cfg_mode]
 		if self.FAN.mode.value !="off":
 			list.append(self.cfg_timeset)
 			if self.FAN.timeset.value != "none":
@@ -301,7 +301,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		if mode == "off" and self.FAN.hddwatch.value != "none":
 			removable = False
 			file_removable = '/sys/block/sda/removable'
-			if os.path.exists(file_removable) :
+			if os.path.exists(file_removable):
 				fd = open(file_removable, 'r')
 				removable = fd.read()
 				fd.close()
@@ -386,7 +386,7 @@ class FanManager:
 				if FanConf.hddwatch.value == "sleep" and FanConf.hddsleep.value is True:
 					sleepcount = 0
 					hddlist = harddiskmanager.HDDList()
-					for x in range (hddcount):
+					for x in range(hddcount):
 						if hddlist[x][1].isSleeping():
 							sleepcount += 1
 						else:
@@ -495,7 +495,7 @@ def getHddTemp():
 
 def selSetup(menuid, **kwargs):
 	if menuid != "system":
-		return [ ]
+		return []
 	return [(_("Fan Control"), main, "fansetup_config", 70)]
 
 def show_temp(session, **kwargs):

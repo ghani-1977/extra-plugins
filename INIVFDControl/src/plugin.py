@@ -41,7 +41,7 @@ class Channelnumber:
 		self.zaPrik = eTimer()
 		self.zaPrik.timeout.get().append(self.vrime)
 		self.zaPrik.start(1000, 1)
-		self.onClose = [ ]
+		self.onClose = []
 
 		#self.__event_tracker = ServiceEventTracker(screen=self,eventmap=
 		#	{
@@ -175,7 +175,7 @@ class VFD_INISetup(ConfigListScreen, Screen):
 		
 		self.onClose.append(self.abort)
 
-		self.onChangedEntry = [ ]
+		self.onChangedEntry = []
 		self.list = []
 		ConfigListScreen.__init__(self, self.list, session=self.session, on_change=self.changedEntry)
 
@@ -234,7 +234,7 @@ class VFD_INI:
 		print("[VFD-INI] initializing")
 		self.session = session
 		self.service = None
-		self.onClose = [ ]
+		self.onClose = []
 
 		self.Console = Console()
 
@@ -253,7 +253,7 @@ class VFD_INI:
 
 def main(menuid):
 	if menuid != "system":
-		return [ ]
+		return []
 	return [(_("LED Display Setup"), startVFD, "VFD_INI", None)]
 
 def startVFD(session, **kwargs):
@@ -289,5 +289,5 @@ def sessionstart(reason, **kwargs):
 	controliniVfd()
 
 def Plugins(**kwargs):
-		return [ PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
-			PluginDescriptor(name="INI LED Display Setup", description="Change VFD display settings", where=PluginDescriptor.WHERE_MENU, fnc=main) ]
+		return [PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART, PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionstart),
+			PluginDescriptor(name="INI LED Display Setup", description="Change VFD display settings", where=PluginDescriptor.WHERE_MENU, fnc=main)]

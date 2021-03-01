@@ -206,7 +206,7 @@ class RCUSelect(Screen):
 				if getBoxType() == "wetekplay2":
 					fin = open("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
-					for line in fin :
+					for line in fin:
 						if "work_mode" in line:
 							line = "work_mode  	= 0\n"
 						fout.write(line)

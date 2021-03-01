@@ -27,7 +27,7 @@ class SmartCardPursesInfoScreen(Screen):
 
 		self.list = []
 
-		self["PurseList"] = MenuList( self.list )
+		self["PurseList"] = MenuList(self.list)
 
 		self.showSmartCardPursesInfo()
 
@@ -45,18 +45,18 @@ class SmartCardPursesInfoScreen(Screen):
 
 	def showSmartCardPursesInfo(self):
 		self.list = []
-		if ( (self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER) ):
+		if ((self.smartcard.state != CARD_INITIALIZED) or (self.smartcard.codingsystem != SmartCardConax.CODINGSYSTEM_CONAX_IDENTIFIER)):
 			self.list.append(_("SmartCard not supported."))
 		else:
 			for purse in self.smartcard.purses:
-				self.list.append( ("%s tokens") % (str(purse.label)) )
-				self.list.append( ("Purse Balance: %s tokens") % (str(purse.balance) ) )
-				self.list.append( _(" ") )
+				self.list.append(("%s tokens") % (str(purse.label)))
+				self.list.append(("Purse Balance: %s tokens") % (str(purse.balance)))
+				self.list.append(_(" "))
 
-			if ( len(self.list) == 0 ):
-				self.list.append( _("No purses defined.") )
+			if (len(self.list) == 0):
+				self.list.append(_("No purses defined."))
 
-		self["PurseList"].setList( self.list )
+		self["PurseList"].setList(self.list)
 
 	def exit(self):
 		self.timer.stop()

@@ -72,7 +72,7 @@ class SimpleConfigParser:
 		except Exception as e:
 			vbcfg.ERR(e)
 			return _default
-		else :
+		else:
 			return data
 
 	def _set(self, _section, _option, _value):

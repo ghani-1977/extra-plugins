@@ -33,7 +33,7 @@ class CustomButtonActionMenu(Screen):
 		self.session = session
 		
 		self.skin = CustomButtonActionMenu.skin
-		self.list = [ ]
+		self.list = []
 		self["actionlist"] =  MenuList(self.list)
 		
 		activecustom = ""
@@ -58,7 +58,7 @@ class CustomButtonActionMenu(Screen):
 				else:
 					idx = idx + 1
 					print("FOUND NODE ELEMENT:", x.getAttribute("name"))
-					self.list.append( str(x.getAttribute("name")) )
+					self.list.append(str(x.getAttribute("name")))
 					if len(activecustom) > 0:
 						if activecustom == str(x.getAttribute("name")):
 							self.idxactive=idx
@@ -71,7 +71,7 @@ class CustomButtonActionMenu(Screen):
 			"cancel": self.exit,
 		}, -1)
 
-		self.onShown.append( self.selectActive )
+		self.onShown.append(self.selectActive)
 		
 	def selectActive(self):
 		if (self.idxactive != -1):
