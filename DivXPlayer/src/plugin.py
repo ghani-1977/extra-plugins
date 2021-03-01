@@ -26,10 +26,10 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 	SEEK_STATE_FWD = (1, 0, 0, ">>")
 	SEEK_STATE_BWD = (1, 0, 0, "<<")
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		InfoBarAudioSelection.__init__(self)
-		InfoBarCueSheetSupport.__init__(self, actionmap = "DivXPlayerCueSheetActions")
+		InfoBarCueSheetSupport.__init__(self, actionmap="DivXPlayerCueSheetActions")
 		InfoBarNotifications.__init__(self)
 		InfoBarBase.__init__(self)
 		InfoBarSubtitleSupport.__init__(self)
@@ -42,7 +42,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.session.nav.stopService()
 
 		# 'None' is magic to start at the list of mountpoints
-		self.filelist = FileList(None, matchingPattern = "(?i)^.*\.(avi)", useServiceRef = True, additionalExtensions = "4098:m3u 4098:e2pls 4098:pls")
+		self.filelist = FileList(None, matchingPattern="(?i)^.*\.(avi)", useServiceRef=True, additionalExtensions="4098:m3u 4098:e2pls 4098:pls")
 		self["filelist"] = self.filelist
 
 		self.is_closing = False
@@ -60,7 +60,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.seek_target = None
 
 		class DivXPlayerActionMap(NumberActionMap):
-			def __init__(self, player, contexts = [ ], actions = { }, prio=0):
+			def __init__(self, player, contexts=[ ], actions={ }, prio=0):
 				NumberActionMap.__init__(self, contexts, actions, prio)
 				self.player = player
 
@@ -98,12 +98,11 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 			"downUp": self.doNothing,
 		}, -2)
 
-		InfoBarSeek.__init__(self, actionmap = "DivXPlayerSeekActions")
+		InfoBarSeek.__init__(self, actionmap="DivXPlayerSeekActions")
 
 		self.onClose.append(self.__onClose)
 
-		self.__event_tracker = ServiceEventTracker(screen=self, eventmap=
-			{
+		self.__event_tracker = ServiceEventTracker(screen=self, eventmap={
 				iPlayableService.evUser+11: self.__evDecodeError,
 				iPlayableService.evUser+12: self.__evPluginError
 			})
@@ -135,13 +134,13 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		currPlay = self.session.nav.getCurrentService()
 		sVideoType = currPlay.info().getInfoString(iServiceInformation.sVideoType)
 		print("[__evDecodeError] video-codec %s can't be decoded by hardware" % (sVideoType))
-		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type = MessageBox.TYPE_INFO, timeout = 20 )
+		self.session.open(MessageBox, _("This STB can't decode %s video streams!") % sVideoType, type=MessageBox.TYPE_INFO, timeout=20 )
 
 	def __evPluginError(self):
 		currPlay = self.session.nav.getCurrentService()
 		message = currPlay.info().getInfoString(iServiceInformation.sUser+12)
 		print("[__evPluginError]", message)
-		self.session.open(MessageBox, message, type = MessageBox.TYPE_INFO, timeout = 20 )
+		self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO, timeout=20 )
 
 	def hideAfterResume(self):
 		self.hide()
@@ -390,20 +389,19 @@ def filescan_open(list, session, **kwargs):
 def filescan(**kwargs):
 	from Components.Scanner import Scanner, ScanPath
 	mediatypes = [
-		Scanner(mimetypes = ["video/divx3", "video/divx4", "video/divx5"],
-			paths_to_scan =
-				[
-					ScanPath(path = "", with_subdirs = False),
+		Scanner(mimetypes=["video/divx3", "video/divx4", "video/divx5"],
+			paths_to_scan=[
+					ScanPath(path="", with_subdirs=False),
 				],
-			name = "DivX Movie",
-			description = "View DivX Movies...",
-			openfnc = filescan_open,
+			name="DivX Movie",
+			description="View DivX Movies...",
+			openfnc=filescan_open,
 		)]
 	return mediatypes
 
 from Plugins.Plugin import PluginDescriptor
 def Plugins(**kwargs):
 	return [
-		PluginDescriptor(name = "DivXPlayer", description = "Play back divx media files", where = PluginDescriptor.WHERE_MENU, fnc = menu),
-		PluginDescriptor(name = "DivXPlayer", where = PluginDescriptor.WHERE_FILESCAN, fnc = filescan)
+		PluginDescriptor(name="DivXPlayer", description="Play back divx media files", where=PluginDescriptor.WHERE_MENU, fnc=menu),
+		PluginDescriptor(name="DivXPlayer", where=PluginDescriptor.WHERE_FILESCAN, fnc=filescan)
 	]

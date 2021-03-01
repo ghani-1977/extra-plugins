@@ -585,8 +585,8 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 				limits = (3400, 4200)
 			else:
 				limits = (10700, 12750)
-			self.scan_sat.bs_freq_start = ConfigInteger(default = limits[0], limits = (limits[0], limits[1]))
-			self.scan_sat.bs_freq_stop = ConfigInteger(default = limits[1], limits = (limits[0], limits[1]))
+			self.scan_sat.bs_freq_start = ConfigInteger(default=limits[0], limits=(limits[0], limits[1]))
+			self.scan_sat.bs_freq_stop = ConfigInteger(default=limits[1], limits=(limits[0], limits[1]))
 			self.satelliteEntry = getConfigListEntry(_("Satellite"), self.scan_satselection[index_to_scan])
 			self.list.append(self.satelliteEntry)
 			self.searchtypeEntry = getConfigListEntry(_("Search type"), self.search_type)
@@ -648,9 +648,9 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 				defaultSat["orbpos"] = frontendData.get("orbital_position", 0)
 
 		self.scan_sat = ConfigSubsection()
-		self.scan_clearallservices = ConfigSelection(default = "no", choices = [("no", _("no")), ("yes", _("yes")), ("yes_hold_feeds", _("yes (keep feeds)"))])
-		self.scan_onlyfree = ConfigYesNo(default = False)
-		self.scan_networkScan = ConfigYesNo(default = False)
+		self.scan_clearallservices = ConfigSelection(default="no", choices=[("no", _("no")), ("yes", _("yes")), ("yes_hold_feeds", _("yes (keep feeds)"))])
+		self.scan_onlyfree = ConfigYesNo(default=False)
+		self.scan_networkScan = ConfigYesNo(default=False)
 
 		nim_list = []
 		for n in nimmanager.nim_slots:
@@ -673,7 +673,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 					continue
 			if n.isCompatible("DVB-S"):
 				nim_list.append((str(n.slot), n.friendly_full_description))
-		self.scan_nims = ConfigSelection(choices = nim_list)
+		self.scan_nims = ConfigSelection(choices=nim_list)
 
 		self.is_c_band_scan = False
 		cur_orb_pos = defaultSat["orbpos"]
@@ -688,17 +688,17 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 			if lof == "c_band":
 				self.is_c_band_scan = True
 
-		self.scan_sat.bs_system = ConfigSelection(default = eDVBFrontendParametersSatellite.System_DVB_S2, 
-			choices = [ (eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
+		self.scan_sat.bs_system = ConfigSelection(default=eDVBFrontendParametersSatellite.System_DVB_S2, 
+			choices=[ (eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
 				(eDVBFrontendParametersSatellite.System_DVB_S, _("DVB-S only"))])
 
-		self.scan_sat.bs_accuracy = ConfigSelection(default = 2, choices = [ (1, "1"), (2, "2"), (3, "3"), (4, "4"), (5, "5")])
-		self.search_type = ConfigSelection(default = 0, choices = [
+		self.scan_sat.bs_accuracy = ConfigSelection(default=2, choices=[ (1, "1"), (2, "2"), (3, "3"), (4, "4"), (5, "5")])
+		self.search_type = ConfigSelection(default=0, choices=[
 			(0, _("scan for channels")),
 			(1, _("save to XML file"))])
 
-		self.scan_sat.bs_horizontal = ConfigYesNo(default = True)
-		self.scan_sat.bs_vertical = ConfigYesNo(default = True)
+		self.scan_sat.bs_horizontal = ConfigYesNo(default=True)
+		self.scan_sat.bs_vertical = ConfigYesNo(default=True)
 		self.nim_sat_frequency_range = []
 		self.nim_sat_band_cutoff_frequency = []
 		self.scan_satselection = []
@@ -804,7 +804,7 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 	def callbackNone(self, *retval):
 		None
 
-	def startScan(self, tlist, flags, feid, networkid = 0):
+	def startScan(self, tlist, flags, feid, networkid=0):
 		if len(tlist):
 			self.session.openWithCallback(self.startScanCallback, ServiceScan, [{"transponders": tlist, "feid": feid, "flags": flags, "networkid": networkid}])
 

@@ -76,4 +76,4 @@ def menu(menuid, **kwargs):
 	return []
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name="SmartCard Information", description="plugin to view smartcard informations", where = PluginDescriptor.WHERE_MENU, fnc=menu)
+	return PluginDescriptor(name="SmartCard Information", description="plugin to view smartcard informations", where=PluginDescriptor.WHERE_MENU, fnc=menu)

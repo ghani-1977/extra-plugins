@@ -17,7 +17,7 @@ class YMC:
 		self.IP = ip
 	def Urlget(self, url):
 		if url2:
-			f = urllib2.urlopen(url, timeout = 1)
+			f = urllib2.urlopen(url, timeout=1)
 		else:
 			f = urllib.urlopen(url)
 		fr = f.read()

@@ -27,7 +27,7 @@ class RCUSelect(Screen):
 	<widget name="key_green" position="190,425" size="140,40" valign="center" halign="center" zPosition="4"  foregroundColor="white" font="Regular;20" transparent="1" shadowColor="#25062748" shadowOffset="-2,-2" /> 
 	</screen>"""
 
-	def __init__(self, session, args = 0):
+	def __init__(self, session, args=0):
 		self.session = session
 		Screen.__init__(self, session)
 		self.skinName = "RCUSelect"                 
@@ -112,7 +112,7 @@ class RCUSelect(Screen):
 
 	def action(self):
 		from Screens.MessageBox import MessageBox
-		self.session.openWithCallback(self.confirm, MessageBox, _("Are you sure?"), MessageBox.TYPE_YESNO, timeout = 15, default = False)
+		self.session.openWithCallback(self.confirm, MessageBox, _("Are you sure?"), MessageBox.TYPE_YESNO, timeout=15, default=False)
 
 	def confirm(self, confirmed):
 		if not confirmed:
@@ -239,4 +239,4 @@ def system(menuid):
 		return []
         
 def Plugins(**kwargs):
-	return PluginDescriptor(name=_("RCU Select"), where = PluginDescriptor.WHERE_MENU, fnc=system)
+	return PluginDescriptor(name=_("RCU Select"), where=PluginDescriptor.WHERE_MENU, fnc=system)

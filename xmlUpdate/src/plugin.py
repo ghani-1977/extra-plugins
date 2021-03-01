@@ -25,7 +25,7 @@ class xmlUpdate(ConfigListScreen, Screen):
 		Screen.setTitle(self, self.setup_title)
 		self.skinName = ["xmlUpdate", "Setup"]
 		self.session = session
-		ConfigListScreen.__init__(self, [], session = self.session)
+		ConfigListScreen.__init__(self, [], session=self.session)
 
 		self.DVBtype = config.dvbtypexmlupdate
 		self.Satellitestype = config.satellitestypexmlupdate
@@ -152,5 +152,5 @@ def xmlUpdateMain(session, **kwargs):
 
 def Plugins(**kwargs):
 	pList = []
-	pList.append( PluginDescriptor(name=_("XML update"), description="For undating transponder xml files", where = PluginDescriptor.WHERE_MENU, needsRestart = False, fnc=xmlUpdateStart) )
+	pList.append( PluginDescriptor(name=_("XML update"), description="For undating transponder xml files", where=PluginDescriptor.WHERE_MENU, needsRestart=False, fnc=xmlUpdateStart) )
 	return pList

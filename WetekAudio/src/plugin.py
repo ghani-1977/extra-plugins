@@ -48,7 +48,7 @@ config.plugins.wea.amask = ConfigSelection(default='s', choices=[('l', _('Left m
 
 class WetekAudio(ConfigListScreen, Screen):
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		self.skin = '\n\t\t\t<screen position="150,150" size="500,310" title="Wetek Audio Setup" >\n\t\t\t\t<widget name="config" position="20,15" size="460,250" scrollbarMode="showOnDemand" />\n\t\t\t\t<ePixmap position="40,265" size="140,40" pixmap="buttons/green.png" alphatest="on" />\n\t\t\t\t<ePixmap position="180,265" size="140,40" pixmap="buttons/red.png" alphatest="on" />\n\t\t\t\t<ePixmap position="320,265" size="140,40" pixmap="buttons/yellow.png" alphatest="on" />\n\t\t\t\t<widget name="key_green" position="40,265" size="140,40" font="Regular;20" backgroundColor="#1f771f" zPosition="2" transparent="1" shadowColor="black" shadowOffset="-1,-1" />\n\t\t\t\t<widget name="key_red" position="180,265" size="140,40" font="Regular;20" backgroundColor="#9f1313" zPosition="2" transparent="1" shadowColor="black" shadowOffset="-1,-1" />\n\t\t\t\t<widget name="key_yellow" position="320,265" size="140,40" font="Regular;20" backgroundColor="#9f1313" zPosition="2" transparent="1" shadowColor="black" shadowOffset="-1,-1" />\n\t\t\t</screen>'
 		Screen.__init__(self, session)
 		self.onClose.append(self.abort)
@@ -109,7 +109,7 @@ class WetekAudio(ConfigListScreen, Screen):
 		initWetA(self)
 
 
-def initWetA(self = None):
+def initWetA(self=None):
 	print('[WetekAudio] try to apply settings')
 	try:
 		f = open('/sys/class/audiodsp/digital_codec', 'w')

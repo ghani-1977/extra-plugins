@@ -90,7 +90,7 @@ class CustomButtonActionMenu(Screen):
 			fp.close()
 			system("sync")
 			
-			self.session.openWithCallback(self.okCB, MessageBox, _("Your new Custom Buttom is %s.") % str(self["actionlist"].getCurrent()), type = MessageBox.TYPE_INFO)
+			self.session.openWithCallback(self.okCB, MessageBox, _("Your new Custom Buttom is %s.") % str(self["actionlist"].getCurrent()), type=MessageBox.TYPE_INFO)
 		else:
 			self.close()
 
@@ -110,4 +110,4 @@ def menu(menuid, **kwargs):
 	return []
 	
 def Plugins(**kwargs):
-	return PluginDescriptor(name="Define Custom Button", description="define custom button", where = PluginDescriptor.WHERE_MENU, fnc=menu)
+	return PluginDescriptor(name="Define Custom Button", description="define custom button", where=PluginDescriptor.WHERE_MENU, fnc=menu)

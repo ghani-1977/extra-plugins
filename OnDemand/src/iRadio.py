@@ -545,7 +545,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
-	def addFavorite(self, name = '', text = '', favoritetype = '', audio = '', bitrate = '', icon = ''):
+	def addFavorite(self, name='', text='', favoritetype='', audio='', bitrate='', icon=''):
 		try:
 			self.favoriteConfig.entriescount.value = self.favoriteConfig.entriescount.value + 1
 			self.favoriteConfig.entriescount.save()
@@ -590,7 +590,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
-	def setupCallback(self, retval = None):
+	def setupCallback(self, retval=None):
 		if retval == 'cancel' or retval is None:
 			return
 			
@@ -608,7 +608,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 				self.mediaProblemPopup("No Stations Found!")
 			self.updateMenu()
 
-	def keyboardCallback(self, callback = None):
+	def keyboardCallback(self, callback=None):
 		if callback is not None and len(callback):
 			self.setTitle("SHOUTcast Radio Player: Search Listings for " +callback)
 			
@@ -618,7 +618,7 @@ class shoutGenresThumb(StreamsThumbCommon):
 			self.getShoutcastMediaData(self.mediaList, searchurl)
 			self.updateMenu()
 			if len(self.mediaList) == 0:
-				self.session.openWithCallback(self.close, MessageBox, _("No items matching your search criteria were found"), MessageBox.TYPE_INFO, timeout=5, simple = True)
+				self.session.openWithCallback(self.close, MessageBox, _("No items matching your search criteria were found"), MessageBox.TYPE_INFO, timeout=5, simple=True)
 		else:
 			self.close()
 
@@ -808,7 +808,7 @@ class FavoritesThumb(StreamsThumbCommon):
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
-	def setupCallback(self, retval = None):
+	def setupCallback(self, retval=None):
 		if retval == 'cancel' or retval is None:
 			return
 		else:
@@ -967,7 +967,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
-	def addFavorite(self, name = '', text = '', favoritetype = '', audio = '', bitrate = '', icon = ''):
+	def addFavorite(self, name='', text='', favoritetype='', audio='', bitrate='', icon=''):
 		try:
 			self.favoriteConfig.entriescount.value = self.favoriteConfig.entriescount.value + 1
 			self.favoriteConfig.entriescount.save()
@@ -1006,7 +1006,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 
-	def setupCallback(self, retval = None):
+	def setupCallback(self, retval=None):
 		if retval == 'cancel' or retval is None:
 			return
 		elif retval == 'search':
@@ -1018,7 +1018,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 				self.session.open(MessageBox, _('Sorry, No Stations Found!'), type=MessageBox.TYPE_INFO, timeout=5)
 			self.updateMenu()
 
-	def keyboardCallback(self, callback = None):
+	def keyboardCallback(self, callback=None):
 		if callback is not None and len(callback):
 			self.setTitle("Tunein Radio Player: Search Listings for " +callback)
 			stationsearch = callback.replace(' ', '+')
@@ -1026,7 +1026,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
 			self.getTuneinMediaData(self.mediaList, searchurl)
 			self.updateMenu()
 			if len(self.mediaList) == 0:
-				self.session.openWithCallback(self.close, MessageBox, _("No items matching your search criteria were found"), MessageBox.TYPE_INFO, timeout=5, simple = True)
+				self.session.openWithCallback(self.close, MessageBox, _("No items matching your search criteria were found"), MessageBox.TYPE_INFO, timeout=5, simple=True)
 		else:
 			self.close()
 

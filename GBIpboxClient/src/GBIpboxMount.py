@@ -72,7 +72,7 @@ class GBIpboxMount:
 	def isMountPoint(self, path):
 		return os.system('mountpoint ' + path) == 0
 		
-	def umount(self, path = None):
+	def umount(self, path=None):
 		return os.system('umount ' + path) == 0
 		
 	def mount(self, ip, share, path):

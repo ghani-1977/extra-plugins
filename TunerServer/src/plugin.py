@@ -181,4 +181,4 @@ def main(session, **kwargs):
 	session.open(TunerServer)
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name=_("Tuner Server"), description=_("Allow Streaming From Box Tuners"), where = PluginDescriptor.WHERE_PLUGINMENU, needsRestart = False, fnc=main)
+	return PluginDescriptor(name=_("Tuner Server"), description=_("Allow Streaming From Box Tuners"), where=PluginDescriptor.WHERE_PLUGINMENU, needsRestart=False, fnc=main)
