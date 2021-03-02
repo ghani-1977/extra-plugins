@@ -48,15 +48,21 @@ class MiniTV:
 		self.setMiniTVDecoder(configElement.value)
 
 	def setMiniTV(self, value):
-		cur_value = open("/proc/stb/lcd/live_enable", "r").read().strip()
-		if cur_value != value:
-			open("/proc/stb/lcd/live_enable", "w").write(value)
+		try:
+			cur_value = open("/proc/stb/lcd/live_enable", "r").read().strip()
+			if cur_value != value:
+				open("/proc/stb/lcd/live_enable", "w").write(value)
+		except:
+			print("No [/proc/stb/lcd/live_enabl]")
 
 	def setMiniTVDecoder(self, value):
-		if SystemInfo["LcdLiveDecoder"]:
-			cur_value = open("/proc/stb/lcd/live_decoder", "r").read()
-			if cur_value != value:
-				open("/proc/stb/lcd/live_decoder", "w").write(value)
+		try:
+			if SystemInfo["LcdLiveDecoder"]:
+				cur_value = open("/proc/stb/lcd/live_decoder", "r").read()
+				if cur_value != value:
+					open("/proc/stb/lcd/live_decoder", "w").write(value)
+		except:
+			print("No [/proc/stb/lcd/live_enabl]")
 
 	def standbyCounterChanged(self, configElement):
 		from Screens.Standby import inStandby
