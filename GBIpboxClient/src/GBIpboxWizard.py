@@ -24,7 +24,6 @@ from __future__ import print_function
 #############################################################################
 
 from Screens.Wizard import Wizard
-from Components.ActionMap import ActionMap
 from Components.Pixmap import Pixmap
 from Components.Sources.Boolean import Boolean
 from Components.config import config

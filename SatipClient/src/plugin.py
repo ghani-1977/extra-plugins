@@ -9,29 +9,17 @@ from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
-from Tools.Directories import fileExists
-
-from Components.MenuList import MenuList
 from Components.Sources.List import List
-
 from enigma import eTimer
 from Screens.Standby import TryQuitMainloop
 from Components.Network import iNetwork
-
-from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import pathExists, fileExists, resolveFilename, SCOPE_CURRENT_SKIN
-
 import xml.etree.cElementTree
-from twisted.internet import reactor, task
+from twisted.internet import reactor
 from twisted.internet.protocol import DatagramProtocol
-
 import glob
 import os
 import httplib
-
 import copy
-
-from Components.config import config, ConfigSubList, ConfigSelection, ConfigElement
 
 
 def isEmpty(x):
@@ -769,9 +757,7 @@ class SATIPClient(Screen):
 			data += str(idx) + '=' + ",".join(attr) + "\n"
 
 		if data:
-			fd = open(SATIP_CONFFILE, 'w')
-			fd.write(data)
-			fd.close()
+			open(SATIP_CONFFILE, 'w').write(data)
 
 	def loadConfig(self):
 		vtunerConfig = []
@@ -780,9 +766,7 @@ class SATIPClient(Screen):
 			vtunerConfig.append({'vtuner_type': "usb_tuner"})
 
 		if os.access(SATIP_CONFFILE, os.R_OK):
-			fd = open(SATIP_CONFFILE)
-			confData = fd.read()
-			fd.close()
+			confData = open(SATIP_CONFFILE).read()
 
 			if confData:
 				for line in confData.splitlines():

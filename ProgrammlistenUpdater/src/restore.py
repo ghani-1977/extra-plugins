@@ -12,6 +12,7 @@ import glob
 import os
 import sys
 from enigma import *
+from Components.Console import Console
 
 Directory = os.path.dirname(sys.modules[__name__].__file__)
 
@@ -76,7 +77,7 @@ class PU_Restore(Screen, ConfigListScreen):
 
     def CBremove(self, req):
         if req:
-            os.system('rm -rf %s' % (Directory + '/Settings/enigma2/' + self.filename))
+            Console().ePopen('rm -rf %s' % (Directory + '/Settings/enigma2/' + self.filename))
             self.List = self.Search_Settings()
             self.SettingsMenu()
 
@@ -97,11 +98,11 @@ class PU_Restore(Screen, ConfigListScreen):
         config.pud.save()
         configfile.save()
         # Remove current settingslist
-        os.system('rm -rf /etc/enigma2/lamedb')
-        os.system('rm -rf /etc/enigma2/*.radio')
-        os.system('rm -rf /etc/enigma2/*.tv')
+        Console().ePopen('rm -f /etc/enigma2/lamedb')
+        Console().ePopen('rm -f /etc/enigma2/*.radio')
+        Console().ePopen('rm -f /etc/enigma2/*.tv')
         # Restore settingslist
-        os.system('tar -xzvf %s -C /' % (Directory + '/Settings/enigma2/' + self.filename))
+        Console().ePopen('tar -xzvf %s/Settings/enigma2/%s -C /' % (Directory, self.filename))
         # Reload settingslist
         eDVBDB.getInstance().reloadServicelist()
         eDVBDB.getInstance().reloadBouquets()

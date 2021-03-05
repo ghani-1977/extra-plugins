@@ -17,8 +17,6 @@ from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
-from Tools.Directories import fileExists
-
 import Screens.Standby
 
 config.plugins.VFD_ini = ConfigSubsection()

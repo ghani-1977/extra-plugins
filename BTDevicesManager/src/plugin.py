@@ -21,18 +21,17 @@ from __future__ import print_function
 
 from . import _
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, eConsoleAppContainer, iPlayableService, eServiceCenter, eActionMap, getBoxBrand
+from enigma import eTimer, eConsoleAppContainer, iPlayableService, getBoxBrand
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
-from Components.Sources.StaticText import StaticText
-from Components.ActionMap import NumberActionMap, ActionMap
-from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigSubsection, ConfigYesNo, ConfigSelection
+from Components.ActionMap import ActionMap
+from Components.config import config, getConfigListEntry, ConfigText, ConfigSubsection, ConfigYesNo
 from Components.MenuList import MenuList
 from Components.ServiceEventTracker import ServiceEventTracker
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, fileExists
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
 from bluetoothctl import iBluetoothctl, Bluetoothctl
 import os
 import time

@@ -49,20 +49,24 @@ class MiniTV:
 
 	def setMiniTV(self, value):
 		try:
+			print("[MiniTV] Read /proc/stb/lcd/live_enable")
 			cur_value = open("/proc/stb/lcd/live_enable", "r").read().strip()
 			if cur_value != value:
+				print("[MiniTV] Write to /proc/stb/lcd/live_enable")
 				open("/proc/stb/lcd/live_enable", "w").write(value)
 		except:
-			print("No [/proc/stb/lcd/live_enabl]")
+			print("[MiniTV] Read /proc/stb/lcd/live_enable failed.")
 
 	def setMiniTVDecoder(self, value):
 		try:
 			if SystemInfo["LcdLiveDecoder"]:
+				print("[MiniTV] Read /proc/stb/lcd/live_decoder")
 				cur_value = open("/proc/stb/lcd/live_decoder", "r").read()
 				if cur_value != value:
+					print("[MiniTV] Write to /proc/stb/lcd/live_decoder")
 					open("/proc/stb/lcd/live_decoder", "w").write(value)
 		except:
-			print("No [/proc/stb/lcd/live_enabl]")
+			print("[MiniTV] Read /proc/stb/lcd/live_decoder failed.")
 
 	def standbyCounterChanged(self, configElement):
 		from Screens.Standby import inStandby

@@ -75,8 +75,10 @@ class FanSetupScreen(Screen, ConfigListScreen):
 
 def applySettings(mode):
 	try:
+		print("[SimpleFanControl] Write to /proc/stb/fp/fan")
 		open("/proc/stb/fp/fan", "w").write('%s' % mode)
 	except:
+		print("[SimpleFanControl] Write to /proc/stb/fp/fan failed.")
 		return
 
 

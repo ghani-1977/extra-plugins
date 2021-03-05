@@ -4,20 +4,19 @@ from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-from Screens.Standby import TryQuitMainloop
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Components.Label import Label
 from Components.Sources.Boolean import Boolean
 from Components.Sources.StaticText import StaticText
-from Components.ActionMap import NumberActionMap, ActionMap
+from Components.ActionMap import ActionMap
 from Components.Network import iNetwork
 from Components.MenuList import MenuList
-from Components.config import config, getConfigListEntry, ConfigInteger, ConfigSubsection, ConfigSelection, ConfigText, ConfigYesNo, NoSave, ConfigNothing
+from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigText, ConfigYesNo
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
 from boxbranding import getKernelVersion
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CURRENT_PLUGIN, fileExists
-from enigma import eTimer, eConsoleAppContainer, eSocketNotifier, getDesktop
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, fileExists
+from enigma import eTimer, eConsoleAppContainer, eSocketNotifier
 from select import POLLIN, POLLPRI
 from xml.sax import make_parser, handler
 import os
@@ -494,9 +493,7 @@ class ModemManual(Screen):
 				tempIndex += 1
 		apnString += '</apns>\n'
 		printDebugModemMgr(apnString)
-		apnListFile = open(resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"), 'w')
-		apnListFile.write(apnString)
-		apnListFile.close()
+		open(resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"), 'w').write(apnString)
 
 	def keyLeft(self):
 		self['menulist'].pageUp()
@@ -715,9 +712,7 @@ class ModemManager(Screen):
 
 	def cbRestartAppTimer(self):
 		self.restartAppTimer.stop()
-		file = open('/etc/model')
-		model = file.read().strip()
-		file.close()
+		model = open('/etc/openvision/model').read().strip()
 
 	def cbRefreshStatus(self):
 		self.refreshStatusTimer.stop()

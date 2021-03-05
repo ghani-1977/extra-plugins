@@ -27,7 +27,6 @@ from __future__ import print_function
 import time
 import pexpect
 import subprocess
-import sys
 import re
 
 

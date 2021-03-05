@@ -271,9 +271,7 @@ class StreamingChannelFromServerScreen(Screen):
 			self.parseBouqets()
 
 	def parserWork(self, list, name):
-		file = open(name)
-		lines = file.readlines()
-		file.close()
+		lines = open(name).readlines()
 		if len(lines) > 0:
 			for line in lines:
 				if line.startswith('#SERVICE'):
@@ -325,9 +323,7 @@ class StreamingChannelFromServerScreen(Screen):
 				self.editBouquetNames()
 				bouquetFilesContents = ''
 				for suffix in ['tv', 'radio']:
-					fp = open(DIR_ENIGMA2 + "bouquets." + suffix)
-					bouquetFilesContents += fp.read()
-					fp.close()
+					bouquetFilesContents += open(DIR_ENIGMA2 + "bouquets." + suffix).read()
 				for listindex in range(len(self.workList) - 1):
 					truefalse = self.workList[listindex] in bouquetFilesContents
 					name = self.readBouquetName(DIR_TMP + self.workList[listindex])
@@ -359,9 +355,7 @@ class StreamingChannelFromServerScreen(Screen):
 				filename = DIR_TMP + self.workList[self.readIndex]
 				fp = open(DIR_ENIGMA2 + self.workList[self.readIndex], 'w')
 				try:
-					fp2 = open(filename)
-					lines = fp2.readlines()
-					fp2.close()
+					lines = open(filename).readlines()
 					was_html = False
 					for line in lines:
 						if was_html and '#DESCRIPTION' in line:
@@ -407,9 +401,7 @@ class StreamingChannelFromServerScreen(Screen):
 
 	def getTransponders(self, fp):
 		step = 0
-		fp2 = open(DIR_TMP + 'lamedb')
-		lines = fp2.readlines()
-		fp2.close()
+		lines = open(DIR_TMP + 'lamedb').readlines()
 		for line in lines:
 			if step == 0:
 				if 'transponders' in line:
@@ -423,9 +415,7 @@ class StreamingChannelFromServerScreen(Screen):
 
 	def getServices(self, fp):
 		step = 0
-		fp2 = open(DIR_TMP + 'lamedb')
-		lines = fp2.readlines()
-		fp2.close()
+		lines = open(DIR_TMP + 'lamedb').readlines()
 		for line in lines:
 			if step == 0:
 				if 'services' in line[:8]:
@@ -443,9 +433,7 @@ class StreamingChannelFromServerScreen(Screen):
 		self.removeFiles(DIR_ENIGMA2, prefix)
 		fp = open(target, 'w')
 		try:
-			fp2 = open(source)
-			lines = fp2.readlines()
-			fp2.close()
+			lines = open(source).readlines()
 			for line in lines:
 				if prefix not in line:
 					tmpFile.append(line)
@@ -479,9 +467,7 @@ class StreamingChannelFromServerScreen(Screen):
 		state = 0
 		fp = open(DIR_TMP + 'tmp_lamedb', 'w')
 		try:
-			fp2 = open(DIR_ENIGMA2 + 'lamedb')
-			lines = fp2.readlines()
-			fp2.close()
+			lines = open(DIR_ENIGMA2 + 'lamedb').readlines()
 			for line in lines:
 				if 'eDVB services' in line:
 					fileValid = True
@@ -539,9 +525,7 @@ class StreamingChannelFromServerScreen(Screen):
 
 	def readBouquetName(self, filename):
 		try:
-			fp = open(filename)
-			lines = fp.readlines()
-			fp.close()
+			lines = open(filename).readlines()
 			for line in lines:
 				if '#NAME' in line:
 					tmp = line.split('#NAME ')
@@ -608,9 +592,7 @@ class StreamingChannelFromServerScreen(Screen):
 		for filename in self.workList:
 			if filename != "lamedb":
 				try:
-					fp = open(DIR_TMP + filename)
-					lines = fp.readlines()
-					fp.close()
+					lines = open(DIR_TMP + filename).readlines()
 					for line in lines:
 						if '#SERVICE' in line and int(line.split()[1].split(":")[1]) & eServiceReference.mustDescent:
 							if int(line.split()[1].split(":")[1]) & eServiceReference.mustDescent:
@@ -640,9 +622,7 @@ class StreamingChannelFromServerScreen(Screen):
 		filename = result.group(1)
 		if filename in self.alternatives:
 			try:
-				fp = open(DIR_TMP + filename)
-				lines = fp.readlines()
-				fp.close()
+				lines = open(DIR_TMP + filename).readlines()
 				for line in lines:
 					if '#SERVICE' in line:
 						return line

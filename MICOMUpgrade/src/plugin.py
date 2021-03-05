@@ -242,7 +242,7 @@ class Filebrowser(Screen):
 			return
 		md5sum_A = os.popen("md5sum %s | awk \'{print $1}\'" % (self.gbin)).readline().strip()
 		md5sum_B = os.popen("cat %s.md5 | awk \'{print $1}\'" % (self.gbin)).readline().strip()
-		#print("[FirmwareUpgrade] - Verify : file[%s], md5[%s]"%(md5sum_A,md5sum_B))
+		#print("[MICOMUpgrade] - Verify : file[%s], md5[%s]"%(md5sum_A,md5sum_B))
 
 		if md5sum_A != md5sum_B:
 			self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]" % (md5sum_A, md5sum_B)), MessageBox.TYPE_INFO, timeout=10)
@@ -261,7 +261,7 @@ class Filebrowser(Screen):
 	# cbfunc(string) : callback function(function)
 	def doDownload(self, uri, tf, bd='/tmp', cbfunc=None, errmsg="Fail to download."):
 		tar = bd + "/" + tf
-		#print("[FirmwareUpgrade] - Download Info : [%s][%s]" % (uri, tar))
+		#print("[MICOMUpgrade] - Download Info : [%s][%s]" % (uri, tar))
 
 		def doHook(blockNumber, blockSize, totalSize):
 			if blockNumber * blockSize > totalSize and cbfunc is not None:
@@ -271,7 +271,7 @@ class Filebrowser(Screen):
 			opener.open(uri)
 		except:
 			#self.session.open(MessageBox, _("File not found in this URL:\n%s"%(uri)), MessageBox.TYPE_INFO, timeout = 10)
-			print("[FirmwareUpgrade] - Fail to download. URL :", uri)
+			print("[MICOMUpgrade] - Fail to download. URL :", uri)
 			self.session.open(MessageBox, _(errmsg), MessageBox.TYPE_INFO, timeout=10)
 			del opener
 			return False
@@ -279,7 +279,7 @@ class Filebrowser(Screen):
 			f, h = urlretrieve(uri, tar, doHook)
 		except IOError as msg:
 			#self.session.open(MessageBox, _(str(msg)), MessageBox.TYPE_INFO, timeout = 10)
-			print("[FirmwareUpgrade] - Fail to download. ERR_MSG :", str(msg))
+			print("[MICOMUpgrade] - Fail to download. ERR_MSG :", str(msg))
 			self.session.open(MessageBox, _(errmsg), MessageBox.TYPE_INFO, timeout=10)
 			del opener
 			return False
@@ -288,6 +288,7 @@ class Filebrowser(Screen):
 
 	def runDownloading(self):
 		self.timer_downloading.stop()
+		print("[MICOMUpgrade] Read /proc/stb/info/boxtype")
 		machine = str(open("/proc/stb/info/boxtype").read().strip())
 
 		def cbDownloadDone(tar):
@@ -341,7 +342,7 @@ class Filebrowser(Screen):
 			return
 		self.downloadLock = True
 		if not os.path.exists("/proc/stb/info/boxtype"):
-			self.session.open(MessageBox, _("Can't found model name."), MessageBox.TYPE_INFO, timeout=10)
+			self.session.open(MessageBox, _("Can't find the model name."), MessageBox.TYPE_INFO, timeout=10)
 			self.downloadLock = False
 			return
 		self["status"].setText("Please wait during download.")
@@ -459,9 +460,7 @@ class FirmwareUpgrade(Screen):
 	def cbSetStatus(self, data=None):
 		if data is not None:
 			try:
-				fp = open(data + '.version', "r")
-				self.verfile = fp.readline()
-				fp.close()
+				self.verfile = open(data + '.version', "r").readline()
 				self.verfile = self.verfile.strip("\n")
 			except:
 				self.verfile = "N/A"

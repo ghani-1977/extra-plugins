@@ -28,7 +28,6 @@ from GBIpboxLocale import _
 
 import socket
 import threading
-import urllib
 import urllib2
 
 from xml.dom import minidom

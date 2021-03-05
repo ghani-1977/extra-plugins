@@ -30,7 +30,7 @@ from GBIpboxLocale import _
 
 from enigma import eTimer
 
-from time import localtime, time, strftime, mktime
+from time import localtime, time, mktime
 
 
 class GBIpboxTimer:

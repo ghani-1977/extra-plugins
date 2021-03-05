@@ -200,9 +200,7 @@ class RCUSelect(Screen):
 					Console().ePopen("cp -f /etc/amremote/zgemmastar.conf /etc/amremote/rcuselect.conf &")
 				else:
 					Console().ePopen("cp -f /etc/amremote/wetek2.conf /etc/amremote/rcuselect.conf &")
-				f = open("/etc/amremote/rcuselect-choice", "w")
-				f.write(self.rcuv)
-				f.close()
+				open("/etc/amremote/rcuselect-choice", "w").write(self.rcuv)
 				Console().ePopen("killall -9 remotecfg &")
 				if getBoxType() == "wetekplay2":
 					fin = open("/etc/amremote/rcuselect.conf")

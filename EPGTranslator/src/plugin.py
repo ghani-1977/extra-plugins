@@ -10,8 +10,7 @@ from . import _
 EPGTrans_vers = "2.03-release"
 
 from Components.ActionMap import ActionMap
-from Components.config import (config, configfile, ConfigSubsection,
- ConfigSelection, ConfigInteger, ConfigBoolean, getConfigListEntry)
+from Components.config import config, configfile, ConfigSubsection, ConfigSelection, ConfigInteger, ConfigBoolean, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Language import language
@@ -19,10 +18,8 @@ from Components.Pixmap import Pixmap
 from Components.ScrollLabel import ScrollLabel
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.Sources.StaticText import StaticText
-from enigma import (eEPGCache, eServiceReference, getDesktop,
- iPlayableService, iServiceInformation)
+from enigma import eEPGCache, eServiceReference, getDesktop, iPlayableService, iServiceInformation
 from Plugins.Plugin import PluginDescriptor
-from Screens.EpgSelection import EPGSelection
 from Screens.EventView import EventViewBase
 from Screens.InfoBar import InfoBar
 from Screens.MessageBox import MessageBox
@@ -57,7 +54,7 @@ else:
 
 # Who we will pretend to be when calling translate.google.com
 #
-dflt_UA = 'OpenVix EPG Translator (Mozilla/5.0 compat): ' + EPGTrans_vers
+dflt_UA = 'Open Vision EPG Translator (Mozilla/5.0 compat): ' + EPGTrans_vers
 
 # Useful constants for EPG fetching.
 #
@@ -1037,6 +1034,7 @@ Red: Refresh EPG
 
 # ==================================================================
     def hideScreen(self):
+        print("[EPGTranslator] Write to /proc/stb/video/alpha")
         with open('/proc/stb/video/alpha', 'w') as f:
             count = 40
             while count >= 0:
@@ -1052,6 +1050,7 @@ Red: Refresh EPG
 # ==================================================================
     def exit(self):
         if self.hideflag == False:
+            print("[EPGTranslator] Write to /proc/stb/video/alpha")
             with open('/proc/stb/video/alpha', 'w') as f:
                 f.write('%i' % config.av.osd_alpha.getValue())
         self.close()

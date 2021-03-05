@@ -22,9 +22,7 @@
 #
 #############################################################################
 
-from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarTimeshift
-
 from GBIpboxMenu import GBIpboxMenu
 from GBIpboxTimer import GBIpboxTimer
 from GBIpboxMount import GBIpboxMount

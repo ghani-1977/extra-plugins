@@ -10,19 +10,13 @@ try:
 	import thread
 except:
 	import _thread as thread
-
 from enigma import eTimer
-
 from urllib import urlretrieve
 import urllib
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-
 from Plugins.Plugin import PluginDescriptor
-
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
-
 from Components.Label import Label
 from Components.Slider import Slider
 from Components.Pixmap import Pixmap
@@ -306,12 +300,9 @@ class FPGAUpgrade(Screen):
 
 	def doLoadConf(self):
 		if fileExists("/proc/stb/info/vumodel"):
-			file = open("/proc/stb/info/vumodel")
-			model = file.read().strip()
-			file.close()
-			file = open(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/FPGAUpgrade/fpga.conf"))
-			download_uri_header = file.readline().strip()
-			file.close()
+			print("[FPGAUpgrade] Read /proc/stb/info/vumodel")
+			model = open("/proc/stb/info/vumodel").read().strip()
+			download_uri_header = open(resolveFilename(SCOPE_PLUGINS, "SystemPlugins/FPGAUpgrade/fpga.conf")).readline().strip()
 			self.DOWNLOAD_URL = str(download_uri_header) + "vu" + str(model) + "/" + self.DOWNLOAD_FILE_NAME
 
 	def doHook(self, blockNumber, blockSize, totalSize):

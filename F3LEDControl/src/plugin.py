@@ -17,9 +17,6 @@ from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 import Screens.Standby
 from time import localtime, time
-from Tools.Directories import fileExists
-
-import Screens.Standby
 
 config.plugins.SEG = ConfigSubsection()
 config.plugins.SEG.showClock = ConfigSelection(default="True_Switch", choices=[("False", _("Channelnumber in Standby off")), ("True", _("Channelnumber in Standby Clock")), ("True_Switch", _("Channelnumber/Clock in Standby Clock")), ("True_All", _("Clock always")), ("Off", _("Always off"))])

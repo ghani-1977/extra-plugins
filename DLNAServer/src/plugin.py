@@ -6,13 +6,12 @@ import socket
 import os
 from enigma import eTimer
 from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
-from Components.ActionMap import NumberActionMap, ActionMap
+from Components.ActionMap import ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigDirectory, ConfigYesNo, ConfigSubsection
 from Components.FileList import FileList
 from Components.Console import Console
@@ -346,9 +345,7 @@ class DLNAServer(ConfigListScreen, Screen):
 		configString = configDataAppend(configString, "serial", self.oldConfig.get("serial"))
 		configString = configDataAppend(configString, "model_number", self.oldConfig.get("model_number"))
 		print(configString)
-		confFile = file(self.configFileName, "w")
-		confFile.write(configString)
-		confFile.close()
+		open(self.configFileName, "w").write(configString)
 
 	def readConfigFile(self):
 		self.oldConfig = {}

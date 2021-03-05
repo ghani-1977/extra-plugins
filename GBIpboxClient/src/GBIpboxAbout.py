@@ -23,11 +23,8 @@
 #############################################################################
 
 from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-
 from Components.ActionMap import ActionMap
 from Components.Label import Label
-
 from GBIpboxLocale import _
 
 

@@ -11,7 +11,6 @@ from xml.dom.minidom import Node
 
 from os import system
 
-#from Components.ConfigList import ConfigList
 from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
 from Components.SystemInfo import SystemInfo
@@ -40,12 +39,10 @@ class CustomButtonActionMenu(Screen):
 		activecustom = ""
 
 		try:
-			fp = open('/var/custombutton.dat', 'r')
-			activecustom = fp.readline()
+			activecustom = open('/var/custombutton.dat', 'r').readline()
 			print("ACTIVE CUSTOM:", str(activecustom))
-			fp.close()
 		except:
-			pass
+			print("[CustomButtonAction] Read /var/custombutton.dat failed.")
 
 		xmldata = keycustomxml.childNodes[0]
 		entries = xmldata.childNodes
@@ -85,10 +82,7 @@ class CustomButtonActionMenu(Screen):
 	def ok(self):
 		if self.idxactive != self["actionlist"].getSelectedIndex():
 			print("Selected : %s\n" % self["actionlist"].getCurrent())
-
-			fp = open('/var/custombutton.dat', 'w')
-			fp.write("%s" % self["actionlist"].getCurrent())
-			fp.close()
+			open('/var/custombutton.dat', 'w').write("%s" % self["actionlist"].getCurrent())
 			system("sync")
 
 			self.session.openWithCallback(self.okCB, MessageBox, _("Your new Custom Buttom is %s.") % str(self["actionlist"].getCurrent()), type=MessageBox.TYPE_INFO)

@@ -57,10 +57,12 @@ def getMisPlsValue(d, idx, defaultValue):
 def getAdapterFrontend(frontend, description):
 	for adapter in range(1, 5):
 		try:
+			print("[Blindscan] Read /sys/class/dvb/dvb%d.frontend0/device/product" % adapter)
 			product = open("/sys/class/dvb/dvb%d.frontend0/device/product" % adapter).read()
 			if description in product:
 				return " -a %d" % adapter
 		except:
+			print("[Blindscan] Read /sys/class/dvb/dvb%d.frontend0/device/product failed." % adapter)
 			break
 	return " -f %d" % frontend
 
@@ -314,8 +316,10 @@ class Blindscan(ConfigListScreen, Screen):
 	def ScanNimsocket(self, filepath='/proc/bus/nim_sockets'):
 		_nimSocket = {}
 		try:
+			print("[Blindscan] Read /proc/bus/nim_sockets")
 			fp = open(filepath)
 		except:
+			print("[Blindscan] Read /proc/bus/nim_sockets failed.")
 			return _nimSocket
 		sNo, sName, sI2C = -1, "", -1
 		for line in fp:
@@ -1691,10 +1695,11 @@ def BlindscanCallback(close, answer):
 def BlindscanMain(session, close=None, **kwargs):
 	have_Support_Blindscan = False
 	try:
+		print("[Blindscan] Read /proc/bus/nim_sockets")
 		if 'Supports_Blind_Scan: yes' in open('/proc/bus/nim_sockets').read():
 			have_Support_Blindscan = True
 	except:
-		pass
+		print("[Blindscan] Read /proc/bus/nim_sockets failed.")
 	if have_Support_Blindscan:
 		import dmmBlindScan
 		session.openWithCallback(boundFunction(BlindscanCallback, close), dmmBlindScan.DmmBlindscan)

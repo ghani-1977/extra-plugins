@@ -24,7 +24,7 @@
 
 from Plugins.Plugin import PluginDescriptor
 
-from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText, ConfigClock, ConfigSelection
+from Components.config import config, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText, ConfigClock, ConfigSelection
 from Tools.Directories import fileExists
 from GBIpboxClient import GBIpboxClient, GBIpboxClientAutostart
 from GBIpboxRemoteTimer import GBIpboxRemoteTimer
@@ -59,9 +59,8 @@ def ipboxclientStart(menuid, **kwargs):
 
 def getHasTuners():
 	if fileExists("/proc/bus/nim_sockets"):
-		nimfile = open("/proc/bus/nim_sockets")
-		data = nimfile.read().strip()
-		nimfile.close()
+		print("[GBIpboxClient] Read /proc/bus/nim_sockets")
+		data = open("/proc/bus/nim_sockets").read().strip()
 		return len(data) > 0
 	return False
 

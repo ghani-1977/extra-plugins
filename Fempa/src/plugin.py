@@ -6,24 +6,17 @@ from __future__ import print_function
 ###########################################################################
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Screens.InfoBar import MoviePlayer as MP_parent
-from Screens.InfoBar import InfoBar
-from Screens.MessageBox import MessageBox
-from Screens.VirtualKeyBoard import VirtualKeyBoard
 from ServiceReference import ServiceReference
-from enigma import eServiceReference, eConsoleAppContainer, ePicLoad, getDesktop, eServiceCenter
+from enigma import eServiceReference, getDesktop
 from Components.MenuList import MenuList
-from Components.Input import Input
-from Screens.InputBox import InputBox
 from Components.ActionMap import ActionMap
-from cookielib import CookieJar
-import urllib
 import urllib2
 import re
 import time
 import os
 import socket
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+
 socket.setdefaulttimeout(300) #in seconds
 
 

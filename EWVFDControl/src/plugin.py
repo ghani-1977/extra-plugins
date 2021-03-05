@@ -18,7 +18,6 @@ from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 from Tools.Directories import fileExists
-
 import Screens.Standby
 
 config.plugins.vfd_ew = ConfigSubsection()
@@ -310,9 +309,8 @@ def sessionstart(reason, **kwargs):
 
 def Plugins(**kwargs):
 		if fileExists("/proc/stb/fp/version"):
-			file = open("/proc/stb/fp/version")
-			version = file.read().strip().lower()
-			file.close()
+			print("[VFD-EW] Read /proc/stb/fp/version")
+			version = open("/proc/stb/fp/version").read().strip().lower()
 		if version.startswith('2'):
 			return []
 		else:

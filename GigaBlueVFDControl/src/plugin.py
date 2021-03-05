@@ -8,9 +8,8 @@ from Screens.Screen import Screen
 from Components.Console import Console
 from Components.Button import Button
 from Components.ActionMap import ActionMap
-from Components.config import config, configfile, ConfigSubsection, ConfigEnableDisable, getConfigListEntry, ConfigInteger, ConfigSelection, ConfigYesNo, ConfigSlider
+from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigYesNo, ConfigSlider
 from Components.ConfigList import ConfigListScreen, ConfigList
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, getBoxType
 from os import system
 from Plugins.Plugin import PluginDescriptor
@@ -19,7 +18,6 @@ from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 import Screens.Standby
-from enigma import pNavigation
 import Components.RecordingConfig
 from Components.Harddisk import harddiskmanager
 
@@ -70,16 +68,18 @@ def setvfdBrightness(value):
 		if value > 255:
 			value = 255
 	try:
+		print("[LED-GIGA] Write to /proc/stb/fp/oled_brightness")
 		open("/proc/stb/fp/oled_brightness", "w").write(str(value))
 	except IOError:
-		print("[LED-GIGA] vfdBrightness failed!")
+		print("[LED-GIGA] Write to /proc/stb/fp/oled_brightness failed.")
 
 
 def setvfdDSBY2(value):
 	try:
+		print("[LED-GIGA] Write to /proc/stb/fp/enable_led")
 		open("/proc/stb/fp/enable_led", "w").write(str(value))
 	except IOError:
-		print("[LED-GIGA] vfdDSBY2 failed!")
+		print("[LED-GIGA] Write to /proc/stb/fp/enable_led failed.")
 
 
 def setLed(color):
@@ -125,14 +125,16 @@ def setLed(color):
 
 	if BOX in ("gb800se", "gb800solo", "gb800ue", "gbip4k", "gbtrio4k"):
 	   try:
+		  print("[LED-GIGA] Write to /proc/stb/fp/led0_pattern")
 		  open(led0, "w").write(str(value0))
 	   except IOError:
-		  print("[LED-GIGA] set LED Pattern failed!")
+		  print("[LED-GIGA] Write to /proc/stb/fp/led0_pattern failed.")
 
 	   try:
+		  print("[LED-GIGA] Write to /proc/stb/fp/led1_pattern")
 		  open(led1, "w").write(str(value1))
 	   except IOError:
-		  print("[LED-GIGA] set LED Pattern failed!")
+		  print("[LED-GIGA] Write to /proc/stb/fp/led1_pattern failed.")
 
 
 class Channelnumber:
@@ -372,6 +374,7 @@ def initLED():
 	if BOX in ("gbtrio4k", "gbquad", "gbquad4k", "gbue4k", "gb800ueplus", "gbquadplus", "gbultraue", "gbultraueh", "gbipbox", "gbx1", "gbx2", "gbx3", "gbx3h", "gbx34k"):
 		cmd = 'echo STB does not support to show clock in Deep Standby'
 	else:
+		print("[LED-GIGA] Write to /proc/stb/fp/enable_clock")
 		cmd = 'echo ' + str(forcmd) + ' > /proc/stb/fp/enable_clock'
 	res = Console().ePopen(cmd)
 
@@ -582,15 +585,17 @@ def SetTime():
 
 	# Set RTC OFFSET (diff. between UTC and Local Time)
 	try:
+		print("[LED-GIGA] Write to /proc/stb/fp/rtc_offset")
 		open("/proc/stb/fp/rtc_offset", "w").write(str(forsleep))
 	except IOError:
-		print("[LED-GIGA] set RTC Offset failed!")
+		print("[LED-GIGA] Write to /proc/stb/fp/rtc_offset failed.")
 
 	# Set RTC
 	try:
+		print("[LED-GIGA] Write to /proc/stb/fp/rtc")
 		open("/proc/stb/fp/rtc", "w").write(str(int(time.time())))
 	except IOError:
-		print("[LED-GIGA] set RTC time failed!")
+		print("[LED-GIGA] Write to /proc/stb/fp/rtc failed.")
 
 
 def sessionstart(reason, **kwargs):

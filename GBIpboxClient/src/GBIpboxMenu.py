@@ -30,7 +30,7 @@ from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
 from Components.Button import Button
 from Components.ConfigList import ConfigListScreen
-from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText
+from Components.config import config, getConfigListEntry
 from Components.Sources.Boolean import Boolean
 from Components.Sources.StaticText import StaticText
 

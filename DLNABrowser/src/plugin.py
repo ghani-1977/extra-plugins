@@ -4,7 +4,7 @@ from __future__ import print_function
 from Plugins.Plugin import PluginDescriptor
 from Plugins.Extensions.PicturePlayer.ui import *
 import os
-from enigma import gFont, eTimer, eConsoleAppContainer, ePicLoad, getDesktop, eServiceReference, iPlayableService, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_HALIGN_CENTER, RT_VALIGN_CENTER
+from enigma import eTimer, eConsoleAppContainer, ePicLoad, getDesktop, eServiceReference, iPlayableService
 from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
@@ -13,15 +13,14 @@ from Components.Button import Button
 from Components.Label import Label
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
-from Components.ActionMap import NumberActionMap, ActionMap
-from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigDirectory, ConfigYesNo, ConfigSelection
-from Components.FileList import FileList, FileEntryComponent
+from Components.ActionMap import ActionMap
+from Components.config import config, ConfigSelection, getConfigListEntry, ConfigText, ConfigYesNo
+from Components.FileList import FileList
 from Components.MenuList import MenuList
-from Components.Pixmap import Pixmap, MovingPixmap
+from Components.Pixmap import Pixmap
 from Components.AVSwitch import AVSwitch
 from Components.ServiceEventTracker import ServiceEventTracker
-from Components.MultiContent import MultiContentEntryText
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.Console import Console
 
 EXTENSIONS = {
@@ -765,9 +764,7 @@ class DLNAClientConfig(ConfigListScreen, Screen):
 		configString = configDataAppend(configString, "refresh", self.menuItemRefresh.value)
 		configString = configDataAppend(configString, "slideshow", self.menuItemSlideshow.value)
 		print(configString)
-		confFile = file(self.configFileName, 'w')
-		confFile.write(configString)
-		confFile.close()
+		open(self.configFileName, 'w').write(configString)
 
 	def readConfigFile(self):
 		def setDefault(key, default):

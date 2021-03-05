@@ -11,7 +11,7 @@ from Components.config import config, configfile
 from Screens.MessageBox import MessageBox
 from downloader import DownloadSetting, ConverDate, ConverDateBack
 from enigma import *
-
+from Components.Console import Console
 try:
     import zipfile
 except:
@@ -28,19 +28,17 @@ def InstallSettings(name, link, date):
         response = urllib2.urlopen(req)
         newlink = response.read()
         response.close()
-        Setting = open(Directory + '/Settings/tmp/listE2.zip', 'w')
-        Setting.write(newlink)
-        Setting.close()
+        open(Directory + '/Settings/tmp/listE2.zip', 'w').write(newlink)
         if os.path.exists(Directory + '/Settings/tmp/listE2.zip'):
-            os.system('mkdir ' + Directory + '/Settings/tmp/listE2_unzip')
+            Console().ePopen('mkdir -p %s/Settings/tmp/listE2_unzip' % Directory)
             try:
-                os.system('unzip ' + Directory + '/Settings/tmp/listE2.zip -d  ' + Directory + '/Settings/tmp/listE2_unzip')
+                Console().ePopen('unzip %s/Settings/tmp/listE2.zip -d %s/Settings/tmp/listE2_unzip' % (Directory, Directory))
             except:
                 print("ERROR unzip listE2.zip")
             if not os.path.exists(Directory + '/Settings/tmp/setting'):
-                os.system('mkdir ' + Directory + '/Settings/tmp/setting')
+                Console().ePopen('mkdir -p %s/Settings/tmp/setting' % Directory)
                 try:
-                    os.system('unzip ' + Directory + '/Settings/tmp/listE2_unzip/*.zip -d  ' + Directory + '/Settings/tmp/setting')
+                    Console().ePopen('unzip %s/Settings/tmp/listE2_unzip/*.zip -d %s/Settings/tmp/setting' % (Directory, Directory))
                 except:
                     print("ERROR unzip %s.zip", name)
         return False
@@ -49,20 +47,20 @@ def InstallSettings(name, link, date):
 
     # remove old download if exists
     if os.path.exists(Directory + '/Settings/tmp'):
-        os.system('rm -rf ' + Directory + '/Settings/tmp')
+        Console().ePopen('rm -rf %s/Settings/tmp' % Directory)
 
     # create a new empty tmp folder
     if not os.path.exists(Directory + '/Settings/tmp'):
-        os.system('mkdir -p ' + Directory + '/Settings/tmp')
+        Console().ePopen('mkdir -p %s/Settings/tmp' % Directory)
 
     # copy current settings
     if not os.path.exists(Directory + '/Settings/enigma2'):
-        os.system('mkdir -p ' + Directory + '/Settings/enigma2')
+        Console().ePopen('mkdir -p %s/Settings/enigma2' % Directory)
 
     now = time.time()
     ttime = time.localtime(now)
     tt = str(ttime[0])[2:] + str('{0:02d}'.format(ttime[1])) + str('{0:02d}'.format(ttime[2])) + '_' + str('{0:02d}'.format(ttime[3])) + str('{0:02d}'.format(ttime[4])) + str('{0:02d}'.format(ttime[5]))
-    os.system("tar -czvf " + Directory + "/Settings/enigma2/" + tt + "_enigma2settingsbackup.tar.gz" + " -C / /etc/enigma2/*.tv /etc/enigma2/*.radio /etc/enigma2/lamedb")
+    Console().ePopen('tar -czvf %s/Settings/enigma2/%s_enigma2settingsbackup.tar.gz -C / /etc/enigma2/*.tv /etc/enigma2/*.radio /etc/enigma2/lamedb' % (Directory, tt))
 
     def getRemoveList():
         RemoveList = []
@@ -80,19 +78,19 @@ def InstallSettings(name, link, date):
             for file in RemoveList:
                nFile = '/etc/enigma2/' + file
                if os.path.isfile(nFile) and not nFile == '/etc/enigma2/lamedb':
-                    os.system('rm -rf %s' % nFile)
+                    Console().ePopen('rm -rf %s' % nFile)
 
-        os.system('rm -rf /etc/enigma2/*.del')
-        os.system('rm -rf /etc/enigma2/lamedb')
+        Console().ePopen('rm -f /etc/enigma2/*.del')
+        Console().ePopen('rm -f /etc/enigma2/lamedb')
 
         # copy new settings
-        os.system('cp -rf ' + Directory + '/Settings/tmp/setting/*.tv  /etc/enigma2/')
-        os.system('cp -rf ' + Directory + '/Settings/tmp/setting/*.radio  /etc/enigma2/')
-        os.system('cp -rf ' + Directory + '/Settings/tmp/setting/lamedb  /etc/enigma2/')
+        Console().ePopen('cp -rf %s/Settings/tmp/setting/*.tv  /etc/enigma2/' % Directory)
+        Console().ePopen('cp -rf %s/Settings/tmp/setting/*.radio  /etc/enigma2/' % Directory)
+        Console().ePopen('cp -rf %s/Settings/tmp/setting/lamedb  /etc/enigma2/' % Directory)
 
         # remove /tmp folder
         if os.path.exists(Directory + '/Settings/tmp'):
-            os.system('rm -rf ' + Directory + '/Settings/tmp')
+            Console().ePopen('rm -rf %s/Settings/tmp' % Directory)
 
     else:
         Status = False

@@ -6,7 +6,7 @@ from . import _
 
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
-from Components.config import config, configfile, getConfigListEntry, ConfigSubsection, ConfigSelection, ConfigYesNo
+from Components.config import config, configfile, getConfigListEntry, ConfigSubsection, ConfigSelection
 from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
@@ -29,9 +29,8 @@ class RemoteControlCodeInit:
 		if not fileExists("/proc/stb/ir/rc/customcode"):
 			return -1
 		print("[RemoteControlCode] Write Remote Control Code : ", type)
-		f = open("/proc/stb/ir/rc/customcode", "w")
-		f.write(type)
-		f.close()
+		print("[RemoteControlCode] Write to /proc/stb/ir/rc/customcode")
+		open("/proc/stb/ir/rc/customcode", "w").write(type)
 		return 0
 
 	def getModel(self):

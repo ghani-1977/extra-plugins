@@ -7,7 +7,7 @@ import os
 import urllib
 from urllib import urlretrieve
 from Plugins.Plugin import PluginDescriptor
-from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigText, ConfigSelection, ConfigYesNo, ConfigText
+from Components.config import config, getConfigListEntry, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
@@ -17,46 +17,44 @@ from Components.FileList import FileList
 from Components.Slider import Slider
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-from enigma import ePoint, eConsoleAppContainer, eTimer, getDesktop
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from enigma import eTimer, getBoxType
 from Components.Console import Console
+
+model = getBoxType()
 
 fwlist = None
 fwdata = None
-if os.path.exists("/proc/stb/info/vumodel"):
-	vumodel = open("/proc/stb/info/vumodel")
-	info = vumodel.read().strip()
-	vumodel.close()
 
-	if info == "ultimo":
+if os.path.exists("/proc/stb/info/vumodel"):
+	if model == "vuultimo":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
 		fwdata = {
 			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
-	elif info == "uno":
+	elif model == "vuuno":
 		fwlist = [
 			("fpga", _("FPGA"))
 			]
 		fwdata = {
 			"fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]
 			}
-	elif info == "solo2":
+	elif model == "vusolo2":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
 		fwdata = {
 			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
-	elif info == "duo2":
+	elif model == "vuduo2":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor")), ("vfd", _("VFD Controller"))
 			]
 		fwdata = {
 			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]			, "vfd": ["http://archive.vuplus.com/download/vfd", "vfd.files", "/dev/bcm_vfd_ctrl;"]
 			}
-	elif info == "zero":
+	elif model == "vuzero":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
@@ -572,10 +570,9 @@ class FUFilebrowser(Screen):
 
 	def runDownloading(self):
 		self.timer_downloading.stop()
-		file = open("/proc/stb/info/vumodel")
-		data = file.read().strip()
+		print("[FirmwareUpgrade] Read /proc/stb/info/vumodel")
+		data = open("/proc/stb/info/vumodel").read().strip()
 		machine = str(data)
-		file.close()
 
 		def cbDownloadDone(tar):
 			try:
@@ -642,7 +639,7 @@ class FUFilebrowser(Screen):
 			return
 		self.downloadLock = True
 		if not os.path.exists("/proc/stb/info/vumodel"):
-			self.session.open(MessageBox, _("Can't found model name."), MessageBox.TYPE_INFO, timeout=10)
+			self.session.open(MessageBox, _("Can't find a vuplus receiver."), MessageBox.TYPE_INFO, timeout=10)
 			self.downloadLock = False
 			return
 		self["status"].setText("Please wait during download.")

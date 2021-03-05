@@ -3,7 +3,7 @@
                     <tag type="Extension" />
 	  </prerequisites>
           <info>
-                    <author>OpenViX</author>
+                    <author>Alliance</author>
                     <name>EPGTranslator</name>
                     <packagename>enigma2-plugin-extensions-epgtranslator</packagename>
                     <shortdescription>Translates EPG text</shortdescription>

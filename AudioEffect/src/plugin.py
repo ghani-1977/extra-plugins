@@ -47,18 +47,16 @@ if SUPPORT_3D_SURROUND or SUPPORT_AVL:
 
 
 def getProcValue(procPath):
-	fd = open(procPath, 'r')
-	curValue = fd.read().strip(' ').strip('\n')
-	fd.close()
+	print("[AudioEffect] Read proc file.")
+	curValue = open(procPath, 'r').read().strip(' ').strip('\n')
 #	print("[AudioEffect] get %s from %s" % (curValue, procPath))
 	return curValue
 
 
 def setProcValue(procPath, value):
 #	print("[AudioEffect] set %s to %s" % (value, procPath))
-	fd = open(procPath, 'w')
-	fd.write(value)
-	fd.close()
+	print("[AudioEffect] Write to proc file.")
+	open(procPath, 'w').write(value)
 
 
 def setConfigValue(procPath, value):
