@@ -128,8 +128,7 @@ class DownloadOnLineImage(Screen):
                 self.session.open(MessageBox, _('The URL to this image is not correct!'), type=MessageBox.TYPE_ERROR)
                 self.close()
 
-            f = open(file_name, 'wb')
-            f.close()
+            open(file_name, 'wb')
             meta = u.info()
             file_size = int(meta.getheaders('Content-Length')[0])
             print('[SH4MultiBoot-Download] Downloading: %s Bytes: %s' % (sel, file_size))

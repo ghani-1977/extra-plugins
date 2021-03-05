@@ -1,5 +1,5 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os
+from Components.Console import Console
 
-os.system("touch /tmp/.sh4multi.inf")
+Console().ePopen("touch /tmp/.sh4multi.inf")

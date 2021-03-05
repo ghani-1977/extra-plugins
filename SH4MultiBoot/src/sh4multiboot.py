@@ -5,6 +5,7 @@ import sys
 import os
 import shutil
 from glob import glob
+from Components.Console import Console
 
 
 def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
@@ -13,49 +14,49 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
 
     to = '/media/sh4multiboot/SH4MultiBootI/' + target
     cmd = 'rm -rf %s > /dev/null 2<&1' % to
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     to = '/media/sh4multiboot/SH4MultiBootI/' + target
-    cmd = 'mkdir %s > /dev/null 2<&1' % to
-    rc = os.system(cmd)
+    cmd = 'mkdir -p %s > /dev/null 2<&1' % to
+    rc = Console().ePopen(cmd)
     to = '/media/sh4multiboot/SH4MultiBootI/' + target
     cmd = 'chmod -R 0777 %s' % to
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     print("[sh4multiboot] filesys:", filesys)
     if filesys == "jffs2":
         rc = SH4MultiBootExtractJFFS(source, target, zipdelete)
     cmd = 'mkdir -p %s/SH4MultiBootI/%s/media > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'rm -rf %s/SH4MultiBootI/%s/%s > /dev/null 2>&1' % (sh4multihome, target, sh4multiroot)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'rmdir %s/SH4MultiBootI/%s/%s > /dev/null 2>&1' % (sh4multihome, target, sh4multiroot)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'mkdir -p %s/SH4MultiBootI/%s/%s > /dev/null 2>&1' % (sh4multihome, target, sh4multiroot)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'cp -f /etc/network/interfaces %s/SH4MultiBootI/%s/etc/network/interfaces > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     #cmd = 'cp -f /etc/passwd %s/SH4MultiBootI/%s/etc/passwd > /dev/null 2>&1' % (sh4multihome, target)
-    #rc = os.system(cmd)
+    #rc = Console().ePopen(cmd)
     cmd = 'cp -f /etc/resolv.conf %s/SH4MultiBootI/%s/etc/resolv.conf > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'cp -f /etc/wpa_supplicant.conf %s/SH4MultiBootI/%s/etc/wpa_supplicant.conf > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'rm -rf %s/SH4MultiBootI/%s/usr/lib/enigma2/python/Plugins/Extensions/HbbTV' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'cp -fr /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/SH4MultiBootClient %s/SH4MultiBootI/%s/usr/lib/enigma2/python/Plugins/Extensions/ > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'cp -fr /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location %s/SH4MultiBootI/%s/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBootClient/.sh4multiboot_location > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     if installsettings == 'True':
         cmd = 'mkdir -p %s/SH4MultiBootI/%s/etc/enigma2 > /dev/null 2>&1' % (sh4multihome, target)
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'cp -f /etc/enigma2/* %s/SH4MultiBootI/%s/etc/enigma2/' % (sh4multihome, target)
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'cp -f /etc/tuxbox/* %s/SH4MultiBootI/%s/etc/tuxbox/' % (sh4multihome, target)
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
     cmd = 'mkdir -p %s/SH4MultiBootI/%s/media > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     cmd = 'mkdir -p %s/SH4MultiBootI/%s/media/usb > /dev/null 2>&1' % (sh4multihome, target)
-    rc = os.system(cmd)
+    rc = Console().ePopen(cmd)
     filename = sh4multihome + '/SH4MultiBootI/' + target + '/etc/fstab'
     filename2 = filename + '.tmp'
     out = open(filename2, 'w')
@@ -82,17 +83,17 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
 	    for fdelete in glob(oedir + '/*.opk'):
 		    os.remove(fdelete)
             cmd = 'mv %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
             cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
     else:
         print("[sh4multiboot] Copy drivers")
 	for fdelete in glob(oedir + '/*.opk'):
 		os.remove(fdelete)
         cmd = 'mv %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
     if os.path.exists('%s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target)):
         print("[sh4multiboot] Search SH4 drivers")
         koLIST = []
@@ -110,7 +111,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
         print("[sh4multiboot] OE drivers")
     tpmd = sh4multihome + '/SH4MultiBootI/' + target + '/etc/init.d/tpmd'
     if os.path.exists(tpmd):
-        os.system('rm -f ' + tpmd)
+        Console().ePopen('rm -f %s' % tpmd)
     mypath = sh4multihome + '/SH4MultiBootI/' + target + '/usr/lib/opkg/info/'
     if not os.path.exists(mypath):
         mypath = sh4multihome + '/SH4MultiBootI/' + target + '/var/lib/opkg/info/'
@@ -131,7 +132,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
                 out.close()
                 os.rename(filename2, filename)
                 cmd = 'chmod -R 0755 %s' % filename
-                rc = os.system(cmd)
+                rc = Console().ePopen(cmd)
         if fn.find('-bootlogo.postinst') != -1:
             filename = mypath + fn
             filename2 = filename + '.tmp'
@@ -146,7 +147,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             out.close()
             os.rename(filename2, filename)
             cmd = 'chmod -R 0755 %s' % filename
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
         if fn.find('-bootlogo.postrm') != -1:
             filename = mypath + fn
             filename2 = filename + '.tmp'
@@ -161,7 +162,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             out.close()
             os.rename(filename2, filename)
             cmd = 'chmod -R 0755 %s' % filename
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
         if fn.find('-bootlogo.preinst') != -1:
             filename = mypath + fn
             filename2 = filename + '.tmp'
@@ -176,7 +177,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             out.close()
             os.rename(filename2, filename)
             cmd = 'chmod -R 0755 %s' % filename
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
         if fn.find('-bootlogo.prerm') != -1:
             filename = mypath + fn
             filename2 = filename + '.tmp'
@@ -191,16 +192,14 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             out.close()
             os.rename(filename2, filename)
             cmd = 'chmod -R 0755 %s' % filename
-            rc = os.system(cmd)
+            rc = Console().ePopen(cmd)
 
     rc = SH4MultiBootRemoveUnpackDirs()
     filename = sh4multihome + '/SH4MultiBootI/.sh4multiboot'
-    out = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w')
-    out.write(target)
-    out.close()
-    os.system('touch /tmp/.reboot')
-    rc = os.system('sync')
-    os.system('reboot -p')
+    open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w').write(target)
+    Console().ePopen('touch /tmp/.reboot')
+    rc = Console().ePopen('sync')
+    Console().ePopen('reboot -p')
 
 
 def SH4MultiBootRemoveUnpackDirs():
@@ -212,47 +211,47 @@ def SH4MultiBootRemoveUnpackDirs():
 def SH4MultiBootExtractJFFS(source, target, zipdelete):
     SH4MultiBootRemoveUnpackDirs()
     if os.path.exists('/media/sh4multiboot/jffs2') is False:
-        rc = os.system('mkdir /media/sh4multiboot/jffs2')
+        rc = Console().ePopen('mkdir -p /media/sh4multiboot/jffs2')
     sourcefile = '/media/sh4multiboot/SH4MultiBootUpload/%s.zip' % source
     if os.path.exists(sourcefile) is True:
         os.chdir('/media/sh4multiboot/SH4MultiBootUpload')
-        os.system('echo "[SH4MultiBoot] Extracting image file"')
-        rc = os.system('unzip ' + sourcefile)
+        Console().ePopen('echo "[SH4MultiBoot] Extracting image file"')
+        rc = Console().ePopen('unzip %s' % sourcefile)
         if zipdelete == "True":
-                rc = os.system('rm -f ' + sourcefile)
+                rc = Console().ePopen('rm -f %s' % sourcefile)
         else:
-                os.system('echo "[SH4MultiBoot] Keep %s for next time"' % sourcefile)
+                Console().ePopen('echo "[SH4MultiBoot] Keep %s for next time"' % sourcefile)
         if os.path.exists('/media/sh4multiboot/SH4MultiBootUpload/enigma2'):
             os.chdir('enigma2')
-            os.system('mv -f e2jffs2.img rootfs.bin')
+            Console().ePopen('mv -f e2jffs2.img rootfs.bin')
             GETIMAGEFOLDER = '/media/sh4multiboot/SH4MultiBootUpload/enigma2'
         print('[sh4multiboot] Extracting JFFS2 image and moving extracted image to our target')
 
         rootfs_path = GETIMAGEFOLDER + '/rootfs.bin'
         cmd = 'mknod /media/sh4multiboot/mtdblock7 b 31 7'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/sbin/modprobe loop'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/sbin/losetup /dev/loop0 ' + rootfs_path
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/sbin/modprobe mtdblock'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/sbin/modprobe block2mtd'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/bin/echo "/dev/loop0,128KiB" > /sys/module/block2mtd/parameters/block2mtd'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'modprobe jffs2'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/bin/mount -t jffs2 /media/sh4multiboot/mtdblock7 /media/sh4multiboot/jffs2'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'cp -frp /media/sh4multiboot/jffs2/* /media/sh4multiboot/SH4MultiBootI/' + target
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = '/bin/umount /media/sh4multiboot/jffs2'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'chmod -R +x /media/sh4multiboot/SH4MultiBootI/' + target
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'rm -f /media/sh4multiboot/jffs2'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
         cmd = 'rm -f /media/sh4multiboot/mtdblock7'
-        rc = os.system(cmd)
+        rc = Console().ePopen(cmd)
     return 1

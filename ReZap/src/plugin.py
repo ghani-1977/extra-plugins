@@ -66,7 +66,7 @@ class LoopSyncMain(Screen):
 			if int(open("/sys/class/tsync/reset_flag", "r").read(), 16) == 1:
 				return True
 		except Exception as e:
-			pprint("[ReZap] Read /sys/class/tsync/reset_flag failed.")
+			print("[ReZap] Read /sys/class/tsync/reset_flag failed.")
 			self.AVSyncTimer.start(500, True)
 		return False
 

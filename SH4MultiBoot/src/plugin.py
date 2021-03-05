@@ -20,11 +20,17 @@ from Tools.Directories import fileExists, pathExists
 import os
 from skin import parseColor
 from Plugins.Plugin import PluginDescriptor
+from Components.Console import Console
+from enigma import getBoxType, getBoxBrand
+from boxbranding import getVisionVersion, getVisionRevision
 
-PLUGINVERSION = '10.2'
+visionversion = getVisionVersion()
+visionrevision = getVisionRevision()
+brand = getBoxBrand()
+model = getBoxType()
 
 SH4MultiBootInstallation_Skin = '\n\t\t<screen name="SH4MultiBootInstallation" position="center,center" size="902,380" title="SH4MultiBoot - Installation" >\n\t\t      <widget name="label1" position="10,10" size="840,30" zPosition="1" halign="center" font="Regular;25" backgroundColor="#9f1313" transparent="1"/>\n\t\t      <widget name="label2" position="10,80" size="840,290" zPosition="1" halign="center" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t      <widget name="config" position="10,160" size="840,200" scrollbarMode="showOnDemand" transparent="1"/>\n\t\t      <ePixmap pixmap="buttons/red.png" position="10,290" size="140,40" alphatest="on" />\n\t\t      <ePixmap pixmap="buttons/green.png" position="160,290" size="140,40" alphatest="on" />\n\t\t      <ePixmap pixmap="buttons/blue.png" position="310,290" size="140,40" alphatest="on" />\n\t\t      <widget name="key_red" position="10,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t      <widget name="key_green" position="160,290" zPosition="1" size="140,40" font="Regular;18" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t      <widget name="key_blue" position="310,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t</screen>'
-SH4MultiBootImageChoose_Skin = '\n\t\t<screen name="SH4MultiBootImageChoose" position="center,center" size="902,380" title="SH4MultiBoot - Menu" >\n\t\t\t<widget name="label2" position="145,10" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label3" position="145,35" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label4" position="145,60" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label5" position="145,85" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label6" position="420,10" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label7" position="420,35" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label8" position="420,60" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label9" position="420,85" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label10" position="145,110" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label11" position="420,110" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label1" position="25,145" size="840,22" zPosition="1" halign="center" font="Regular;18" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="device_icon" position="25,20" size="80,80" alphatest="on" />\n\t\t\t<widget name="free_space_progressbar" position="265,42" size="500,13" borderWidth="1" zPosition="3" />\n\t\t\t<widget name="config" position="25,180" size="840,150" scrollbarMode="showOnDemand"/>\n\t\t\t<ePixmap pixmap="buttons/red.png" position="10,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/green.png" position="260,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/yellow.png" position="520,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/blue.png" position="750,340" size="150,40" alphatest="on" />\n\t\t\t<widget name="key_red" position="5,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t<widget name="key_green" position="255,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t<widget name="key_yellow" position="515,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t\t<widget name="key_blue" position="745,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t</screen>'
+SH4MultiBootImageChoose_Skin = '\n\t\t<screen name="SH4MultiBootImageChoose" position="center,center" size="902,380" title="SH4MultiBoot - Menu" >\n\t\t\t<widget name="label2" position="145,10" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label3" position="145,35" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label4" position="145,60" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label5" position="145,85" size="440,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label6" position="420,10" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label7" position="420,35" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label8" position="420,60" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label9" position="420,85" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label10" position="145,110" size="600,30" zPosition="1" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="label11" position="420,110" size="440,30" zPosition="1" halign="right" font="Regular;20" backgroundColor="#9f1313" foregroundColor="#00389416" transparent="1"/>\n\t\t\t<widget name="label1" position="25,145" size="840,22" zPosition="1" halign="center" font="Regular;18" backgroundColor="#9f1313" transparent="1"/>\n\t\t\t<widget name="device_icon" position="25,20" size="80,80" alphatest="on" />\n\t\t\t<widget name="free_space_progressbar" position="265,42" size="500,13" borderWidth="1" zPosition="3" />\n\t\t\t<widget name="config" position="25,180" size="840,150" scrollbarMode="showOnDemand"/>\n\t\t\t<ePixmap pixmap="buttons/red.png" position="10,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/green.png" position="260,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/yellow.png" position="520,340" size="150,40" alphatest="on" />\n\t\t\t<ePixmap pixmap="buttons/blue.png" position="750,340" size="150,40" alphatest="on" />\n\t\t\t<widget name="key_red" position="5,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t<widget name="key_green" position="255,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t<widget name="key_yellow" position="515,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t\t<widget name="key_blue" position="745,340" zPosition="1" size="160,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t</screen>'
 SH4MultiBootImageInstall_Skin = '\n\t\t    <screen name="SH4MultiBootImageInstall" position="center,center" size="770,340" title="SH4MultiBoot - Image Installation" >\n\t\t\t      <widget name="config" position="10,10" size="750,220" scrollbarMode="showOnDemand" transparent="1"/>\n\t\t\t      <ePixmap pixmap="buttons/red.png" position="10,290" size="140,40" alphatest="on" />\n\t\t\t      <ePixmap pixmap="buttons/green.png" position="150,290" size="140,40" alphatest="on" />\n\t\t\t      <ePixmap pixmap="buttons/yellow.png" position="290,290" size="140,40" alphatest="on" />\n\t\t\t      <widget name="HelpWindow" position="330,310" zPosition="5" size="1,1" transparent="1" alphatest="on" />      \n\t\t\t      <widget name="key_red" position="10,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t      <widget name="key_green" position="150,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t\t      <widget name="key_yellow" position="290,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t    </screen>'
 
 
@@ -45,7 +51,7 @@ class SH4MultiBootInstallation(Screen):
         self['key_red'] = Label(_('Install'))
         self['key_green'] = Label(_('Mount Manager'))
         self['key_blue'] = Label(_('Devices Panel'))
-        self['label1'] = Label(_('Welcome to SH4MultiBoot %s plugin installation.') % PLUGINVERSION)
+        self['label1'] = Label(_('Welcome to SH4MultiBoot %s-%s plugin installation for %s %s') % (visionversion, visionrevision, brand, model))
         self['label2'] = Label(_('Here is the list of mounted devices on your receiver.\n\nPlease choose a device where you would like to install SH4MultiBoot:'))
         self['actions'] = ActionMap(['WizardActions', 'ColorActions'], {'red': self.install,
          'green': self.mountmanager,
@@ -101,7 +107,7 @@ class SH4MultiBootInstallation(Screen):
 
     def myclose2(self, message):
         self.session.open(MessageBox, message, MessageBox.TYPE_INFO)
-        os.system('reboot -p')
+        Console().ePopen('reboot -p')
         self.close()
 
     def checkReadWriteDir(self, configele):
@@ -166,7 +172,7 @@ class SH4MultiBootInstallation(Screen):
     def install2(self, yesno):
         if yesno:
             cmd2 = 'mkdir -p /media/sh4multiboot;mount ' + self.mysel + ' /media/sh4multiboot'
-            os.system(cmd2)
+            Console().ePopen(cmd2)
             if fileExists('/proc/mounts'):
                 fileExists('/proc/mounts')
                 f = open('/proc/mounts', 'r')
@@ -174,20 +180,16 @@ class SH4MultiBootInstallation(Screen):
                     if line.find(self.mysel):
 		        mntdev = line.split(' ')[0]
                 f.close()
-                mntid = os.system('blkid -s UUID -o value ' + mntdev + '>/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/install')
+                mntid = Console().ePopen('blkid -s UUID -o value %s>/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/install' % mntdev)
 
-            cmd = 'mkdir -f ' + self.mysel + 'SH4MultiBootI;mkdir -p ' + self.mysel + 'SH4MultiBootUpload'
-            os.system(cmd)
-            os.system('cp /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/sh4multiinit /sbin/sh4multiinit')
-            os.system('chmod 777 /sbin/sh4multiinit;chmod 777 /sbin/init;ln -sfn /sbin/sh4multiinit /sbin/init')
-            os.system('mv /etc/init.d/volatile-media.sh /etc/init.d/volatile-media.sh.back')
-            out2 = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w')
-            out2.write('Flash')
-            out2.close()
-            out = open('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location', 'w')
-            out.write(self.mysel)
-            out.close()
-            os.system('cp /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location /etc/sh4multi/')
+            cmd = 'mkdir -p ' + self.mysel + 'SH4MultiBootI;mkdir -p ' + self.mysel + 'SH4MultiBootUpload'
+            Console().ePopen(cmd)
+            Console().ePopen('cp /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/sh4multiinit /sbin/sh4multiinit')
+            Console().ePopen('chmod 777 /sbin/sh4multiinit;chmod 777 /sbin/init;ln -sfn /sbin/sh4multiinit /sbin/init')
+            Console().ePopen('mv /etc/init.d/volatile-media.sh /etc/init.d/volatile-media.sh.back')
+            open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w').write('Flash')
+            open('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location', 'w').write(self.mysel)
+            Console().ePopen('cp /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location /etc/sh4multi/')
             image = getImageDistro()
             if fileExists('/etc/image-version'):
                 if 'build' not in image:
@@ -210,7 +212,7 @@ class SH4MultiBootImageChoose(Screen):
         self.skin = SH4MultiBootImageChoose_Skin
         Screen.__init__(self, session)
         self.list = []
-        self.setTitle('SH4MultiBoot %s - Menu' % PLUGINVERSION)
+        self.setTitle('SH4MultiBoot %s-%s running on %s %s' % (visionversion, visionrevision, brand, model))
         self['device_icon'] = Pixmap()
         self['free_space_progressbar'] = ProgressBar()
         self['linea'] = ProgressBar()
@@ -227,7 +229,7 @@ class SH4MultiBootImageChoose(Screen):
         self['label7'] = Label('')
         self['label8'] = Label('')
         self['label9'] = Label('')
-        self['label10'] = Label(_('Number of installed images in SH4MultiBoot:'))
+        self['label10'] = Label(_('Number of installed images in SH4MultiBoot (100 allowed):'))
         self['label11'] = Label('')
         self['label1'] = Label(_('Here is the list of installed images on your receiver. Please choose an image to boot.'))
         self['actions'] = ActionMap(['WizardActions', 'ColorActions'], {'red': self.boot,
@@ -241,9 +243,7 @@ class SH4MultiBootImageChoose(Screen):
         self.list = []
         try:
             pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot'
-            f = open(pluginpath + '/.sh4multiboot_location', 'r')
-            mypath = f.readline().strip()
-            f.close()
+            mypath = open(pluginpath + '/.sh4multiboot_location', 'r').readline().strip()
         except:
             mypath = '/media/hdd'
 
@@ -255,7 +255,7 @@ class SH4MultiBootImageChoose(Screen):
         self['device_icon'].instance.setPixmap(png)
         device = '/media/sh4multiboot'
         dev_free = dev_free_space = def_free_space_percent = ''
-        rc = os.system('df > /tmp/ninfo.tmp')
+        rc = Console().ePopen('df > /tmp/ninfo.tmp')
         if fileExists('/tmp/ninfo.tmp'):
             f = open('/tmp/ninfo.tmp', 'r')
             for line in f.readlines():
@@ -297,9 +297,7 @@ class SH4MultiBootImageChoose(Screen):
         self['label11'].instance.setForegroundColor(parseColor(color))
         self['free_space_progressbar'].instance.setForegroundColor(parseColor(color))
         try:
-            f2 = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'r')
-            mypath2 = f2.readline().strip()
-            f2.close()
+            mypath2 = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'r').readline().strip()
         except:
             mypath2 = 'Flash'
 
@@ -316,9 +314,7 @@ class SH4MultiBootImageChoose(Screen):
 
                     f.close()
         elif fileExists('/media/sh4multiboot/SH4MultiBootI/.Flash'):
-            f = open('/media/sh4multiboot/SH4MultiBootI/.Flash', 'r')
-            image = f.readline().strip()
-            f.close()
+            image = open('/media/sh4multiboot/SH4MultiBootI/.Flash', 'r').readline().strip()
         image = ' [' + image + ']'
         self.list.append('Flash' + image)
         self['label6'].setText(mypath)
@@ -344,10 +340,8 @@ class SH4MultiBootImageChoose(Screen):
     def boot(self):
         self.mysel = self['config'].getCurrent()
         if self.mysel:
-            out = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w')
-            out.write(self.mysel)
-            out.close()
-            os.system('rm -f /tmp/.sh4multireboot')
+            open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w').write(self.mysel)
+            Console().ePopen('rm -f /tmp/.sh4multireboot')
             message = _('Are you sure you want to boot:\n') + self.mysel + ' now?'
             ybox = self.session.openWithCallback(self.boot2, MessageBox, message, MessageBox.TYPE_YESNO)
             ybox.setTitle(_('Boot Confirmation'))
@@ -356,27 +350,23 @@ class SH4MultiBootImageChoose(Screen):
 
     def boot2(self, yesno):
         if yesno:
-            os.system('touch /tmp/.sh4multireboot')
-            os.system('reboot -p')
+            Console().ePopen('touch /tmp/.sh4multireboot')
+            Console().ePopen('reboot -p')
         else:
-            os.system('touch /tmp/.sh4multireboot')
+            Console().ePopen('touch /tmp/.sh4multireboot')
             self.session.open(MessageBox, _('Image will be booted after the next receiver reboot.'), MessageBox.TYPE_INFO)
 
     def remove(self):
         self.mysel = self['config'].getCurrent()
         if self.mysel:
-            f = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'r')
-            mypath = f.readline().strip()
-            f.close()
+            mypath = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'r').readline().strip()
             try:
                 if mypath == self.mysel:
                     self.session.open(MessageBox, _('Sorry you cannot delete the image currently booted from.'), MessageBox.TYPE_INFO, 4)
                 if self.mysel.startswith('Flash'):
                     self.session.open(MessageBox, _('Sorry you cannot delete Flash image'), MessageBox.TYPE_INFO, 4)
                 else:
-                    out = open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w')
-                    out.write('Flash')
-                    out.close()
+                    open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w').write('Flash')
                     message = _('Are you sure you want to delete:\n ') + self.mysel + ' now?'
                     ybox = self.session.openWithCallback(self.remove2, MessageBox, message, MessageBox.TYPE_YESNO)
                     ybox.setTitle(_('Delete Confirmation'))
@@ -625,16 +615,14 @@ class SH4MultiBootImageInstall(Screen, ConfigListScreen):
 
 def main(session, **kwargs):
     if not pathExists('/media/usb'):
-        os.system('mkdir -p /media/usb')
+        Console().ePopen('mkdir -p /media/usb')
     if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot'):
         try:
-            f = open('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location', 'r')
-            mypath = f.readline().strip()
-            f.close()
+            mypath = open('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location', 'r').readline().strip()
             if not pathExists('/media/sh4multiboot'):
                 os.mkdir('/media/sh4multiboot')
             cmd = 'mount ' + mypath + ' /media/sh4multiboot'
-            os.system(cmd)
+            Console().ePopen(cmd)
             f = open('/proc/mounts', 'r')
             for line in f.readlines():
                 if line.find('/media/sh4multiboot') != -1:
@@ -642,9 +630,9 @@ def main(session, **kwargs):
                     break
 
             cmd = 'mount ' + line + ' ' + mypath
-            os.system(cmd)
+            Console().ePopen(cmd)
             cmd = 'mount ' + mypath + ' /media/sh4multiboot'
-            os.system(cmd)
+            Console().ePopen(cmd)
         except:
             pass
 
@@ -664,9 +652,8 @@ def menu(menuid, **kwargs):
     if os.path.exists(filename):
         pass
     else:
-        f = open(filename, 'w')
-        f.write("576i")
-        f.close()
+        print("[SH4MultiBoot] Write to /etc/videomode2")
+        open(filename, 'w').write("576i")
     if pathExists('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot'):
         if menuid == 'mainmenu':
             return [(_('SH4MultiBoot'),

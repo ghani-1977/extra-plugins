@@ -77,7 +77,7 @@ class PU_Restore(Screen, ConfigListScreen):
 
     def CBremove(self, req):
         if req:
-            Console().ePopen('rm -rf %s' % (Directory + '/Settings/enigma2/' + self.filename))
+            Console().ePopen('rm -rf %s/Settings/enigma2/%s' % (Directory, self.filename))
             self.List = self.Search_Settings()
             self.SettingsMenu()
 
