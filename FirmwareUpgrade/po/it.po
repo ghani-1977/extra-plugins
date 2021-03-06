@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FirmwareUpgrade for Enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2017-11-29 13:41+0000\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: insanity <www.vuplus-community.net>\n"
@@ -26,6 +26,9 @@ msgstr "Impossibile annullare durante l'aggiornamento !!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Non trovo /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "Non trovo il file MD5."
 
@@ -34,9 +37,6 @@ msgstr "Non trovo il file binario."
 
 msgid "Can't found device file!!"
 msgstr "Non trovo il file del dispositivo!!"
-
-msgid "Can't found model name."
-msgstr "Non trovo il nome del modello."
 
 msgid "Close"
 msgstr "Chiudere"

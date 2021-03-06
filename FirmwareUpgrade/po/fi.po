@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-19 07:50+0100\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2018-07-04 23:33+0200\n"
 "Last-Translator: Kojo\n"
 "Language-Team: none\n"
@@ -25,6 +25,9 @@ msgstr "Kesken päivityksen et voi peruuttaa!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Tiedostoa /usr/bin/md5sum ei löydy"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "MD5 -tiedostoa ei löydy."
 
@@ -33,9 +36,6 @@ msgstr "Binääri-tiedostoa ei löydy."
 
 msgid "Can't found device file!!"
 msgstr "Laitetiedostoa ei löydy!"
-
-msgid "Can't found model name."
-msgstr "Mallin nimeä ei löydy."
 
 #
 msgid "Close"

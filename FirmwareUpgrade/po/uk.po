@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: litvcom\n"
 "Language-Team: \n"
@@ -26,6 +26,9 @@ msgstr "Не можна скасувати в процесі оновлення!
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Не вдається знайти /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "Не вдається знайти файл MD5"
 
@@ -34,9 +37,6 @@ msgstr "Не вдається знайти бінарний файл"
 
 msgid "Can't found device file!!"
 msgstr "Файл пристрою не знайдено!!"
-
-msgid "Can't found model name."
-msgstr "Не вдається визначити назву моделі"
 
 #
 msgid "Close"

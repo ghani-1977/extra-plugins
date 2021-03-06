@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,9 @@ msgstr ""
 msgid "Can't find /usr/bin/md5sum"
 msgstr ""
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr ""
 
@@ -34,9 +37,6 @@ msgid "Can't found binary file."
 msgstr ""
 
 msgid "Can't found device file!!"
-msgstr ""
-
-msgid "Can't found model name."
 msgstr ""
 
 msgid "Close"

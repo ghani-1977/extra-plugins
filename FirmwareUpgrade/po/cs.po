@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ims\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2016-05-07 13:18+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: jerry00 <jerry00@quick.cz>\n"
@@ -26,6 +26,9 @@ msgstr "Během aktualizace nelze zrušit!!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Nelze nalézt /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 #
 msgid "Can't found MD5 file."
 msgstr "Nelze nalézt soubor MD5."
@@ -37,10 +40,6 @@ msgstr "Nelze nalézt binární soubor."
 #
 msgid "Can't found device file!!"
 msgstr "Nelze nalézt soubor zařízení!!"
-
-#
-msgid "Can't found model name."
-msgstr "Nelze nalézt název modelu."
 
 #
 msgid "Close"

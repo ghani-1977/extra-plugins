@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FirmwareUpgrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2017-07-05 18:50+0300\n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis Pulokas <vyteniui@gmail.com>\n"
@@ -26,6 +26,9 @@ msgstr "Atnaujinimo metu nutraukti negalima!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Nerasta /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "Nerasta MD5 failo."
 
@@ -34,9 +37,6 @@ msgstr "Nerasta dvejetainio failo."
 
 msgid "Can't found device file!!"
 msgstr "Nerasta įrenginio failo!"
-
-msgid "Can't found model name."
-msgstr "Nerasta modelio pavadinimo."
 
 msgid "Close"
 msgstr "Uždaryti"

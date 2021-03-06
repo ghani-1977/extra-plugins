@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ViX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2018-07-31 07:39+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: Andy Blackburn, Rob van der Does\n"
@@ -28,6 +28,9 @@ msgstr "Kan tijdens de upgrade niet annuleren!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Kan /usr/bin/md5sum niet vinden"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "Kan MD5 bestand niet vinden."
 
@@ -36,9 +39,6 @@ msgstr "Kan binary-bestand niet vinden."
 
 msgid "Can't found device file!!"
 msgstr "Kan apparaatbestand niet vinden!!"
-
-msgid "Can't found model name."
-msgstr "Kan modelnaam niet vinden."
 
 msgid "Close"
 msgstr "Sluit"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tuxbox-enigma 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2016-05-07 13:19+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: Raivo, Henkka, eesatfan, rimas\n"
@@ -23,6 +23,9 @@ msgstr "Uuendamise ajal ei saa tühistada!!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Ei leia /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "MD5 faili ei leita."
 
@@ -31,9 +34,6 @@ msgstr "Binaarfaili ei leita."
 
 msgid "Can't found device file!!"
 msgstr "Andmekandja faili ei leita!!"
-
-msgid "Can't found model name."
-msgstr "Mudeli nime ei leita."
 
 msgid "Close"
 msgstr "Sulge"

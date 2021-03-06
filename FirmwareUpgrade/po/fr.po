@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2018-07-30 21:44+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: french\n"
@@ -24,6 +24,9 @@ msgstr "Vous ne pouvez pas annuler pendant une mise-à-jour!"
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Impossible de trouver /usr/bin/md5sum"
 
+msgid "Can't find a vuplus receiver."
+msgstr ""
+
 msgid "Can't found MD5 file."
 msgstr "Impossible de trouver un fichier MD5."
 
@@ -32,9 +35,6 @@ msgstr "Impossible de trouver un fichier binaire."
 
 msgid "Can't found device file!!"
 msgstr "Impossible de trouver un fichier de périphérique!"
-
-msgid "Can't found model name."
-msgstr "Impossible de trouver le nom du modèle."
 
 msgid "Close"
 msgstr "Fermer"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MICOMUpgrade\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2018-07-30 22:10+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OEA\n"
@@ -21,6 +21,10 @@ msgstr ""
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Impossible de trouver /usr/bin/md5sum"
 
+#, fuzzy
+msgid "Can't find the model name."
+msgstr "Impossible de trouver le nom du modèle."
+
 msgid "Can't found MD5 file."
 msgstr "Impossible de trouver le fichier MD5."
 
@@ -29,9 +33,6 @@ msgstr "Impossible de trouver le fichier binaire."
 
 msgid "Can't found device file!!"
 msgstr "Impossible de trouver le fichier du périphérique!"
-
-msgid "Can't found model name."
-msgstr "Impossible de trouver le nom du modèle."
 
 msgid "Cancel"
 msgstr "Fermer"

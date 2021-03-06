@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2 3.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 19:14+0200\n"
+"POT-Creation-Date: 2021-03-06 16:05+0330\n"
 "PO-Revision-Date: 2016-05-07 13:42+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: none\n"
@@ -18,6 +18,10 @@ msgstr ""
 msgid "Can't find /usr/bin/md5sum"
 msgstr "Can't find /usr/bin/md5sum"
 
+#, fuzzy
+msgid "Can't find the model name."
+msgstr "Can't found model name."
+
 msgid "Can't found MD5 file."
 msgstr "Can't found MD5 file."
 
@@ -26,9 +30,6 @@ msgstr "Can't found binary file."
 
 msgid "Can't found device file!!"
 msgstr "Can't found device file!!"
-
-msgid "Can't found model name."
-msgstr "Can't found model name."
 
 msgid "Cancel"
 msgstr ""
