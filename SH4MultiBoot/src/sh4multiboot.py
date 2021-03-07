@@ -82,7 +82,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             print("[sh4multiboot] Copy drivers from Flash")
 	    for fdelete in glob(oedir + '/*.opk'):
 		    os.remove(fdelete)
-            cmd = 'mv %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
+            cmd = 'mv -f %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
             rc = Console().ePopen(cmd)
             cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
             rc = Console().ePopen(cmd)
@@ -90,7 +90,7 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
         print("[sh4multiboot] Copy drivers")
 	for fdelete in glob(oedir + '/*.opk'):
 		os.remove(fdelete)
-        cmd = 'mv %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
+        cmd = 'mv -f %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
         rc = Console().ePopen(cmd)
         cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
         rc = Console().ePopen(cmd)
