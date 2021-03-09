@@ -53,14 +53,24 @@ class DefaultAdapter:
 	def __init__(self, session):
 		self.navcore = session.nav
 		self.previousService = None
+		self.config_tv_lastroot = ""
+		self.config_tv_lastservice = ""
 
 	def play(self, service):
 		self.previousService = self.navcore.getCurrentlyPlayingServiceReference()
+		self.config_tv_lastroot = config.tv.lastroot.value
+		self.config_tv_lastservice = config.tv.lastservice.value
 		self.navcore.playService(service)
 		return True
 
 	def stop(self):
+		if self.config_tv_lastroot:
+			config.tv.lastroot.value = self.config_tv_lastroot
+			config.tv.lastroot.save()
 		self.navcore.playService(self.previousService)
+		if self.config_tv_lastservice:
+			config.tv.lastservice.value = self.config_tv_lastservice
+			config.tv.lastservice.save()
 
 
 class RecordAdapter:
