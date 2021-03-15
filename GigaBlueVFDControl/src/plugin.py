@@ -130,13 +130,13 @@ def setLed(color):
 
 	if BOX in ("gb800se", "gb800solo", "gb800ue", "gbip4k", "gbtrio4k"):
 	   try:
-		  print("[LED-GIGA] Write to /proc/stb/fp/led0_pattern")
+		  # print("[LED-GIGA] Write to /proc/stb/fp/led0_pattern")
 		  open(led0, "w").write(str(value0))
 	   except IOError:
 		  print("[LED-GIGA] Write to /proc/stb/fp/led0_pattern failed.")
 
 	   try:
-		  print("[LED-GIGA] Write to /proc/stb/fp/led1_pattern")
+		  # print("[LED-GIGA] Write to /proc/stb/fp/led1_pattern")
 		  open(led1, "w").write(str(value1))
 	   except IOError:
 		  print("[LED-GIGA] Write to /proc/stb/fp/led1_pattern failed.")
