@@ -141,10 +141,10 @@ class BookmarkManager(SimpleConfigParser):
 			Console().ePopen('echo "id = 1" >> %s' % (_dbFileName))
 			Console().ePopen('echo "name = My favorite" >> %s' % (_dbFileName))
 			Console().ePopen('echo "[b-1]" >> %s' % (_dbFileName))
-			Console().ePopen('echo "url = http://wiki.opena.tv/" >> %s' % (_dbFileName))
+			Console().ePopen('echo "url = https://wiki.openvision.tech/" >> %s' % (_dbFileName))
 			Console().ePopen('echo "id = 1" >> %s' % (_dbFileName))
 			Console().ePopen('echo "parent = 1" >> %s' % (_dbFileName))
-			Console().ePopen('echo "title = open Alliance WIKI" >> %s' % (_dbFileName))
+			Console().ePopen('echo "title = open Vision WIKI" >> %s' % (_dbFileName))
 			Console().ePopen('echo "type = 0" >> %s' % (_dbFileName))
 		self.init(_dbFileName)
 

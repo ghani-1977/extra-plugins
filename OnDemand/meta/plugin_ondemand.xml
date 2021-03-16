@@ -1,6 +1,6 @@
 <default>
 		  <info>
-					<author>oe-alliance</author>
+					<author>Alliance</author>
 					<name>OnDemand</name>
 					<packagename>enigma2-plugin-extensions-ondemand</packagename>
 					<shortdescription>Watch on demand TV.</shortdescription>

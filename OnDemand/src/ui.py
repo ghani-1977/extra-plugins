@@ -216,9 +216,7 @@ class OnDemand_About(Screen):
 
 		self["key_red"] = Button(_("Close"))
 
-		credit = "OE-Alliance OnDemand (c) 2013 \n"
-		credit += "http://github.com/oe-alliance\n"
-		credit += "http://www.world-of-satellite.com\n\n"
+		credit = "OnDemand (c) 2013 \n"
 		credit += "Application credits:\n"
 		credit += "- mcquaim, RogerThis & AndyBlac (main developers)\n"
 		credit += "- The whole Vix team for Design, Graphics, Code optimisation, Geo unlock & Testing\n\n"

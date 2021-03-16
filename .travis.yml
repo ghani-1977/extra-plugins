@@ -21,7 +21,7 @@ git:
   depth: 1
 
 script:
-- echo compiling alliance enigma2 plugins
+- echo compiling extra enigma2 plugins
 - python -m compileall .
 - find . -type f -name "*.po" -exec msgfmt {} -o {}.mo \;
 - echo done!
