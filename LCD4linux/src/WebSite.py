@@ -1,16 +1,18 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
+from __future__ import division
+from __future__ import absolute_import
 from twisted.web import resource, http
-from plugin import *
+from .plugin import *
 import os
 import time
+import six
 ########################################################
 
 
 class LCD4linuxweb(resource.Resource):
 
 	title = "LCD4Linux Webinterface"
- 	isLeaf = False
+	isLeaf = False
 
 	def __init__(self):
 		self.HREF = "href=\"/lcd4linux/config\""
@@ -21,12 +23,14 @@ class LCD4linuxweb(resource.Resource):
 
 		""" rendering server response """
 		w = ""
-		command = req.args.get("width", None)
+		command = req.args.get(b"width", None)
 		if command is not None:
-			w += " width=\"%s\"" % command[0]
-		command = req.args.get("hight", None)
+			cmd = six.ensure_str(command[0])
+			w += " width=\"%s\"" % cmd
+		command = req.args.get(b"hight", None)
 		if command is not None:
-			w += " height=\"%s\"" % command[0]
+			cmd = six.ensure_str(command[0])
+			w += " height=\"%s\"" % cmd
 		html = "<html>"
 		html += "<head>\n"
 		html += "<meta http-equiv=\"Content-Language\" content=\"de\">\n"
@@ -46,8 +50,9 @@ class LCD4linuxweb(resource.Resource):
 		html += "</head>"
 		html += "<body bgcolor=\"%s\" text=\"#FFFFFF\">\n" % ("#666666" if getConfigMode() == True else "#000000")
 		html += "<form method=\"POST\" action=\"--WEBBOT-SELF--\">\n"
-		datei = req.args.get("file", None)
+		datei = req.args.get(b"file", None)
 		if datei is not None:
+			datei[0] = datei[0].decode("utf-8")
 			if os.path.isfile("%s%s" % (getTMPL(), datei[0])):
 				t = os.path.getmtime("%s%s" % (getTMPL(), datei[0]))
 				JR = "" if JavaRefresh == "" else JavaRefresh % (1, 1, datei[0])
@@ -83,7 +88,7 @@ class LCD4linuxweb(resource.Resource):
 
 		html += "</form>\n"
 
-		return html
+		return six.ensure_binary(html)
 
 
 class LCD4linuxwebView(LCD4linuxweb):

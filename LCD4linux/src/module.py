@@ -1,10 +1,9 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 # external interface for LCD4linux
 # by joergm6 @ IHAD
 # for documentation look at IHAD Support Thread
 #
+from __future__ import print_function
 import os
 
 

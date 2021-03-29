@@ -1,29 +1,22 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-from __future__ import print_function
 # print(" LCD4linux.StandbyBildLCD" in zip(*L4)[2])
+# -*- coding: utf-8 -*-
+from __future__ import print_function, absolute_import
 from twisted.web import resource, http
-from plugin import *
-from __init__ import _
-from Components.config import config
+from .plugin import *
+from . import _
+from Components.config import config, ConfigSelection
 from enigma import eTimer
-from module import L4Lelement
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-
+from .module import L4Lelement
+from six.moves.html_parser import HTMLParser
+import six
 L4LElement = L4Lelement()
 
 import os
-import datetime
 import glob
 import time
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 
 Py = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/plugin.py")
-
-try:
-	from enigma import eMediaDatabase
-	DPKG = True
-except:
-	DPKG = False
 
 L1 = []
 L2 = []
@@ -38,6 +31,22 @@ Element = ""
 ElementList = []
 ExeMode = False
 StatusMode = False
+
+
+def _unescape(string):
+	index = string.find("%")
+	if index == -1:
+		return string
+	else:
+		return HTMLParser().unescape(string)
+
+
+def _exec(command):
+	if six.PY2:
+		exec(command)
+	else:
+		variable = command.split(" ", 1)[0]
+		exec("global %s;%s" % (variable, command))
 
 
 def ParseCode():
@@ -56,7 +65,6 @@ def ParseCode():
 	i4 = 0
 	L4log("WebIF: parsing Code....")
 	for line in open(Py, "r").readlines():
-#		print(line)
 		if line.find("self.list1.append") >= 0 or line.find("self.list2.append") >= 0 or line.find("self.list3.append") >= 0 or line.find("self.list4.append") >= 0:
 			Z = line.replace("getConfigListEntry(_", ",").replace(")", "").replace("(", "").replace(".append", "").replace("\t", "").replace("\n", "").replace("\"", "").split(",")
 			if Z[0] == "self.list1":
@@ -84,7 +92,9 @@ def ParseCode():
 
 
 def _l(st):
-	return st.decode("utf-8", "ignore").replace(" [ok]>", "").encode('ascii', 'xmlcharrefreplace')
+	st = six.ensure_str(st, "utf-8", "ignore")
+	st = st.replace(" [ok]>", "").encode('ascii', 'xmlcharrefreplace')
+	return six.ensure_str(st)
 
 
 def AktiveMode(Test, R):
@@ -123,10 +133,7 @@ class LCD4linuxConfigweb(resource.Resource):
 
 	def __init__(self):
 		self.StatusTimer = eTimer()
-		if DPKG:
-			self.StatusTimer_conn = self.StatusTimer.timeout.connect(self.resetWeb)
-		else:
-			self.StatusTimer.callback.append(self.resetWeb)
+		self.StatusTimer.callback.append(self.resetWeb)
 		self.CurrentMode = ("-", "-")
 
 	def resetWeb(self):
@@ -157,8 +164,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		global ElementList
 		global ExeMode
 		global StatusMode
-		IP = req.getClientIP()
-#		IP = IP.split(":")[-1]
+		IP = six.ensure_str(req.getClientIP())
 		L4logE("IP1:", IP)
 		if IP is None:
 			IP = req.client.host.split(":")[-1]
@@ -197,7 +203,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			html += "Default is: 127. 192.168. 172. 10.\n"
 			html += "</body>\n"
 			html += "</html>\n"
-			return html
+			return six.ensure_binary(html)
 		if len(L1) == 0:
 			ParseCode()
 
@@ -205,17 +211,20 @@ class LCD4linuxConfigweb(resource.Resource):
 		req.setHeader('Content-type', 'text/html')
 		req.setHeader('charset', 'UTF-8')
 
-		command = req.args.get("cmd", None)
-		ex = req.args.get("ex", None)
-		mo = req.args.get("Mode", None)
-		el = req.args.get("Element", None)
+		command = req.args.get(b"cmd", None)
+		if command != None:
+			_command = six.ensure_str(command[0])
+		ex = req.args.get(b"ex", None)
+		if ex != None:
+			_ex = six.ensure_str(ex[0])
+		mo = req.args.get(b"Mode", None)
+		el = req.args.get(b"Element", None)
 		self.restartTimer()
 		L4log("Command received %s" % (command), ex)
-#		print("[L4L EX]-", ex,"-")
 		if self.CurrentMode == ("-", "-"):
 			self.CurrentMode = (getConfigStandby(), getisMediaPlayer())
 		if mo is not None:
-			Mode = mo[0]
+			Mode = six.ensure_str(mo[0])
 			setConfigMode(True)
 			if Mode in ["1", "2"]:
 				setisMediaPlayer("")
@@ -231,13 +240,13 @@ class LCD4linuxConfigweb(resource.Resource):
 			getBilder()
 		html = ""
 		if el is not None:
-			Element = el[0]
-		if req.args.get("save.y", None) is not None:
+			Element = six.ensure_str(el[0])
+		if req.args.get(b"save.y", None) is not None:
 			L4log("WebIF: save Config-File")
 			LCD4linux.save()
 			LCD4linux.saveToFile(LCD4config)
 			ConfTimeCheck()
-		if req.args.get("download.y", None) is not None:
+		if req.args.get(b"download.y", None) is not None:
 			L4log("WebIF: download Config")
 			req.setResponseCode(http.OK)
 			lcd4config = "/etc/enigma2/lcd4config"
@@ -248,12 +257,12 @@ class LCD4linuxConfigweb(resource.Resource):
 			f = open(lcd4config, "r")
 			html = f.read()
 			f.close()
-			return html
-		if req.args.get("upload.y", None) is not None:
+			return six.ensure_binary(html)
+		if req.args.get(b"upload.y", None) is not None:
 			L4log("WebIF: upload Config")
 			lcd4config = "/tmp/test"
-			data = req.args["uploadName"][0]
-			if len(data) > 0 and data.startswith("config."):
+			data = req.args[b"uploadName"][0]
+			if len(data) > 0 and data.startswith(b"config."):
 				f = open(lcd4config, "wb")
 				f.write(data)
 				f.close()
@@ -264,10 +273,10 @@ class LCD4linuxConfigweb(resource.Resource):
 				html += "<script language=\"JavaScript\">\n"
 				html += "alert(\"%s\")\n" % _("No or wrong File selected, try a correct File first !")
 				html += "</script>\n"
-		if req.args.get("logdel.y", None) is not None:
+		if req.args.get(b"logdel.y", None) is not None:
 			L4log("WebIF: delete Logfile")
 			rmFile("/tmp/L4log.txt")
-		if req.args.get("logdownload.y", None) is not None:
+		if req.args.get(b"logdownload.y", None) is not None:
 			L4log("WebIF: download Logfile")
 			lcd4config = "/tmp/L4log.txt"
 			if os.path.isfile(lcd4config):
@@ -279,172 +288,185 @@ class LCD4linuxConfigweb(resource.Resource):
 				f = open(lcd4config, "r")
 				html = f.read()
 				f.close()
-				return html
+				return six.ensure_binary(html)
 
 		if command is None:
 			L4logE("no command")
-		elif command[0] == "exec" and ex is not None:
-			L4logE("exec", ex[0])
-			exec(ex[0])
-		elif command[0] == "enable":
+		elif _command == "exec" and ex is not None:
+			L4logE("exec", _ex)
+			exec(_ex) # FIXME PY3
+		elif _command == "enable":
 			ExeMode = True
-		elif command[0] == "status":
+		elif _command == "status":
 			StatusMode = True
-		elif command[0] == "pop":
-			V = _l(req.args.get("PopText", "")[0])
+		elif _command == "pop":
+			V = _l(req.args.get(b"PopText", "")[0])
 			try:
-				import HTMLParser
-				parse = HTMLParser.HTMLParser()
-				V = parse.unescape(V)
-			except:
+				V = _unescape(V)
+			except Exception as e:
 				L4log("WebIF Error: Parse Text")
 			setPopText(V)
 			L4LElement.setRefresh()
-		elif command[0] == "popclear":
+		elif _command == "popclear":
 			setPopText("")
-		elif command[0].startswith("Screen"):
-			setScreenActive(command[0][-1])
+		elif _command.startswith("Screen"):
+			setScreenActive(_command[-1])
 			L4LElement.setRefresh()
-		elif command[0] == "crashdel":
+		elif _command == "crashdel":
 			rmFile(CrashFile)
-		elif command[0] == "add" and ex is not None:
-			L4LElement.web(ex[0])
-		elif command[0] == "delete" and ex is not None:
-			L4LElement.delete(ex[0])
-		elif command[0] == "refresh":
+		elif _command == "add" and ex is not None:
+			L4LElement.web(_ex)
+		elif _command == "delete" and ex is not None:
+			L4LElement.delete(_ex)
+		elif _command == "refresh":
 			L4LElement.setRefresh()
-		elif command[0] == "hold":
+		elif _command == "hold":
 			setScreenActive("0")
 			setSaveEventListChanged(not getSaveEventListChanged())
-		elif command[0] == "screen" and ex is not None:
-			exs = ex[0].split(",")
+		elif _command == "screen" and ex is not None:
+			exs = _ex.split(",")
 			if len(exs) == 1:
 				L4LElement.setScreen(exs[0])
 			elif len(exs) == 2:
 				L4LElement.setScreen(exs[0], exs[1])
 			elif len(exs) == 3:
 				L4LElement.setScreen(exs[0], exs[1], exs[2])
-		elif command[0] == "brightness" and ex is not None:
-			exs = ex[0].split(",")
+		elif _command == "brightness" and ex is not None:
+			exs = _ex.split(",")
 			if len(exs) == 1:
 				L4LElement.setBrightness(exs[0])
 			elif len(exs) == 2:
 				L4LElement.setBrightness(exs[0], exs[1])
-		elif command[0] == "getbrightness" and ex is not None:
-			if int(ex[0]) < 1 or int(ex[0]) > 3:
+		elif _command == "getbrightness" and ex is not None:
+			if int(_ex) < 1 or int(_ex) > 3:
 				return "0"
 			else:
-				return str(L4LElement.getBrightness(int(ex[0])))
-		elif command[0] == "getmjpeg" and ex is not None:
-			if int(ex[0]) < 1 or int(ex[0]) > 3:
+				return str(L4LElement.getBrightness(int(_ex)))
+		elif _command == "getmjpeg" and ex is not None:
+			if int(_ex) < 1 or int(_ex) > 3:
 				return "0"
 			else:
-				return str(getMJPEGreader(ex[0]))
-		elif command[0] == "getexec" and ex is not None:
-			L4logE("getexec", ex[0])
-			exec("getexec = " + ex[0])
+				return str(getMJPEGreader(_ex))
+		elif _command == "getexec" and ex is not None:
+			L4logE("getexec", _ex)
+			_exec("getexec = " + _ex) # FIXME PY3
 			return str(getexec)
-		elif command[0] == "copyMP":
+		elif _command == "copyMP":
 			for a in req.args.keys():
-				if ".Standby" in a:
-					b = a.replace(".Standby", ".MP")
-					if (" " + b) in zip(*L3)[2]:
+				_a = six.ensure_str(a)
+				if ".Standby" in _a:
+					b = _a.replace(".Standby", ".MP")
+					if (" " + b) in list(zip(*L3))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
-				elif "." in a:
-					b = a.replace(".", ".MP")
-					if (" " + b) in zip(*L3)[2]:
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
+				elif "." in _a:
+					b = _a.replace(".", ".MP")
+					if (" " + b) in list(zip(*L3))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
-		elif command[0] == "copyIdle":
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
+		elif _command == "copyIdle":
 			for a in req.args.keys():
-				if ".MP" in a:
-					b = a.replace(".MP", ".Standby")
-					if (" " + b) in zip(*L4)[2]:
+				_a = six.ensure_str(a)
+				if ".MP" in _a:
+					b = _a.replace(".MP", ".Standby")
+					if (" " + b) in list(zip(*L4))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
-				elif "." in a:
-					b = a.replace(".", ".Standby")
-					if (" " + b) in zip(*L4)[2]:
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
+				elif "." in _a:
+					b = _a.replace(".", ".Standby")
+					if (" " + b) in list(zip(*L4))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
-		elif command[0] == "copyOn":
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
+		elif _command == "copyOn":
 			for a in req.args.keys():
-				if ".MP" in a:
-					b = a.replace(".MP", ".")
-					if (" " + b) in zip(*L2)[2]:
+				_a = six.ensure_str(a)
+				if ".MP" in _a:
+					b = _a.replace(".MP", ".")
+					if (" " + b) in list(zip(*L2))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
-				elif ".Standby" in a:
-					b = a.replace(".Standby", ".")
-					if (" " + b) in zip(*L2)[2]:
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
+				elif ".Standby" in _a:
+					b = _a.replace(".Standby", ".")
+					if (" " + b) in list(zip(*L2))[2]:
 						print(a, b)
-						exec("%s.value = %s.value" % (b, a))
+						obja = eval(a)
+						obja = eval(b)
+						objb.value = obja.value
 
 #####################
 # Konfig schreiben
 #####################
-		elif command[0] == "config":
+		elif _command == "config":
 			Cfritz = False
 			Cwetter = False
 			Cpicon = False
 			Ccal = False
 			Cwww = False
 			for a in req.args.keys():
-				if a.find(".") > 0:
+				_a = six.ensure_str(a)
+				if _a.find(".") > 0:
+					val = req.args.get(a, "")[0]
+					val = six.ensure_str(val)
 #ConfigSelection
-					exec("Typ = isinstance(%s,ConfigSelection)" % a)
-					if Typ == True:
-						exec("%s.value = '%s'" % (a, req.args.get(a, "")[0]))
+					changed = False
+					ConfObj = eval(_a)
+					if isinstance(ConfObj, ConfigSelection):
+						ConfObj.value = val
+						# exec("%s.value = '%s'" % (_a, val)) # FIXME PY3
 					else:
 #ConfigYesNo
-						exec("Typ = isinstance(%s,ConfigYesNo)" % a)
-						if Typ == True:
-							if len(req.args.get(a, "")) == 2:
-								exec("%s.value = True" % a)
+						if isinstance(ConfObj, ConfigYesNo):
+							val = req.args.get(a, "")
+							if len(val) == 2:
+								ConfObj.value = True
 							else:
-								exec("%s.value = False" % a)
+								ConfObj.value = False
 						else:
 #ConfigText
-							exec("Typ = isinstance(%s,ConfigText)" % a)
-							if Typ == True:
-								V = _l(req.args.get(a, "")[0])
+							if isinstance(ConfObj, ConfigText):
+								V = _l(val)
 								try:
-									import HTMLParser
-									parse = HTMLParser.HTMLParser()
-									V = parse.unescape(V)
-								except:
+									V = _unescape(V)
+								except Exception as e:
 									L4log("WebIF Error: Parse Text")
-								exec("%s.value = '%s'" % (a, V))
+								ConfObj.value = V
+								# exec("%s.value = '%s'" % (_a, V)) # FIXME PY3
 							else:
 #ConfigSlider
-								exec("Typ = isinstance(%s,ConfigSlider)" % a)
-								if Typ == True:
-									if req.args.get(a, "")[0].isdigit():
-										exec("%s.value = %s" % (a, req.args.get(a, "")[0]))
+								if isinstance(ConfObj, ConfigSlider):
+									if val.isdigit():
+										ConfObj.value = val
 								else:
 #ConfigClock
-									exec("Typ = isinstance(%s,ConfigClock)" % a)
-									if Typ == True:
-										t = req.args.get(a, "")[0].split(":")
+									if isinstance(ConfObj, ConfigClock):
+										t = val.split(":")
 										if len(t) == 2:
 											if t[0].isdigit() and t[1].isdigit():
-												w1 = "[%s,%s]" % (int(t[0]), int(t[1]))
-												exec("%s.value = %s" % (a, w1))
-					exec("C = %s.isChanged()" % a)
-					if C:
-						exec("C = %s.save()" % a)
+												ConfObj.value = [int(t[0]), int(t[1])]
+					if ConfObj.isChanged():
+						ConfObj.save()
+						# exec("C = %s.save()" % _a) # FIXME PY3
 						L4log("Changed", a)
-						if a.find("Fritz") > 0:
+						if _a.find("Fritz") > 0:
 							Cfritz = True
-						elif a.find("Wetter") > 0:
+						elif _a.find("Wetter") > 0:
 							Cwetter = True
-						elif a.find("Picon") > 0:
+						elif _a.find("Picon") > 0:
 							Cpicon = True
-						elif a.find(".Cal") > 0 or a.find(".MPCal") > 0 or a.find(".StandbyCal") > 0:
+						elif _a.find(".Cal") > 0 or _a.find(".MPCal") > 0 or _a.find(".StandbyCal") > 0:
 							Ccal = True
-						elif a.find(".xmlType") > 0:
-							if a.find(".xmlLCDType") > 0:
+						elif _a.find(".xmlType") > 0:
+							if _a.find(".xmlLCDType") > 0:
 								xmlRead()
 								if xmlDelete(1) or xmlDelete(2) or xmlDelete(3):
 									L4log("removed old Skindata")
@@ -453,19 +475,19 @@ class LCD4linuxConfigweb(resource.Resource):
 								xmlWrite()
 								LCD4linuxConfigweb.RestartGUI = True
 							xmlClear()
-						elif a.find(".MJPEG") > 0:
+						elif _a.find(".MJPEG") > 0:
 							MJPEG_stop("")
 							MJPEG_start()
-						elif a.find(".Font") > 0:
+						elif _a.find(".Font") > 0:
 							setFONT(LCD4linux.Font.value)
-						if a.find("WetterCity") > 0:
+						if _a.find("WetterCity") > 0:
 							resetWetter()
-						if a.find("ScreenActive") > 0:
+						if _a.find("ScreenActive") > 0:
 							setScreenActive(LCD4linux.ScreenActive.value)
-						if a.find("BildFile") > 0:
+						if _a.find("BildFile") > 0:
 							getBilder()
-						if a.find("WWW1") > 0:
-							if a.find("WWW1url") > 0 or os.path.isfile(WWWpic % "1") == False:
+						if _a.find("WWW1") > 0:
+							if _a.find("WWW1url") > 0 or os.path.isfile(WWWpic % "1") == False:
 								Cwww = True
 							else:
 								rmFile(WWWpic % "1p")
@@ -522,7 +544,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		html += "<tr><td bgcolor=\"#000000\" width=\"220\">\n"
 		html += "<p align=\"center\"><img title=\"\" border=\"0\" src=\"/lcd4linux/data/WEBdreambox.png\" width=\"181\" height=\"10\">\n"
 		CCM = "#FFFFFF" if getConfigMode() == False else "#FFCC00"
-		html += "<font color=\"%s\"><b>LCD4linux Config</b></font><br />%s\n" % (CCM, Version if L4LElement.getVersion() == True else Version + "?")
+		html += "<font color=\"%s\"><b>LCD4linux Config</b></font><br />%s\n" % (CCM, (Version if L4LElement.getVersion() == True else Version + "") + " (mode: Py" + ("2" if six.PY2 else "3") + ")")
 		if IP is None:
 			html += "<br><span style=\"font-size:7pt;color: #FF0000\">%s!</span>" % _l(_("IP seurity not supported by Box"))
 		html += "</p></td><td bgcolor=\"#000000\">\n"
@@ -574,6 +596,8 @@ class LCD4linuxConfigweb(resource.Resource):
 		html += "<input id=\"r2\" name=\"Mode\" type=\"radio\" value=\"2\" %s onclick=\"this.form.submit();\"><label %s for=\"r2\">%s&nbsp;&nbsp;</label>\n" % (AktiveMode("2", _l(_("On"))))
 		html += "<input id=\"r3\" name=\"Mode\" type=\"radio\" value=\"3\" %s onclick=\"this.form.submit();\"><label %s for=\"r3\">%s&nbsp;&nbsp;</label>\n" % (AktiveMode("3", _l(_("Media"))))
 		html += "<input id=\"r4\" name=\"Mode\" type=\"radio\" value=\"4\" %s onclick=\"this.form.submit();\"><label %s for=\"r4\">%s&nbsp;&nbsp;</label>\n" % (AktiveMode("4", _l(_("Idle"))))
+		if LCD4linuxConfigweb.RestartGUI == True:
+			html += "<span style=\"color: #FF0000;\"><strong>%s</strong></span>" % _l(_("GUI Restart is required"))
 		if str(LCD4linux.Popup.value) != "0":
 			html += "<input id=\"r5\" name=\"Mode\" type=\"radio\" value=\"5\" %s onclick=\"this.form.submit();\"><label %s for=\"r5\">%s&nbsp;&nbsp;</label>\n" % (AktiveMode("5", "Popup-Text"))
 		html += "</fieldset></form>\n"
@@ -613,7 +637,8 @@ class LCD4linuxConfigweb(resource.Resource):
 					Ea, Ec = AktiveElement(Conf)
 #					html += Conf
 					if Mode != "1":
-						exec("Curr = %s.value" % Conf)
+						ConfObj = eval(Conf)
+						Curr = ConfObj.value
 						L4log("Curr = %s.value" % Conf, Curr)
 						if Curr != "0":
 							if Ec == "":
@@ -643,47 +668,47 @@ class LCD4linuxConfigweb(resource.Resource):
 			isSb = False
 			for LL in L:
 				Conf = LL[2].strip()
+				ConfObj = eval(Conf)
 
 				if (Conf.startswith(Element) and (LL[3] == AktCode or AktCode == 0)) or (Element == "other" and LL[3] == 0):
 
 					if Mode in "2":
 						if "." in Conf:
 							b = Conf.replace(".", ".MP")
-							if (" " + b) in zip(*L3)[2]:
+							if (" " + b) in list(zip(*L3))[2]:
 								isMP = True
 							b = Conf.replace(".", ".Standby")
-							if (" " + b) in zip(*L4)[2]:
+							if (" " + b) in list(zip(*L4))[2]:
 								isSb = True
 					elif Mode in "3":
 						if ".MP" in Conf:
 							b = Conf.replace(".MP", ".")
-							if (" " + b) in zip(*L2)[2]:
+							if (" " + b) in list(zip(*L2))[2]:
 								isOn = True
 							b = Conf.replace(".MP", ".Standby")
-							if (" " + b) in zip(*L4)[2]:
+							if (" " + b) in list(zip(*L4))[2]:
 								isSb = True
 					elif Mode in "4":
 						if ".Standby" in Conf:
 							b = Conf.replace(".Standby", ".")
-							if (" " + b) in zip(*L2)[2]:
+							if (" " + b) in list(zip(*L2))[2]:
 								isOn = True
 							b = Conf.replace(".Standby", ".MP")
-							if (" " + b) in zip(*L3)[2]:
+							if (" " + b) in list(zip(*L3))[2]:
 								isMP = True
 
 					if AktCode == 0:
 						AktCode = LL[3]
-					exec("Curr = %s.value" % Conf)
+					Curr = ConfObj.value
 #ConfigSelection
-					exec("Typ = isinstance(%s,ConfigSelection)" % Conf)
 					html += "<tr>\n"
-					if Typ == True:
+					if isinstance(ConfObj, ConfigSelection):
 						html += "<td width=\"300\">%s</td><td>\n" % _l(_(LL[1]))
 						html += "<select name=\"%s\" size=\"1\">\n" % Conf
-						exec("Len = len(%s.description)" % Conf)
-						for i in range(Len):
-							exec("Choice = %s.choices[%d]" % (Conf, i))
-							exec("Wert = %s.description[\"%s\"]" % (Conf, Choice))
+						Len = len(ConfObj.description)
+						for i in list(range(Len)):
+							Choice = ConfObj.choices[i]
+							Wert = ConfObj.description[Choice]
 							if str(Choice) == str(Curr):
 								Aktiv = " selected"
 							else:
@@ -693,8 +718,7 @@ class LCD4linuxConfigweb(resource.Resource):
 						html += "</td>\n"
 					else:
 #ConfigYesNo
-						exec("Typ = isinstance(%s,ConfigYesNo)" % Conf)
-						if Typ == True:
+						if isinstance(ConfObj, ConfigYesNo):
 							html += "<td width=\"300\">%s</td><td>\n" % _l(_(LL[1]))
 							Aktiv = "checked" if Curr else ""
 							html += "<input type=\"hidden\" name=\"%s\" value=\"%s\">" % (Conf, "unchecked")
@@ -702,28 +726,24 @@ class LCD4linuxConfigweb(resource.Resource):
 							html += "</td>\n"
 						else:
 #ConfigText
-							exec("Typ = isinstance(%s,ConfigText)" % Conf)
-							if Typ == True:
+							if isinstance(ConfObj, ConfigText):
 								html += "<td width=\"300\">%s</td><td>\n" % _l(_(LL[1]))
-								exec("Typ = isinstance(%s,ConfigPassword)" % Conf)
-								if Typ == True:
+								if isinstance(ConfObj, ConfigPassword):
 									html += "<input type=\"password\" name=\"%s\" size=\"60\" value=\"%s\">" % (Conf, _l(Curr))
 								else:
 									html += "<input type=\"text\" name=\"%s\" size=\"60\" value=\"%s\">" % (Conf, _l(Curr))
 								html += "</td>\n"
 							else:
 #ConfigSlider
-								exec("Typ = isinstance(%s,ConfigSlider)" % Conf)
-								if Typ == True:
-									exec("Min = %s.min" % Conf)
-									exec("Max = %s.max" % Conf)
+								if isinstance(ConfObj, ConfigSlider):
+									Min = ConfObj.min
+									Max = ConfObj.max
 									html += "<td width=\"300\">%s (%d - %d)</td><td>\n" % (_l(_(LL[1])), Min, Max)
 									html += "<input type=\"text\" name=\"%s\" size=\"5\" value=\"%s\">" % (Conf, Curr)
 									html += "</td>\n"
 								else:
 #ConfigClock
-									exec("Typ = isinstance(%s,ConfigClock)" % Conf)
-									if Typ == True:
+									if isinstance(ConfObj, ConfigClock):
 										html += "<td width=\"300\">%s</td><td>\n" % _l(_(LL[1]))
 										html += "<input type=\"text\" name=\"%s\" size=\"6\" value=\"%02d:%02d\">" % (Conf, Curr[0], Curr[1])
 										html += "</td>\n"
@@ -749,8 +769,6 @@ class LCD4linuxConfigweb(resource.Resource):
 			html += "<input type=\"submit\" style=\"background-color: #FFCC00\" value=\"%s\">\n" % _l(_("set Settings"))
 			html += "</fieldset></form>\n"
 
-		if LCD4linuxConfigweb.RestartGUI == True:
-			html += "<span style=\"color: #FF0000;\"><strong>%s</strong></span>" % _l(_("GUI Restart is required"))
 		if ExeMode == True:
 			html += "<br />\n"
 			html += "<form method=\"GET\">\n"
@@ -780,4 +798,4 @@ class LCD4linuxConfigweb(resource.Resource):
 		html += "</body>\n"
 		html += "</html>\n"
 
-		return html
+		return six.ensure_binary(html)

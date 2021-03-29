@@ -1,12 +1,6 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-try:
-	import urllib2
-	url2 = True
-except:
-	url2 = False
-	import urllib
+from six.moves.urllib.request import urlopen
 from xml.etree import ElementTree as ET
 
 
@@ -26,10 +20,7 @@ class BlueSound:
 		self.baseUrl = "http://" + ip + ":11000/"
 
 	def Urlget(self, url):
-		if url2:
-			f = urllib2.urlopen(url, timeout=1)
-		else:
-			f = urllib.urlopen(url)
+		f = urlopen(url, timeout=1)
 		fr = f.read()
 		fc = f.code
 		f.close()

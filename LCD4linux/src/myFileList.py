@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-from __future__ import print_function
 #######################################################################
 #
 #    Vali's File-List with some extendet functions
@@ -23,7 +20,6 @@ from __future__ import print_function
 #######################################################################
 
 
-from re import compile as re_compile
 from os import path as os_path, listdir, stat as os_stat
 from Components.MenuList import MenuList
 from Components.Harddisk import harddiskmanager
@@ -41,7 +37,7 @@ def FileEntryComponent(name, absolute=None, isDir=False):
 	else:
 #		extension = name.split('.')
 #		extension = extension[-1].lower()
-#		if EXTENSIONS.has_key(extension):
+#		if extension in EXTENSIONS:
 #			png = LoadPixmap("/usr/lib/enigma2/python/Plugins/Extensions/DreamExplorer/res/" + EXTENSIONS[extension] + ".png")
 #		else:
 #			png = None
@@ -297,7 +293,7 @@ class FileList(MenuList):
 				txt = info.getName(serviceref)
 				description = info.getInfoString(serviceref, iServiceInformation.sDescription)
 				if not txt.endswith(".ts"):
-					if description is not "":
+					if description != "":
 						return txt + ' - ' + description
 					else:
 						return txt

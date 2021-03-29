@@ -1,15 +1,16 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
-from __future__ import print_function
+# -*- coding: UTF-8 -*-
 
+from __future__ import print_function
 import os
 import sys
 import time
 import usb.core
 import usb.util
-import StringIO
-import Image
+#import Image
+from PIL import Image
 import struct
+from six.moves import cStringIO as StringIO
 
 
 def write_jpg2frame(dev, pic):

@@ -1,7 +1,7 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
 from __future__ import print_function
-import Image
+#import Image
+from PIL import Image
+from six import PY2
 try:
 	import dpflib
 except:
@@ -27,7 +27,10 @@ def showImage(dev, image):
 	try:
 		ir = image.convert("RGBA")
 		x, y = image.size
-		dev.showRGBAImage(0, 0, x, y, ir.tostring())
+		if PY2:
+			dev.showRGBAImage(0, 0, x, y, ir.tostring())
+		else:
+			dev.showRGBAImage(0, 0, x, y, ir.tobytes())
 		return True
 	except:
 		print("[LCD4linux] Error writing DPF Device")
