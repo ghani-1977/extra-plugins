@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -419,6 +419,9 @@ msgstr ""
 
 msgid "- Transparency"
 msgstr "- saydam"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr ""
@@ -2147,6 +2150,9 @@ msgstr ""
 msgid "TV"
 msgstr "tv"
 
+msgid "TV (full)"
+msgstr ""
+
 msgid "TV+OSD"
 msgstr "tv+osd"
 
@@ -2255,13 +2261,13 @@ msgstr ""
 msgid "Waning Crescent"
 msgstr ""
 
-msgid "Waning Gibbous"
+msgid "Waning Moon"
 msgstr ""
 
 msgid "Waxing Crescent"
 msgstr ""
 
-msgid "Waxing Gibbous"
+msgid "Waxing Moon"
 msgstr ""
 
 msgid "Weather"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OpenPlus\n"
@@ -422,6 +422,9 @@ msgstr "- Descanso [ms]"
 
 msgid "- Transparency"
 msgstr "- Transparencia"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- Información Sintonizador"
@@ -2175,6 +2178,10 @@ msgstr "Poner contador de planos (si es posible)"
 msgid "TV"
 msgstr "TV"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "normal (completo)"
+
 msgid "TV+OSD"
 msgstr "TV+OSD"
 
@@ -2284,13 +2291,15 @@ msgstr "Convertidor WWW-Internet"
 msgid "Waning Crescent"
 msgstr "Cuarto Menguante"
 
-msgid "Waning Gibbous"
+#, fuzzy
+msgid "Waning Moon"
 msgstr "Cuarto Menguante"
 
 msgid "Waxing Crescent"
 msgstr "Cuarto Creciente"
 
-msgid "Waxing Gibbous"
+#, fuzzy
+msgid "Waxing Moon"
 msgstr "Cuarto Creciente"
 
 msgid "Weather"

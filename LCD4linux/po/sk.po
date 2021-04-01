@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: \n"
@@ -422,6 +422,9 @@ msgstr "- čas vypršania [ms]"
 
 msgid "- Transparency"
 msgstr "- priehľadnosť"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- Tuner nfo"
@@ -2177,6 +2180,10 @@ msgstr ""
 msgid "TV"
 msgstr "TV"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "normálne (plné)"
+
 msgid "TV+OSD"
 msgstr "TV+OSD"
 
@@ -2286,13 +2293,15 @@ msgstr "Konvertor web stránok"
 msgid "Waning Crescent"
 msgstr "Ubúdajúci kosáčik"
 
-msgid "Waning Gibbous"
+#, fuzzy
+msgid "Waning Moon"
 msgstr "Ubúdajúci mesiac"
 
 msgid "Waxing Crescent"
 msgstr "Dorastajúci kosáčik"
 
-msgid "Waxing Gibbous"
+#, fuzzy
+msgid "Waxing Moon"
 msgstr "Dorastajúci mesiac"
 
 msgid "Weather"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. vyteniui@gmail.com\n"
@@ -414,6 +414,9 @@ msgstr "- Intervalas [ms]"
 
 msgid "- Transparency"
 msgstr "- Skaidrumas"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- Informacija apie imtuvą"
@@ -2132,6 +2135,10 @@ msgstr "Kadrų įkėlimas į podėlį [jei įmanoma]"
 msgid "TV"
 msgstr "TV"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "įprastas (visas)"
+
 msgid "TV+OSD"
 msgstr "TV+Ekrano meniu"
 
@@ -2240,13 +2247,15 @@ msgstr "WWW-internetinis keitiklis"
 msgid "Waning Crescent"
 msgstr "Delčia"
 
-msgid "Waning Gibbous"
+#, fuzzy
+msgid "Waning Moon"
 msgstr "Delčia"
 
 msgid "Waxing Crescent"
 msgstr "Jaunatis"
 
-msgid "Waxing Gibbous"
+#, fuzzy
+msgid "Waxing Moon"
 msgstr "Priešpilnis"
 
 msgid "Weather"

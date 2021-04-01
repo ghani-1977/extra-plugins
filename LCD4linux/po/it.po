@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2017-01-18 13:38\n"
 "Last-Translator: insanity\n"
 "Language-Team: \n"
@@ -419,6 +419,9 @@ msgstr "- Timeout [ms]"
 
 msgid "- Transparency"
 msgstr "- Trasparenza"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- Tunerinfo"
@@ -2150,6 +2153,10 @@ msgstr "Passare  FrameBuffer [se possibile]"
 msgid "TV"
 msgstr "TV"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "normale (completo)"
+
 msgid "TV+OSD"
 msgstr "TV+OSD"
 
@@ -2258,13 +2265,15 @@ msgstr "Convertitore  WWW-Internet"
 msgid "Waning Crescent"
 msgstr "Mezzaluna calante"
 
-msgid "Waning Gibbous"
+#, fuzzy
+msgid "Waning Moon"
 msgstr "Luna calante"
 
 msgid "Waxing Crescent"
 msgstr "Mezzaluna crescente"
 
-msgid "Waxing Gibbous"
+#, fuzzy
+msgid "Waxing Moon"
 msgstr "Luna crescente "
 
 msgid "Weather"

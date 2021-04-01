@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2018-10-14 14:54+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: \n"
@@ -415,6 +415,9 @@ msgstr "- Timeout [ms]"
 
 msgid "- Transparency"
 msgstr "- Transparenz"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- Tunerinfo"
@@ -2125,6 +2128,10 @@ msgstr "FramBuffer umschalten [wenn möglich]"
 msgid "TV"
 msgstr "TV"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "normal (voll)"
+
 msgid "TV+OSD"
 msgstr "TV+OSD"
 
@@ -2233,13 +2240,15 @@ msgstr "WWW-Internet Konverter"
 msgid "Waning Crescent"
 msgstr "Abnehmender Halbmond"
 
-msgid "Waning Gibbous"
+#, fuzzy
+msgid "Waning Moon"
 msgstr "Abnehmender Mond"
 
 msgid "Waxing Crescent"
 msgstr "Zunehmender Halbmond"
 
-msgid "Waxing Gibbous"
+#, fuzzy
+msgid "Waxing Moon"
 msgstr "Zunehmender Mond"
 
 msgid "Weather"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-18 13:43+0330\n"
+"POT-Creation-Date: 2021-04-01 13:42+0430\n"
 "PO-Revision-Date: 2020-10-23 21:42+0330\n"
 "Last-Translator: 孤独之剑 <haotzyy1970@163.com>\n"
 "Language-Team: 孤独之剑 <haotzyy1970@163.com>\n"
@@ -414,6 +414,9 @@ msgstr "- 超时[毫秒]"
 
 msgid "- Transparency"
 msgstr "- 透明度"
+
+msgid "- Trimmed"
+msgstr ""
 
 msgid "- Tunerinfo"
 msgstr "- 调谐器信息"
@@ -2129,6 +2132,10 @@ msgstr "切换帧缓冲区 [如果可能]"
 msgid "TV"
 msgstr "电视"
 
+#, fuzzy
+msgid "TV (full)"
+msgstr "正常（满）"
+
 msgid "TV+OSD"
 msgstr "电视+ OSD"
 
@@ -2238,14 +2245,14 @@ msgid "Waning Crescent"
 msgstr "残月"
 
 #, fuzzy
-msgid "Waning Gibbous"
+msgid "Waning Moon"
 msgstr "残月"
 
 msgid "Waxing Crescent"
 msgstr "娥眉月"
 
 #, fuzzy
-msgid "Waxing Gibbous"
+msgid "Waxing Moon"
 msgstr "月相"
 
 msgid "Weather"
