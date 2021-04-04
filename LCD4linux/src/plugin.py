@@ -16,7 +16,7 @@
 
 from __future__ import print_function, absolute_import
 from __future__ import division
-Version = "V5.1-r8h"
+Version = "V5.1-r8j"
 from .import _
 from enigma import eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol, getDesktop, getEnigmaVersionString, ePicLoad, ePixmap, getBoxType
 
@@ -7698,7 +7698,7 @@ class LCDdisplayConfig(ConfigListScreen, Screen):
 			self["config"].setList(self.list4)
 
 	def Page(self):
-		if time() - self.toggle < 0.25: # changed from 0.5 to 0.25 due to todays faster CPUs
+		if time() - self.toggle < 0.2: # changed from 0.5 to 0.2 due to today's faster CPUs
 			L4log("to fast")
 			return
 		L4log("Page", self.mode)
@@ -11102,7 +11102,9 @@ def LCD4linuxPIC(self, session):
 					else:
 						minus5 = -3
 						font = ImageFont.truetype(ConfigFont, int(13 * Wmulti), encoding='unic')
-						Wind = (Wind.split(" ", 2))
+						Wind = Wind.split(" ",2)
+						if len(Wind) < 3:
+							Wind = ["?", "km/h", "?"]
 						ShadowText(Wim, POSX - minus5, POSY + int(55 * Wmulti), Wind[0] + " " + Wind[1], font, ConfigColor, ConfigShadow) #silver
 						ShadowText(Wim, POSX - minus5, POSY + int(67 * Wmulti), Wind[2], font, ConfigColor, ConfigShadow)
 						font = ImageFont.truetype(ConfigFont, int(25 * Wmulti), encoding='unic')
