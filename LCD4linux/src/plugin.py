@@ -11102,7 +11102,7 @@ def LCD4linuxPIC(self, session):
 					else:
 						minus5 = -3
 						font = ImageFont.truetype(ConfigFont, int(13 * Wmulti), encoding='unic')
-						Wind = Wind.split(" ",2)
+						Wind = Wind.split(" ", 2)
 						if len(Wind) < 3:
 							Wind = ["?", "km/h", "?"]
 						ShadowText(Wim, POSX - minus5, POSY + int(55 * Wmulti), Wind[0] + " " + Wind[1], font, ConfigColor, ConfigShadow) #silver
