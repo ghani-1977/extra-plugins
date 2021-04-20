@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 13:42+0430\n"
+"POT-Creation-Date: 2021-04-23 10:38+0430\n"
 "PO-Revision-Date: 2018-10-31 22:03+0200\n"
 "Last-Translator: Kojo\n"
 "Language-Team: Kojo\n"
@@ -789,9 +789,8 @@ msgstr "Palkki+Arvo"
 msgid "Bitrate"
 msgstr "Bittinopeus"
 
-#, fuzzy
 msgid "BlueSound"
-msgstr "Sonos: Play-tarkistus"
+msgstr ""
 
 msgid "BlueSound IP"
 msgstr ""
@@ -2292,6 +2291,10 @@ msgstr "Sää: Sateen mahdollisuus"
 
 msgid "Weather Transparency"
 msgstr "Sää: Läpiväkyvyys"
+
+#, fuzzy
+msgid "Weather Wind Info Lines"
+msgstr "Sää: Erotin"
 
 msgid "Weather Wind speed unit"
 msgstr "Sää: Tuulennopeuden yksikkö"

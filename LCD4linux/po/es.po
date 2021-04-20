@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 13:42+0430\n"
+"POT-Creation-Date: 2021-04-23 10:38+0430\n"
 "PO-Revision-Date: 2016-05-07 13:07+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OpenPlus\n"
@@ -798,9 +798,8 @@ msgstr "Pre+Valor"
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#, fuzzy
 msgid "BlueSound"
-msgstr "Refresco WebIF [s]"
+msgstr ""
 
 msgid "BlueSound IP"
 msgstr ""
@@ -2341,6 +2340,10 @@ msgstr "Posibilidad de Lluvia en el Tiempo"
 
 msgid "Weather Transparency"
 msgstr "Transparencias del Tiempo"
+
+#, fuzzy
+msgid "Weather Wind Info Lines"
+msgstr "Líneas del Tiempo"
 
 msgid "Weather Wind speed unit"
 msgstr "Unidad de Velocidad del Viento en el Tiempo"

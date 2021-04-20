@@ -1,12 +1,6 @@
 from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eTimer
-from Tools.BoundFunction import boundFunction
 import os
-try:
-	from enigma import eMediaDatabase
-	DPKG = True
-except:
-	DPKG = False
 
 
 class PixmapLcd4linux(Renderer):
@@ -15,10 +9,7 @@ class PixmapLcd4linux(Renderer):
 		self.mTime = 0
 		self.swap = False
 		self.L4Ltimer = eTimer()
-		if DPKG:
-			self.L4Ltimer_conn = self.L4Ltimer.timeout.connect(self.changed)
-		else:
-			self.L4Ltimer.callback.append(self.changed)
+		self.L4Ltimer.callback.append(self.changed)
 
 	GUI_WIDGET = ePixmap
 

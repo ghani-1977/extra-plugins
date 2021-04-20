@@ -13,8 +13,7 @@ L4LElement = L4Lelement()
 import os
 import glob
 import time
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-
+from Tools.Directories import SCOPE_PLUGINS, resolveFilename
 Py = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/plugin.py")
 
 L1 = []
@@ -30,14 +29,6 @@ Element = ""
 ElementList = []
 ExeMode = False
 StatusMode = False
-
-
-def _unescape(string):
-	index = string.find("%")
-	if index == -1:
-		return string
-	else:
-		return HTMLParser().unescape(string)
 
 
 def _exec(command):
@@ -83,6 +74,7 @@ def ParseCode():
 					i3 += 1
 				Z.append(i3)
 				L3.append(Z)
+
 			elif Z[0] == "self.list4":
 				if Z[1][:1] != "-":
 					i4 += 1
@@ -301,7 +293,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		elif _command == "pop":
 			V = _l(req.args.get(b"PopText", "")[0])
 			try:
-				V = _unescape(V)
+				V = HTMLParser().unescape(V)
 			except Exception as e:
 				L4log("WebIF Error: Parse Text")
 			setPopText(V)
@@ -389,6 +381,7 @@ class LCD4linuxConfigweb(resource.Resource):
 						obja = eval(a)
 						objb = eval(b)
 						objb.value = obja.value
+
 				elif ".Standby" in _a:
 					b = _a.replace(".Standby", ".")
 					if (" " + b) in list(zip(*L2))[2]:
@@ -415,7 +408,6 @@ class LCD4linuxConfigweb(resource.Resource):
 					ConfObj = eval(_a)
 					if isinstance(ConfObj, ConfigSelection):
 						ConfObj.value = val
-						# exec("%s.value = '%s'" % (_a, val)) # FIXME PY3
 					else:
 #ConfigYesNo
 						if isinstance(ConfObj, ConfigYesNo):
@@ -429,11 +421,10 @@ class LCD4linuxConfigweb(resource.Resource):
 							if isinstance(ConfObj, ConfigText):
 								V = _l(val)
 								try:
-									V = _unescape(V)
+									V = HTMLParser().unescape(V)
 								except Exception as e:
 									L4log("WebIF Error: Parse Text")
 								ConfObj.value = V
-								# exec("%s.value = '%s'" % (_a, V)) # FIXME PY3
 							else:
 #ConfigSlider
 								if isinstance(ConfObj, ConfigSlider):
@@ -448,7 +439,6 @@ class LCD4linuxConfigweb(resource.Resource):
 												ConfObj.value = [int(t[0]), int(t[1])]
 					if ConfObj.isChanged():
 						ConfObj.save()
-						# exec("C = %s.save()" % _a) # FIXME PY3
 						L4log("Changed", a)
 						if _a.find("Fritz") > 0:
 							Cfritz = True

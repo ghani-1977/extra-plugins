@@ -26,7 +26,7 @@ from Components.Harddisk import harddiskmanager
 from Components.config import config
 from enigma import RT_HALIGN_LEFT, eListboxPythonMultiContent, eServiceReference, eServiceCenter, gFont, iServiceInformation
 from Tools.LoadPixmap import LoadPixmap
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Tools.Directories import SCOPE_PLUGINS, resolveFilename
 
 
 def FileEntryComponent(name, absolute=None, isDir=False):

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 13:42+0430\n"
+"POT-Creation-Date: 2021-04-23 10:38+0430\n"
 "PO-Revision-Date: 2018-10-14 14:54+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: \n"
@@ -556,7 +556,7 @@ msgid "2 x FastForwardKey Type 2"
 msgstr "2 x Vorspultaste Typ 2"
 
 msgid "2 x InfoKey"
-msgstr "2 x Info-Taste"
+msgstr "2 x Infotaste"
 
 msgid "2 x Mute"
 msgstr "2 x Stumm"
@@ -786,9 +786,8 @@ msgstr "Balken+Wert"
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#, fuzzy
 msgid "BlueSound"
-msgstr "Sonos Play Check"
+msgstr ""
 
 msgid "BlueSound IP"
 msgstr ""
@@ -908,7 +907,7 @@ msgid "Corner"
 msgstr "Ecke"
 
 msgid "Corner+Timeshift"
-msgstr "Corner+Timeshift"
+msgstr "Ecke+Timeshift"
 
 msgid "Coversearch"
 msgstr "Coversuche"
@@ -1007,7 +1006,7 @@ msgid "ESE"
 msgstr "OSO"
 
 msgid "Event Icon Bar"
-msgstr "Ereigns Icon Bar"
+msgstr "Ereignis Icon Bar"
 
 msgid "Exec"
 msgstr "Ausführung"
@@ -2240,14 +2239,12 @@ msgstr "WWW-Internet Konverter"
 msgid "Waning Crescent"
 msgstr "Abnehmender Halbmond"
 
-#, fuzzy
 msgid "Waning Moon"
 msgstr "Abnehmender Mond"
 
 msgid "Waxing Crescent"
 msgstr "Zunehmender Halbmond"
 
-#, fuzzy
 msgid "Waxing Moon"
 msgstr "Zunehmender Mond"
 
@@ -2289,6 +2286,9 @@ msgstr "Wetter Regen Wahrscheinlichkeit"
 
 msgid "Weather Transparency"
 msgstr "Wetter Transparenz"
+
+msgid "Weather Wind Info Lines"
+msgstr "Wetter Wind Infozeilen"
 
 msgid "Weather Wind speed unit"
 msgstr "Wetter Wind Einheit"
@@ -2586,7 +2586,7 @@ msgid "only Picture Custom Size"
 msgstr "nur Bild benutzerdefinierte Größe"
 
 msgid "only Picture Custom Size 2"
-msgstr "nur Bild Benutzer Definierte Größe 2"
+msgstr "nur Bild Benutzerdefinierte Größe 2"
 
 msgid "only Progress Bar"
 msgstr "nur Fortschrittsbalken"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 13:42+0430\n"
+"POT-Creation-Date: 2021-04-23 10:38+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P. vyteniui@gmail.com\n"
@@ -787,9 +787,8 @@ msgstr "Juosta + reikšmė"
 msgid "Bitrate"
 msgstr "Bitų dažnis"
 
-#, fuzzy
 msgid "BlueSound"
-msgstr "Sonos veiklos tikrinimas"
+msgstr ""
 
 msgid "BlueSound IP"
 msgstr ""
@@ -2297,6 +2296,10 @@ msgstr "Lietaus tikimybė"
 
 msgid "Weather Transparency"
 msgstr "Orų lango skaidrumas"
+
+#, fuzzy
+msgid "Weather Wind Info Lines"
+msgstr "Orų linijos"
 
 msgid "Weather Wind speed unit"
 msgstr "Vėjo greičio matavimo vienetai"

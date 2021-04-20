@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 13:42+0430\n"
+"POT-Creation-Date: 2021-04-23 10:38+0430\n"
 "PO-Revision-Date: 2019-03-08 14:42+0100\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -783,9 +783,8 @@ msgstr "Balk+waarde"
 msgid "Bitrate"
 msgstr "Bitrate"
 
-#, fuzzy
 msgid "BlueSound"
-msgstr "BlueSound IP"
+msgstr "BlueSound"
 
 msgid "BlueSound IP"
 msgstr "BlueSound IP"
@@ -2283,6 +2282,10 @@ msgstr "Weer regenkans"
 
 msgid "Weather Transparency"
 msgstr "Weer transparantie"
+
+#, fuzzy
+msgid "Weather Wind Info Lines"
+msgstr "Weer regels"
 
 msgid "Weather Wind speed unit"
 msgstr "Weer windsnelheid eenheid"
