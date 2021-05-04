@@ -15,7 +15,7 @@ from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import SCOPE_PLUGINS
 import urllib2
 import os
-from enigma import getBoxType
+from Components.SystemInfo import BoxInfo
 
 
 class SH4MultiChooseOnLineImage(Screen):
@@ -97,7 +97,7 @@ class DownloadOnLineImage(Screen):
         self.close()
 
     def box(self):
-        box = getBoxType()
+        box = BoxInfo.getItem("model")
         urlbox = box
         stb = '1'
         if self.distro == 'openatv':

@@ -12,12 +12,12 @@ from Components.Label import Label
 from Components.Button import Button
 from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, getBoxType
+from enigma import eTimer
 from Tools.Directories import fileExists
 from os import path
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo, SystemInfo
 
-model = getBoxType()
+model = BoxInfo.getItem("model")
 
 config.plugins.transcodingsetup = ConfigSubsection()
 config.plugins.transcodingsetup.transcoding = ConfigSelection(default="enable", choices=[("enable", _("enable")), ("disable", _("disable"))])

@@ -11,11 +11,11 @@ from Components.ActionMap import ActionMap
 from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from Tools.Directories import fileExists
-from enigma import eTimer, getBoxType
-from boxbranding import getMachineBuild
+from enigma import eTimer
+from Components.SystemInfo import BoxInfo
 
-model = getBoxType()
-platform = getMachineBuild()
+model = BoxInfo.getItem("model")
+platform = BoxInfo.getItem("platform")
 
 
 def getRcuDefaultType():
@@ -94,7 +94,7 @@ class RemoteControlCode(Screen, ConfigListScreen, RemoteControlCodeInit):
 			self.checkModelTimer.start(1000, True)
 
 	def invalidmodel(self):
-		self.session.openWithCallback(self.close, MessageBox, _("Sorry, but %s is not supported.") % getBoxType(), MessageBox.TYPE_ERROR)
+		self.session.openWithCallback(self.close, MessageBox, _("Sorry, but your receiver is not supported."), MessageBox.TYPE_ERROR)
 
 	def createSetup(self):
 		self.list = []

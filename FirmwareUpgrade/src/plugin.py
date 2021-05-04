@@ -17,10 +17,11 @@ from Components.FileList import FileList
 from Components.Slider import Slider
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
-from enigma import eTimer, getBoxType
+from enigma import eTimer
 from Components.Console import Console
+from Components.SystemInfo import BoxInfo
 
-model = getBoxType()
+model = BoxInfo.getItem("model")
 
 fwlist = None
 fwdata = None

@@ -38,14 +38,15 @@ from Screens.Screen import Screen
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.InfoBarGenerics import InfoBarNotifications
-from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer, getBoxBrand
+from enigma import eTimer, eServiceReference, iPlayableService, fbClass, eRCInput, eConsoleAppContainer
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Components.SystemInfo import BoxInfo
 
 HTTPConnection.debuglevel = 1
 
 model_rc = "rc_wb_desc.png"
-brand = getBoxBrand()
+brand = BoxInfo.getItem("brand")
 
 if brand == "gigablue":
 	model_rc = "rc_wb_desc_gb.png"

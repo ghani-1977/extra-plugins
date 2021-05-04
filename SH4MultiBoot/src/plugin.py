@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-from boxbranding import getImageDistro, getImageFileSystem
 from Screens.Screen import Screen
 from Screens.Console import Console
 from Screens.MessageBox import MessageBox
@@ -21,13 +20,13 @@ import os
 from skin import parseColor
 from Plugins.Plugin import PluginDescriptor
 from Components.Console import Console
-from enigma import getBoxType, getBoxBrand
-from boxbranding import getVisionVersion, getVisionRevision
+from Components.SystemInfo import BoxInfo
 
-visionversion = getVisionVersion()
-visionrevision = getVisionRevision()
-brand = getBoxBrand()
-model = getBoxType()
+visionversion = BoxInfo.getItem("visionversion")
+visionrevision = BoxInfo.getItem("visionrevision")
+brand = BoxInfo.getItem("brand")
+model = BoxInfo.getItem("model")
+distro = BoxInfo.getItem("distro")
 
 SH4MultiBootInstallation_Skin = '\n\t\t<screen name="SH4MultiBootInstallation" position="center,center" size="902,380" title="SH4MultiBoot - Installation" >\n\t\t      <widget name="label1" position="10,10" size="840,30" zPosition="1" halign="center" font="Regular;25" backgroundColor="#9f1313" transparent="1"/>\n\t\t      <widget name="label2" position="10,80" size="840,290" zPosition="1" halign="center" font="Regular;20" backgroundColor="#9f1313" transparent="1"/>\n\t\t      <widget name="config" position="10,160" size="840,200" scrollbarMode="showOnDemand" transparent="1"/>\n\t\t      <ePixmap pixmap="skin_default/buttons/red.png" position="10,290" size="140,40" alphatest="on" />\n\t\t      <ePixmap pixmap="skin_default/buttons/green.png" position="150,290" size="140,40" alphatest="on" />\n\t\t      <ePixmap pixmap="skin_default/buttons/blue.png" position="385,290" size="140,40" alphatest="on" />\n\t\t      <widget name="key_red" position="10,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t      <widget name="key_green" position="160,290" zPosition="1" size="200,40" font="Regular;20" halign="center" valign="center" backgroundColor="#9f1313" transparent="1" />\n\t\t      <widget name="key_blue" position="416,290" zPosition="1" size="140,40" font="Regular;20" halign="center" valign="center" backgroundColor="#1f771f" transparent="1" />\n\t\t</screen>'
 
@@ -192,7 +191,7 @@ class SH4MultiBootInstallation(Screen):
             open('/media/sh4multiboot/SH4MultiBootI/.sh4multiboot', 'w').write('Flash')
             open('/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location', 'w').write(self.mysel)
             Console().ePopen('cp -f /usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/.sh4multiboot_location /etc/sh4multi/')
-            image = getImageDistro()
+            image = distro
             if fileExists('/etc/image-version'):
                 if 'build' not in image:
                     f = open('/etc/image-version', 'r')
@@ -304,7 +303,7 @@ class SH4MultiBootImageChoose(Screen):
             mypath2 = 'Flash'
 
         if mypath2 == 'Flash':
-            image = getImageDistro()
+            image = distro
             if fileExists('/etc/image-version'):
                 if 'build' not in image:
                     f = open('/etc/image-version', 'r')
@@ -562,7 +561,7 @@ class SH4MultiBootImageInstall(Screen, ConfigListScreen):
         return
 
     def imageInstall(self):
-        filesys = getImageFileSystem().replace(' ', '')
+        filesys = BoxInfo.getItem("imagefs").replace(' ', '')
         if self.check_free_space():
             pluginpath = '/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot'
             myerror = ''

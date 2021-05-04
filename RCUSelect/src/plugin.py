@@ -11,7 +11,7 @@ from Components.Pixmap import Pixmap
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.Button import Button
-from enigma import getBoxType
+from Components.SystemInfo import BoxInfo
 import os
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
@@ -202,7 +202,7 @@ class RCUSelect(Screen):
 					Console().ePopen("cp -f /etc/amremote/wetek2.conf /etc/amremote/rcuselect.conf &")
 				open("/etc/amremote/rcuselect-choice", "w").write(self.rcuv)
 				Console().ePopen("killall -9 remotecfg &")
-				if getBoxType() == "wetekplay2":
+				if BoxInfo.getItem("model") == "wetekplay2":
 					fin = open("/etc/amremote/rcuselect.conf")
 					fout = open("/etc/amremote/rcuselect_tmp.conf", "w")
 					for line in fin:

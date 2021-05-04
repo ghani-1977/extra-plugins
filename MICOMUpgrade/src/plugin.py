@@ -19,15 +19,11 @@ from shutil import copyfile
 from Tools.StbHardware import getBoxProc
 from Components.Console import Console
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from boxbranding import getMachineProcModel
 
 fwlist = None
 fwdata = None
 
-try:
-	procmodel = getBoxProc()
-except:
-	procmodel = getMachineProcModel()
+procmodel = getBoxProc()
 
 if procmodel == "ini-1000":
 	fwlist = [

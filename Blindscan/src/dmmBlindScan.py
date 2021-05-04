@@ -11,7 +11,7 @@ from Components.NimManager import nimmanager, getConfigSatlist
 from Components.Sources.CanvasSource import CanvasSource
 from Components.Sources.List import List
 from Components.Sources.StaticText import StaticText
-from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager, getDesktop, getBoxType
+from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager, getDesktop
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
@@ -20,10 +20,11 @@ from Components.About import about
 from Tools.Directories import fileExists
 from Tools.Transponder import ConvertToHumanReadable
 from filters import TransponderFiltering # imported from Blindscan folder
+from Components.SystemInfo import BoxInfo
 
 XML_BLINDSCAN_DIR = "/tmp"
 
-boxtype = getBoxType()
+boxtype = BoxInfo.getItem("model")
 
 
 def insertValues(xml, values):

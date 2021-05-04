@@ -20,9 +20,9 @@ Version = "V5.1-r8r"
 from .import _
 from enigma import eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol
 from enigma import getDesktop, getEnigmaVersionString, eEnv
-from enigma import ePicLoad, ePixmap, getBoxType
+from enigma import ePicLoad, ePixmap
 
-from boxbranding import getDisplayType, getImageArch
+from Components.SystemInfo import BoxInfo
 from Screens.Screen import Screen
 from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
@@ -162,13 +162,13 @@ LCD4config = LCD4enigma2 + "lcd4config" # /etc/enigma2/lcd4config
 LCD4picon = LCD4share + "enigma2/picon/" #/usr/share/enigma2/picon/
 Data = LCD4plugin + "Extensions/LCD4linux/data/" # /usr/lib/enigma2/python/Plugins/Extensions/LCD4linux/data/
 
-displaytype = getDisplayType()
+displaytype = BoxInfo.getItem("displaytype")
 
 if displaytype == "colorlcd220":
 	LCD4default = Data + "default.colorlcd220"
 elif displaytype == "colorlcd400":
 	LCD4default = Data + "default.colorlcd400"
-elif getBoxType() == "vuduo2":
+elif BoxInfo.getItem("model") == "vuduo2":
 	LCD4default = Data + "default.vuduo2"
 elif displaytype == "colorlcd720":
 	LCD4default = Data + "default.colorlcd720"
@@ -294,7 +294,7 @@ if ctypes.util.find_library("usb-0.1") is not None or ctypes.util.find_library("
 	import usb.util
 	from . import dpf
 	USBok = True
-elif getImageArch() == "aarch64":
+elif BoxInfo.getItem("architecture") == "aarch64":
 	import usb.core
 	import usb.backend.libusb1
 	usb.backend.libusb1.get_backend(find_library=lambda x: "/lib64/libusb-1.0.so.0")

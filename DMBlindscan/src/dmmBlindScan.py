@@ -10,7 +10,7 @@ from Components.Label import Label
 from Components.NimManager import nimmanager, getConfigSatlist
 from Components.Sources.CanvasSource import CanvasSource
 from Components.Sources.List import List
-from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager, getBoxType
+from enigma import eDVBFrontendParameters, eDVBFrontendParametersSatellite, eComponentScan, eTimer, eDVBResourceManager
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.ServiceScan import ServiceScan
@@ -18,10 +18,11 @@ from time import time, strftime
 from Components.About import about
 from Tools.Directories import fileExists
 from Tools.Transponder import ConvertToHumanReadable
+from Components.SystemInfo import BoxInfo
 
 XML_BLINDSCAN_DIR = "/tmp"
 
-boxtype = getBoxType()
+boxtype = BoxInfo.getItem("model")
 
 
 class TransponderSearchSupport:

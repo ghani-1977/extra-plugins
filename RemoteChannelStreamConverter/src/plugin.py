@@ -13,13 +13,14 @@ from Components.Sources.StaticText import StaticText
 from Components.SelectionList import SelectionList
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, ConfigInteger, ConfigSubsection, ConfigText, ConfigYesNo, getConfigListEntry, ConfigIP
-from enigma import eServiceCenter, eServiceReference, eDVBDB, getBoxType
+from enigma import eServiceCenter, eServiceReference, eDVBDB
 from ServiceReference import ServiceReference
 from twisted.internet import reactor
 from twisted.internet.protocol import ClientCreator
 from twisted.protocols.ftp import FTPClient
 from urllib import quote
 from FTPDownloader import FTPDownloader
+from Components.SystemInfo import BoxInfo
 
 DIR_ENIGMA2 = '/etc/enigma2/'
 DIR_TMP = '/tmp/'
@@ -636,7 +637,7 @@ def main(session, **kwargs):
 
 
 def mainInMenu(menuid, **kwargs):
-	if getBoxType() in ("gbipbox", "gbx2"):
+	if BoxInfo.getItem("model") in ("gbipbox", "gbx2"):
 		if menuid == "setup":
 			return [(_("Remote channel stream converter"), main, "streamconvert", 20)]
 		else:

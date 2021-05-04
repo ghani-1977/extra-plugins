@@ -3,7 +3,7 @@
 from __future__ import print_function
 # for localized messages
 from . import _
-from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer, getBoxType, getBoxBrand
+from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigBoolean, ConfigInteger, getConfigListEntry, ConfigNothing, ConfigSelection, ConfigSubsection, ConfigYesNo
 from Components.ConfigList import ConfigListScreen
@@ -21,11 +21,11 @@ from Tools.BoundFunction import boundFunction
 import os
 #used for the XML file
 from time import strftime, time
-from boxbranding import getBlindscanBin, getMachineBuild
+from Components.SystemInfo import BoxInfo
 
-brand = getBoxBrand()
-model = getBoxType()
-platform = getMachineBuild()
+brand = BoxInfo.getItem("brand")
+model = BoxInfo.getItem("model")
+platform = BoxInfo.getItem("platform")
 
 # root2gold based on https://github.com/DigitalDevices/dddvb/blob/master/apps/pls.c
 
@@ -906,7 +906,7 @@ class Blindscan(ConfigListScreen, Screen):
 			if brand == "vuplus":
 				exe_filename = self.binName
 			else:
-				exe_filename = getBlindscanBin()
+				exe_filename = BoxInfo.getItem("blindscanbinary")
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d %d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band], self.feid, self.getNimSocket(self.feid))
@@ -922,7 +922,7 @@ class Blindscan(ConfigListScreen, Screen):
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
 		elif brand == "odin":
-			exe_filename = getBlindscanBin()
+			exe_filename = BoxInfo.getItem("blindscanbinary")
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s %d %d %d %d %d %d %d" % (exe_filename, self.feid, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, tab_pol[pol], tab_hilow[band]) # odin_blindscan tuner_idx min_frequency max_frequency min_symbolrate max_symbolrate polarization(Vertical & Horizontal) hilow_band
@@ -930,7 +930,7 @@ class Blindscan(ConfigListScreen, Screen):
 				self.session.open(MessageBox, _("Blindscan executable not found '%s'!") % exe_path, MessageBox.TYPE_ERROR)
 				return
 		elif brand in ("xcore", "edision"):
-			exe_filename = getBlindscanBin()
+			exe_filename = BoxInfo.getItem("blindscanbinary")
 			exe_path = "/usr/bin/%s" % exe_filename
 			if os.path.exists(exe_path):
 				cmd = "%s --start=%d --stop=%d --min=%d --max=%d --slot=%d --i2c=%d" % (exe_filename, temp_start_int_freq, temp_end_int_freq, config.blindscan.start_symbol.value, config.blindscan.stop_symbol.value, self.feid, self.getNimSocket(self.feid))

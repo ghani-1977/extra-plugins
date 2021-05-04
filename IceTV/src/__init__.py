@@ -8,10 +8,11 @@ All Right Reserved
 License: Proprietary / Commercial - contact enigma.licensing (at) urbanec.net
 '''
 
-from enigma import eEPGCache, getBoxBrand, getBoxType
+from enigma import eEPGCache
 from Components.config import config, ConfigSubsection, ConfigNumber, ConfigText, \
     ConfigPassword, ConfigSelection, NoSave, configfile, ConfigYesNo, \
     ConfigSelectionNumber
+from Components.SystemInfo import BoxInfo
 
 
 def getIceTVDeviceType():
@@ -21,7 +22,7 @@ def getIceTVDeviceType():
         ("Beyonwiz", "T4"): 30,
         ("Beyonwiz", "U4"): 36,
         ("Beyonwiz", "V2"): 38,
-    }.get((getBoxBrand(), getBoxType()), 39)
+    }.get((BoxInfo.getItem("brand"), BoxInfo.getItem("model")), 39)
 
 
 config.plugins.icetv = ConfigSubsection()

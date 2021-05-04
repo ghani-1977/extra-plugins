@@ -12,14 +12,14 @@ from Components.ActionMap import ActionMap
 from Components.ConfigList import ConfigList
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigSlider
 from Components.ConfigList import ConfigListScreen
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD, getBoxType
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, eDBoxLCD
 from Components.ServiceEventTracker import ServiceEventTracker
 from Components.ServiceList import ServiceList
 from Screens.InfoBar import InfoBar
 from time import localtime, time
 from Tools.Directories import fileExists
 import Components.RecordingConfig
-from boxbranding import getMachineBuild
+from Components.SystemInfo import BoxInfo
 import Screens.Standby
 
 config.plugins.VFD_ini = ConfigSubsection()
@@ -32,7 +32,7 @@ config.plugins.VFD_ini.ClockLevel2 = ConfigSlider(default=4, limits=(1, 10))
 
 MyRecLed = False
 use_oled = False
-if getBoxType() in ("gbtrio4k", "viper4k") or getMachineBuild() == "octagonhisil":
+if BoxInfo.getItem("model") in ("gbtrio4k", "viper4k") or BoxInfo.getItem("platform") == "octagonhisil":
 	use_oled = True
 
 

@@ -11,7 +11,7 @@ from Components.ActionMap import ActionMap
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigYesNo, ConfigSlider
 from Components.ConfigList import ConfigListScreen, ConfigList
 from Tools.Directories import fileExists
-from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap, getBoxType
+from enigma import iPlayableService, eServiceCenter, eTimer, eActionMap
 from os import system
 from Plugins.Plugin import PluginDescriptor
 from Components.ServiceEventTracker import ServiceEventTracker
@@ -21,8 +21,9 @@ from time import localtime, time
 import Screens.Standby
 import Components.RecordingConfig
 from Components.Harddisk import harddiskmanager
+from Components.SystemInfo import BoxInfo
 
-BOX = getBoxType()
+BOX = BoxInfo.getItem("model")
 if fileExists("/proc/stb/fp/vfd_status"):
 	version = open("/proc/stb/fp/vfd_status").read().strip().lower()
 	if version == "enable":

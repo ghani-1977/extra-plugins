@@ -21,7 +21,7 @@ from __future__ import print_function
 
 from . import _
 from Plugins.Plugin import PluginDescriptor
-from enigma import eTimer, eConsoleAppContainer, iPlayableService, getBoxBrand
+from enigma import eTimer, eConsoleAppContainer, iPlayableService
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.Button import Button
@@ -38,8 +38,9 @@ import time
 import signal
 from datetime import datetime, timedelta
 from Components.Console import Console
+from Components.SystemInfo import BoxInfo
 
-brand = getBoxBrand()
+brand = BoxInfo.getItem("brand")
 
 
 class TaskManager:

@@ -3,7 +3,7 @@
 from __future__ import print_function
 # for localized messages
 from . import _
-from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer, getBoxType, getBoxBrand
+from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer
 from Components.About import about
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigBoolean, ConfigInteger, getConfigListEntry, ConfigNothing, ConfigSelection, ConfigSubsection, ConfigYesNo
@@ -24,6 +24,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import os
 #used for the XML file
 from time import strftime, time
+from Components.SystemInfo import BoxInfo
 
 # root2gold based on https://github.com/OpenPLi/enigma2/blob/develop/lib/dvb/db.cpp#L27
 
@@ -50,8 +51,8 @@ def getMisPlsValue(d, idx, defaultValue):
 		return defaultValue
 
 
-BOX_MODEL = getBoxBrand()
-BOX_NAME = getBoxType()
+BOX_MODEL = BoxInfo.getItem("brand")
+BOX_NAME = BoxInfo.getItem("model")
 
 #used for blindscan-s2
 

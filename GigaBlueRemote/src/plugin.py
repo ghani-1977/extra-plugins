@@ -12,10 +12,9 @@ from Screens.MessageBox import MessageBox
 from Components.Sources.StaticText import StaticText
 from Tools.Directories import fileExists
 from enigma import eTimer
-from enigma import getBoxType
-from boxbranding import getMachineBuild
+from Components.SystemInfo import BoxInfo
 
-platform = getMachineBuild()
+platform = BoxInfo.getItem("platform")
 
 config.plugins.remotecontrolcode = ConfigSubsection()
 config.plugins.remotecontrolcode.systemcode = ConfigSelection(default="50af", choices=[("50af", _("Code 1")), ("51ae", _("Code 2"))])
@@ -78,7 +77,7 @@ class RemoteControlCode(Screen, ConfigListScreen, RemoteControlCodeInit):
 			self.checkModelTimer.start(1000, True)
 
 	def invalidmodel(self):
-		self.session.openWithCallback(self.close, MessageBox, _("Sorry, but %s is not supported.") % getBoxType(), MessageBox.TYPE_ERROR)
+		self.session.openWithCallback(self.close, MessageBox, _("Sorry, but your receiver is not supported."), MessageBox.TYPE_ERROR)
 
 	def createSetup(self):
 		self.list = []

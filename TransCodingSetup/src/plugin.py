@@ -7,7 +7,7 @@ from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, configfile, ConfigSubList, getConfigListEntry, ConfigSubsection, ConfigSelection, ConfigInteger, integer_limits, NoSave
 from Components.ActionMap import ActionMap
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo, SystemInfo
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Components.Button import Button
@@ -16,13 +16,12 @@ from Components.Sources.Boolean import Boolean
 from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
 from Tools.Directories import fileExists
-from enigma import eTimer, getBoxType
+from enigma import eTimer
 from os import path as os_path, listdir as os_listdir
 from Components.Console import Console
-from boxbranding import getMachineBuild
 
-model = getBoxType()
-platform = getMachineBuild()
+model = BoxInfo.getItem("model")
+platform = BoxInfo.getItem("platform")
 
 
 def getProcValue(procPath):
