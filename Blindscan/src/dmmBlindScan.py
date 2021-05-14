@@ -464,6 +464,7 @@ class SatelliteTransponderSearchSupport:
 		self.range_list = [] # contains tuples, (start, stop, polarisation), max length 4, i.e. 4 sub-bands
 		tuner_no = -1
 		self.auto_scan = False
+		self.is_c_band_scan = False
 
 		print("[dmmBlindscan][startSatelliteTransponderSearch] tunername", tunername)
 		if nimmanager.nim_slots[self.feid].supportsBlindScan() or tunername in ("BCM4505", "BCM4506 (internal)", "BCM4506", "Alps BSBE1 C01A/D01A.", "Si2166B", "Si2169C"):
@@ -549,7 +550,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		self.service = session.nav.getCurrentService()
 		self.feinfo = None
 		frontendData = None
-
+		self.is_c_band_scan = False
 		# make config
 		self.legacy = True
 		for slot in nimmanager.nim_slots:
@@ -765,7 +766,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 				nim_list.append((str(n.slot), n.friendly_full_description))
 		self.scan_nims = ConfigSelection(choices=nim_list)
 
-		self.is_c_band_scan = False
 		cur_orb_pos = defaultSat["orbpos"]
 		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
 		nimconfig = nim.config
