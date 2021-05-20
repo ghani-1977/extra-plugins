@@ -15,7 +15,7 @@ from Plugins.Plugin import PluginDescriptor
 from enigma import eTimer
 from Tools.Directories import fileExists
 from os import path
-from Components.SystemInfo import BoxInfo, SystemInfo
+from Components.SystemInfo import BoxInfo
 
 model = BoxInfo.getItem("model")
 
@@ -23,7 +23,7 @@ config.plugins.transcodingsetup = ConfigSubsection()
 config.plugins.transcodingsetup.transcoding = ConfigSelection(default="enable", choices=[("enable", _("enable")), ("disable", _("disable"))])
 if fileExists("/proc/stb/encoder/0/vcodec"):
 	config.plugins.transcodingsetup.bitrate = ConfigSelection([("100000", _("100 kbps")), ("300000", _("300 kbps")), ("500000", _("500 kbps")), ("800000", _("800 kbps")), ("1000000", _("1.0 Mbps")), ("1200000", _("1.2 Mbps")), ("1500000", _("1.5 Mbps")), ("2000000", _("2.0 Mbps")), ("2500000", _("2.5 Mbps")), ("3000000", _("3.0 Mbps")), ("3500000", _("3.5 Mbps")), ("4000000", _("4.0 Mbps")), ("5000000", _("5.0 Mbps"))], default="1500000")
-	if SystemInfo["HiSilicon"]:
+	if BoxInfo.getItem("HiSilicon"):
 		config.plugins.transcodingsetup.resolution = ConfigSelection([("720x480", _("PAL SVCD")), ("720x576", _("PAL DV")), ("768x576", _("PAL")), ("1024x576", _("PAL-wide")), ("1280x720", _("HD720")), ("1440x1080", _("HD1080 DV")), ("1920x1080", _("HD1080"))], default="720x576")
 	else:
 		config.plugins.transcodingsetup.resolution = ConfigSelection([("720x480", _("480p")), ("720x576", _("576p")), ("1280x720", _("720p"))], default="720x576")

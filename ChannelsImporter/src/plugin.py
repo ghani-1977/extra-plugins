@@ -8,7 +8,7 @@ from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
 from Components.config import config, configfile, ConfigSubsection, ConfigIP, ConfigText, ConfigInteger, ConfigYesNo, ConfigSelection, ConfigClock, NoSave, ConfigNumber
 from Screens.Setup import Setup
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from Screens.MessageBox import MessageBox # for are you sure questions after config changes
 
 from ChannelsImporter import ChannelsImporter
@@ -35,9 +35,9 @@ config.plugins.ChannelsImporter.errorMessages = ConfigYesNo(False)
 
 def scheduleRepeatIntervalChanged(configElement):
 	if config.plugins.ChannelsImporter.enableSchedule.value and config.plugins.ChannelsImporter.scheduleRepeatInterval.value == "daily":
-		SystemInfo["ChannelsImporterRepeatDaily"] = True
+		BoxInfo.setItem("ChannelsImporterRepeatDaily", True)
 	else:
-		SystemInfo["ChannelsImporterRepeatDaily"] = False
+		BoxInfo.setItem("ChannelsImporterRepeatDaily", False)
 
 
 config.plugins.ChannelsImporter.enableSchedule.addNotifier(scheduleRepeatIntervalChanged, immediate_feedback=True, initial_call=True)

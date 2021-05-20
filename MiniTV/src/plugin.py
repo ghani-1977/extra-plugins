@@ -3,7 +3,7 @@
 from Plugins.Plugin import PluginDescriptor
 from Components.PluginComponent import plugins
 from Components.config import config, ConfigSubsection, ConfigSelection
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 
 config.plugins.minitv = ConfigSubsection()
 config.plugins.minitv.enable = ConfigSelection(default="disable", choices=[("enable", "enable"), ("disable", "disable")])
@@ -59,7 +59,7 @@ class MiniTV:
 
 	def setMiniTVDecoder(self, value):
 		try:
-			if SystemInfo["LcdLiveDecoder"]:
+			if BoxInfo.getItem("LcdLiveDecoder"):
 				print("[MiniTV] Read /proc/stb/lcd/live_decoder")
 				cur_value = open("/proc/stb/lcd/live_decoder", "r").read()
 				if cur_value != value:
@@ -86,7 +86,7 @@ minitv_instance = MiniTV()
 
 def addExtentions(infobarExtensions):
 	infobarExtensions.addExtension((minitv_instance.getExtensionName, minitv_instance.showMiniTV, lambda: True), None)
-	if SystemInfo["LcdLiveDecoder"]:
+	if BoxInfo.getItem("LcdLiveDecoder"):
 		infobarExtensions.addExtension((minitv_instance.getExtensionNameDecoder, minitv_instance.showMiniTVDecoder, lambda: True), None)
 
 

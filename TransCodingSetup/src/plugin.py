@@ -7,7 +7,7 @@ from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, configfile, ConfigSubList, getConfigListEntry, ConfigSubsection, ConfigSelection, ConfigInteger, integer_limits, NoSave
 from Components.ActionMap import ActionMap
-from Components.SystemInfo import BoxInfo, SystemInfo
+from Components.SystemInfo import BoxInfo
 from Screens.MessageBox import MessageBox
 from Components.Label import Label
 from Components.Button import Button
@@ -148,15 +148,15 @@ if len(encoders) > 1:
 	encoders.sort()
 	for encoder in encoders:
 		choices.append((encoder, encoder))
-		SystemInfo["NoAuto" + str(encoder)] = True
+		BoxInfo.setItem("NoAuto%s" % encoder, True)
 else:
 	choices.append(('0', '0'))
-	SystemInfo["NoAuto0"] = True
+	BoxInfo.setItem("NoAuto0", True)
 
 config.plugins.transcodingsetup.encodernum = ConfigSelection(default='0', choices=choices)
 
-SystemInfo["AdvancedTranscoding"] = checkSupportAdvanced()
-SystemInfo["MultipleEncoders"] = len(encoders) > 1
+BoxInfo.setItem("AdvancedTranscoding", checkSupportAdvanced())
+BoxInfo.setItem("MultipleEncoders", len(encoders) > 1)
 
 transcodingsetupinit = None
 
@@ -242,7 +242,7 @@ class TranscodingSetupInit:
 
 	def setAutomode(self, configElement, extra_args):
 		configName = "AutoMode"
-		SystemInfo["NoAuto" + str(extra_args[0])] = config.plugins.transcodingsetup.encoder[int(extra_args[0])].automode.value == 'Off'
+		BoxInfo.setItem("NoAuto%s" % extra_args[0], config.plugins.transcodingsetup.encoder[int(extra_args[0])].automode.value == 'Off')
 		if configElement.value == "On":
 			if hasattr(config.plugins.transcodingsetup.encoder[int(extra_args[0])], "bitrate") and hasattr(config.plugins.transcodingsetup.encoder[int(extra_args[0])], "framerate"):
 				config.plugins.transcodingsetup.encoder[int(extra_args[0])].bitrate.setValue("-1")
@@ -445,7 +445,7 @@ class TranscodingSetup(Screen, ConfigListScreen):
 			if self.automode is not None:
 				self.list.append(self.automode)
 
-			if SystemInfo["NoAuto" + str(encoder)]:
+			if BoxInfo.getItem("NoAuto%s" % encoder):
 				if hasattr(config.plugins.transcodingsetup.encoder[int(encoder)], "bitrate"):
 					self.list.append(getConfigListEntry(_("Bitrate"), config.plugins.transcodingsetup.encoder[int(encoder)].bitrate))
 				if hasattr(config.plugins.transcodingsetup.encoder[int(encoder)], "framerate"):

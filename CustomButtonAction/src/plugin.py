@@ -13,7 +13,7 @@ from os import system
 
 from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 
 
 keycustomfile = open(resolveFilename(SCOPE_SKIN, 'keycustomactions.xml'), 'r')
@@ -51,7 +51,7 @@ class CustomButtonActionMenu(Screen):
 		for x in entries:             #walk through the actual nodelist
 			if (x.nodeType == Node.ELEMENT_NODE and x.tagName == 'item'):
 
-				if ((len(str(x.getAttribute("requires"))) > 0) and (not SystemInfo.get(str(x.getAttribute("requires")), False))):
+				if ((len(str(x.getAttribute("requires"))) > 0) and (not BoxInfo.getItem(str(x.getAttribute("requires")), False))):
 					pass
 				else:
 					idx = idx + 1

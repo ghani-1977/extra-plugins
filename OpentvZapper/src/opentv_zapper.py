@@ -26,7 +26,7 @@ import six
 
 #for pip
 from Screens.PictureInPicture import PictureInPicture
-from Components.SystemInfo import SystemInfo
+from Components.SystemInfo import BoxInfo
 from enigma import ePoint, eSize
 
 debug_name = "opentv_zapper"
@@ -791,7 +791,7 @@ class Opentv_Zapper():
 			print("[%s]currentlyPlayingNIM" % (debug_name), currentlyPlayingNIM)
 			print("[%s]available tuners" % (debug_name), tuners)
 			if not inStandby and (num_tuners > 1 or tuners[0] != currentlyPlayingNIM):
-				if SystemInfo.get("NumVideoDecoders", 1) > 1 and not (hasattr(self.session, 'pipshown') and self.session.pipshown):
+				if BoxInfo.getItem("NumVideoDecoders", 1) > 1 and not (hasattr(self.session, 'pipshown') and self.session.pipshown):
 					self.adapter = PipAdapter(self.session)
 					self.downloading = self.adapter.play(self.sref)
 					self.adaptername = "Pip"
