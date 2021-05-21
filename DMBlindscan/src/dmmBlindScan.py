@@ -681,17 +681,17 @@ class DmmBlindscan(ConfigListScreen, Screen, TransponderSearchSupport, Satellite
 				nim_list.append((str(n.slot), n.friendly_full_description))
 		self.scan_nims = ConfigSelection(choices=nim_list)
 
-		cur_orb_pos = defaultSat["orbpos"]
-		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
-		nimconfig = nim.config
-		if nimconfig.configMode.getValue() == "advanced":
-			currSat = nimconfig.advanced.sat[cur_orb_pos]
-			lnbnum = int(currSat.lnb.getValue())
-			currLnb = nimconfig.advanced.lnb[lnbnum]
-			lof = currLnb.lof.getValue()
-			print("[Blindscan][isLNB] LNB type: ", lof)
-			if lof == "c_band":
-				self.is_c_band_scan = True
+#		cur_orb_pos = defaultSat["orbpos"]
+#		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
+#		nimconfig = nim.config
+#		if nimconfig.configMode.getValue() == "advanced":
+#			currSat = nimconfig.advanced.sat[cur_orb_pos]
+#			lnbnum = int(currSat.lnb.getValue())
+#			currLnb = nimconfig.advanced.lnb[lnbnum]
+#			lof = currLnb.lof.getValue()
+#			print("[Blindscan][isLNB] LNB type: ", lof)
+#			if lof == "c_band":
+#				self.is_c_band_scan = True
 
 		self.scan_sat.bs_system = ConfigSelection(default=eDVBFrontendParametersSatellite.System_DVB_S2,
 			choices=[(eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
