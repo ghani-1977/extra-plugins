@@ -22,8 +22,8 @@ from Plugins.Plugin import PluginDescriptor
 from Components.Console import Console
 from Components.SystemInfo import BoxInfo
 
-visionversion = BoxInfo.getItem("visionversion")
-visionrevision = BoxInfo.getItem("visionrevision")
+visionversion = BoxInfo.getItem("imgversion")
+visionrevision = BoxInfo.getItem("imgrevision")
 brand = BoxInfo.getItem("brand")
 model = BoxInfo.getItem("model")
 distro = BoxInfo.getItem("distro")
