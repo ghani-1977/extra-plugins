@@ -712,7 +712,6 @@ class ModemManager(Screen):
 
 	def cbRestartAppTimer(self):
 		self.restartAppTimer.stop()
-		model = open('/etc/openvision/model').read().strip()
 
 	def cbRefreshStatus(self):
 		self.refreshStatusTimer.stop()
