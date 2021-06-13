@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2018-07-31 07:41+0200\n"
 "Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
 "Language-Team: \n"
@@ -53,8 +53,8 @@ msgstr "Afstandsbedieningscode:"
 msgid "Save"
 msgstr "Sla op"
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+#, fuzzy
+msgid "Sorry, but your receiver is not supported."
 msgstr "Sorry, maar %s wordt niet ondersteund."
 
 msgid "Then choose 'Confirm' "

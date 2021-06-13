@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: enigma2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2018-10-14 22:51+0200\n"
 "Last-Translator: Manfred Aabye <openmanniland@gmx.de>\n"
 "Language-Team: Deutsch <> j-ot&Trial\n"
@@ -51,8 +51,8 @@ msgstr "Wiederherstellung"
 msgid "Save"
 msgstr "Speichern"
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+#, fuzzy
+msgid "Sorry, but your receiver is not supported."
 msgstr "Entschuldigung, aber %s wird nicht unterstützt."
 
 msgid "Then choose 'Keep' within seconds"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ENIGMA 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2016-05-07 14:22+0200\n"
 "Last-Translator: neoatomic <neoatomic@users.noreply.github.com>\n"
 "Language-Team: OldSkul from www.linux-sprejemniki.info\n"
@@ -53,8 +53,7 @@ msgstr "Povrnitev prejšnjega stanja"
 msgid "Save"
 msgstr "Potrditev"
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+msgid "Sorry, but your receiver is not supported."
 msgstr ""
 
 msgid "Then choose 'Keep' within seconds"

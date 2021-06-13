@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DsayersCustomMixImporter\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:41+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Vytenis P. <vyteniui@gmail.com>\n"
 "Language-Team: Vytenis P.\n"
@@ -43,11 +43,12 @@ msgstr "ABM CustomMix"
 msgid "ABM CustomMix Importer"
 msgstr "ABM CustomMix importas"
 
+#, fuzzy
+msgid "ABMCustomMixImporter"
+msgstr "ABM CustomMix importas"
+
 msgid "Allows you automatically fetch the CustomMix file."
 msgstr ""
-
-msgid "Channels importer"
-msgstr "Kanalų importas"
 
 msgid "Delete file"
 msgstr "Ištrinti failą"

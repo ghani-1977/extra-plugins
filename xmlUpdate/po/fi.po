@@ -5,23 +5,24 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: plugins 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:32+0330\n"
-"PO-Revision-Date: 2018-04-10 11:56+0200\n"
-"Last-Translator: Automatically generated\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
+"PO-Revision-Date: 2021-06-12 04:08+0300\n"
+"Last-Translator: Tomppaa <http://www.huoltovalikko.com/>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
 
 msgid "/etc/enigma2"
-msgstr ""
+msgstr "/etc/enigma2"
 
 msgid "/etc/tuxbox (default)"
-msgstr ""
+msgstr "/etc/tuxbox (oletus)"
 
 msgid "/usr/share/enigma2 (default for unicable)"
 msgstr ""
@@ -41,8 +42,9 @@ msgstr ""
 msgid "Atlantic (0°W-61°W)"
 msgstr ""
 
+#, fuzzy
 msgid "Cables"
-msgstr ""
+msgstr "Kaapeli"
 
 msgid "Choose where you live."
 msgstr ""
@@ -51,55 +53,62 @@ msgid "Europe (73°E-0°E)"
 msgstr ""
 
 msgid "Exit"
-msgstr ""
+msgstr "Poistu"
 
 msgid "Fetch"
-msgstr ""
+msgstr "Hae"
 
 #, python-format
 msgid ""
 "Fetching and saving %s.xml succeeded.\n"
 "Restart now for changes to take immediate effect?"
 msgstr ""
+"Noutaminen ja tallentaminen %s.xml onnistuivat.\n"
+"Käynnistettäänkö uudelleen nyt, jotta muutokset tulevat voimaan?"
 
+#, fuzzy
 msgid "File being updated, i.e. satellites.xml"
-msgstr ""
+msgstr "Päivitettävä tiedosto eli satellites.xml, cables.xml, tai terrestrial.xml."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
-msgstr ""
+msgstr "Kansio, johon ladattu tiedosto tallennetaan. \"/etc/tuxbox\" on oletussijainti. \"/etc/enigma2\" kansioon tallennetut tiedostot ohittavat oletus tiedoston, eikä niitä päivitetä ohjelmistopäivityksessä."
 
 msgid "Region"
 msgstr ""
 
+#, fuzzy
 msgid "Satellites"
-msgstr ""
+msgstr "Satelliitti"
 
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Tallenna nimellä"
 
 msgid "Save to"
-msgstr ""
+msgstr "Tallenna nimellä"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
-msgstr ""
+msgstr "%s.xml tiedoston tallentaminen epäonnistui"
 
+#, fuzzy
 msgid "Terrestrial"
-msgstr ""
+msgstr "Antenni"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
-msgstr ""
+msgstr "%s.xml lataus oli vioittunut."
 
 #, python-format
 msgid "The %s.xml file could not be fetched"
-msgstr ""
+msgstr "Tiedostoa %s.xml ei voitu noutaa"
 
+#, fuzzy
 msgid "Unicable"
-msgstr ""
+msgstr "Kaapeli"
 
 msgid "XML update"
-msgstr ""
+msgstr "XML päivitys"
 
 msgid "XML update for Open Vision"
 msgstr ""

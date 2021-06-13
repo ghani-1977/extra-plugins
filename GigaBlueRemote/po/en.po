@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2017-04-28 08:31+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,8 +52,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+msgid "Sorry, but your receiver is not supported."
 msgstr ""
 
 msgid "Then choose 'Confirm' "

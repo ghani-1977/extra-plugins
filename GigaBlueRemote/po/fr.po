@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2018-07-30 21:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -56,8 +56,8 @@ msgstr "Code de la commande à distance :"
 msgid "Save"
 msgstr "Sauver"
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+#, fuzzy
+msgid "Sorry, but your receiver is not supported."
 msgstr "Désolé, mais %s n'est pas supporté."
 
 msgid "Then choose 'Confirm' "

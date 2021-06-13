@@ -1,61 +1,59 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: plugins 0.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-13 10:37+0430\n"
-"PO-Revision-Date: 2017-09-23 11:56+0200\n"
-"Last-Translator: JR\n"
-"Language-Team: OpenSPA\n"
-"Language: es\n"
+"PO-Revision-Date: 2021-06-11 01:31+0300\n"
+"Last-Translator: Tomppaa <http://www.huoltovalikko.com/>\n"
+"Language-Team: none\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
-"X-Poedit-Basepath: ../src\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SearchPath-0: plugin.py\n"
+"X-Generator: Poedit 3.0\n"
 
 #, python-format
 msgid " within %d seconds."
-msgstr " durante %d segundos."
+msgstr " sekunnin %d kuluessa."
 
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Peruuta"
 
 msgid "Code 1"
-msgstr "Código 1"
+msgstr "Koodi 1"
 
 msgid "Code 2"
-msgstr "Código 2"
+msgstr "Koodi 2"
 
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Vahvista"
 
 msgid "FILE DOES NOT EXIST : /proc/stb/ir/rc/customcode"
-msgstr "ARCHIVO NO EXISTE : /proc/stb/ir/rc/customcode"
+msgstr "TIEDOSTOA EI OLE : /proc/stb/ir/rc/customcode"
 
 #, fuzzy
 msgid "GigaBlue Remote Control Code"
-msgstr "Código mando a distancia"
+msgstr "Kaukosäätimen koodi"
 
 msgid "Please change now the mode on your RCU."
-msgstr "Por favor, cambia el modo en tu mando."
+msgstr "Vaihda kaukosäätimen koodaus nyt."
 
 msgid "Press and hold 'GIGA' & '5' for 5 seconds."
-msgstr "Pulsa y aguanta pulsado el botón 'GIGA' y '5' durante 5 seg."
+msgstr "Pidä 'GIGA' & '5' painettuna 5 sekunnin ajan."
 
 msgid "Remote Control Code"
-msgstr "Código mando a distancia"
+msgstr "Kaukosäätimen koodi"
 
 msgid "Remote Control Code:"
-msgstr "Código mando a distancia:"
+msgstr "Kaukosäätimen koodi:"
 
 msgid "Save"
-msgstr "Guardar"
+msgstr "Tallenna"
 
 #, fuzzy
 msgid "Sorry, but your receiver is not supported."
-msgstr "Perdón, pero %s no está soportado."
+msgstr "Valitettavasti %s ei ole tuettu."
 
 msgid "Then choose 'Confirm' "
-msgstr "Entonces escoge 'Confirmar' "
+msgstr "Valitse sitten `Vahvista` "

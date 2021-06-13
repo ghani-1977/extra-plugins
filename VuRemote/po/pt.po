@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-23 13:30+0330\n"
+"POT-Creation-Date: 2021-06-13 10:37+0430\n"
 "PO-Revision-Date: 2018-01-23 00:51+0000\n"
 "Last-Translator: nunigaia\n"
 "Language-Team: BlackHole Team\n"
@@ -57,8 +57,8 @@ msgstr "Restaurar"
 msgid "Save"
 msgstr "Gravar"
 
-#, python-format
-msgid "Sorry, but %s is not supported."
+#, fuzzy
+msgid "Sorry, but your receiver is not supported."
 msgstr "Desculpe, mas %s não é suportado."
 
 msgid "Then choose 'Keep' within seconds"
