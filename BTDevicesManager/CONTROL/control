@@ -1,5 +1,0 @@
-Package: enigma2-plugin-extensions-btdevicesmanager
-Version: 1.0-r1
-Description: this is bt devices manger to pair e.x keyboard or mouse
-Maintainer: a4tech
-Depends: bluez-hcidump, bluez-conf, bluez-hidd, bluez-alsa, alsa-utils-aplay, python-pexpect

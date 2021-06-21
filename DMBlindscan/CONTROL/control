@@ -1,5 +1,0 @@
-Package: enigma2-plugin-systemplugins-dmblindscan
-Version: 1.1-r1
-Description: satelite blind scan
-Maintainer: Huevos (OE-A)
-Recommends: virtual/blindscan-dvbs

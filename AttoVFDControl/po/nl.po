@@ -1,0 +1,52 @@
+# Nederlands translations for Enigma2.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ViX\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-22 01:26+0430\n"
+"PO-Revision-Date: 2016-06-03 06:24+0200\n"
+"Last-Translator: Rob van der Does <RobvanderDoes@Gmail.com>\n"
+"Language-Team: Andy Blackburn, Rob van der Does\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: iso-8859-15\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+msgid "7-LED Display Setup"
+msgstr "7-LED Display-Setup"
+
+msgid "Always off"
+msgstr "Altijd uit"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Channelnumber in Standby Clock"
+msgstr "Kanaalnummer in stand-by klok"
+
+msgid "Channelnumber in Standby off"
+msgstr "Kanaalnummer in stand-by uit"
+
+msgid "Channelnumber/Clock in Standby Clock"
+msgstr "Kanaalnummer/Klok in stand-by klok"
+
+msgid "Clock always"
+msgstr "Klok altijd"
+
+msgid "LED Display Setup"
+msgstr "LED Scherm Instellen"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Show on display"
+msgstr "Toon op Scherm"
+
+msgid "Time mode"
+msgstr "Tijd modus"

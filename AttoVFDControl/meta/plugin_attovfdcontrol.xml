@@ -1,0 +1,15 @@
+<default>
+	<prerequisites>
+		<tag type="System" />
+	</prerequisites>
+	<info>
+		<author>leandrotsampa</author>
+		<name>VFDControl</name>
+		<packagename>enigma2-plugin-systemplugins-attovfdcontrol</packagename>
+		<shortdescription>vfd controller</shortdescription>
+		<description>vfd controller</description>
+	</info>
+	<files type="package"> <!-- without version, without .ipk -->
+		<file type="package" name="enigma2-plugin-systemplugins-attovfdcontrol" />
+	</files>
+</default>

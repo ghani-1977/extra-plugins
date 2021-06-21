@@ -1,0 +1,51 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-22 01:26+0430\n"
+"PO-Revision-Date: 2018-09-11 17:07+0200\n"
+"Last-Translator: leandrotsampa <leandrotsampa@yahoo.com.br>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: iso-8859-15\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "7-LED Display Setup"
+msgstr "7-Configurações da Tela de LED"
+
+msgid "Always off"
+msgstr "Desligado"
+
+#
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Channelnumber in Standby Clock"
+msgstr "Número do Canal e em Standby Hora"
+
+msgid "Channelnumber in Standby off"
+msgstr "Número do Canal e em Standby Desligar"
+
+msgid "Channelnumber/Clock in Standby Clock"
+msgstr "Número do Canal/Hora e em Standby Hora"
+
+msgid "Clock always"
+msgstr "Sempre exibir a Hora"
+
+msgid "LED Display Setup"
+msgstr "Configurações da Tela de LED"
+
+#
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Show on display"
+msgstr "Exibir na Tela"
+
+msgid "Time mode"
+msgstr "Formato da Hora"

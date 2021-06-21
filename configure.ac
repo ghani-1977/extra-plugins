@@ -57,6 +57,11 @@ AC_DEFINE_UNQUOTED(STBPLATFORM,"$STBPLATFORM",[stb platform])
 AC_CONFIG_FILES([
 Makefile
 
+AttoVFDControl/Makefile
+AttoVFDControl/src/Makefile
+AttoVFDControl/meta/Makefile
+AttoVFDControl/po/Makefile
+
 AudioEffect/Makefile
 AudioEffect/src/Makefile
 AudioEffect/meta/Makefile

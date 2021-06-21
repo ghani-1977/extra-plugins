@@ -5,8 +5,8 @@ from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 import gettext
 
-PluginLanguageDomain = "VFDControl"
-PluginLanguagePath = "SystemPlugins/VFDControl/locale"
+PluginLanguageDomain = "EWVFDControl"
+PluginLanguagePath = "SystemPlugins/EWVFDControl/locale"
 
 
 def localeInit():

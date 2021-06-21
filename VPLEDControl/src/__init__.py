@@ -6,8 +6,8 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
 import os
 import gettext
 
-PluginLanguageDomain = "VFDControl"
-PluginLanguagePath = "SystemPlugins/VFDControl/locale"
+PluginLanguageDomain = "VPLEDControl"
+PluginLanguagePath = "SystemPlugins/VPLEDControl/locale"
 
 
 def localeInit():
