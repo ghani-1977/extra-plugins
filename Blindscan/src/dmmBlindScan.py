@@ -230,7 +230,12 @@ class SatelliteTransponderSearchSupport:
 				else:
 					parm.symbol_rate = int(round(d["symbol_rate"], -3))
 					parm.fec = d["fec_inner"]
-					parm.inversion = eDVBFrontendParametersSatellite.Inversion_Unknown
+					fec_inner = r["fec_inner"]
+					if parm.fec == eDVBFrontendParametersSatellite.FEC_None:
+						parm.fec = eDVBFrontendParametersSatellite.FEC_Auto
+						fec_inner = "Auto"
+					#parm.inversion = eDVBFrontendParametersSatellite.Inversion_Unknown
+					parm.inversion = eDVBFrontendParametersSatellite.Inversion_Off
 					parm.polarisation = d["polarization"]
 					parm.orbital_position = d["orbital_position"]
 					parm.system = d["system"]
@@ -259,7 +264,7 @@ class SatelliteTransponderSearchSupport:
 						str(parm.frequency / 1000),
 						{eDVBFrontendParametersSatellite.Polarisation_Horizontal: "H", eDVBFrontendParametersSatellite.Polarisation_Vertical: "V", eDVBFrontendParametersSatellite.Polarisation_CircularLeft: "L", eDVBFrontendParametersSatellite.Polarisation_CircularRight: "R"}.get(parm.polarisation),
 						str(parm.symbol_rate / 1000),
-						r["fec_inner"],
+						fec_inner,
 						r["system"],
 						r["modulation"])
 
