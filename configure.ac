@@ -296,6 +296,10 @@ StreamTV/meta/Makefile
 StreamTV/po/Makefile
 StreamTV/icons/Makefile
 
+UFSVFD/Makefile
+UFSVFD/src/Makefile
+UFSVFD/meta/Makefile
+
 USBsafe/Makefile
 USBsafe/src/Makefile
 
