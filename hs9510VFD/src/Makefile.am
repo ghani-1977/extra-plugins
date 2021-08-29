@@ -1,4 +1,4 @@
-installdir = $(libdir)/python/Plugins/Extensions/hs9510VFD
+installdir = $(libdir)/enigma2/python/Plugins/Extensions/hs9510VFD
 
 install_PYTHON = \
 	__init__.py \
