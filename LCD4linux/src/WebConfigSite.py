@@ -6,14 +6,20 @@ from . import _
 from Components.config import config, ConfigSelection
 from enigma import eTimer
 from .module import L4Lelement
-from six.moves.html_parser import HTMLParser
 import six
+
+if six.PY2:
+	from HTMLParser import HTMLParser
+	_unescape = HTMLParser().unescape
+else:
+	from html import unescape as _unescape
+
 L4LElement = L4Lelement()
 
 import os
 import glob
 import time
-from Tools.Directories import SCOPE_PLUGINS, resolveFilename
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_CONFIG
 Py = resolveFilename(SCOPE_PLUGINS, "Extensions/LCD4linux/plugin.py")
 
 L1 = []
@@ -240,10 +246,10 @@ class LCD4linuxConfigweb(resource.Resource):
 		if req.args.get(b"download.y", None) is not None:
 			L4log("WebIF: download Config")
 			req.setResponseCode(http.OK)
-			lcd4config = "/etc/enigma2/lcd4config"
+			lcd4config = resolveFilename(SCOPE_CONFIG) + "lcd4config"
 			req.setHeader('Content-type', 'text/plain')
 			req.setHeader('Content-Disposition', 'attachment;filename=lcd4config')
-			req.setHeader('Content-Length', os.stat(lcd4config).st_size)
+			req.setHeader('Content-Length', str(os.stat(lcd4config).st_size))
 			req.setHeader('charset', 'UTF-8')
 			f = open(lcd4config, "r")
 			html = f.read()
@@ -274,7 +280,7 @@ class LCD4linuxConfigweb(resource.Resource):
 				req.setResponseCode(http.OK)
 				req.setHeader('Content-type', 'text/plain')
 				req.setHeader('Content-Disposition', 'attachment;filename=l4log.txt')
-				req.setHeader('Content-Length', os.stat(lcd4config).st_size)
+				req.setHeader('Content-Length', str(os.stat(lcd4config).st_size))
 				req.setHeader('charset', 'UTF-8')
 				f = open(lcd4config, "r")
 				html = f.read()
@@ -293,7 +299,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		elif _command == "pop":
 			V = _l(req.args.get(b"PopText", "")[0])
 			try:
-				V = HTMLParser().unescape(V)
+				V = _unescape(V)
 			except Exception as e:
 				L4log("WebIF Error: Parse Text")
 			setPopText(V)
@@ -421,7 +427,7 @@ class LCD4linuxConfigweb(resource.Resource):
 							if isinstance(ConfObj, ConfigText):
 								V = _l(val)
 								try:
-									V = HTMLParser().unescape(V)
+									V = _unescape(V)
 								except Exception as e:
 									L4log("WebIF Error: Parse Text")
 								ConfObj.value = V
