@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blindscan\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-13 19:32+0330\n"
+"POT-Creation-Date: 2021-09-22 11:55+0330\n"
 "PO-Revision-Date: 2020-08-27 17:18+0800\n"
 "Last-Translator: 孤独之剑 <haotzyy1970@163.com>\n"
 "Language-Team: MCelliot_g <mcelliot_g@hotmail.com>\n"
@@ -44,7 +44,7 @@ msgid "%dMHz scanned"
 msgstr "已扫描 %dMHz"
 
 msgid "AUTOMATICALLY start service searching, press green to change."
-msgstr ""
+msgstr "自动开始频道搜索,按绿色键进行更改."
 
 msgid "Accuracy (higher is better)"
 msgstr "精度(越高越好)"
@@ -125,7 +125,6 @@ msgstr "频率值必须介于 %d MHz 和 %d MHz (C波段)之间"
 msgid "Hardware blind scan is not supported by this tuner (%s)!"
 msgstr "此调谐器 (%s) 不支持硬件盲扫描!"
 
-#, fuzzy
 msgid "Horizontal"
 msgstr "水平"
 
@@ -153,16 +152,16 @@ msgstr ""
 "这需要很长时间,请耐心等待."
 
 msgid "MANUALLY start service searching, press green to change."
-msgstr ""
+msgstr "手动开始频道搜索,按绿色键进行更改."
 
 msgid "Maybe the reason that recording is currently running."
-msgstr ""
+msgstr "可能是当前正在运行记录的原因."
 
 msgid "Moving to "
 msgstr ""
 
 msgid "Network scan"
-msgstr ""
+msgstr "网络扫描"
 
 msgid ""
 "No new transponders found! \n"
@@ -182,15 +181,20 @@ msgid ""
 "No tuner is enabled!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"没有启用调谐器!\n"
+"开始频道扫描之前,请先设置您的调谐器设置."
 
 #, python-format
 msgid "Not found blind scan utility '%s'!"
 msgstr ""
 
+#, fuzzy
 msgid ""
 "Nothing to scan!\n"
 "Please setup your tuner settings before you start a service scan."
 msgstr ""
+"没有启用调谐器!\n"
+"开始频道扫描之前,请先设置您的调谐器设置."
 
 msgid "Nothing to scan! Press Exit!"
 msgstr "无需扫描!按‘Exit’键退出!"
@@ -212,7 +216,7 @@ msgstr "极化"
 
 #, fuzzy
 msgid "Press Green/OK to start the scan"
-msgstr "按'OK'键开始扫描."
+msgstr "按'OK'键开始扫描"
 
 msgid "Press OK to start the scan."
 msgstr "按'OK'键开始扫描."
@@ -221,14 +225,13 @@ msgid "Press green to start service searching."
 msgstr "按绿色键开始频道搜索."
 
 msgid "Rotor: "
-msgstr ""
+msgstr "极轴: "
 
 msgid "Satellite"
 msgstr "卫星"
 
-#, fuzzy
 msgid "Satellite blind scan"
-msgstr "卫星"
+msgstr "盲扫"
 
 msgid "Scan"
 msgstr "扫描"
@@ -304,7 +307,7 @@ msgstr "抱歉,此调谐器正在使用中."
 
 #, fuzzy
 msgid "Start scan"
-msgstr "不扫描"
+msgstr "网络扫描"
 
 #, python-format
 msgid "Step %d %d:%02d min"
@@ -326,7 +329,6 @@ msgstr "这颗卫星的建议极化是 \"%s\""
 msgid "Transponder searching finished!"
 msgstr "转发器搜索完成!"
 
-#, fuzzy
 msgid "Try to find used satellite transponders..."
 msgstr "正在搜索卫星转发器,请稍候..."
 
@@ -336,7 +338,6 @@ msgstr "调谐器"
 msgid "Use Sundtek full hardware blind scan!"
 msgstr "使用全硬件盲扫描!"
 
-#, fuzzy
 msgid "Vertical"
 msgstr "垂直"
 

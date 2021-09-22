@@ -1,27 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 13:20+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2021-09-22 11:55+0330\n"
+"PO-Revision-Date: 2018-10-14 23:19+0200\n"
+"Last-Translator: 孤独之剑 <haotzyy1970@163.com>\n"
+"Language-Team: none\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2\n"
 
 msgid "/etc/enigma2"
-msgstr ""
+msgstr "/etc/enigma2"
 
 msgid "/etc/tuxbox (default)"
-msgstr ""
+msgstr "/etc/tuxbox (默认)"
 
 msgid "/usr/share/enigma2 (default for unicable)"
 msgstr ""
@@ -41,8 +37,9 @@ msgstr ""
 msgid "Atlantic (0°W-61°W)"
 msgstr ""
 
+#, fuzzy
 msgid "Cables"
-msgstr ""
+msgstr "有线"
 
 msgid "Choose where you live."
 msgstr ""
@@ -51,55 +48,62 @@ msgid "Europe (73°E-0°E)"
 msgstr ""
 
 msgid "Exit"
-msgstr ""
+msgstr "退出"
 
 msgid "Fetch"
-msgstr ""
+msgstr "取回"
 
 #, python-format
 msgid ""
 "Fetching and saving %s.xml succeeded.\n"
 "Restart now for changes to take immediate effect?"
 msgstr ""
+"获取并保存 %s.xml 成功.\n"
+"立即重新启动以使更改立即生效?"
 
+#, fuzzy
 msgid "File being updated, i.e. satellites.xml"
-msgstr ""
+msgstr "正在更新的文件,即satellites.xml、cables.xml或ternal.xml."
 
 msgid "Folder where the downloaded file will be saved. \"/etc/tuxbox\" is the default location. Files stored in \"/etc/enigma2\" override the default file and are not updated on a software update."
-msgstr ""
+msgstr "保存下载文件的文件夹. \"/etc/tuxbox\" 是 默认位置. 存储在 \"/etc/enigma2\" 中的文件覆盖默认文件 不会在软件更新时更新."
 
 msgid "Region"
 msgstr ""
 
+#, fuzzy
 msgid "Satellites"
-msgstr ""
+msgstr "卫星"
 
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "保存到"
 
 msgid "Save to"
-msgstr ""
+msgstr "保存到"
 
 #, python-format
 msgid "Saving the %s.xml file failed"
-msgstr ""
+msgstr "保存 %s.xml 文件失败"
 
+#, fuzzy
 msgid "Terrestrial"
-msgstr ""
+msgstr "地面波"
 
 #, python-format
 msgid "The %s.xml download was corrupt."
-msgstr ""
+msgstr "这个 %s.xml 下载已损坏."
 
 #, python-format
 msgid "The %s.xml file could not be fetched"
-msgstr ""
+msgstr "无法获取 %s.xml 文件"
 
+#, fuzzy
 msgid "Unicable"
-msgstr ""
+msgstr "有线"
 
 msgid "XML update"
-msgstr ""
+msgstr "XML更新"
 
 msgid "XML update for Open Vision"
 msgstr ""
