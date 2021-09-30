@@ -15,6 +15,7 @@ from Components.ConfigList import ConfigList, ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Screens.Screen import Screen
 from Components.SystemInfo import BoxInfo
+import os
 
 
 try:
