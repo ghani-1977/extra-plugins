@@ -32,9 +32,9 @@ from Screens.MessageBox import MessageBox
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 try:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
+	from Tools.Directories import SCOPE_GUISKIN
 except:
-	from Tools.Directories import SCOPE_CURRENT_SKIN
+	from Tools.Directories import SCOPE_GUISKIN
 from enigma import eSize, ePoint, ePicLoad, eTimer, eListbox, eListboxPythonMultiContent, gFont, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, RT_VALIGN_TOP, RT_VALIGN_BOTTOM, RT_WRAP
 from twisted.web import client
 from dns.resolver import Resolver
@@ -293,9 +293,9 @@ class EpisodeList(GUIComponent):
 
 		self.picload.setPara((self.l.getItemSize().width(), 2, 0, 0, 1, 1, "#00000000"))
 		try:
-			self.picload.startDecode(resolveFilename(SCOPE_CURRENT_SKIN, "div-h.png"), 0, 0, False)
+			self.picload.startDecode(resolveFilename(SCOPE_GUISKIN, "div-h.png"), 0, 0, False)
 		except:
-			self.picload.startDecode(resolveFilename(SCOPE_CURRENT_SKIN, "div-h.png"), 0, 0, False)
+			self.picload.startDecode(resolveFilename(SCOPE_GUISKIN, "div-h.png"), 0, 0, False)
 		pngthumb = self.picload.getData()
 		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHABLEND, 0, self.l.getItemSize().height() - 2, self.l.getItemSize().width(), 2, pngthumb))
 

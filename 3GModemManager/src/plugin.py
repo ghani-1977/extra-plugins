@@ -15,7 +15,7 @@ from Components.config import config, getConfigListEntry, ConfigSubsection, Conf
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
 from Components.SystemInfo import BoxInfo
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN, fileExists
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN, fileExists
 from enigma import eTimer, eConsoleAppContainer, eSocketNotifier
 from select import POLLIN, POLLPRI
 from xml.sax import make_parser, handler
@@ -493,7 +493,7 @@ class ModemManual(Screen):
 				tempIndex += 1
 		apnString += '</apns>\n'
 		printDebugModemMgr(apnString)
-		open(resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"), 'w').write(apnString)
+		open(resolveFilename(SCOPE_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"), 'w').write(apnString)
 
 	def keyLeft(self):
 		self['menulist'].pageUp()
@@ -579,7 +579,7 @@ class ModemManual(Screen):
 			handle = ParserHandler()
 			parser = make_parser()
 			parser.setContentHandler(handle)
-			parser.parse(resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"))
+			parser.parse(resolveFilename(SCOPE_PLUGIN, "SystemPlugins/3GModemManager/apnlist.xml"))
 
 			apnList = handle.getNodeList()
 			apnList.sort(uppercaseCompare)
@@ -605,7 +605,7 @@ class ModemManual(Screen):
 		return lvApnItems
 
 
-commandBin = resolveFilename(SCOPE_CURRENT_PLUGIN, "SystemPlugins/3GModemManager/3gcommand")
+commandBin = resolveFilename(SCOPE_PLUGIN, "SystemPlugins/3GModemManager/3gcommand")
 
 
 def isConnected():

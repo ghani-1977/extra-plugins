@@ -4,7 +4,7 @@ from __future__ import print_function
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor
-from Tools.Directories import resolveFilename, SCOPE_SKIN
+from Tools.Directories import resolveFilename, SCOPE_SKINS
 
 import xml.dom.minidom
 from xml.dom.minidom import Node
@@ -16,7 +16,7 @@ from Components.ActionMap import ActionMap
 from Components.SystemInfo import BoxInfo
 
 
-keycustomfile = open(resolveFilename(SCOPE_SKIN, 'keycustomactions.xml'), 'r')
+keycustomfile = open(resolveFilename(SCOPE_SKINS, 'keycustomactions.xml'), 'r')
 keycustomxml = xml.dom.minidom.parseString(keycustomfile.read())
 keycustomfile.close()
 

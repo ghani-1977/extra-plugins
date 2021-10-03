@@ -31,7 +31,7 @@ from Components.ActionMap import ActionMap
 from Components.config import config, getConfigListEntry, ConfigText, ConfigSubsection, ConfigYesNo
 from Components.MenuList import MenuList
 from Components.ServiceEventTracker import ServiceEventTracker
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_PLUGIN
+from Tools.Directories import resolveFilename, SCOPE_PLUGIN
 from bluetoothctl import iBluetoothctl, Bluetoothctl
 import os
 import time
@@ -110,7 +110,7 @@ config.btdevicesmanager.autostart = ConfigYesNo(default=False)
 config.btdevicesmanager.audioconnect = ConfigYesNo(default=False)
 config.btdevicesmanager.audioaddress = ConfigText(default="", fixed_size=False)
 
-commandconnect = resolveFilename(SCOPE_CURRENT_PLUGIN, "Extensions/BTDevicesManager/BTAudioConnect")
+commandconnect = resolveFilename(SCOPE_PLUGIN, "Extensions/BTDevicesManager/BTAudioConnect")
 
 
 class BluetoothDevicesManagerSetup(ConfigListScreen, Screen):
