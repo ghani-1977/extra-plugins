@@ -4,7 +4,7 @@ from __future__ import print_function
 # for localized messages
 from . import _
 from Components.ActionMap import NumberActionMap, ActionMap
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigYesNo, ConfigInteger, getConfigListEntry, ConfigNothing
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.NimManager import nimmanager, getConfigSatlist
@@ -372,7 +372,10 @@ class SatelliteTransponderSearchSupport:
 			bs_range = self.range_list[self.current_range]
 			print("[dmmBlindscan][setNextRange] Sat Blindscan current range", bs_range)
 			parm = eDVBFrontendParametersSatellite()
-			parm.frequency = bs_range[0]
+			if self.is_c_band_scan:
+				parm.frequency = bs_range[1]
+			else:
+				parm.frequency = bs_range[0]
 			if self.nim.isCompatible("DVB-S2"):
 				steps = {5: 2000, 4: 4000, 3: 6000, 2: 8000, 1: 10000}[self.dmmBlindscan.accuracy.value]
 				parm.system = self.dmmBlindscan.system.value
@@ -469,7 +472,6 @@ class SatelliteTransponderSearchSupport:
 		self.range_list = [] # contains tuples, (start, stop, polarisation), max length 4, i.e. 4 sub-bands
 		tuner_no = -1
 		self.auto_scan = False
-		self.is_c_band_scan = False
 
 		print("[dmmBlindscan][startSatelliteTransponderSearch] tunername", tunername)
 		if nimmanager.nim_slots[self.feid].supportsBlindScan() or tunername in ("BCM4505", "BCM4506 (internal)", "BCM4506", "Alps BSBE1 C01A/D01A.", "Si2166B", "Si2169C"):
@@ -482,10 +484,7 @@ class SatelliteTransponderSearchSupport:
 				self.session.open(MessageBox, text, MessageBox.TYPE_ERROR)
 				return
 
-			if self.is_c_band_scan == True:
-				band_cutoff_frequency = 0
-			else:
-				band_cutoff_frequency = 11700001
+			band_cutoff_frequency = 11700001
 
 			s1 = self.dmmBlindscan.freq_start.value * 1000
 			s2 = self.dmmBlindscan.freq_stop.value * 1000
@@ -554,8 +553,12 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		self.updateSatList()
 		self.service = session.nav.getCurrentService()
 		self.feinfo = None
-		frontendData = None
 		self.is_c_band_scan = False
+		self.is_Ku_band_scan = False
+		self.user_defined_lnb_scan = False
+		self.user_defined_lnb_lo_freq = 0
+		frontendData = None
+
 		# make config
 		self.legacy = True
 		for slot in nimmanager.nim_slots:
@@ -720,14 +723,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		self.dmmBlindscan.scan_clearallservices = ConfigSelection(default="no", choices=[("no", _("no")), ("yes", _("yes")), ("yes_hold_feeds", _("yes (keep feeds)"))])
 		self.dmmBlindscan.scan_onlyfree = ConfigYesNo(default=False)
 
-		if self.is_c_band_scan == True:
-			self.freq_limits = (3400, 4200)
-		else:
-			self.freq_limits = (10700, 12750)
-
-		self.dmmBlindscan.freq_start = ConfigInteger(default=self.freq_limits[0], limits=(self.freq_limits[0], self.freq_limits[1] - 1))
-		self.dmmBlindscan.freq_stop = ConfigInteger(default=self.freq_limits[1], limits=(self.freq_limits[0] + 1, self.freq_limits[1]))
-
 		self.sr_limits = (1, 60)
 		sr_defaults = (2, 45)
 		self.dmmBlindscan.sr_start = ConfigInteger(default=sr_defaults[0], limits=(self.sr_limits[0], self.sr_limits[1] - 1))
@@ -771,18 +766,6 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 				nim_list.append((str(n.slot), n.friendly_full_description))
 		self.scan_nims = ConfigSelection(choices=nim_list)
 
-#		cur_orb_pos = defaultSat["orbpos"]
-#		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
-#		nimconfig = nim.config
-#		if nimconfig.configMode.getValue() == "advanced":
-#			currSat = nimconfig.advanced.sat[cur_orb_pos]
-#			lnbnum = int(currSat.lnb.getValue())
-#			currLnb = nimconfig.advanced.lnb[lnbnum]
-#			lof = currLnb.lof.getValue()
-#			print("[Blindscan][isLNB] LNB type: ", lof)
-#			if lof == "c_band":
-#				self.is_c_band_scan = True
-
 		# this is not currently a user option
 		self.dmmBlindscan.system = ConfigSelection(default=eDVBFrontendParametersSatellite.System_DVB_S2,
 			choices=[(eDVBFrontendParametersSatellite.System_DVB_S2, _("DVB-S + DVB-S2")),
@@ -806,14 +789,8 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			if slot.isCompatible("DVB-S"):
 				satlist_for_slot = self.satList[slot_id]
 				self.scan_satselection.append(getConfigSatlist(defaultSat["orbpos"], satlist_for_slot))
-
-				if self.is_c_band_scan == True:
-					sat_freq_range = {(3400000, 4200000)}
-					sat_band_cutoff = {0}
-				else:
-					sat_freq_range = {(10700000, 12750000)}
-					sat_band_cutoff = {11700000}
-
+				sat_freq_range = {(10700000, 12750000)}
+				sat_band_cutoff = {11700000}
 				for sat in satlist_for_slot:
 					orbpos = sat[0]
 				self.nim_sat_frequency_range.append(sat_freq_range)
@@ -822,6 +799,27 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 				self.nim_sat_frequency_range.append(None)
 				self.nim_sat_band_cutoff_frequency.append(None)
 				self.scan_satselection.append(None)
+
+		self.Ku_band_freq_limits = {"low": 10700, "high": 12750}
+		self.universal_lo_freq = {"low": 9750, "high": 10600}
+		self.c_band_freq_limits = {"low": 3000, "high": 4200, "default_low": 3400, "default_high": 4200}
+		self.tunerIfLimits = {"low": 950, "high": 2150}
+		self.circular_lnb_lo_freq = 10750
+		self.SatBandCheck(int(self.scan_satselection[int(self.scan_nims.value)].value))
+
+		if self.is_c_band_scan:
+			self.freq_limits = (self.c_band_freq_limits["low"], self.c_band_freq_limits["high"])
+		elif self.is_Ku_band_scan:
+			self.freq_limits = (self.Ku_band_freq_limits["low"], self.Ku_band_freq_limits["high"])
+		elif self.user_defined_lnb_scan:
+			self.freq_limits = (self.user_defined_lnb_lo_freq + self.tunerIfLimits["low"], self.user_defined_lnb_lo_freq + self.tunerIfLimits["high"])
+
+		if self.is_c_band_scan:
+			self.dmmBlindscan.freq_start = ConfigInteger(default=self.c_band_freq_limits["default_low"], limits=(self.freq_limits[0], self.freq_limits[1]))
+			self.dmmBlindscan.freq_stop = ConfigInteger(default=self.c_band_freq_limits["default_high"], limits=(self.freq_limits[0], self.freq_limits[1]))
+		else:
+			self.dmmBlindscan.freq_start = ConfigInteger(default=self.freq_limits[0], limits=(self.freq_limits[0], self.freq_limits[1]))
+			self.dmmBlindscan.freq_stop = ConfigInteger(default=self.freq_limits[1], limits=(self.freq_limits[0], self.freq_limits[1]))
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
@@ -927,6 +925,68 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 		for x in self["config"].list:
 			x[1].cancel()
 		self.close(False)
+
+	def SatBandCheck(self, cur_orb_pos):
+	# search for LNB type in Universal, C band, or user defined.
+		print("cur_orb_pos : ", cur_orb_pos)
+		self.is_c_band_scan = False
+		self.is_Ku_band_scan = False
+		self.suggestedPolarisation = _("vertical and horizontal")
+		nim = nimmanager.nim_slots[int(self.scan_nims.value)]
+		if not self.legacy:
+			nimconfig = nim.config.dvbs
+		else:
+			nimconfig = nim.config
+		if nimconfig.configMode.getValue() == "equal":
+			slotid = int(nimconfig.connectedTo.value)
+			nim = nimmanager.nim_slots[slotid]
+			if not self.legacy:
+				nimconfig = nim.config.dvbs
+			else:
+				nimconfig = nim.config
+		if nimconfig.configMode.getValue() == "advanced":
+			if nimconfig.advanced.sats.value in ("3605", "3606"):
+				currSat = nimconfig.advanced.sat[int(nimconfig.advanced.sats.value)]
+				import ast
+				userSatellitesList = ast.literal_eval(currSat.userSatellitesList.getValue())
+				if not cur_orb_pos in userSatellitesList:
+					currSat = nimconfig.advanced.sat[cur_orb_pos]
+			else:
+				currSat = nimconfig.advanced.sat[cur_orb_pos]
+			lnbnum = int(currSat.lnb.getValue())
+			if lnbnum == 0 and nimconfig.advanced.sats.value in ("3601", "3602", "3603", "3604"):
+				lnbnum = 65 + int(nimconfig.advanced.sats.value) - 3601
+			currLnb = nimconfig.advanced.lnb[lnbnum]
+			if isinstance(currLnb, ConfigNothing):
+				return False
+			lof = currLnb.lof.getValue()
+			print("[Blindscan] lofl: ", currLnb.lofl.value)
+			print("[Blindscan] lofh: ", currLnb.lofh.value)
+			if lof == "universal_lnb":
+				self.is_Ku_band_scan = True
+				return True
+			elif lof == "c_band":
+				self.is_c_band_scan = True
+				return True
+			elif lof == "user_defined" and currLnb.lofl.value == currLnb.lofh.value and currLnb.lofl.value > 5000 and currLnb.lofl.value < 30000:
+				if currLnb.lofl.value == self.circular_lnb_lo_freq and currLnb.lofh.value == self.circular_lnb_lo_freq and cur_orb_pos in (360, 560): # "circular_lnb" legacy support hack. For people using a "circular" LNB but that have their tuner set up as "user defined".
+					self.user_defined_lnb_lo_freq = self.circular_lnb_lo_freq
+					self.suggestedPolarisation = _("circular left/right")
+				else: # normal "user_defined"
+					self.user_defined_lnb_lo_freq = currLnb.lofl.value
+				self.user_defined_lnb_scan = True
+				print("[Blindscan][SatBandCheck] user defined local oscillator frequency: %d" % self.user_defined_lnb_lo_freq)
+				return True
+			elif lof == "circular_lnb": # lnb for use at positions 360 and 560
+				self.user_defined_lnb_lo_freq = self.circular_lnb_lo_freq
+				self.user_defined_lnb_scan = True
+				self.suggestedPolarisation = _("circular left/right")
+				return True
+			return False # LNB type not supported by this plugin
+		elif nimconfig.configMode.getValue() == "simple":
+			self.is_Ku_band_scan = True
+			return True
+		return False # LNB type not supported by this plugin
 
 	def startScanCallback(self, answer=True):
 		if answer:
