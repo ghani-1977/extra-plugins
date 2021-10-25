@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 11:44+0330\n"
+"POT-Creation-Date: 2021-10-25 15:42+0330\n"
 "PO-Revision-Date: 2021-08-27 17:21+0200\n"
 "Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
 "Language-Team: \n"
@@ -1014,6 +1014,9 @@ msgstr "EPG"
 msgid "ESE"
 msgstr "EZE"
 
+msgid "Element"
+msgstr ""
+
 msgid "Event Icon Bar"
 msgstr "Gebeurtenissen ikoon balk"
 
@@ -1034,6 +1037,9 @@ msgstr "Extern IP adres"
 
 msgid "Fastmode (2s)"
 msgstr "Snelle modus (2s)"
+
+msgid "Filename"
+msgstr ""
 
 msgid "First Quarter"
 msgstr "Eerste kwartier"
@@ -1465,6 +1471,9 @@ msgstr "Meteo-weerstation"
 
 msgid "Mini-EPG"
 msgstr "Mini-EPG"
+
+msgid "Mode"
+msgstr ""
 
 msgid "Module 1"
 msgstr "Module 1"

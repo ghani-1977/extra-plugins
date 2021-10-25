@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 11:44+0330\n"
+"POT-Creation-Date: 2021-10-25 15:42+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
 "Language-Team: Vytenis P. vyteniui@gmail.com\n"
@@ -1013,6 +1013,9 @@ msgstr "EPG"
 msgid "ESE"
 msgstr "RPR"
 
+msgid "Element"
+msgstr ""
+
 msgid "Event Icon Bar"
 msgstr "Įvykio piktogramų juosta"
 
@@ -1033,6 +1036,9 @@ msgstr "Išorinis IP adresas"
 
 msgid "Fastmode (2s)"
 msgstr "Greitasis režimas (2s)"
+
+msgid "Filename"
+msgstr ""
 
 msgid "First Quarter"
 msgstr "Pirmasis ketvirtis"
@@ -1464,6 +1470,9 @@ msgstr "Meteorologinė stotis"
 
 msgid "Mini-EPG"
 msgstr "MiniEPG"
+
+msgid "Mode"
+msgstr ""
 
 msgid "Module 1"
 msgstr "Modulis 1"

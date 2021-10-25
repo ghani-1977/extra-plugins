@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 11:44+0330\n"
+"POT-Creation-Date: 2021-10-25 15:42+0330\n"
 "PO-Revision-Date: 2021-08-27 17:23+0200\n"
 "Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
 "Language-Team: \n"
@@ -1012,6 +1012,9 @@ msgstr "E"
 msgid "ESE"
 msgstr "E"
 
+msgid "Element"
+msgstr ""
+
 msgid "Event Icon Bar"
 msgstr "Event Icon Bar"
 
@@ -1032,6 +1035,9 @@ msgstr "Внешний IP-адрес"
 
 msgid "Fastmode (2s)"
 msgstr "Быстрый режим (2s)"
+
+msgid "Filename"
+msgstr ""
 
 msgid "First Quarter"
 msgstr "Первая четверть"
@@ -1463,6 +1469,9 @@ msgstr "Погода-Источник"
 
 msgid "Mini-EPG"
 msgstr "Mini-EPG"
+
+msgid "Mode"
+msgstr ""
 
 msgid "Module 1"
 msgstr "Модуль 1"

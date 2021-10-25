@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LCD4linux\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 11:44+0330\n"
+"POT-Creation-Date: 2021-10-25 15:42+0330\n"
 "PO-Revision-Date: 2021-08-27 19:19+0200\n"
 "Last-Translator: Mr.Servo <mrservo via GitHub.com>\n"
 "Language-Team: 孤独之剑 <haotzyy1970@163.com>\n"
@@ -1015,6 +1015,9 @@ msgstr "EPG"
 msgid "ESE"
 msgstr "东南偏东"
 
+msgid "Element"
+msgstr ""
+
 msgid "Event Icon Bar"
 msgstr "事件图标栏"
 
@@ -1035,6 +1038,9 @@ msgstr "外部 IP 地址"
 
 msgid "Fastmode (2s)"
 msgstr "快速模式（2秒）"
+
+msgid "Filename"
+msgstr ""
 
 msgid "First Quarter"
 msgstr "第一季度"
@@ -1466,6 +1472,9 @@ msgstr "气象站"
 
 msgid "Mini-EPG"
 msgstr "迷你EPG"
+
+msgid "Mode"
+msgstr ""
 
 msgid "Module 1"
 msgstr "模块1"

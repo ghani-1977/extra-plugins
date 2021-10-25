@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-22 13:20+0330\n"
+"POT-Creation-Date: 2021-10-25 15:42+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1017,6 +1017,9 @@ msgstr ""
 msgid "ESE"
 msgstr ""
 
+msgid "Element"
+msgstr ""
+
 msgid "Event Icon Bar"
 msgstr ""
 
@@ -1036,6 +1039,9 @@ msgid "External IP Address"
 msgstr ""
 
 msgid "Fastmode (2s)"
+msgstr ""
+
+msgid "Filename"
 msgstr ""
 
 msgid "First Quarter"
@@ -1465,6 +1471,9 @@ msgid "Meteo-Weather Station"
 msgstr ""
 
 msgid "Mini-EPG"
+msgstr ""
+
+msgid "Mode"
 msgstr ""
 
 msgid "Module 1"
