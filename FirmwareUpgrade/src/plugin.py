@@ -32,7 +32,7 @@ if os.path.exists("/proc/stb/info/vumodel"):
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
 		fwdata = {
-			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
+			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"], "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
 	elif model == "vuuno":
 		fwlist = [
@@ -46,21 +46,21 @@ if os.path.exists("/proc/stb/info/vumodel"):
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
 		fwdata = {
-			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
+			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"], "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
 	elif model == "vuduo2":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor")), ("vfd", _("VFD Controller"))
 			]
 		fwdata = {
-			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]			, "vfd": ["http://archive.vuplus.com/download/vfd", "vfd.files", "/dev/bcm_vfd_ctrl;"]
+			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"], "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"], "vfd": ["http://archive.vuplus.com/download/vfd", "vfd.files", "/dev/bcm_vfd_ctrl;"]
 			}
 	elif model == "vuzero":
 		fwlist = [
 			 ("fpga", _("FPGA")), ("fp", _("Front Processor"))
 			]
 		fwdata = {
-			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"]			, "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
+			 "fpga": ["http://archive.vuplus.com/download/fpga", "fpga.files", "/dev/fpga_dp;/dev/misc/dp;"], "fp": ["http://archive.vuplus.com/download/fp", "fp.files", "/dev/bcm_mu;"]
 			}
 
 import os

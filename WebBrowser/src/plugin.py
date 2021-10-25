@@ -462,7 +462,7 @@ class BrowserLauncher(ConfigListScreen, Screen):
 		self.browser_name = "arora"
 		self.conf_file = resolveFilename(SCOPE_PLUGINS, "Extensions/WebBrowser/settings.conf")
 		self["actions"] = ActionMap(["OkCancelActions", "ShortcutActions", "WizardActions", "ColorActions", "SetupActions", ],
-                {	"red": self.keyCancel,
+                {"red": self.keyCancel,
 			"green": self.keyGo,
 			"cancel": self.keyExit,
                 }, -2)

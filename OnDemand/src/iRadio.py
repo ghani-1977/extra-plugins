@@ -191,7 +191,7 @@ class shoutGenresMenu(Screen):
 					osdList.append((_(name), id, children))
 
 		except (Exception) as exception:
-			print('iRadioMenu: Error parsing genres: ', exception											)
+			print('iRadioMenu: Error parsing genres: ', exception)
 
 		osdList.append((_("Exit"), "exit", "false"))
 
@@ -265,7 +265,7 @@ class shoutSubGenresMenu(Screen):
 					osdList.append((_(name), id, children))
 
 		except (Exception) as exception:
-			print('shoutSubGenresMenu: Error parsing feed: ', exception											)
+			print('shoutSubGenresMenu: Error parsing feed: ', exception)
 
 		osdList.append((_("Exit"), "exit", "false"))
 
@@ -333,7 +333,7 @@ class tuneinGenresMenu(Screen):
 				osdList.append((_(name), id, "false"))
 
 		except (Exception) as exception:
-			print('tuneinGenresMenu: Error parsing genres: ', exception											)
+			print('tuneinGenresMenu: Error parsing genres: ', exception)
 
 		osdList.append((_("Exit"), "exit", "false"))
 

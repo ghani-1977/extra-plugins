@@ -178,7 +178,7 @@ class StreamsMenu(Screen):
 					osdList.append((_(name), url))
 
 		except (Exception) as exception:
-			print('StreamsMenu: Error parsing feed: ', exception											)
+			print('StreamsMenu: Error parsing feed: ', exception)
 
 		osdList.append((_("Exit"), "exit"))
 
