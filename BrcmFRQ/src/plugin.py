@@ -7,17 +7,14 @@ from Components.ConfigList import ConfigList
 from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
-from Components.SystemInfo import BoxInfo
 import Screens.Standby
 from enigma import eTimer
 
-platform = BoxInfo.getItem("platform")
 
 config.plugins.brcm = ConfigSubsection()
-if platform == 'edision4k':
-    config.plugins.brcm.governor = ConfigSelection(default='performance', choices=[('powersave', 'powersave'), ('userspace', _('userspace')), ('conservative', 'conservative'), ('ondemand', 'ondemand (suggested)'), ('performance', 'performance (default)')])
-    config.plugins.brcm.maxfrq = ConfigSelection(default='1503000', choices=[('300000', '300MHz'), ('501000', '500MHz'), ('751000', '750MHz'), ('1002000', '1.0GHz'), ('1503000', _('1.5GHz (default)'))])
-    config.plugins.brcm.minfrq = ConfigSelection(default='300000', choices=[('300000', '300MHz (default)'), ('501000', '500MHz'), ('751000', '750MHz'), ('1002000', '1.0GHz'), ('1503000', _('1.5GHz'))])
+config.plugins.brcm.governor = ConfigSelection(default='performance', choices=[('powersave', 'powersave'), ('userspace', _('userspace')), ('conservative', 'conservative'), ('ondemand', 'ondemand (suggested)'), ('performance', 'performance (default)')])
+config.plugins.brcm.maxfrq = ConfigSelection(default='1503000', choices=[('300000', '300MHz'), ('501000', '500MHz'), ('751000', '750MHz'), ('1002000', '1.0GHz'), ('1503000', _('1.5GHz (default)'))])
+config.plugins.brcm.minfrq = ConfigSelection(default='300000', choices=[('300000', '300MHz (default)'), ('501000', '500MHz'), ('751000', '750MHz'), ('1002000', '1.0GHz'), ('1503000', _('1.5GHz'))])
 
 
 def leaveStandby():
@@ -99,28 +96,27 @@ class BrcmFRQ(ConfigListScreen, Screen):
         self.temp = 'N/A'
         self.voltage = 'N/A'
         self.cfrq = 'N/A'
-        if platform == 'edision4k':
-            try:
-                f = open('/proc/stb/fp/temp_sensor_avs', 'r')
-                self.temp = f.read()
-                self.temp = self.temp.strip()
-                f.close()
-                f = open('/sys/devices/system/cpu/cpufreq/policy0/brcm_avs_voltage', 'r')
-                self.voltage = f.read()
-                self.voltage = self.voltage.strip()
-                f.close()
-                f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq', 'r')
-                self.cfrq = f.read()
-                self.cfrq = self.cfrq.strip()
-                f.close()
-            except:
-                pass
+	try:
+		f = open('/proc/stb/fp/temp_sensor_avs', 'r')
+		self.temp = f.read()
+		self.temp = self.temp.strip()
+		f.close()
+		f = open('/sys/devices/system/cpu/cpufreq/policy0/brcm_avs_voltage', 'r')
+		self.voltage = f.read()
+		self.voltage = self.voltage.strip()
+		f.close()
+		f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq', 'r')
+		self.cfrq = f.read()
+		self.cfrq = self.cfrq.strip()
+		f.close()
+	except:
+		pass
 
-            try:
-                self.voltage = str(int(self.voltage, 16))
-                self.cfrq = str(int(self.cfrq.strip()) / 1000)
-            except:
-                pass
+	try:
+		self.voltage = str(int(self.voltage, 16))
+		self.cfrq = str(int(self.cfrq.strip()) / 1000)
+	except:
+		pass
 
         self['tempc'].setText(_('Current Temperature (SoC):  ' + self.temp + ' C'))
         self['voltc'].setText(_('Current CPU Voltage:  ' + self.voltage + ' mV'))
