@@ -72,6 +72,9 @@ Blindscan/src/Makefile
 Blindscan/meta/Makefile
 Blindscan/po/Makefile
 
+BrcmFRQ/Makefile
+BrcmFRQ/src/Makefile
+
 BTDevicesManager/Makefile
 BTDevicesManager/src/Makefile
 BTDevicesManager/meta/Makefile

@@ -155,7 +155,7 @@ class WetekFRQ(ConfigListScreen, Screen):
 	def createSetup(self):
 		self.editListEntry = None
 		self.list = []
-		self.list.append(getConfigListEntry(_('OpenLD Max CPU frequency'), config.plugins.wetek.workfrq))
+		self.list.append(getConfigListEntry(_('Enigma2 Max CPU frequency'), config.plugins.wetek.workfrq))
 		self.list.append(getConfigListEntry(_('Standby Max CPU frequency'), config.plugins.wetek.stdbyfrq))
 		self.list.append(getConfigListEntry(_('Scaling Governor'), config.plugins.wetek.governor))
 		self.list.append(getConfigListEntry(_('I/O Scheduler'), config.plugins.wetek.scheduler))
