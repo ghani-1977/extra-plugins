@@ -85,7 +85,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
 		self.skinName = ["Setup"]
 #		self.edittext = "* Not available on some models"
 
-		self["introduction"] = StaticText(self.edittext)
+#		self["introduction"] = StaticText(self.edittext)
 #		self.list = []
 #		ConfigListScreen.__init__(self, self.list)
 #		self["lab1"] = Label(_("* not available on some models"))
