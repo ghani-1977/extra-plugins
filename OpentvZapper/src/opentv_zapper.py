@@ -254,7 +254,7 @@ class LamedbReader():
 
 		srv_blocks = content[srv_start + 9:srv_stop].strip().split("\n")
 
-		for i in list(range(0, len(srv_blocks) // 3)):
+		for i in range(0, len(srv_blocks) // 3):
 			service_reference = srv_blocks[i * 3].strip()
 			service_name = srv_blocks[(i * 3) + 1].strip()
 			service_provider = srv_blocks[(i * 3) + 2].strip()
@@ -791,7 +791,7 @@ class Opentv_Zapper():
 			print("[%s]currentlyPlayingNIM" % (debug_name), currentlyPlayingNIM)
 			print("[%s]available tuners" % (debug_name), tuners)
 			if not inStandby and (num_tuners > 1 or tuners[0] != currentlyPlayingNIM):
-				if BoxInfo.getItem("NumVideoDecoders", 1) > 1 and not (hasattr(self.session, 'pipshown') and self.session.pipshown):
+				if BoxInfo.getItem("PIPAvailable", False) and config.plugins.opentvzapper.use_pip_adapter.value and not (hasattr(self.session, 'pipshown') and self.session.pipshown):
 					self.adapter = PipAdapter(self.session)
 					self.downloading = self.adapter.play(self.sref)
 					self.adaptername = "Pip"
