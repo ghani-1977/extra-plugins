@@ -397,6 +397,17 @@ pace7241VFD/Makefile
 pace7241VFD/src/Makefile
 pace7241VFD/meta/Makefile
 
+PiconManager/Makefile
+PiconManager/meta/Makefile
+PiconManager/src/Makefile
+PiconManager/src/pic/Makefile
+PiconManager/po/Makefile
+
+PiconsUpdater/Makefile
+PiconsUpdater/src/Makefile
+PiconsUpdater/meta/Makefile
+PiconsUpdater/po/Makefile
+
 spark7162VFD/Makefile
 spark7162VFD/src/Makefile
 spark7162VFD/meta/Makefile
