@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from __future__ import print_function
-import vbcfg
+from . import vbcfg
 from Components.Console import Console
 
 

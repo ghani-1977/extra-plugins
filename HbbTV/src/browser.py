@@ -16,13 +16,13 @@ from Components.Sources.StaticText import StaticText
 from Components.config import ConfigText, ConfigSelection, ConfigSlider, getConfigListEntry
 
 import os
-import vbcfg
+from . import vbcfg
 
 from enigma import fbClass, eRCInput, eTimer, getDesktop
 
-from __init__ import _
-from bookmark import BookmarkManager, BookmarkData, CategoryData
-from vbipc import VBController
+from .__init__ import _
+from .bookmark import BookmarkManager, BookmarkData, CategoryData
+from .vbipc import VBController
 
 strIsEmpty = lambda x: x is None or len(x) == 0
 

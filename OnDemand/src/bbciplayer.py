@@ -44,7 +44,7 @@ import re
 import xml.dom.minidom as dom
 from lxml import html
 
-from CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
+from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
 
 __plugin__ = "BBC iPlayer: "
 __version__ = "Version 1.0.2: "

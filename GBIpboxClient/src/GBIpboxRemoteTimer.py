@@ -29,7 +29,7 @@ from RecordTimer import RecordTimerEntry, AFTEREVENT
 from ServiceReference import ServiceReference
 from timer import TimerEntry
 
-from GBIpboxLocale import _
+from .GBIpboxLocale import _
 
 from xml.dom import minidom
 from time import localtime, time

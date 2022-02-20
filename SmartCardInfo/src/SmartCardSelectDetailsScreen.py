@@ -8,10 +8,10 @@ from Screens.Screen import Screen
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.MenuList import MenuList
 
-from SmartCard import *
-from SmartCardATRInfoScreen import *
-from SmartCardSubscriptionsInfoScreen import *
-from SmartCardPursesInfoScreen import *
+from .SmartCard import *
+from .SmartCardATRInfoScreen import *
+from .SmartCardSubscriptionsInfoScreen import *
+from .SmartCardPursesInfoScreen import *
 
 
 class SmartCardSelectDetailsScreen(Screen):

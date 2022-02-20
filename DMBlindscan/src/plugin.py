@@ -1658,7 +1658,7 @@ def BlindscanMain(session, close=None, **kwargs):
 	except:
 		print("[Blindscan] Read /proc/bus/nim_sockets failed.")
 	if have_Support_Blindscan:
-		import dmmBlindScan
+		from . import dmmBlindScan
 		session.openWithCallback(boundFunction(BlindscanCallback, close), dmmBlindScan.DmmBlindscan)
 	elif BOX_MODEL == "dreambox":
 		menu = [(_("Another type"), "all"), (_("Dreambox type"), "dmm")]
@@ -1668,7 +1668,7 @@ def BlindscanMain(session, close=None, **kwargs):
 				if choice[1] == "all":
 					session.openWithCallback(boundFunction(BlindscanCallback, close), Blindscan)
 				elif choice[1] == "dmm":
-					import dmmBlindScan
+					from . import dmmBlindScan
 					session.openWithCallback(boundFunction(BlindscanCallback, close), dmmBlindScan.DmmBlindscan)
 		session.openWithCallback(scanType, ChoiceBox, title=_("Select type for scan:"), list=menu)
 	else:

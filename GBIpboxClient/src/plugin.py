@@ -27,10 +27,10 @@ from Plugins.Plugin import PluginDescriptor
 
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText, ConfigClock, ConfigSelection
 from Tools.Directories import fileExists
-from GBIpboxClient import GBIpboxClient, GBIpboxClientAutostart
-from GBIpboxRemoteTimer import GBIpboxRemoteTimer
-from GBIpboxWizard import GBIpboxWizard
-from GBIpboxLocale import _
+from .GBIpboxClient import GBIpboxClient, GBIpboxClientAutostart
+from .GBIpboxRemoteTimer import GBIpboxRemoteTimer
+from .GBIpboxWizard import GBIpboxWizard
+from .GBIpboxLocale import _
 
 config.ipboxclient = ConfigSubsection()
 config.ipboxclient.host = ConfigText(default="", fixed_size=False)

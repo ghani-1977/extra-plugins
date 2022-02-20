@@ -7,7 +7,7 @@ import time
 import socket
 import select
 import struct
-import vbcfg
+from . import vbcfg
 
 _OPCODE = {}
 _BUFSIZE = 4096

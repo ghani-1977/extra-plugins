@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function
 import sys
-import sh4multiboot
+from . import sh4multiboot
 
 if len(sys.argv) < 5:
     print("[ex_init] Not enough parameters for SH4MultiBoot")

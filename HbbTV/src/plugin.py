@@ -15,12 +15,12 @@ from Components.VolumeControl import VolumeControl
 from enigma import eTimer, fbClass, eRCInput, iServiceInformation, iPlayableService
 import os
 import struct
-import vbcfg
-from __init__ import _
-from hbbtv import HbbTVWindow
-from browser import Browser
-from youtube import YoutubeTVWindow, YoutubeTVSettings
-from vbipc import VBController, VBServerThread, VBHandlers
+from . import vbcfg
+from .__init__ import _
+from .hbbtv import HbbTVWindow
+from .browser import Browser
+from .youtube import YoutubeTVWindow, YoutubeTVSettings
+from .vbipc import VBController, VBServerThread, VBHandlers
 from Components.Console import Console
 
 strIsEmpty = lambda x: x is None or len(x) == 0
@@ -332,7 +332,7 @@ class VBMain(Screen):
 				demux = info.getInfoString(iServiceInformation.sLiveStreamDemuxId)
 				vbcfg.DEBUG("demux = %s, pmtid = 0x%x, sid = 0x%x" % (demux, pmtid, sid))
 
-				from aitreader import eAITSectionReader
+				from .aitreader import eAITSectionReader
 				reader = eAITSectionReader(demux, pmtid, sid)
 				if reader.doOpen(info, self.m_vuplus):
 					reader.doParseApplications()

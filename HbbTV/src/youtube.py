@@ -8,9 +8,9 @@ from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigText, getConfigListEntry
 
-import vbcfg
+from . import vbcfg
 
-from __init__ import _
+from .__init__ import _
 
 config.plugins.youtubetv = ConfigSubsection()
 config.plugins.youtubetv.showhelp = ConfigYesNo(default=False)

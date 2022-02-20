@@ -8,7 +8,7 @@ from time import mktime, strftime, time, localtime
 from Components.config import config
 from enigma import eTimer
 
-from ChannelsImporter import ChannelsImporter
+from .ChannelsImporter import ChannelsImporter
 
 autoChannelsImporterTimer = None
 

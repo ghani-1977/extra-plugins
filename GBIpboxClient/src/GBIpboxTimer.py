@@ -25,8 +25,8 @@ from __future__ import print_function
 
 from Components.config import config
 
-from GBIpboxDownloader import GBIpboxDownloader
-from GBIpboxLocale import _
+from .GBIpboxDownloader import GBIpboxDownloader
+from .GBIpboxLocale import _
 
 from enigma import eTimer
 

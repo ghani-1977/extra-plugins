@@ -11,9 +11,9 @@ from Screens.Setup import Setup
 from Components.SystemInfo import BoxInfo
 from Screens.MessageBox import MessageBox # for are you sure questions after config changes
 
-from ChannelsImporter import ChannelsImporter
+from .ChannelsImporter import ChannelsImporter
 
-from scheduler import autostart
+from .scheduler import autostart
 
 config.plugins.ChannelsImporter = ConfigSubsection()
 config.plugins.ChannelsImporter.ip = ConfigIP(default=[0, 0, 0, 0])

@@ -24,7 +24,7 @@ from __future__ import print_function
 #############################################################################
 
 from Components.Network import iNetwork
-from GBIpboxLocale import _
+from .GBIpboxLocale import _
 
 import socket
 import threading

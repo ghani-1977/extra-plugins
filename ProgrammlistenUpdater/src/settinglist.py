@@ -9,7 +9,7 @@ import sys
 from Screens.Screen import Screen
 from Components.config import config, configfile
 from Screens.MessageBox import MessageBox
-from downloader import DownloadSetting, ConverDate, ConverDateBack
+from .downloader import DownloadSetting, ConverDate, ConverDateBack
 from enigma import *
 from Components.Console import Console
 try:

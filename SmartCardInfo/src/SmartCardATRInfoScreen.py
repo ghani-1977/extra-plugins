@@ -8,7 +8,7 @@ from Components.ActionMap import ActionMap, NumberActionMap
 from Components.Input import Input
 from Components.Label import Label
 
-from SmartCard import *
+from .SmartCard import *
 
 
 class SmartCardATRInfoScreen(Screen):

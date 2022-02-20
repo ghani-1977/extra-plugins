@@ -34,11 +34,11 @@ from Components.config import config, getConfigListEntry
 from Components.Sources.Boolean import Boolean
 from Components.Sources.StaticText import StaticText
 
-from GBIpboxDownloader import GBIpboxDownloader
-from GBIpboxScan import GBIpboxScan
-from GBIpboxAbout import GBIpboxAbout
-from GBIpboxMount import GBIpboxMount
-from GBIpboxLocale import _
+from .GBIpboxDownloader import GBIpboxDownloader
+from .GBIpboxScan import GBIpboxScan
+from .GBIpboxAbout import GBIpboxAbout
+from .GBIpboxMount import GBIpboxMount
+from .GBIpboxLocale import _
 
 from enigma import eTimer
 

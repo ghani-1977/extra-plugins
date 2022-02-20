@@ -23,7 +23,7 @@ from . import _
 
 from Components.config import config, ConfigYesNo, ConfigSubsection, ConfigSelection, ConfigIP
 from Plugins.Plugin import PluginDescriptor
-from ui import OnDemand_Screen
+from .ui import OnDemand_Screen
 
 config.ondemand = ConfigSubsection()
 config.ondemand.ShowMainMenu = ConfigYesNo(default=False)

@@ -32,7 +32,7 @@ from Components.config import config, getConfigListEntry, ConfigText, ConfigSubs
 from Components.MenuList import MenuList
 from Components.ServiceEventTracker import ServiceEventTracker
 from Tools.Directories import resolveFilename, SCOPE_PLUGIN
-from bluetoothctl import iBluetoothctl, Bluetoothctl
+from .bluetoothctl import iBluetoothctl, Bluetoothctl
 import os
 import time
 import signal

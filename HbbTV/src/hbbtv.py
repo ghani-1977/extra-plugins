@@ -5,10 +5,10 @@ from Screens.Screen import Screen
 from enigma import eTimer, fbClass, eRCInput
 
 import struct
-import vbcfg
+from . import vbcfg
 
-from __init__ import _
-from vbipc import VBController
+from .__init__ import _
+from .vbipc import VBController
 
 
 class HbbTVWindow(Screen):

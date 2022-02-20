@@ -29,7 +29,7 @@ from Tools.LoadPixmap import LoadPixmap
 from calendar import timegm
 from time import strptime, gmtime, localtime, strftime, time
 from . import config, enableIceTV, disableIceTV
-import API as ice
+from . import API as ice
 import requests
 from collections import deque, defaultdict
 from operator import itemgetter

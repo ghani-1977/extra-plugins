@@ -42,9 +42,9 @@ import re
 from bs4 import BeautifulSoup
 import simplejson
 
-import fourOD_token_decoder
+from . import fourOD_token_decoder
 
-from CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon, RTMP
+from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon, RTMP
 
 __plugin__ = "4OD: "
 __version__ = "Version 1.0.2: "

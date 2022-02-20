@@ -1701,7 +1701,7 @@ def BlindscanMain(session, close=None, **kwargs):
 	except:
 		print("[Blindscan] Read /proc/bus/nim_sockets failed.")
 	if have_Support_Blindscan:
-		import dmmBlindScan
+		from . import dmmBlindScan
 		session.openWithCallback(boundFunction(BlindscanCallback, close), dmmBlindScan.DmmBlindscan)
 	else:
 		session.openWithCallback(boundFunction(BlindscanCallback, close), Blindscan)

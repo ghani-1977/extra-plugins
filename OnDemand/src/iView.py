@@ -43,7 +43,7 @@ import re
 import simplejson
 from bs4 import BeautifulSoup
 
-from CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
+from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
 
 __plugin__ = "ABC iView"
 __version__ = "1.0.1"

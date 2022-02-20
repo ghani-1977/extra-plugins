@@ -50,7 +50,7 @@ from urllib import quote
 
 import xml.etree.cElementTree as ET
 
-from CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
+from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
 
 #----------------------------------------------------------------------------------------------------------------------------------------#
 # The Dev ID for calling the API

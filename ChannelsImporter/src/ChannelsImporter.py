@@ -21,7 +21,7 @@ from twisted.internet import reactor
 from twisted.internet.protocol import ClientCreator
 from twisted.protocols.ftp import FTPClient
 
-from FTPDownloader import FTPDownloader
+from .FTPDownloader import FTPDownloader
 
 DIR_ENIGMA2 = '/etc/enigma2/'
 DIR_TMP = '/tmp/'

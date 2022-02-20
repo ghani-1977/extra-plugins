@@ -8,8 +8,8 @@ from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap, NumberActionMap
 from Components.Input import Input
 
-from SmartCard import *
-from SmartCardSelectDetailsScreen import SmartCardSelectDetailsScreen
+from .SmartCard import *
+from .SmartCardSelectDetailsScreen import SmartCardSelectDetailsScreen
 
 
 class SmartCardSelectScreen(Screen):

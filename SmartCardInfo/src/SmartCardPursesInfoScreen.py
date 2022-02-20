@@ -9,7 +9,7 @@ from Components.MenuList import MenuList
 from Components.Input import Input
 from Components.Label import Label
 
-from SmartCard import *
+from .SmartCard import *
 
 
 class SmartCardPursesInfoScreen(Screen):

@@ -25,7 +25,7 @@ from __future__ import print_function
 
 from Components.config import config
 
-from GBIpboxLocale import _
+from .GBIpboxLocale import _
 
 from enigma import eEPGCache, eDVBDB
 

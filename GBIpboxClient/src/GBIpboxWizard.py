@@ -30,10 +30,10 @@ from Components.config import config
 
 from Tools import Directories
 
-from GBIpboxDownloader import GBIpboxDownloader
-from GBIpboxScan import GBIpboxScan
-from GBIpboxMount import GBIpboxMount
-from GBIpboxLocale import _
+from .GBIpboxDownloader import GBIpboxDownloader
+from .GBIpboxScan import GBIpboxScan
+from .GBIpboxMount import GBIpboxMount
+from .GBIpboxLocale import _
 
 from enigma import eTimer
 
