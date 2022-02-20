@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 #############################################################################
 #
 # Copyright (C) 2014 Impex-Sat Gmbh & Co.KG

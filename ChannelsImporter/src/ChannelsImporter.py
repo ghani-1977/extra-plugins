@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 
 import os
 import re
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 from enigma import eServiceReference, eDVBDB
 
@@ -313,12 +313,12 @@ class ChannelsImporter(Screen):
 		url = "http://%s/api/saveepg" % self.getRemoteAddress()
 		print('[ChannelsImporter][saveEPGonRemoteReceiver] URL: %s' % url)
 		try:
-			req = urllib2.Request(url)
-			response = urllib2.urlopen(req)
+			req = urllib.request.Request(url)
+			response = urllib.request.urlopen(req)
 			print('[ChannelsImporter][saveEPGonRemoteReceiver] Response: %d, %s' % (response.getcode(), response.read().strip().replace("\r", "").replace("\n", "")))
-		except urllib2.HTTPError as err:
+		except urllib.error.HTTPError as err:
 			print('[ChannelsImporter][saveEPGonRemoteReceiver] ERROR:', err)
-		except urllib2.URLError as err:
+		except urllib.error.URLError as err:
 			print('[ChannelsImporter][saveEPGonRemoteReceiver] ERROR:', err.reason[0])
 		except urllib2 as err:
 			print('[ChannelsImporter][saveEPGonRemoteReceiver] ERROR:', err)

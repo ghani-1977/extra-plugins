@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 #
 # Fan Setup Plugin for et9x00, et8000 and et10000
 # Coded by Dima73 (c) 2011
@@ -217,7 +217,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 	def initConfig(self):
 		def getPrevValues(section):
 			res = {}
-			for (key, val) in section.content.items.items():
+			for (key, val) in list(section.content.items.items()):
 				if isinstance(val, ConfigSubsection):
 					res[key] = getPrevValues(val)
 				else:
@@ -276,7 +276,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 
 	def keyRed(self):
 		def setPrevValues(section, values):
-			for (key, val) in section.content.items.items():
+			for (key, val) in list(section.content.items.items()):
 				value = values.get(key, None)
 				if value is not None:
 					if isinstance(val, ConfigSubsection):

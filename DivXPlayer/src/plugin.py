@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Components.Console import Console
 from enigma import eConsoleAppContainer
 from os import path, remove

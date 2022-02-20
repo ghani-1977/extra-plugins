@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 # for localized messages
 from . import _, PluginLanguageDomain
 
@@ -40,7 +40,8 @@ if pythonVer == 3:
 	from urllib.request import urlopen, Request
 	from urllib.error import URLError, HTTPError
 else:
-	from urllib2 import urlopen, Request, HTTPError, URLError
+	from urllib.request import urlopen, Request
+	from urllib.error import HTTPError, URLError
 
 mixes = Mixes().read()
 choices = sorted([(mixes[x]["key"], mixes[x]["name"]) for x in mixes], key=lambda listItem: listItem[1])

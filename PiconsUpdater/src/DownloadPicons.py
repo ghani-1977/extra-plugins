@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
+
 import os
 from _collections import deque
 from . import _, printToConsole, getPiconsPath, getTmpLocalPicon, PICON_TYPE_NAME, PICON_TYPE_KEY

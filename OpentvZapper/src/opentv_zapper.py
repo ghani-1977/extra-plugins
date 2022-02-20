@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
-from __future__ import absolute_import
-from __future__ import division
+
+
+
 
 from Components.config import config
 from Components.NimManager import nimmanager
@@ -425,9 +425,9 @@ class LamedbWriter():
 		lamedblist.append("eDVB services /4/\n")
 		lamedblist.append("transponders\n")
 
-		for key in transponders.keys():
+		for key in list(transponders.keys()):
 			transponder = transponders[key]
-			if "services" not in transponder.keys() or len(transponder["services"]) < 1:
+			if "services" not in list(transponder.keys()) or len(transponder["services"]) < 1:
 				continue
 			lamedblist.append("%08x:%04x:%04x\n" %
 				(transponder["namespace"],
@@ -510,12 +510,12 @@ class LamedbWriter():
 			transponders_count += 1
 
 		lamedblist.append("end\nservices\n")
-		for key in transponders.keys():
+		for key in list(transponders.keys()):
 			transponder = transponders[key]
-			if "services" not in transponder.keys():
+			if "services" not in list(transponder.keys()):
 				continue
 
-			for key2 in transponder["services"].keys():
+			for key2 in list(transponder["services"].keys()):
 				service = transponder["services"][key2]
 
 				lamedblist.append("%04x:%08x:%04x:%04x:%d:%d%s\n" %
@@ -527,7 +527,7 @@ class LamedbWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ""))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
+				control_chars = ''.join(list(map(six.chr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
@@ -542,14 +542,14 @@ class LamedbWriter():
 				lamedblist.append("%s\n" % service_name)
 
 				service_ca = ""
-				if "free_ca" in service.keys() and service["free_ca"] != 0:
+				if "free_ca" in list(service.keys()) and service["free_ca"] != 0:
 					service_ca = ",C:0000"
 
 				service_flags = ""
-				if "service_flags" in service.keys() and service["service_flags"] > 0:
+				if "service_flags" in list(service.keys()) and service["service_flags"] > 0:
 					service_flags = ",f:%x" % service["service_flags"]
 
-				if 'service_line' in service.keys():
+				if 'service_line' in list(service.keys()):
 					lamedblist.append(self.utf8_convert("%s\n" % service["service_line"]))
 				else:
 					lamedblist.append("p:%s%s%s\n" % (provider_name, service_ca, service_flags))
@@ -578,9 +578,9 @@ class LamedbWriter():
 		lamedblist.append("#     DVBC  FEPARMS:   c:frequency:symbol_rate:inversion:modulation:fec_inner:flags:system\n")
 		lamedblist.append('# Services: s:service_id:dvb_namespace:transport_stream_id:original_network_id:service_type:service_number:source_id,"service_name"[,p:provider_name][,c:cached_pid]*[,C:cached_capid]*[,f:flags]\n')
 
-		for key in transponders.keys():
+		for key in list(transponders.keys()):
 			transponder = transponders[key]
-			if "services" not in transponder.keys() or len(transponder["services"]) < 1:
+			if "services" not in list(transponder.keys()) or len(transponder["services"]) < 1:
 				continue
 			lamedblist.append("t:%08x:%04x:%04x," %
 				(transponder["namespace"],
@@ -658,12 +658,12 @@ class LamedbWriter():
 					transponder["system"]))
 			transponders_count += 1
 
-		for key in transponders.keys():
+		for key in list(transponders.keys()):
 			transponder = transponders[key]
-			if "services" not in transponder.keys():
+			if "services" not in list(transponder.keys()):
 				continue
 
-			for key2 in transponder["services"].keys():
+			for key2 in list(transponder["services"].keys()):
 				service = transponder["services"][key2]
 
 				lamedblist.append("s:%04x:%08x:%04x:%04x:%d:%d%s," %
@@ -675,7 +675,7 @@ class LamedbWriter():
 					service["flags"],
 					":%x" % service["ATSC_source_id"] if "ATSC_source_id" in service else ":0"))
 
-				control_chars = ''.join(list(map(six.unichr, list(range(0, 32)) + list(range(127, 160)))))
+				control_chars = ''.join(list(map(six.chr, list(range(0, 32)) + list(range(127, 160)))))
 				control_char_re = re.compile('[%s]' % re.escape(control_chars))
 				if 'provider_name' in list(service.keys()):
 					if six.PY2:
@@ -690,14 +690,14 @@ class LamedbWriter():
 				lamedblist.append('"%s"' % service_name)
 
 				service_ca = ""
-				if "free_ca" in service.keys() and service["free_ca"] != 0:
+				if "free_ca" in list(service.keys()) and service["free_ca"] != 0:
 					service_ca = ",C:0000"
 
 				service_flags = ""
-				if "service_flags" in service.keys() and service["service_flags"] > 0:
+				if "service_flags" in list(service.keys()) and service["service_flags"] > 0:
 					service_flags = ",f:%x" % service["service_flags"]
 
-				if 'service_line' in service.keys(): # from lamedb
+				if 'service_line' in list(service.keys()): # from lamedb
 					if len(service["service_line"]):
 						lamedblist.append(",%s\n" % self.utf8_convert(service["service_line"]))
 					else:

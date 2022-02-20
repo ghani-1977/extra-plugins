@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 
 from enigma import eDVBDB, eServiceReference, eServiceCenter
 from Screens.Screen import Screen
@@ -77,7 +77,7 @@ class LCN():
 				value = x[0]
 				cmd = "x[0] = " + rule
 				try:
-					exec cmd
+					exec(cmd)
 				except Exception as e:
 					print(e)
 

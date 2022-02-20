@@ -15,7 +15,7 @@
 #  Thanks to vuplus-support.org for the webspace
 #######################################################################
 
-from __future__ import print_function
+
 from Screens.ChannelSelection import SimpleChannelSelection, service_types_tv, service_types_radio
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -47,7 +47,7 @@ import six
 from . import _
 
 if six.PY2:
-	from urllib import quote
+	from urllib.parse import quote
 else:
 	from urllib.parse import quote
 

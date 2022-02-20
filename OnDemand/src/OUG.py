@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
     OpenUitzendingGemist - Enigma2 Video Plugin
     Copyright (C) 2013 mcquaim
@@ -37,8 +37,9 @@ from Screens.MessageBox import MessageBox
 from Tools.LoadPixmap import LoadPixmap
 from Tools.BoundFunction import boundFunction
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from urllib2 import Request, URLError, HTTPError, urlopen as urlopen2
-from httplib import HTTPException
+from urllib.request import Request, urlopen as urlopen2
+from urllib.error import URLError, HTTPError
+from http.client import HTTPException
 from os import path as os_path, remove as os_remove, mkdir as os_mkdir
 import socket
 from datetime import date, timedelta

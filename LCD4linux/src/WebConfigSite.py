@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
+
 from twisted.web import resource, http
 from .plugin import *
 from . import _
@@ -9,7 +9,7 @@ from .module import L4Lelement
 import six
 
 if six.PY2:
-	from HTMLParser import HTMLParser
+	from html.parser import HTMLParser
 	_unescape = HTMLParser().unescape
 else:
 	from html import unescape as _unescape
@@ -349,7 +349,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			_exec("getexec = " + _ex) # FIXME PY3
 			return str(getexec)
 		elif _command == "copyMP":
-			for a in req.args.keys():
+			for a in list(req.args.keys()):
 				_a = six.ensure_str(a)
 				if ".Standby" in _a:
 					b = _a.replace(".Standby", ".MP")
@@ -364,7 +364,7 @@ class LCD4linuxConfigweb(resource.Resource):
 						objb = eval(b)
 						objb.value = obja.value
 		elif _command == "copyIdle":
-			for a in req.args.keys():
+			for a in list(req.args.keys()):
 				_a = six.ensure_str(a)
 				if ".MP" in _a:
 					b = _a.replace(".MP", ".Standby")
@@ -379,7 +379,7 @@ class LCD4linuxConfigweb(resource.Resource):
 						objb = eval(b)
 						objb.value = obja.value
 		elif _command == "copyOn":
-			for a in req.args.keys():
+			for a in list(req.args.keys()):
 				_a = six.ensure_str(a)
 				if ".MP" in _a:
 					b = _a.replace(".MP", ".")
@@ -404,7 +404,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			Cpicon = False
 			Ccal = False
 			Cwww = False
-			for a in req.args.keys():
+			for a in list(req.args.keys()):
 				_a = six.ensure_str(a)
 				if _a.find(".") > 0:
 					val = req.args.get(a, "")[0]

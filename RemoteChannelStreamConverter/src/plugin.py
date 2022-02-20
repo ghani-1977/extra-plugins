@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 import os
 import re
@@ -18,7 +18,7 @@ from ServiceReference import ServiceReference
 from twisted.internet import reactor
 from twisted.internet.protocol import ClientCreator
 from twisted.protocols.ftp import FTPClient
-from urllib import quote
+from urllib.parse import quote
 from .FTPDownloader import FTPDownloader
 from Components.SystemInfo import BoxInfo
 

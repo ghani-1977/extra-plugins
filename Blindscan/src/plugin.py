@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eTimer
@@ -359,7 +359,7 @@ class Blindscan(ConfigListScreen, Screen):
 		is_exist_i2c = False
 		self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
 		if self.nimSockets is not None:
-			for XX in self.nimSockets.keys():
+			for XX in list(self.nimSockets.keys()):
 				nimsocket = self.nimSockets[XX]
 				if len(nimsocket) > 1:
 					try:
@@ -1541,7 +1541,7 @@ class Blindscan(ConfigListScreen, Screen):
 			self.session.open(Console, _(XML_FILE), ["cat %s" % XML_FILE])
 
 	def resetDefaults(self):
-		for key in defaults.keys():
+		for key in list(defaults.keys()):
 			getattr(config.blindscan, key).value = defaults[key]
 		self.blindscan_Ku_band_start_frequency.value = self.Ku_band_freq_limits["low"]
 		self.blindscan_Ku_band_stop_frequency.value = self.Ku_band_freq_limits["high"]
@@ -1556,7 +1556,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.setBlueText()
 
 	def setBlueText(self):
-		for key in defaults.keys():
+		for key in list(defaults.keys()):
 			if getattr(config.blindscan, key).value != defaults[key]:
 				self["key_blue"].setText("Restore defaults")
 				return

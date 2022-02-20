@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 #
 # So we can use Py3 print(style)
 
@@ -40,9 +40,9 @@ from .HTML5Entities import name2codepoint
 #
 if sys.version_info[0] == 2:
 # Python2 version
-    from urllib import quote, unquote
-    from urllib2 import Request, urlopen
-    def dec2utf8(n): return unichr(n).encode('utf-8')
+    from urllib.parse import quote, unquote
+    from urllib.request import Request, urlopen
+    def dec2utf8(n): return chr(n).encode('utf-8')
 
 else:
 # Python3 version

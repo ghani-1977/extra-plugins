@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function, absolute_import
+
 import os
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
@@ -53,7 +53,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
         # FIXME : don't scan channels on start without background thread
         parser = BouquetParser(BOUQUET_PATH)
         self.serviceList = parser.getServiceList()
-        self.previewImagesToDownload = len(getPiconUrls().items())
+        self.previewImagesToDownload = len(list(getPiconUrls().items()))
         self.previewImageDownloadCount = 0
         self.backgroundImagesToDownload = len(getBackgroundList())
         self.foregroundImagesToDownload = len(getBackgroundList())
@@ -103,7 +103,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
         """
         if os.path.isdir(TMP_PREVIEW_IMAGE_PATH) is False:
             os.makedirs(TMP_PREVIEW_IMAGE_PATH, 493)
-        for key, piconStyleData in getPiconUrls().items():
+        for key, piconStyleData in list(getPiconUrls().items()):
             localPreviewPath = TMP_PREVIEW_IMAGE_PATH + '/' + key + '.png'
             if os.path.isfile(localPreviewPath) is False:
                 DownloadJob(piconStyleData['previewImage'], localPreviewPath, self.__previewDownloadFinished, self.__previewDownloadFailed)

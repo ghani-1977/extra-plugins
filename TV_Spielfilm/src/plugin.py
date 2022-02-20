@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # Embedded file name: /usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/TVSpielfilm.py
 from base64 import b64encode, b64decode
 from Components.ActionMap import ActionMap, NumberActionMap
@@ -37,18 +37,19 @@ from Tools.Directories import fileExists
 from Tools.LoadPixmap import LoadPixmap
 from twisted.web import client, error
 from twisted.web.client import getPage, downloadPage
-from httplib import HTTPException
-from urllib import unquote_plus, urlencode
-from urllib2 import Request, urlopen, URLError, HTTPError
-from urlparse import parse_qs
-import cookielib
+from http.client import HTTPException
+from urllib.parse import unquote_plus, urlencode
+from urllib.request import Request, urlopen
+from urllib.error import URLError, HTTPError
+from urllib.parse import parse_qs
+import http.cookiejar
 import datetime
 import os
 import re
 import socket
 import sys
 import time
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from os import path
 config.plugins.tvspielfilm = ConfigSubsection()
 deskWidth = getDesktop(0).size().width()
@@ -111,7 +112,7 @@ config.plugins.tvspielfilm.paypal = ConfigSelection(default='yes', choices=[('ye
 
 
 def applySkinVars(skin, dict):
-    for key in dict.keys():
+    for key in list(dict.keys()):
         try:
             skin = skin.replace('{' + key + '}', dict[key])
         except Exception as e:
@@ -16300,7 +16301,7 @@ class TVBlog(Screen):
                     fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
 
             if video_fmt_map and len(video_fmt_map):
-                best_video = video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]
+                best_video = video_fmt_map[sorted(video_fmt_map.keys())[0]]
                 trailer_url = '%s' % best_video['fmturl'].split(';')[0]
             return trailer_url
 
@@ -17814,7 +17815,7 @@ class searchYouTube(Screen):
                     fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
 
             if video_fmt_map and len(video_fmt_map):
-                best_video = video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]
+                best_video = video_fmt_map[sorted(video_fmt_map.keys())[0]]
                 trailer_url = '%s' % best_video['fmturl'].split(';')[0]
             return trailer_url
 
@@ -18686,10 +18687,10 @@ class tvMain(Screen):
                     configfile.save()
 
             self.cookiefile = '/usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/db/cookie'
-            self.cookie = cookielib.MozillaCookieJar(self.cookiefile)
+            self.cookie = http.cookiejar.MozillaCookieJar(self.cookiefile)
             if fileExists(self.cookiefile):
                 self.cookie.load()
-            self.opener = urllib2.build_opener(urllib2.HTTPRedirectHandler(), urllib2.HTTPHandler(debuglevel=0), urllib2.HTTPCookieProcessor(self.cookie))
+            self.opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler(), urllib.request.HTTPHandler(debuglevel=0), urllib.request.HTTPCookieProcessor(self.cookie))
             self.opener.addheaders = [('Host', 'member.tvspielfilm.de'),
              ('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0'),
              ('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'),

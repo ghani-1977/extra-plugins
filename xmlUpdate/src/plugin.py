@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
@@ -108,18 +108,18 @@ class xmlUpdate(ConfigListScreen, Screen):
 		try:
 			if self.DVBtype.value == "satellites":
 				if self.Satellitestype.value != "all":
-					req = urllib2.Request(self.url % self.Satellitestype.value)
+					req = urllib.request.Request(self.url % self.Satellitestype.value)
 				else:
-					req = urllib2.Request(self.url % self.DVBtype.value)
+					req = urllib.request.Request(self.url % self.DVBtype.value)
 			else:
-				req = urllib2.Request(self.url % self.DVBtype.value)
-			response = urllib2.urlopen(req)
+				req = urllib.request.Request(self.url % self.DVBtype.value)
+			response = urllib.request.urlopen(req)
 			print('[xmlUpdate][fetchURL] Response: %d' % response.getcode())
 			if int(response.getcode()) == 200:
 				return response.read()
-		except urllib2.HTTPError as err:
+		except urllib.error.HTTPError as err:
 			print('[xmlUpdate][fetchURL] ERROR:', err)
-		except urllib2.URLError as err:
+		except urllib.error.URLError as err:
 			print('[xmlUpdate][fetchURL] ERROR:', err.reason[0])
 		except urllib2 as err:
 			print('[xmlUpdate][fetchURL] ERROR:', err)

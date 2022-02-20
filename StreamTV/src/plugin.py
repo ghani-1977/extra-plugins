@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 import os
 from os import system
@@ -253,7 +253,7 @@ class StreamTVList(Screen):
 		self.streamMenuList.l.setFont(1, gFont('Regular', 18))
 		self.streamMenuList.l.setItemHeight(37)
 		self['streamlist'] = self.streamMenuList
-		self.streamMenuList.setList(map(streamListEntry, self.streamList))
+		self.streamMenuList.setList(list(map(streamListEntry, self.streamList)))
 
 		self.onLayoutFinish.append(self.layoutFinished)
 

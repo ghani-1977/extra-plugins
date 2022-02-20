@@ -1,16 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 import re
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 
 def DownloadSetting(url):
     list = []
     try:
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         req.add_header('User-Agent', 'VAS')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         link = response.read()
         response.close()
         xx = re.compile('<td><a href="(.+?)">(.+?)</a></td>.*?<td>(.+?)</td>', re.DOTALL).findall(link)

@@ -147,5 +147,5 @@ def __filterFileListByFileExtension(files, fileExtensions):
     fileExtensions as tuple. example: ('.txt', '.png')
     """
     if fileExtensions is not None:
-        files = list(filter(lambda s: s.lower().endswith(fileExtensions), files))
+        files = list([s for s in files if s.lower().endswith(fileExtensions)])
     return files

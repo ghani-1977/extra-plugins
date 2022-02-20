@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from time import strftime, localtime
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS
 

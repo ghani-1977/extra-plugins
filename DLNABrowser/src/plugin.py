@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 from Plugins.Extensions.PicturePlayer.ui import *
 import os
@@ -650,7 +650,7 @@ class TaskManager:
     def setStatusCB(self, cbfunc):
         self.cbSetStatusCB = cbfunc
 
-    def next(self):
+    def __next__(self):
         if self.taskIdx >= len(self.taskList) or self.occurError:
             print("[DLNAClient Plugin] Info >> can't run task!!")
             return False
@@ -875,7 +875,7 @@ class DLNADeviceBrowser(Screen):
             self.taskManager.append(cmd, self.cbPrintAvail, self.cbPrintClose)
             cmd = 'djmount -o allow_other -o iocharset=utf8 %s' % (DLNA_CONFIG_ROOT_DIR)
             self.taskManager.append(cmd, self.cbPrintAvail, self.cbStartDone)
-        self.taskManager.next()
+        next(self.taskManager)
 
     def keyCancel(self):
         self.close()
@@ -959,7 +959,7 @@ class DLNADeviceBrowser(Screen):
         print(data)
 
     def cbPrintClose(self, ret):
-        self.taskManager.next()
+        next(self.taskManager)
 
     def cbStopDone(self, ret):
         self.taskManager.clean()

@@ -70,7 +70,7 @@ table_a2b_base64 = {
 
 
 def Base64_decodeToByteArray(s):
-    if not isinstance(s, (str, unicode)):
+    if not isinstance(s, str):
         raise TypeError("expected string or unicode, got %r" % (s,))
     s = s.rstrip()
     # clean out all invalid characters, this also strips the final '=' padding

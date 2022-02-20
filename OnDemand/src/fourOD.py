@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
     4OD Player - Enigma2 Video Plugin
     Copyright (C) 2013 mcquaim
@@ -37,7 +37,7 @@ import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 from bs4 import BeautifulSoup
 import simplejson
@@ -51,16 +51,16 @@ __version__ = "Version 1.0.2: "
 
 #=================== Default URL's =======================================================
 
-fourodSearchDefault = u'http://www.channel4.com/search/predictive/?q='
+fourodSearchDefault = 'http://www.channel4.com/search/predictive/?q='
 
 #=========================================================================================
 
 
 def readUrl(target):
     try:
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         outtxt = str(response.read())
         response.close()
         return outtxt
@@ -75,9 +75,9 @@ def wgetUrl(target):
         primaryDNS = str(config.ondemand.PrimaryDNS.value)
         print(__plugin__, __version__, "DNS Set: ", primaryDNS)
 
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
 
         # Find out the character set of the returned data
         charset = GetCharset(response)
@@ -107,12 +107,12 @@ def wgetUrl(target):
                 return ("NODNS", isUK)
             else:
                 try:
-                    opener = urllib2.build_opener(MyHTTPHandler)
+                    opener = urllib.request.build_opener(MyHTTPHandler)
                     old_opener = urllib2._opener
-                    urllib2.install_opener(opener)
-                    req = urllib2.Request(target)
+                    urllib.request.install_opener(opener)
+                    req = urllib.request.Request(target)
                     req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-                    response = urllib2.urlopen(req)
+                    response = urllib.request.urlopen(req)
 
                     # Find out the character set of the returned data
                     charset = GetCharset(response)
@@ -128,7 +128,7 @@ def wgetUrl(target):
 
                     outtxt = str(data.decode(charset))
                     response.close()
-                    urllib2.install_opener(old_opener)
+                    urllib.request.install_opener(old_opener)
 
                 except (Exception) as exception:
                     print(__plugin__, __version__, "wgetUrl: Unable to connect to DNS: ", exception)
@@ -153,8 +153,8 @@ def wgetUrl(target):
 
 
 def GetCharset(response):
-    if u'content-type' in response.info():
-        contentType = response.info()[u'content-type']
+    if 'content-type' in response.info():
+        contentType = response.info()['content-type']
 
     typeItems = contentType.split('; ')
     pattern = "charset=(.+)"
@@ -200,7 +200,7 @@ class fourODMainMenu(Screen):
                     categoriesSection = soup.find('section', id="categories")
                     entries = categoriesSection.find('nav').findAll('a')
 
-                    pattern = u'/4od/tags/(.+)'
+                    pattern = '/4od/tags/(.+)'
 
                     for entry in entries:
                         """
@@ -231,7 +231,7 @@ class fourODMainMenu(Screen):
                         match = re.search(pattern, id, re.DOTALL | re.IGNORECASE)
 
                         categoryName = match.group(1)
-                        label = unicode(entry.text).replace('\r\n', '')
+                        label = str(entry.text).replace('\r\n', '')
                         label = re.sub(' +', ' ', label)
 
                         osdList.append((_(str(label)), str(categoryName)))
@@ -368,7 +368,7 @@ class StreamsThumb(StreamsThumbCommon):
     def InitialiseRTMP(self, assetUrl):
 
         try:
-            self.urlRoot = u"http://m.channel4.com"
+            self.urlRoot = "http://m.channel4.com"
             streamUri = ""
             auth = ""
 
@@ -376,12 +376,12 @@ class StreamsThumb(StreamsThumbCommon):
             (streamUri, auth, returnMessage) = self.GetStreamInfo(assetUrl)
 
             if streamUri:
-                url = re.search(u'(.*?)mp4:', streamUri).group(1)
-                app = re.search(u'.com/(.*?)mp4:', streamUri).group(1)
-                playPath = re.search(u'(mp4:.*)', streamUri).group(1)
+                url = re.search('(.*?)mp4:', streamUri).group(1)
+                app = re.search('.com/(.*?)mp4:', streamUri).group(1)
+                playPath = re.search('(mp4:.*)', streamUri).group(1)
 
                 if "ll." not in streamUri:
-                    app = app + u"?ovpfv=1.1&" + auth
+                    app = app + "?ovpfv=1.1&" + auth
                 else:
                     playPath += "?" + auth
 
@@ -423,20 +423,20 @@ class StreamsThumb(StreamsThumbCommon):
                 # Parse the returned XML
                 soup = BeautifulSoup(xml)
 
-                uriData = soup.find(u'uridata')
-                streamURI = uriData.find(u'streamuri').text
+                uriData = soup.find('uridata')
+                streamURI = uriData.find('streamuri').text
 
                 # If call is from Outside UK then stream URL might need to be altered.
                 if isUK == 1:
                     print(__plugin__, __version__, "GetStreamInfo: notUK user: streamURI: ", streamURI, " streamURI[:10]: ", streamURI[:10])
-                    if streamURI[:10] <> "rtmpe://ll":
+                    if streamURI[:10] != "rtmpe://ll":
                         streamURI = ""
                         continue
 
                 # If HTTP Dynamic Streaming is used for this show then there will be no mp4 file,
                 # and decoding the token will fail, therefore we abort before
                 # parsing authentication info if there is no mp4 file.
-                if u'mp4:' not in streamURI.lower():
+                if 'mp4:' not in streamURI.lower():
                     # Unable to find MP4 video file to play.
                     # No MP4 found, probably HTTP Dynamic Streaming. Stream URI - %s
                     raise exception
@@ -459,8 +459,8 @@ class StreamsThumb(StreamsThumbCommon):
 
 #==============================================================================
     def GetAuthentication(self, uriData):
-        token = uriData.find(u'token').string
-        cdn = uriData.find(u'cdn').string
+        token = uriData.find('token').string
+        cdn = uriData.find('cdn').string
 
         try:
             decodedToken = fourOD_token_decoder.Decode4odToken(token)
@@ -468,12 +468,12 @@ class StreamsThumb(StreamsThumbCommon):
             print(__plugin__, __version__, 'GetAuthentication: Error getting decodedToken: ', exception)
             return ("")
 
-        if (cdn == u"ll"):
-            ip = uriData.find(u'ip')
-            e = uriData.find(u'e')
+        if (cdn == "ll"):
+            ip = uriData.find('ip')
+            e = uriData.find('e')
 
             if (ip):
-                auth = u"e=%s&ip=%s&h=%s" % (e.string, ip.string, decodedToken)
+                auth = "e=%s&ip=%s&h=%s" % (e.string, ip.string, decodedToken)
             else:
                 auth = "e=%s&h=%s" % (e.string, decodedToken)
         else:
@@ -487,9 +487,9 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def GetSwfPlayer(self):
         try:
-            self.urlRoot = u"http://m.channel4.com"
-            self.jsRoot = u"http://m.channel4.com/js/script.js"
-            self.swfDefault = u"http://m.channel4.com/swf/mobileplayer-10.2.0-1.43.swf"
+            self.urlRoot = "http://m.channel4.com"
+            self.jsRoot = "http://m.channel4.com/js/script.js"
+            self.swfDefault = "http://m.channel4.com/swf/mobileplayer-10.2.0-1.43.swf"
 
             jsHtml = None
             (jsHtml, isUK) = wgetUrl(self.jsRoot)
@@ -498,7 +498,7 @@ class StreamsThumb(StreamsThumbCommon):
             """
 			getPlayerSwf:function(){return"swf/mobileplayer-10.2.0-1.43.swf"},
 			"""
-            pattern = u"options.swfPath = \"(/swf/mobileplayer-10.2.0-1.43.swf)\";"
+            pattern = "options.swfPath = \"(/swf/mobileplayer-10.2.0-1.43.swf)\";"
             match = re.search(pattern, jsHtml, re.DOTALL | re.IGNORECASE)
 
             swfPlayer = self.urlRoot + match.group(1)
@@ -517,7 +517,7 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def getShowMediaData(self, weekList, showId):
 
-        self.url = u"http://m.channel4.com/4od/%s%s" # (showId, /series-1 )
+        self.url = "http://m.channel4.com/4od/%s%s" # (showId, /series-1 )
         channel = "CH4"
         short = ''
         name = ''
@@ -595,7 +595,7 @@ class StreamsThumb(StreamsThumbCommon):
 
                     try:
                         assetUrl = entry['data-preselectasseturl']
-                        match = re.search(u'http://ais.channel4.com/asset/(\d+)', assetUrl)
+                        match = re.search('http://ais.channel4.com/asset/(\d+)', assetUrl)
                         stream = str(match.group(1))
                     except (Exception) as exception:
                         stream = ""
@@ -615,8 +615,8 @@ class StreamsThumb(StreamsThumbCommon):
                                 timeString = p.text.replace('\r\n', '').replace('Sept', 'Sep').replace('July', 'Jul').replace('June', 'Jun')
                                 timeString = re.sub(' +', ' ', timeString)
                                 time_split = timeString.rsplit('m ', 1)
-                                lastDate = date.fromtimestamp(mktime(strptime(time_split[1].strip(), u"%a %d %b %Y")))
-                                premieredDate = lastDate.strftime(u"%a %b %d %Y")
+                                lastDate = date.fromtimestamp(mktime(strptime(time_split[1].strip(), "%a %d %b %Y")))
+                                premieredDate = lastDate.strftime("%a %b %d %Y")
                                 date1 = _("Added:") + " " + str(premieredDate)
                                 break
                             except (Exception) as exception:
@@ -635,7 +635,7 @@ class StreamsThumb(StreamsThumbCommon):
                         name = ""
 
                     try:
-                        pattern = u'\s*Channel\s4\s*\((.*?)\)'
+                        pattern = '\s*Channel\s4\s*\((.*?)\)'
                         for p in pList:
                             try:
                                 durationMatch = re.search(pattern, p.text, re.DOTALL | re.IGNORECASE)
@@ -656,7 +656,7 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def getCatsMediaData(self, weekList, category):
 
-        self.url = u"http://m.channel4.com/4od/tags/%s%s%s" # % (category, /order?, /page-X? )
+        self.url = "http://m.channel4.com/4od/tags/%s%s%s" # % (category, /order?, /page-X? )
         channel = "CH4"
         short = ''
         name = ''
@@ -676,10 +676,10 @@ class StreamsThumb(StreamsThumbCommon):
 
         # You can specify the order and page number but I'm just hard-coding for now.
         page = '1'
-        order = u'/atoz'
+        order = '/atoz'
 
         # Need to loop here until last page is reached or 500 entries have been returned.
-        self.nextUrl = self.url % (category, order, u'/page-%s' % page)
+        self.nextUrl = self.url % (category, order, '/page-%s' % page)
 
         try:
             # Read the Category URL
@@ -690,7 +690,7 @@ class StreamsThumb(StreamsThumbCommon):
                 # Use JSON to parse the returned data
                 jsonData = simplejson.loads(jsonText)
 
-                entries = jsonData[u'results']
+                entries = jsonData['results']
 
                 for entry in entries:
 
@@ -712,7 +712,7 @@ class StreamsThumb(StreamsThumbCommon):
                         icon = ''
 
                     try:
-                        name_tmp = str(unicode(entry['title']))
+                        name_tmp = str(str(entry['title']))
                         name_tmp1 = checkUnicode(name_tmp)
                         name = remove_extra_spaces(name_tmp1)
                     except (Exception) as exception:
@@ -776,7 +776,7 @@ class StreamsThumb(StreamsThumbCommon):
                         continue
 
                     try:
-                        stream_tmp = str(unicode(entry[u'siteUrl']))
+                        stream_tmp = str(str(entry['siteUrl']))
                         stream_split = stream_tmp.rsplit('/', 2)
                         stream = str(stream_split[1])
                     except (Exception) as exception:
@@ -785,14 +785,14 @@ class StreamsThumb(StreamsThumbCommon):
                     # Only set the Icon if they are enabled
                     if self.showIcon == 'True':
                         try:
-                            icon = str(unicode(entry[u'imgUrl']))
+                            icon = str(str(entry['imgUrl']))
                         except (Exception) as exception:
                             icon = ""
                     else:
                         icon = ''
 
                     try:
-                        name_tmp = str(unicode(entry[u'value']))
+                        name_tmp = str(str(entry['value']))
                         name_tmp1 = checkUnicode(name_tmp)
                         name = remove_extra_spaces(name_tmp1)
                     except (Exception) as exception:

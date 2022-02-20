@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, ConfigSubsection, ConfigSelection, getConfigListEntry
@@ -232,7 +232,7 @@ class AudioEffect(Screen, ConfigListScreen):
 			self.close()
 
 	def keyDefault(self):
-		for (configName, configElement) in config.plugins.audioeffect.dict().items():
+		for (configName, configElement) in list(config.plugins.audioeffect.dict().items()):
 			configElement.value = configElement.default
 		setAudioEffectConfigs()
 		self.createSetup()

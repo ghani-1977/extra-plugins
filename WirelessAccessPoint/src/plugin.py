@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Screens.Screen import Screen
 from Components.ConfigList import ConfigListScreen, ConfigList
 from Components.config import config, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigIP, ConfigInteger
@@ -247,13 +247,13 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 					if (len(split) == 4 and split[3] == "dhcp"):
 						apModeConfig.usedhcp.value = True
 					if (split[0] == "address"):
-						apModeConfig.address.value = map(int, split[1].split('.'))
+						apModeConfig.address.value = list(map(int, split[1].split('.')))
 					if (split[0] == "netmask"):
-						apModeConfig.netmask.value = map(int, split[1].split('.'))
+						apModeConfig.netmask.value = list(map(int, split[1].split('.')))
 					if (split[0] == "gateway"):
-						apModeConfig.gateway.value = map(int, split[1].split('.'))
+						apModeConfig.gateway.value = list(map(int, split[1].split('.')))
 					if (split[0] == "dns-nameservers"):
-						apModeConfig.nameserver.value = map(int, split[1].split('.'))
+						apModeConfig.nameserver.value = list(map(int, split[1].split('.')))
 		except:
 			printDebugMsg("Parsing failed, /etc/network/interfaces.")
 			return -1
@@ -466,7 +466,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 		if len(apModeConfig.ssid.value) == 0 or len(apModeConfig.ssid.value) > 32:
 			self.session.open(MessageBox, _("Invalid SSID\n"), type=MessageBox.TYPE_ERROR, timeout=10)
 			return False
-		elif apModeConfig.channel.value not in range(1, 14):
+		elif apModeConfig.channel.value not in list(range(1, 14)):
 			self.session.open(MessageBox, _("Invalid channel\n"), type=MessageBox.TYPE_ERROR, timeout=10)
 			return False
 		elif apModeConfig.beacon.value < 15 or apModeConfig.beacon.value > 65535:
@@ -689,7 +689,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 			sysctlList[key] = value
 		sysctlList["net.ipv4.ip_forward"] = str(setValue)
 		fp = open(sysctlPath, "w")
-		for (key, value) in sysctlList.items():
+		for (key, value) in list(sysctlList.items()):
 			fp.write("%s=%s\n" % (key, value))
 		fp.close()
 		return 0
@@ -729,7 +729,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 
 	def printConfigList(self, confList):
 		printDebugMsg("== printConfigList ==")
-		for (key, entry) in confList.items():
+		for (key, entry) in list(confList.items()):
 			printDebugMsg("%s = %s" % (key, str(entry.value)))
 
 		printDebugMsg("== printConfigList end ==")
@@ -772,7 +772,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 				continue
 
 			elif key == "channel":
-				if int(value) not in range(14):
+				if int(value) not in list(range(14)):
 					self.hostapdConf[key].value = 1
 				else:
 					self.hostapdConf[key].value = int(value)
@@ -780,7 +780,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 			elif key in ["beacon_int", "rts_threshold", "fragm_threshold", "wpa_group_rekey"]:
 				self.hostapdConf[key].value = int(value)
 
-			elif key in self.hostapdConf.keys():
+			elif key in list(self.hostapdConf.keys()):
 				self.hostapdConf[key].value = value
 
 		fd.close()
@@ -839,7 +839,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 				pass
 
 			else:
-				for (key, entry) in self.hostapdConf.items():
+				for (key, entry) in list(self.hostapdConf.items()):
 					value = str(entry.value)
 					pos = line.find(key + '=')
 					if ((pos != -1) and (pos < 2)) and len(value) != 0:

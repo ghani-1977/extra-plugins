@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 from ServiceReference import ServiceReference
 from enigma import iPlayableService, eTimer, iServiceInformation, iRecordableService, evfd, eDVBVolumecontrol

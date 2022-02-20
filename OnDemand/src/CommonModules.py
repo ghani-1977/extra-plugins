@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	Episode List GUI for OnDemand plugin.
 	Copyright (C) 2013 andyblac
@@ -40,10 +40,10 @@ from twisted.web import client
 from dns.resolver import Resolver
 from os import path as os_path, mkdir as os_mkdir
 
-from httplib import HTTPConnection
+from http.client import HTTPConnection
 import socket
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import sys
 
 socket.setdefaulttimeout(300) #in seconds
@@ -456,7 +456,7 @@ class MyHTTPConnection(HTTPConnection):
                 print("MyHTTPConnection: Failed to Connect to: ", secondaryDNS, " , error: ", exception)
 
 
-class MyHTTPHandler(urllib2.HTTPHandler):
+class MyHTTPHandler(urllib.request.HTTPHandler):
     def http_open(self, req):
         return self.do_open(MyHTTPConnection, req)
 
@@ -528,38 +528,38 @@ class RTMP:
 
         parameters = {}
 
-        parameters[u"url"] = self.rtmp
-        parameters[u"download_path"] = self.downloadFolder
+        parameters["url"] = self.rtmp
+        parameters["download_path"] = self.downloadFolder
 
         if self.auth is not None:
-            parameters[u"auth"] = self.auth
+            parameters["auth"] = self.auth
 
         if self.app is not None:
-            parameters[u"app"] = self.app
+            parameters["app"] = self.app
 
         if self.playPath is not None:
-            parameters[u"playpath"] = self.playPath
+            parameters["playpath"] = self.playPath
 
         if self.tcUrl is not None:
-            parameters[u"tcUrl"] = self.tcUrl
+            parameters["tcUrl"] = self.tcUrl
 
         if self.swfUrl is not None:
-            parameters[u"swfUrl"] = self.swfUrl
+            parameters["swfUrl"] = self.swfUrl
 
         if self.swfVfy is not None:
-            parameters[u"swfVfy"] = self.swfVfy
+            parameters["swfVfy"] = self.swfVfy
 
         if self.pageUrl is not None:
-            parameters[u"pageUrl"] = self.pageUrl
+            parameters["pageUrl"] = self.pageUrl
 
         if self.live is not None and self.live is not False:
-            parameters[u"live"] = u"true"
+            parameters["live"] = "true"
 
         if self.socks is not None:
-            parameters[u"socks"] = self.socks
+            parameters["socks"] = self.socks
 
         if self.port is not None:
-            parameters[u"port"] = self.port
+            parameters["port"] = self.port
 
         return parameters
 
@@ -572,48 +572,48 @@ class RTMP:
             # rtmp url is not set
             raise exception
 
-        args = [u"--rtmp", u'"%s"' % self.rtmp, u"-o", u'"%s"' % self.downloadFolder]
+        args = ["--rtmp", '"%s"' % self.rtmp, "-o", '"%s"' % self.downloadFolder]
 
         if self.auth is not None:
-            args.append(u"--auth")
-            args.append(u'"%s"' % self.auth)
+            args.append("--auth")
+            args.append('"%s"' % self.auth)
 
         if self.app is not None:
-            args.append(u"--app")
-            args.append(u'"%s"' % self.app)
+            args.append("--app")
+            args.append('"%s"' % self.app)
 
         if self.playPath is not None:
-            args.append(u"--playpath")
-            args.append(u'"%s"' % self.playPath)
+            args.append("--playpath")
+            args.append('"%s"' % self.playPath)
 
         if self.swfUrl is not None:
-            args.append(u"--swfUrl")
-            args.append(u'"%s"' % self.swfUrl)
+            args.append("--swfUrl")
+            args.append('"%s"' % self.swfUrl)
 
         if self.tcUrl is not None:
-            args.append(u"--tcUrl")
-            args.append(u'"%s"' % self.tcUrl)
+            args.append("--tcUrl")
+            args.append('"%s"' % self.tcUrl)
 
         if self.swfVfy is not None:
-            args.append(u"--swfVfy")
-            args.append(u'"%s"' % self.swfVfy)
+            args.append("--swfVfy")
+            args.append('"%s"' % self.swfVfy)
 
         if self.pageUrl is not None:
-            args.append(u"--pageUrl")
-            args.append(u'"%s"' % self.pageUrl)
+            args.append("--pageUrl")
+            args.append('"%s"' % self.pageUrl)
 
         if self.live is not None and self.live is not False:
-            args.append(u"--live")
+            args.append("--live")
 
         if self.socks is not None:
-            args.append(u"--socks")
-            args.append(u'"%s"' % self.socks)
+            args.append("--socks")
+            args.append('"%s"' % self.socks)
 
         if self.port is not None:
-            args.append(u"--port")
-            args.append(u'%d' % self.port)
+            args.append("--port")
+            args.append('%d' % self.port)
 
-        parameters = u' '.join(args)
+        parameters = ' '.join(args)
 
         return parameters
 
@@ -623,7 +623,7 @@ class RTMP:
             raise exception
 
         if self.port is None:
-            args = [u"%s" % self.rtmp]
+            args = ["%s" % self.rtmp]
         else:
             try:
                 # Replace "rtmp://abc.def.com:default_port/ghi/jkl" with "rtmp://abc.def.com:port/ghi/jkl"
@@ -632,38 +632,38 @@ class RTMP:
                     # Replace "rtmp://abc.def.com/ghi/jkl" with "rtmp://abc.def.com:port/ghi/jkl"
                     match = re.search("(.+//[^/]+)(/.*)", self.rtmp, re.DOTALL | re.IGNORECASE)
 
-                args = [u"%s:%d%s" % (match.group(1), self.port, match.group(2))]
+                args = ["%s:%d%s" % (match.group(1), self.port, match.group(2))]
             except (Exception) as exception:
-                args = [u"%s" % self.rtmp]
+                args = ["%s" % self.rtmp]
 
         if self.auth is not None:
-            args.append(u"auth=%s" % self.auth)
+            args.append("auth=%s" % self.auth)
 
         if self.app is not None:
-            args.append(u"app=%s" % self.app)
+            args.append("app=%s" % self.app)
 
         if self.playPath is not None:
-            args.append(u"playpath=%s" % self.playPath)
+            args.append("playpath=%s" % self.playPath)
 
         if self.swfUrl is not None:
-            args.append(u"swfurl=%s" % self.swfUrl)
+            args.append("swfurl=%s" % self.swfUrl)
 
         if self.tcUrl is not None:
-            args.append(u"tcUrl=%s" % self.tcUrl)
+            args.append("tcUrl=%s" % self.tcUrl)
 
         if self.swfVfy is not None:
-            args.append(u"swfurl=%s" % self.swfVfy)
-            args.append(u"swfvfy=true")
+            args.append("swfurl=%s" % self.swfVfy)
+            args.append("swfvfy=true")
 
         if self.pageUrl is not None:
-            args.append(u"pageurl=%s" % self.pageUrl)
+            args.append("pageurl=%s" % self.pageUrl)
 
         if self.live is not None and self.live is not False:
-            args.append(u"live=true")
+            args.append("live=true")
 
         if self.socks is not None:
-            args.append(u"socks=%s" % self.socks)
+            args.append("socks=%s" % self.socks)
 
-        playURL = u' '.join(args)
+        playURL = ' '.join(args)
 
         return playURL

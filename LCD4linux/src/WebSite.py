@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import division
-from __future__ import absolute_import
+
+
 from twisted.web import resource, http
 from .plugin import *
 import os

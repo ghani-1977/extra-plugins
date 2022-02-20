@@ -17,7 +17,7 @@
 #  Advertise with this Plugin is not allowed.
 #  For other uses, permission from the author is necessary.
 #
-from __future__ import print_function, absolute_import, division
+
 Version = "V5.1-r9"
 from . import _
 from enigma import eActionMap, iServiceInformation, iFrontendInformation, eDVBResourceManager, eDVBVolumecontrol
@@ -115,12 +115,12 @@ from six.moves import queue
 from Components.Console import Console
 
 if six.PY2:
-	from HTMLParser import HTMLParser
+	from html.parser import HTMLParser
 	_unescape = HTMLParser().unescape
 else:
 	from html import unescape as _unescape
 
-SIGN = u"°"
+SIGN = "°"
 L4LElist = L4Lelement()
 CrashFile = "/tmp/L4Lcrash.txt"
 from Components.Network import iNetwork
@@ -395,7 +395,7 @@ begin = mktime((
 	0, now.tm_wday, now.tm_yday, now.tm_isdst)
 )
 # Find all directories "clock*" with result in a list, extract last two chars, extract integers, remove dupes, sort integers and convert it back to a list
-FoundClockDir = list(map(str, sorted(set([int(i) for i in re.findall(r'\d+', str(list(map(lambda found: str(found)[-2:], glob.glob(Clock + "*")))))]))))
+FoundClockDir = list(map(str, sorted(set([int(i) for i in re.findall(r'\d+', str(list([str(found)[-2:] for found in glob.glob(Clock + "*")])))]))))
 LCD4linux = Config()
 LCD4linux.Enable = ConfigYesNo(default=False)
 LCD4linux.L4LVersion = ConfigText(default="0.0r0", fixed_size=False)
@@ -3765,7 +3765,7 @@ class MJPEGHandler1(BaseHTTPRequestHandler):
 		LCD = 1
 		try:
 			self.send_response(200)
-			for k, v in request_headers(boundary).items():
+			for k, v in list(request_headers(boundary).items()):
 				self.send_header(k, v)
 			self.end_headers()
 			for x in range(int(LCD4linux.MJPEGMode.value[0])):
@@ -3784,7 +3784,7 @@ class MJPEGHandler1(BaseHTTPRequestHandler):
 				pic = output.getvalue()
 				output.close()
 				for i in range(int(LCD4linux.MJPEGCycle.value)):
-					for k, v in image_headers(len(pic)).items():
+					for k, v in list(image_headers(len(pic)).items()):
 						self.send_header(k, v)
 					self.end_headers()
 					for x in range(int(LCD4linux.MJPEGMode.value[1])):
@@ -3827,7 +3827,7 @@ class MJPEGHandler2(BaseHTTPRequestHandler):
 		LCD = 2
 		try:
 			self.send_response(200)
-			for k, v in request_headers(boundary).items():
+			for k, v in list(request_headers(boundary).items()):
 				self.send_header(k, v)
 			self.end_headers()
 			for x in range(int(LCD4linux.MJPEGMode.value[0])):
@@ -3846,7 +3846,7 @@ class MJPEGHandler2(BaseHTTPRequestHandler):
 				pic = output.getvalue()
 				output.close()
 				for i in range(int(LCD4linux.MJPEGCycle.value)):
-					for k, v in image_headers(len(pic)).items():
+					for k, v in list(image_headers(len(pic)).items()):
 						self.send_header(k, v)
 					self.end_headers()
 					for x in range(int(LCD4linux.MJPEGMode.value[1])):
@@ -3889,7 +3889,7 @@ class MJPEGHandler3(BaseHTTPRequestHandler):
 		LCD = 3
 		try:
 			self.send_response(200)
-			for k, v in request_headers(boundary).items():
+			for k, v in list(request_headers(boundary).items()):
 				self.send_header(k, v)
 			self.end_headers()
 			for x in range(int(LCD4linux.MJPEGMode.value[0])):
@@ -3908,7 +3908,7 @@ class MJPEGHandler3(BaseHTTPRequestHandler):
 				pic = output.getvalue()
 				output.close()
 				for i in range(int(LCD4linux.MJPEGCycle.value)):
-					for k, v in image_headers(len(pic)).items():
+					for k, v in list(image_headers(len(pic)).items()):
 						self.send_header(k, v)
 					self.end_headers()
 					for x in range(int(LCD4linux.MJPEGMode.value[1])):
@@ -9681,7 +9681,7 @@ class UpdateStatus(Screen):
 					e2t.state = int(serv[0].childNodes[0].nodeValue)
 
 				self.wwwBoxTimer.append(e2t)
-				L4logE("wwwBoxTimer", e2t.values())
+				L4logE("wwwBoxTimer", list(e2t.values()))
 
 	def downloadwwwBoxTimerError(self, element, error=""):
 		self.wwwBoxTimer = []
@@ -10529,7 +10529,7 @@ def LCD4linuxPIC(self, session):
 				HLS[1] -= 0.5
 				if HLS[1] < 0.1:
 					HLS[1] = 0.1
-			RGB = tuple(map(lambda x: int(x * 255), colorsys.hls_to_rgb(HLS[0], HLS[1], HLS[2])))
+			RGB = tuple([int(x * 255) for x in colorsys.hls_to_rgb(HLS[0], HLS[1], HLS[2])])
 			Col = self.draw[draw].draw.draw_ink(RGB)
 			mask = font.getmask(TXT + "  ", "1")
 			self.draw[draw].draw.draw_bitmap((tx0, ty0), mask, Col)

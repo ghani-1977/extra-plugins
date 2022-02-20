@@ -1,9 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from enigma import eTimer
 import os
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import time
 import sys
 from Screens.Screen import Screen
@@ -23,9 +23,9 @@ Directory = os.path.dirname(sys.modules[__name__].__file__)
 def InstallSettings(name, link, date):
 
     def DownloadSetting(link):
-        req = urllib2.Request(link)
+        req = urllib.request.Request(link)
         req.add_header('User-Agent', 'VAS')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         newlink = response.read()
         response.close()
         open(Directory + '/Settings/tmp/listE2.zip', 'w').write(newlink)
@@ -160,7 +160,7 @@ class CheckTimer:
 
         def OnDsl():
             try:
-                urllib2.urlopen('https://www.google.de', None, 3)
+                urllib.request.urlopen('https://www.google.de', None, 3)
                 return (True and config.pud.showmessage.value)
             except:
                 return False

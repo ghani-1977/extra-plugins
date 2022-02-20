@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 
 from Components.config import config, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText, ConfigClock, ConfigSelection

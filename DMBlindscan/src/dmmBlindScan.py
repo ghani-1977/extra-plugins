@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 from Components.ActionMap import NumberActionMap, ActionMap
@@ -235,7 +235,7 @@ class SatelliteTransponderSearchSupport:
 					if not self.auto_scan:
 						self.parm.frequency += self.parm.symbol_rate
 				else:
-					sr_rounded = round(float(sr * 2L) / 1000) * 1000
+					sr_rounded = round(float(sr * 2) / 1000) * 1000
 					sr_rounded /= 2
 					parm.symbol_rate = int(sr_rounded)
 					fstr += str(parm.symbol_rate / 1000)
@@ -261,9 +261,9 @@ class SatelliteTransponderSearchSupport:
 					if self.auto_scan:
 						print("LOCKED at", freq)
 					else:
-						print("LOCKED at", freq, "SEARCHED at", self.parm.frequency, "half bw", (135L * ((sr + 1000) / 1000) / 200), "half search range", (self.parm.symbol_rate / 2))
+						print("LOCKED at", freq, "SEARCHED at", self.parm.frequency, "half bw", (135 * ((sr + 1000) / 1000) / 200), "half search range", (self.parm.symbol_rate / 2))
 						self.parm.frequency = freq
-						self.parm.frequency += (135L * ((sr + 999) / 1000) / 200)
+						self.parm.frequency += (135 * ((sr + 999) / 1000) / 200)
 						self.parm.frequency += self.parm.symbol_rate / 2
 
 					bm = state.getConstellationBitmap(5)

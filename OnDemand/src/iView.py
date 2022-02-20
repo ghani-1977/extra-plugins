@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	ABC iView - Enigma2 Video Plugin
 	Copyright (C) 2013 mcquaim
@@ -37,7 +37,7 @@ import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 import simplejson
@@ -53,9 +53,9 @@ __version__ = "1.0.1"
 
 def wgetUrl(target):
     try:
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         outtxt = str(response.read())
         response.close()
         return outtxt
@@ -289,7 +289,7 @@ class StreamsThumb(StreamsThumbCommon):
         showID = self["list"].l.getCurrentSelection()[4]
         showName = self["list"].l.getCurrentSelection()[1]
 
-        if self.cmd <> "episode":
+        if self.cmd != "episode":
             self.session.open(StreamsThumb, "episode", showName, showID)
         else:
             fileUrl = self.findPlayUrl(showID)
@@ -457,7 +457,7 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def getMediaData(self, weekList, seriesID):
 
-        self.url = u"http://tviview.abc.net.au/iview/api2/?series=" + seriesID
+        self.url = "http://tviview.abc.net.au/iview/api2/?series=" + seriesID
         channel = ""
         short = ''
         name = ''
@@ -475,31 +475,31 @@ class StreamsThumb(StreamsThumbCommon):
                 # Use JSON to parse the returned data
                 jsonData = simplejson.loads(jsonText)
 
-                for entry in jsonData[0][u'f']:
+                for entry in jsonData[0]['f']:
 
                     try:
-                        stream = str(entry[u'n'])
+                        stream = str(entry['n'])
                     except (Exception) as exception:
                         stream = ""
 
                     # Only set the Icon if they are enabled
                     if self.showIcon == 'True':
                         try:
-                            icon = str(entry[u's'])
+                            icon = str(entry['s'])
                         except (Exception) as exception:
                             icon = ""
                     else:
                         icon = ''
 
                     try:
-                        name_tmp = str(unicode(entry[u'b']))
+                        name_tmp = str(str(entry['b']))
                         name_tmp1 = checkUnicode(name_tmp)
                         name = remove_extra_spaces(name_tmp1)
                     except (Exception) as exception:
                         name = ""
 
                     try:
-                        short_tmp = str(entry[u'd'])
+                        short_tmp = str(entry['d'])
                         short_tmp1 = checkUnicode(short_tmp)
                         short = remove_extra_spaces(short_tmp1)
                     except (Exception) as exception:
@@ -507,22 +507,22 @@ class StreamsThumb(StreamsThumbCommon):
 
                     try:
                         # Calcualte the stream duration
-                        secs = int(entry[u'j'])
+                        secs = int(entry['j'])
                         duration = _("Duration: ") + str(calcDuration(secs))
                     except (Exception) as exception:
                         episodes = ""
 
                     try:
-                        lastDate = datetime.fromtimestamp(mktime(strptime(str(entry[u'f']), u"%Y-%m-%d %H:%M:%S")))
-                        date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                        lastDate = datetime.fromtimestamp(mktime(strptime(str(entry['f']), "%Y-%m-%d %H:%M:%S")))
+                        date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                         date1 = _("Added:") + " " + str(date_tmp)
                     except (Exception) as exception:
-                        lastDate = datetime.fromtimestamp(mktime(strptime(str(entry[u'g']), u"%Y-%m-%d %H:%M:%S")))
-                        date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                        lastDate = datetime.fromtimestamp(mktime(strptime(str(entry['g']), "%Y-%m-%d %H:%M:%S")))
+                        date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                         date1 = _("Added:") + " " + str(date_tmp)
 
                     try:
-                        channel = str(entry[u'a'])
+                        channel = str(entry['a'])
                     except (Exception) as exception:
                         channel = ""
 
@@ -534,7 +534,7 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def getCatsMediaData(self, weekList, category):
 
-        self.url = u"http://tviview.abc.net.au/iview/api2/?keyword=" + category
+        self.url = "http://tviview.abc.net.au/iview/api2/?keyword=" + category
         channel = ""
         short = ''
         name = ''
@@ -595,7 +595,7 @@ class StreamsThumb(StreamsThumbCommon):
 #==============================================================================
     def getSearchMediaData(self, weekList, query):
 
-        self.url = u"http://tviview.abc.net.au/iview/api2/?keyword=index"
+        self.url = "http://tviview.abc.net.au/iview/api2/?keyword=index"
         channel = ""
         short = ''
         name = ''

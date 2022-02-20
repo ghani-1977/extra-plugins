@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 from Plugins.Plugin import PluginDescriptor
@@ -9,7 +9,7 @@ import os
 import socket
 import copy
 try:
-    import thread
+    import _thread
 except:
     import _thread as thread
 from socket import gaierror, error
@@ -19,10 +19,11 @@ import gdata.youtube.service
 from gdata.service import BadAuthentication
 from twisted.web import client
 from twisted.internet import reactor
-from urlparse import parse_qs
-from urllib import quote, unquote_plus, unquote
-from urllib2 import Request, URLError, urlopen as urlopen2
-from httplib import HTTPConnection, CannotSendRequest, BadStatusLine, HTTPException
+from urllib.parse import parse_qs
+from urllib.parse import quote, unquote_plus, unquote
+from urllib.request import Request, urlopen as urlopen2
+from urllib.error import URLError
+from http.client import HTTPConnection, CannotSendRequest, BadStatusLine, HTTPException
 from Components.Button import Button
 from Components.Label import Label
 from Components.Pixmap import Pixmap
@@ -323,9 +324,9 @@ class PlayerLauncher:
             if fmtid in VIDEO_FMT_PRIORITY_MAP:
                 video_fmt_map[VIDEO_FMT_PRIORITY_MAP[fmtid]] = {'fmtid': fmtid, 'fmturl': unquote_plus(fmturl)}
             fmt_infomap[int(fmtid)] = unquote_plus(fmturl)
-        print("got", sorted(fmt_infomap.iterkeys()))
+        print("got", sorted(fmt_infomap.keys()))
         if video_fmt_map and len(video_fmt_map):
-            video_url = video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]['fmturl'].split(';')[0]
+            video_url = video_fmt_map[sorted(video_fmt_map.keys())[0]]['fmturl'].split(';')[0]
             #print("found best available video format:",video_fmt_map[sorted(video_fmt_map.iterkeys())[0]]['fmtid'])
             #print("found best available video url:",video_url)
         return video_url
@@ -358,7 +359,7 @@ class PlayerService:
 
     def start(self, timeout=1):
         self.socket_timeout = timeout
-        thread.start_new_thread(self.run, (True,))
+        _thread.start_new_thread(self.run, (True,))
 
     def stop(self):
         self.enable = False

@@ -23,7 +23,7 @@ def SetHandler(opcode, handler):
 
 
 def GetHandler(opcode):
-    for key, value in _OPCODE.items():
+    for key, value in list(_OPCODE.items()):
         if value[0] == opcode:
             vbcfg.DEBUG("recv socket: [%s]" % key)
             return value[1]

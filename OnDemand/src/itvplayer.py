@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	ITV Player - Enigma2 Video Plugin
 	Copyright (C) 2013 mcquaim
@@ -37,7 +37,7 @@ from datetime import date
 from time import strftime
 from os import path as os_path, remove as os_remove, mkdir as os_mkdir, walk as os_walk
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHandler, StreamsThumbCommon
@@ -408,16 +408,16 @@ class StreamsThumb(StreamsThumbCommon):
         print(__plugin__, __version__, "Default DNS Set: ", str(config.ondemand.PrimaryDNS.default))
 
         try:
-            req = urllib2.Request(url, soapMessage)
+            req = urllib.request.Request(url, soapMessage)
             req.add_header("Host", "mercury.itv.com")
             req.add_header("Referer", "http://www.itv.com/mercury/Mercury_VideoPlayer.swf?v=1.6.479/[[DYNAMIC]]/2")
             req.add_header("Content-type", "text/xml; charset=\"UTF-8\"")
             req.add_header("Content-length", "%d" % len(soapMessage))
             req.add_header("SOAPAction", "http://tempuri.org/PlaylistService/GetPlaylist")
-            response = urllib2.urlopen(req)
+            response = urllib.request.urlopen(req)
             htmldoc = str(response.read())
             response.close()
-        except urllib2.HTTPError as exception:
+        except urllib.error.HTTPError as exception:
             exResp = str(exception.read())
 
             if 'InvalidGeoRegion' in exResp:
@@ -428,19 +428,19 @@ class StreamsThumb(StreamsThumbCommon):
                     return ("", "Non-UK IP Address and no DNS set in OnDemand Settings! Not able to play ")
                 else:
                     try:
-                        opener = urllib2.build_opener(MyHTTPHandler)
+                        opener = urllib.request.build_opener(MyHTTPHandler)
                         old_opener = urllib2._opener
-                        urllib2.install_opener(opener)
-                        req = urllib2.Request(url, soapMessage)
+                        urllib.request.install_opener(opener)
+                        req = urllib.request.Request(url, soapMessage)
                         req.add_header("Host", "mercury.itv.com")
                         req.add_header("Referer", "http://www.itv.com/mercury/Mercury_VideoPlayer.swf?v=1.6.479/[[DYNAMIC]]/2")
                         req.add_header("Content-type", "text/xml; charset=\"UTF-8\"")
                         req.add_header("Content-length", "%d" % len(soapMessage))
                         req.add_header("SOAPAction", "http://tempuri.org/PlaylistService/GetPlaylist")
-                        response = urllib2.urlopen(req)
+                        response = urllib.request.urlopen(req)
                         htmldoc = str(response.read())
                         response.close()
-                        urllib2.install_opener(old_opener)
+                        urllib.request.install_opener(old_opener)
 
                     except (Exception) as exception:
                         print(__plugin__, __version__, "wgetUrl: Unable to connect to DNS: ", exception)

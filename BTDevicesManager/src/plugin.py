@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 #====================================================
 # Bluetooth Devices Manager - basic version
 # Version date - 20.11.2014
@@ -83,7 +83,7 @@ class TaskManager:
     def setStatusCB(self, cbfunc):
         self.cbSetStatusCB = cbfunc
 
-    def next(self):
+    def __next__(self):
         if self.taskIdx >= len(self.taskList) or self.occurError:
             print("[BluetoothManager] Info >> can't run task!!")
             return False
@@ -226,7 +226,7 @@ class BluetoothDevicesManager(Screen):
         self.taskManager.append(cmd, self.cbPrintAvailBTDev, self.cbRunNextTask)
         cmd = "hcitool dev" ## check if hci0 is on the dev list, then make scan
         self.taskManager.append(cmd, self.cbPrintAvailBTDev, self.cbStopDone)
-        self.taskManager.next()
+        next(self.taskManager)
 
     def cbPrintAvailBTDev(self, data):
         print("[BluetoothManager] cbPrintAvailBTDev")
@@ -255,7 +255,7 @@ class BluetoothDevicesManager(Screen):
         # add background task for scanning
         cmd = 'hcitool scan'
         self.taskManager.append(cmd, self.cbPrintAvailDevices, self.cbRunNextTask)
-        self.taskManager.next()
+        next(self.taskManager)
 
     def cbPrintAvailDevices(self, data):
         print("[BluetoothManager] cbPrintAvailDevices")
@@ -284,7 +284,7 @@ class BluetoothDevicesManager(Screen):
         if brand not in ("xcore", "edision"):
             cmd = "hidd --show"
             self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
-            self.taskManager.next()
+            next(self.taskManager)
         else:
             paired_devices = iBluetoothctl.get_paired_devices()
             if paired_devices is not None:
@@ -370,7 +370,7 @@ class BluetoothDevicesManager(Screen):
                     msg = _("Can't not pair with selected device!")
                     self["ConnStatus"].setText(msg)
                 self.taskManager.append(cmd, self.cbPrintCurrentConnections, self.cbStopDone)
-                self.taskManager.next()
+                next(self.taskManager)
             else:
                 mac_address = None
                 name = None
@@ -434,7 +434,7 @@ class BluetoothDevicesManager(Screen):
         self.keyYellow()
 
     def cbRunNextTask(self, ret):
-        self.taskManager.next()
+        next(self.taskManager)
 
     def cbStopDone(self, ret):
         print("[BluetoothManager] cbStopDone")

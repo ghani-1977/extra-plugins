@@ -1,18 +1,18 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 
 import os
 import fcntl
 try:
-    import thread
+    import _thread
 except:
     import _thread as thread
 from enigma import eTimer
-from urllib import urlretrieve
-import urllib
+from urllib.request import urlretrieve
+import urllib.request, urllib.parse, urllib.error
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor
@@ -54,7 +54,7 @@ class FPGAUpgradeCore():
         try:
             size = os.path.getsize(self.firmwarefile)
             if size == 0:
-                raise Exception, 'data_size is zero'
+                raise Exception('data_size is zero')
             #print('[FPGAUpgradeCore] data_size :',size)
 
             firmware = open(self.firmwarefile, 'rb')
@@ -63,12 +63,12 @@ class FPGAUpgradeCore():
 
             rc = fcntl.ioctl(device, 0, size)
             if rc < 0:
-                raise Exception, 'fail to set size : %d' % (rc)
+                raise Exception('fail to set size : %d' % (rc))
             #print('[FPGAUpgradeCore] set size >> [ok]')
 
             rc = fcntl.ioctl(device, 2, 5)
             if rc < 0:
-                raise Exception, 'fail to set programming mode : %d' % (rc)
+                raise Exception('fail to set programming mode : %d' % (rc))
             #print('[FPGAUpgradeCore] programming mode >> [ok]')
             self.status = STATUS_PREPARED
 
@@ -82,10 +82,10 @@ class FPGAUpgradeCore():
             self.status = STATUS_PROGRAMMING
             rc = fcntl.ioctl(device, 1, 0)
             if rc < 0:
-                raise Exception, 'fail to programming : %d' % (rc)
+                raise Exception('fail to programming : %d' % (rc))
             #print('[FPGAUpgradeCore] upgrade done.')
             if self.callcount < 100:
-                raise Exception, 'wrong fpga file.'
+                raise Exception('wrong fpga file.')
         except Exception as msg:
             self.errmsg = msg
             print('[FPGAUpgradeCore] ERROR >>', msg)
@@ -113,7 +113,7 @@ class FPGAUpgradeManager:
 
     def fpga_upgrade(self, datafile, device):
         self.fu = FPGAUpgradeCore(firmwarefile=datafile, devicefile=device)
-        thread.start_new_thread(self.fu.upgradeMain, ())
+        _thread.start_new_thread(self.fu.upgradeMain, ())
 
     def checkError(self):
         if self.fu.status == STATUS_ERROR:
@@ -363,7 +363,7 @@ class FPGAUpgrade(Screen):
     def onClickBlue(self):
         fname = ''
         header = ''
-        test_opener = urllib.URLopener()
+        test_opener = urllib.request.URLopener()
         try:
             test_opener.open(self.DOWNLOAD_URL)
         except:

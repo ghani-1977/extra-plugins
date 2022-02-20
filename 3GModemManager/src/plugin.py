@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -120,7 +120,7 @@ class TaskManager:
 	def setStatusCB(self, cbfunc):
 		self.cbSetStatusCB = cbfunc
 
-	def next(self):
+	def __next__(self):
 		if self.taskIdx >= len(self.taskList) or self.occurError:
 			printInfoModemMgr("can't run task!!")
 			return False
@@ -912,7 +912,7 @@ class ModemManager(Screen):
 			self.taskManager.append(cmd, self.cbRunWvDialAvail, self.cbPrintClose)
 			self.taskManager.setStatusCB(self.setConnectStatus)
 
-		self.taskManager.next()
+		next(self.taskManager)
 
 	def printStatus(self, idx, STATUS):
 		message = ''
@@ -958,7 +958,7 @@ class ModemManager(Screen):
 			message = "Occur error during connection...\nPlease, Check your setting!!"
 			self.session.open(MessageBox, _(message), MessageBox.TYPE_INFO)
 			return
-		self.taskManager.next()
+		next(self.taskManager)
 
 	def cbUnloadClose(self, ret):
 		self.taskManager.clean()
@@ -1018,7 +1018,7 @@ class ModemManager(Screen):
 			info['phone'] = self.phone
 
 		self.makeWvDialConf(info)
-		self.taskManager.next()
+		next(self.taskManager)
 
 	def writeConf(self, data, oper='>>'):
 		confFile = '/etc/wvdial.conf'

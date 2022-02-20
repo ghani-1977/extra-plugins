@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 from enigma import eComponentScan, eConsoleAppContainer, eDVBFrontendParametersSatellite, eDVBResourceManager, eDVBSatelliteEquipmentControl, eTimer
@@ -365,7 +365,7 @@ class Blindscan(ConfigListScreen, Screen):
 		is_exist_i2c = False
 		self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
 		if self.nimSockets is not None:
-			for XX in self.nimSockets.keys():
+			for XX in list(self.nimSockets.keys()):
 				nimsocket = self.nimSockets[XX]
 				if len(nimsocket) > 1:
 					try:

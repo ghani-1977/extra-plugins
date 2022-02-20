@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 #############################################################################
 #
 # Copyright (C) 2014 Impex-Sat Gmbh & Co.KG
@@ -28,7 +28,7 @@ from .GBIpboxLocale import _
 
 import socket
 import threading
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 from xml.dom import minidom
 
@@ -96,7 +96,7 @@ class GBIpboxScan:
 
 	def getBoxName(self, ipaddress):
 		try:
-			httprequest = urllib2.urlopen('http://' + ipaddress + '/web/about', timeout=5)
+			httprequest = urllib.request.urlopen('http://' + ipaddress + '/web/about', timeout=5)
 			xmldoc = minidom.parseString(httprequest.read())
 			return xmldoc.getElementsByTagName('e2model')[0].firstChild.nodeValue
 		except Exception:

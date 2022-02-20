@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	RTE Player - Enigma2 Video Plugin
 	Copyright (C) 2013 rogerthis
@@ -37,7 +37,7 @@ import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 from lxml import etree
@@ -50,9 +50,9 @@ from .CommonModules import EpisodeList, MoviePlayer, MyHTTPConnection, MyHTTPHan
 
 def wgetUrl(target):
     try:
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         outtxt = str(response.read())
         response.close()
         return outtxt
@@ -385,11 +385,11 @@ class StreamsThumb(StreamsThumbCommon):
 
                     try:
                         lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[1].text), "%Y-%m-%dT%H:%M:%S+00:00"))) #2012-12-31T12:54:29+00:00
-                        date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                        date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                         date1 = _("Added: ") + str(date_tmp)
                     except (Exception) as exception:
                         lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[1].text), "%Y-%m-%dT%H:%M:%S+01:00"))) #2012-12-31T12:54:29+01:00
-                        date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                        date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                         date1 = _("Added: ") + str(date_tmp)
                         print("canBeMultiple: date1 parse error: ", exception)
 
@@ -466,11 +466,11 @@ class StreamsThumb(StreamsThumbCommon):
 
                 try:
                     lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[3].text), "%Y-%m-%dT%H:%M:%S+00:00"))) #2012-12-31T12:54:29+00:00
-                    date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                    date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                     date1 = _("Added: ") + str(date_tmp)
                 except (Exception) as exception:
                     lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[3].text), "%Y-%m-%dT%H:%M:%S+01:00"))) #2012-12-31T12:54:29+01:00
-                    date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                    date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                     date1 = _("Added: ") + " " + str(date_tmp)
                     print("getMediaData: date1 parse error: ", exception)
 
@@ -529,11 +529,11 @@ class StreamsThumb(StreamsThumbCommon):
 
                 try:
                     lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[4].text), "%Y-%m-%dT%H:%M:%S+00:00"))) #2012-12-31T12:54:29+00:00
-                    date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                    date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                     date1 = _("Added:") + " " + str(date_tmp)
                 except (Exception) as exception:
                     lastDate = datetime.fromtimestamp(mktime(strptime(str(elem[4].text), "%Y-%m-%dT%H:%M:%S+01:00"))) #2012-12-31T12:54:29+01:00
-                    date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                    date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                     date1 = _("Added: ") + str(date_tmp)
                     print("getCatsMediaData: date1 parse error: ", exception)
 

@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 import os
-import urllib
-from urllib import urlretrieve
+import urllib.request, urllib.parse, urllib.error
+from urllib.request import urlretrieve
 from Plugins.Plugin import PluginDescriptor
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
@@ -262,7 +262,7 @@ class Filebrowser(Screen):
         def doHook(blockNumber, blockSize, totalSize):
             if blockNumber * blockSize > totalSize and cbfunc is not None:
                 cbfunc(tar)
-        opener = urllib.URLopener()
+        opener = urllib.request.URLopener()
         try:
             opener.open(uri)
         except:

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # kate: replace-tabs on; indent-width 4; remove-trailing-spaces all; show-tabs on; newline-at-eof on;
 
 '''
@@ -483,7 +483,7 @@ class EPGFetcher(object):
 
     def statusCleanup(self):
         def doTimeouts(status, timeout):
-            for tid, worklist in status.items():
+            for tid, worklist in list(status.items()):
                 if worklist and min(worklist, key=itemgetter(-1))[-1] < timeout:
                     status[tid] = [ent for ent in worklist if ent[-1] >= timeout]
                     if not status[tid]:
@@ -614,10 +614,10 @@ class EPGFetcher(object):
         triplet_map = defaultdict(list)
         scan_list = []
 
-        for id, triplets in self.channel_service_map.items():
+        for id, triplets in list(self.channel_service_map.items()):
             for triplet in triplets:
                 triplet_map[triplet].append(id)
-        for name, triplets in name_map.items():
+        for name, triplets in list(name_map.items()):
             for triplet in triplets:
                 if triplet in triplet_map:
                     for id in triplet_map[triplet]:
@@ -641,7 +641,7 @@ class EPGFetcher(object):
 
     def makeChanServMap(self, channels):
         res = defaultdict(list)
-        name_map = dict((n.upper(), t) for n, t in self.getScanChanNameMap().iteritems())
+        name_map = dict((n.upper(), t) for n, t in self.getScanChanNameMap().items())
 
         ice_services = set()
         for channel in channels:
@@ -679,7 +679,7 @@ class EPGFetcher(object):
     def serviceToIceChannelId(self, serviceref):
         svc = str(serviceref).split(":")
         triplet = (int(svc[5], 16), int(svc[4], 16), int(svc[3], 16))
-        for channel_id, dvbt in self.channel_service_map.iteritems():
+        for channel_id, dvbt in self.channel_service_map.items():
             if triplet in dvbt:
                 return channel_id
 
@@ -764,7 +764,7 @@ class EPGFetcher(object):
 
     def triplesToChannels(self, triples):
         if triples:
-            return set(ch for ch, tl in self.channel_service_map.iteritems() for t in tl if t in triples)
+            return set(ch for ch, tl in self.channel_service_map.items() for t in tl if t in triples)
         else:
             return set()
 
@@ -773,11 +773,11 @@ class EPGFetcher(object):
         max_fetch = config.plugins.icetv.batchsize.value
         res = False
         added_channels = self.triplesToChannels(added_triples)
-        channels = self.channel_service_map.keys()
+        channels = list(self.channel_service_map.keys())
         channels = list(set(channels) - added_channels)
         added_channels = list(added_channels)
         epgcache = eEPGCache.getInstance()
-        channels_lists = [l for l in added_channels, channels if l]
+        channels_lists = [l for l in (added_channels, channels) if l]
         last_update_time = 0
         shows = None
         mapping_errors = set()
@@ -789,7 +789,7 @@ class EPGFetcher(object):
                 is_last_fetch = i == len(channels_lists) - 1 and pos + len(fetch_chans) >= len(chan_list)
                 shows = self.getShows(chan_list=batch_fetch and fetch_chans or None, fetch_timers=is_last_fetch, fetch_from_epoch=chan_list is added_channels)
                 channel_show_map = self.makeChanShowMap(shows["shows"])
-                for channel_id in channel_show_map.keys():
+                for channel_id in list(channel_show_map.keys()):
                     if channel_id in self.channel_service_map:
                         epgcache.importEvents(self.channel_service_map[channel_id], self.convertChanShows(channel_show_map[channel_id], mapping_errors))
                 if i == 0 and pos == 0 and "last_update_time" in shows:

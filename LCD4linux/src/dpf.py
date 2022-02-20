@@ -1,4 +1,4 @@
-from __future__ import print_function
+
 #import Image
 from PIL import Image
 from six import PY2

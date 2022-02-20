@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	BBC iPlayer - Enigma2 Video Plugin
 	Copyright (C) 2013 rogerthis
@@ -38,7 +38,7 @@ import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import re
 
 import xml.dom.minidom as dom
@@ -54,9 +54,9 @@ __version__ = "Version 1.0.2: "
 
 def wgetUrl(target):
     try:
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         outtxt = str(response.read())
         response.close()
         return outtxt
@@ -303,7 +303,7 @@ class StreamsThumb(StreamsThumbCommon):
                     # Format the date to display onscreen
                     try:
                         lastDate = datetime.fromtimestamp(mktime(strptime(str(line[2]), "%Y-%m-%dT%H:%M:%SZ"))) #2013-03-06T18:27:43Z
-                        date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                        date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                         date1 = _("Added:") + " " + str(date_tmp)
                     except (Exception) as exception:
                         date1 = str(line[2])
@@ -364,7 +364,7 @@ class StreamsThumb(StreamsThumbCommon):
 
                 try:
                     lastDate = datetime.fromtimestamp(mktime(strptime(str(select('updated').text_content()), "%Y-%m-%dT%H:%M:%SZ"))) #2013-03-06T18:27:43Z
-                    date_tmp = lastDate.strftime(u"%a %b %d %Y %H:%M")
+                    date_tmp = lastDate.strftime("%a %b %d %Y %H:%M")
                     date1 = _("Added:") + " " + str(date_tmp)
                 except (Exception) as exception:
                     date1 = select('updated').text_content()
@@ -421,15 +421,15 @@ class StreamsThumb(StreamsThumbCommon):
                     return ("", "Non-UK IP Address and no DNS set in OnDemand Settings! Not able to play ")
                 else:
                     try:
-                        opener = urllib2.build_opener(MyHTTPHandler)
+                        opener = urllib.request.build_opener(MyHTTPHandler)
                         old_opener = urllib2._opener
-                        urllib2.install_opener(opener)
-                        req = urllib2.Request(url2)
+                        urllib.request.install_opener(opener)
+                        req = urllib.request.Request(url2)
                         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-                        response = urllib2.urlopen(req)
+                        response = urllib.request.urlopen(req)
                         html1 = str(response.read())
                         response.close()
-                        urllib2.install_opener(old_opener)
+                        urllib.request.install_opener(old_opener)
 
                     except (Exception) as exception:
                         print(__plugin__, __version__, "findPlayUrl: Unable to connect to DNS: ", exception)

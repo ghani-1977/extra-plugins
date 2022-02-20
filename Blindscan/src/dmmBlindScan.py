@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 # for localized messages
 from . import _
 from Components.ActionMap import NumberActionMap, ActionMap
@@ -274,9 +274,9 @@ class SatelliteTransponderSearchSupport:
 					if self.auto_scan:
 						print("[dmmBlindscan][frontendStateChanged] LOCKED at", freq, {eDVBFrontendParametersSatellite.Polarisation_Horizontal: "H", eDVBFrontendParametersSatellite.Polarisation_Vertical: "V", eDVBFrontendParametersSatellite.Polarisation_CircularLeft: "L", eDVBFrontendParametersSatellite.Polarisation_CircularRight: "R"}.get(parm.polarisation))
 					else:
-						print("[dmmBlindscan][frontendStateChanged] LOCKED at", freq, "SEARCHED at", self.parm.frequency, "half bw", (135L * ((sr + 1000) / 1000) / 200), "half search range", (self.parm.symbol_rate / 2))
+						print("[dmmBlindscan][frontendStateChanged] LOCKED at", freq, "SEARCHED at", self.parm.frequency, "half bw", (135 * ((sr + 1000) / 1000) / 200), "half search range", (self.parm.symbol_rate / 2))
 						self.parm.frequency = freq
-						self.parm.frequency += (135L * ((sr + 999) / 1000) / 200)
+						self.parm.frequency += (135 * ((sr + 999) / 1000) / 200)
 						self.parm.frequency += self.parm.symbol_rate / 2
 
 					if parm_list:
@@ -493,7 +493,7 @@ class SatelliteTransponderSearchSupport:
 			stop = max(s1, s2)
 
 			if self.auto_scan: # hack for driver based blindscan... extend search range +/- 50Mhz
-				freq_limits = list(map(lambda x: x * 1000, self.freq_limits))
+				freq_limits = list([x * 1000 for x in self.freq_limits])
 				start -= 50000
 				stop += 50000
 				if start < freq_limits[0]:
@@ -890,7 +890,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 
 		# Remove any duplicate transponders. This checks tps in tplist do not exist in self.__tlist. If they exist they will be removed from tplist.
 		if orig_tplist and not self.dmmBlindscan.disable_remove_duplicate_tps.value:
-			for i in reversed(range(len(tplist))): # i is the current index in tplist and iterated in reverse to allow deleting from the end of tplist without losing index corelation
+			for i in reversed(list(range(len(tplist)))): # i is the current index in tplist and iterated in reverse to allow deleting from the end of tplist without losing index corelation
 				if len(orig_tplist) == len(self.removeDuplicateTransponders(orig_tplist + [tplist[i]])):
 					del tplist[i]
 

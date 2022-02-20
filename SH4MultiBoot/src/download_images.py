@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Components.Button import Button
 from Components.ActionMap import ActionMap
 from Components.MenuList import MenuList
@@ -13,7 +13,7 @@ from Screens.TaskView import JobView
 from Tools.Downloader import downloadWithProgress
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import SCOPE_PLUGINS
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import os
 from Components.SystemInfo import BoxInfo
 
@@ -123,7 +123,7 @@ class DownloadOnLineImage(Screen):
             url = self.feedurl + '/' + box[0] + '/' + sel
             print('[SH4MultiBoot-Download] Image download URL: ', url)
             try:
-                u = urllib2.urlopen(url)
+                u = urllib.request.urlopen(url)
             except:
                 self.session.open(MessageBox, _('The URL to this image is not correct!'), type=MessageBox.TYPE_ERROR)
                 self.close()
@@ -177,16 +177,16 @@ class DownloadOnLineImage(Screen):
         else:
             url = self.feedurl
         print('[SH4MultiBoot-Download] URL: ', url)
-        req = urllib2.Request(url)
+        req = urllib.request.Request(url)
         try:
-            response = urllib2.urlopen(req)
-        except urllib2.URLError as e:
+            response = urllib.request.urlopen(req)
+        except urllib.error.URLError as e:
             print('[SH4MultiBoot-Download] URL error: %s' % e)
             return
 
         try:
             the_page = response.read()
-        except urllib2.HTTPError as e:
+        except urllib.error.HTTPError as e:
             print('[SH4MultiBoot-Download] HTTP download error: %s' % e.code)
             return
 

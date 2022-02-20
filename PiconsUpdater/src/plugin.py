@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import
+
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigText, ConfigYesNo
 from .PiconsUpdaterView import PiconsUpdaterView

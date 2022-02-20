@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from Components.ActionMap import ActionMap
 from Components.ScrollLabel import ScrollLabel
 from Components.Sources.StaticText import StaticText
 from Screens.Screen import Screen
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 # TODO: this URL now redirects to https://www.receiver-settings.de/
 URL = 'http://www.sattechnik.de/programmlisten-update/history.txt'
@@ -14,8 +14,8 @@ URL = 'http://www.sattechnik.de/programmlisten-update/history.txt'
 def DownloadInfo(url):
     text = ""
     try:
-        req = urllib2.Request(url)
-        response = urllib2.urlopen(req)
+        req = urllib.request.Request(url)
+        response = urllib.request.urlopen(req)
         link = response.read().decode("windows-1252")
         response.close()
         text = link.encode("utf-8")

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 """
 	iRadio Player - Enigma2 Radio Plugin
 	Copyright (C) 2013 mcquaim
@@ -43,10 +43,10 @@ import random
 from time import strftime, strptime, mktime
 from datetime import timedelta, date, datetime
 
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import re
-from urllib import quote
+from urllib.parse import quote
 
 import xml.etree.cElementTree as ET
 
@@ -64,9 +64,9 @@ FAVORITE_FILE = '/etc/enigma2/iRadio.favorites'
 
 def wgetUrl(target):
     try:
-        req = urllib2.Request(target)
+        req = urllib.request.Request(target)
         req.add_header('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3 Gecko/2008092417 Firefox/3.0.3')
-        response = urllib2.urlopen(req)
+        response = urllib.request.urlopen(req)
         outtxt = str(response.read())
         response.close()
         return outtxt
@@ -79,7 +79,7 @@ def wgetUrl(target):
 
 def urlType(target):
     try:
-        res = urllib.urlopen(target)
+        res = urllib.request.urlopen(target)
         http_message = res.info()
         full = http_message.type
         main = http_message.maintype
