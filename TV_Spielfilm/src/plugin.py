@@ -49,7 +49,9 @@ import re
 import socket
 import sys
 import time
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 from os import path
 config.plugins.tvspielfilm = ConfigSubsection()
 deskWidth = getDesktop(0).size().width()

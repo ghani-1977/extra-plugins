@@ -30,8 +30,12 @@ from .GBIpboxLocale import _
 from enigma import eEPGCache, eDVBDB
 
 from xml.dom import minidom
-import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
 import re
 import os
 

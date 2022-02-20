@@ -35,8 +35,12 @@ from xml.dom import minidom
 from time import localtime, time
 from bisect import insort
 
-import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
 import re
 import os
 

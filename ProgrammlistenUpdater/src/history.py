@@ -5,7 +5,9 @@ from Components.ActionMap import ActionMap
 from Components.ScrollLabel import ScrollLabel
 from Components.Sources.StaticText import StaticText
 from Screens.Screen import Screen
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 
 # TODO: this URL now redirects to https://www.receiver-settings.de/
 URL = 'http://www.sattechnik.de/programmlisten-update/history.txt'

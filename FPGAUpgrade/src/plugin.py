@@ -12,7 +12,9 @@ except:
     import _thread as thread
 from enigma import eTimer
 from urllib.request import urlretrieve
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Plugins.Plugin import PluginDescriptor

@@ -13,7 +13,9 @@ from Screens.TaskView import JobView
 from Tools.Downloader import downloadWithProgress
 from Tools.LoadPixmap import LoadPixmap
 from Tools.Directories import SCOPE_PLUGINS
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import os
 from Components.SystemInfo import BoxInfo
 

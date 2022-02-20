@@ -10,7 +10,9 @@ from ServiceReference import ServiceReference
 from enigma import eServiceReference, getDesktop
 from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import re
 import time
 import os

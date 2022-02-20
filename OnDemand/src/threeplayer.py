@@ -34,8 +34,12 @@ from os import path as os_path, remove as os_remove, mkdir as os_mkdir, walk as 
 from datetime import date
 from time import strftime
 
-import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
 import re
 
 from lxml import etree

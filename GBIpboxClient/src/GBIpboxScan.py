@@ -28,7 +28,9 @@ from .GBIpboxLocale import _
 
 import socket
 import threading
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 
 from xml.dom import minidom
 

@@ -3,7 +3,9 @@
 
 # for localized messages
 from . import _
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 from Components.ActionMap import ActionMap
 from Components.config import config, ConfigSelection, getConfigListEntry
 from Components.ConfigList import ConfigListScreen

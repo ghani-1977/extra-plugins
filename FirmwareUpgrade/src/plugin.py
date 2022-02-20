@@ -4,7 +4,9 @@
 # for localized messages
 from . import _
 import os
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from urllib.request import urlretrieve
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config, getConfigListEntry, ConfigSelection

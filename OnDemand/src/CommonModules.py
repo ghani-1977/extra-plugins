@@ -42,8 +42,12 @@ from os import path as os_path, mkdir as os_mkdir
 
 from http.client import HTTPConnection
 import socket
-import urllib.request, urllib.parse, urllib.error
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.parse
+import urllib.error
+import urllib.request
+import urllib.error
+import urllib.parse
 import sys
 
 socket.setdefaulttimeout(300) #in seconds

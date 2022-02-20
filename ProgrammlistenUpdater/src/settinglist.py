@@ -3,7 +3,9 @@
 
 from enigma import eTimer
 import os
-import urllib.request, urllib.error, urllib.parse
+import urllib.request
+import urllib.error
+import urllib.parse
 import time
 import sys
 from Screens.Screen import Screen
