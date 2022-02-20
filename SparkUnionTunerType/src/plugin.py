@@ -54,13 +54,13 @@ class UnionTunerType(Screen, ConfigListScreen):
 
     def settingsWrite(self, result):
         if result is not None and result:
-		for line in fileinput.input(filename, inplace=1):
-			if line.startswith(option):
-				print(option + self.tunerconfig.value)
-			else:
-				print(line)
-		fileinput.close()
-		self.session.open(TryQuitMainloop, retvalue=2)
+            for line in fileinput.input(filename, inplace=1):
+                if line.startswith(option):
+                    print(option + self.tunerconfig.value)
+                else:
+                    print(line)
+            fileinput.close()
+            self.session.open(TryQuitMainloop, retvalue=2)
         self.close()
 
     def ok(self):

@@ -80,16 +80,16 @@ def SH4MultiBootMainEx(source, target, installsettings, filesys, zipdelete):
             print("[sh4multiboot] Use drivers from image")
         else:
             print("[sh4multiboot] Copy drivers from Flash")
-	    for fdelete in glob(oedir + '/*.opk'):
-		    os.remove(fdelete)
+            for fdelete in glob(oedir + '/*.opk'):
+                os.remove(fdelete)
             cmd = 'mv -f %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
             rc = Console().ePopen(cmd)
             cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
             rc = Console().ePopen(cmd)
     else:
         print("[sh4multiboot] Copy drivers")
-	for fdelete in glob(oedir + '/*.opk'):
-		os.remove(fdelete)
+        for fdelete in glob(oedir + '/*.opk'):
+            os.remove(fdelete)
         cmd = 'mv -f %s/SH4MultiBootI/%s/lib/modules %s/SH4MultiBootI/%s/lib/modules1' % (sh4multihome, target, sh4multihome, target)
         rc = Console().ePopen(cmd)
         cmd = 'cp -fr /lib/modules %s/SH4MultiBootI/%s/lib' % (sh4multihome, target)
@@ -218,9 +218,9 @@ def SH4MultiBootExtractJFFS(source, target, zipdelete):
         Console().ePopen('echo "[SH4MultiBoot] Extracting image file"')
         rc = Console().ePopen('unzip %s' % sourcefile)
         if zipdelete == "True":
-                rc = Console().ePopen('rm -f %s' % sourcefile)
+            rc = Console().ePopen('rm -f %s' % sourcefile)
         else:
-                Console().ePopen('echo "[SH4MultiBoot] Keep %s for next time"' % sourcefile)
+            Console().ePopen('echo "[SH4MultiBoot] Keep %s for next time"' % sourcefile)
         if os.path.exists('/media/sh4multiboot/SH4MultiBootUpload/enigma2'):
             os.chdir('enigma2')
             Console().ePopen('mv -f e2jffs2.img rootfs.bin')

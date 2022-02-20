@@ -179,7 +179,7 @@ class SH4MultiBootInstallation(Screen):
                 f = open('/proc/mounts', 'r')
                 for line in f.readlines():
                     if line.find(self.mysel):
-		        mntdev = line.split(' ')[0]
+                        mntdev = line.split(' ')[0]
                 f.close()
                 mntid = Console().ePopen('blkid -s UUID -o value %s>/usr/lib/enigma2/python/Plugins/Extensions/SH4MultiBoot/bin/install' % mntdev)
 

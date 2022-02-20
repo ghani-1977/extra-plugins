@@ -52,22 +52,22 @@ config.ondemand.SecondaryDNS = ConfigIP(default=[0, 0, 0, 0])
 
 
 def OnDemanMenu(menuid):
-	if menuid == "mainmenu":
-		return [(_("OnDemand"), main, "ondemand", None)]
-	return []
+    if menuid == "mainmenu":
+        return [(_("OnDemand"), main, "ondemand", None)]
+    return []
 
 
 def main(session, **kwargs):
-	session.open(OnDemand_Screen)
+    session.open(OnDemand_Screen)
 
 
 def Plugins(**kwargs):
-	plist = []
-	if config.ondemand.ShowPluginBrowser.getValue():
-		plist.append(PluginDescriptor(name=_("OnDemand"), description="OnDemand Player", where=PluginDescriptor.WHERE_PLUGINMENU, icon="ondemand.png", fnc=main))
-	if config.ondemand.ShowExtensions.getValue():
-		plist.append(PluginDescriptor(name=_("OnDemand"), description="OnDemand Player", where=PluginDescriptor.WHERE_EXTENSIONSMENU, icon="ondemand.png", fnc=main))
-	if config.ondemand.ShowMainMenu.getValue():
-		plist.append(PluginDescriptor(where=PluginDescriptor.WHERE_MENU, fnc=OnDemanMenu))
+    plist = []
+    if config.ondemand.ShowPluginBrowser.getValue():
+        plist.append(PluginDescriptor(name=_("OnDemand"), description="OnDemand Player", where=PluginDescriptor.WHERE_PLUGINMENU, icon="ondemand.png", fnc=main))
+    if config.ondemand.ShowExtensions.getValue():
+        plist.append(PluginDescriptor(name=_("OnDemand"), description="OnDemand Player", where=PluginDescriptor.WHERE_EXTENSIONSMENU, icon="ondemand.png", fnc=main))
+    if config.ondemand.ShowMainMenu.getValue():
+        plist.append(PluginDescriptor(where=PluginDescriptor.WHERE_MENU, fnc=OnDemanMenu))
 
-	return plist
+    return plist

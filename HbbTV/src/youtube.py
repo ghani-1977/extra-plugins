@@ -20,7 +20,7 @@ vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
 
 
 class YoutubeTVWindow(Screen, HelpableScreen):
-	skin = """
+    skin = """
 		<screen name="YoutubeTVWindow" position="center,center" size="550,160" title="Start YouTube TV" >
 			<widget name="infomation" position="5,0" size="540,80" valign="center" halign="center" font="Regular;20" />
 			<widget name="startdesc" position="10,80" size="395,40" valign="center" font="Regular;20" />
@@ -32,85 +32,85 @@ class YoutubeTVWindow(Screen, HelpableScreen):
 		</screen>
 		"""
 
-        def __init__(self, session):
-                Screen.__init__(self, session)
-		HelpableScreen.__init__(self)
+    def __init__(self, session):
+        Screen.__init__(self, session)
+        HelpableScreen.__init__(self)
 
-		self["actions"] = ActionMap(["WizardActions", "DirectionActions", "OkCancelActions", "ColorActions", "EPGSelectActions", ], {
-			"cancel": self.keyCancel,
-			"red": self.keyCancel,
-			"green": self.keyGreen,
-			"yellow": self.keyYellow,
-		}, -2)
+        self["actions"] = ActionMap(["WizardActions", "DirectionActions", "OkCancelActions", "ColorActions", "EPGSelectActions", ], {
+                "cancel": self.keyCancel,
+                "red": self.keyCancel,
+                "green": self.keyGreen,
+                "yellow": self.keyYellow,
+        }, -2)
 
-		self["key_green"] = StaticText(_("Start"))
-		self["key_yellow"] = StaticText(_("Help"))
+        self["key_green"] = StaticText(_("Start"))
+        self["key_yellow"] = StaticText(_("Help"))
 
-		self["infomation"] = Label()
-		self["startdesc"] = Label()
-		self["helpdesc"] = Label()
+        self["infomation"] = Label()
+        self["startdesc"] = Label()
+        self["helpdesc"] = Label()
 
-		self.onLayoutFinish.append(self.layoutFinished)
+        self.onLayoutFinish.append(self.layoutFinished)
 
-	def layoutFinished(self):
-		self.setTitle(_('Start YouTube TV'))
-		self["infomation"].setText(_("YouTube TV is a new way to watch YouTube videos"))
-		self["startdesc"].setText(_("* Start YouTube TV"))
-		self["helpdesc"].setText(_("* RC Help"))
+    def layoutFinished(self):
+        self.setTitle(_('Start YouTube TV'))
+        self["infomation"].setText(_("YouTube TV is a new way to watch YouTube videos"))
+        self["startdesc"].setText(_("* Start YouTube TV"))
+        self["helpdesc"].setText(_("* RC Help"))
 
-	def setHelpModeActions(self):
-		self.helpList = []
-		self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions", {
-			"ok": (self.keyPass, _("Play ther selected the video")),
-			"cancel": (self.keyPass, _("Exit the YouTube TV")),
-		})
-		self["EventViewActions"] = HelpableActionMap(self, "EventViewActions", {
-			"pageUp": (self.keyPass, _("Move up")),
-			"pageDown": (self.keyPass, _("Move down")),
-			"prevEvent": (self.keyPass, _("Move left")),
-			"nextEvent": (self.keyPass, _("Move right")),
-		})
-		self["EPGSelectActions"] = HelpableActionMap(self, "EPGSelectActions", {
-			"info": (self.keyPass, _("Search a video")),
-			"nextService": (self.keyPass, _("Skip forward 10 sec")),
-			"prevService": (self.keyPass, _("Skip backward 10 sec")),
-		})
-		self["MediaPlayerActions"] = HelpableActionMap(self, "MediaPlayerActions", {
-			"play": (self.keyPass, _("Play current video")),
-			"pause": (self.keyPass, _("Pause current video")),
-			"stop": (self.keyPass, _("Stop current video")),
-		})
-		self["ColorActions"] = HelpableActionMap(self, "ColorActions", {
-			"red": (self.keyPass, _("Back")),
-		})
-		self.showHelp()
+    def setHelpModeActions(self):
+        self.helpList = []
+        self["OkCancelActions"] = HelpableActionMap(self, "OkCancelActions", {
+                "ok": (self.keyPass, _("Play ther selected the video")),
+                "cancel": (self.keyPass, _("Exit the YouTube TV")),
+        })
+        self["EventViewActions"] = HelpableActionMap(self, "EventViewActions", {
+                "pageUp": (self.keyPass, _("Move up")),
+                "pageDown": (self.keyPass, _("Move down")),
+                "prevEvent": (self.keyPass, _("Move left")),
+                "nextEvent": (self.keyPass, _("Move right")),
+        })
+        self["EPGSelectActions"] = HelpableActionMap(self, "EPGSelectActions", {
+                "info": (self.keyPass, _("Search a video")),
+                "nextService": (self.keyPass, _("Skip forward 10 sec")),
+                "prevService": (self.keyPass, _("Skip backward 10 sec")),
+        })
+        self["MediaPlayerActions"] = HelpableActionMap(self, "MediaPlayerActions", {
+                "play": (self.keyPass, _("Play current video")),
+                "pause": (self.keyPass, _("Pause current video")),
+                "stop": (self.keyPass, _("Stop current video")),
+        })
+        self["ColorActions"] = HelpableActionMap(self, "ColorActions", {
+                "red": (self.keyPass, _("Back")),
+        })
+        self.showHelp()
 
-	def keyPass(self):
-		pass
+    def keyPass(self):
+        pass
 
-	def keyCancel(self):
-		config.plugins.youtubetv.showhelp.cancel()
-		self.close(False)
+    def keyCancel(self):
+        config.plugins.youtubetv.showhelp.cancel()
+        self.close(False)
 
-	def keyGreen(self):
-		config.plugins.youtubetv.showhelp.save()
-		config.plugins.youtubetv.save()
-		config.plugins.save()
-		vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
-		self.close(True)
+    def keyGreen(self):
+        config.plugins.youtubetv.showhelp.save()
+        config.plugins.youtubetv.save()
+        config.plugins.save()
+        vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
+        self.close(True)
 
-	def keyYellow(self):
-		self.setHelpModeActions()
+    def keyYellow(self):
+        self.setHelpModeActions()
 
-	def keyBlue(self):
-		if config.plugins.youtubetv.showhelp.value == True:
-			config.plugins.youtubetv.showhelp.setValue(False)
-		else:
-			config.plugins.youtubetv.showhelp.setValue(True)
+    def keyBlue(self):
+        if config.plugins.youtubetv.showhelp.value == True:
+            config.plugins.youtubetv.showhelp.setValue(False)
+        else:
+            config.plugins.youtubetv.showhelp.setValue(True)
 
 
 class YoutubeTVSettings(ConfigListScreen, Screen):
-	skin = """
+    skin = """
 		<screen position="center,center" size="600,140" title="YouTube TV Settings">
 			<widget name="config" position="0,0" size="600,100" scrollbarMode="showOnDemand" />
 
@@ -122,54 +122,54 @@ class YoutubeTVSettings(ConfigListScreen, Screen):
 		</screen>
 		"""
 
-	def __init__(self, session):
-		self.session = session
-		self.menulist = []
+    def __init__(self, session):
+        self.session = session
+        self.menulist = []
 
-		Screen.__init__(self, session)
-		ConfigListScreen.__init__(self, self.menulist)
+        Screen.__init__(self, session)
+        ConfigListScreen.__init__(self, self.menulist)
 
-		self["actions"] = ActionMap(["OkCancelActions", "ColorActions", ], {
-			"ok": self.keyGreen,
-			"green": self.keyGreen,
-			"red": self.keyRed,
-			"cancel": self.keyRed,
-		}, -2)
-		self["key_red"] = StaticText(_("Cancel"))
-		self["key_green"] = StaticText(_("Save"))
+        self["actions"] = ActionMap(["OkCancelActions", "ColorActions", ], {
+                "ok": self.keyGreen,
+                "green": self.keyGreen,
+                "red": self.keyRed,
+                "cancel": self.keyRed,
+        }, -2)
+        self["key_red"] = StaticText(_("Cancel"))
+        self["key_green"] = StaticText(_("Save"))
 
-		self.makeConfigList()
-		self.onLayoutFinish.append(self.layoutFinished)
+        self.makeConfigList()
+        self.onLayoutFinish.append(self.layoutFinished)
 
-	def layoutFinished(self):
-		self.setTitle(_('YouTube TV Settings'))
+    def layoutFinished(self):
+        self.setTitle(_('YouTube TV Settings'))
 
-	def keyGreen(self):
-		config.plugins.youtubetv.showhelp.save()
-		config.plugins.youtubetv.uri.save()
-		config.plugins.youtubetv.save()
-		config.plugins.save()
+    def keyGreen(self):
+        config.plugins.youtubetv.showhelp.save()
+        config.plugins.youtubetv.uri.save()
+        config.plugins.youtubetv.save()
+        config.plugins.save()
 
-		vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
-		self.close()
+        vbcfg.g_youtubetv_cfg = config.plugins.youtubetv
+        self.close()
 
-	def keyRed(self):
-		config.plugins.youtubetv.showhelp.cancel()
-		config.plugins.youtubetv.uri.cancel()
-		self.close()
+    def keyRed(self):
+        config.plugins.youtubetv.showhelp.cancel()
+        config.plugins.youtubetv.uri.cancel()
+        self.close()
 
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
+    def keyLeft(self):
+        ConfigListScreen.keyLeft(self)
 
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
+    def keyRight(self):
+        ConfigListScreen.keyRight(self)
 
-	def makeConfigList(self):
-		self.menulist = []
+    def makeConfigList(self):
+        self.menulist = []
 
-		entryUri = getConfigListEntry(_("YouTube TV URL"), config.plugins.youtubetv.uri)
-		entryShowHelp = getConfigListEntry(_("Do not show YouTube TV Starter again"), config.plugins.youtubetv.showhelp)
-		self.menulist.append(entryUri)
-		self.menulist.append(entryShowHelp)
-		self["config"].list = self.menulist
-		self["config"].l.setList(self.menulist)
+        entryUri = getConfigListEntry(_("YouTube TV URL"), config.plugins.youtubetv.uri)
+        entryShowHelp = getConfigListEntry(_("Do not show YouTube TV Starter again"), config.plugins.youtubetv.showhelp)
+        self.menulist.append(entryUri)
+        self.menulist.append(entryShowHelp)
+        self["config"].list = self.menulist
+        self["config"].l.setList(self.menulist)

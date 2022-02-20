@@ -107,27 +107,27 @@ class BrcmFRQ(ConfigListScreen, Screen):
         self.temp = 'N/A'
         self.voltage = 'N/A'
         self.cfrq = 'N/A'
-	try:
-		f = open('/proc/stb/fp/temp_sensor_avs', 'r')
-		self.temp = f.read()
-		self.temp = self.temp.strip()
-		f.close()
-		f = open('/sys/devices/system/cpu/cpufreq/policy0/brcm_avs_voltage', 'r')
-		self.voltage = f.read()
-		self.voltage = self.voltage.strip()
-		f.close()
-		f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq', 'r')
-		self.cfrq = f.read()
-		self.cfrq = self.cfrq.strip()
-		f.close()
-	except:
-		pass
+        try:
+            f = open('/proc/stb/fp/temp_sensor_avs', 'r')
+            self.temp = f.read()
+            self.temp = self.temp.strip()
+            f.close()
+            f = open('/sys/devices/system/cpu/cpufreq/policy0/brcm_avs_voltage', 'r')
+            self.voltage = f.read()
+            self.voltage = self.voltage.strip()
+            f.close()
+            f = open('/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq', 'r')
+            self.cfrq = f.read()
+            self.cfrq = self.cfrq.strip()
+            f.close()
+        except:
+            pass
 
-	try:
-		self.voltage = str(int(self.voltage, 16))
-		self.cfrq = str(int(self.cfrq.strip()) / 1000)
-	except:
-		pass
+        try:
+            self.voltage = str(int(self.voltage, 16))
+            self.cfrq = str(int(self.cfrq.strip()) / 1000)
+        except:
+            pass
 
         self['tempc'].setText(_('Current Temperature (SoC):  ' + self.temp + ' C'))
         self['voltc'].setText(_('Current CPU Voltage:  ' + self.voltage + ' mV'))
