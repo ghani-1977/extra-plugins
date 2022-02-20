@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 
 
-
-
 from Components.config import config
 from Components.NimManager import nimmanager
 
