@@ -437,12 +437,12 @@ class TranscodingSetup(Screen, ConfigListScreen):
 
 	def createSetup2(self):
 		encoder = self.curencoder
-		if encoder is not None:
+		if encoder != None:
 			self.automode = None
 			if checkSupportAdvanced() and hasattr(config.plugins.transcodingsetup.encoder[int(encoder)], "automode"):
 				self.automode = getConfigListEntry(_("Auto set Framerate / Bitrate"), config.plugins.transcodingsetup.encoder[int(encoder)].automode)
 
-			if self.automode is not None:
+			if self.automode != None:
 				self.list.append(self.automode)
 
 			if BoxInfo.getItem("NoAuto%s" % encoder):

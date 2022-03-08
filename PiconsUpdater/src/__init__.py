@@ -105,7 +105,7 @@ def getCurrentPicon():
 def getConfigSizeList():
     piconsUrls = getCurrentPicon()
     sizeChoices = []
-    if piconsUrls['size'] is not None:
+    if piconsUrls['size'] != None:
         for size in piconsUrls['size']:
             sizeChoices.append((size, size))
 
@@ -115,7 +115,7 @@ def getConfigSizeList():
 def getConfigBackgroundList():
     piconsUrls = getCurrentPicon()
     backgroundChoices = []
-    if piconsUrls['backgrounds'] is not None:
+    if piconsUrls['backgrounds'] != None:
         for background in piconsUrls['backgrounds']:
             backgroundChoices.append((background['key'], background['key']))
 

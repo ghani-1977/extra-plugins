@@ -66,7 +66,7 @@ def getFilesWithNameKey(path, excludedDirNames=None, excludeDirs=None):
     rs = {}
     for dirPath, dirNames, fileNames in os.walk(path):
         for fileName in fileNames:
-            if excludedDirNames is not None and os.path.basename(dirPath) in excludedDirNames:
+            if excludedDirNames != None and os.path.basename(dirPath) in excludedDirNames:
                 continue
             fullFilePath = os.path.join(dirPath, fileName)
             skipFile = False
@@ -74,7 +74,7 @@ def getFilesWithNameKey(path, excludedDirNames=None, excludeDirs=None):
                 pathToCheck = dirPath
             else:
                 pathToCheck = dirPath + '/'
-            if excludeDirs is not None:
+            if excludeDirs != None:
                 for excludeDir in excludeDirs:
                     if pathToCheck[:len(excludeDir)] == excludeDir:
                         skipFile = True
@@ -146,6 +146,6 @@ def __filterFileListByFileExtension(files, fileExtensions):
     """
     fileExtensions as tuple. example: ('.txt', '.png')
     """
-    if fileExtensions is not None:
+    if fileExtensions != None:
         files = list(filter(lambda s: s.lower().endswith(fileExtensions), files))
     return files

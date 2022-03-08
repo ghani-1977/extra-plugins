@@ -257,7 +257,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.bsTimer.callback.append(self.asyncBlindScan)
 
 		ConfigListScreen.__init__(self, self.list, session=session, on_change=self.changedEntry)
-		if self.scan_nims.value is not None and self.scan_nims.value != "":
+		if self.scan_nims.value != None and self.scan_nims.value != "":
 			self["actions"] = ActionMap(["ColorActions", "SetupActions", 'DirectionActions'],
 			{
 				"red": self.keyCancel,
@@ -294,7 +294,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.nimSockets = self.ScanNimsocket()
 		self.makeNimSocket()
 		self["config"].onSelectionChanged.append(self.textHelp)
-		if XML_FILE is not None and os.path.exists(XML_FILE):
+		if XML_FILE != None and os.path.exists(XML_FILE):
 			self["yellow"].setText(_("Open xml file"))
 		self.changedEntry()
 
@@ -364,7 +364,7 @@ class Blindscan(ConfigListScreen, Screen):
 	def makeNimSocket(self, nimname=""):
 		is_exist_i2c = False
 		self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
-		if self.nimSockets is not None:
+		if self.nimSockets != None:
 			for XX in self.nimSockets.keys():
 				nimsocket = self.nimSockets[XX]
 				if len(nimsocket) > 1:
@@ -409,7 +409,7 @@ class Blindscan(ConfigListScreen, Screen):
 		if not self.openFrontend():
 			oldref = self.session.nav.getCurrentlyPlayingServiceReference()
 			stop_current_service = True
-			if oldref and self.getCurrentTuner is not None:
+			if oldref and self.getCurrentTuner != None:
 				if self.feid != self.getCurrentTuner:
 					stop_current_service = False
 			if stop_current_service:
@@ -454,10 +454,10 @@ class Blindscan(ConfigListScreen, Screen):
 		}
 
 		self.service = self.session.nav.getCurrentService()
-		if self.service is not None:
+		if self.service != None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
-		if frontendData is not None:
+		if frontendData != None:
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)
@@ -548,8 +548,8 @@ class Blindscan(ConfigListScreen, Screen):
 		for slot in nimmanager.nim_slots:
 			if slot.isCompatible("DVB-S"):
 				default_sat_pos = defaultSat["orbpos"]
-				if self.getCurrentTuner is not None and slot.slot != self.getCurrentTuner:
-					if len(nimmanager.getRotorSatListForNim(slot.slot)) and Lastrotorposition is not None and config.misc.lastrotorposition.value != 9999:
+				if self.getCurrentTuner != None and slot.slot != self.getCurrentTuner:
+					if len(nimmanager.getRotorSatListForNim(slot.slot)) and Lastrotorposition != None and config.misc.lastrotorposition.value != 9999:
 						default_sat_pos = config.misc.lastrotorposition.value
 				self.scan_satselection.append(getConfigSatlist(default_sat_pos, self.satList[slot.slot]))
 		self.frontend = None # set for later use
@@ -1163,7 +1163,7 @@ class Blindscan(ConfigListScreen, Screen):
 			self.frontend and self.frontend.closeFrontend()
 		self.blindscanSessionNone(val[0])
 
-		if self.tmp_tplist is not None and self.tmp_tplist != []:
+		if self.tmp_tplist != None and self.tmp_tplist != []:
 			if not self.SundtekScan:
 				self.tmp_tplist = self.correctBugsCausedByDriver(self.tmp_tplist)
 
@@ -1597,7 +1597,7 @@ class Blindscan(ConfigListScreen, Screen):
 		tps = nimmanager.getTransponders(orb_pos)
 		if len(tps) < 1:
 			return False
-		if Lastrotorposition is not None and config.misc.lastrotorposition.value != 9999:
+		if Lastrotorposition != None and config.misc.lastrotorposition.value != 9999:
 			text = _("Rotor: ") + self.OrbToStr(config.misc.lastrotorposition.value)
 			self["rotorstatus"].setText(text)
 		# freq, sr, pol, fec, inv, orb, sys, mod, roll, pilot
@@ -1608,7 +1608,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 		self.tuner.tune(transponder)
 		self.orb_pos = orb_pos
-		if Lastrotorposition is not None and config.misc.lastrotorposition.value != 9999:
+		if Lastrotorposition != None and config.misc.lastrotorposition.value != 9999:
 			self.statusTimer.stop()
 			self.startStatusTimer()
 		return True

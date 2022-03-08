@@ -116,7 +116,7 @@ def init_device(Anzahl, device0, device1):
 	"""First try Mini Monitor mode, then Mass storage mode"""
 	dev = find_device(Anzahl, device0, device1)
 
-	if dev is not None:
+	if dev != None:
 		## found it, trying to init it
 		print("[LCD4linux] Find frame device", dev)
 		if dev.idProduct == device0["idProduct"]:
@@ -129,7 +129,7 @@ def init_device(Anzahl, device0, device1):
 			while True:
 				# may need to burn some time
 				dev = find_device(Anzahl, device0, device1)
-				if dev is not None and dev.idProduct == device0["idProduct"]:
+				if dev != None and dev.idProduct == device0["idProduct"]:
 					#switching successful
 					break
 				elif time.time() - ts > 3:

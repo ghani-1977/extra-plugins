@@ -127,7 +127,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
 
     def keySave(self):
         global DisplayType
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -206,7 +206,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[hs7810aVFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)

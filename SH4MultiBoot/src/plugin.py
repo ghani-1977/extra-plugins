@@ -547,7 +547,7 @@ class SH4MultiBootImageInstall(Screen, ConfigListScreen):
         sel = self['config'].getCurrent()
         if sel:
             if sel == self.target:
-                if self['config'].getCurrent()[1].help_window.instance is not None:
+                if self['config'].getCurrent()[1].help_window.instance != None:
                     self['config'].getCurrent()[1].help_window.hide()
             self.vkvar = sel[0]
             if self.vkvar == _('Image name'):
@@ -555,7 +555,7 @@ class SH4MultiBootImageInstall(Screen, ConfigListScreen):
         return
 
     def VirtualKeyBoardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self['config'].getCurrent()[1].setValue(callback)
             self['config'].invalidate(self['config'].getCurrent())
         return

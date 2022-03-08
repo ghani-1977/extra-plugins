@@ -220,7 +220,7 @@ class LCD4linuxConfigweb(resource.Resource):
 		L4log("Command received %s" % (command), ex)
 		if self.CurrentMode == ("-", "-"):
 			self.CurrentMode = (getConfigStandby(), getisMediaPlayer())
-		if mo is not None:
+		if mo != None:
 			Mode = six.ensure_str(mo[0])
 			setConfigMode(True)
 			if Mode in ["1", "2"]:
@@ -236,14 +236,14 @@ class LCD4linuxConfigweb(resource.Resource):
 				self.resetWeb()
 			getBilder()
 		html = ""
-		if el is not None:
+		if el != None:
 			Element = six.ensure_str(el[0])
-		if req.args.get(b"save.y", None) is not None:
+		if req.args.get(b"save.y", None) != None:
 			L4log("WebIF: save Config-File")
 			LCD4linux.save()
 			LCD4linux.saveToFile(LCD4config)
 			ConfTimeCheck()
-		if req.args.get(b"download.y", None) is not None:
+		if req.args.get(b"download.y", None) != None:
 			L4log("WebIF: download Config")
 			req.setResponseCode(http.OK)
 			lcd4config = resolveFilename(SCOPE_CONFIG) + "lcd4config"
@@ -255,7 +255,7 @@ class LCD4linuxConfigweb(resource.Resource):
 			html = f.read()
 			f.close()
 			return six.ensure_binary(html)
-		if req.args.get(b"upload.y", None) is not None:
+		if req.args.get(b"upload.y", None) != None:
 			L4log("WebIF: upload Config")
 			lcd4config = "/tmp/test"
 			data = req.args[b"uploadName"][0]
@@ -270,10 +270,10 @@ class LCD4linuxConfigweb(resource.Resource):
 				html += "<script language=\"JavaScript\">\n"
 				html += "alert(\"%s\")\n" % _("No or wrong File selected, try a correct File first !")
 				html += "</script>\n"
-		if req.args.get(b"logdel.y", None) is not None:
+		if req.args.get(b"logdel.y", None) != None:
 			L4log("WebIF: delete Logfile")
 			rmFile("/tmp/L4log.txt")
-		if req.args.get(b"logdownload.y", None) is not None:
+		if req.args.get(b"logdownload.y", None) != None:
 			L4log("WebIF: download Logfile")
 			lcd4config = "/tmp/L4log.txt"
 			if os.path.isfile(lcd4config):
@@ -289,7 +289,7 @@ class LCD4linuxConfigweb(resource.Resource):
 
 		if command is None:
 			L4logE("no command")
-		elif _command == "exec" and ex is not None:
+		elif _command == "exec" and ex != None:
 			L4logE("exec", _ex)
 			exec(_ex) # FIXME PY3
 		elif _command == "enable":
@@ -311,16 +311,16 @@ class LCD4linuxConfigweb(resource.Resource):
 			L4LElement.setRefresh()
 		elif _command == "crashdel":
 			rmFile(CrashFile)
-		elif _command == "add" and ex is not None:
+		elif _command == "add" and ex != None:
 			L4LElement.web(_ex)
-		elif _command == "delete" and ex is not None:
+		elif _command == "delete" and ex != None:
 			L4LElement.delete(_ex)
 		elif _command == "refresh":
 			L4LElement.setRefresh()
 		elif _command == "hold":
 			setScreenActive("0")
 			setSaveEventListChanged(not getSaveEventListChanged())
-		elif _command == "screen" and ex is not None:
+		elif _command == "screen" and ex != None:
 			exs = _ex.split(",")
 			if len(exs) == 1:
 				L4LElement.setScreen(exs[0])
@@ -328,23 +328,23 @@ class LCD4linuxConfigweb(resource.Resource):
 				L4LElement.setScreen(exs[0], exs[1])
 			elif len(exs) == 3:
 				L4LElement.setScreen(exs[0], exs[1], exs[2])
-		elif _command == "brightness" and ex is not None:
+		elif _command == "brightness" and ex != None:
 			exs = _ex.split(",")
 			if len(exs) == 1:
 				L4LElement.setBrightness(exs[0])
 			elif len(exs) == 2:
 				L4LElement.setBrightness(exs[0], exs[1])
-		elif _command == "getbrightness" and ex is not None:
+		elif _command == "getbrightness" and ex != None:
 			if int(_ex) < 1 or int(_ex) > 3:
 				return "0"
 			else:
 				return str(L4LElement.getBrightness(int(_ex)))
-		elif _command == "getmjpeg" and ex is not None:
+		elif _command == "getmjpeg" and ex != None:
 			if int(_ex) < 1 or int(_ex) > 3:
 				return "0"
 			else:
 				return str(getMJPEGreader(_ex))
-		elif _command == "getexec" and ex is not None:
+		elif _command == "getexec" and ex != None:
 			L4logE("getexec", _ex)
 			_exec("getexec = " + _ex) # FIXME PY3
 			return str(getexec)

@@ -528,7 +528,7 @@ class PiconManagerScreen(Screen, HelpableScreen):
 
 	def keyOK(self):
 		if len(self.piconlist) > 0 and not self.keyLocked:
-			if self['list'].getCurrent() is not None:
+			if self['list'].getCurrent() != None:
 				if len(self['list'].getCurrent()[0]) >= 6:
 					self.auswahl = self['list'].getCurrent()[0][4]
 					self.cur_selected_dir = self['list'].getCurrent()[0][5]
@@ -570,7 +570,7 @@ class PiconManagerScreen(Screen, HelpableScreen):
 		self.session.openWithCallback(self.selectedMediaFile, PiconManagerFolderScreen, self.picondir)
 
 	def selectedMediaFile(self, res):
-		if res is not None:
+		if res != None:
 			self.piconfolder = res
 			self.piconname = res.split("/")[-2]
 			self['piconpath2'].setText(self.piconfolder)
@@ -591,7 +591,7 @@ class PiconManagerScreen(Screen, HelpableScreen):
 		self.session.openWithCallback(self.gotNewPiconName, VirtualKeyBoard, title=(_("Enter Picon Dir:")), text=self.piconname)
 
 	def gotNewPiconName(self, name):
-		if name is not None:
+		if name != None:
 			self.piconname = name
 			self.piconfolder = "%s%s/" % (self.picondir, self.piconname)
 			self['piconpath2'].setText(self.piconfolder)
@@ -726,7 +726,7 @@ class PiconManagerScreen(Screen, HelpableScreen):
 	def showPiconFile(self, data, picPath):
 		if os.path.exists(picPath):
 			self["picon"].show()
-			if picPath is not None:
+			if picPath != None:
 				self["picon"].instance.setPixmapFromFile(picPath)
 
 

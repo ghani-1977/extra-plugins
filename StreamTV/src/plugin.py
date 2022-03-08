@@ -112,7 +112,7 @@ class StreamTVPlayer(Screen, InfoBarNotifications):
 
 	def __seekableStatusChanged(self):
 		service = self.session.nav.getCurrentService()
-		if service is not None:
+		if service != None:
 			seek = service.seek()
 			if seek is None or not seek.isCurrentlySeekable():
 				self.setSeekState(self.PLAYER_PLAYING)
@@ -146,7 +146,7 @@ class StreamTVPlayer(Screen, InfoBarNotifications):
 			return
 
 		pauseable = service.pause()
-		if pauseable is not None:
+		if pauseable != None:
 			if wantstate == self.PLAYER_PAUSED:
 				pauseable.pause()
 				self.state = self.PLAYER_PAUSED
@@ -268,7 +268,7 @@ class StreamTVList(Screen):
 	def layoutFinished(self):
 		rc = os.popen('ps -ef | grep rtmpdump | grep -v grep').read()
 		print("a process already running :", rc)
-		if rc is not None:
+		if rc != None:
 			if rc.strip() != '':
 				Console().ePopen('killall -INT rtmpdump')
 
@@ -339,7 +339,7 @@ class StreamTVList(Screen):
 			bufferSize = None
 
 		service = eServiceReference(serviceType, 0, url)
-		#if bufferSize is not None:
+		#if bufferSize != None:
 		#	service.setData(2, bufferSize*1024)
 
 		streamInfo = self["streamlist"].getCurrent()[0][1]
@@ -363,7 +363,7 @@ class StreamTVList(Screen):
 	def cbAppClosed(self, ret):
 		print(ret)
 		self.doConsoleStop()
-		if self.currentService is not None and not self.playerStoped:
+		if self.currentService != None and not self.playerStoped:
 			self.serviceDoCommand('bypass_exit')
 			message = "The connection was terminated from the stream server."
 			self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO)
@@ -385,7 +385,7 @@ class StreamTVList(Screen):
 
 	def doConsoleStop(self):
 		self.keyLocked = False
-		if self.rtmpConsole is not None:
+		if self.rtmpConsole != None:
 			self.rtmpConsole.sendCtrlC()
 			self.rtmpConsole = None
 
@@ -393,7 +393,7 @@ class StreamTVList(Screen):
 		def appendCommand(key, option):
 			try:
 				d = uriInfo.get(key)
-				if d is not None:
+				if d != None:
 					return "-%s %s " % (option, d)
 			except:
 				pass

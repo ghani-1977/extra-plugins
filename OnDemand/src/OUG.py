@@ -120,7 +120,7 @@ class OpenUgSetupScreen(Screen):
 #=========================================================================================
     def keyGo(self):
         selection = self["menu"].l.getCurrentSelection()
-        if selection is not None:
+        if selection != None:
             if selection[1] == 'recent':
                 self.session.open(OpenUg, selection[1])
             elif selection[1] == 'pop':
@@ -136,7 +136,7 @@ class OpenUgSetupScreen(Screen):
 
     def keyCancel(self):
         self.removeFiles(self.imagedir)
-        if self.lastservice is not None:
+        if self.lastservice != None:
             self.session.nav.playService(self.lastservice)
         self.close()
 
@@ -300,7 +300,7 @@ class OpenUg(StreamsThumbCommon):
                 self.updateMenu()
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.isRtl = False
             self.level = self.UG_LEVEL_SERIE
             self.getMediaData(self.mediaList, self.STAGING_UG_BASE_URL + "ug/ajax/action/search/protocol/html/searchString/" + callback)

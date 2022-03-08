@@ -72,7 +72,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
             print(e)
 
         try:
-            if piconsUrls['size'] is not None:
+            if piconsUrls['size'] != None:
                 sizeChoices = getConfigSizeList()
                 config.plugins.PiconsUpdater.size.setChoices(sizeChoices, sizeChoices[0][0])
                 menuList.append(getConfigListEntry(_('Size'), config.plugins.PiconsUpdater.size, _('Picons size')))
@@ -80,7 +80,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
             print(e)
 
         try:
-            if piconsUrls['backgrounds'] is not None:
+            if piconsUrls['backgrounds'] != None:
                 backgroundChoices = getConfigBackgroundList()
                 config.plugins.PiconsUpdater.background.setChoices(backgroundChoices, backgroundChoices[0][0])
                 menuList.append(getConfigListEntry(_('Picon Style'), config.plugins.PiconsUpdater.background, _('Picons background/foreground image'), 'BACKGROUND'))
@@ -141,7 +141,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
     def getCurrentBackground(self):
         backgroundType = config.plugins.PiconsUpdater.background.getValue()
         backgroundList = self.getCurrentBackgroundList()
-        if backgroundList is not None:
+        if backgroundList != None:
             for background in backgroundList:
                 if background['key'] == backgroundType:
                     return background
@@ -199,12 +199,12 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
             return None
 
     def showBackgroundPicture(self):
-        if self.getCurrentBackgroundList() is not None:
+        if self.getCurrentBackgroundList() != None:
             self['backgroundImage'].instance.setPixmapFromFile(self.getBackgroundImagePath())
             self['backgroundImage'].instance.setScale(1)
 
     def showForegroundPicture(self):
-        if self.getCurrentBackgroundList() is not None and self.getForegroundImagePath() is not None:
+        if self.getCurrentBackgroundList() != None and self.getForegroundImagePath() != None:
             self['foregroundImage'].instance.setPixmapFromFile(self.getForegroundImagePath())
             self['foregroundImage'].instance.setScale(1)
             self['foregroundImage'].visible = True
@@ -220,14 +220,14 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
 
         if self.__checkReadWriteDir(getPiconsPath()) == False:
             return
-        if self.getCurrentBackgroundList() is not None and os.path.isfile(self.getBackgroundImagePath()) is False:
+        if self.getCurrentBackgroundList() != None and os.path.isfile(self.getBackgroundImagePath()) is False:
             self.session.open(MessageBox, _('Background Image not downloaded yet, please wait some seconds and try again.'), type=MessageBox.TYPE_INFO)
             return
         addEventListener(DOWNLOAD_ALL_FINISHED, self.__downloadAllFinished)
         self.session.open(JobProgressView, 'Download Progress', msgBoxID='startDownload')
         self.totalDownloads = 1
         piconUrl = self.getCurrentPiconUrl()
-        if piconUrl is not None:
+        if piconUrl != None:
             addEventListener(DOWNLOAD_FINISHED, self.__downloadFinished)
             tmpPiconsPath = TMP_PICON_PATH + '/' + getPiconsTypeValue()
             if os.path.isdir(tmpPiconsPath) is False:
@@ -275,7 +275,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
         return cur
 
     def __pathSelected(self, res):
-        if res is not None:
+        if res != None:
             pathInput = self.getCurrent()
             pathInput.setValue(res)
 
@@ -332,7 +332,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
         printToConsole("[ERROR] Download Failed: '%s'" % downloadJob.errorMessage)
 
     def __bgDownloadFinished(self, downloadJob=None):
-        if downloadJob is not None:
+        if downloadJob != None:
             printToConsole("Background Download finished for url '%s'" % downloadJob.downloadUrl)
         self.__setBackgroundImageDownloadFinished()
 
@@ -341,7 +341,7 @@ class PiconsUpdaterView(ConfigListScreen, Screen):
         self.__setBackgroundImageDownloadFinished()
 
     def __fgDownloadFinished(self, downloadJob=None):
-        if downloadJob is not None:
+        if downloadJob != None:
             printToConsole("Foreground Download finished for url '%s'" % downloadJob.downloadUrl)
         self.__setForegroundImageDownloadFinished()
 

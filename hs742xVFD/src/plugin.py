@@ -155,7 +155,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
             Console().ePopen("fp_control -l 0 0")
             print("[hs742xVFD] set brightness", config.plugins.vfdicon.contrast.value)
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -226,7 +226,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[hs742xVFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)

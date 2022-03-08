@@ -53,7 +53,7 @@ class UnionTunerType(Screen, ConfigListScreen):
         self['key_green'] = StaticText(_('OK'))
 
     def settingsWrite(self, result):
-        if result is not None and result:
+        if result != None and result:
             for line in fileinput.input(filename, inplace=1):
                 if line.startswith(option):
                     print(option + self.tunerconfig.value)

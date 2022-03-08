@@ -151,7 +151,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
             Console().ePopen("fp_control -l 0 0 -l 1 " + b + " -l 4 " + c + " -l 5 " + c + " -l 6 " + c + " -l 7 " + c)
             print("[hs8200VFD] set brightness", config.plugins.vfdicon.contrast.value)
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -239,7 +239,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[hs8200VFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -354,7 +354,7 @@ class VFDIcons:
         if config.plugins.vfdicon.showicons.value == "all":
             if self.tuned == True:
                 service = self.session.nav.getCurrentService()
-                if service is not None and self.play == False:
+                if service != None and self.play == False:
                     info = service.info()
                     TPdata = info and info.getInfoObject(iServiceInformation.sTransponderData)
 #					tunerType = TPdata.get("tuner_type")

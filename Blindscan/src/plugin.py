@@ -288,7 +288,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self["key_yellow"] = StaticText("")
 		self["key_blue"] = StaticText(_("Restore defaults"))
 
-		if self.scan_nims.value is not None and self.scan_nims.value != "": # self.scan_nims set in createConfig()
+		if self.scan_nims.value != None and self.scan_nims.value != "": # self.scan_nims set in createConfig()
 			self["key_green"] = StaticText(_("Scan"))
 			self.createSetup()
 
@@ -299,7 +299,7 @@ class Blindscan(ConfigListScreen, Screen):
 		self.nimSockets = self.ScanNimsocket()
 		self.makeNimSocket()
 
-		if XML_FILE is not None and os.path.exists(XML_FILE):
+		if XML_FILE != None and os.path.exists(XML_FILE):
 			self["key_yellow"].setText(_("Open xml file"))
 			self["actions3"].setEnabled(True)
 		else:
@@ -358,7 +358,7 @@ class Blindscan(ConfigListScreen, Screen):
 	def makeNimSocket(self, nimname=""):
 		is_exist_i2c = False
 		self.i2c_mapping_table = {0: 2, 1: 3, 2: 1, 3: 0}
-		if self.nimSockets is not None:
+		if self.nimSockets != None:
 			for XX in self.nimSockets.keys():
 				nimsocket = self.nimSockets[XX]
 				if len(nimsocket) > 1:
@@ -443,10 +443,10 @@ class Blindscan(ConfigListScreen, Screen):
 		}
 
 		self.service = self.session.nav.getCurrentService()
-		if self.service is not None:
+		if self.service != None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
-		if frontendData is not None:
+		if frontendData != None:
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)
@@ -1197,7 +1197,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 		self.blindscanSessionNone(val[0])
 
-		if self.tmp_tplist is not None and self.tmp_tplist != []:
+		if self.tmp_tplist != None and self.tmp_tplist != []:
 			if not self.SundtekScan:
 				self.tmp_tplist = self.correctBugsCausedByDriver(self.tmp_tplist)
 

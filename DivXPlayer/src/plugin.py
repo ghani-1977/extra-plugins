@@ -282,7 +282,7 @@ class DivXPlayer(Screen, InfoBarBase, InfoBarSeek, InfoBarAudioSelection, InfoBa
 		self.next_operation = "PLAY_DIVX"
 
 		#if last service played stop it ...
-		if self.lastServicePlayed is not None and self.lastServicePlayed != self.current_service:
+		if self.lastServicePlayed != None and self.lastServicePlayed != self.current_service:
 			self.stopDivXService()
 		else:
 			if (self.seekstate == self.SEEK_STATE_PAUSE) or (self.seekstate == self.SEEK_STATE_BWD) or (self.seekstate == self.SEEK_STATE_FWD):

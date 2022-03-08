@@ -310,7 +310,7 @@ class DLNAFileBrowser(Screen):
         self.session.open(MessageBox, message, type=MessageBox.TYPE_INFO)
 
     def cbShowMovie(self, data=None):
-        if self.beforeService is not None:
+        if self.beforeService != None:
             self.session.nav.playService(self.beforeService)
             self.beforeService = None
 
@@ -379,7 +379,7 @@ class DLNAStreamPlayer(Screen, InfoBarNotifications):
 
     def __seekableStatusChanged(self):
         service = self.session.nav.getCurrentService()
-        if service is not None:
+        if service != None:
             seek = service.seek()
             if seek is None or not seek.isCurrentlySeekable():
                 self.setSeekState(self.PLAYER_PLAYING)
@@ -410,7 +410,7 @@ class DLNAStreamPlayer(Screen, InfoBarNotifications):
             return
 
         pauseable = service.pause()
-        if pauseable is not None:
+        if pauseable != None:
             if wantstate == self.PLAYER_PAUSED:
                 pauseable.pause()
                 self.state = self.PLAYER_PAUSED
@@ -659,11 +659,11 @@ class TaskManager:
         cbCloseFunc = self.taskList[self.taskIdx][2]
 
         self.gTaskInstance = eConsoleAppContainer()
-        if cbDataFunc is not None:
+        if cbDataFunc != None:
             self.gTaskInstance.dataAvail.append(cbDataFunc)
-        if cbCloseFunc is not None:
+        if cbCloseFunc != None:
             self.gTaskInstance.appClosed.append(cbCloseFunc)
-        if self.cbSetStatusCB is not None:
+        if self.cbSetStatusCB != None:
             self.cbSetStatusCB(self.taskIdx)
 
         print("[DLNAClient Plugin] Info >> prepared command : %s" % (command))
@@ -932,21 +932,21 @@ class DLNADeviceBrowser(Screen):
         global DLNA_CONFIG_SLIDESHOW
         global DLNA_CONFIG_DEVICE_REFRESH
         try:
-            if refresh is not None:
+            if refresh != None:
                 newRefresh = int(refresh) * 1000
                 if DLNA_CONFIG_DEVICE_REFRESH != newRefresh:
                     DLNA_CONFIG_DEVICE_REFRESH = newRefresh
         except:
             pass
         try:
-            if rootdir is not None:
+            if rootdir != None:
                 if DLNA_CONFIG_ROOT_DIR != rootdir:
                     DLNA_CONFIG_ROOT_DIR = rootdir
                     print("need restart!!!")
         except:
             pass
         try:
-            if slideshow is not None:
+            if slideshow != None:
                 newSlideshow = int(slideshow) * 1000
                 if DLNA_CONFIG_SLIDESHOW != newSlideshow:
                     DLNA_CONFIG_SLIDESHOW = newSlideshow

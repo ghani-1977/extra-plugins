@@ -207,7 +207,7 @@ class StreamsMenu(Screen):
         title = self["latestMenu"].l.getCurrentSelection()[0]
         selection = self["latestMenu"].l.getCurrentSelection()[1]
 
-        if selection is not None:
+        if selection != None:
             if selection is "exit":
                 self.close(None)
             else:
@@ -275,7 +275,7 @@ class StreamsThumb(StreamsThumbCommon):
 
 #==============================================================================
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("ABC iView: Search Listings for " + callback)
             self.getSearchMediaData(self.mediaList, callback)
             self.updateMenu()
@@ -426,7 +426,7 @@ class StreamsThumb(StreamsThumbCommon):
             if stream_host == 'Akamai':
                 playpath_prefix = akamai_playpath_prefix
 
-            if rtmp_url is not None:
+            if rtmp_url != None:
                 # Being directed to a custom streaming server (i.e. for unmetered services).
                 # Currently this includes Hostworks for all unmetered ISPs except iiNet.
                 rtmp_chunks = rtmp_url.split('/')

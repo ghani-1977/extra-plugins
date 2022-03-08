@@ -564,7 +564,7 @@ class EPGFetcher(object):
             self.postScans()
             self.send_scans = False
         epgcache = eEPGCache.getInstance()
-        if old_service_set is not None:
+        if old_service_set != None:
             removed_services = old_service_set - self.service_set
             added_services = self.service_set - old_service_set
             for t in list(removed_services) + list(added_services):
@@ -631,7 +631,7 @@ class EPGFetcher(object):
 
         serviceHandler = eServiceCenter.getInstance()
         servicelist = serviceHandler.list(service_types_tv_ref)
-        if servicelist is not None:
+        if servicelist != None:
             serviceRef = servicelist.getNext()
             while serviceRef.valid():
                 name = ServiceReference(serviceRef).getServiceName().decode("utf-8").strip()
@@ -797,7 +797,7 @@ class EPGFetcher(object):
                 if self.updateDescriptions(channel_show_map):
                     NavigationInstance.instance.RecordTimer.saveTimer()
                 pos += len(fetch_chans) if max_fetch else len(chan_list)
-        if shows is not None and "timers" in shows:
+        if shows != None and "timers" in shows:
             res = self.processTimers(shows["timers"])
         config.plugins.icetv.last_update_time.value = last_update_time
         epgcache.save()
@@ -959,7 +959,7 @@ class EPGFetcher(object):
         success = False
         if not timersanitycheck.check():
             simulTimerList = timersanitycheck.getSimulTimerList()
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(timer):
                         _session.nav.RecordTimer.timeChanged(x)
@@ -1070,7 +1070,7 @@ class EPGFetcher(object):
                 try:
                     local_timer.ice_timer_id = res.json()["timers"][0]["id"].encode("utf-8")
                     self.addLog("Timer '%s' created OK" % local_timer.name)
-                    if local_timer.ice_timer_id is not None:
+                    if local_timer.ice_timer_id != None:
                         NavigationInstance.instance.RecordTimer.saveTimer()
                         self.deferredPostStatus(local_timer)
                 except:
@@ -1105,7 +1105,7 @@ class EPGFetcher(object):
 
     def postScans(self):
         scan_list = self.getTriplets()
-        print("[EPGFetcher] postScans", scan_list is not None)
+        print("[EPGFetcher] postScans", scan_list != None)
         if scan_list is None:
             return
         try:
@@ -1161,7 +1161,7 @@ def plugin_main(session, **kwargs):
 
 
 def after_scan(**kwargs):
-    if fetcher is not None:
+    if fetcher != None:
         fetcher.createFetchJob(send_scans=True)
 
 
@@ -1199,11 +1199,11 @@ class IceTVUIBase:
     def __init__(self, title=None, description=None, server=None):
         if hasattr(self, "_instructions"):
             self["instructions"] = Label(self._instructions)
-        if title is not None:
+        if title != None:
                 self.setTitle(title)
-        if description is not None:
+        if description != None:
                 self["description"] = Label(description)
-        if self._banner is not None:
+        if self._banner != None:
             self["banner"] = Label()
             if server is None:
                     server = config.plugins.icetv.server.name.value

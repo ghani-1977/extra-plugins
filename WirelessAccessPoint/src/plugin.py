@@ -554,7 +554,7 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 
 	def getInterfacesDataAvail(self, data):
 		self.blacklist_legacy_drivers()
-		if data is True and self.configStartMsg is not None:
+		if data is True and self.configStartMsg != None:
 			self.configStartMsg.close(True)
 
 	def ConfigFinishedMsg(self, ret):
@@ -846,11 +846,11 @@ class WirelessAccessPoint(Screen, ConfigListScreen):
 						fix_line = "%s=%s\n" % (key, value)
 						break
 
-#			if fix_line is not None:
+#			if fix_line != None:
 #				print("r_line : ", r_line,)
 #				print("fix_li : ", fix_line)
 
-			if fix_line is not None:
+			if fix_line != None:
 				new_conf.write(fix_line)
 			else:
 				new_conf.write(r_line)

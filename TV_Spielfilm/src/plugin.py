@@ -444,9 +444,9 @@ class TVTippsView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(56, 13), size=(63, 23), font=0, backcolor=12255304, color=16777215, backcolor_sel=12255304, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 4:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     x = sub('INFO', '', x)
-                    if search('neu|new', x) is not None:
+                    if search('neu|new', x) != None:
                         self.new = True
                     if self.xd == False:
                         png = '/usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/pic/icons/%sHD.png' % x
@@ -459,9 +459,9 @@ class TVTippsView(Screen):
                 else:
                     y = 6
             if y == 5:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     x = sub('INFO', '', x)
-                    if search('neu|new', x) is not None:
+                    if search('neu|new', x) != None:
                         self.new = True
                     if self.xd == False:
                         png = '/usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/pic/icons/%sHD.png' % x
@@ -511,7 +511,7 @@ class TVTippsView(Screen):
                 sref = self.service_db.lookup(service)
                 if self.picon == True:
                     picon = self.findPicon(sref)
-                    if picon is not None:
+                    if picon != None:
                         res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 18), size=(100, 60), png=LoadPixmap(picon)))###picon
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -652,7 +652,7 @@ class TVTippsView(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -660,12 +660,12 @@ class TVTippsView(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
@@ -676,11 +676,11 @@ class TVTippsView(Screen):
             title = search('<title>(.*?)</title>', output)
             self.title = transHTML(title.group(1))
             self.setTitle(self.title)
-        if search('<ul class="rating-dots">', bereich) is not None:
+        if search('<ul class="rating-dots">', bereich) != None:
             self.movie = True
         else:
             self.movie = False
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video, Text = Fotostrecke, 7/8/9 = IMDb/TMDb/TVDb, Info = EPG')
@@ -841,7 +841,7 @@ class TVTippsView(Screen):
             self['piclabel2'].setText('')
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -957,7 +957,7 @@ class TVTippsView(Screen):
             pass
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -994,7 +994,7 @@ class TVTippsView(Screen):
             output = ' '
 
         title = search('<title>(.*?)</title>', output)
-        if title is not None:
+        if title != None:
             self['searchtext'].setText(title.group(1))
             self['searchtext'].show()
             self.setTitle('')
@@ -1040,7 +1040,7 @@ class TVTippsView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.searchref[-1]
@@ -1093,9 +1093,9 @@ class TVTippsView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -1106,7 +1106,7 @@ class TVTippsView(Screen):
                         self.searchref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -1121,7 +1121,7 @@ class TVTippsView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -1173,7 +1173,7 @@ class TVTippsView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -1199,7 +1199,7 @@ class TVTippsView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -1222,7 +1222,7 @@ class TVTippsView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -1245,11 +1245,11 @@ class TVTippsView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -1292,9 +1292,9 @@ class TVTippsView(Screen):
         self['searchmenu'].l.setList(self.searchentries)
         self['searchmenu'].show()
         self.searchcount += 1
-        if self.searchcount <= self.maxsearchcount and search('<a class="next" href=".*?"', bereich) is not None:
+        if self.searchcount <= self.maxsearchcount and search('<a class="next" href=".*?"', bereich) != None:
             nextpage = search('<a class="next" href="(.*?)"', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.makeSearchView(nextpage.group(1))
             else:
                 self.ready = True
@@ -1344,7 +1344,7 @@ class TVTippsView(Screen):
                 pass
 
         if action == 'ok' and self.ready == True:
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
         return
@@ -1371,7 +1371,7 @@ class TVTippsView(Screen):
                         sref = None
                         channel = ''
 
-                if sref is not None:
+                if sref != None:
                     try:
                         start = self.start
                         s1 = sub(':..', '', start)
@@ -1502,7 +1502,7 @@ class TVTippsView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -1587,7 +1587,7 @@ class TVTippsView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -1641,7 +1641,7 @@ class TVTippsView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         elif self.current == 'searchmenu':
@@ -1652,7 +1652,7 @@ class TVTippsView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         return
@@ -1670,13 +1670,13 @@ class TVTippsView(Screen):
         if answer[0]:
             entry = answer[1]
             simulTimerList = self.session.nav.RecordTimer.record(entry)
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(entry):
                         self.session.nav.RecordTimer.timeChanged(x)
 
                 simulTimerList = self.session.nav.RecordTimer.record(entry)
-                if simulTimerList is not None:
+                if simulTimerList != None:
                     self.session.openWithCallback(self.finishSanityCorrection, TimerSanityConflict, simulTimerList)
             self.makeTimerDB()
             self.ready = True
@@ -1998,7 +1998,7 @@ class TVTippsView(Screen):
     def nextDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -2064,7 +2064,7 @@ class TVTippsView(Screen):
     def prevDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -2130,7 +2130,7 @@ class TVTippsView(Screen):
     def nextWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -2195,7 +2195,7 @@ class TVTippsView(Screen):
     def prevWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -3444,9 +3444,9 @@ class TVNeuView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(56, 13), size=(63, 23), font=0, backcolor=12255304, color=16777215, backcolor_sel=12255304, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 4:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     x = sub('INFO', '', x)
-                    if search('neu|new', x) is not None:
+                    if search('neu|new', x) != None:
                         self.new = True
                     if self.xd == False:
                         png = '/usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/pic/icons/%sHD.png' % x
@@ -3459,9 +3459,9 @@ class TVNeuView(Screen):
                 else:
                     y = 6
             if y == 5:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     x = sub('INFO', '', x)
-                    if search('neu|new', x) is not None:
+                    if search('neu|new', x) != None:
                         self.new = True
                     if self.xd == False:
                         png = '/usr/lib/enigma2/python/Plugins/Extensions/TVSpielfilm/pic/icons/%sHD.png' % x
@@ -3502,7 +3502,7 @@ class TVNeuView(Screen):
                 sref = self.service_db.lookup(service)
                 if self.picon == True:
                     picon = self.findPicon(sref)
-                    if picon is not None:
+                    if picon != None:
                         res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -3643,7 +3643,7 @@ class TVNeuView(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -3651,12 +3651,12 @@ class TVNeuView(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
@@ -3667,11 +3667,11 @@ class TVNeuView(Screen):
             title = search('<title>(.*?)</title>', output)
             self.title = transHTML(title.group(1))
             self.setTitle(self.title)
-        if search('<ul class="rating-dots">', bereich) is not None:
+        if search('<ul class="rating-dots">', bereich) != None:
             self.movie = True
         else:
             self.movie = False
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video, Text = Fotostrecke, 7/8/9 = IMDb/TMDb/TVDb, Info = EPG')
@@ -3832,7 +3832,7 @@ class TVNeuView(Screen):
             self['piclabel2'].setText('')
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -3948,7 +3948,7 @@ class TVNeuView(Screen):
             pass
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -3985,7 +3985,7 @@ class TVNeuView(Screen):
             output = ' '
 
         title = search('<title>(.*?)</title>', output)
-        if title is not None:
+        if title != None:
             self['searchtext'].setText(title.group(1))
             self['searchtext'].show()
             self.setTitle('')
@@ -4031,7 +4031,7 @@ class TVNeuView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.searchref[-1]
@@ -4084,9 +4084,9 @@ class TVNeuView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -4097,7 +4097,7 @@ class TVNeuView(Screen):
                         self.searchref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -4112,7 +4112,7 @@ class TVNeuView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -4164,7 +4164,7 @@ class TVNeuView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -4190,7 +4190,7 @@ class TVNeuView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -4213,7 +4213,7 @@ class TVNeuView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -4236,11 +4236,11 @@ class TVNeuView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -4283,9 +4283,9 @@ class TVNeuView(Screen):
         self['searchmenu'].l.setList(self.searchentries)
         self['searchmenu'].show()
         self.searchcount += 1
-        if self.searchcount <= self.maxsearchcount and search('<a class="next" href=".*?"', bereich) is not None:
+        if self.searchcount <= self.maxsearchcount and search('<a class="next" href=".*?"', bereich) != None:
             nextpage = search('<a class="next" href="(.*?)"', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.makeSearchView(nextpage.group(1))
             else:
                 self.ready = True
@@ -4335,7 +4335,7 @@ class TVNeuView(Screen):
                 pass
 
         if action == 'ok' and self.ready == True:
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
         return
@@ -4362,7 +4362,7 @@ class TVNeuView(Screen):
                         sref = None
                         channel = ''
 
-                if sref is not None:
+                if sref != None:
                     try:
                         start = self.start
                         s1 = sub(':..', '', start)
@@ -4487,7 +4487,7 @@ class TVNeuView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -4572,7 +4572,7 @@ class TVNeuView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -4626,7 +4626,7 @@ class TVNeuView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         elif self.current == 'searchmenu':
@@ -4637,7 +4637,7 @@ class TVNeuView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         return
@@ -4655,13 +4655,13 @@ class TVNeuView(Screen):
         if answer[0]:
             entry = answer[1]
             simulTimerList = self.session.nav.RecordTimer.record(entry)
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(entry):
                         self.session.nav.RecordTimer.timeChanged(x)
 
                 simulTimerList = self.session.nav.RecordTimer.record(entry)
-                if simulTimerList is not None:
+                if simulTimerList != None:
                     self.session.openWithCallback(self.finishSanityCorrection, TimerSanityConflict, simulTimerList)
             self.makeTimerDB()
             self.ready = True
@@ -4985,7 +4985,7 @@ class TVNeuView(Screen):
     def nextDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -5051,7 +5051,7 @@ class TVNeuView(Screen):
     def prevDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -5117,7 +5117,7 @@ class TVNeuView(Screen):
     def nextWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -5182,7 +5182,7 @@ class TVNeuView(Screen):
     def prevWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('date', self.link) is not None:
+            if search('date', self.link) != None:
                 self.link = self.link + 'FIN'
                 date1 = re.findall('date=(.*?)-..-..FIN', self.link)
                 date2 = re.findall('date=....-(.*?)-..FIN', self.link)
@@ -6230,7 +6230,7 @@ class TVGenreView(Screen):
         self.POSTtext = ''
         self.EPGtext = ''
         self.genre = genre
-        if search('Serie', genre) is not None:
+        if search('Serie', genre) != None:
             self.serie = True
         else:
             self.serie = False
@@ -6396,7 +6396,7 @@ class TVGenreView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.sref[-1]
@@ -6452,9 +6452,9 @@ class TVGenreView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -6465,7 +6465,7 @@ class TVGenreView(Screen):
                         self.sref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 1), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -6480,7 +6480,7 @@ class TVGenreView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -6533,7 +6533,7 @@ class TVGenreView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -6559,7 +6559,7 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -6582,7 +6582,7 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -6605,11 +6605,11 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -6654,9 +6654,9 @@ class TVGenreView(Screen):
         self['menu'].moveToIndex(end)
         self['menu'].show()
         self.genrecount += 1
-        if self.genrecount <= self.maxgenrecount and search('class="pagination__link pagination__link--next" >', bereich) is not None and self.load == True:
+        if self.genrecount <= self.maxgenrecount and search('class="pagination__link pagination__link--next" >', bereich) != None and self.load == True:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.downloadFull(nextpage.group(1), self.makeTVView)
             else:
                 self.load = False
@@ -6708,7 +6708,7 @@ class TVGenreView(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -6716,12 +6716,12 @@ class TVGenreView(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
@@ -6732,11 +6732,11 @@ class TVGenreView(Screen):
             title = search('<title>(.*?)</title>', output)
             self.title = transHTML(title.group(1))
             self.setTitle(self.title)
-        if search('<ul class="rating-dots">', bereich) is not None:
+        if search('<ul class="rating-dots">', bereich) != None:
             self.movie = True
         else:
             self.movie = False
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video, Text = Fotostrecke, 7/8/9 = IMDb/TMDb/TVDb, Info = EPG')
@@ -6897,7 +6897,7 @@ class TVGenreView(Screen):
             self['piclabel2'].setText('')
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -7013,7 +7013,7 @@ class TVGenreView(Screen):
             pass
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -7092,7 +7092,7 @@ class TVGenreView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.searchref[-1]
@@ -7145,9 +7145,9 @@ class TVGenreView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -7158,7 +7158,7 @@ class TVGenreView(Screen):
                         self.searchref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -7173,7 +7173,7 @@ class TVGenreView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -7225,7 +7225,7 @@ class TVGenreView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -7251,7 +7251,7 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -7274,7 +7274,7 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -7297,11 +7297,11 @@ class TVGenreView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -7344,9 +7344,9 @@ class TVGenreView(Screen):
         self['searchmenu'].l.setList(self.searchentries)
         self['searchmenu'].show()
         self.searchcount += 1
-        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) is not None:
+        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) != None:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.makeSearchView(nextpage.group(1))
             else:
                 self.ready = True
@@ -7396,7 +7396,7 @@ class TVGenreView(Screen):
                 pass
 
         if action == 'ok' and self.ready == True:
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
         return
@@ -7428,7 +7428,7 @@ class TVGenreView(Screen):
                         sref = None
                         channel = ''
 
-                if sref is not None:
+                if sref != None:
                     try:
                         start = self.start
                         s1 = sub(':..', '', start)
@@ -7553,7 +7553,7 @@ class TVGenreView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -7638,7 +7638,7 @@ class TVGenreView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -7692,7 +7692,7 @@ class TVGenreView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         elif self.current == 'searchmenu':
@@ -7703,7 +7703,7 @@ class TVGenreView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         return
@@ -7721,13 +7721,13 @@ class TVGenreView(Screen):
         if answer[0]:
             entry = answer[1]
             simulTimerList = self.session.nav.RecordTimer.record(entry)
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(entry):
                         self.session.nav.RecordTimer.timeChanged(x)
 
                 simulTimerList = self.session.nav.RecordTimer.record(entry)
-                if simulTimerList is not None:
+                if simulTimerList != None:
                     self.session.openWithCallback(self.finishSanityCorrection, TimerSanityConflict, simulTimerList)
             self.makeTimerDB()
             self.ready = True
@@ -8551,16 +8551,16 @@ class TVJetztView(Screen):
         else:
             self.showgenre = True
         self.makeTVTimer = eTimer()
-        if search('/sendungen/jetzt.html', link) is not None:
+        if search('/sendungen/jetzt.html', link) != None:
             self.jetzt = True
             self.makeTVTimer.callback.append(self.downloadFull(link, self.makeTVView))
-        elif search('time=shortly', link) is not None:
+        elif search('time=shortly', link) != None:
             self.gleich = True
             self.makeTVTimer.callback.append(self.downloadFull(link, self.makeTVView))
-        elif search('/sendungen/abends.html', link) is not None:
+        elif search('/sendungen/abends.html', link) != None:
             self.abends = True
             self.makeTVTimer.callback.append(self.downloadFull(link, self.makeTVView))
-        elif search('/sendungen/fernsehprogramm-nachts.html', link) is not None:
+        elif search('/sendungen/fernsehprogramm-nachts.html', link) != None:
             self.nachts = True
             self.makeTVTimer.callback.append(self.downloadFull(link, self.makeTVView))
         self.makeTVTimer.start(500, True)
@@ -8641,7 +8641,7 @@ class TVJetztView(Screen):
                             res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
                     if self.picon == True:
                         picon = self.findPicon(sref)
-                        if picon is not None:
+                        if picon != None:
                             res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 1), size=(100, 60), png=LoadPixmap(picon)))
                         else:
                             res.append(MultiContentEntryText(pos=(0, 1), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -8734,7 +8734,7 @@ class TVJetztView(Screen):
                     self.tvlink.append(res_link)
             if y == 3:
                 if self.filter == False:
-                    if search('TITEL', x) is not None:
+                    if search('TITEL', x) != None:
                         x = sub('TITEL', '', x)
                         titel = x.split('">')
                         if self.showgenre == False:
@@ -8757,7 +8757,7 @@ class TVJetztView(Screen):
                 elif search('TITEL', x) is None:
                     y = 4
             if y == 4:
-                if search('SPARTE', x) is not None:
+                if search('SPARTE', x) != None:
                     if self.filter == False:
                         x = sub('SPARTE', '', x)
                         if self.picon == True:
@@ -8809,7 +8809,7 @@ class TVJetztView(Screen):
         self['menu'].l.setList(self.tventries)
         if self.jetzt == True:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.downloadFull(nextpage.group(1), self.makeTVView)
             else:
                 self['menu'].moveToIndex(self.index)
@@ -8818,9 +8818,9 @@ class TVJetztView(Screen):
                 self['label'].stopBlinking()
                 self['label'].show()
         elif self.gleich == True:
-            if search('<a href=".*?tvspielfilm.de/tv-programm/sendungen/.*?page=[2-9]', bereich) is not None:
+            if search('<a href=".*?tvspielfilm.de/tv-programm/sendungen/.*?page=[2-9]', bereich) != None:
                 nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-                if nextpage is not None:
+                if nextpage != None:
                     self.downloadFull(nextpage.group(1), self.makeTVView)
             else:
                 self['menu'].moveToIndex(self.index)
@@ -8828,9 +8828,9 @@ class TVJetztView(Screen):
                 self['label'].setText('Text = Sender,        Info = Jetzt im TV/Gleich im TV')
                 self['label'].stopBlinking()
                 self['label'].show()
-        elif search('<a href=".*?tvspielfilm.de/tv-programm/sendungen/.*?page=[2-9]', bereich) is not None:
+        elif search('<a href=".*?tvspielfilm.de/tv-programm/sendungen/.*?page=[2-9]', bereich) != None:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.downloadFull(nextpage.group(1), self.makeTVView)
         else:
             self['menu'].moveToIndex(self.index)
@@ -8868,7 +8868,7 @@ class TVJetztView(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -8876,12 +8876,12 @@ class TVJetztView(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
@@ -8892,11 +8892,11 @@ class TVJetztView(Screen):
             title = search('<title>(.*?)</title>', output)
             self.title = transHTML(title.group(1))
             self.setTitle(self.title)
-        if search('<ul class="rating-dots">', bereich) is not None:
+        if search('<ul class="rating-dots">', bereich) != None:
             self.movie = True
         else:
             self.movie = False
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video, Text = Fotostrecke, 7/8/9 = IMDb/TMDb/TVDb, Info = EPG')
@@ -9057,7 +9057,7 @@ class TVJetztView(Screen):
             self['piclabel2'].setText('')
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -9173,7 +9173,7 @@ class TVJetztView(Screen):
             pass
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -9210,7 +9210,7 @@ class TVJetztView(Screen):
             output = ' '
 
         title = search('<title>(.*?)</title>', output)
-        if title is not None:
+        if title != None:
             self['searchtext'].setText(title.group(1))
             self['searchtext'].show()
             self.setTitle('')
@@ -9256,7 +9256,7 @@ class TVJetztView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.searchref[-1]
@@ -9309,9 +9309,9 @@ class TVJetztView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -9322,7 +9322,7 @@ class TVJetztView(Screen):
                         self.searchref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -9337,7 +9337,7 @@ class TVJetztView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -9389,7 +9389,7 @@ class TVJetztView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -9415,7 +9415,7 @@ class TVJetztView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -9438,7 +9438,7 @@ class TVJetztView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -9461,11 +9461,11 @@ class TVJetztView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -9508,9 +9508,9 @@ class TVJetztView(Screen):
         self['searchmenu'].l.setList(self.searchentries)
         self['searchmenu'].show()
         self.searchcount += 1
-        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) is not None:
+        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) != None:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.makeSearchView(nextpage.group(1))
             else:
                 self.ready = True
@@ -9560,7 +9560,7 @@ class TVJetztView(Screen):
                 pass
 
         if action == 'ok' and self.ready == True:
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
         return
@@ -9587,7 +9587,7 @@ class TVJetztView(Screen):
                         sref = None
                         channel = ''
 
-                if sref is not None:
+                if sref != None:
                     try:
                         start = self.start
                         s1 = sub(':..', '', start)
@@ -9734,7 +9734,7 @@ class TVJetztView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -9819,7 +9819,7 @@ class TVJetztView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -9873,7 +9873,7 @@ class TVJetztView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.index = self.oldindex
                 self.download(self.postlink, self.makePostTimer)
@@ -9885,7 +9885,7 @@ class TVJetztView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         return
@@ -9903,13 +9903,13 @@ class TVJetztView(Screen):
         if answer[0]:
             entry = answer[1]
             simulTimerList = self.session.nav.RecordTimer.record(entry)
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(entry):
                         self.session.nav.RecordTimer.timeChanged(x)
 
                 simulTimerList = self.session.nav.RecordTimer.record(entry)
-                if simulTimerList is not None:
+                if simulTimerList != None:
                     self.session.openWithCallback(self.finishSanityCorrection, TimerSanityConflict, simulTimerList)
             self.makeTimerDB()
             self.ready = True
@@ -10879,7 +10879,7 @@ class TVProgrammView(Screen):
                         passed = nowsec - startsec
                         percent = passed * 100 / length
                         self.percent = True
-                if search('20:15 -', x) is not None or self.percent == True:
+                if search('20:15 -', x) != None or self.percent == True:
                     self.primetime = True
                     if self.picon == True:
                         if self.xd == False:
@@ -10932,7 +10932,7 @@ class TVProgrammView(Screen):
                 x = sub('LINK', '', x)
                 self.tvlink.append(x)
             if y == 3:
-                if search('TITEL', x) is not None:
+                if search('TITEL', x) != None:
                     x = sub('TITEL', '', x)
                     titel = x.split('">')
                     if self.showgenre == False:
@@ -10966,7 +10966,7 @@ class TVProgrammView(Screen):
                 else:
                     y = 4
             if y == 4:
-                if search('SPARTE', x) is not None:
+                if search('SPARTE', x) != None:
                     x = sub('SPARTE', '', x)
                     if self.picon == True:
                         if self.primetime == False:
@@ -10990,7 +10990,7 @@ class TVProgrammView(Screen):
                 else:
                     y = 5
             if y == 5:
-                if search('RATING', x) is not None:
+                if search('RATING', x) != None:
                     x = sub('RATING', '', x)
                     if self.rec == True:
                         self.rec = False
@@ -11027,9 +11027,9 @@ class TVProgrammView(Screen):
             self['menu'].l.setItemHeight(30)
         self['menu'].l.setList(self.tventries)
         self['menu'].moveToIndex(self.oldindex)
-        if search('class="pagination__link pagination__link--next" >', bereich) is not None:
+        if search('class="pagination__link pagination__link--next" >', bereich) != None:
             link = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if link is not None:
+            if link != None:
                 self.makeTVTimer.callback.append(self.downloadFullPage(link.group(1), self.makeTVView))
             else:
                 self.ready = True
@@ -11045,7 +11045,7 @@ class TVProgrammView(Screen):
                 self['label'].show()
         if self.eventview == True and config.plugins.tvspielfilm.eventview.value == 'info':
             self.postlink = self.tvlink[0]
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
             else:
@@ -11080,7 +11080,7 @@ class TVProgrammView(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -11088,12 +11088,12 @@ class TVProgrammView(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
@@ -11104,11 +11104,11 @@ class TVProgrammView(Screen):
             title = search('<title>(.*?)</title>', output)
             self.title = transHTML(title.group(1))
             self.setTitle(self.title)
-        if search('<ul class="rating-dots">', bereich) is not None:
+        if search('<ul class="rating-dots">', bereich) != None:
             self.movie = True
         else:
             self.movie = False
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video, Text = Fotostrecke, 7/8/9 = IMDb/TMDb/TVDb, Info = EPG')
@@ -11269,7 +11269,7 @@ class TVProgrammView(Screen):
             self['piclabel2'].setText('')
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -11394,7 +11394,7 @@ class TVProgrammView(Screen):
             pass
 
         shortdesc = search('<section class="serial-info">\\n\\s+(.*?)</section>', bereich)
-        if shortdesc is not None:
+        if shortdesc != None:
             self.shortdesc = sub('<span class="info">', '', shortdesc.group(1))
             self.shortdesc = sub('</span>\\s+', ', ', self.shortdesc)
             self.shortdesc = sub('  ', '', self.shortdesc)
@@ -11431,7 +11431,7 @@ class TVProgrammView(Screen):
             output = ' '
 
         title = search('<title>(.*?)</title>', output)
-        if title is not None:
+        if title != None:
             self['searchtext'].setText(title.group(1))
             self['searchtext'].show()
             self.setTitle('')
@@ -11477,7 +11477,7 @@ class TVProgrammView(Screen):
                         res.append(MultiContentEntryText(pos=(0, 0), size=(1220, 40), font=-1, backcolor_sel=self.back_color, text=''))
                     else:
                         res.append(MultiContentEntryText(pos=(0, 0), size=(992, 30), font=0, backcolor_sel=self.back_color, text=''))
-                if search('DATUM', x) is not None:
+                if search('DATUM', x) != None:
                     if self.datum == True:
                         try:
                             del self.searchref[-1]
@@ -11530,9 +11530,9 @@ class TVProgrammView(Screen):
                 else:
                     res.append(MultiContentEntryText(pos=(45, 3), size=(154, 30), font=0, color=10857646, color_sel=16777215, flags=RT_HALIGN_CENTER, text=x))
             if y == 2:
-                if search('LOGO', x) is not None:
+                if search('LOGO', x) != None:
                     logo = search('LOGO(.*?)">', x)
-                    if logo is not None:
+                    if logo != None:
                         x = logo.group(1)
                     service = x
                     sref = self.service_db.lookup(service)
@@ -11543,7 +11543,7 @@ class TVProgrammView(Screen):
                         self.searchref.append(sref)
                         if self.picon == True:
                             picon = self.findPicon(sref)
-                            if picon is not None:
+                            if picon != None:
                                 res.append(MultiContentEntryPixmapAlphaTest(pos=(0, 0), size=(100, 60), png=LoadPixmap(picon)))
                             else:
                                 res.append(MultiContentEntryText(pos=(0, 0), size=(100, 60), font=1, color=10857646, color_sel=16777215, flags=RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text='Picon not found'))
@@ -11558,7 +11558,7 @@ class TVProgrammView(Screen):
                         start = sub(' - ..:..', '', start)
                         daynow = sub('....-..-', '', str(self.date))
                         day = search(', ([0-9]+). ', self.datum_string)
-                        if day is not None:
+                        if day != None:
                             day = day.group(1)
                         else:
                             day = daynow
@@ -11610,7 +11610,7 @@ class TVProgrammView(Screen):
                             res.append(MultiContentEntryText(pos=(200, 3), size=(578, 30), font=0, color_sel=16777215, flags=RT_HALIGN_LEFT, text=titelfilter))
                         y = 6
             if y == 6:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         if self.rec == True:
                             self.rec = False
@@ -11636,7 +11636,7 @@ class TVProgrammView(Screen):
                 else:
                     y = 9
             if y == 7:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -11659,7 +11659,7 @@ class TVProgrammView(Screen):
                 else:
                     y = 9
             if y == 8:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     if self.filter == False:
                         x = sub('INFO', '', x)
                         if self.picon == True:
@@ -11682,11 +11682,11 @@ class TVProgrammView(Screen):
                 else:
                     y = 9
             if y == 9:
-                if search('INFO', x) is not None:
+                if search('INFO', x) != None:
                     y = 7
                 elif self.filter == False:
                     self.datum = False
-                    if search('RATING', x) is not None:
+                    if search('RATING', x) != None:
                         x = sub('RATING', '', x)
                         if x != 'rating small':
                             if self.picon == True:
@@ -11729,9 +11729,9 @@ class TVProgrammView(Screen):
         self['searchmenu'].l.setList(self.searchentries)
         self['searchmenu'].show()
         self.searchcount += 1
-        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) is not None:
+        if self.searchcount <= self.maxsearchcount and search('class="pagination__link pagination__link--next" >', bereich) != None:
             nextpage = search('<a href="(.*?)"\\n\\s+class="pagination__link pagination__link--next" >', bereich)
-            if nextpage is not None:
+            if nextpage != None:
                 self.makeSearchView(nextpage.group(1))
             else:
                 self.ready = True
@@ -11781,7 +11781,7 @@ class TVProgrammView(Screen):
                 pass
 
         if action == 'ok' and self.ready == True:
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.current = 'postview'
                 self.downloadPostPage(self.postlink, self.makePostviewPage)
         return
@@ -11805,7 +11805,7 @@ class TVProgrammView(Screen):
                 else:
                     sref = None
                     channel = ''
-                if sref is not None:
+                if sref != None:
                     try:
                         start = self.start
                         s1 = sub(':..', '', start)
@@ -11930,7 +11930,7 @@ class TVProgrammView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -12015,7 +12015,7 @@ class TVProgrammView(Screen):
 
                 name = self.name
                 shortdesc = self.shortdesc
-                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) is not None:
+                if search('Staffel [0-9]+, Folge [0-9]+', shortdesc) != None:
                     episode = search('(Staffel [0-9]+, Folge [0-9]+)', shortdesc)
                     episode = sub('Staffel ', 'S', episode.group(1))
                     episode = sub(', Folge ', 'E', episode)
@@ -12069,7 +12069,7 @@ class TVProgrammView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         elif self.current == 'searchmenu':
@@ -12080,7 +12080,7 @@ class TVProgrammView(Screen):
             except IndexError:
                 pass
 
-            if search('www.tvspielfilm.de', self.postlink) is not None:
+            if search('www.tvspielfilm.de', self.postlink) != None:
                 self.oldcurrent = self.current
                 self.download(self.postlink, self.makePostTimer)
         else:
@@ -12100,13 +12100,13 @@ class TVProgrammView(Screen):
         if answer[0]:
             entry = answer[1]
             simulTimerList = self.session.nav.RecordTimer.record(entry)
-            if simulTimerList is not None:
+            if simulTimerList != None:
                 for x in simulTimerList:
                     if x.setAutoincreaseEnd(entry):
                         self.session.nav.RecordTimer.timeChanged(x)
 
                 simulTimerList = self.session.nav.RecordTimer.record(entry)
-                if simulTimerList is not None:
+                if simulTimerList != None:
                     self.session.openWithCallback(self.finishSanityCorrection, TimerSanityConflict, simulTimerList)
             self.makeTimerDB()
             if self.tagestipp == False:
@@ -12441,7 +12441,7 @@ class TVProgrammView(Screen):
     def nextDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('time&date', self.link) is not None:
+            if search('time&date', self.link) != None:
                 date1 = re.findall('time&date=(.*?)-..-..&tips', self.link)
                 date2 = re.findall('time&date=....-(.*?)-..&tips', self.link)
                 date3 = re.findall('time&date=....-..-(.*?)&tips', self.link)
@@ -12490,7 +12490,7 @@ class TVProgrammView(Screen):
     def prevDay(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('time&date', self.link) is not None:
+            if search('time&date', self.link) != None:
                 date1 = re.findall('time&date=(.*?)-..-..&tips', self.link)
                 date2 = re.findall('time&date=....-(.*?)-..&tips', self.link)
                 date3 = re.findall('time&date=....-..-(.*?)&tips', self.link)
@@ -12539,7 +12539,7 @@ class TVProgrammView(Screen):
     def nextWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('time&date', self.link) is not None:
+            if search('time&date', self.link) != None:
                 date1 = re.findall('time&date=(.*?)-..-..&tips', self.link)
                 date2 = re.findall('time&date=....-(.*?)-..&tips', self.link)
                 date3 = re.findall('time&date=....-..-(.*?)&tips', self.link)
@@ -12587,7 +12587,7 @@ class TVProgrammView(Screen):
     def prevWeek(self):
         if self.current != 'postview' and self.ready == True and self.search == False:
             self.ready = False
-            if search('time&date', self.link) is not None:
+            if search('time&date', self.link) != None:
                 date1 = re.findall('time&date=(.*?)-..-..&tips', self.link)
                 date2 = re.findall('time&date=....-(.*?)-..&tips', self.link)
                 date3 = re.findall('time&date=....-..-(.*?)&tips', self.link)
@@ -13093,7 +13093,7 @@ class TVTrailer(Screen):
                 if y == 3:
                     x = sub('TITEL', '', x)
                     titel = search('"(.*?)"', x)
-                    if titel is not None:
+                    if titel != None:
                         self.tvtitel.append(titel.group(1))
                     else:
                         self.tvtitel.append(x)
@@ -13150,7 +13150,7 @@ class TVTrailer(Screen):
                 if y == 2:
                     x = sub('TITEL', '', x)
                     titel = search('"(.*?)"', x)
-                    if titel is not None:
+                    if titel != None:
                         self.tvtitel.append(titel.group(1))
                     else:
                         self.tvtitel.append(x)
@@ -13210,7 +13210,7 @@ class TVTrailer(Screen):
                 if y == 1:
                     x = sub('TITEL', '', x)
                     titel = search('"(.*?)"', x)
-                    if titel is not None:
+                    if titel != None:
                         self.tvtitel.append(titel.group(1))
                     else:
                         self.tvtitel.append(x)
@@ -13322,7 +13322,7 @@ class TVTrailer(Screen):
                 pass
 
     def playTrailer(self, output):
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailer = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailer = 'https://video.tvspielfilm.de/' + trailer.group(1) + '.mp4'
             try:
@@ -13332,7 +13332,7 @@ class TVTrailer(Screen):
             except IndexError:
                 pass
 
-        elif search('rl: .https://video.tvspielfilm.de/.*?flv', output) is not None:
+        elif search('rl: .https://video.tvspielfilm.de/.*?flv', output) != None:
             self.session.open(MessageBox, 'Der Trailer kann nicht abgespielt werden:\nnicht unterst\xfctzter Video-Codec: On2 VP6/Flash', MessageBox.TYPE_INFO, close_on_any_key=True)
         else:
             self.session.open(MessageBox, '\nKein Trailer vorhanden', MessageBox.TYPE_INFO, close_on_any_key=True)
@@ -15378,7 +15378,7 @@ class TVNews(Screen):
         self['statuslabel'].hide()
         self['menu'].hide()
         self['slider_menu'].hide()
-        if search('<title>', output) is not None:
+        if search('<title>', output) != None:
             titel = search('<title>(.*?)</title>', output)
             titel = titel.group(1).replace('&amp;', '&')
             self.title = sub(' - TV Spielfilm', '', titel)
@@ -15401,7 +15401,7 @@ class TVNews(Screen):
         bereich = re.sub('<script.*?</script>', '', bereich, flags=re.S)
         bereich = re.sub('<style.*?</style>', '', bereich, flags=re.S)
         bereich = re.sub('<div class="text" id=".*?</div>', '', bereich, flags=re.S)
-        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) is not None:
+        if search('rl: .https://video.tvspielfilm.de/.*?mp4', output) != None:
             trailerurl = search('rl: .https://video.tvspielfilm.de/(.*?).mp4', output)
             self.trailerurl = 'https://video.tvspielfilm.de/' + trailerurl.group(1) + '.mp4'
             self.trailer = True
@@ -15409,19 +15409,19 @@ class TVNews(Screen):
             self.trailer = False
         bereich = sub('" alt=".*?" width="', '" width="', bereich)
         picurl = search('<img src="(.*?)" width="', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
             picurl = search('<meta property="og:image" content="(.*?)"', output)
-            if picurl is not None:
+            if picurl != None:
                 self.download(picurl.group(1), self.getPicPost)
                 self['picpost'].show()
             else:
                 picurl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/TV-Spielfilm-Logo.svg/500px-TV-Spielfilm-Logo.svg.png'
                 self.download(picurl, self.getPicPost)
                 self['picpost'].show()
-        if search('<div class="film-gallery">', output) is not None:
+        if search('<div class="film-gallery">', output) != None:
             self.mehrbilder = True
             if self.trailer == True:
                 self['label'].setText('OK = Zum Video')
@@ -15516,11 +15516,11 @@ class TVNews(Screen):
         try:
             self.postlink = self.menulink[c]
             if action == 'ok':
-                if search('/playboy/', self.postlink) is not None:
+                if search('/playboy/', self.postlink) != None:
                     self.session.openWithCallback(self.picReturn, PlayboyPicShow, self.postlink)
-                elif search('blog.tvspielfilm.de', self.postlink) is not None:
+                elif search('blog.tvspielfilm.de', self.postlink) != None:
                     self.session.openWithCallback(self.picReturn, TVBlog, self.postlink, True)
-                elif search('www.tvspielfilm.de', self.postlink) is not None:
+                elif search('www.tvspielfilm.de', self.postlink) != None:
                     self.current = 'postview'
                     self.downloadPostPage(self.postlink, self.makePostviewPage)
                 else:
@@ -15914,7 +15914,7 @@ class TVBlog(Screen):
         except IndexError:
             self['previewtext'].setText('')
 
-        if search('<a class="next page-numbers"', output) is not None:
+        if search('<a class="next page-numbers"', output) != None:
             self['label'].setText('OK = Post, Up/Down = Blog\nBouquet = +- Seite')
         else:
             self['label'].setText('OK = Post, Up/Down = Blog\nLetzte Blog Seite')
@@ -15928,19 +15928,19 @@ class TVBlog(Screen):
         self['topictext'].hide()
         self['previewtext'].hide()
         self['statuslabel'].hide()
-        if search('<title>', output) is not None:
+        if search('<title>', output) != None:
             titel = search('<title>(.*?)</title>', output)
             self.title = transHTML(titel.group(1)).replace(' | TV Spielfilm Blog | TV SPIELFILM bloggt aus Hollywood, aus dem Kino und von der Wohnzimmercouch', '')
             self.setTitle(self.title)
         startpos = output.find('<div id="content">')
         endpos = output.find('<!-- #homecontent -->')
         bereich = output[startpos:endpos]
-        if search('<source type="video/mp4" src=".*?mp4"', bereich) is not None:
+        if search('<source type="video/mp4" src=".*?mp4"', bereich) != None:
             trailerurl = search('<source type="video/mp4" src="(.*?)"', bereich)
             self.trailerurl = trailerurl.group(1)
             self['label'].setText('OK = Zum Video')
             self.trailer = True
-        elif search('src="//www.youtube.com/embed/', bereich) is not None:
+        elif search('src="//www.youtube.com/embed/', bereich) != None:
             trailerurl = search('src="//www.youtube.com/embed/(.*?)"', bereich)
             self.trailerurl = trailerurl.group(1)
             self['label'].setText('OK = Zum Video')
@@ -15951,7 +15951,7 @@ class TVBlog(Screen):
         bereich = sub('<iframe width="[0-9]+" height="[0-9]+" src="//www.youtube.com/embed/', '<img width="785" height="510" src="http://img.youtube.com/vi/', bereich)
         bereich = sub('" frameborder="0"', '/0.jpg"', bereich)
         picurl = search('<img width="[0-9]+" height="[0-9]+" src="(.*?)"', bereich)
-        if picurl is not None:
+        if picurl != None:
             self.download(picurl.group(1), self.getPicPost)
             self['picpost'].show()
         else:
@@ -15959,7 +15959,7 @@ class TVBlog(Screen):
             self.download(picurl, self.getPicPost)
             self['picpost'].show()
         meta = search('<p class="meta">(.*?)</p>', bereich, flags=re.S)
-        if meta is not None:
+        if meta != None:
             meta = sub('\n', '', meta.group(1))
             meta = sub('[ ]+', ' ', meta)
             meta = sub('\t', '', meta)
@@ -16013,13 +16013,13 @@ class TVBlog(Screen):
                 self.selectPage('ok')
             elif self.current == 'postview' and self.postviewready == True:
                 if self.trailer == True:
-                    if search('blog.tvspielfilm.de', self.trailerurl) is not None:
+                    if search('blog.tvspielfilm.de', self.trailerurl) != None:
                         sref = eServiceReference(4097, 0, self.trailerurl)
                         sref.setName(self.title)
                         self.session.open(MoviePlayer, sref)
                     else:
                         video = self.getYouTubeURL(self.trailerurl)
-                        if video is not None:
+                        if video != None:
                             sref = eServiceReference(4097, 0, video)
                             sref.setName(self.title)
                             self.session.open(MoviePlayer, sref)
@@ -16038,7 +16038,7 @@ class TVBlog(Screen):
         try:
             self.postlink = self.menulink[c]
             if action == 'ok':
-                if search('blog.tvspielfilm.de', self.postlink) is not None:
+                if search('blog.tvspielfilm.de', self.postlink) != None:
                     self.current = 'postview'
                     self.downloadPostPage(self.postlink, self.makePostviewPage)
                 else:
@@ -16428,7 +16428,7 @@ class TVNewsPicShow(Screen):
         self.getInfoTimer.start(500, True)
 
     def getPixPage(self, output):
-        if search('<title>', output) is not None:
+        if search('<title>', output) != None:
             titel = search('<title>(.*?)</title>', output)
             titel = titel.group(1).replace('&amp;', '&')
             self.titel = sub(' - TV Spielfilm', '', titel)
@@ -16744,7 +16744,7 @@ class PlayboyPicShow(Screen):
             pass
 
         topline = search('<p><b>(.*?)</b><br/>', output)
-        if topline is not None:
+        if topline != None:
             self['pictext'].setText(transHTML(topline.group(1)))
         bereich = sub('<p class="headline2">.*?</p>', '', bereich)
         bereich = sub('<br/>\n', '', bereich)
@@ -17007,7 +17007,7 @@ class TVPicShow(Screen):
 
     def getPicPage(self, output):
         output = transHTML(output)
-        if search('<title>', output) is not None:
+        if search('<title>', output) != None:
             titel = search('<title>(.*?)</title>', output)
             titel = titel.group(1)
             self.titel = sub(' - TV Spielfilm', '', titel)
@@ -17723,7 +17723,7 @@ class searchYouTube(Screen):
                 trailer_id = self.trailer_id[c]
                 trailer_titel = self.trailer_titel[c]
                 trailer_url = self.getTrailerURL(trailer_id)
-                if trailer_url is not None:
+                if trailer_url != None:
                     sref = eServiceReference(4097, 0, trailer_url)
                     sref.setName(trailer_titel)
                     self.session.open(MoviePlayer, sref)
@@ -18336,7 +18336,7 @@ class infoScreenTVSpielfilm(Screen):
         elif self.plugin == 'translator':
             self.pluginname = 'EPG Translator'
         pluginsource = search('<a href="(.*?).attredirects=0".*?<img alt="Version ', output)
-        if pluginsource is not None:
+        if pluginsource != None:
             self.pluginsource = pluginsource.group(1)
             self.pluginfile = self.pluginsource.replace('https://sites.google.com/site/kashmirplugins/', '').replace('%5f', '_')
             self.downloadfile = '/tmp/' + str(self.pluginfile)
@@ -18346,11 +18346,11 @@ class infoScreenTVSpielfilm(Screen):
     def checkVersion(self, output):
         self.pluginname = 'TV Spielfilm'
         version = search('<img alt="Version (.*?)"', output)
-        if version is not None:
+        if version != None:
             version = version.group(1)
             if version != self.version:
                 pluginsource = search('<a href="(.*?).attredirects=0".*?<img alt="Version ', output)
-                if pluginsource is not None:
+                if pluginsource != None:
                     self.pluginsource = pluginsource.group(1)
                     self.pluginfile = self.pluginsource.replace('https://sites.google.com/site/kashmirplugins/', '').replace('%5f', '_')
                     versioninfo = re.findall('<li><span style="color:rgb\\(100,118,135\\)">(.*?)</span></li>', output)
@@ -18475,7 +18475,7 @@ class DownloadUpdate(Screen):
         self.UpdateStatus()
 
     def dataAvail(self, data):
-        if data is not None:
+        if data != None:
             self.session.open(MessageBox, '\n%s' % data, MessageBox.TYPE_INFO, close_on_any_key=True)
         return
 
@@ -18714,7 +18714,7 @@ class tvMain(Screen):
         try:
             response = self.opener.open('https://member.tvspielfilm.de/login/70.html', values, timeout=60)
             result = response.read()
-            if search('"error":"', result) is not None:
+            if search('"error":"', result) != None:
                 error = search('"error":"(.*?)\\.', result)
                 self.error = 'Mein TV SPIELFILM: ' + error.group(1) + '!'
                 self.loginerror = True
@@ -18774,32 +18774,32 @@ class tvMain(Screen):
 
             if self.actmenu == 'mainmenu':
                 try:
-                    if search('jetzt', self.mainmenulink[c]) is not None or search('time=shortly', self.mainmenulink[c]) is not None or search('abends', self.mainmenulink[c]) is not None or search('nachts', self.mainmenulink[c]) is not None:
+                    if search('jetzt', self.mainmenulink[c]) != None or search('time=shortly', self.mainmenulink[c]) != None or search('abends', self.mainmenulink[c]) != None or search('nachts', self.mainmenulink[c]) != None:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.mainmenulink[c]
                         self.session.openWithCallback(self.selectMainMenu, TVJetztView, link, False)
-                    elif search('page=1', self.mainmenulink[c]) is not None:
+                    elif search('page=1', self.mainmenulink[c]) != None:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.mainmenulink[c]
                         self.session.openWithCallback(self.selectMainMenu, TVHeuteView, link, self.opener)
-                    elif search('/bilder', self.mainmenulink[c]) is not None:
+                    elif search('/bilder', self.mainmenulink[c]) != None:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.mainmenulink[c]
                         self.session.openWithCallback(self.selectMainMenu, TVBilder, link)
-                    elif search('/tv-tipps//', self.mainmenulink[c]) is not None:
+                    elif search('/tv-tipps//', self.mainmenulink[c]) != None:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.mainmenulink[c]
                         self.session.openWithCallback(self.selectMainMenu, TVNeuView, link)
-                    elif search('/blog', self.mainmenulink[c]) is not None:
+                    elif search('/blog', self.mainmenulink[c]) != None:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.mainmenulink[c]
                         self.session.openWithCallback(self.selectMainMenu, TVBlog, link, False)
-                    elif search('/tv-tipps/', self.mainmenulink[c]) is not None or search('/tv-genre/', self.mainmenulink[c]) is not None or search('/trailer-und-clips/', self.mainmenulink[c]) is not None or search('/news-und-specials/', self.mainmenulink[c]) is not None:
+                    elif search('/tv-tipps/', self.mainmenulink[c]) != None or search('/tv-genre/', self.mainmenulink[c]) != None or search('/trailer-und-clips/', self.mainmenulink[c]) != None or search('/news-und-specials/', self.mainmenulink[c]) != None:
                         link = self.mainmenulink[c]
                         self.makeSecondMenu(None, link)
                     else:
@@ -18813,7 +18813,7 @@ class tvMain(Screen):
                     self.ready = True
 
             elif self.actmenu == 'secondmenu':
-                if search('/tv-tipps/', self.secondmenulink[c]) is not None:
+                if search('/tv-tipps/', self.secondmenulink[c]) != None:
                     try:
                         if self.tipps == True:
                             self.stopTipps()
@@ -18823,7 +18823,7 @@ class tvMain(Screen):
                     except IndexError:
                         pass
 
-                elif search('/trailer-und-clips/', self.secondmenulink[c]) is not None or search('/kino/charts/', self.secondmenulink[c]) is not None or search('/dvd/charts/', self.secondmenulink[c]) is not None or search('/kino/kino-vorschau/', self.secondmenulink[c]) is not None:
+                elif search('/trailer-und-clips/', self.secondmenulink[c]) != None or search('/kino/charts/', self.secondmenulink[c]) != None or search('/dvd/charts/', self.secondmenulink[c]) != None or search('/kino/kino-vorschau/', self.secondmenulink[c]) != None:
                     try:
                         if self.tipps == True:
                             self.stopTipps()
@@ -18833,19 +18833,19 @@ class tvMain(Screen):
                     except IndexError:
                         pass
 
-                elif search('/news-und-specials/|/tatort|/kids-tv', self.secondmenulink[c]) is not None:
+                elif search('/news-und-specials/|/tatort|/kids-tv', self.secondmenulink[c]) != None:
                     try:
                         if self.tipps == True:
                             self.stopTipps()
                         link = self.secondmenulink[c]
-                        if search('/playboy/', link) is not None:
+                        if search('/playboy/', link) != None:
                             self.session.openWithCallback(self.selectSecondMenu, PlayboyPicShow, link)
                         else:
                             self.session.openWithCallback(self.selectSecondMenu, TVNews, link)
                     except IndexError:
                         pass
 
-                elif search('/tv-genre/', self.secondmenulink[c]) is not None:
+                elif search('/tv-genre/', self.secondmenulink[c]) != None:
                     try:
                         self.ready = False
                         sparte = self.sparte[c]
@@ -18864,7 +18864,7 @@ class tvMain(Screen):
                         self.ready = True
 
             elif self.actmenu == 'thirdmenu':
-                if search('/suche/', self.thirdmenulink[c]) is not None:
+                if search('/suche/', self.thirdmenulink[c]) != None:
                     try:
                         if self.tipps == True:
                             self.stopTipps()
@@ -18874,7 +18874,7 @@ class tvMain(Screen):
                     except IndexError:
                         pass
 
-                elif search('/tv-tipps/', self.thirdmenulink[c]) is not None:
+                elif search('/tv-tipps/', self.thirdmenulink[c]) != None:
                     try:
                         if self.tipps == True:
                             self.stopTipps()
@@ -18981,7 +18981,7 @@ class tvMain(Screen):
         self.secondmenulink = []
         self.sender = []
         self.sparte = []
-        if search('/tv-sender/', link) is not None:
+        if search('/tv-sender/', link) != None:
             startpos = output.find('<option value="" label="Alle Sender">Alle Sender</option>')
             endpos = output.find('<div class="button-toggle">')
             bereich = output[startpos:endpos]
@@ -19142,7 +19142,7 @@ class tvMain(Screen):
             self.selectSecondMenu()
             if self.tipps == True:
                 self.hideTipps()
-        elif search('/tv-tipps/', link) is not None:
+        elif search('/tv-tipps/', link) != None:
             res = ['']
             if self.backcolor == True:
                 res.append(MultiContentEntryText(pos=(0, 0), size=(250, 30), font=-2, color=16777215, color_sel=16777215, backcolor_sel=self.back_color, text=''))
@@ -19189,7 +19189,7 @@ class tvMain(Screen):
             self['secondmenu'].l.setItemHeight(30)
             self['secondmenu'].moveToIndex(0)
             self.selectSecondMenu()
-        elif search('/tv-genre/', link) is not None:
+        elif search('/tv-genre/', link) != None:
             res = ['']
             if self.backcolor == True:
                 res.append(MultiContentEntryText(pos=(0, 0), size=(250, 30), font=-2, color=16777215, color_sel=16777215, backcolor_sel=self.back_color, text=''))
@@ -19236,7 +19236,7 @@ class tvMain(Screen):
             self['secondmenu'].l.setItemHeight(30)
             self['secondmenu'].moveToIndex(0)
             self.selectSecondMenu()
-        elif search('/trailer-und-clips/', link) is not None:
+        elif search('/trailer-und-clips/', link) != None:
             res = ['']
             if self.backcolor == True:
                 res.append(MultiContentEntryText(pos=(0, 0), size=(250, 30), font=-2, color=16777215, color_sel=16777215, backcolor_sel=self.back_color, text=''))
@@ -19276,7 +19276,7 @@ class tvMain(Screen):
             self['secondmenu'].l.setItemHeight(30)
             self['secondmenu'].moveToIndex(0)
             self.selectSecondMenu()
-        elif search('/news-und-specials/', link) is not None:
+        elif search('/news-und-specials/', link) != None:
             res = ['']
             if self.backcolor == True:
                 res.append(MultiContentEntryText(pos=(0, 0), size=(250, 30), font=-2, color=16777215, color_sel=16777215, backcolor_sel=self.back_color, text=''))
@@ -20461,11 +20461,11 @@ class tvMain(Screen):
     def checkVersion(self, output):
         self.pluginname = 'TV Spielfilm'
         version = search('<img alt="Version (.*?)"', output)
-        if version is not None:
+        if version != None:
             version = version.group(1)
             if version != self.version:
                 pluginsource = search('<a href="(.*?).attredirects=0".*?<img alt="Version ', output)
-                if pluginsource is not None:
+                if pluginsource != None:
                     self.pluginsource = pluginsource.group(1)
                     self.pluginfile = self.pluginsource.replace('https://sites.google.com/site/kashmirplugins/', '').replace('%5f', '_')
                     versioninfo = re.findall('<li><span style="color:rgb\\(100,118,135\\)">(.*?)</span></li>', output)
@@ -20985,10 +20985,10 @@ class tvTipps(Screen):
         endpos = find(output, '<div class="block-rotation">')
         bereich = output[startpos:endpos]
         bereich = re.sub('<ul.*?</ul>', '', bereich, flags=re.S)
-        if search('/news-und-specials/', bereich) is not None:
+        if search('/news-und-specials/', bereich) != None:
             bereich = re.sub('<a href="http://my.tvspielfilm.de/news-und-specials/.*?</a>', '', bereich, flags=re.S)
             bereich = re.sub('<a href="http://www.tvspielfilm.de/news-und-specials/.*?</a>', '', bereich, flags=re.S)
-        if search('pdf.tvspielfilm.de', bereich) is not None:
+        if search('pdf.tvspielfilm.de', bereich) != None:
             bereich = re.sub('<a href="http://pdf.tvspielfilm.de/.*?</a>', '', bereich, flags=re.S)
         self.tippspicture = re.findall('<img src="(.*?)"', bereich, flags=re.S)
         try:
@@ -21044,7 +21044,7 @@ class tvTipps(Screen):
         return
 
     def ok(self):
-        if self.ready == True and search('/tv-programm/sendung/', self.infolink) is not None:
+        if self.ready == True and search('/tv-programm/sendung/', self.infolink) != None:
             self.hide()
             self.getNextTimer.stop()
             self.session.openWithCallback(self.returnInfo, TVProgrammView, self.infolink, False, True)
@@ -21263,7 +21263,7 @@ class tvsConfig(ConfigListScreen, Screen):
             self.session.openWithCallback(self.returnPin, PinInput, pinList=[self.pin], triesEntry=config.ParentalControl.retries.servicepin)
 
     def folderSelected(self, folder):
-        if folder is not None:
+        if folder != None:
             config.plugins.tvspielfilm.piconfolder.value = folder
             config.plugins.tvspielfilm.piconfolder.save()
         return

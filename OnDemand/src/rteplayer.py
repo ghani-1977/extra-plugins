@@ -192,7 +192,7 @@ class StreamsMenu(Screen):
     def go(self):
         returnValue = self["latestMenu"].l.getCurrentSelection()[1]
         title = self["latestMenu"].l.getCurrentSelection()[0]
-        if returnValue is not None:
+        if returnValue != None:
             if returnValue is "exit":
                 self.close(None)
             elif self.action is "by_date":
@@ -285,7 +285,7 @@ class StreamsThumb(StreamsThumbCommon):
             self.cbTimer.start(10)
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("RTE Player: Search Listings for " + callback)
             self.getSearchMediaData(self.mediaList, self.url + callback)
             self.updateMenu()

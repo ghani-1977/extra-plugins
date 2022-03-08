@@ -207,7 +207,7 @@ class shoutGenresMenu(Screen):
         id = self["shoutGenresMenu"].l.getCurrentSelection()[1]
         children = self["shoutGenresMenu"].l.getCurrentSelection()[2]
 
-        if id is not None:
+        if id != None:
             if id == "exit":
                 self.close(None)
             elif children == "true":
@@ -281,7 +281,7 @@ class shoutSubGenresMenu(Screen):
         id = self["shoutSubGenresMenu"].l.getCurrentSelection()[1]
         children = self["shoutSubGenresMenu"].l.getCurrentSelection()[2]
 
-        if id is not None:
+        if id != None:
             if id == "exit":
                 self.close(None)
             elif children == "true":
@@ -527,7 +527,7 @@ class shoutGenresThumb(StreamsThumbCommon):
         duration = self["list"].l.getCurrentSelection()[6]
         exists = 'False'
 
-        if stream is not None:
+        if stream != None:
             for item in self.favoriteConfig.Entries:
                 if str(item.text.value) == str(stream):
                     exists = 'True'
@@ -617,7 +617,7 @@ class shoutGenresThumb(StreamsThumbCommon):
             self.updateMenu()
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("SHOUTcast Radio Player: Search Listings for " + callback)
 
             genresearch = callback.replace(' ', '+')
@@ -772,7 +772,7 @@ class FavoritesThumb(StreamsThumbCommon):
     def removeFavorite(self):
         try:
             selFav = self["list"].l.getCurrentSelection()[4]
-            if selFav is not None:
+            if selFav != None:
                 self.favoriteConfig.entriescount.value = self.favoriteConfig.entriescount.value - 1
                 self.favoriteConfig.entriescount.save()
 
@@ -1029,7 +1029,7 @@ class tuneinGenresThumb(StreamsThumbCommon):
             self.updateMenu()
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("Tunein Radio Player: Search Listings for " + callback)
             stationsearch = callback.replace(' ', '+')
             searchurl = 'http://opml.radiotime.com/Search.ashx?query=%s' % (stationsearch)

@@ -165,7 +165,7 @@ class BookmarkManager(SimpleConfigParser):
         return None
 
     def addBookmark(self, _title, _url, _parent, _type):
-        if self.getBookmark(_title) is not None:
+        if self.getBookmark(_title) != None:
             return False
         i = self.mBookmarkCurrentIdx + 1
         s = "b-%d" % (i,)
@@ -206,7 +206,7 @@ class BookmarkManager(SimpleConfigParser):
         return None
 
     def addCategory(self, _name):
-        if self.getCategory(_name) is not None:
+        if self.getCategory(_name) != None:
             return False
         self.message("add category : %s", (_name,))
         i = self.mCategoryCurrentIdx + 1

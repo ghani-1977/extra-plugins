@@ -303,7 +303,7 @@ class Channelnumber:
                 self.updatetime = 1000
             else:
                 self.updatetime = 10000
-            if RecLed is not None:
+            if RecLed != None:
                 RecLed = None
             if Screens.Standby.inStandby:
                 led_rec = config.plugins.VFD_Giga.ledSBY.getValue()

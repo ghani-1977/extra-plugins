@@ -42,7 +42,7 @@ def FileEntryComponent(name, absolute=None, isDir=False):
 #		else:
 #			png = None
 		png = None
-	if png is not None:
+	if png != None:
 		res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 12, 3, 20, 20, png))
 	return res
 
@@ -171,7 +171,7 @@ class FileList(MenuList):
 					if os_path.isdir(directory + x):
 						directories.append(directory + x + "/")
 						files.remove(x)
-		if directory is not None and self.showDirectories and not self.isTop:
+		if directory != None and self.showDirectories and not self.isTop:
 			if directory == self.current_mountpoint and self.showMountpoints:
 				self.list.append(FileEntryComponent(name="<" + _("List of Storage Devices") + ">", absolute=None, isDir=True))
 			elif (directory != "/") and not (self.inhibitMounts and self.getMountpoint(directory) in self.inhibitMounts):
@@ -192,7 +192,7 @@ class FileList(MenuList):
 					nx = None
 #					if (config.plugins.DreamExplorer.MediaFilter.value == "on"):
 #						nx = self.getTSInfo(path)
-#						if nx is not None:
+#						if nx != None:
 #							name = nx
 				EXext = os_path.splitext(path)[1]
 				EXext = EXext.replace(".", "")
@@ -209,7 +209,7 @@ class FileList(MenuList):
 #						res.append((eListboxPythonMultiContent.TYPE_PIXMAP_ALPHATEST, 12, 3, 20, 20, png))
 						self.list.append(res)
 		self.l.setList(self.list)
-		if select is not None:
+		if select != None:
 			i = 0
 			self.moveToIndex(0)
 			select2 = select
@@ -239,7 +239,7 @@ class FileList(MenuList):
 		if self.getSelection() is None:
 			return
 		se = ""
-		if self.current_directory is not None:
+		if self.current_directory != None:
 			if self.current_directory.endswith("/"):
 				se = self.current_directory
 			else:
@@ -270,7 +270,7 @@ class FileList(MenuList):
 
 	def refresh(self):
 		se = ""
-		if self.getFilename() is not None:
+		if self.getFilename() != None:
 			if self.getFilename().endswith("/"):
 				se = self.getFilename()
 			else:
@@ -289,7 +289,7 @@ class FileList(MenuList):
 				return None
 			serviceHandler = eServiceCenter.getInstance()
 			info = serviceHandler.info(serviceref)
-			if info is not None:
+			if info != None:
 				txt = info.getName(serviceref)
 				description = info.getInfoString(serviceref, iServiceInformation.sDescription)
 				if not txt.endswith(".ts"):

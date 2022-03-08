@@ -278,7 +278,7 @@ class FanSetupScreen(Screen, ConfigListScreen):
 		def setPrevValues(section, values):
 			for (key, val) in section.content.items.items():
 				value = values.get(key, None)
-				if value is not None:
+				if value != None:
 					if isinstance(val, ConfigSubsection):
 						setPrevValues(val, value)
 					else:
@@ -409,7 +409,7 @@ class FanManager:
 		speed = FanConf.fanspeed.value
 		if FanConf.systempwatch.value == "on":
 			temp = getSysTemp()
-			if temp is not None:
+			if temp != None:
 				if temp >= FanConf.systemtemp.value:
 					mode = "on"
 					# adjust speed:

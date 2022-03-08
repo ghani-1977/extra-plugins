@@ -184,7 +184,7 @@ class StreamsThumb(StreamsThumbCommon):
             self.cbTimer.start(10)
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("3 Player: Search Listings for " + callback)
             self.getSearchMediaData(self.mediaList, callback)
             self.updateMenu()

@@ -50,7 +50,7 @@ def open(usb):
 
 def close(dev):
 	try:
-		if dev is not None:
+		if dev != None:
 			dev.close()
 	except:
 		pass

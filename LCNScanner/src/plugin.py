@@ -109,7 +109,7 @@ class LCN():
 
 			self.addLcnToList(int(tmp[0], 16), int(tmp[1], 16), int(tmp[2], 16), int(tmp[3], 16), int(tmp[4]), int(tmp[5]))
 
-		if self.root is not None:
+		if self.root != None:
 			for x in self.root:
 				if x.tag == "rule":
 					if x.get("type") == "renumber":

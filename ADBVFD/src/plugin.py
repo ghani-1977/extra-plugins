@@ -190,7 +190,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
             Console().ePopen("fp_control -led " + str(config.plugins.vfdicon.ledbright.value))
             Console().ePopen("fp_control -l 1 " + str(config.plugins.vfdicon.powerledcolour.value))
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -290,7 +290,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[ADBVFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -405,7 +405,7 @@ class VFDIcons:
         if config.plugins.vfdicon.showicons.value == "all":
             if self.tuned == True:
                 service = self.session.nav.getCurrentService()
-                if service is not None and self.play == False:
+                if service != None and self.play == False:
                     info = service.info()
                     TPdata = info and info.getInfoObject(iServiceInformation.sTransponderData)
 #					tunerType = TPdata.get("tuner_type")

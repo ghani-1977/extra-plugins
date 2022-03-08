@@ -24,7 +24,7 @@ def removeEventListener(eventType, function):
 def dispatchEvent(eventType, *arg):
     for e in handler:
         if e[0] == eventType:
-            if arg is not None and len(arg) > 0:
+            if arg != None and len(arg) > 0:
                 e[1](*arg)
             else:
                 e[1]()

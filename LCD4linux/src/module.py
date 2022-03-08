@@ -28,13 +28,13 @@ class L4Lelement:
 		print("[LCD4linuxE] Add", element, para)
 		if "%" in para.get("Align", ""):
 			para["Align"] = ("0000" + para["Align"].replace("%", "00"))[-4:]
-		if para.get("Value", None) is not None:
+		if para.get("Value", None) != None:
 			para["Value"] = min(max(int(para["Value"]), 0), 100)
 		L4Lelement.List[element] = para
 
 	def delete(self, element):
 		print("[LCD4linuxE] Del", element)
-		if L4Lelement.List.get(element, None) is not None:
+		if L4Lelement.List.get(element, None) != None:
 			del L4Lelement.List[element]
 		else:
 			for x in list(L4Lelement.List):

@@ -104,7 +104,7 @@ class VBHandler(VBHandlers):
                     if x in self.onCloseCB:
                         self.onCloseCB.remove(x)
         if self.videobackend_activate is False:
-            if vbcfg.g_service is not None:
+            if vbcfg.g_service != None:
                 self._session.nav.playService(vbcfg.g_service)
         return (True, None)
 
@@ -192,7 +192,7 @@ class VBHandler(VBHandlers):
         return (True, data)
 
     def _CB_OOIF_BROADCAST_PLAY(self, result, packet):
-        if vbcfg.g_service is not None:
+        if vbcfg.g_service != None:
             self._session.nav.playService(vbcfg.g_service)
         self.videobackend_activate = False
         return (True, None)
@@ -286,7 +286,7 @@ class VBMain(Screen):
         self.session.openWithCallback(self.toggle_browser, ChoiceBox, title=_("Please choose one."), list=mode)
 
     def toggle_browser(self, selected):
-        if selected is not None:
+        if selected != None:
             if self.vbcallback:
                 self.vbcallback()
             try:
@@ -302,7 +302,7 @@ class VBMain(Screen):
 
     def menu_hbbtv_applications(self):
         applications = []
-        if self._applicationList is not None:
+        if self._applicationList != None:
             for x in self._applicationList:
                 applications.append((x["name"], x))
         else:
@@ -312,7 +312,7 @@ class VBMain(Screen):
     def start_application_selected(self, selected):
         vbcfg.DEBUG(selected)
         try:
-            if selected[1] is not None:
+            if selected[1] != None:
                 self._cb_hbbtv_activated(selected[1]["url"], selected[1])
         except Exception as ErrMsg:
             vbcfg.ERR(ErrMsg)
@@ -321,7 +321,7 @@ class VBMain(Screen):
         if self._applicationList is None:
             service = self.session.nav.getCurrentService()
             info = service and service.info()
-            if info is not None:
+            if info != None:
                 sid = info.getInfo(iServiceInformation.sSID)
                 onid = info.getInfo(iServiceInformation.sONID)
                 tsid = info.getInfo(iServiceInformation.sTSID)
@@ -345,7 +345,7 @@ class VBMain(Screen):
                 except:
                     pass
 
-        if self._applicationList is not None:
+        if self._applicationList != None:
             for app in self._applicationList:
                 if app["control"] in (1, -1):
                     return app
@@ -406,7 +406,7 @@ def showManual(self):
 def auto_start_main(reason, **kwargs):
     if reason:
         try:
-            if vbcfg.g_main.vbserver is not None:
+            if vbcfg.g_main.vbserver != None:
                 vbcfg.g_main.vbserver.kill()
         except:
             pass
@@ -422,7 +422,7 @@ def start_youtubetv_main(session, **kwargs):
     def _cb_youtubetv_close(ret):
         if ret:
             vbcfg.g_service = session.nav.getCurrentlyPlayingServiceReference()
-            if vbcfg.g_service is not None:
+            if vbcfg.g_service != None:
                 session.nav.stopService()
             vbcfg.g_browser = session.open(Browser, vbcfg.g_youtubetv_cfg.uri.value, True)
 
@@ -441,12 +441,12 @@ def plugin_start_browser(session, **kwargs):
 
 
 def extension_toggle_browser(session, **kwargs):
-    if vbcfg.g_main is not None:
+    if vbcfg.g_main != None:
         vbcfg.g_main.menu_toggle_browser()
 
 
 def extension_start_application(session, **kwargs):
-    if vbcfg.g_main is not None:
+    if vbcfg.g_main != None:
         vbcfg.g_main.menu_hbbtv_applications()
 
 

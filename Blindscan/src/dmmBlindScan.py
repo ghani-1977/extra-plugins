@@ -356,7 +356,7 @@ class SatelliteTransponderSearchSupport:
 		self.timer.start(1500, True)
 
 	def tuneNext(self):
-		if self.parm is not None:
+		if self.parm != None:
 			print("[dmmBlindscan][tuneNext] pos %d, freq %d, pol %d, sys %d" % (self.parm.orbital_position, self.parm.frequency, self.parm.polarisation, self.parm.system))
 			tparm = eDVBFrontendParameters()
 			tparm.setDVBS(self.parm, False)
@@ -519,7 +519,7 @@ class SatelliteTransponderSearchSupport:
 			print("[dmmBlindscan][startSatelliteTransponderSearch] self.range_list", self.range_list)
 
 			self.parm = self.setNextRange()
-			if self.parm is not None:
+			if self.parm != None:
 				tparm = eDVBFrontendParameters()
 				tparm.setDVBS(self.parm, False)
 				self.frontend.tune(tparm, True)
@@ -570,7 +570,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 					self.legacy = True
 				break
 
-		if self.service is not None:
+		if self.service != None:
 			self.feinfo = self.service.frontendInfo()
 			frontendData = self.feinfo and self.feinfo.getAll(True)
 		self.createConfig(frontendData)
@@ -713,7 +713,7 @@ class DmmBlindscan(ConfigListScreen, Screen, SatelliteTransponderSearchSupport, 
 			"fec_s2": eDVBFrontendParametersSatellite.FEC_9_10,
 			"modulation": eDVBFrontendParametersSatellite.Modulation_QPSK}
 
-		if frontendData is not None:
+		if frontendData != None:
 			ttype = frontendData.get("tuner_type", "UNKNOWN")
 			if ttype == "DVB-S":
 				defaultSat["system"] = frontendData.get("system", eDVBFrontendParametersSatellite.System_DVB_S)

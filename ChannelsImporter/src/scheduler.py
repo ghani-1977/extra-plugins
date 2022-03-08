@@ -20,7 +20,7 @@ def autostart(reason, session=None, **kwargs):
 	now = int(time())
 	if reason == 0:
 		print("[ChannelsImporterScheduler][ChannelsImporterautostart] AutoStart Enabled")
-		if session is not None:
+		if session != None:
 			_session = session
 			if autoChannelsImporterTimer is None:
 				autoChannelsImporterTimer = AutoChannelsImporterTimer(session)
@@ -159,11 +159,11 @@ class AutoChannelsImporterTimer:
 	def doneConfiguring(self):
 		now = int(time())
 		if config.plugins.ChannelsImporter.enableSchedule.value:
-			if autoChannelsImporterTimer is not None:
+			if autoChannelsImporterTimer != None:
 				print("[ChannelsImporterScheduler][doneConfiguring] Schedule Enabled at", strftime("%c", localtime(now)))
 				autoChannelsImporterTimer.channelsimporterdate()
 		else:
-			if autoChannelsImporterTimer is not None:
+			if autoChannelsImporterTimer != None:
 				global ChannelsImporterTime
 				ChannelsImporterTime = 0
 				print("[ChannelsImporterScheduler][doneConfiguring] Schedule Disabled at", strftime("%c", localtime(now)))

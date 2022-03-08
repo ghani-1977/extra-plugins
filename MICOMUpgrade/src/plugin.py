@@ -244,7 +244,7 @@ class Filebrowser(Screen):
             self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]" % (md5sum_A, md5sum_B)), MessageBox.TYPE_INFO, timeout=10)
             return
 
-        if self.callback is not None:
+        if self.callback != None:
             self.callback(_(self.gbin))
         self.close()
 
@@ -260,7 +260,7 @@ class Filebrowser(Screen):
         #print("[MICOMUpgrade] - Download Info : [%s][%s]" % (uri, tar))
 
         def doHook(blockNumber, blockSize, totalSize):
-            if blockNumber * blockSize > totalSize and cbfunc is not None:
+            if blockNumber * blockSize > totalSize and cbfunc != None:
                 cbfunc(tar)
         opener = urllib.URLopener()
         try:
@@ -443,7 +443,7 @@ class FirmwareUpgrade(Screen):
 
     def setupStatus(self, message=None, reboot=False):
         self.updateFilePath = ""
-        if message is not None:
+        if message != None:
             self.rebootLock = reboot
         if not self.rebootLock:
             self["status"].setText("Press the Green/OK button to upgrade")
@@ -454,7 +454,7 @@ class FirmwareUpgrade(Screen):
 
     # filebrowser window callback function
     def cbSetStatus(self, data=None):
-        if data is not None:
+        if data != None:
             try:
                 self.verfile = open(data + '.version', "r").readline()
                 self.verfile = self.verfile.strip("\n")

@@ -239,7 +239,7 @@ class StreamsThumb(StreamsThumbCommon):
             self.updateMenu()
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("BBC iPlayer: Search Listings for " + callback)
             self.getMediaData(self.mediaList, self.url + callback)
             self.updateMenu()

@@ -32,7 +32,7 @@ class SH4MultiChooseOnLineImage(Screen):
     def KeyOk(self):
         self.sel = self['list'].getCurrent()
         returnValue = self.sel[2]
-        if returnValue is not None:
+        if returnValue != None:
             self.session.openWithCallback(self.quit, DownloadOnLineImage, returnValue)
         return
 
@@ -274,7 +274,7 @@ class ImageDownloadTask(Task):
 
     def download_failed(self, failure_instance=None, error_message=''):
         self.error_message = error_message
-        if error_message == '' and failure_instance is not None:
+        if error_message == '' and failure_instance != None:
             self.error_message = failure_instance.getErrorMessage()
         Task.processFinished(self, 1)
         return

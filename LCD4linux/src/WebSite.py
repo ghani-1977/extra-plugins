@@ -24,11 +24,11 @@ class LCD4linuxweb(resource.Resource):
 		""" rendering server response """
 		w = ""
 		command = req.args.get(b"width", None)
-		if command is not None:
+		if command != None:
 			cmd = six.ensure_str(command[0])
 			w += " width=\"%s\"" % cmd
 		command = req.args.get(b"hight", None)
-		if command is not None:
+		if command != None:
 			cmd = six.ensure_str(command[0])
 			w += " height=\"%s\"" % cmd
 		html = "<html>"
@@ -51,7 +51,7 @@ class LCD4linuxweb(resource.Resource):
 		html += "<body bgcolor=\"%s\" text=\"#FFFFFF\">\n" % ("#666666" if getConfigMode() == True else "#000000")
 		html += "<form method=\"POST\" action=\"--WEBBOT-SELF--\">\n"
 		datei = req.args.get(b"file", None)
-		if datei is not None:
+		if datei != None:
 			datei[0] = datei[0].decode("utf-8")
 			if os.path.isfile("%s%s" % (getTMPL(), datei[0])):
 				t = os.path.getmtime("%s%s" % (getTMPL(), datei[0]))

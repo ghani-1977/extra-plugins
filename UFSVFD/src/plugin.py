@@ -150,7 +150,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
             Console().ePopen("fp_control -led" + b)
             print("[UFSVFD] set display brightness", config.plugins.vfdicon.contrast.value)
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -243,7 +243,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[UFSVFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)

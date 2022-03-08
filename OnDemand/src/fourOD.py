@@ -310,7 +310,7 @@ class StreamsThumb(StreamsThumbCommon):
             self.cbTimer.start(10)
 
     def keyboardCallback(self, callback=None):
-        if callback is not None and len(callback):
+        if callback != None and len(callback):
             self.setTitle("4OD: Search Listings for " + callback)
             self.getSearchMediaData(self.mediaList, fourodSearchDefault + callback)
             self.updateMenu()
@@ -504,7 +504,7 @@ class StreamsThumb(StreamsThumbCommon):
             swfPlayer = self.urlRoot + match.group(1)
 
         except (Exception) as exception:
-            if jsHtml is not None:
+            if jsHtml != None:
                 msg = "jsHtml:\n\n%s\n\n" % jsHtml
                 print(__plugin__, __version__, "GetSwfPlayer: Error getting player: ", msg)
 

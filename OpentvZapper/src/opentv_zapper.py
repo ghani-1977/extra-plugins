@@ -58,7 +58,7 @@ class DefaultAdapter:
 		self.currentBouquet = None
 
 	def play(self, service):
-		self.currentBouquet = ChannelSelection.instance is not None and ChannelSelection.instance.getRoot()
+		self.currentBouquet = ChannelSelection.instance != None and ChannelSelection.instance.getRoot()
 		self.previousService = self.navcore.getCurrentlyPlayingServiceReference()
 		self.navcore.playService(service)
 		self.currentService = self.navcore.getCurrentlyPlayingServiceReference()
@@ -66,7 +66,7 @@ class DefaultAdapter:
 
 	def stop(self):
 		if self.currentService == (self.navcore and self.navcore.getCurrentlyPlayingServiceReference()): # check the user hasn't zapped in the mean time
-			if self.currentBouquet is not None:
+			if self.currentBouquet != None:
 				ChannelSelection.instance.setRoot(self.currentBouquet)
 			self.navcore.playService(self.previousService)
 
@@ -79,14 +79,14 @@ class RecordAdapter:
 	def play(self, service):
 		self.stop()
 		self.__service = self.navcore.recordService(service)
-		if self.__service is not None:
+		if self.__service != None:
 			self.__service.prepareStreaming()
 			self.__service.start()
 			return True
 		return False
 
 	def stop(self):
-		if self.__service is not None:
+		if self.__service != None:
 			self.navcore.stopRecordService(self.__service)
 			self.__service = None
 
@@ -832,7 +832,7 @@ class Opentv_Zapper():
 		currentService = self.session and self.session.nav.getCurrentService()
 		frontendInfo = currentService and currentService.frontendInfo()
 		frontendData = frontendInfo and frontendInfo.getAll(True)
-		if frontendData is not None:
+		if frontendData != None:
 			currentlyPlayingNIM = frontendData.get("tuner_number", None)
 		return currentlyPlayingNIM
 

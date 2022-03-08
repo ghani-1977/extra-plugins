@@ -63,7 +63,7 @@ class VBController:
             eRCInput.getInstance().unlock()
             return False
         finally:
-            if cmd_fd is not None:
+            if cmd_fd != None:
                 os.close(cmd_fd)
         return True
 
@@ -137,7 +137,7 @@ class VBServerThread(threading.Thread):
                     except Exception as err:
                         vbcfg.ERR("VBSServerThread: %s" % err)
                     finally:
-                        if conn is not None:
+                        if conn != None:
                             conn.close()
 
     def kill(self):

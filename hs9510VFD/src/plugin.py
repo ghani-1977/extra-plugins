@@ -144,7 +144,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
             Console().ePopen("fp_control -l 0 0")
             print("[hs9510VFD] set brightness", config.plugins.vfdicon.contrast.value)
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -240,7 +240,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[hs9510VFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -363,7 +363,7 @@ class VFDIcons:
         if config.plugins.vfdicon.showicons.value == "all":
             if self.tuned == True:
                 service = self.session.nav.getCurrentService()
-                if service is not None and self.play == False:
+                if service != None and self.play == False:
                     info = service.info()
                     Console().ePopen("fp_control -i 8 1") #DVB on
             else:

@@ -91,9 +91,9 @@ class FPUpgradeCore():
         firmware, device = None, None
 
         def closefp(fp, fd):
-            if fd is not None:
+            if fd != None:
                 os.close(fd)
-            if fp is not None:
+            if fp != None:
                 fp.close()
         try:
             size = os.path.getsize(self.firmwarefile)
@@ -167,9 +167,9 @@ class FPGAUpgradeCore():
         firmware, device = None, None
 
         def closefpga(fp, fd):
-            if fd is not None:
+            if fd != None:
                 os.close(fd)
-            if fp is not None:
+            if fp != None:
                 fp.close()
         try:
             size = os.path.getsize(self.firmwarefile)
@@ -241,11 +241,11 @@ class VFDCtrlUpgradeCore():
         firmware, device, firmwarename = None, None, None
 
         def closevfd(fp, fd, filename):
-            if fd is not None:
+            if fd != None:
                 os.close(fd)
-            if fp is not None:
+            if fp != None:
                 fp.close()
-            if filename is not None:
+            if filename != None:
                 Console().ePopen('rm -f %s' % filename)
         try:
             max_size = 1024 * 16
@@ -426,7 +426,7 @@ class UpgradeStatus(Screen):
             self.exitTimerCallCount = self.exitTimerCallCount + 1
             self.setTitle("%s Upgrade Status (%d)" % (self.firmware.upper(), 10 - self.exitTimerCallCount))
             return
-        if self.status_exit is not None:
+        if self.status_exit != None:
             self.status_exit.stop()
         self.keyExit()
 
@@ -438,7 +438,7 @@ class UpgradeStatus(Screen):
     def keyExit(self):
         if self.upgradeLock:
             return
-        if self.callback is not None:
+        if self.callback != None:
             self.callback("Reboot now for a successful upgrade.", True)
         self.session.openWithCallback(self.cbConfirmExit, MessageBox, _("Do you want to remove binary data?"), MessageBox.TYPE_YESNO, timeout=10, default=False)
 
@@ -531,7 +531,7 @@ class FUFilebrowser(Screen):
             self.session.open(MessageBox, _("Fail to verify data file. \nfile[%s]\nmd5[%s]" % (md5sum_A, md5sum_B)), MessageBox.TYPE_INFO, timeout=10)
             return
 
-        if self.callback is not None:
+        if self.callback != None:
             self.callback(_(self.gbin))
         self.close()
 
@@ -547,7 +547,7 @@ class FUFilebrowser(Screen):
         #print("[FirmwareUpgrade] - Download Info : [%s][%s]" % (uri, tar))
 
         def doHook(blockNumber, blockSize, totalSize):
-            if blockNumber * blockSize > totalSize and cbfunc is not None:
+            if blockNumber * blockSize > totalSize and cbfunc != None:
                 cbfunc(tar)
         opener = urllib.URLopener()
         try:
@@ -742,7 +742,7 @@ class FirmwareUpgrade(Screen, ConfigListScreen):
 
     def setupStatus(self, message=None, reboot=False):
         self.updateFilePath = ""
-        if message is not None:
+        if message != None:
             self.rebootLock = reboot
             self["status"].setText(message)
             if reboot:
@@ -770,7 +770,7 @@ class FirmwareUpgrade(Screen, ConfigListScreen):
 
     # filebrowser window callback function
     def cbSetStatus(self, data=None):
-        if data is not None:
+        if data != None:
             self["status"].setText(" ")
             self.updateFilePath = data
             if self.fileopenmode == False:
@@ -862,7 +862,7 @@ class FirmwareUpgrade(Screen, ConfigListScreen):
     def keyBlue(self):
         if self.rebootLock:
             return
-        if self.logmode is not None and self.old_blue_clicked == 0:
+        if self.logmode != None and self.old_blue_clicked == 0:
             return
         if self.old_blue_clicked:
             self.old_blue_clicked = 0

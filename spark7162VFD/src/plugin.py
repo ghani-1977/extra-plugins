@@ -145,7 +145,7 @@ class ConfigVFDDisplay(Screen, ConfigListScreen):
         if DisplayType == 8:
             Console().ePopen("fp_control -b " + str(config.plugins.vfdicon.contrast.value))
             print("[spark7162VFD] set brightness", config.plugins.vfdicon.contrast.value)
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -242,7 +242,7 @@ class VFDIcons:
                             iPlayableService.evStart: self.writeName,
                     })
         print('[spark7162VFD] Set text scrolling option')
-        if config.plugins.vfdicon.textscroll.value is not None:
+        if config.plugins.vfdicon.textscroll.value != None:
             evfd.getInstance().vfd_set_SCROLL(int(config.plugins.vfdicon.textscroll.value))
         else:
             evfd.getInstance().vfd_set_SCROLL(1)
@@ -318,7 +318,7 @@ class VFDIcons:
                                 Console().ePopen("fp_control -i 27 1 -i 28 0") #TV icon on, Radio off
                             else:
                                 Console().ePopen("fp_control -i 28 1 -i 27 0") #Radio icon on, TV off
-            if config.plugins.vfdicon.uppercase.value is not None:
+            if config.plugins.vfdicon.uppercase.value != None:
                 servicename = servicename.upper()
             evfd.getInstance().vfd_write_string(servicename[0:63])
 
@@ -375,7 +375,7 @@ class VFDIcons:
         if config.plugins.vfdicon.showicons.value == "all":
             if self.tuned == True:
                 service = self.session.nav.getCurrentService()
-                if service is not None and self.play == False:
+                if service != None and self.play == False:
                     info = service.info()
                     TPdata = info and info.getInfoObject(iServiceInformation.sTransponderData)
                     tunerType = TPdata.get("tuner_type")

@@ -154,7 +154,7 @@ class ServerEditor(ConfigListScreen, Screen):
 		self.session.openWithCallback(self.urlCallback, VirtualKeyBoard, title=head, text=txt)
 
 	def urlCallback(self, res):
-		if res is not None:
+		if res != None:
 			if self["config"].getCurrentIndex() == self.POS_ADDRESS:
 				config.plugins.RemoteStreamConverter.address.value = res
 			elif self["config"].getCurrentIndex() == self.POS_USERNAME:
@@ -566,7 +566,7 @@ class StreamingChannelFromServerScreen(Screen):
 	def removeFilesByPattern(self, targetdir, target):
 		for root, dirs, files in os.walk(targetdir):
 			for name in files:
-				if re.search(target, name) is not None:
+				if re.search(target, name) != None:
 					os.remove(os.path.join(root, name))
 
 	def copyFile(self, source, dest):
