@@ -22,6 +22,7 @@ import os
 #used for the XML file
 from time import strftime, time
 from Components.SystemInfo import BoxInfo
+from six import ensure_str
 
 brand = BoxInfo.getItem("brand")
 model = BoxInfo.getItem("model")
@@ -327,12 +328,12 @@ class Blindscan(ConfigListScreen, Screen):
 			if line.startswith('NIM Socket'):
 				sNo, sName, sI2C = -1, '', -1
 				try:
-					sNo = line.split()[2][:-1]
+					sNo = int(line.split()[2][:-1])
 				except:
 					sNo = -1
 			elif line.startswith('I2C_Device:'):
 				try:
-					sI2C = line.split()[1]
+					sI2C = int(line.split()[1])
 				except:
 					sI2C = -1
 			elif line.startswith('Name:'):
@@ -344,7 +345,8 @@ class Blindscan(ConfigListScreen, Screen):
 						sName = splitLines[3][4:-1]
 				except:
 					sName = ""
-			if sNo >= 0 and sName != "":
+			print("sNo, sName, sI2C", sNo, sName, sI2C)
+			if sNo != -1 and sName != "":
 				if sName.startswith('BCM'):
 					sI2C = sNo
 				if sI2C != -1:
@@ -1151,6 +1153,7 @@ class Blindscan(ConfigListScreen, Screen):
 
 	def blindscanContainerAvail(self, str):
 		print("[Blindscan][blindscanContainerAvail]", str)
+		str = ensure_str(str)
 		self.full_data = self.full_data + str # TODO: is this the cause of the duplicates in blindscanContainerClose?
 		if self.blindscan_session:
 			if self.SundtekScan:
@@ -1525,16 +1528,19 @@ class Blindscan(ConfigListScreen, Screen):
 					tmp_tp.append('t2mi_pid="%d"' % tp.t2mi_pid)
 			tmp_tp.append('/>\n')
 			xml.append(' '.join(tmp_tp))
-		xml.append('	</sat>\n')
-		xml.append('</satellites>\n')
-		f = open(location, "w")
-		f.writelines(xml)
-		f.close()
-		global XML_FILE
-		self["key_yellow"].setText(_("Open xml file"))
-		XML_FILE = location
-		self["actions3"].setEnabled(True)
-		return location
+		try:
+			xml.append('	</sat>\n')
+			xml.append('</satellites>\n')
+			f = open(location, "w")
+			f.writelines(xml)
+			f.close()
+		except UnicodeEncodeError as err:
+			print("UnicodeEncodeError: %s" % err)
+			global XML_FILE
+			self["key_yellow"].setText(_("Open xml file"))
+			XML_FILE = location
+			self["actions3"].setEnabled(True)
+			return location
 
 	def keyYellow(self):
 		if XML_FILE and os.path.exists(XML_FILE):
